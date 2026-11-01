@@ -13,7 +13,7 @@ def normalize(text):
     if not text:
         return ""
     t = text.lower()
-    # Убираем только мусорные символы и пробелы, оставляя HD/FHD для различения качества
+    # Убираем мусорные символы и пробелы, оставляя HD/FHD для различения качества
     t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', t)
     return t
 
@@ -27,7 +27,7 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-# Автоматическое создание channels.txt со всеми строками плейлиста (через list)
+# Автоматическое создание channels.txt со всеми ID, tvg-name и именами (через list)
 if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
     print(f"Проверка PLAYLIST_URL: {'Задана' if PLAYLIST_URL else 'ПУСТАЯ!'}")
     if PLAYLIST_URL:
@@ -42,7 +42,17 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
                 if not line:
                     continue
                 
-                # Если это строка #EXTINF, забираем название канала после последней запятой
+                # Возвращаем сбор tvg-id для точного сопоставления с EPG
+                m_id = re.search(r'tvg-id="([^"]+)"', line, re.IGNORECASE)
+                if m_id and m_id.group(1).strip():
+                    extracted_channels.append(m_id.group(1).strip())
+                
+                # Возвращаем сбор tvg-name
+                m_name = re.search(r'tvg-name="([^"]+)"', line, re.IGNORECASE)
+                if m_name and m_name.group(1).strip():
+                    extracted_channels.append(m_name.group(1).strip())
+                
+                # Забираем название канала после запятой
                 if line.startswith("#EXTINF"):
                     if "," in line:
                         parts = line.split(",")
@@ -71,7 +81,7 @@ if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
                 continue
             valid_ids.add(line.lower())
             valid_names_normalized.add(normalize(line))
-    print(f"Загружено уникальных шаблонов для фильтрации EPG: {len(valid_names_normalized)}")
+    print(f"Загружено шаблонов для фильтрации EPG: {len(valid_names_normalized)}")
 else:
     print("Ошибка: файл channels.txt пуст или отсутствует!")
 
@@ -103,7 +113,6 @@ def process_channels(file_path):
                 else:
                     for dn in display_names:
                         norm_dn = normalize(dn)
-                        # Строгое совпадение нормализованных имен для правильной работы HD/FHD
                         if norm_dn and norm_dn in valid_names_normalized:
                             keep = True
                             break
