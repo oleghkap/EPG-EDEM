@@ -5,7 +5,7 @@ import os
 import re
 from datetime import datetime, timedelta
 
-# Две основные базы под Edem / iLook
+# Два источника EPG под базу Edem / iLook
 EPG_URL_1 = "https://epg.one/edem.xml.gz"
 EPG_URL_2 = "https://epg.one/epg2.xml.gz"
 PLAYLIST_URL = os.environ.get("PLAYLIST_URL", "")
@@ -28,34 +28,53 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-print("Загрузка плейлиста...")
-valid_ids = set()
-valid_names_normalized = set()
-
-if PLAYLIST_URL:
+# Автоматическое создание channels.txt, если его еще нет
+if not os.path.exists("channels.txt") and PLAYLIST_URL:
+    print("Файл channels.txt не найден. Создаем его автоматически из вашего плейлиста...")
     try:
         req = urllib.request.Request(PLAYLIST_URL, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req) as response:
             playlist_text = response.read().decode('utf-8', errors='ignore')
             
+        extracted_channels = set()
         for line in playlist_text.splitlines():
             m_id = re.search(r'tvg-id="([^"]+)"', line)
             if m_id:
-                valid_ids.add(m_id.group(1).strip().lower())
+                extracted_channels.add(m_id.group(1).strip())
             
             m_name = re.search(r'tvg-name="([^"]+)"', line)
             if m_name:
-                valid_names_normalized.add(normalize(m_name.group(1)))
+                extracted_channels.add(m_name.group(1).strip())
             
             if "," in line and not line.startswith("#"):
                 parts = line.strip().split(",")
                 if len(parts) > 1:
-                    valid_names_normalized.add(normalize(parts[-1]))
-        print(f"Найдено в плейлисте: ID={len(valid_ids)}, имен={len(valid_names_normalized)}")
+                    extracted_channels.add(parts[-1].strip())
+                    
+        with open("channels.txt", "w", encoding="utf-8") as f:
+            for ch in sorted(extracted_channels):
+                f.write(ch + "\n")
+        print(f"Успешно создано! Записано каналов: {len(extracted_channels)}")
     except Exception as e:
-        print(f"Ошибка загрузки плейлиста: {e}")
+        print(f"Не удалось автоматически создать плейлист: {e}")
 
-print("Скачивание первого и второго EPG источников...")
+# Читаем готовый список каналов
+valid_ids = set()
+valid_names_normalized = set()
+
+if os.path.exists("channels.txt"):
+    with open("channels.txt", "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            valid_ids.add(line.lower())
+            valid_names_normalized.add(normalize(line))
+    print(f"Загружено каналов для фильтрации: {len(valid_names_normalized)}")
+else:
+    print("Ошибка: файл channels.txt отсутствует!")
+
+print("Скачивание EPG источников...")
 download_file(EPG_URL_1, "raw_epg1.xml.gz")
 download_file(EPG_URL_2, "raw_epg2.xml.gz")
 
@@ -76,17 +95,16 @@ def process_channels(file_path):
                     continue
                     
                 display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
-                keep = True
-                if valid_ids or valid_names_normalized:
-                    keep = False
-                    if ch_id and ch_id in valid_ids:
-                        keep = True
-                    else:
-                        for dn in display_names:
-                            norm_dn = normalize(dn)
-                            if norm_dn and any(norm_dn in vn or vn in norm_dn for vn in valid_names_normalized):
-                                keep = True
-                                break
+                keep = False
+                
+                if ch_id and ch_id in valid_ids:
+                    keep = True
+                else:
+                    for dn in display_names:
+                        norm_dn = normalize(dn)
+                        if norm_dn and any(norm_dn == vn or norm_dn in vn or vn in norm_dn for vn in valid_names_normalized):
+                            keep = True
+                            break
                 
                 if keep and elem.get("id"):
                     kept_channel_ids.add(elem.get("id"))
@@ -95,13 +113,12 @@ def process_channels(file_path):
                 else:
                     elem.clear()
 
-# Обрабатываем оба файла для каналов
 process_channels("raw_epg1.xml.gz")
 process_channels("raw_epg2.xml.gz")
 
-print(f"Всего отобрано каналов из двух источников: {channel_count}")
+print(f"Всего отобрано каналов: {channel_count}")
 
-# Собираем программы
+# Собираем программы (вчера + 3 дня вперед)
 now = datetime.utcnow()
 min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
 max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
@@ -133,9 +150,9 @@ def process_programmes(file_path):
 process_programmes("raw_epg1.xml.gz")
 process_programmes("raw_epg2.xml.gz")
 
-print(f"Всего добавлено уникальных передач: {programme_count}")
+print(f"Всего добавлено передач: {programme_count}")
 
-print("Сохранение финального объединенного EPG...")
+print("Сохранение финального EPG...")
 tree = ET.ElementTree(new_root)
 with gzip.open("epg_custom.xml.gz", "wb") as f_out:
     tree.write(f_out, encoding="utf-8", xml_declaration=True)
