@@ -7,7 +7,7 @@ import re
 EPG_URL = "https://epg.one/edem.xml.gz"
 PLAYLIST_URL = os.environ.get("PLAYLIST_URL", "")
 
-# Стоп-слова для категорий, которые нужно вырезать в любом случае
+# Жесткие стоп-слова для исключения ненужных стран
 EXCLUDE_KEYWORDS = [
     "US |", "USA |", "США", "US:", "USA:",
     "UA |", "UKR |", "Украина", "Україна", "UA:",
@@ -28,7 +28,6 @@ if PLAYLIST_URL:
             playlist_text = response.read().decode('utf-8', errors='ignore')
             
         for line in playlist_text.splitlines():
-            # Если строка плейлиста содержит запрещенную страну — пропускаем её
             if any(kw.lower() in line.lower() for kw in EXCLUDE_KEYWORDS):
                 continue
                 
@@ -42,54 +41,57 @@ if PLAYLIST_URL:
                 parts = line.strip().split(",")
                 if len(parts) > 1:
                     valid_names.add(parts[-1].strip().lower())
-        print(f"Обработано разрешенных каналов из плейлиста: {max(len(valid_ids), len(valid_names))}")
+        print(f"Загружено каналов из плейлиста: {max(len(valid_ids), len(valid_names))}")
     except Exception as e:
-        print(f"Ошибка при скачивании плейлиста: {e}")
+        print(f"Ошибка скачивания плейлиста: {e}")
 
 print("Распаковка и фильтрация XML...")
 with gzip.open("raw_epg.xml.gz", "rb") as f:
     tree = ET.parse(f)
 
 root = tree.getroot()
+kept_channels = set()
 removed_channels = set()
 
+# 1. Точная фильтрация каналов
 for channel in root.findall("channel"):
     ch_id = channel.get("id", "").strip().lower()
     display_names = [dn.text.strip().lower() for dn in channel.findall("display-name") if dn.text]
     
-    # 1. Жестко отсекаем США, Украину и Беларусь по ключевым словам
-    full_channel_str = f"{ch_id} " + " ".join(display_names)
-    if any(kw.lower() in full_channel_str.lower() for kw in EXCLUDE_KEYWORDS):
+    full_str = f"{ch_id} " + " ".join(display_names)
+    if any(kw.lower() in full_str.lower() for kw in EXCLUDE_KEYWORDS):
         removed_channels.add(channel.get("id"))
         root.remove(channel)
         continue
 
-    # 2. Для остальных каналов проверяем наличие в плейлисте
-    if valid_ids or valid_names:
-        keep = False
-        if ch_id in valid_ids:
-            keep = True
+    keep = False
+    if ch_id and ch_id in valid_ids:
+        keep = True
+    else:
         for name in display_names:
-            if name in valid_names or any(vn in name or name in vn for vn in valid_names):
+            if name in valid_names:
                 keep = True
                 break
                 
-        if not keep:
-            removed_channels.add(channel.get("id"))
-            root.remove(channel)
+    if keep:
+        kept_channels.add(channel.get("id"))
+    else:
+        removed_channels.add(channel.get("id"))
+        root.remove(channel)
 
-print(f"Удалено каналов (включая США, Украину, Беларусь и лишние): {len(removed_channels)}")
+print(f"Оставлено каналов: {len(kept_channels)}")
 
-# Удаляем программы для удаленных каналов
+# 2. Очистка программ передач (сохраняем описания <desc>, но удаляем для удаленных каналов)
 programme_count = 0
 for programme in root.findall("programme"):
     if programme.get("channel") in removed_channels:
         root.remove(programme)
+    else:
         programme_count += 1
 
-print(f"Удалено лишних блоков передач: {programme_count}")
+print(f"Оставлено блоков передач с описаниями: {programme_count}")
 
-print("Сохранение ультра-компактного EPG...")
+print("Сохранение сбалансированного EPG...")
 with gzip.open("epg_custom.xml.gz", "wb") as f:
     tree.write(f, encoding="utf-8", xml_declaration=True)
 
