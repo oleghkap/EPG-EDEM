@@ -2,9 +2,8 @@ name: Update and Clean EPG
 
 on:
   schedule:
-    # Запуск каждый день в 02:00 UTC
     - cron: '0 2 * * *'
-  workflow_dispatch: # Позволяет запускать вручную кнопкой
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,6 +21,8 @@ jobs:
           python-version: '3.x'
 
       - name: Run EPG cleaner script
+        env:
+          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
         run: python clean_epg.py
 
       - name: Commit and push changes
