@@ -5,14 +5,9 @@ import os
 import re
 from datetime import datetime, timedelta
 
-EPG_URL = "https://epg.one/edem.xml.gz"
+# Используем альтернативный расширенный источник EPG
+EPG_URL = "https://iptvx.one/epg/epg.xml.gz"
 PLAYLIST_URL = os.environ.get("PLAYLIST_URL", "")
-
-EXCLUDE_KEYWORDS = [
-    "US |", "USA |", "США", "US:", "USA:",
-    "UA |", "UKR |", "Украина", "Україна", "UA:",
-    "BY |", "Беларусь", "Белоруссия", "BY:"
-]
 
 def normalize(text):
     if not text:
@@ -33,9 +28,6 @@ if PLAYLIST_URL:
             playlist_text = response.read().decode('utf-8', errors='ignore')
             
         for line in playlist_text.splitlines():
-            if any(kw.lower() in line.lower() for kw in EXCLUDE_KEYWORDS):
-                continue
-            
             m_id = re.search(r'tvg-id="([^"]+)"', line)
             if m_id:
                 valid_ids.add(m_id.group(1).strip().lower())
@@ -52,7 +44,7 @@ if PLAYLIST_URL:
     except Exception as e:
         print(f"Ошибка загрузки плейлиста: {e}")
 
-print("Скачивание полного EPG...")
+print("Скачивание альтернативного полного EPG...")
 urllib.request.urlretrieve(EPG_URL, "raw_epg.xml.gz")
 
 print("Потоковая фильтрация каналов...")
@@ -60,18 +52,12 @@ new_root = ET.Element("tv")
 kept_channel_ids = set()
 channel_count = 0
 
-# 1. Отбираем только нужные каналы
+# 1. Отбираем нужные каналы из нового источника
 with gzip.open("raw_epg.xml.gz", "rb") as f_in:
     for event, elem in ET.iterparse(f_in, events=("end",)):
         if elem.tag == "channel":
             ch_id = elem.get("id", "").strip().lower()
             display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
-            full_str = f"{ch_id} " + " ".join(display_names)
-            
-            # Исключаем нежелательные страны
-            if any(kw.lower() in full_str.lower() for kw in EXCLUDE_KEYWORDS):
-                elem.clear()
-                continue
             
             keep = True
             if valid_ids or valid_names_normalized:
@@ -92,9 +78,9 @@ with gzip.open("raw_epg.xml.gz", "rb") as f_in:
             else:
                 elem.clear()
 
-print(f"Отобрано ваших каналов (без США/UA/BY): {channel_count}")
+print(f"Отобрано каналов из нового источника: {channel_count}")
 
-# 2. Добавляем программы передач строго для этих каналов (на 3 дня вперед со всеми описаниями)
+# 2. Добавляем программы передач для этих каналов (на 3 дня вперед)
 now = datetime.utcnow()
 min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
 max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
