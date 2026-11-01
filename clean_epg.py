@@ -13,8 +13,8 @@ def normalize(text):
     if not text:
         return ""
     t = text.lower()
-    t = re.sub(r'\b(hd|sd|fhd|4k|ru|рф)\b', '', t)
-    t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s]', '', t)
+    # Убираем только мусорные символы и пробелы, оставляя HD/FHD для различения качества
+    t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', t)
     return t
 
 def download_file(url, dest):
@@ -27,7 +27,7 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-# Автоматическое создание channels.txt с исправленным парсером M3U
+# Автоматическое создание channels.txt со всеми строками плейлиста (через list)
 if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
     print(f"Проверка PLAYLIST_URL: {'Задана' if PLAYLIST_URL else 'ПУСТАЯ!'}")
     if PLAYLIST_URL:
@@ -36,23 +36,11 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
             with urllib.request.urlopen(req) as response:
                 playlist_text = response.read().decode('utf-8', errors='ignore')
             
-            print(f"Плейлист успешно скачан. Размер: {len(playlist_text)} символов.")
-            
-            extracted_channels = set()
+            extracted_channels = []
             for line in playlist_text.splitlines():
                 line = line.strip()
                 if not line:
                     continue
-                
-                # Ищем tvg-id
-                m_id = re.search(r'tvg-id="([^"]+)"', line, re.IGNORECASE)
-                if m_id and m_id.group(1).strip():
-                    extracted_channels.add(m_id.group(1).strip())
-                
-                # Ищем tvg-name
-                m_name = re.search(r'tvg-name="([^"]+)"', line, re.IGNORECASE)
-                if m_name and m_name.group(1).strip():
-                    extracted_channels.add(m_name.group(1).strip())
                 
                 # Если это строка #EXTINF, забираем название канала после последней запятой
                 if line.startswith("#EXTINF"):
@@ -60,22 +48,18 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
                         parts = line.split(",")
                         ch_name = parts[-1].strip()
                         if ch_name:
-                            extracted_channels.add(ch_name)
+                            extracted_channels.append(ch_name)
                         
-            print(f"Найдено уникальных каналов в плейлисте: {len(extracted_channels)}")
-            
             if len(extracted_channels) > 0:
                 with open("channels.txt", "w", encoding="utf-8") as f:
-                    for ch in sorted(extracted_channels):
+                    for ch in extracted_channels:
                         f.write(ch + "\n")
-                print("Файл channels.txt успешно записан!")
-            else:
-                print("Внимание: парсер все еще не смог найти каналы в тексте плейлиста.")
+                print(f"Успешно записано строк в channels.txt: {len(extracted_channels)}")
                 
         except Exception as e:
             print(f"Критическая ошибка при скачивании плейлиста: {e}")
 
-# Читаем готовый список каналов
+# Читаем список каналов для фильтрации EPG
 valid_ids = set()
 valid_names_normalized = set()
 
@@ -87,7 +71,7 @@ if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
                 continue
             valid_ids.add(line.lower())
             valid_names_normalized.add(normalize(line))
-    print(f"Загружено каналов для фильтрации: {len(valid_names_normalized)}")
+    print(f"Загружено уникальных шаблонов для фильтрации EPG: {len(valid_names_normalized)}")
 else:
     print("Ошибка: файл channels.txt пуст или отсутствует!")
 
@@ -119,7 +103,8 @@ def process_channels(file_path):
                 else:
                     for dn in display_names:
                         norm_dn = normalize(dn)
-                        if norm_dn and any(norm_dn == vn or norm_dn in vn or vn in norm_dn for vn in valid_names_normalized):
+                        # Строгое совпадение нормализованных имен для правильной работы HD/FHD
+                        if norm_dn and norm_dn in valid_names_normalized:
                             keep = True
                             break
                 
