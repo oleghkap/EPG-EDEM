@@ -1,63 +1,46 @@
 import gzip
+import xml.etree.ElementTree as ET
 import urllib.request
-import re
+from datetime import datetime, timedelta
 
 EPG_URL = "https://epg.one/edem.xml.gz"
-
-# Ключевые слова стран, которые нужно полностью вырезать
-EXCLUDE_KEYWORDS = [
-    "US |", "USA |", "США", "US:", "USA:",
-    "UA |", "UKR |", "Украина", "Україна", "UA:",
-    "BY |", "Беларусь", "Белоруссия", "BY:"
-]
 
 print("Скачивание полного EPG...")
 urllib.request.urlretrieve(EPG_URL, "raw_epg.xml.gz")
 
-print("Фильтрация EPG построчно...")
-current_channel_id = None
-skip_current_block = False
-saved_lines_count = 0
+print("Распаковка и оптимизация расписания...")
+with gzip.open("raw_epg.xml.gz", "rb") as f:
+    tree = ET.parse(f)
 
-with gzip.open("raw_epg.xml.gz", "rt", encoding="utf-8", errors="ignore") as f_in, \
-     gzip.open("epg_custom.xml.gz", "wt", encoding="utf-8") as f_out:
-    
-    for line in f_in:
-        # Проверяем начало блока канала
-        if "<channel" in line:
-            current_channel_id = line
-            skip_current_block = any(kw.lower() in line.lower() for kw in EXCLUDE_KEYWORDS)
-            if not skip_current_block:
-                f_out.write(line)
-                saved_lines_count += 1
-            continue
-            
-        # Если мы внутри тега </channel>, закрываем блок
-        if "</channel>" in line:
-            if not skip_current_block:
-                f_out.write(line)
-                saved_lines_count += 1
-            current_channel_id = None
-            skip_current_block = False
-            continue
-            
-        # Если мы внутри запрещенного канала, пропускаем его строки (включая его расписание/описания)
-        if current_channel_id and skip_current_block:
-            continue
-            
-        # Для передач (<programme>): проверяем, ссылается ли передача на удаленный канал
-        if "<programme" in line:
-            # Ищем id канала в строке программы
-            match = re.search(r'channel="([^"]+)"', line)
-            if match:
-                ch_ref = match.group(1)
-                # Если этот канал есть в списке запрещенных — пропускаем программу
-                if any(kw.lower() in ch_ref.lower() for kw in EXCLUDE_KEYWORDS):
-                    # Пропускаем всю программу до тега </programme>
-                    continue
-                    
-        # Записываем все остальные валидные строки (включая описания <desc>)
-        f_out.write(line)
-        saved_lines_count += 1
+root = tree.getroot()
 
-print(f"Готово! Обработано и сохранено строк: {saved_lines_count}")
+# Ограничиваем расписание только актуальными днями (сегодня + 2 дня вперед), 
+# чтобы файл гарантированно влез в память телевизора, но описания (<desc>) для них сохраняются полностью!
+now = datetime.utcnow()
+min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
+max_date = (now + timedelta(days=2)).strftime("%Y%m%d")
+
+programme_count = 0
+removed_count = 0
+
+for programme in list(root.findall("programme")):
+    start = programme.get("start", "")
+    if start:
+        date_str = start[:8]
+        # Удаляем программы, которые слишком далеко в будущем или прошлом
+        if date_str < min_date or date_str > max_date:
+            root.remove(programme)
+            removed_count += 1
+        else:
+            programme_count += 1
+    else:
+        root.remove(programme)
+
+print(f"Оставлено актуальных передач с описаниями: {programme_count}")
+print(ف"Удалено устаревших/дальних передач: {removed_count}")
+
+print("Сохранение легкого EPG для телевизора...")
+with gzip.open("epg_custom.xml.gz", "wb") as f:
+    tree.write(f, encoding="utf-8", xml_declaration=True)
+
+print("Готово!")
