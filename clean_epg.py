@@ -15,7 +15,7 @@ with gzip.open("raw_epg.xml.gz", "rb") as f:
 root = tree.getroot()
 
 # Ограничиваем расписание только актуальными днями (сегодня + 2 дня вперед), 
-# чтобы файл гарантированно влез в память телевизора, но описания (<desc>) для них сохраняются полностью!
+# чтобы файл гарантированно влез в память телевизора, но описания (<desc>) сохраняются полностью!
 now = datetime.utcnow()
 min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
 max_date = (now + timedelta(days=2)).strftime("%Y%m%d")
@@ -37,7 +37,7 @@ for programme in list(root.findall("programme")):
         root.remove(programme)
 
 print(f"Оставлено актуальных передач с описаниями: {programme_count}")
-print(ف"Удалено устаревших/дальних передач: {removed_count}")
+print(f"Удалено устаревших/дальних передач: {removed_count}")
 
 print("Сохранение легкого EPG для телевизора...")
 with gzip.open("epg_custom.xml.gz", "wb") as f:
