@@ -19,7 +19,7 @@ def normalize(text):
 
 def download_file(url, dest):
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        req = urllib.request.Request(url, headers={'User-Agent': 'VLC/3.0.16'})
         with urllib.request.urlopen(req) as response, open(dest, 'wb') as out_file:
             out_file.write(response.read())
         return True
@@ -27,35 +27,44 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-# Создаем файл, если его нет или если он пустой (0 байт)
-if (not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0) and PLAYLIST_URL:
-    print("Файл channels.txt отсутствует или пуст. Заполняем из плейлиста...")
-    try:
-        req = urllib.request.Request(PLAYLIST_URL, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req) as response:
-            playlist_text = response.read().decode('utf-8', errors='ignore')
+# Автоматическое создание channels.txt с отладкой
+if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
+    print(f"Проверка PLAYLIST_URL: {'Задана' if PLAYLIST_URL else 'ПУСТАЯ!'}")
+    if PLAYLIST_URL:
+        try:
+            req = urllib.request.Request(PLAYLIST_URL, headers={'User-Agent': 'VLC/3.0.16'})
+            with urllib.request.urlopen(req) as response:
+                playlist_text = response.read().decode('utf-8', errors='ignore')
             
-        extracted_channels = set()
-        for line in playlist_text.splitlines():
-            m_id = re.search(r'tvg-id="([^"]+)"', line)
-            if m_id:
-                extracted_channels.add(m_id.group(1).strip())
+            print(f"Плейлист успешно скачан. Размер: {len(playlist_text)} символов.")
             
-            m_name = re.search(r'tvg-name="([^"]+)"', line)
-            if m_name:
-                extracted_channels.add(m_name.group(1).strip())
+            extracted_channels = set()
+            for line in playlist_text.splitlines():
+                m_id = re.search(r'tvg-id="([^"]+)"', line)
+                if m_id:
+                    extracted_channels.add(m_id.group(1).strip())
+                
+                m_name = re.search(r'tvg-name="([^"]+)"', line)
+                if m_name:
+                    extracted_channels.add(m_name.group(1).strip())
+                
+                if "," in line and not line.startswith("#"):
+                    parts = line.strip().split(",")
+                    if len(parts) > 1:
+                        extracted_channels.add(parts[-1].strip())
+                        
+            print(f"Найдено уникальных каналов в плейлисте: {len(extracted_channels)}")
             
-            if "," in line and not line.startswith("#"):
-                parts = line.strip().split(",")
-                if len(parts) > 1:
-                    extracted_channels.add(parts[-1].strip())
-                    
-        with open("channels.txt", "w", encoding="utf-8") as f:
-            for ch in sorted(extracted_channels):
-                f.write(ch + "\n")
-        print(f"Успешно записано каналов: {len(extracted_channels)}")
-    except Exception as e:
-        print(f"Не удалось создать channels.txt: {e}")
+            if len(extracted_channels) > 0:
+                with open("channels.txt", "w", encoding="utf-8") as f:
+                    for ch in sorted(extracted_channels):
+                        f.write(ch + "\n")
+                print("Файл channels.txt успешно записан!")
+            else:
+                print("Внимание: парсер не смог найти каналы в тексте плейлиста.")
+                
+        except Exception as e:
+            print(f"Критическая ошибка при скачивании плейлиста: {e}")
 
 # Читаем готовый список каналов
 valid_ids = set()
@@ -142,7 +151,7 @@ def process_programmes(file_path):
                         new_root.append(elem)
                         programme_count += 1
                     else:
-                    	elem.clear()
+                        elem.clear()
                 else:
                     elem.clear()
 
