@@ -27,9 +27,9 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-# Автоматическое создание channels.txt, если его еще нет
-if not os.path.exists("channels.txt") and PLAYLIST_URL:
-    print("Файл channels.txt не найден в репозитории. Создаем из плейлиста...")
+# Создаем файл, если его нет или если он пустой (0 байт)
+if (not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0) and PLAYLIST_URL:
+    print("Файл channels.txt отсутствует или пуст. Заполняем из плейлиста...")
     try:
         req = urllib.request.Request(PLAYLIST_URL, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req) as response:
@@ -53,7 +53,7 @@ if not os.path.exists("channels.txt") and PLAYLIST_URL:
         with open("channels.txt", "w", encoding="utf-8") as f:
             for ch in sorted(extracted_channels):
                 f.write(ch + "\n")
-        print(f"Успешно создано каналов: {len(extracted_channels)}")
+        print(f"Успешно записано каналов: {len(extracted_channels)}")
     except Exception as e:
         print(f"Не удалось создать channels.txt: {e}")
 
@@ -61,7 +61,7 @@ if not os.path.exists("channels.txt") and PLAYLIST_URL:
 valid_ids = set()
 valid_names_normalized = set()
 
-if os.path.exists("channels.txt"):
+if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
     with open("channels.txt", "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -71,7 +71,7 @@ if os.path.exists("channels.txt"):
             valid_names_normalized.add(normalize(line))
     print(f"Загружено каналов для фильтрации: {len(valid_names_normalized)}")
 else:
-    print("Ошибка: файл channels.txt отсутствует!")
+    print("Ошибка: файл channels.txt пуст или отсутствует!")
 
 print("Скачивание EPG источников...")
 download_file(EPG_URL_1, "raw_epg1.xml.gz")
@@ -142,7 +142,7 @@ def process_programmes(file_path):
                         new_root.append(elem)
                         programme_count += 1
                     else:
-                        elem.clear()
+                    	elem.clear()
                 else:
                     elem.clear()
 
