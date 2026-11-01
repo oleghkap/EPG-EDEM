@@ -3,7 +3,6 @@ import xml.etree.ElementTree as ET
 import urllib.request
 import os
 import re
-import subprocess
 from datetime import datetime, timedelta
 
 EPG_URL_1 = "https://epg.one/edem.xml.gz"
@@ -28,9 +27,9 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-# Автоматическое создание и фиксация channels.txt в репозитории, если его еще нет
+# Автоматическое создание channels.txt, если его еще нет
 if not os.path.exists("channels.txt") and PLAYLIST_URL:
-    print("Файл channels.txt не найден в репозитории. Создаем и сохраняем...")
+    print("Файл channels.txt не найден в репозитории. Создаем из плейлиста...")
     try:
         req = urllib.request.Request(PLAYLIST_URL, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req) as response:
@@ -54,17 +53,9 @@ if not os.path.exists("channels.txt") and PLAYLIST_URL:
         with open("channels.txt", "w", encoding="utf-8") as f:
             for ch in sorted(extracted_channels):
                 f.write(ch + "\n")
-        print(f"Создано каналов: {len(extracted_channels)}")
-
-        # Автоматически коммитим файл в репозиторий GitHub
-        subprocess.run(["git", "config", "--global", "user.name", "github-actions[bot]"], check=True)
-        subprocess.run(["git", "config", "--global", "user.email", "github-actions[bot]@users.noreply.github.com"], check=True)
-        subprocess.run(["git", "add", "channels.txt"], check=True)
-        subprocess.run(["git", "commit", "-m", "Auto-generate channels.txt"], check=True)
-        subprocess.run(["git", "push"], check=True)
-        print("Файл channels.txt успешно сохранен в ваш репозиторий!")
+        print(f"Успешно создано каналов: {len(extracted_channels)}")
     except Exception as e:
-        print(f"Не удалось автоматически запушить channels.txt: {e}")
+        print(f"Не удалось создать channels.txt: {e}")
 
 # Читаем готовый список каналов
 valid_ids = set()
