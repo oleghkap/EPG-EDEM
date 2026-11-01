@@ -1,0 +1,33 @@
+name: Update and Clean EPG
+
+on:
+  schedule:
+    # Запуск каждый день в 02:00 UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Позволяет запускать вручную кнопкой
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run EPG cleaner script
+        run: python clean_epg.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add epg_custom.xml.gz
+          git commit -m "Auto-update cleaned EPG" || exit 0
+          git push
