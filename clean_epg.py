@@ -14,13 +14,16 @@ def normalize(text):
     if not text:
         return ""
     t = text.lower()
-    # Унифицируем латиницу и кириллицу для одинаковых на вид букв (THT -> ТНТ, CTC -> СТС и т.д.)
+    # Сначала счищаем теги качества, пока латинские буквы еще на месте
+    for tag in ['fhd', 'hd', 'uhd', 'фхд', 'хд', 'ухд']:
+        t = re.sub(rf'\b{tag}\b', '', t)
+    
+    # Унифицируем латиницу и кириллицу для визуально одинаковых букв
     lat_to_cyr = str.maketrans({
         'a': 'а', 'b': 'б', 'c': 'с', 'e': 'е', 'h': 'н', 
         'k': 'к', 'm': 'м', 'o': 'о', 'p': 'р', 't': 'т', 'x': 'х', 'y': 'у'
     })
     t = t.translate(lat_to_cyr)
-    # Удаляем знаки препинания, пробелы и спецсимволы
     t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', t)
     return t
 
@@ -210,13 +213,11 @@ for ch_id in kept_channel_ids:
         ch_name = channel_id_to_name.get(ch_id, ch_id)
         lower_name = ch_name.lower()
         
-        is_hd_variant = any(tag in lower_name for tag in ['hd', 'fhd', 'uhd'])
+        is_hd_variant = any(tag in lower_name for tag in ['hd', 'fhd', 'uhd', 'хд', 'фхд', 'ухд'])
         has_time_shift = bool(re.search(r'\+\s*\d+', lower_name))
         
         if is_hd_variant and not has_time_shift:
             base_name_norm = normalize(ch_name)
-            for tag in ['hd', 'fhd', 'uhd']:
-                base_name_norm = base_name_norm.replace(tag, '')
             
             donor_ch_id = None
             if base_name_norm in base_channel_map:
