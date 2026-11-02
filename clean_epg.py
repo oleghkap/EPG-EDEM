@@ -13,7 +13,7 @@ def normalize(text):
     if not text:
         return ""
     t = text.lower()
-    # Убираем мусорные символы и пробелы, оставляя HD/FHD для различения качества
+    # Убираем символы, оставляя буквы, цифры и маркеры качества (hd, fhd)
     t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', t)
     return t
 
@@ -27,7 +27,7 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-# Автоматическое создание channels.txt со всеми ID, tvg-name и именами (через list)
+# Автоматическое создание channels.txt со всеми строками плейлиста (один раз)
 if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
     print(f"Проверка PLAYLIST_URL: {'Задана' if PLAYLIST_URL else 'ПУСТАЯ!'}")
     if PLAYLIST_URL:
@@ -42,17 +42,17 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
                 if not line:
                     continue
                 
-                # Возвращаем сбор tvg-id для точного сопоставления с EPG
+                # Собираем tvg-id
                 m_id = re.search(r'tvg-id="([^"]+)"', line, re.IGNORECASE)
                 if m_id and m_id.group(1).strip():
                     extracted_channels.append(m_id.group(1).strip())
                 
-                # Возвращаем сбор tvg-name
+                # Собираем tvg-name
                 m_name = re.search(r'tvg-name="([^"]+)"', line, re.IGNORECASE)
                 if m_name and m_name.group(1).strip():
                     extracted_channels.append(m_name.group(1).strip())
                 
-                # Забираем название канала после запятой
+                # Собираем название канала после запятой
                 if line.startswith("#EXTINF"):
                     if "," in line:
                         parts = line.split(",")
@@ -70,7 +70,7 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
             print(f"Критическая ошибка при скачивании плейлиста: {e}")
 
 # Читаем список каналов для фильтрации EPG
-valid_ids = set()
+valid_identifiers = set()
 valid_names_normalized = set()
 
 if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
@@ -79,9 +79,10 @@ if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
-            valid_ids.add(line.lower())
+            valid_identifiers.add(line.lower())
+            valid_identifiers.add(line)
             valid_names_normalized.add(normalize(line))
-    print(f"Загружено шаблонов для фильтрации EPG: {len(valid_names_normalized)}")
+    print(f"Загружено шаблонов для фильтрации: {len(valid_names_normalized)}")
 else:
     print("Ошибка: файл channels.txt пуст или отсутствует!")
 
@@ -100,7 +101,7 @@ def process_channels(file_path):
     with gzip.open(file_path, "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "channel":
-                ch_id = elem.get("id", "").strip().lower()
+                ch_id = elem.get("id", "").strip()
                 if ch_id in kept_channel_ids:
                     elem.clear()
                     continue
@@ -108,17 +109,28 @@ def process_channels(file_path):
                 display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
                 keep = False
                 
-                if ch_id and ch_id in valid_ids:
+                if ch_id and (ch_id.lower() in valid_identifiers or ch_id in valid_identifiers):
                     keep = True
                 else:
                     for dn in display_names:
                         norm_dn = normalize(dn)
-                        if norm_dn and norm_dn in valid_names_normalized:
+                        # 1. Точное совпадение
+                        if dn in valid_identifiers or norm_dn in valid_names_normalized:
                             keep = True
                             break
+                        # 2. Гибкое совпадение по префиксу для каналов длиннее 2 символов 
+                        # (позволяет связать 'нтв' с 'нтв0ч' из архива EPG)
+                        matched = False
+                        for vn in valid_names_normalized:
+                            if len(vn) >= 3 and (norm_dn.startswith(vn) or vn.startswith(norm_dn)):
+                                keep = True
+                                matched = True
+                                break
+                        if matched:
+                            break
                 
-                if keep and elem.get("id"):
-                    kept_channel_ids.add(elem.get("id"))
+                if keep and ch_id:
+                    kept_channel_ids.add(ch_id)
                     new_root.append(elem)
                     channel_count += 1
                 else:
