@@ -148,7 +148,7 @@ process_channels("raw_epg2.xml.gz")
 print(f"Всего отобрано каналов: {channel_count}")
 
 # Собираем программы (вчера + 3 дня вперед)
-now = datetime.utcnow()
+now = datetime.now(datetime.UTC)
 min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
 max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
 
@@ -199,28 +199,24 @@ print("Проверка и дублирование программ для пу
 cloned_hd_count = 0
 
 for ch_id in kept_channel_ids:
-    # Если у канала СВОИХ программ НЕТ вообще
     if ch_id not in channels_with_programs:
         ch_name = channel_id_to_name.get(ch_id, ch_id)
         lower_name = ch_name.lower()
         
-        # Проверяем, является ли канал HD, FHD или UHD (и при этом НЕ имеет сдвига времени вроде +2)
         is_hd_variant = any(tag in lower_name for tag in ['hd', 'fhd', 'uhd'])
         has_time_shift = bool(re.search(r'\+\s*\d+', lower_name))
         
         if is_hd_variant and not has_time_shift:
-            # Ищем базовое имя без HD/FHD/UHD
             base_name_norm = normalize(ch_name)
             for tag in ['hd', 'fhd', 'uhd']:
                 base_name_norm = base_name_norm.replace(tag, '')
             
-            # Ищем донора с программами
             donor_ch_id = None
             if base_name_norm in base_channel_map:
                 donor_ch_id = base_channel_map[base_name_norm]
             else:
                 for b_norm, d_id in base_channel_map.items():
-                    if len(b_norm) >= 3 and (base_name_norm.startswith(b_norm) or b_norm.startswith(base_norm)):
+                    if len(b_norm) >= 3 and (base_name_norm.startswith(b_norm) or b_norm.startswith(base_name_norm)):
                         donor_ch_id = d_id
                         break
             
