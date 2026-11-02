@@ -4,7 +4,7 @@ import urllib.request
 import os
 import re
 import copy
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 EPG_URL_1 = "https://epg.one/epg2.xml.gz"
 EPG_URL_2 = "https://epg.one/ru2.xml.gz"
@@ -148,7 +148,7 @@ process_channels("raw_epg2.xml.gz")
 print(f"Всего отобрано каналов: {channel_count}")
 
 # Собираем программы (вчера + 3 дня вперед)
-now = datetime.now(datetime.UTC)
+now = datetime.now(timezone.utc)
 min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
 max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
 
