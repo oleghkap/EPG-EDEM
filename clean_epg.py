@@ -206,10 +206,8 @@ print("Проверка и принудительное дублирование
 cloned_hd_count = 0
 
 for ch_id in kept_channel_ids:
-    # ГЛАВНОЕ ИЗМЕНЕНИЕ: проверяем количество реальных программ у этого конкретного канала
     channel_progs = raw_programmes_by_channel.get(ch_id, [])
     
-    # Если программ ровно 0, значит канал пустой и его нужно заполнить
     if len(channel_progs) == 0:
         ch_name = channel_id_to_name.get(ch_id, ch_id)
         lower_name = ch_name.lower()
@@ -225,7 +223,7 @@ for ch_id in kept_channel_ids:
                 donor_ch_id = base_channel_map[base_name_norm]
             else:
                 for b_norm, d_id in base_channel_map.items():
-                    if len(b_norm) >= 3 and (base_name_norm.startswith(b_norm) or b_norm.startswith(base_norm)):
+                    if len(b_norm) >= 3 and (base_name_norm.startswith(b_norm) or b_norm.startswith(base_name_norm)):
                         donor_ch_id = d_id
                         break
             
