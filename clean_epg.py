@@ -14,11 +14,9 @@ def normalize(text):
     if not text:
         return ""
     t = text.lower()
-    # Сначала счищаем теги качества, пока латинские буквы еще на месте
     for tag in ['fhd', 'hd', 'uhd', 'фхд', 'хд', 'ухд']:
         t = re.sub(rf'\b{tag}\b', '', t)
     
-    # Унифицируем латиницу и кириллицу для визуально одинаковых букв
     lat_to_cyr = str.maketrans({
         'a': 'а', 'b': 'б', 'c': 'с', 'e': 'е', 'h': 'н', 
         'k': 'к', 'm': 'м', 'o': 'о', 'p': 'р', 't': 'т', 'x': 'х', 'y': 'у'
@@ -164,7 +162,6 @@ max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
 
 programme_count = 0
 added_programmes = set()
-channels_with_programs = set()
 raw_programmes_by_channel = {}
 
 def process_programmes(file_path):
@@ -181,7 +178,6 @@ def process_programmes(file_path):
                 if ch_ref in kept_channel_ids and start and prog_key not in added_programmes:
                     if min_date <= start[:8] <= max_date:
                         added_programmes.add(prog_key)
-                        channels_with_programs.add(ch_ref)
                         
                         if ch_ref not in raw_programmes_by_channel:
                             raw_programmes_by_channel[ch_ref] = []
@@ -199,17 +195,22 @@ process_programmes("raw_epg2.xml.gz")
 
 print(f"Всего добавлено родных передач: {programme_count}")
 
-# Карты для поиска доноров для пустых HD/FHD/UHD каналов
+# Карты для поиска доноров
 base_channel_map = {}
-for ch_id in channels_with_programs:
-    name = channel_id_to_name.get(ch_id, ch_id)
-    base_channel_map[normalize(name)] = ch_id
+for ch_id, progs in raw_programmes_by_channel.items():
+    if len(progs) > 0:
+        name = channel_id_to_name.get(ch_id, ch_id)
+        base_channel_map[normalize(name)] = ch_id
 
-print("Проверка и дублирование программ для пустых HD/FHD/UHD каналов...")
+print("Проверка и принудительное дублирование программ для пустых HD/FHD/UHD каналов...")
 cloned_hd_count = 0
 
 for ch_id in kept_channel_ids:
-    if ch_id not in channels_with_programs:
+    # ГЛАВНОЕ ИЗМЕНЕНИЕ: проверяем количество реальных программ у этого конкретного канала
+    channel_progs = raw_programmes_by_channel.get(ch_id, [])
+    
+    # Если программ ровно 0, значит канал пустой и его нужно заполнить
+    if len(channel_progs) == 0:
         ch_name = channel_id_to_name.get(ch_id, ch_id)
         lower_name = ch_name.lower()
         
@@ -224,7 +225,7 @@ for ch_id in kept_channel_ids:
                 donor_ch_id = base_channel_map[base_name_norm]
             else:
                 for b_norm, d_id in base_channel_map.items():
-                    if len(b_norm) >= 3 and (base_name_norm.startswith(b_norm) or b_norm.startswith(base_name_norm)):
+                    if len(b_norm) >= 3 and (base_name_norm.startswith(b_norm) or b_norm.startswith(base_norm)):
                         donor_ch_id = d_id
                         break
             
@@ -235,7 +236,7 @@ for ch_id in kept_channel_ids:
                     new_root.append(new_prog)
                     cloned_hd_count += 1
 
-print(f"Успешно продублировано передач для HD/FHD/UHD каналов: {cloned_hd_count}")
+print(f"Успешно продублировано передач для пустых HD/FHD/UHD каналов: {cloned_hd_count}")
 
 print("Сохранение финального EPG...")
 tree = ET.ElementTree(new_root)
