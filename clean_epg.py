@@ -13,9 +13,18 @@ def normalize(text):
     if not text:
         return ""
     t = text.lower()
-    # Убираем символы, оставляя буквы, цифры и маркеры качества (hd, fhd)
     t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', t)
     return t
+
+# Словарь синонимов для гарантированного матчинга проблемных федеральных каналов
+CHANNEL_ALIASES = {
+    "россия1": ["россия", "ртр", "россия1hd", "россия1fhd", "россияhd", "россияfhd"],
+    "россия1hd": ["россияhd", "россия1", "россия"],
+    "россия1fhd": ["россияfhd", "россия1", "россия"],
+    "россия12": ["россия2", "россия1+2", "россия+2"],
+    "россия14": ["россия4", "россия1+4", "россия+4"],
+    "первыйканал2": ["первыйканал+2", "первыйканал2ч", "первыйканал+2ч"]
+}
 
 def download_file(url, dest):
     try:
@@ -27,7 +36,7 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-# Автоматическое создание channels.txt со всеми строками плейлиста (один раз)
+# Автоматическое создание channels.txt (один раз)
 if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
     print(f"Проверка PLAYLIST_URL: {'Задана' if PLAYLIST_URL else 'ПУСТАЯ!'}")
     if PLAYLIST_URL:
@@ -42,17 +51,14 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
                 if not line:
                     continue
                 
-                # Собираем tvg-id
                 m_id = re.search(r'tvg-id="([^"]+)"', line, re.IGNORECASE)
                 if m_id and m_id.group(1).strip():
                     extracted_channels.append(m_id.group(1).strip())
                 
-                # Собираем tvg-name
                 m_name = re.search(r'tvg-name="([^"]+)"', line, re.IGNORECASE)
                 if m_name and m_name.group(1).strip():
                     extracted_channels.append(m_name.group(1).strip())
                 
-                # Собираем название канала после запятой
                 if line.startswith("#EXTINF"):
                     if "," in line:
                         parts = line.split(",")
@@ -61,10 +67,17 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
                             extracted_channels.append(ch_name)
                         
             if len(extracted_channels) > 0:
+                unique_channels = []
+                seen = set()
+                for ch in extracted_channels:
+                    if ch not in seen:
+                        seen.add(ch)
+                        unique_channels.append(ch)
+
                 with open("channels.txt", "w", encoding="utf-8") as f:
-                    for ch in extracted_channels:
+                    for ch in unique_channels:
                         f.write(ch + "\n")
-                print(f"Успешно записано строк в channels.txt: {len(extracted_channels)}")
+                print(f"Успешно записано уникальных строк в channels.txt: {len(unique_channels)}")
                 
         except Exception as e:
             print(f"Критическая ошибка при скачивании плейлиста: {e}")
@@ -81,8 +94,15 @@ if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
                 continue
             valid_identifiers.add(line.lower())
             valid_identifiers.add(line)
-            valid_names_normalized.add(normalize(line))
-    print(f"Загружено шаблонов для фильтрации: {len(valid_names_normalized)}")
+            norm = normalize(line)
+            valid_names_normalized.add(norm)
+            
+            # Добавляем алиасы в разрешенные шаблоны
+            if norm in CHANNEL_ALIASES:
+                for alias in CHANNEL_ALIASES[norm]:
+                    valid_names_normalized.add(alias)
+                    
+    print(f"Загружено шаблонов для фильтрации с учетом алиасов: {len(valid_names_normalized)}")
 else:
     print("Ошибка: файл channels.txt пуст или отсутствует!")
 
@@ -114,12 +134,10 @@ def process_channels(file_path):
                 else:
                     for dn in display_names:
                         norm_dn = normalize(dn)
-                        # 1. Точное совпадение
                         if dn in valid_identifiers or norm_dn in valid_names_normalized:
                             keep = True
                             break
-                        # 2. Гибкое совпадение по префиксу для каналов длиннее 2 символов 
-                        # (позволяет связать 'нтв' с 'нтв0ч' из архива EPG)
+                        
                         matched = False
                         for vn in valid_names_normalized:
                             if len(vn) >= 3 and (norm_dn.startswith(vn) or vn.startswith(norm_dn)):
