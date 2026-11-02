@@ -3,9 +3,9 @@ import xml.etree.ElementTree as ET
 import urllib.request
 import os
 import re
+import copy
 from datetime import datetime, timedelta
 
-# Заменили на правильные дополняющие друг друга источники
 EPG_URL_1 = "https://epg.one/epg2.xml.gz"
 EPG_URL_2 = "https://epg.one/ru2.xml.gz"
 PLAYLIST_URL = os.environ.get("PLAYLIST_URL", "")
@@ -16,16 +16,6 @@ def normalize(text):
     t = text.lower()
     t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', t)
     return t
-
-# Словарь синонимов для гарантированного матчинга проблемных федеральных каналов
-CHANNEL_ALIASES = {
-    "россия1": ["россия", "ртр", "россия1hd", "россия1fhd", "россияhd", "россияfhd"],
-    "россия1hd": ["россияhd", "россия1", "россия"],
-    "россия1fhd": ["россияfhd", "россия1", "россия"],
-    "россия12": ["россия2", "россия1+2", "россия+2"],
-    "россия14": ["россия4", "россия1+4", "россия+4"],
-    "первыйканал2": ["первыйканал+2", "первыйканал2ч", "первыйканал+2ч"]
-}
 
 def download_file(url, dest):
     try:
@@ -95,15 +85,9 @@ if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
                 continue
             valid_identifiers.add(line.lower())
             valid_identifiers.add(line)
-            norm = normalize(line)
-            valid_names_normalized.add(norm)
+            valid_names_normalized.add(normalize(line))
             
-            # Добавляем алиасы в разрешенные шаблоны
-            if norm in CHANNEL_ALIASES:
-                for alias in CHANNEL_ALIASES[norm]:
-                    valid_names_normalized.add(alias)
-                    
-    print(f"Загружено шаблонов для фильтрации с учетом алиасов: {len(valid_names_normalized)}")
+    print(f"Загружено шаблонов для фильтрации: {len(valid_names_normalized)}")
 else:
     print("Ошибка: файл channels.txt пуст или отсутствует!")
 
@@ -113,6 +97,7 @@ download_file(EPG_URL_2, "raw_epg2.xml.gz")
 
 new_root = ET.Element("tv")
 kept_channel_ids = set()
+channel_id_to_name = {}
 channel_count = 0
 
 def process_channels(file_path):
@@ -150,6 +135,8 @@ def process_channels(file_path):
                 
                 if keep and ch_id:
                     kept_channel_ids.add(ch_id)
+                    if display_names:
+                        channel_id_to_name[ch_id] = display_names[0]
                     new_root.append(elem)
                     channel_count += 1
                 else:
@@ -167,6 +154,8 @@ max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
 
 programme_count = 0
 added_programmes = set()
+channels_with_programs = set()
+raw_programmes_by_channel = {}
 
 def process_programmes(file_path):
     global programme_count
@@ -182,6 +171,12 @@ def process_programmes(file_path):
                 if ch_ref in kept_channel_ids and start and prog_key not in added_programmes:
                     if min_date <= start[:8] <= max_date:
                         added_programmes.add(prog_key)
+                        channels_with_programs.add(ch_ref)
+                        
+                        if ch_ref not in raw_programmes_by_channel:
+                            raw_programmes_by_channel[ch_ref] = []
+                        raw_programmes_by_channel[ch_ref].append(copy.deepcopy(elem))
+                        
                         new_root.append(elem)
                         programme_count += 1
                     else:
@@ -192,7 +187,51 @@ def process_programmes(file_path):
 process_programmes("raw_epg1.xml.gz")
 process_programmes("raw_epg2.xml.gz")
 
-print(f"Всего добавлено передач: {programme_count}")
+print(f"Всего добавлено родных передач: {programme_count}")
+
+# Карты для поиска доноров для пустых HD/FHD/UHD каналов
+base_channel_map = {}
+for ch_id in channels_with_programs:
+    name = channel_id_to_name.get(ch_id, ch_id)
+    base_channel_map[normalize(name)] = ch_id
+
+print("Проверка и дублирование программ для пустых HD/FHD/UHD каналов...")
+cloned_hd_count = 0
+
+for ch_id in kept_channel_ids:
+    # Если у канала СВОИХ программ НЕТ вообще
+    if ch_id not in channels_with_programs:
+        ch_name = channel_id_to_name.get(ch_id, ch_id)
+        lower_name = ch_name.lower()
+        
+        # Проверяем, является ли канал HD, FHD или UHD (и при этом НЕ имеет сдвига времени вроде +2)
+        is_hd_variant = any(tag in lower_name for tag in ['hd', 'fhd', 'uhd'])
+        has_time_shift = bool(re.search(r'\+\s*\d+', lower_name))
+        
+        if is_hd_variant and not has_time_shift:
+            # Ищем базовое имя без HD/FHD/UHD
+            base_name_norm = normalize(ch_name)
+            for tag in ['hd', 'fhd', 'uhd']:
+                base_name_norm = base_name_norm.replace(tag, '')
+            
+            # Ищем донора с программами
+            donor_ch_id = None
+            if base_name_norm in base_channel_map:
+                donor_ch_id = base_channel_map[base_name_norm]
+            else:
+                for b_norm, d_id in base_channel_map.items():
+                    if len(b_norm) >= 3 and (base_name_norm.startswith(b_norm) or b_norm.startswith(base_norm)):
+                        donor_ch_id = d_id
+                        break
+            
+            if donor_ch_id and donor_ch_id in raw_programmes_by_channel:
+                for prog_elem in raw_programmes_by_channel[donor_ch_id]:
+                    new_prog = copy.deepcopy(prog_elem)
+                    new_prog.set("channel", ch_id)
+                    new_root.append(new_prog)
+                    cloned_hd_count += 1
+
+print(f"Успешно продублировано передач для HD/FHD/UHD каналов: {cloned_hd_count}")
 
 print("Сохранение финального EPG...")
 tree = ET.ElementTree(new_root)
