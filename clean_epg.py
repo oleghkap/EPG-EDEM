@@ -106,182 +106,163 @@ print("Скачивание EPG источников (epg2 и ru2)...")
 download_file(EPG_URL_1, "raw_epg1.xml.gz")
 download_file(EPG_URL_2, "raw_epg2.xml.gz")
 
-new_root = ET.Element("tv")
-kept_channel_ids = set()
-channel_id_to_name = {}
-channel_count = 0
-channel_elements_cache = {}
+# Этап 1: Сбор всех каналов и программ из обоих файлов в оперативную память
+all_channels_raw = {} # ch_id -> element
+all_programmes_raw = {} # ch_id -> list of elements
 
-def process_channels(file_path):
-    global channel_count
+now = datetime.utcnow()
+min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
+max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
+
+def parse_raw_epg(file_path):
     if not os.path.exists(file_path):
         return
     with gzip.open(file_path, "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "channel":
                 ch_id = elem.get("id", "").strip()
-                display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
-                
-                if ch_id and display_names:
-                    channel_elements_cache[ch_id] = copy.deepcopy(elem)
-                
-                if ch_id in kept_channel_ids:
-                    elem.clear()
-                    continue
-                    
-                keep = False
-                if ch_id and (ch_id.lower() in valid_identifiers or ch_id in valid_identifiers):
-                    keep = True
-                else:
-                    for dn in display_names:
-                        norm_dn = normalize(dn)
-                        if dn in valid_identifiers or norm_dn in valid_names_normalized:
-                            keep = True
-                            break
-                        
-                        matched = False
-                        for vn in valid_names_normalized:
-                            if len(vn) >= 3 and (norm_dn.startswith(vn) or vn.startswith(norm_dn)):
-                                keep = True
-                                matched = True
-                                break
-                        if matched:
-                            break
-                
-                if keep and ch_id:
-                    kept_channel_ids.add(ch_id)
-                    if display_names:
-                        channel_id_to_name[ch_id] = display_names[0]
-                    new_root.append(elem)
-                    channel_count += 1
-                else:
-                    elem.clear()
-
-process_channels("raw_epg1.xml.gz")
-process_channels("raw_epg2.xml.gz")
-
-print(f"Всего отобрано каналов из обоих источников: {channel_count}")
-
-now = datetime.utcnow()
-min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
-max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
-
-programme_count = 0
-added_programmes = set()
-channels_with_programmes = set()
-raw_programmes_by_channel = {}
-
-def process_programmes(file_path):
-    global programme_count
-    if not os.path.exists(file_path):
-        return
-    with gzip.open(file_path, "rb") as f_in:
-        for event, elem in ET.iterparse(f_in, events=("end",)):
-            if elem.tag == "programme":
+                if ch_id and ch_id not in all_channels_raw:
+                    all_channels_raw[ch_id] = copy.deepcopy(elem)
+                elem.clear()
+            elif elem.tag == "programme":
                 ch_ref = elem.get("channel")
                 start = elem.get("start", "")
-                prog_key = (ch_ref, start)
-                
-                if ch_ref in kept_channel_ids and start and prog_key not in added_programmes:
-                    if min_date <= start[:8] <= max_date:
-                        added_programmes.add(prog_key)
-                        channels_with_programmes.add(ch_ref)
-                        
-                        if ch_ref not in raw_programmes_by_channel:
-                            raw_programmes_by_channel[ch_ref] = []
-                        raw_programmes_by_channel[ch_ref].append(copy.deepcopy(elem))
-                        
-                        new_root.append(elem)
-                        programme_count += 1
-                    else:
-                        elem.clear()
-                else:
-                    elem.clear()
+                if ch_ref and start and min_date <= start[:8] <= max_date:
+                    if ch_ref not in all_programmes_raw:
+                        all_programmes_raw[ch_ref] = []
+                    all_programmes_raw[ch_ref].append(copy.deepcopy(elem))
+                elem.clear()
 
-process_programmes("raw_epg1.xml.gz")
-process_programmes("raw_epg2.xml.gz")
+parse_raw_epg("raw_epg1.xml.gz")
+parse_raw_epg("raw_epg2.xml.gz")
 
-print(f"Всего добавлено реальных передач: {programme_count}")
+print(f"Загружено уникальных каналов из источнике: {len(all_channels_raw)}")
+print(f"Загружено каналов с программами: {len(all_programmes_raw)}")
 
-print("Проверка расписания и клонирование для всех пустых каналов...")
-cloned_count = 0
-fixed_channels_count = 0
+# Шаг 2: Сопоставляем каналы из channels.txt с тем, что есть в источниках
+new_root = ET.Element("tv")
+channel_id_map = {} # плейлист_имя -> реальный_ch_id_в_xml
+channel_names_cache = {}
 
-base_channel_map = {}
-for ch_id in channels_with_programmes:
-    name = channel_id_to_name.get(ch_id, ch_id)
-    base_channel_map[normalize(name)] = ch_id
+# Сначала определим, какие ID из источника нам подходят под наш channels.txt
+for ch_id, elem in all_channels_raw.items():
+    display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
+    ch_name_first = display_names[0] if display_names else ch_id
+    channel_names_cache[ch_id] = ch_name_first
 
-processed_playlist_names = set()
-
+# Читаем плейлист из channels.txt и формируем итоговую структуру
+playlist_channels = []
 if os.path.exists("channels.txt"):
     with open("channels.txt", "r", encoding="utf-8") as f:
         for line in f:
-            ch_name = line.strip()
-            if not ch_name or ch_name.startswith("#") or ch_name in processed_playlist_names:
-                continue
-            processed_playlist_names.add(ch_name)
+            name = line.strip()
+            if name and not name.startswith("#") and name not in playlist_channels:
+                playlist_channels.append(name)
+
+# Карта доступных доноров с программами: нормализованное_имя -> ch_id
+donor_map = {}
+for ch_id, progs in all_programmes_raw.items():
+    if progs:
+        ch_name = channel_names_cache.get(ch_id, ch_id)
+        donor_map[normalize(ch_name)] = ch_id
+
+final_channels_added = set()
+cloned_count = 0
+native_count = 0
+
+for ch_name in playlist_channels:
+    norm_name = normalize(ch_name)
+    
+    # Ищем точное или близкое совпадение в сырых каналах источника
+    matched_ch_id = None
+    for ch_id, raw_name in channel_names_cache.items():
+        if normalize(raw_name) == norm_name:
+            matched_ch_id = ch_id
+            break
             
-            norm_name = normalize(ch_name)
-            
-            matched_ch_id = None
-            for k_id in kept_channel_ids:
-                k_name = channel_id_to_name.get(k_id, "")
-                if normalize(k_name) == norm_name:
-                    matched_ch_id = k_id
+    # Проверяем наличие сдвига времени (+2, +4 и т.д.)
+    match_shift = re.search(r'\+\s*(\d+)', ch_name.lower())
+    offset = int(match_shift.group(1)) if match_shift else 0
+    
+    # Проверяем, есть ли родная программа у этого канала
+    has_native_progs = matched_ch_id and matched_ch_id in all_programmes_raw and len(all_programmes_raw[matched_ch_id]) > 0
+    
+    # Создаем тег канала в финальном XML
+    target_ch_id = matched_ch_id if matched_ch_id else f"gen_{norm_name}"
+    if target_ch_id not in final_channels_added:
+        final_channels_added.add(target_ch_id)
+        if target_ch_id in all_channels_raw:
+            new_root.append(copy.deepcopy(all_channels_raw[target_ch_id]))
+        else:
+            ch_elem = ET.Element("channel", id=target_ch_id)
+            dn_elem = ET.SubElement(ch_elem, "display-name")
+            dn_elem.text = ch_name
+            new_root.append(ch_elem)
+
+    # Стратегия добавления программ:
+    # 1. Если сдвига нет (offset == 0) и есть родные программы -> используем их.
+    # 2. Если есть сдвиг (offset > 0), пробуем найти базового донора и сдвинуть его программу.
+    # 3. ФОЛЛБЕК: Если донора для сдвига не нашлось (или база пуста), но у самого канала есть родные программы -> оставляем их, чтобы не занулять!
+    
+    progs_to_add = []
+    
+    if offset > 0:
+        # Ищем донора (базовый канал без сдвигов, hd, fhd)
+        base_norm = re.sub(r'[\+\(]?\s*\d+\s*\)?', '', norm_name).replace('hd', '').replace('fhd', '')
+        
+        donor_id = None
+        if base_norm in donor_map:
+            donor_id = donor_map[base_norm]
+        else:
+            for b_norm, d_id in donor_map.items():
+                if len(b_norm) >= 3 and (base_norm.startswith(b_norm) or b_norm.startswith(base_norm)):
+                    donor_id = d_id
                     break
-            
-            has_programs = matched_ch_id and matched_ch_id in channels_with_programmes
-            
-            if has_programs:
-                continue
-            
-            offset = 0
-            base_norm = norm_name
-            match_shift = re.search(r'\+\s*(\d+)', ch_name.lower())
-            if match_shift:
-                offset = int(match_shift.group(1))
-                base_norm = re.sub(r'[\+\(]?\s*\d+\s*\)?', '', norm_name)
-            
-            base_norm = base_norm.replace('hd', '').replace('fhd', '')
-            
-            donor_ch_id = None
-            if base_norm in base_channel_map:
-                donor_ch_id = base_channel_map[base_norm]
-            else:
-                for b_norm, d_id in base_channel_map.items():
-                    if len(b_norm) >= 3 and (base_norm.startswith(b_norm) or b_norm.startswith(base_norm)):
-                        donor_ch_id = d_id
-                        break
-            
-            if donor_ch_id and donor_ch_id in raw_programmes_by_channel:
-                target_ch_id = matched_ch_id
-                
-                if not target_ch_id:
-                    target_ch_id = f"gen_{normalize(ch_name)}"
-                    new_ch_elem = ET.Element("channel", id=target_ch_id)
-                    dn_elem = ET.SubElement(new_ch_elem, "display-name")
-                    dn_elem.text = ch_name
-                    new_root.insert(0, new_ch_elem)
-                    fixed_channels_count += 1
-                
-                for prog_elem in raw_programmes_by_channel[donor_ch_id]:
-                    new_prog = copy.deepcopy(prog_elem)
+        
+        if donor_id and donor_id in all_programmes_raw:
+            # Клонируем и сдвигаем от донора
+            for prog in all_programmes_raw[donor_id]:
+                new_prog = copy.deepcopy(prog)
+                new_prog.set("channel", target_ch_id)
+                start_str = new_prog.get("start", "")
+                stop_str = new_prog.get("stop", "")
+                if start_str:
+                    new_prog.set("start", shift_xmltv_time(start_str, offset))
+                if stop_str:
+                    new_prog.set("stop", shift_xmltv_time(stop_str, offset))
+                progs_to_add.append(new_prog)
+                cloned_count += 1
+        elif has_native_progs:
+            # ФОЛЛБЕК: донора нет, но у канала в источнике нашлись свои программы — берем их
+            for prog in all_programmes_raw[matched_ch_id]:
+                new_prog = copy.deepcopy(prog)
+                new_prog.set("channel", target_ch_id)
+                progs_to_add.append(new_prog)
+                native_count += 1
+    else:
+        # Обычный канал (без сдвига)
+        if has_native_progs:
+            for prog in all_programmes_raw[matched_ch_id]:
+                new_prog = copy.deepcopy(prog)
+                new_prog.set("channel", target_ch_id)
+                progs_to_add.append(new_prog)
+                native_count += 1
+        else:
+            # Если у обычного канала нет программы, пробуем найти донор без сдвига (например, для HD/FHD версий)
+            base_norm = norm_name.replace('hd', '').replace('fhd', '')
+            donor_id = donor_map.get(base_norm)
+            if donor_id and donor_id in all_programmes_raw:
+                for prog in all_programmes_raw[donor_id]:
+                    new_prog = copy.deepcopy(prog)
                     new_prog.set("channel", target_ch_id)
-                    
-                    if offset != 0:
-                        start_str = new_prog.get("start", "")
-                        stop_str = new_prog.get("stop", "")
-                        if start_str:
-                            new_prog.set("start", shift_xmltv_time(start_str, offset))
-                        if stop_str:
-                            new_prog.set("stop", shift_xmltv_time(stop_str, offset))
-                    
-                    new_root.append(new_prog)
+                    progs_to_add.append(new_prog)
                     cloned_count += 1
 
-print(f"Создано новых виртуальных каналов: {fixed_channels_count}")
-print(f"Успешно клонировано и сдвинуто передач: {cloned_count}")
+    for p in progs_to_add:
+        new_root.append(p)
+
+print(f"Добавлено родных программ: {native_count}")
+print(f"Добавлено клонированных/сдвинутых программ: {cloned_count}")
 
 print("Сохранение финального EPG...")
 tree = ET.ElementTree(new_root)
