@@ -3,22 +3,17 @@ import xml.etree.ElementTree as ET
 import urllib.request
 import os
 import re
+import ssl
 from datetime import datetime, timedelta
 
 EPG_URL = "http://epg.one/epg2.xml.gz"
 PLAYLIST_URL = os.environ.get("PLAYLIST_URL", "")
 
-def normalize(text):
-    if not text:
-        return ""
-    t = text.lower()
-    t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', t)
-    return t
-
 def download_file(url, dest):
     try:
+        ctx = ssl._create_unverified_context()
         req = urllib.request.Request(url, headers={'User-Agent': 'VLC/3.0.16'})
-        with urllib.request.urlopen(req) as response, open(dest, 'wb') as out_file:
+        with urllib.request.urlopen(req, context=ctx) as response, open(dest, 'wb') as out_file:
             out_file.write(response.read())
         return True
     except Exception as e:
@@ -29,8 +24,9 @@ def download_file(url, dest):
 if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
     if PLAYLIST_URL:
         try:
+            ctx = ssl._create_unverified_context()
             req = urllib.request.Request(PLAYLIST_URL, headers={'User-Agent': 'VLC/3.0.16'})
-            with urllib.request.urlopen(req) as response:
+            with urllib.request.urlopen(req, context=ctx) as response:
                 playlist_text = response.read().decode('utf-8', errors='ignore')
             
             extracted_channels = []
@@ -57,27 +53,24 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
         except Exception as e:
             print(f"Ошибка плейлиста: {e}")
 
-# Читаем список ваших каналов для гибкого сопоставления
-valid_identifiers = set()
-valid_names_normalized = set()
-
+# Читаем целевые каналы
+target_channels = set()
 if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
     with open("channels.txt", "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            valid_identifiers.add(line.lower())
-            valid_identifiers.add(line)
-            valid_names_normalized.add(normalize(line))
+            if line and not line.startswith("#"):
+                target_channels.add(line.lower())
 
-print("Скачивание EPG источника ottg.tv...")
+print(f"Загружено целевых каналов для триммера: {len(target_channels)}")
+
+print("Скачивание EPG источника...")
 if download_file(EPG_URL, "raw_epg.xml.gz"):
     new_root = ET.Element("tv")
     kept_channel_ids = set()
     channel_count = 0
 
-    print("Гибкий поиск и фильтрация каналов...")
+    print("Фильтрация каналов по точным совпадениям...")
     with gzip.open("raw_epg.xml.gz", "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "channel":
@@ -85,44 +78,31 @@ if download_file(EPG_URL, "raw_epg.xml.gz"):
                 if ch_id in kept_channel_ids:
                     elem.clear()
                     continue
-                    
-                display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
-                keep = False
                 
-                # Проверяем ID или отображаемые имена по расширенным правилам
-                if ch_id and (ch_id.lower() in valid_identifiers or ch_id in valid_identifiers):
-                    keep = True
+                display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
+                
+                matched = False
+                if ch_id and ch_id.lower() in target_channels:
+                    matched = True
                 else:
                     for dn in display_names:
-                        norm_dn = normalize(dn)
-                        if not norm_dn:
-                            continue
-                        # Точное совпадение или частичное вхождение (учитываем даже короткие совпадения)
-                        if dn in valid_identifiers or norm_dn in valid_names_normalized:
-                            keep = True
-                            break
-                        matched = False
-                        for vn in valid_names_normalized:
-                            if len(vn) >= 2 and (norm_dn in vn or vn in norm_dn):
-                                keep = True
-                                matched = True
-                                break
-                        if matched:
+                        if dn and dn.lower() in target_channels:
+                            matched = True
                             break
                 
-                if keep and ch_id:
+                if matched and ch_id:
                     kept_channel_ids.add(ch_id)
                     new_root.append(elem)
                     channel_count += 1
                 else:
                     elem.clear()
 
-    print(f"Отобрано каналов (максимально): {channel_count}")
+    print(f"Отобрано каналов: {channel_count}")
 
-    # Диапазон дат: вчера + 3 дня вперед
-    now = datetime.utcnow()
-    min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
-    max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
+    # Диапазон дат по Московскому времени (UTC+3): вчера + 2 дня вперед
+    now_msk = datetime.utcnow() + timedelta(hours=3)
+    min_date = (now_msk - timedelta(days=1)).strftime("%Y%m%d")
+    max_date = (now_msk + timedelta(days=2)).strftime("%Y%m%d")
 
     print("Фильтрация программ по датам...")
     programme_count = 0
