@@ -1,0 +1,35 @@
+name: Update All EPG
+
+on:
+  push:
+    branches:
+      - main
+  # Можно добавить обновление по расписанию, например раз в день:
+  # schedule:
+  #   - cron: '0 3 * * *'
+
+jobs:
+  update-epg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Run Clean EPG Script
+        run: python clean_epg.py
+
+      - name: Run Trim EPG Script
+        run: python trim_epg.py
+
+      - name: Commit and Push EPG files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add epg_custom.xml.gz epg_trimmed.xml.gz
+          git commit -m "Auto-update EPG files [skip ci]" || echo "No changes to commit"
+          git push
