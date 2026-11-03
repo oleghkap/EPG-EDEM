@@ -24,10 +24,9 @@ def get_channel_group_key(text):
     if not text:
         return ("", "")
     t = text.lower()
-    # Учитываем региональный сдвиг (+2, +4 и т.д.), чтобы регионы не смешивались
     shift_match = re.search(r'\+(\d+)', t)
     shift = shift_match.group(0) if shift_match else ""
-    # Убираем приставки качества для объединения SD, HD и FHD в одну группу
+    # Очищаем от приставок качества для объединения в одну группу
     clean = re.sub(r'\b(hd|fhd|sd|4k|hevc|uhd)\b', '', t)
     norm = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', clean)
     return (norm, shift)
@@ -65,34 +64,37 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
         except Exception as e:
             print(f"Ошибка плейлиста: {e}")
 
-# Читаем целевые каналы
-target_channels = set()
+# Читаем целевые каналы из channels.txt
+target_channels_raw = []
 if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
     with open("channels.txt", "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if line and not line.startswith("#"):
-                target_channels.add(line.lower())
+                target_channels_raw.append(line)
 
-print(f"Загружено целевых каналов для триммера: {len(target_channels)}")
+print(f"Загружено целевых каналов из channels.txt: {len(target_channels_raw)}")
 
 print("Скачивание EPG источника...")
 if download_file(EPG_URL, "raw_epg.xml.gz"):
     new_root = ET.Element("tv")
-    kept_channel_ids = set()
-    source_ch_to_group = {}
-    group_to_kept_ids = {}
-    channel_count = 0
+    
+    # Шаг 1: Собираем каналы из первоисточника
+    source_channels = {}       # ch_id -> element
+    source_ch_group = {}       # ch_id -> group_key
+    group_to_source_ids = {}   # group_key -> set of source ch_ids
 
-    print("Фильтрация каналов и группировка версий (SD/HD/FHD)...")
     with gzip.open("raw_epg.xml.gz", "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "channel":
                 ch_id = elem.get("id", "").strip()
-                display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
+                if not ch_id:
+                    elem.clear()
+                    continue
                 
-                # Вычисляем группу для канала источника
-                names_to_check = display_names + ([ch_id] if ch_id else [])
+                display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
+                names_to_check = display_names + [ch_id]
+                
                 g_key = ("", "")
                 for name in names_to_check:
                     candidate_key = get_channel_group_key(name)
@@ -100,42 +102,58 @@ if download_file(EPG_URL, "raw_epg.xml.gz"):
                         g_key = candidate_key
                         break
                 
-                if ch_id:
-                    source_ch_to_group[ch_id] = g_key
-
-                if ch_id in kept_channel_ids:
-                    elem.clear()
-                    continue
+                source_channels[ch_id] = elem
+                source_ch_group[ch_id] = g_key
                 
-                matched = False
-                if ch_id and ch_id.lower() in target_channels:
-                    matched = True
-                else:
-                    for dn in display_names:
-                        if dn and dn.lower() in target_channels:
-                            matched = True
-                            break
-                
-                if matched and ch_id:
-                    kept_channel_ids.add(ch_id)
-                    new_root.append(elem)
-                    channel_count += 1
-                    
-                    if g_key != ("", ""):
-                        if g_key not in group_to_kept_ids:
-                            group_to_kept_ids[g_key] = set()
-                        group_to_kept_ids[g_key].add(ch_id)
-                else:
-                    elem.clear()
+                if g_key != ("", ""):
+                    if g_key not in group_to_source_ids:
+                        group_to_source_ids[g_key] = set()
+                    group_to_source_ids[g_key].add(ch_id)
 
-    print(f"Отобрано каналов: {channel_count}")
+    # Шаг 2: Связываем каналы из channels.txt с группами
+    group_to_output_ids = {}   # group_key -> set of output channel IDs/names to create
+    
+    for target in target_channels_raw:
+        g_key = get_channel_group_key(target)
+        if g_key != ("", "") and g_key in group_to_source_ids:
+            if g_key not in group_to_output_ids:
+                group_to_output_ids[g_key] = set()
+            group_to_output_ids[g_key].add(target)
+
+    # Шаг 3: Генерируем каналы для вывода (включая все HD/FHD варианты из плейлиста)
+    channel_count = 0
+    added_output_channels = set()
+
+    for g_key, target_ids in group_to_output_ids.items():
+        source_sample_id = list(group_to_source_ids[g_key])[0]
+        sample_elem = source_channels[source_sample_id]
+        
+        for t_id in target_ids:
+            if t_id in added_output_channels:
+                continue
+            added_output_channels.add(t_id)
+            
+            # Создаем тег канала для каждого варианта (HD, FHD и т.д.)
+            ch_elem = ET.Element("channel", {"id": t_id})
+            dn_elem = ET.SubElement(ch_elem, "display-name")
+            dn_elem.text = t_id
+            
+            # Переносим иконку из источника
+            for child in sample_elem:
+                if child.tag == "icon":
+                    ch_elem.append(child)
+            
+            new_root.append(ch_elem)
+            channel_count += 1
+
+    print(f"Отобрано и сгенерировано каналов (с учетом HD/FHD): {channel_count}")
 
     # Диапазон дат по Московскому времени (UTC+3): 2 дня до и 2 дня после
     now_msk = datetime.utcnow() + timedelta(hours=3)
     min_date = (now_msk - timedelta(days=2)).strftime("%Y%m%d")
     max_date = (now_msk + timedelta(days=2)).strftime("%Y%m%d")
 
-    print("Фильтрация программ, дублирование на HD/FHD и сохранение...")
+    print("Фильтрация программ и дублирование на все варианты (HD/FHD)...")
     programme_count = 0
     added_programmes = set()
 
@@ -145,19 +163,19 @@ if download_file(EPG_URL, "raw_epg.xml.gz"):
                 ch_ref = elem.get("channel")
                 start = elem.get("start", "")
                 
-                group_key = source_ch_to_group.get(ch_ref)
-                target_ids = group_to_kept_ids.get(group_key) if group_key else None
+                g_key = source_ch_group.get(ch_ref)
+                output_ids = group_to_output_ids.get(g_key) if g_key else None
                 
-                if target_ids and start:
+                if output_ids and start:
                     if min_date <= start[:8] <= max_date:
-                        # Дублируем программу на все каналы группы (SD, HD, FHD)
-                        for target_ch_id in target_ids:
-                            prog_key = (target_ch_id, start)
+                        # Дублируем программу на ВСЕ варианты канала (SD, HD, FHD) из группы
+                        for out_ch_id in output_ids:
+                            prog_key = (out_ch_id, start)
                             if prog_key not in added_programmes:
                                 added_programmes.add(prog_key)
                                 
                                 prog_elem = ET.Element(elem.tag, elem.attrib)
-                                prog_elem.set("channel", target_ch_id)
+                                prog_elem.set("channel", out_ch_id)
                                 for child in elem:
                                     prog_elem.append(child)
                                     
