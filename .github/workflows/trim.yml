@@ -1,12 +1,15 @@
 name: Trim EPG Test
 
 on:
-  workflow_dispatch: # Позволяет запускать ворфлоу вручную кнопкой на сайте GitHub
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - 'trim_epg.py'
+
+permissions:
+    contents: write
 
 jobs:
   build-trim:
