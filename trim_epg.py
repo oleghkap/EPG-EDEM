@@ -5,7 +5,7 @@ import os
 import re
 from datetime import datetime, timedelta
 
-EPG_URL = "https://iptvx.one/epg/epg.xml.gz"
+EPG_URL = "http://ottg.tv/epg.xml.gz"
 PLAYLIST_URL = os.environ.get("PLAYLIST_URL", "")
 
 def normalize(text):
