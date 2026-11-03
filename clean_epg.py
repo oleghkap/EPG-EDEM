@@ -118,35 +118,45 @@ sources_map = {
 
 new_root = ET.Element("tv")
 added_output_channel_ids = set()
-# Храним для каждого канала строго один источник-владелец: {target_ch_id: source_id}
-channel_source_owner = {}
+
+# Словарь маппинга программ для каждого источника: {source_id: {src_ch_id: target_ch_id}}
+source_program_mappings = {1: {}, 2: {}, 3: {}}
 channel_count = 0
 
-# Сопоставление целевых каналов с абсолютным приоритетом 1 -> 2 -> 3
+# Сопоставление целевых каналов с приоритетом иконки 1 -> 2 -> 3
 for target in target_channels:
     t_norm = normalize(target)
     t_base = get_base_name(target)
     
     chosen_elem = None
     chosen_ch_id = None
-    owner_source = None
     
+    # 1. Выбираем лучший канал (иконку/метаданные) из доступных источников по приоритету
     for s_id in [1, 2, 3]:
         s_map = sources_map[s_id]
         if t_norm in s_map:
             chosen_elem, chosen_ch_id = s_map[t_norm]
-            owner_source = s_id
             break
         elif t_base in s_map:
             chosen_elem, chosen_ch_id = s_map[t_base]
-            owner_source = s_id
             break
             
     if chosen_elem is not None and chosen_ch_id not in added_output_channel_ids:
         added_output_channel_ids.add(chosen_ch_id)
         new_root.append(chosen_elem)
         channel_count += 1
-        channel_source_owner[chosen_ch_id] = (owner_source, chosen_ch_id)
+        
+        # 2. Регистрируем маппинг программ для ВСЕХ источников, у которых есть этот канал
+        for s_id in [1, 2, 3]:
+            s_map = sources_map[s_id]
+            src_ch_id = None
+            if t_norm in s_map:
+                _, src_ch_id = s_map[t_norm]
+            elif t_base in s_map:
+                _, src_ch_id = s_map[t_base]
+            
+            if src_ch_id:
+                source_program_mappings[s_id][src_ch_id] = chosen_ch_id
 
 print(f"Успешно сопоставлено уникальных каналов: {channel_count}")
 
@@ -156,28 +166,18 @@ min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
 max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
 
 programme_count = 0
-added_programme_slots = set()
+added_programme_slots = set() # Защита от дублей: (target_ch_id, start_time)
 
-# Собираем программы строго из исходного файла-владельца канала
-def process_source_programmes(file_path, s_id):
+def process_programmes_for_source(file_path, mapping_dict):
     global programme_count
-    if not os.path.exists(file_path):
+    if not os.path.exists(file_path) or not mapping_dict:
         return
-        
-    # Собираем множество внутренних ID каналов, которые принадлежат именно этому источнику
-    target_src_ids = {src_ch for ch_id, (src, src_ch) in channel_source_owner.items() if src == s_id}
-    if not target_src_ids:
-        return
-
-    # Обратный маппинг: внутренний ID в источнике -> наш финальный ID канала
-    rev_mapping = {src_ch: ch_id for ch_id, (src, src_ch) in channel_source_owner.items() if src == s_id}
-
     with gzip.open(file_path, "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "programme":
                 ch_ref = elem.get("channel")
-                if ch_ref in target_src_ids:
-                    target_ch_id = rev_mapping[ch_ref]
+                if ch_ref in mapping_dict:
+                    target_ch_id = mapping_dict[ch_ref]
                     start = elem.get("start", "")
                     slot_key = (target_ch_id, start)
                     
@@ -194,11 +194,11 @@ def process_source_programmes(file_path, s_id):
                 else:
                     elem.clear()
 
-print("Сбор программ передач строго из источников-владельцев...")
+print("Сбор и объединение программ передач со ВСЕХ источников без пропусков...")
 for s_id in [1, 2, 3]:
-    process_source_programmes(f"raw_epg{s_id}.xml.gz", s_id)
+    process_programmes_for_source(f"raw_epg{s_id}.xml.gz", source_program_mappings[s_id])
 
-print(f"Всего добавлено чистых программ: {programme_count}")
+print(f"Всего добавлено передач: {programme_count}")
 
 print("Сохранение финального EPG...")
 tree = ET.ElementTree(new_root)
