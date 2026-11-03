@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - main
-  # Можно добавить обновление по расписанию, например раз в день:
-  # schedule:
-  #   - cron: '0 3 * * *'
+  schedule:
+    - cron: '0 3 * * *'
+
+# Даем роботу права на запись в репозиторий для git push
+permissions:
+  contents: write
 
 jobs:
   update-epg:
