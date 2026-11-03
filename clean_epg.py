@@ -79,37 +79,48 @@ download_file(EPG_URL_2, "raw_epg2.xml.gz")
 download_file(EPG_URL_3, "raw_epg3.xml.gz")
 
 new_root = ET.Element("tv")
-covered_target_channels = set()  # Успешно заполненные каналы из наших шаблонов
+covered_target_channels = set()
 kept_channel_ids_source1 = set()
 kept_channel_ids_source2 = set()
 kept_channel_ids_source3 = set()
 channel_count = 0
 
-def match_channel(ch_id, display_names):
+# Ультра-гибкая функция сопоставления для 1-го источника
+def match_channel_source1(ch_id, display_names):
+    for dn in display_names:
+        norm_dn = normalize(dn)
+        if not norm_dn:
+            continue
+        for vn in valid_names_normalized:
+            if len(vn) >= 2 and (vn in norm_dn or norm_dn in vn):
+                return vn  возвращаем ключ для покрытия
+    if ch_id:
+        norm_id = normalize(ch_id)
+        for vn in valid_names_normalized:
+            if len(vn) >= 2 and (vn in norm_id or norm_id in vn):
+                return vn
+    return None
+
+# Стандартная функция для 2-го и 3-го источников
+def match_channel_standard(ch_id, display_names):
     if ch_id and (ch_id.lower() in valid_identifiers or ch_id in valid_identifiers):
-        return True
+        for vn in valid_names_normalized:
+            return vn
     for dn in display_names:
         norm_dn = normalize(dn)
         if not norm_dn:
             continue
         if dn in valid_identifiers or norm_dn in valid_names_normalized:
-            return True
+            for vn in valid_names_normalized:
+                if normalize(dn) == vn:
+                    return vn
         for vn in valid_names_normalized:
             if len(vn) >= 3 and (norm_dn.startswith(vn) or vn.startswith(norm_dn)):
-                return True
-    return False
-
-def get_matched_target_key(ch_id, display_names):
-    if ch_id and ch_id.lower() in valid_identifiers:
-        return ch_id.lower()
-    for dn in display_names:
-        norm_dn = normalize(dn)
-        if norm_dn in valid_names_normalized:
-            return norm_dn
+                return vn
     return None
 
-# --- ЭТАП 1: ПЕРВЫЙ источник (Основной) ---
-print("Обработка источника №1 (epg2)...")
+# --- ЭТАП 1: ПЕРВЫЙ источник (Главный, с мягким поиском) ---
+print("Обработка источника №1 (epg.one/epg2)...")
 if os.path.exists("raw_epg1.xml.gz"):
     with gzip.open("raw_epg1.xml.gz", "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
@@ -117,18 +128,18 @@ if os.path.exists("raw_epg1.xml.gz"):
                 ch_id = elem.get("id", "").strip()
                 display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
                 
-                if match_channel(ch_id, display_names):
-                    target_key = get_matched_target_key(ch_id, display_names)
-                    if target_key and target_key not in covered_target_channels:
-                        covered_target_channels.add(target_key)
+                matched_key = match_channel_source1(ch_id, display_names)
+                if matched_key and matched_key not in covered_target_channels:
+                    covered_target_channels.add(matched_key)
+                    if ch_id:
                         kept_channel_ids_source1.add(ch_id)
-                        new_root.append(elem)
-                        channel_count += 1
-                        continue
-                elem.clear()
+                    new_root.append(elem)
+                    channel_count += 1
+                else:
+                    elem.clear()
 
 # --- ЭТАП 2: ВТОРОЙ источник (Дополнение) ---
-print("Обработка источника №2 (iptvx) для добора недостающего...")
+print("Обработка источника №2 (iptvx)...")
 if os.path.exists("raw_epg2.xml.gz"):
     with gzip.open("raw_epg2.xml.gz", "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
@@ -136,18 +147,18 @@ if os.path.exists("raw_epg2.xml.gz"):
                 ch_id = elem.get("id", "").strip()
                 display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
                 
-                if match_channel(ch_id, display_names):
-                    target_key = get_matched_target_key(ch_id, display_names)
-                    if target_key and target_key not in covered_target_channels:
-                        covered_target_channels.add(target_key)
+                matched_key = match_channel_standard(ch_id, display_names)
+                if matched_key and matched_key not in covered_target_channels:
+                    covered_target_channels.add(matched_key)
+                    if ch_id:
                         kept_channel_ids_source2.add(ch_id)
-                        new_root.append(elem)
-                        channel_count += 1
-                        continue
-                elem.clear()
+                    new_root.append(elem)
+                    channel_count += 1
+                else:
+                    elem.clear()
 
-# --- ЭТАП 3: ТРЕТИЙ источник (Финальный резерв) ---
-print("Обработка источника №3 (pp) для финального добора...")
+# --- ЭТАП 3: ТРЕТИЙ источник (Резерв) ---
+print("Обработка источника №3 (pp)...")
 if os.path.exists("raw_epg3.xml.gz"):
     with gzip.open("raw_epg3.xml.gz", "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
@@ -155,17 +166,17 @@ if os.path.exists("raw_epg3.xml.gz"):
                 ch_id = elem.get("id", "").strip()
                 display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
                 
-                if match_channel(ch_id, display_names):
-                    target_key = get_matched_target_key(ch_id, display_names)
-                    if target_key and target_key not in covered_target_channels:
-                        covered_target_channels.add(target_key)
+                matched_key = match_channel_standard(ch_id, display_names)
+                if matched_key and matched_key not in covered_target_channels:
+                    covered_target_channels.add(matched_key)
+                    if ch_id:
                         kept_channel_ids_source3.add(ch_id)
-                        new_root.append(elem)
-                        channel_count += 1
-                        continue
-                elem.clear()
+                    new_root.append(elem)
+                    channel_count += 1
+                else:
+                    elem.clear()
 
-print(f"Всего отобрано уникальных каналов (1 + 2 + 3): {channel_count}")
+print(f"Всего отобрано уникальных каналов: {channel_count}")
 
 # Диапазон дат: вчера + 3 дня вперед
 now = datetime.utcnow()
@@ -175,7 +186,7 @@ max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
 programme_count = 0
 added_programmes = set()
 
-# --- ЭТАП 4: Сбор программ для каналов из всех источников ---
+# --- ЭТАП 4: Сбор программ ---
 print("Сбор программ передач...")
 def process_programmes(file_path, allowed_channel_ids):
     global programme_count
