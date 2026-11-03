@@ -6,7 +6,7 @@ import re
 import ssl
 from datetime import datetime, timedelta
 
-EPG_URL = "http://epg.one/epg2.xml.gz"
+EPG_URL = "https://epg.one/pp.xml.gz"
 PLAYLIST_URL = os.environ.get("PLAYLIST_URL", "")
 
 def download_file(url, dest):
