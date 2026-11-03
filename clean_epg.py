@@ -93,7 +93,7 @@ def match_channel_source1(ch_id, display_names):
             continue
         for vn in valid_names_normalized:
             if len(vn) >= 2 and (vn in norm_dn or norm_dn in vn):
-                return vn  возвращаем ключ для покрытия
+                return vn  # возвращаем ключ для покрытия
     if ch_id:
         norm_id = normalize(ch_id)
         for vn in valid_names_normalized:
@@ -201,22 +201,4 @@ def process_programmes(file_path, allowed_channel_ids):
                 
                 if ch_ref in allowed_channel_ids and start and prog_key not in added_programmes:
                     if min_date <= start[:8] <= max_date:
-                        added_programmes.add(prog_key)
-                        new_root.append(elem)
-                        programme_count += 1
-                    else:
-                        elem.clear()
-                else:
-                    elem.clear()
-
-process_programmes("raw_epg1.xml.gz", kept_channel_ids_source1)
-process_programmes("raw_epg2.xml.gz", kept_channel_ids_source2)
-process_programmes("raw_epg3.xml.gz", kept_channel_ids_source3)
-
-print(f"Всего добавлено передач: {programme_count}")
-
-print("Сохранение финального EPG...")
-tree = ET.ElementTree(new_root)
-with gzip.open("epg_custom.xml.gz", "wb") as f_out:
-    tree.write(f_out, encoding="utf-8", xml_declaration=True)
-print("Готово!")
+                        added_programmes.add(prog_
