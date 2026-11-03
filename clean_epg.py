@@ -15,17 +15,21 @@ def normalize(text):
     if not text:
         return ""
     t = text.lower()
-    t = re.sub(r'[\(\)\[\]\|\:\,\-\+\s\.]', '', t)
+    t = re.sub(r'[\(\)\[\]\|\:\,\s\.]', '', t)
     return t
 
-def get_base_name(text):
+def get_channel_signature(text):
     if not text:
-        return ""
+        return "", ""
     t = text.lower()
-    # ВАЖНО: Убираем только качество (HD, FHD), но НЕ трогаем часовые пояса (+2, +4), 
-    # чтобы региональные каналы сохраняли свои индивидуальные сетки вещания!
-    t = re.sub(r'\b(hd|fhd|sd|4k|hevc|uhd)\b', '', t)
-    return normalize(t)
+    # Извлекаем смещение времени (+2, +4, +6 и т.д.), чтобы регионы не путались с базовыми каналами
+    shift_match = re.search(r'\+(\d+)', t)
+    shift = shift_match.group(0) if shift_match else ""
+    
+    # Убираем технические приставки качества
+    clean = re.sub(r'\b(hd|fhd|sd|4k|hevc|uhd)\b', '', t)
+    norm = normalize(clean)
+    return norm, shift
 
 def download_file(url, dest):
     try:
@@ -86,69 +90,50 @@ download_file(EPG_URL_1, "raw_epg1.xml.gz")
 download_file(EPG_URL_2, "raw_epg2.xml.gz")
 download_file(EPG_URL_3, "raw_epg3.xml.gz")
 
-# Функция глубокого анализа источника
 def parse_source(file_path):
-    exact_channels = {} # norm_name -> (elem, ch_id)
-    base_channels = {}  # base_name -> (elem, ch_id)
-    channels_with_progs = set()
-    
+    channels_map = {} # (norm_name, shift) -> (elem, ch_id)
     if not os.path.exists(file_path):
-        return exact_channels, base_channels, channels_with_progs
-        
+        return channels_map
+    
     with gzip.open(file_path, "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "channel":
                 ch_id = elem.get("id", "").strip()
                 display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
                 
-                for dn in display_names:
-                    n = normalize(dn)
-                    b = get_base_name(dn)
-                    if n and n not in exact_channels:
-                        exact_channels[n] = (elem, ch_id)
-                    if b and b not in base_channels:
-                        base_channels[b] = (elem, ch_id)
-                if ch_id:
-                    n = normalize(ch_id)
-                    b = get_base_name(ch_id)
-                    if n and n not in exact_channels:
-                        exact_channels[n] = (elem, ch_id)
-                    if b and b not in base_channels:
-                        base_channels[b] = (elem, ch_id)
-            elif elem.tag == "programme":
-                ch_ref = elem.get("channel")
-                if ch_ref:
-                    channels_with_progs.add(ch_ref)
-    return exact_channels, base_channels, channels_with_progs
+                names_to_check = display_names + ([ch_id] if ch_id else [])
+                for name in names_to_check:
+                    norm, shift = get_channel_signature(name)
+                    if norm:
+                        key = (norm, shift)
+                        if key not in channels_map:
+                            channels_map[key] = (elem, ch_id)
+    return channels_map
 
-print("Анализ источников EPG...")
-sources_data = {}
-for s_id in [1, 2, 3]:
-    sources_data[s_id] = parse_source(f"raw_epg{s_id}.xml.gz")
+print("Интексация каналов из источников...")
+sources_channels = {
+    1: parse_source("raw_epg1.xml.gz"),
+    2: parse_source("raw_epg2.xml.gz"),
+    3: parse_source("raw_epg3.xml.gz")
+}
 
 new_root = ET.Element("tv")
 added_output_channel_ids = set()
-programme_fetch_plan = {1: {}, 2: {}, 3: {}}
+source_program_mappings = {1: {}, 2: {}, 3: {}}
 channel_count = 0
 
 for target in target_channels:
-    t_norm = normalize(target)
-    t_base = get_base_name(target)
+    t_norm, t_shift = get_channel_signature(target)
     
     chosen_elem = None
     chosen_ch_id = None
     
-    # 1. Ищем канал для иконки/метаданных (приоритет 1 -> 2 -> 3)
+    # 1. Ищем лучший канал (иконку/метаданные) с приоритетом 1 -> 2 -> 3
     for s_id in [1, 2, 3]:
-        exact_ch, base_ch, _ = sources_data[s_id]
-        if t_norm in exact_ch:
-            chosen_elem, chosen_ch_id = exact_ch[t_norm]
-            break
-        elif t_base in exact_ch:
-            chosen_elem, chosen_ch_id = exact_ch[t_base]
-            break
-        elif t_base in base_ch:
-            chosen_elem, chosen_ch_id = base_ch[t_base]
+        s_map = sources_channels[s_id]
+        key = (t_norm, t_shift)
+        if key in s_map:
+            chosen_elem, chosen_ch_id = s_map[key]
             break
             
     if chosen_elem is not None and chosen_ch_id not in added_output_channel_ids:
@@ -156,44 +141,20 @@ for target in target_channels:
         new_root.append(chosen_elem)
         channel_count += 1
         
-        # 2. Умный поиск источника, у которого РЕАЛЬНО ЕСТЬ ПРОГРАММА для этого канала (приоритет 1 -> 2 -> 3)
-        prog_source_found = False
+        # 2. Регистрируем маппинг программ для ВСЕХ источников, у которых есть этот канал
         for s_id in [1, 2, 3]:
-            exact_ch, base_ch, progs_set = sources_data[s_id]
-            src_ch_id = None
-            if t_norm in exact_ch:
-                _, src_ch_id = exact_ch[t_norm]
-            elif t_base in exact_ch:
-                _, src_ch_id = exact_ch[t_base]
-            elif t_base in base_ch:
-                _, src_ch_id = base_ch[t_base]
-            
-            if src_ch_id and src_ch_id in progs_set:
-                programme_fetch_plan[s_id][src_ch_id] = chosen_ch_id
-                prog_source_found = True
-                break
-        
-        # Если в источниках с проверкой программ не нашлось, берем из любого доступного
-        if not prog_source_found:
-            for s_id in [1, 2, 3]:
-                exact_ch, base_ch, _ = sources_data[s_id]
-                src_ch_id = None
-                if t_norm in exact_ch:
-                    _, src_ch_id = exact_ch[t_norm]
-                elif t_base in exact_ch:
-                    _, src_ch_id = exact_ch[t_base]
-                elif t_base in base_ch:
-                    _, src_ch_id = base_ch[t_base]
-                if src_ch_id:
-                    programme_fetch_plan[s_id][src_ch_id] = chosen_ch_id
-                    break
+            s_map = sources_channels[s_id]
+            key = (t_norm, t_shift)
+            if key in s_map:
+                _, src_ch_id = s_map[key]
+                source_program_mappings[s_id][src_ch_id] = chosen_ch_id
 
 print(f"Успешно сопоставлено уникальных каналов: {channel_count}")
 
-# Диапазон дат для программ (вчера + 3 дня вперед)
-now = datetime.utcnow()
-min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
-max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
+# Расчет дат по Московскому времени (UTC+3) во избежание сдвигов на сервере GitHub
+now_msk = datetime.utcnow() + timedelta(hours=3)
+min_date = (now_msk - timedelta(days=2)).strftime("%Y%m%d")
+max_date = (now_msk + timedelta(days=5)).strftime("%Y%m%d")
 
 programme_count = 0
 added_programme_slots = set() # Защита от дублей: (target_ch_id, start_time)
@@ -224,9 +185,10 @@ def process_programmes_for_source(file_path, mapping_dict):
                 else:
                     elem.clear()
 
-print("Сбор и объединение программ передач без пропусков и наложений...")
+print("Сбор и объединение программ со всех источников...")
+# Обрабатываем источники по порядку: 1 -> 2 -> 3
 for s_id in [1, 2, 3]:
-    process_programmes_for_source(f"raw_epg{s_id}.xml.gz", programme_fetch_plan[s_id])
+    process_programmes_for_source(f"raw_epg{s_id}.xml.gz", source_program_mappings[s_id])
 
 print(f"Всего добавлено передач: {programme_count}")
 
