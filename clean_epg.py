@@ -3,7 +3,6 @@ import xml.etree.ElementTree as ET
 import urllib.request
 import os
 import re
-import copy
 from datetime import datetime, timedelta
 
 EPG_URL_1 = "https://epg.one/epg2.xml.gz"
@@ -85,8 +84,9 @@ if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
                 continue
             valid_identifiers.add(line.lower())
             valid_identifiers.add(line)
-            valid_names_normalized.add(normalize(line))
-            
+            norm = normalize(line)
+            valid_names_normalized.add(norm)
+                    
     print(f"Загружено шаблонов для фильтрации: {len(valid_names_normalized)}")
 else:
     print("Ошибка: файл channels.txt пуст или отсутствует!")
@@ -95,66 +95,56 @@ print("Скачивание EPG источников...")
 download_file(EPG_URL_1, "raw_epg1.xml.gz")
 download_file(EPG_URL_2, "raw_epg2.xml.gz")
 
-def get_matched_template(ch_id, display_names):
-    if ch_id and (ch_id.lower() in valid_identifiers or ch_id in valid_identifiers):
-        return ch_id.lower()
-    for dn in display_names:
-        norm_dn = normalize(dn)
-        if dn in valid_identifiers or norm_dn in valid_names_normalized:
-            return norm_dn
-        for vn in valid_names_normalized:
-            if len(vn) >= 3 and (norm_dn.startswith(vn) or vn.startswith(norm_dn)):
-                return vn
-    return None
+new_root = ET.Element("tv")
+kept_channel_ids = set()
+channel_count = 0
 
-# Шаг 1: Собираем каналы из обоих источников и группируем по шаблонам из плейлиста
-channel_groups = {}
-src_to_final_id = {}
-
-def collect_channels(file_path, file_src):
+def process_channels(file_path):
+    global channel_count
     if not os.path.exists(file_path):
         return
     with gzip.open(file_path, "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "channel":
                 ch_id = elem.get("id", "").strip()
-                display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
-                template = get_matched_template(ch_id, display_names)
+                if ch_id in kept_channel_ids:
+                    elem.clear()
+                    continue
+                    
+                display_names = [dn.text for dn in elem.findall("display-name")  if dn.text]
+                keep = False
                 
-                if template and ch_id:
-                    has_icon = elem.find("icon") is not None
-                    entry = {
-                        'src_id': ch_id,
-                        'file_src': file_src,
-                        'has_icon': has_icon,
-                        'elem': copy.deepcopy(elem)
-                    }
-                    if template not in channel_groups:
-                        channel_groups[template] = []
-                    channel_groups[template].append(entry)
-                elem.clear()
+                if ch_id and (ch_id.lower() in valid_identifiers or ch_id in valid_identifiers):
+                    keep = True
+                else:
+                    for dn in display_names:
+                        norm_dn = normalize(dn)
+                        if dn in valid_identifiers or norm_dn in valid_names_normalized:
+                            keep = True
+                            break
+                        
+                        matched = False
+                        for vn in valid_names_normalized:
+                            if len(vn) >= 3 and (norm_dn.startswith(vn) or vn.startswith(norm_dn)):
+                                keep = True
+                                matched = True
+                                break
+                        if matched:
+                            break
+                
+                if keep and ch_id:
+                    kept_channel_ids.add(ch_id)
+                    new_root.append(elem)
+                    channel_count += 1
+                else:
+                    elem.clear()
 
-collect_channels("raw_epg1.xml.gz", 1)
-collect_channels("raw_epg2.xml.gz", 2)
+process_channels("raw_epg1.xml.gz")
+process_channels("raw_epg2.xml.gz")
 
-new_root = ET.Element("tv")
-channel_count = 0
+print(f"Всего отобрано каналов: {channel_count}")
 
-# Выбираем для каждого канала лучшую карточку (приоритет у пикона, затем у первого источника)
-for template, entries in channel_groups.items():
-    best = max(entries, key=lambda x: (1 if x['has_icon'] else 0, 1 if x['file_src'] == 1 else 0))
-    final_id = best['src_id']
-    
-    new_root.append(best['elem'])
-    channel_count += 1
-    
-    # Все исходные ID для этого канала мапим на итоговый ID
-    for entry in entries:
-        src_to_final_id[entry['src_id']] = final_id
-
-print(f"Всего отобрано уникальных каналов: {channel_count}")
-
-# Шаг 2: Собираем программы (вчера + 3 дня вперед)
+# Собираем программы (вчера + 3 дня вперед)
 now = datetime.utcnow()
 min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
 max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
@@ -169,21 +159,15 @@ def process_programmes(file_path):
     with gzip.open(file_path, "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "programme":
-                src_ch_ref = elem.get("channel")
+                ch_ref = elem.get("channel")
                 start = elem.get("start", "")
+                prog_key = (ch_ref, start)
                 
-                if src_ch_ref in src_to_final_id and start:
+                if ch_ref in kept_channel_ids and start and prog_key not in added_programmes:
                     if min_date <= start[:8] <= max_date:
-                        target_ch_id = src_to_final_id[src_ch_ref]
-                        prog_key = (target_ch_id, start)
-                        
-                        if prog_key not in added_programmes:
-                            added_programmes.add(prog_key)
-                            elem.set("channel", target_ch_id)
-                            new_root.append(elem)
-                            programme_count += 1
-                        else:
-                            elem.clear()
+                        added_programmes.add(prog_key)
+                        new_root.append(elem)
+                        programme_count += 1
                     else:
                         elem.clear()
                 else:
