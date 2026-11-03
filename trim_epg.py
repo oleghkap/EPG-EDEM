@@ -57,7 +57,7 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
         except Exception as e:
             print(f"Ошибка плейлиста: {e}")
 
-# Читаем список ваших каналов для фильтрации
+# Читаем список ваших каналов для гибкого сопоставления
 valid_identifiers = set()
 valid_names_normalized = set()
 
@@ -77,7 +77,7 @@ if download_file(EPG_URL, "raw_epg.xml.gz"):
     kept_channel_ids = set()
     channel_count = 0
 
-    print("Фильтрация каналов по вашему плейлисту...")
+    print("Гибкий поиск и фильтрация каналов...")
     with gzip.open("raw_epg.xml.gz", "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "channel":
@@ -89,17 +89,21 @@ if download_file(EPG_URL, "raw_epg.xml.gz"):
                 display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
                 keep = False
                 
+                # Проверяем ID или отображаемые имена по расширенным правилам
                 if ch_id and (ch_id.lower() in valid_identifiers or ch_id in valid_identifiers):
                     keep = True
                 else:
                     for dn in display_names:
                         norm_dn = normalize(dn)
+                        if not norm_dn:
+                            continue
+                        # Точное совпадение или частичное вхождение (учитываем даже короткие совпадения)
                         if dn in valid_identifiers or norm_dn in valid_names_normalized:
                             keep = True
                             break
                         matched = False
                         for vn in valid_names_normalized:
-                            if len(vn) >= 3 and (norm_dn.startswith(vn) or vn.startswith(norm_dn)):
+                            if len(vn) >= 2 and (norm_dn in vn or vn in norm_dn):
                                 keep = True
                                 matched = True
                                 break
@@ -113,7 +117,7 @@ if download_file(EPG_URL, "raw_epg.xml.gz"):
                 else:
                     elem.clear()
 
-    print(f"Отобрано каналов: {channel_count}")
+    print(f"Отобрано каналов (максимально): {channel_count}")
 
     # Диапазон дат: вчера + 3 дня вперед
     now = datetime.utcnow()
