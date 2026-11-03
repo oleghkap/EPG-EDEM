@@ -27,8 +27,9 @@ def download_file(url, dest):
         print(f"Ошибка скачивания {url}: {e}")
         return False
 
-# Автоматическое создание channels.txt если файл отсутствует
+# Автоматическое создание channels.txt (один раз)
 if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
+    print(f"Проверка PLAYLIST_URL: {'Задана' if PLAYLIST_URL else 'ПУСТАЯ!'}")
     if PLAYLIST_URL:
         try:
             req = urllib.request.Request(PLAYLIST_URL, headers={'User-Agent': 'VLC/3.0.16'})
@@ -40,108 +41,120 @@ if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
                 line = line.strip()
                 if not line:
                     continue
+                
+                m_id = re.search(r'tvg-id="([^"]+)"', line, re.IGNORECASE)
+                if m_id and m_id.group(1).strip():
+                    extracted_channels.append(m_id.group(1).strip())
+                
                 m_name = re.search(r'tvg-name="([^"]+)"', line, re.IGNORECASE)
                 if m_name and m_name.group(1).strip():
                     extracted_channels.append(m_name.group(1).strip())
-                if line.startswith("#EXTINF") and "," in line:
-                    ch_name = line.split(",")[-1].strip()
-                    if ch_name:
-                        extracted_channels.append(ch_name)
+                
+                if line.startswith("#EXTINF"):
+                    if "," in line:
+                        parts = line.split(",")
+                        ch_name = parts[-1].strip()
+                        if ch_name:
+                            extracted_channels.append(ch_name)
                         
-            if extracted_channels:
-                unique_channels = list(dict.fromkeys(extracted_channels))
+            if len(extracted_channels) > 0:
+                unique_channels = []
+                seen = set()
+                for ch in extracted_channels:
+                    if ch not in seen:
+                        seen.add(ch)
+                        unique_channels.append(ch)
+
                 with open("channels.txt", "w", encoding="utf-8") as f:
                     for ch in unique_channels:
                         f.write(ch + "\n")
+                print(f"Успешно записано уникальных строк в channels.txt: {len(unique_channels)}")
+                
         except Exception as e:
-            print(f"Ошибка плейлиста: {e}")
+            print(f"Критическая ошибка при скачивании плейлиста: {e}")
 
-playlist_channels = []
-if os.path.exists("channels.txt"):
+# Читаем список каналов для фильтрации EPG
+valid_identifiers = set()
+valid_names_normalized = set()
+
+if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
     with open("channels.txt", "r", encoding="utf-8") as f:
         for line in f:
-            name = line.strip()
-            if name and not name.startswith("#") and name not in playlist_channels:
-                playlist_channels.append(name)
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            valid_identifiers.add(line.lower())
+            valid_identifiers.add(line)
+            valid_names_normalized.add(normalize(line))
+            
+    print(f"Загружено шаблонов для фильтрации: {len(valid_names_normalized)}")
+else:
+    print("Ошибка: файл channels.txt пуст или отсутствует!")
 
 print("Скачивание EPG источников...")
 download_file(EPG_URL_1, "raw_epg1.xml.gz")
 download_file(EPG_URL_2, "raw_epg2.xml.gz")
 
-# Шаг 1: Собираем все каналы из обоих источников в память
-source_channels = {}
+def get_matched_template(ch_id, display_names):
+    if ch_id and (ch_id.lower() in valid_identifiers or ch_id in valid_identifiers):
+        return ch_id.lower()
+    for dn in display_names:
+        norm_dn = normalize(dn)
+        if dn in valid_identifiers or norm_dn in valid_names_normalized:
+            return norm_dn
+        for vn in valid_names_normalized:
+            if len(vn) >= 3 and (norm_dn.startswith(vn) or vn.startswith(norm_dn)):
+                return vn
+    return None
 
-def parse_source_channels(file_path):
+# Шаг 1: Собираем каналы из обоих источников и группируем по шаблонам из плейлиста
+channel_groups = {}
+src_to_final_id = {}
+
+def collect_channels(file_path, file_src):
     if not os.path.exists(file_path):
         return
     with gzip.open(file_path, "rb") as f_in:
         for event, elem in ET.iterparse(f_in, events=("end",)):
             if elem.tag == "channel":
                 ch_id = elem.get("id", "").strip()
-                if ch_id and ch_id not in source_channels:
-                    display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
+                display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
+                template = get_matched_template(ch_id, display_names)
+                
+                if template and ch_id:
                     has_icon = elem.find("icon") is not None
-                    norm_names = [normalize(dn) for dn in display_names if dn]
-                    source_channels[ch_id] = {
-                        'elem': copy.deepcopy(elem),
-                        'norm_names': norm_names,
-                        'has_icon': has_icon
+                    entry = {
+                        'src_id': ch_id,
+                        'file_src': file_src,
+                        'has_icon': has_icon,
+                        'elem': copy.deepcopy(elem)
                     }
+                    if template not in channel_groups:
+                        channel_groups[template] = []
+                    channel_groups[template].append(entry)
                 elem.clear()
 
-parse_source_channels("raw_epg1.xml.gz")
-parse_source_channels("raw_epg2.xml.gz")
-
-print(f"Всего найдено каналов в источниках: {len(source_channels)}")
+collect_channels("raw_epg1.xml.gz", 1)
+collect_channels("raw_epg2.xml.gz", 2)
 
 new_root = ET.Element("tv")
-mapped_source_to_target = {}
-processed_targets = set()
 channel_count = 0
 
-# Шаг 2: Сопоставляем каналы плейлиста с источниками, отдавая приоритет тем, у которых есть пиконы
-for ch_name in playlist_channels:
-    norm_target = normalize(ch_name)
-    target_ch_id = f"gen_{norm_target}"
+# Выбираем для каждого канала лучшую карточку (приоритет у пикона, затем у первого источника)
+for template, entries in channel_groups.items():
+    best = max(entries, key=lambda x: (1 if x['has_icon'] else 0, 1 if x['file_src'] == 1 else 0))
+    final_id = best['src_id']
     
-    matching_source_ids = []
-    best_source_elem = None
-    has_icon_found = False
+    new_root.append(best['elem'])
+    channel_count += 1
     
-    for src_id, data in source_channels.items():
-        matched = False
-        for n_name in data['norm_names']:
-            if n_name == norm_target or (len(n_name) >= 3 and (norm_target.startswith(n_name) or n_name.startswith(norm_target))):
-                matched = True
-                break
-        if matched:
-            matching_source_ids.append(src_id)
-            # Выбираем карточку с иконкой в приоритете
-            if data['has_icon'] and not has_icon_found:
-                best_source_elem = data['elem']
-                has_icon_found = True
-            elif not best_source_elem:
-                best_source_elem = data['elem']
+    # Все исходные ID для этого канала мапим на итоговый ID
+    for entry in entries:
+        src_to_final_id[entry['src_id']] = final_id
 
-    if target_ch_id not in processed_targets:
-        processed_targets.add(target_ch_id)
-        if best_source_elem is not None:
-            final_ch_elem = copy.deepcopy(best_source_elem)
-            final_ch_elem.set("id", target_ch_id)
-            new_root.append(final_ch_elem)
-        else:
-            ch_elem = ET.Element("channel", id=target_ch_id)
-            dn_elem = ET.SubElement(ch_elem, "display-name")
-            dn_elem.text = ch_name
-            new_root.append(ch_elem)
-        channel_count += 1
+print(f"Всего отобрано уникальных каналов: {channel_count}")
 
-    for src_id in matching_source_ids:
-        mapped_source_to_target[src_id] = target_ch_id
-
-print(f"Отобрано уникальных каналов для плейлиста: {channel_count}")
-
-# Шаг 3: Собираем программы из обоих источников и привязываем к единому ID
+# Шаг 2: Собираем программы (вчера + 3 дня вперед)
 now = datetime.utcnow()
 min_date = (now - timedelta(days=1)).strftime("%Y%m%d")
 max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
@@ -149,7 +162,7 @@ max_date = (now + timedelta(days=3)).strftime("%Y%m%d")
 programme_count = 0
 added_programmes = set()
 
-def parse_source_programmes(file_path):
+def process_programmes(file_path):
     global programme_count
     if not os.path.exists(file_path):
         return
@@ -159,23 +172,25 @@ def parse_source_programmes(file_path):
                 src_ch_ref = elem.get("channel")
                 start = elem.get("start", "")
                 
-                if src_ch_ref in mapped_source_to_target and start:
+                if src_ch_ref in src_to_final_id and start:
                     if min_date <= start[:8] <= max_date:
-                        target_ch_id = mapped_source_to_target[src_ch_ref]
+                        target_ch_id = src_to_final_id[src_ch_ref]
                         prog_key = (target_ch_id, start)
                         
                         if prog_key not in added_programmes:
                             added_programmes.add(prog_key)
-                            new_prog = copy.deepcopy(elem)
-                            new_prog.set("channel", target_ch_id)
-                            new_root.append(new_prog)
+                            elem.set("channel", target_ch_id)
+                            new_root.append(elem)
                             programme_count += 1
-                    elem.clear()
+                        else:
+                            elem.clear()
+                    else:
+                        elem.clear()
                 else:
                     elem.clear()
 
-parse_source_programmes("raw_epg1.xml.gz")
-parse_source_programmes("raw_epg2.xml.gz")
+process_programmes("raw_epg1.xml.gz")
+process_programmes("raw_epg2.xml.gz")
 
 print(f"Всего добавлено передач: {programme_count}")
 
