@@ -1,8 +1,6 @@
-
 import copy
 import gzip
 import os
-import re
 import shutil
 import tempfile
 import urllib.request
@@ -55,12 +53,7 @@ def local_name(tag):
 
 
 def normalize_channel_name(value):
-    """
-    Нормализует только регистр и пробелы.
-
-    HD, FHD, SD, 4K, региональные обозначения
-    и временные сдвиги сохраняются.
-    """
+    """Нормализует только регистр и пробелы."""
     return " ".join((value or "").casefold().split())
 
 
@@ -121,31 +114,24 @@ def programme_is_in_window(element, window_start, window_end):
     stop_value = element.attrib.get("stop")
     stop = parse_xmltv_time(stop_value)
 
-    # Если окончание отсутствует, проверяем начало передачи.
     if not stop_value:
         return window_start <= start < window_end
 
-    # Если окончание указано, но некорректно,
-    # передача не проходит проверку.
     if stop is None:
         return False
 
-    # Учитываем передачи, которые начались до окна,
-    # но заканчиваются уже внутри него.
     return start < window_end and stop > window_start
 
 
 def get_programme_key(element):
     """
-    Ключ для поиска передач, уже присутствующих
-    в основном источнике.
-
-    Используются:
+    Ключ передачи:
     - ID канала;
-    - момент начала передачи;
+    - время начала;
     - название передачи.
 
-    Время сравнивается с учётом часового пояса.
+    Используется только для дедупликации
+    передач дополнительного источника.
     """
 
     channel = element.attrib.get("channel", "")
@@ -179,7 +165,7 @@ def get_programme_key(element):
 
 
 def remove_optional_tags(element):
-    """Удаляет только заданные необязательные теги передачи."""
+    """Удаляет заданные необязательные теги передачи."""
 
     removed = 0
 
@@ -195,7 +181,6 @@ def format_size(size):
     """Форматирует размер файла."""
 
     units = ["B", "KB", "MB", "GB"]
-
     value = float(size)
 
     for unit in units:
@@ -205,6 +190,34 @@ def format_size(size):
         value /= 1024
 
     return f"{value:.2f} GB"
+
+
+def iterparse_gzip(filename, events):
+    """
+    Потоково разбирает XML непосредственно из GZIP-файла.
+
+    Важно: ET.iterparse сам по себе не распаковывает GZIP.
+    Поэтому сначала открываем файл через gzip.open().
+    """
+    with gzip.open(filename, "rb") as source:
+        yield from ET.iterparse(source, events=events)
+
+
+def release_element(root, element):
+    """
+    Удаляет обработанный элемент из корневого дерева
+    и освобождает его содержимое.
+
+    В отличие от root.clear(), не удаляет
+    ещё не обработанные элементы.
+    """
+    if root is not None:
+        try:
+            root.remove(element)
+        except ValueError:
+            pass
+
+    element.clear()
 
 
 # ============================================================
@@ -238,9 +251,11 @@ def download_source(url, destination):
             f"Скачанный файл слишком маленький: {url}"
         )
 
-    # Проверяем целостность GZIP и возможность чтения.
+    # Проверяем возможность распаковки GZIP.
+    # Читаем файл полностью, чтобы проверить целостность.
     with gzip.open(destination, "rb") as source:
-        source.read(2)
+        while source.read(1024 * 1024):
+            pass
 
     print(f"Размер загрузки: {format_size(size)}")
 
@@ -270,7 +285,7 @@ def read_primary_channels(filename):
     root_tag = None
     root_attributes = {}
 
-    context = ET.iterparse(
+    context = iterparse_gzip(
         filename,
         events=("start", "end")
     )
@@ -297,18 +312,10 @@ def read_primary_channels(filename):
             if channel_id:
                 channels[channel_id] = copy.deepcopy(element)
 
-            element.clear()
-
-            # Удаляем уже обработанные элементы
-            # из корневого дерева, чтобы не накапливать память.
-            if root is not None:
-                root.clear()
+            release_element(root, element)
 
         elif tag == "programme":
-            element.clear()
-
-            if root is not None:
-                root.clear()
+            release_element(root, element)
 
     print(f"Каналов основного источника: {len(channels)}")
 
@@ -345,7 +352,7 @@ def read_secondary_channels(filename):
     channels = {}
     name_index = {}
 
-    context = ET.iterparse(
+    context = iterparse_gzip(
         filename,
         events=("start", "end")
     )
@@ -375,10 +382,7 @@ def read_secondary_channels(filename):
             for name in names:
                 name_index.setdefault(name, set()).add(channel_id)
 
-        element.clear()
-
-        if root is not None:
-            root.clear()
+        release_element(root, element)
 
     print(f"Каналов второго источника: {len(channels)}")
 
@@ -411,8 +415,6 @@ def build_secondary_channel_map(
             primary_matches = primary_name_index.get(name, set())
             secondary_matches = secondary_name_index.get(name, set())
 
-            # Название должно быть уникальным
-            # в обоих источниках.
             if (
                 len(primary_matches) == 1
                 and len(secondary_matches) == 1
@@ -543,7 +545,7 @@ def process_programmes(
 
     print(f"\nОбработка передач {source_name} источника...")
 
-    context = ET.iterparse(
+    context = iterparse_gzip(
         filename,
         events=("start", "end")
     )
@@ -569,15 +571,11 @@ def process_programmes(
         # Для второго источника ищем ID основного канала.
         if secondary:
 
-            target_channel = channel_map.get(source_channel)
+            target_channel = (channel_map or {}).get(source_channel)
 
             if target_channel is None:
                 stats["unmapped"] += 1
-                element.clear()
-
-                if root is not None:
-                    root.clear()
-
+                release_element(root, element)
                 continue
 
         else:
@@ -588,11 +586,7 @@ def process_programmes(
         if target_channel not in allowed_channels:
 
             stats["unmapped"] += 1
-            element.clear()
-
-            if root is not None:
-                root.clear()
-
+            release_element(root, element)
             continue
 
         start_value = element.attrib.get("start")
@@ -606,11 +600,7 @@ def process_programmes(
             or (stop_value and stop_time is None)
         ):
             stats["invalid"] += 1
-            element.clear()
-
-            if root is not None:
-                root.clear()
-
+            release_element(root, element)
             continue
 
         if not programme_is_in_window(
@@ -619,11 +609,7 @@ def process_programmes(
             window_end
         ):
             stats["outside"] += 1
-            element.clear()
-
-            if root is not None:
-                root.clear()
-
+            release_element(root, element)
             continue
 
         # Меняем только ссылку на канал
@@ -638,11 +624,7 @@ def process_programmes(
         if secondary and key is not None and key in seen_keys:
 
             stats["duplicates"] += 1
-            element.clear()
-
-            if root is not None:
-                root.clear()
-
+            release_element(root, element)
             continue
 
         if key is not None:
@@ -654,10 +636,7 @@ def process_programmes(
 
         stats["kept"] += 1
 
-        element.clear()
-
-        if root is not None:
-            root.clear()
+        release_element(root, element)
 
         if stats["read"] % 100000 == 0:
 
@@ -833,7 +812,6 @@ def main():
             )
 
             # Сначала записываем все каналы основного источника.
-            # ID, названия и логотипы сохраняются.
             for channel in channels.values():
                 write_element(output, channel)
 
@@ -865,7 +843,6 @@ def main():
             output.write(root_end)
             output.write(b"\n")
 
-            # Размер распакованного XML.
             uncompressed_size = output.bytes_written
 
         # ----------------------------------------------------
