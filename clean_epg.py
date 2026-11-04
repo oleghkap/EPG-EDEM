@@ -1,12 +1,14 @@
+
 import copy
 import gzip
 import os
+import re
 import shutil
 import tempfile
 import urllib.request
 import xml.etree.ElementTree as ET
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 
@@ -21,13 +23,13 @@ OUTPUT_FILE = "epg_custom.xml.gz"
 
 TIMEZONE = ZoneInfo("Europe/Moscow")
 
-# Четыре календарных дня:
-# позавчера, вчера, сегодня и завтра.
+# Позавчера, вчера, сегодня и завтра.
 DAYS_BEFORE = 2
 DAYS_AFTER = 1
 
 GZIP_LEVEL = 6
 DOWNLOAD_TIMEOUT = 180
+BUFFER_SIZE = 1024 * 1024
 
 OPTIONAL_TAGS_TO_REMOVE = {
     "credits",
@@ -40,31 +42,31 @@ OPTIONAL_TAGS_TO_REMOVE = {
     "icon",
 }
 
+XMLTV_DATETIME_PATTERN = re.compile(
+    r"^\s*(\d{14})(?:\s*([+-])(\d{2}):?(\d{2}))?\s*$"
+)
+
 
 # ============================================================
-# ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+# XML И ВРЕМЯ
 # ============================================================
 
 def local_name(tag):
-    """Возвращает имя XML-тега без namespace."""
     if "}" in tag:
         return tag.rsplit("}", 1)[1]
     return tag
 
 
 def normalize_channel_name(value):
-    """Нормализует только регистр и пробелы."""
     return " ".join((value or "").casefold().split())
 
 
 def get_channel_names(channel):
-    """Получает все названия канала из display-name."""
     names = set()
 
     for child in channel:
         if local_name(child.tag) == "display-name":
             name = normalize_channel_name(child.text)
-
             if name:
                 names.add(name)
 
@@ -73,65 +75,114 @@ def get_channel_names(channel):
 
 def parse_xmltv_time(value):
     """
-    Разбирает время XMLTV:
-    20261104120000 +0300
-    20261104120000
+    Поддерживаемые форматы:
+        20261104120000
+        20261104120000 +0300
+        20261104120000 +03:00
+
+    Время без часового пояса считается московским.
+    Время с часовым поясом переводится в Europe/Moscow.
+    Некорректный суффикс не игнорируется.
     """
+
     if not value:
         return None
 
-    value = value.strip()
+    match = XMLTV_DATETIME_PATTERN.fullmatch(value)
+
+    if not match:
+        return None
 
     try:
-        return datetime.strptime(
-            value,
-            "%Y%m%d%H%M%S %z"
-        ).astimezone(TIMEZONE)
-
-    except ValueError:
-        pass
-
-    try:
-        result = datetime.strptime(
-            value[:14],
-            "%Y%m%d%H%M%S"
+        parsed = datetime.strptime(
+            match.group(1),
+            "%Y%m%d%H%M%S",
         )
 
-        return result.replace(tzinfo=TIMEZONE)
+        sign = match.group(2)
 
-    except ValueError:
+        if sign:
+            hours = int(match.group(3))
+            minutes = int(match.group(4))
+
+            if hours > 23 or minutes > 59:
+                return None
+
+            offset_minutes = hours * 60 + minutes
+
+            if sign == "-":
+                offset_minutes = -offset_minutes
+
+            source_tz = timezone(
+                timedelta(minutes=offset_minutes)
+            )
+
+            return parsed.replace(
+                tzinfo=source_tz
+            ).astimezone(TIMEZONE)
+
+        return parsed.replace(tzinfo=TIMEZONE)
+
+    except (ValueError, OverflowError):
         return None
 
 
-def programme_is_in_window(element, window_start, window_end):
-    """Проверяет попадание передачи в заданный период."""
+def get_programme_times(element):
+    """
+    Возвращает (start, stop).
 
-    start = parse_xmltv_time(element.attrib.get("start"))
+    Отсутствующий stop допустим.
+    Указанный, но некорректный stop недопустим.
+    stop должен быть строго больше start.
+    """
 
+    start_value = element.attrib.get("start")
+
+    if not start_value:
+        return None, None
+
+    start = parse_xmltv_time(start_value)
+
+    if start is None:
+        return None, None
+
+    stop_value = element.attrib.get("stop")
+
+    if stop_value is None:
+        return start, None
+
+    stop = parse_xmltv_time(stop_value)
+
+    if stop is None or stop <= start:
+        return None, None
+
+    return start, stop
+
+
+def programme_is_in_window(
+    start,
+    stop,
+    window_start,
+    window_end,
+):
     if start is None:
         return False
 
-    stop_value = element.attrib.get("stop")
-    stop = parse_xmltv_time(stop_value)
-
-    if not stop_value:
+    if stop is None:
         return window_start <= start < window_end
 
-    if stop is None:
-        return False
-
-    return start < window_end and stop > window_start
+    return (
+        start < window_end
+        and stop > window_start
+    )
 
 
 def get_programme_key(element):
     """
-    Ключ передачи:
-    - ID канала;
-    - время начала;
-    - название передачи.
+    Ключ для сравнения передач:
+    ID канала, время начала, названия.
 
-    Используется только для дедупликации
-    передач дополнительного источника.
+    Используется для дедупликации только вторичного источника.
     """
 
     channel = element.attrib.get("channel", "")
@@ -165,8 +216,6 @@ def get_programme_key(element):
 
 
 def remove_optional_tags(element):
-    """Удаляет заданные необязательные теги передачи."""
-
     removed = 0
 
     for child in list(element):
@@ -177,40 +226,7 @@ def remove_optional_tags(element):
     return removed
 
 
-def format_size(size):
-    """Форматирует размер файла."""
-
-    units = ["B", "KB", "MB", "GB"]
-    value = float(size)
-
-    for unit in units:
-        if value < 1024 or unit == units[-1]:
-            return f"{value:.2f} {unit}"
-
-        value /= 1024
-
-    return f"{value:.2f} GB"
-
-
-def iterparse_gzip(filename, events):
-    """
-    Потоково разбирает XML непосредственно из GZIP-файла.
-
-    Важно: ET.iterparse сам по себе не распаковывает GZIP.
-    Поэтому сначала открываем файл через gzip.open().
-    """
-    with gzip.open(filename, "rb") as source:
-        yield from ET.iterparse(source, events=events)
-
-
 def release_element(root, element):
-    """
-    Удаляет обработанный элемент из корневого дерева
-    и освобождает его содержимое.
-
-    В отличие от root.clear(), не удаляет
-    ещё не обработанные элементы.
-    """
     if root is not None:
         try:
             root.remove(element)
@@ -220,29 +236,48 @@ def release_element(root, element):
     element.clear()
 
 
+def format_size(size):
+    units = ["B", "KB", "MB", "GB"]
+    value = float(size)
+
+    for unit in units:
+        if value < 1024 or unit == units[-1]:
+            return f"{value:.2f} {unit}"
+        value /= 1024
+
+    return f"{value:.2f} GB"
+
+
+def iterparse_gzip(filename, events):
+    with gzip.open(filename, "rb") as source:
+        yield from ET.iterparse(source, events=events)
+
+
 # ============================================================
 # ЗАГРУЗКА ИСТОЧНИКОВ
 # ============================================================
 
 def download_source(url, destination):
-    """Скачивает и проверяет GZIP-файл."""
-
     print(f"\nЗагрузка источника: {url}")
 
     request = urllib.request.Request(
         url,
         headers={
             "User-Agent": "Mozilla/5.0 EPG-EDEM/1.0"
-        }
+        },
     )
 
     with urllib.request.urlopen(
         request,
-        timeout=DOWNLOAD_TIMEOUT
+        timeout=DOWNLOAD_TIMEOUT,
     ) as response:
 
         with open(destination, "wb") as output:
-            shutil.copyfileobj(response, output)
+            shutil.copyfileobj(
+                response,
+                output,
+                BUFFER_SIZE,
+            )
 
     size = os.path.getsize(destination)
 
@@ -251,10 +286,15 @@ def download_source(url, destination):
             f"Скачанный файл слишком маленький: {url}"
         )
 
-    # Проверяем возможность распаковки GZIP.
-    # Читаем файл полностью, чтобы проверить целостность.
+    with open(destination, "rb") as source:
+        if source.read(2) != b"\x1f\x8b":
+            raise RuntimeError(
+                f"Файл не является GZIP-архивом: {url}"
+            )
+
+    # Проверяем архив полностью, включая контрольную сумму.
     with gzip.open(destination, "rb") as source:
-        while source.read(1024 * 1024):
+        while source.read(BUFFER_SIZE):
             pass
 
     print(f"Размер загрузки: {format_size(size)}")
@@ -263,21 +303,10 @@ def download_source(url, destination):
 
 
 # ============================================================
-# ЧТЕНИЕ КАНАЛОВ ОСНОВНОГО ИСТОЧНИКА
+# ЧТЕНИЕ КАНАЛОВ PRIMARY
 # ============================================================
 
 def read_primary_channels(filename):
-    """
-    Читает каналы основного источника.
-
-    Сохраняет оригинальные:
-    - ID;
-    - названия;
-    - логотипы;
-    - атрибуты;
-    - остальные данные каналов.
-    """
-
     print("\nЧтение каналов основного источника...")
 
     channels = {}
@@ -287,7 +316,7 @@ def read_primary_channels(filename):
 
     context = iterparse_gzip(
         filename,
-        events=("start", "end")
+        events=("start", "end"),
     )
 
     root = None
@@ -323,12 +352,10 @@ def read_primary_channels(filename):
 
 
 # ============================================================
-# СОПОСТАВЛЕНИЕ КАНАЛОВ
+# ЧТЕНИЕ КАНАЛОВ SECONDARY
 # ============================================================
 
 def build_primary_name_index(channels):
-    """Создаёт индекс названий каналов основного источника."""
-
     index = {}
 
     for channel_id, channel in channels.items():
@@ -341,10 +368,10 @@ def build_primary_name_index(channels):
 
 def read_secondary_channels(filename):
     """
-    Читает названия каналов второго источника.
+    Читает каналы вторичного источника.
 
-    Индекс позволяет проверить, что название
-    встречается только у одного канала.
+    Важно: освобождает не только channel, но и programme.
+    Это предотвращает накопление всего XML в памяти.
     """
 
     print("\nЧтение каналов дополнительного источника...")
@@ -354,35 +381,47 @@ def read_secondary_channels(filename):
 
     context = iterparse_gzip(
         filename,
-        events=("start", "end")
+        events=("start", "end"),
     )
 
     root = None
+    depth = 0
 
     for event, element in context:
 
-        if event == "start" and root is None:
-            root = element
+        if event == "start":
+
+            depth += 1
+
+            if root is None:
+                root = element
+
             continue
 
-        if event != "end":
-            continue
+        if depth == 2:
 
-        if local_name(element.tag) != "channel":
-            continue
+            tag = local_name(element.tag)
 
-        channel_id = element.attrib.get("id")
+            if tag == "channel":
 
-        if channel_id:
+                channel_id = element.attrib.get("id")
 
-            names = get_channel_names(element)
+                if channel_id:
 
-            channels[channel_id] = names
+                    names = get_channel_names(element)
+                    channels[channel_id] = names
 
-            for name in names:
-                name_index.setdefault(name, set()).add(channel_id)
+                    for name in names:
+                        name_index.setdefault(
+                            name,
+                            set(),
+                        ).add(channel_id)
 
-        release_element(root, element)
+            # Освобождаем все обработанные элементы верхнего
+            # уровня, включая programme и неизвестные элементы.
+            release_element(root, element)
+
+        depth -= 1
 
     print(f"Каналов второго источника: {len(channels)}")
 
@@ -392,13 +431,11 @@ def read_secondary_channels(filename):
 def build_secondary_channel_map(
     primary_name_index,
     secondary_channels,
-    secondary_name_index
+    secondary_name_index,
 ):
     """
-    Сопоставляет каналы второго источника с основным.
-
-    Совпадение разрешено только тогда, когда название
-    однозначно соответствует одному каналу в обоих источниках.
+    Сопоставление только по уникальному точному имени
+    после нормализации регистра и пробелов.
     """
 
     channel_map = {}
@@ -429,7 +466,11 @@ def build_secondary_channel_map(
         elif len(candidates) > 1:
             ambiguous += 1
 
-    unmatched = len(secondary_channels) - matched - ambiguous
+    unmatched = (
+        len(secondary_channels)
+        - matched
+        - ambiguous
+    )
 
     print(f"Однозначно сопоставлено: {matched}")
     print(f"Неоднозначных соответствий: {ambiguous}")
@@ -443,8 +484,6 @@ def build_secondary_channel_map(
 # ============================================================
 
 class CountingWriter:
-    """Считает размер XML до GZIP-сжатия."""
-
     def __init__(self, target):
         self.target = target
         self.bytes_written = 0
@@ -456,14 +495,12 @@ class CountingWriter:
 
 
 def write_xml_start(output, root_tag, root_attributes):
-    """Записывает XML-декларацию и открывающий корневой тег."""
-
     root = ET.Element(root_tag, root_attributes)
 
     root_xml = ET.tostring(
         root,
         encoding="utf-8",
-        short_empty_elements=False
+        short_empty_elements=False,
     )
 
     closing_position = root_xml.rfind(b"</")
@@ -487,16 +524,13 @@ def write_xml_start(output, root_tag, root_attributes):
 
 
 def write_element(output, element):
-    """Записывает XML-элемент."""
-
     output.write(
         ET.tostring(
             element,
             encoding="utf-8",
-            short_empty_elements=True
+            short_empty_elements=True,
         )
     )
-
     output.write(b"\n")
 
 
@@ -514,19 +548,6 @@ def process_programmes(
     channel_map=None,
     secondary=False,
 ):
-    """
-    Обрабатывает передачи потоково.
-
-    Основной источник:
-    - сохраняет все подходящие передачи;
-    - не удаляет дубли;
-    - не заменяет данные.
-
-    Дополнительный источник:
-    - сопоставляет канал;
-    - добавляет только отсутствующие передачи.
-    """
-
     stats = {
         "read": 0,
         "kept": 0,
@@ -547,7 +568,7 @@ def process_programmes(
 
     context = iterparse_gzip(
         filename,
-        events=("start", "end")
+        events=("start", "end"),
     )
 
     root = None
@@ -568,10 +589,11 @@ def process_programmes(
 
         source_channel = element.attrib.get("channel", "")
 
-        # Для второго источника ищем ID основного канала.
         if secondary:
 
-            target_channel = (channel_map or {}).get(source_channel)
+            target_channel = (channel_map or {}).get(
+                source_channel
+            )
 
             if target_channel is None:
                 stats["unmapped"] += 1
@@ -581,48 +603,36 @@ def process_programmes(
         else:
             target_channel = source_channel
 
-        # Не добавляем передачи, для которых
-        # отсутствует соответствующий канал в основном EPG.
         if target_channel not in allowed_channels:
-
             stats["unmapped"] += 1
             release_element(root, element)
             continue
 
-        start_value = element.attrib.get("start")
-        stop_value = element.attrib.get("stop")
+        start_time, stop_time = get_programme_times(element)
 
-        start_time = parse_xmltv_time(start_value)
-        stop_time = parse_xmltv_time(stop_value)
-
-        if (
-            start_time is None
-            or (stop_value and stop_time is None)
-        ):
+        if start_time is None:
             stats["invalid"] += 1
             release_element(root, element)
             continue
 
         if not programme_is_in_window(
-            element,
+            start_time,
+            stop_time,
             window_start,
-            window_end
+            window_end,
         ):
             stats["outside"] += 1
             release_element(root, element)
             continue
 
-        # Меняем только ссылку на канал
-        # в дополнительном источнике.
+        # Изменяем ID канала только у передачи secondary.
         if secondary:
             element.attrib["channel"] = target_channel
 
         key = get_programme_key(element)
 
-        # Дедупликация применяется только ко второму источнику.
-        # Передачи основного источника не удаляются.
+        # Primary не дедуплицируется.
         if secondary and key is not None and key in seen_keys:
-
             stats["duplicates"] += 1
             release_element(root, element)
             continue
@@ -630,7 +640,9 @@ def process_programmes(
         if key is not None:
             seen_keys.add(key)
 
-        stats["optional_removed"] += remove_optional_tags(element)
+        stats["optional_removed"] += remove_optional_tags(
+            element
+        )
 
         write_element(output, element)
 
@@ -639,7 +651,6 @@ def process_programmes(
         release_element(root, element)
 
         if stats["read"] % 100000 == 0:
-
             print(
                 f"  Проверено: {stats['read']}; "
                 f"добавлено: {stats['kept']}"
@@ -655,11 +666,42 @@ def process_programmes(
         print(f"Дубликатов пропущено: {stats['duplicates']}")
 
     print(
-        f"Удалено необязательных тегов: "
+        "Удалено необязательных тегов: "
         f"{stats['optional_removed']}"
     )
 
     return stats
+
+
+# ============================================================
+# ПРОВЕРКА ИТОГОВОГО XML
+# ============================================================
+
+def validate_output(filename):
+    checked_elements = 0
+    channels = 0
+
+    with gzip.open(filename, "rb") as source:
+
+        for event, element in ET.iterparse(
+            source,
+            events=("end",),
+        ):
+
+            checked_elements += 1
+
+            if local_name(element.tag) == "channel":
+                channels += 1
+
+    if checked_elements == 0:
+        raise RuntimeError("Итоговый XML пуст.")
+
+    if channels == 0:
+        raise RuntimeError(
+            "В итоговом XML отсутствуют каналы."
+        )
+
+    return channels
 
 
 # ============================================================
@@ -674,13 +716,13 @@ def main():
     window_start = datetime.combine(
         today - timedelta(days=DAYS_BEFORE),
         datetime.min.time(),
-        tzinfo=TIMEZONE
+        tzinfo=TIMEZONE,
     )
 
     window_end = datetime.combine(
         today + timedelta(days=DAYS_AFTER + 1),
         datetime.min.time(),
-        tzinfo=TIMEZONE
+        tzinfo=TIMEZONE,
     )
 
     print("=" * 65)
@@ -696,27 +738,26 @@ def main():
 
         primary_file = os.path.join(
             temp_dir,
-            "primary.xml.gz"
+            "primary.xml.gz",
         )
 
         secondary_file = os.path.join(
             temp_dir,
-            "secondary.xml.gz"
+            "secondary.xml.gz",
         )
 
-        # ----------------------------------------------------
-        # 1. Загрузка основного источника.
-        # ----------------------------------------------------
+        temporary_output = os.path.join(
+            temp_dir,
+            "epg_custom.tmp.xml.gz",
+        )
 
+        # 1. Загружаем основной источник.
         primary_download_size = download_source(
             PRIMARY_URL,
-            primary_file
+            primary_file,
         )
 
-        # ----------------------------------------------------
-        # 2. Загрузка дополнительного источника.
-        # ----------------------------------------------------
-
+        # 2. Загружаем дополнительный источник.
         secondary_available = True
         secondary_download_size = 0
 
@@ -724,7 +765,7 @@ def main():
 
             secondary_download_size = download_source(
                 SECONDARY_URL,
-                secondary_file
+                secondary_file,
             )
 
         except Exception as error:
@@ -741,25 +782,19 @@ def main():
                 "из основного источника."
             )
 
-        # ----------------------------------------------------
-        # 3. Чтение каналов основного источника.
-        # ----------------------------------------------------
-
+        # 3. Читаем каналы primary.
         channels, root_tag, root_attributes = (
             read_primary_channels(primary_file)
         )
 
         if not channels:
             raise RuntimeError(
-                "Основной источник не содержит каналов"
+                "Основной источник не содержит каналов."
             )
 
         primary_ids = set(channels.keys())
 
-        # ----------------------------------------------------
-        # 4. Сопоставление каналов второго источника.
-        # ----------------------------------------------------
-
+        # 4. Сопоставляем каналы secondary.
         channel_map = {}
 
         if secondary_available:
@@ -770,19 +805,16 @@ def main():
 
             (
                 secondary_channels,
-                secondary_name_index
+                secondary_name_index,
             ) = read_secondary_channels(secondary_file)
 
             channel_map = build_secondary_channel_map(
                 primary_name_index,
                 secondary_channels,
-                secondary_name_index
+                secondary_name_index,
             )
 
-        # ----------------------------------------------------
-        # 5. Формирование выходного XML.
-        # ----------------------------------------------------
-
+        # 5. Формируем временный выходной файл.
         print("\nСоздание итогового EPG...")
 
         seen_keys = set()
@@ -798,9 +830,9 @@ def main():
         }
 
         with gzip.open(
-            OUTPUT_FILE,
+            temporary_output,
             "wb",
-            compresslevel=GZIP_LEVEL
+            compresslevel=GZIP_LEVEL,
         ) as gzip_output:
 
             output = CountingWriter(gzip_output)
@@ -808,14 +840,14 @@ def main():
             root_end = write_xml_start(
                 output,
                 root_tag,
-                root_attributes
+                root_attributes,
             )
 
-            # Сначала записываем все каналы основного источника.
+            # Сначала все каналы primary без подмены иконок.
             for channel in channels.values():
                 write_element(output, channel)
 
-            # Передачи основного источника.
+            # Затем передачи primary.
             primary_stats = process_programmes(
                 filename=primary_file,
                 output=output,
@@ -826,7 +858,7 @@ def main():
                 secondary=False,
             )
 
-            # Только недостающие передачи второго источника.
+            # Затем только недостающие передачи secondary.
             if secondary_available:
 
                 secondary_stats = process_programmes(
@@ -845,25 +877,26 @@ def main():
 
             uncompressed_size = output.bytes_written
 
-        # ----------------------------------------------------
-        # 6. Размер сжатого файла.
-        # ----------------------------------------------------
+        # 6. Проверяем временный файл до замены результата.
+        print("\nПроверка итогового GZIP и XML...")
+
+        output_channels = validate_output(temporary_output)
+
+        # Заменяем прежний результат только после проверки.
+        os.replace(
+            temporary_output,
+            OUTPUT_FILE,
+        )
 
         compressed_size = os.path.getsize(OUTPUT_FILE)
 
-        if uncompressed_size > 0:
+        compression_percent = (
+            (1 - compressed_size / uncompressed_size) * 100
+            if uncompressed_size
+            else 0
+        )
 
-            compression_percent = (
-                1 - compressed_size / uncompressed_size
-            ) * 100
-
-        else:
-            compression_percent = 0
-
-        # ----------------------------------------------------
         # 7. Итоговая статистика.
-        # ----------------------------------------------------
-
         total_programmes = (
             primary_stats["kept"]
             + secondary_stats["kept"]
@@ -878,89 +911,80 @@ def main():
         print("ИТОГОВАЯ СТАТИСТИКА CLEAN_EPG")
         print("=" * 65)
 
-        print(f"Каналов: {len(channels)}")
+        print(f"Каналов в выходном файле: {output_channels}")
 
         print(
-            f"Передач из основного источника: "
+            "Передач из основного источника: "
             f"{primary_stats['kept']}"
         )
 
         print(
-            f"Дополнительных передач: "
+            "Дополнительных передач: "
             f"{secondary_stats['kept']}"
         )
 
         print(f"Всего передач: {total_programmes}")
 
         print(
-            f"Дубликатов второго источника: "
+            "Дубликатов второго источника: "
             f"{secondary_stats['duplicates']}"
         )
 
         print(
-            f"Передач с несопоставленными каналами "
-            f"(основной источник): "
+            "Несопоставленных передач primary: "
             f"{primary_stats['unmapped']}"
         )
 
         print(
-            f"Передач с несопоставленными каналами "
-            f"(второй источник): "
+            "Несопоставленных передач secondary: "
             f"{secondary_stats['unmapped']}"
         )
 
         print(
-            f"Некорректное время (основной источник): "
+            "Некорректное время primary: "
             f"{primary_stats['invalid']}"
         )
 
         print(
-            f"Некорректное время (второй источник): "
+            "Некорректное время secondary: "
             f"{secondary_stats['invalid']}"
         )
 
         print(
-            f"Удалено необязательных XML-тегов: "
+            "Удалено необязательных XML-тегов: "
             f"{total_optional_removed}"
         )
 
         print("-" * 65)
 
         print(
-            f"Размер основного источника: "
+            "Размер основного источника: "
             f"{format_size(primary_download_size)}"
         )
 
         if secondary_available:
-
             print(
-                f"Размер дополнительного источника: "
+                "Размер дополнительного источника: "
                 f"{format_size(secondary_download_size)}"
             )
-
         else:
-
             print("Дополнительный источник: недоступен")
 
         print("-" * 65)
 
         print(
-            f"Размер итогового GZIP: "
-            f"{format_size(compressed_size)}"
+            f"Размер итогового GZIP: {format_size(compressed_size)}"
         )
 
         print(
-            f"Размер XML без сжатия: "
-            f"{format_size(uncompressed_size)}"
+            f"Размер XML без сжатия: {format_size(uncompressed_size)}"
         )
 
         print(
-            f"Экономия за счёт GZIP: "
-            f"{compression_percent:.1f}%"
+            f"Экономия за счёт GZIP: {compression_percent:.1f}%"
         )
 
         print("-" * 65)
-
         print(f"Итоговый файл: {OUTPUT_FILE}")
         print("=" * 65)
 
