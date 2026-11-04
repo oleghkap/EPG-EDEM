@@ -10,6 +10,10 @@ from datetime import datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 
+# ============================================================
+# CONFIGURATION
+# ============================================================
+
 EPG_URL = "http://epg.one/epg2.xml.gz"
 
 OUTPUT_FILE = "epg_trimmed.xml.gz"
@@ -19,6 +23,10 @@ DAYS_BEFORE = 2
 DAYS_AFTER = 1
 
 MOSCOW = ZoneInfo("Europe/Moscow")
+
+DOWNLOAD_TIMEOUT = 90
+GZIP_LEVEL = 6
+BUFFER_SIZE = 1024 * 1024
 
 REMOVED_PROGRAMME_TAGS = {
     "credits",
@@ -32,10 +40,18 @@ REMOVED_PROGRAMME_TAGS = {
 }
 
 
+# ============================================================
+# XML UTILITIES
+# ============================================================
+
 def local_name(tag):
     """Return XML tag name without namespace."""
     return tag.rsplit("}", 1)[-1]
 
+
+# ============================================================
+# DOWNLOAD AND VALIDATION
+# ============================================================
 
 def download_file(url, destination):
     request = urllib.request.Request(
@@ -46,25 +62,78 @@ def download_file(url, destination):
     )
 
     try:
-        with urllib.request.urlopen(request, timeout=90) as response:
-            with open(destination, "wb") as output:
-                shutil.copyfileobj(response, output, 1024 * 1024)
+        print(f"Скачивание: {url}")
 
-        return os.path.getsize(destination) > 0
+        if os.path.exists(destination):
+            os.remove(destination)
+
+        with urllib.request.urlopen(
+            request,
+            timeout=DOWNLOAD_TIMEOUT,
+        ) as response:
+
+            with open(destination, "wb") as output:
+                shutil.copyfileobj(
+                    response,
+                    output,
+                    BUFFER_SIZE,
+                )
+
+        if not os.path.exists(destination):
+            raise RuntimeError("Файл не был создан.")
+
+        file_size = os.path.getsize(destination)
+
+        if file_size < 100:
+            raise RuntimeError(
+                f"Слишком маленький файл: {file_size} байт."
+            )
+
+        # Проверяем сигнатуру GZIP.
+        with open(destination, "rb") as source:
+            signature = source.read(2)
+
+        if signature != b"\x1f\x8b":
+            raise RuntimeError(
+                "Полученный файл не является GZIP-архивом."
+            )
+
+        # Полностью распаковываем архив для проверки
+        # целостности данных и контрольной суммы GZIP.
+        with gzip.open(destination, "rb") as source:
+            while source.read(BUFFER_SIZE):
+                pass
+
+        print(
+            f"Скачивание завершено: "
+            f"{file_size / 1024 / 1024:.2f} МБ"
+        )
+
+        return True
 
     except Exception as exc:
         print(f"Ошибка скачивания: {exc}")
+
+        if os.path.exists(destination):
+            os.remove(destination)
+
         return False
+
+
+# ============================================================
+# XMLTV DATETIME PARSER
+# ============================================================
+
+XMLTV_DATETIME_PATTERN = re.compile(
+    r"^\s*(\d{14})(?:\s*([+-])(\d{2}):?(\d{2}))?\s*$"
+)
 
 
 def parse_xmltv_datetime(value):
     if not value:
         return None
 
-    match = re.match(
-        r"^\s*(\d{14})(?:\s*([+-])(\d{2}):?(\d{2}))?\s*$",
-        value,
-    )
+    match = XMLTV_DATETIME_PATTERN.fullmatch(value)
 
     if not match:
         return None
@@ -78,10 +147,13 @@ def parse_xmltv_datetime(value):
         sign = match.group(2)
 
         if sign:
-            offset_minutes = (
-                int(match.group(3)) * 60
-                + int(match.group(4))
-            )
+            hours = int(match.group(3))
+            minutes = int(match.group(4))
+
+            if hours > 23 or minutes > 59:
+                return None
+
+            offset_minutes = hours * 60 + minutes
 
             if sign == "-":
                 offset_minutes = -offset_minutes
@@ -94,29 +166,80 @@ def parse_xmltv_datetime(value):
                 tzinfo=source_tz
             ).astimezone(MOSCOW)
 
-        return parsed.replace(tzinfo=MOSCOW)
+        return parsed.replace(
+            tzinfo=MOSCOW
+        )
 
     except (ValueError, OverflowError):
         return None
 
 
-def programme_is_in_window(element, window_start, window_end):
-    start = parse_xmltv_datetime(
-        element.get("start", "")
-    )
+# ============================================================
+# PROGRAMME TIME VALIDATION
+# ============================================================
 
+def get_programme_times(element):
+    """
+    Returns:
+        (start, stop) for a valid programme.
+        (None, None) for invalid dates.
+
+    Missing stop is allowed.
+    An explicitly supplied but invalid stop is rejected.
+    """
+
+    start_value = element.get("start")
+
+    if not start_value:
+        return None, None
+
+    start = parse_xmltv_datetime(start_value)
+
+    if start is None:
+        return None, None
+
+    stop_value = element.get("stop")
+
+    # Отсутствующий stop допустим.
+    if stop_value is None:
+        return start, None
+
+    # Если stop указан, он обязан быть корректным.
+    stop = parse_xmltv_datetime(stop_value)
+
+    if stop is None:
+        return None, None
+
+    # Продолжительность передачи должна быть положительной.
+    if stop <= start:
+        return None, None
+
+    return start, stop
+
+
+def programme_is_in_window(
+    start,
+    stop,
+    window_start,
+    window_end,
+):
     if start is None:
         return False
 
-    stop = parse_xmltv_datetime(
-        element.get("stop", "")
-    )
-
+    # Если stop отсутствует, проверяем время начала.
     if stop is None:
         return window_start <= start < window_end
 
-    return start < window_end and stop > window_start
+    # Сохраняем передачи, пересекающие временное окно.
+    return (
+        start < window_end
+        and stop > window_start
+    )
 
+
+# ============================================================
+# METADATA CLEANUP
+# ============================================================
 
 def remove_unneeded_metadata(element):
     removed = 0
@@ -128,6 +251,10 @@ def remove_unneeded_metadata(element):
 
     return removed
 
+
+# ============================================================
+# EPG PROCESSING
+# ============================================================
 
 def trim_epg(source_path, output_path):
 
@@ -175,6 +302,11 @@ def trim_epg(source_path, output_path):
         os.path.abspath(output_path)
     )
 
+    os.makedirs(
+        output_dir,
+        exist_ok=True,
+    )
+
     fd, temporary_output = tempfile.mkstemp(
         prefix="epg_trimmed_",
         suffix=".xml.gz",
@@ -189,7 +321,7 @@ def trim_epg(source_path, output_path):
              gzip.open(
                  temporary_output,
                  "wb",
-                 compresslevel=6,
+                 compresslevel=GZIP_LEVEL,
              ) as output:
 
             output.write(
@@ -226,6 +358,8 @@ def trim_epg(source_path, output_path):
 
                         output.write(opening_tag)
 
+                        # Сохраняем фактическое имя закрывающего
+                        # тега, включая namespace prefix.
                         closing_tag = b"</" + closing_part
 
                     continue
@@ -240,19 +374,22 @@ def trim_epg(source_path, output_path):
 
                         total_programmes += 1
 
-                        start_value = element.get("start", "")
-                        parsed_start = parse_xmltv_datetime(
-                            start_value
+                        start, stop = get_programme_times(
+                            element
                         )
 
-                        if parsed_start is None:
+                        if start is None:
                             invalid_dates += 1
 
-                        keep_element = programme_is_in_window(
-                            element,
-                            window_start,
-                            window_end,
-                        )
+                            keep_element = False
+
+                        else:
+                            keep_element = programme_is_in_window(
+                                start,
+                                stop,
+                                window_start,
+                                window_end,
+                            )
 
                         if keep_element:
 
@@ -269,6 +406,8 @@ def trim_epg(source_path, output_path):
 
                         channels += 1
 
+                    # Сохраняем все каналы и прочие элементы
+                    # верхнего уровня. Для programme применяем фильтр.
                     if keep_element:
 
                         output.write(
@@ -279,6 +418,9 @@ def trim_epg(source_path, output_path):
                             )
                         )
 
+                    # Удаляем только обработанный элемент.
+                    # Не используем root_element.clear():
+                    # он мог бы удалить ещё не обработанные данные.
                     if root_element is not None:
                         root_element.remove(element)
 
@@ -293,14 +435,34 @@ def trim_epg(source_path, output_path):
 
             output.write(closing_tag)
 
-        # Проверяем весь итоговый gzip и XML, а не только начало файла.
+        # ====================================================
+        # VALIDATE GENERATED FILE
+        # ====================================================
+
+        print()
+        print("Проверка итогового GZIP и XML...")
+
+        checked_elements = 0
+
         with gzip.open(temporary_output, "rb") as check_file:
+
             for _, _ in ET.iterparse(
                 check_file,
                 events=("end",),
             ):
-                pass
+                checked_elements += 1
 
+        if checked_elements == 0:
+            raise ValueError(
+                "Итоговый XML пуст."
+            )
+
+        if channels == 0:
+            raise ValueError(
+                "В исходном EPG не найдено ни одного канала."
+            )
+
+        # Заменяем итоговый файл только после успешной проверки.
         os.replace(
             temporary_output,
             output_path,
@@ -313,13 +475,17 @@ def trim_epg(source_path, output_path):
 
         raise
 
+    # ========================================================
+    # STATISTICS
+    # ========================================================
+
     output_compressed_size = os.path.getsize(output_path)
 
     with gzip.open(output_path, "rb") as output:
         output_uncompressed_size = sum(
             len(chunk)
             for chunk in iter(
-                lambda: output.read(1024 * 1024),
+                lambda: output.read(BUFFER_SIZE),
                 b"",
             )
         )
@@ -355,6 +521,7 @@ def trim_epg(source_path, output_path):
     )
 
     if source_compressed_size:
+
         reduction = (
             1 - output_compressed_size / source_compressed_size
         ) * 100
@@ -369,20 +536,31 @@ def trim_epg(source_path, output_path):
     print("=" * 55)
 
 
+# ============================================================
+# MAIN
+# ============================================================
+
 def main():
 
     print(f"Скачивание EPG: {EPG_URL}")
 
     if not download_file(EPG_URL, RAW_FILE):
         raise RuntimeError(
-            "Не удалось скачать исходный EPG. "
+            "Не удалось скачать или проверить исходный EPG. "
             "Итоговый файл не изменён."
         )
 
-    trim_epg(
-        RAW_FILE,
-        OUTPUT_FILE,
-    )
+    try:
+        trim_epg(
+            RAW_FILE,
+            OUTPUT_FILE,
+        )
+
+    finally:
+        # Удаляем временный исходный архив
+        # независимо от результата обработки.
+        if os.path.exists(RAW_FILE):
+            os.remove(RAW_FILE)
 
 
 if __name__ == "__main__":
