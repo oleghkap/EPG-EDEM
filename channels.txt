@@ -373,8 +373,8 @@ FX HD
 Ужасы HD
 Трейлеры HD
 Мосфильм. Золотая коллекция HD +4
-Romance HD
-Suspense HD
+VESNA
+9-1-1
 Sumiko HD
 KinoLiving
 Лавстори HD
@@ -453,7 +453,7 @@ Viju+ Comedy HD
 Viju+ Comedy HD orig
 Viju+ Megahit HD
 Viju+ Megahit HD orig
-Epic Drama
+Viasat Epic Drama
 День Победы HD
 Победа HD
 Победа
@@ -497,7 +497,7 @@ FAN
 НТВ Сериал
 НСТ
 Индия
-FilmBox
+FILMBOX+ One
 Дорама
 Мир Сериала
 Ретро
@@ -579,7 +579,7 @@ FAN orig
 НТВ Сериал orig
 НСТ orig
 Индия orig
-FilmBox ArtHouse orig
+FILMBOX+ Festival orig
 Мир Сериала orig
 Ретро orig
 Феникс плюс Кино orig
@@ -1429,21 +1429,21 @@ Sky Cinema Adventure IT
 Sky Sport Football HD IT
 Sky Sport Golf HD IT
 Sky Sport MotoGP HD IT
-Sky Sport NBA HD IT
+Sky Sport Basket
 Sky Sport Tennis HD IT
-Fox Sports South
+FanDuel Sports Network South
 FOX SPORTS ARIZONA HD
-FOX SPORTS FLORIDA HD
-FOX SPORTS HOUSTON HD
-FOX SPORTS SOUTHWEST PLUS HD
-FOX SPORTS SPORTSTIME OHIO HD
-FOX SPORTS OKLAHOMA HD
+FanDuel Sports Network Florida
+Space City Home Network
+FanDuel Sports Network Southwest Plus
+FanDuel Sports Network Ohio
+FanDuel Sports Network Oklahoma
 FOX NEWS CHANNEL FHD
 Bally Sports Great Lakes
-BALLY SPORTS SUN
+FanDuel Sports Network Sun
 BALLY SPORTS SOUTHEAST CAROLINAS
-BALLY SPORTS NORTH
-Bally SPORTS MIDWEST
+FanDuel Sports Network North
+FanDuel Sports Network Midwest
 Espn News HD USA
 ESPN 2 HD USA
 ESPN USA
@@ -1565,7 +1565,7 @@ MTV Hits
 Mezzo Live HD
 MTV Club
 Mezzo
-ТНТ Music
+FON Music
 о2тв HD
 Vostok TV
 MTV 90s
@@ -1573,7 +1573,7 @@ MCM Top Russia
 Clubbing TV HD
 RU TV
 Шансон ТВ
-Ля-минор ТВ
+Музыка Live
 Music Box Russia
 Курай ТВ HD
 Курай ТВ
@@ -1595,11 +1595,11 @@ Music Box Russia orig
 Mezzo orig
 МузСоюз orig
 Шансон ТВ orig
-Ля-минор ТВ orig
+Музыка Live orig
 Bridge Русский Хит orig
 MCM Top Russia orig
 Жара orig
-ТНТ Music orig
+FON Music orig
 Курай ТВ orig
 Bridge TV orig
 о2тв HD orig
@@ -1741,7 +1741,7 @@ Ani
 Мульт
 Cartoonito
 О!
-Уникум
+Детский
 В гостях у сказки
 Карусель +3
 Мультимузыка
@@ -1760,7 +1760,7 @@ NickToons HD
 Мульт HD
 Nickelodeon HD orig
 Мульт HD orig
-Уникум HD orig
+Детский HD orig
 СТС Kids HD orig
 Tiji TV orig
 Gulli orig
@@ -1772,7 +1772,7 @@ Ani orig
 Мульт orig
 Cartoonito orig
 О! orig
-Уникум HD
+Детский HD
 Детский мир HD
 СуперГерои orig
 Радость моя orig
@@ -1835,7 +1835,7 @@ National Geographic orig
 РЖД ТВ
 Конгресс ТВ HD
 Арт
-Неизвестная Россия HD
+НТВ Неизвестная Россия
 The Explorers
 Доктор HD
 TravelXP CEE 4K
@@ -1865,7 +1865,7 @@ Viju Nature orig
 Домашние Животные orig
 Вопросы и ответы orig
 Время orig
-English Club TV HD orig
+English Class orig
 Моя Планета orig
 Travel+Adventure orig
 365 дней ТВ orig
@@ -1888,7 +1888,7 @@ Investigation Discovery orig
 Живая Планета orig
 Discovery Science HD PL
 НТВ Право orig
-НТВ Стиль orig
+НТВ Стиль жизни orig
 Кто Куда orig
 Наша Сибирь HD orig
 Museum TV HD FR
@@ -1946,7 +1946,7 @@ Zоопарк
 E TV
 Телекафе
 Усадьба
-English Club TV HD
+English Class
 English Class HD
 History 2
 Travel Channel
@@ -1974,7 +1974,7 @@ World Fashion Channel
 Мужской
 Da Vinci
 Мама
-НТВ Стиль
+НТВ Стиль жизни
 НТВ Право
 Первый Вегетарианский
 Загородная Жизнь
@@ -2063,7 +2063,7 @@ MM Мегамир HD
 MM Translation HD
 Рыболов HD
 ЖИВИ! HD
-HDL HD
+ТОЧКА.РФ HD
 MM Experiment HD
 MM Открытия HD
 KLI Docu HD
@@ -2093,7 +2093,7 @@ Lietuva 4K
 Лапки Live HD
 Fashion TV UHD
 MyZen TV HD
-НТВ Стиль HD
+НТВ Стиль жизни HD
 Кухня HD
 FashionBox HD
 Танцуй! HD
@@ -2107,7 +2107,7 @@ OstWest DE
 Gags Network
 Солнце
 MyZen TV 4K
-HDL
+ТОЧКА.РФ
 DTX HD PL
 Fashion TV FHD
 Fashion TV HD
@@ -2126,7 +2126,7 @@ Luxury
 Зал Суда HD
 СТС HD orig
 СТС International
-HDL HD orig
+ТОЧКА.РФ orig
 Luxury HD orig
 Продвижение orig
 Девятая Волна orig
@@ -2270,7 +2270,7 @@ Sochi Live HD
 Башкортостан 24
 Арис 24 HD
 РГВК Дагестан FHD
-Первый Ярославский FHD
+ЯПервый FHD
 Shopping Live
 Digital Media (JWL)
 Women`s Magazine HD
@@ -2531,7 +2531,7 @@ PlayBoyz TV HD
 8 Канал HD
 Беларусь 5 BY
 ОНТ BY
-БелРос BY
+Союзный
 Белсат HD
 Food Network
 TENNIS HD US
@@ -2551,7 +2551,7 @@ Disney XD
 AMC US
 HGTV HD US
 tru TV
-MAVTV HD
+RACER Network HD
 ABC HD
 Fox 5 WNYW
 My9NJ
@@ -2631,26 +2631,26 @@ NESN HD
 Bally Sports Arizona Alternate
 Bally Sports Arizona Plus
 [Spectrum] MTV2 HD
-Bally Sports Detroit
-Bally Sports Detroit Plus
-Bally Sports Florida
-Bally Sports Florida Plus
+FanDuel Sports Network Detroit
+FanDuel Sports Network Detroit Plus
+FanDuel Sports Network Florida
+FanDuel Sports Network Florida Plus
 Bally Sports Great Lakes
-Bally Sports Oklahoma
+FanDuel Sports Network Oklahoma
 [Spectrum] Newsmax TV HD
-Bally Sports Midwest
+FanDuel Sports Network Midwest
 [Spectrum] NFL Network HD
 [Spectrum] NFL Redzone HD
 Bally Sports Midwest Alternate
 [Spectrum] Nick Jr HD
 Bally Sports New Orleans
 [Spectrum] Nicktoons  HD
-Bally Sports North
+FanDuel Sports Network North
 [Spectrum] Outdoor Channel HD
-Bally Sports Ohio
+FanDuel Sports Network Ohio
 [Spectrum] Ovation TV HD
 [Spectrum] OWN HD
-Bally Sports Ohio Cincinnati
+FanDuel Sports Network Ohio Cincinnati
 [Spectrum] PAC-12 Arizona HD
 [Spectrum] PAC-12 Bay Area HD
 [Spectrum] PAC-12 Los Angeles HD
@@ -2658,24 +2658,24 @@ Bally Sports Ohio Cincinnati
 [Spectrum] PAC-12 Oregon HD
 [Spectrum] PAC-12 Washington HD
 [Spectrum] Paramount Network HD
-Bally Sports Ohio Cleveland
+FanDuel Sports Network Ohio Cleveland
 Bally Sports San Diego
 Bally Sports San Diego Plus
 [Spectrum] Pets.TV HD
-Bally Sports SoCal Plus
-Bally Sports Southeast
+FanDuel Sports Network SoCal Plus
+FanDuel Sports Network Southeast
 Bally Sports Southwest Alternate
 [Spectrum] QVC HD
 [Spectrum] QVC2 HD
-Bally Sports Southwest Plus
+FanDuel Sports Network Southeast Plus
 [Spectrum] Recipe.TV HD
-Bally Sports Sun
+FanDuel Sports Network Sun
 [Spectrum] RetroPlex HD
-Bally Sports West
-Bally Sports West Plus
+FanDuel Sports Network West
+FanDuel Sports Network West Plus
 [Spectrum] Science Channel HD
-Bally Sports Wisconsin
-Bally Sports Wisconsin Plus
+FanDuel Sports Network Wisconsin
+FanDuel Sports Network Wisconsin Plus
 beIN Sports
 beIN Sports 2
 beIN Sports 3
@@ -2857,7 +2857,7 @@ Viasat Kino World
 ЕТНО Канал HD
 Закон ТВ HD
 Канал 24 HD
-Квартал ТВ HD
+RAZ 3 HD
 Київ HD
 1+1 Україна HD
 11 Канал Дніпро
@@ -2877,7 +2877,7 @@ Divi Sport HD
 Equalympic HD
 Fashion TV HD
 Film UA Drama
-Filmbox Arthouse HD
+FILMBOX+ Festival HD
 FilmUA Live HD
 FlixSnip HD
 FREEДОМ UATV
