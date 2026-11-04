@@ -17,7 +17,7 @@ from zoneinfo import ZoneInfo
 # ============================================================
 
 PRIMARY_URL = "http://epg.one/epg2.xml.gz"
-SECONDARY_URL = "https://iptvx.one/epg/epg.xml.gz"
+SECONDARY_URL = "http://iptvx.one/epg/epg.xml.gz"
 
 OUTPUT_FILE = "epg_custom.xml.gz"
 
