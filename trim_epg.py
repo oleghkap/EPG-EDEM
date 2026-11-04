@@ -10,7 +10,7 @@ from datetime import datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 
-EPG_URL = "https://epg.one/epg2.xml.gz"
+EPG_URL = "http://epg.one/epg2.xml.gz"
 
 OUTPUT_FILE = "epg_trimmed.xml.gz"
 RAW_FILE = "raw_epg.xml.gz"
