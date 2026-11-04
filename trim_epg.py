@@ -5,39 +5,21 @@ import shutil
 import tempfile
 import urllib.request
 import xml.etree.ElementTree as ET
-
 from datetime import datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
-
 EPG_URL = "https://epg.one/epg2.xml.gz"
-
 OUTPUT_FILE = "epg_trimmed.xml.gz"
 RAW_FILE = "raw_epg.xml.gz"
 
 DAYS_BEFORE = 2
-DAYS_AFTER = 1
+DAYS_AFTER = 2
 
 MOSCOW = ZoneInfo("Europe/Moscow")
 
-REMOVED_PROGRAMME_TAGS = {
-    "credits",
-    "rating",
-    "star-rating",
-    "country",
-    "date",
-    "episode-num",
-    "url",
-    "icon",
-}
 
-
-def local_name(tag):
-    """Return XML tag name without namespace."""
-    return tag.rsplit("}", 1)[-1]
-
-
-def download_file(url, destination):
+def download_file(url: str, destination: str) -> bool:
+    """Download source EPG with TLS certificate validation."""
     request = urllib.request.Request(
         url,
         headers={
@@ -48,22 +30,28 @@ def download_file(url, destination):
     try:
         with urllib.request.urlopen(request, timeout=90) as response:
             with open(destination, "wb") as output:
-                shutil.copyfileobj(response, output, 1024 * 1024)
+                shutil.copyfileobj(
+                    response,
+                    output,
+                    length=1024 * 1024
+                )
 
         return os.path.getsize(destination) > 0
 
     except Exception as exc:
-        print(f"Ошибка скачивания: {exc}")
+        print(f"Ошибка скачивания {url}: {exc}")
         return False
 
 
-def parse_xmltv_datetime(value):
+def parse_xmltv_datetime(value: str):
+    """Parse XMLTV date and convert it to Moscow time."""
+
     if not value:
         return None
 
     match = re.match(
         r"^\s*(\d{14})(?:\s*([+-])(\d{2}):?(\d{2}))?\s*$",
-        value,
+        value
     )
 
     if not match:
@@ -72,16 +60,15 @@ def parse_xmltv_datetime(value):
     try:
         parsed = datetime.strptime(
             match.group(1),
-            "%Y%m%d%H%M%S",
+            "%Y%m%d%H%M%S"
         )
 
         sign = match.group(2)
+        hours = match.group(3)
+        minutes = match.group(4)
 
         if sign:
-            offset_minutes = (
-                int(match.group(3)) * 60
-                + int(match.group(4))
-            )
+            offset_minutes = int(hours) * 60 + int(minutes)
 
             if sign == "-":
                 offset_minutes = -offset_minutes
@@ -94,13 +81,19 @@ def parse_xmltv_datetime(value):
                 tzinfo=source_tz
             ).astimezone(MOSCOW)
 
+        # If timezone is absent, interpret the time as Moscow time.
         return parsed.replace(tzinfo=MOSCOW)
 
     except (ValueError, OverflowError):
         return None
 
 
-def programme_is_in_window(element, window_start, window_end):
+def programme_is_in_window(
+    element: ET.Element,
+    window_start: datetime,
+    window_end: datetime
+) -> bool:
+
     start = parse_xmltv_datetime(
         element.get("start", "")
     )
@@ -115,60 +108,49 @@ def programme_is_in_window(element, window_start, window_end):
     if stop is None:
         return window_start <= start < window_end
 
+    # Keep programmes that intersect the requested period.
     return start < window_end and stop > window_start
 
 
-def remove_unneeded_metadata(element):
-    removed = 0
+def trim_epg(source_path: str, output_path: str):
 
-    for child in list(element):
-        if local_name(child.tag) in REMOVED_PROGRAMME_TAGS:
-            element.remove(child)
-            removed += 1
+    today_moscow = datetime.now(MOSCOW).date()
 
-    return removed
+    first_day = today_moscow - timedelta(
+        days=DAYS_BEFORE
+    )
 
-
-def trim_epg(source_path, output_path):
-
-    today = datetime.now(MOSCOW).date()
-
-    first_day = today - timedelta(days=DAYS_BEFORE)
-    last_day = today + timedelta(days=DAYS_AFTER)
+    after_last_day = today_moscow + timedelta(
+        days=DAYS_AFTER + 1
+    )
 
     window_start = datetime.combine(
         first_day,
         time.min,
-        tzinfo=MOSCOW,
+        tzinfo=MOSCOW
     )
 
     window_end = datetime.combine(
-        last_day + timedelta(days=1),
+        after_last_day,
         time.min,
-        tzinfo=MOSCOW,
+        tzinfo=MOSCOW
     )
 
-    print()
-    print("=" * 55)
-    print("ОБРАБОТКА EPG")
-    print("=" * 55)
+    print(
+        f"Московский диапазон: {first_day.isoformat()} — "
+        f"{(after_last_day - timedelta(days=1)).isoformat()}"
+    )
 
-    print(f"Сегодня по Москве: {today}")
-    print(f"Начало периода:    {first_day}")
-    print(f"Конец периода:     {last_day}")
-    print("Продолжительность: 4 календарных дня")
+    print(
+        "Обработка XMLTV без сопоставления, "
+        "переименования и дублирования каналов..."
+    )
 
-    source_compressed_size = os.path.getsize(source_path)
-
-    channels = 0
-    total_programmes = 0
-    kept_programmes = 0
-    removed_programmes = 0
-    invalid_dates = 0
-    removed_metadata = 0
+    channel_count = 0
+    programme_count = 0
+    skipped_programmes = 0
 
     root_element = None
-    closing_tag = None
     depth = 0
 
     output_dir = os.path.dirname(
@@ -178,7 +160,7 @@ def trim_epg(source_path, output_path):
     fd, temporary_output = tempfile.mkstemp(
         prefix="epg_trimmed_",
         suffix=".xml.gz",
-        dir=output_dir,
+        dir=output_dir
     )
 
     os.close(fd)
@@ -189,7 +171,7 @@ def trim_epg(source_path, output_path):
              gzip.open(
                  temporary_output,
                  "wb",
-                 compresslevel=6,
+                 compresslevel=6
              ) as output:
 
             output.write(
@@ -198,7 +180,7 @@ def trim_epg(source_path, output_path):
 
             for event, element in ET.iterparse(
                 source,
-                events=("start", "end"),
+                events=("start", "end")
             ):
 
                 if event == "start":
@@ -209,65 +191,47 @@ def trim_epg(source_path, output_path):
 
                         root_element = element
 
+                        # Preserve attributes of the original <tv> element.
                         root_shell = ET.Element(
                             root_element.tag,
-                            root_element.attrib,
+                            root_element.attrib
                         )
 
                         serialized_root = ET.tostring(
                             root_shell,
                             encoding="utf-8",
-                            short_empty_elements=False,
+                            short_empty_elements=False
                         )
 
-                        opening_tag, closing_part = (
-                            serialized_root.rsplit(b"</", 1)
-                        )
+                        opening_tag = serialized_root.rsplit(
+                            b"</",
+                            1
+                        )[0]
 
                         output.write(opening_tag)
-
-                        closing_tag = b"</" + closing_part
 
                     continue
 
                 if depth == 2:
 
-                    tag = local_name(element.tag)
-
                     keep_element = True
 
-                    if tag == "programme":
-
-                        total_programmes += 1
-
-                        start_value = element.get("start", "")
-                        parsed_start = parse_xmltv_datetime(
-                            start_value
-                        )
-
-                        if parsed_start is None:
-                            invalid_dates += 1
+                    if element.tag == "programme":
 
                         keep_element = programme_is_in_window(
                             element,
                             window_start,
-                            window_end,
+                            window_end
                         )
 
                         if keep_element:
-
-                            removed_metadata += (
-                                remove_unneeded_metadata(element)
-                            )
-
-                            kept_programmes += 1
-
+                            programme_count += 1
                         else:
-                            removed_programmes += 1
+                            skipped_programmes += 1
 
-                    elif tag == "channel":
+                    elif element.tag == "channel":
 
-                        channels += 1
+                        channel_count += 1
 
                     if keep_element:
 
@@ -275,10 +239,11 @@ def trim_epg(source_path, output_path):
                             ET.tostring(
                                 element,
                                 encoding="utf-8",
-                                short_empty_elements=True,
+                                short_empty_elements=True
                             )
                         )
 
+                    # Remove processed elements to limit RAM usage.
                     if root_element is not None:
                         root_element.remove(element)
 
@@ -286,24 +251,25 @@ def trim_epg(source_path, output_path):
 
                 depth -= 1
 
-            if root_element is None or closing_tag is None:
+            if root_element is None:
                 raise ValueError(
-                    "Не найден корневой элемент XMLTV."
+                    "В исходном файле не найден корневой элемент <tv>"
                 )
 
-            output.write(closing_tag)
+            output.write(b"</tv>")
 
-        # Проверяем весь итоговый gzip и XML, а не только начало файла.
+        # Validate the generated gzip/XML before replacing the result.
         with gzip.open(temporary_output, "rb") as check_file:
+
             for _, _ in ET.iterparse(
                 check_file,
-                events=("end",),
+                events=("start",)
             ):
-                pass
+                break
 
         os.replace(
             temporary_output,
-            output_path,
+            output_path
         )
 
     except Exception:
@@ -313,60 +279,18 @@ def trim_epg(source_path, output_path):
 
         raise
 
-    output_compressed_size = os.path.getsize(output_path)
-
-    with gzip.open(output_path, "rb") as output:
-        output_uncompressed_size = sum(
-            len(chunk)
-            for chunk in iter(
-                lambda: output.read(1024 * 1024),
-                b"",
-            )
-        )
-
-    print()
-    print("=" * 55)
-    print("РЕЗУЛЬТАТ")
-    print("=" * 55)
-
-    print(f"Каналов сохранено:             {channels}")
-    print(f"Всего передач в источнике:     {total_programmes}")
-    print(f"Передач сохранено:             {kept_programmes}")
-    print(f"Передач удалено:               {removed_programmes}")
-    print(f"Передач с некорректной датой:  {invalid_dates}")
-    print(f"Удалено дополнительных тегов:  {removed_metadata}")
-
-    print()
-    print("РАЗМЕРЫ")
+    print(f"Сохранено каналов: {channel_count}")
+    print(f"Сохранено передач: {programme_count}")
 
     print(
-        f"Исходный GZIP:  "
-        f"{source_compressed_size / 1024 / 1024:.2f} МБ"
+        "Исключено передач вне диапазона или "
+        f"с некорректным start: {skipped_programmes}"
     )
 
     print(
-        f"Итоговый GZIP:  "
-        f"{output_compressed_size / 1024 / 1024:.2f} МБ"
+        f"Готово: {output_path} "
+        f"({os.path.getsize(output_path):,} байт)"
     )
-
-    print(
-        f"Итоговый XML:   "
-        f"{output_uncompressed_size / 1024 / 1024:.2f} МБ"
-    )
-
-    if source_compressed_size:
-        reduction = (
-            1 - output_compressed_size / source_compressed_size
-        ) * 100
-
-        print(
-            f"Изменение размера относительно исходного GZIP: "
-            f"{reduction:.1f}%"
-        )
-
-    print()
-    print(f"Готово: {output_path}")
-    print("=" * 55)
 
 
 def main():
@@ -374,6 +298,7 @@ def main():
     print(f"Скачивание EPG: {EPG_URL}")
 
     if not download_file(EPG_URL, RAW_FILE):
+
         raise RuntimeError(
             "Не удалось скачать исходный EPG. "
             "Итоговый файл не изменён."
@@ -381,7 +306,7 @@ def main():
 
     trim_epg(
         RAW_FILE,
-        OUTPUT_FILE,
+        OUTPUT_FILE
     )
 
 
