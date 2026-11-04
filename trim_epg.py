@@ -1,195 +1,314 @@
 import gzip
-import xml.etree.ElementTree as ET
-import urllib.request
 import os
 import re
-import ssl
-from datetime import datetime, timedelta
+import shutil
+import tempfile
+import urllib.request
+import xml.etree.ElementTree as ET
+from datetime import datetime, time, timedelta, timezone
+from zoneinfo import ZoneInfo
 
-EPG_URL = "https://epg.one/epg2.xml.gz"
-PLAYLIST_URL = os.environ.get("PLAYLIST_URL", "")
+EPG_URL = "http://epg.one/epg2.xml.gz"
+OUTPUT_FILE = "epg_trimmed.xml.gz"
+RAW_FILE = "raw_epg.xml.gz"
 
-def normalize(text):
-    if not text:
-        return ""
-    t = text.lower()
-    t = re.sub(r'[\(\)\[\]\|\:\,\s\.]', '', t)
-    return t
+DAYS_BEFORE = 2
+DAYS_AFTER = 2
 
-def get_channel_signature(text):
-    if not text:
-        return "", ""
-    t = text.lower()
-    # Учитываем региональный сдвиг (+2, +4 и т.д.), чтобы регионы не смешивались
-    shift_match = re.search(r'\+(\d+)', t)
-    shift = shift_match.group(0) if shift_match else ""
-    # Убираем технические приставки качества для группировки SD/HD/FHD
-    clean = re.sub(r'\b(hd|fhd|sd|4k|hevc|uhd)\b', '', t)
-    norm = normalize(clean)
-    return norm, shift
+MOSCOW = ZoneInfo("Europe/Moscow")
 
-def download_file(url, dest):
+
+def download_file(url: str, destination: str) -> bool:
+    """Download source EPG with TLS certificate validation."""
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (compatible; EPG-EDEM/1.0)"
+        },
+    )
+
     try:
-        ctx = ssl._create_unverified_context()
-        req = urllib.request.Request(url, headers={'User-Agent': 'VLC/3.0.16'})
-        with urllib.request.urlopen(req, context=ctx) as response, open(dest, 'wb') as out_file:
-            out_file.write(response.read())
-        return True
-    except Exception as e:
-        print(f"Ошибка скачивания {url}: {e}")
+        with urllib.request.urlopen(request, timeout=90) as response:
+            with open(destination, "wb") as output:
+                shutil.copyfileobj(
+                    response,
+                    output,
+                    length=1024 * 1024
+                )
+
+        return os.path.getsize(destination) > 0
+
+    except Exception as exc:
+        print(f"Ошибка скачивания {url}: {exc}")
         return False
 
-# Автоматическое создание channels.txt если отсутствует
-if not os.path.exists("channels.txt") or os.path.getsize("channels.txt") == 0:
-    if PLAYLIST_URL:
-        try:
-            ctx = ssl._create_unverified_context()
-            req = urllib.request.Request(PLAYLIST_URL, headers={'User-Agent': 'VLC/3.0.16'})
-            with urllib.request.urlopen(req, context=ctx) as response:
-                playlist_text = response.read().decode('utf-8', errors='ignore')
-            
-            extracted_channels = []
-            for line in playlist_text.splitlines():
-                line = line.strip()
-                if not line:
-                    continue
-                m_id = re.search(r'tvg-id="([^"]+)"', line, re.IGNORECASE)
-                if m_id and m_id.group(1).strip():
-                    extracted_channels.append(m_id.group(1).strip())
-                m_name = re.search(r'tvg-name="([^"]+)"', line, re.IGNORECASE)
-                if m_name and m_name.group(1).strip():
-                    extracted_channels.append(m_name.group(1).strip())
-                if line.startswith("#EXTINF") and "," in line:
-                    ch_name = line.split(",")[-1].strip()
-                    if ch_name:
-                        extracted_channels.append(ch_name)
-                        
-            if extracted_channels:
-                unique_channels = list(dict.fromkeys(extracted_channels))
-                with open("channels.txt", "w", encoding="utf-8") as f:
-                    for ch in unique_channels:
-                        f.write(ch + "\n")
-        except Exception as e:
-            print(f"Ошибка плейлиста: {e}")
 
-# Читаем целевые каналы из channels.txt и группируем по сигнатурам (для поддержки HD/FHD)
-target_channels_map = {} # sig -> list of target channel names from channels.txt
-if os.path.exists("channels.txt") and os.path.getsize("channels.txt") > 0:
-    with open("channels.txt", "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#"):
-                sig = get_channel_signature(line)
-                if sig[0]:
-                    if sig not in target_channels_map:
-                        target_channels_map[sig] = []
-                    target_channels_map[sig].append(line)
+def parse_xmltv_datetime(value: str):
+    """Parse XMLTV date and convert it to Moscow time."""
 
-print(f"Загружено целевых каналов из channels.txt: {sum(len(v) for v in target_channels_map.values())}")
+    if not value:
+        return None
 
-print("Скачивание EPG источника...")
-if download_file(EPG_URL, "raw_epg.xml.gz"):
-    new_root = ET.Element("tv")
-    
-    # Шаг 1: Индексируем каналы источника по сигнатурам
-    source_channels = {}  # sig -> list of (elem, ch_id)
-    source_ch_to_sig = {} # src_ch_id -> sig
-    
-    with gzip.open("raw_epg.xml.gz", "rb") as f_in:
-        for event, elem in ET.iterparse(f_in, events=("end",)):
-            if elem.tag == "channel":
-                ch_id = elem.get("id", "").strip()
-                if not ch_id:
-                    elem.clear()
-                    continue
-                display_names = [dn.text for dn in elem.findall("display-name") if dn.text]
-                for name in display_names + [ch_id]:
-                    sig = get_channel_signature(name)
-                    if sig[0] and sig in target_channels_map:
-                        if sig not in source_channels:
-                            source_channels[sig] = []
-                        source_channels[sig].append((elem, ch_id))
-                        source_ch_to_sig[ch_id] = sig
-                        break
-                else:
-                    elem.clear()
+    match = re.match(
+        r"^\s*(\d{14})(?:\s*([+-])(\d{2}):?(\d{2}))?\s*$",
+        value
+    )
 
-    # Шаг 2: Создаем каналы в выходном XML для всех вариантов из channels.txt (включая HD/FHD)
+    if not match:
+        return None
+
+    try:
+        parsed = datetime.strptime(
+            match.group(1),
+            "%Y%m%d%H%M%S"
+        )
+
+        sign = match.group(2)
+        hours = match.group(3)
+        minutes = match.group(4)
+
+        if sign:
+            offset_minutes = int(hours) * 60 + int(minutes)
+
+            if sign == "-":
+                offset_minutes = -offset_minutes
+
+            source_tz = timezone(
+                timedelta(minutes=offset_minutes)
+            )
+
+            return parsed.replace(
+                tzinfo=source_tz
+            ).astimezone(MOSCOW)
+
+        # If timezone is absent, interpret the time as Moscow time.
+        return parsed.replace(tzinfo=MOSCOW)
+
+    except (ValueError, OverflowError):
+        return None
+
+
+def programme_is_in_window(
+    element: ET.Element,
+    window_start: datetime,
+    window_end: datetime
+) -> bool:
+
+    start = parse_xmltv_datetime(
+        element.get("start", "")
+    )
+
+    if start is None:
+        return False
+
+    stop = parse_xmltv_datetime(
+        element.get("stop", "")
+    )
+
+    if stop is None:
+        return window_start <= start < window_end
+
+    # Keep programmes that intersect the requested period.
+    return start < window_end and stop > window_start
+
+
+def trim_epg(source_path: str, output_path: str):
+
+    today_moscow = datetime.now(MOSCOW).date()
+
+    first_day = today_moscow - timedelta(
+        days=DAYS_BEFORE
+    )
+
+    after_last_day = today_moscow + timedelta(
+        days=DAYS_AFTER + 1
+    )
+
+    window_start = datetime.combine(
+        first_day,
+        time.min,
+        tzinfo=MOSCOW
+    )
+
+    window_end = datetime.combine(
+        after_last_day,
+        time.min,
+        tzinfo=MOSCOW
+    )
+
+    print(
+        f"Московский диапазон: {first_day.isoformat()} — "
+        f"{(after_last_day - timedelta(days=1)).isoformat()}"
+    )
+
+    print(
+        "Обработка XMLTV без сопоставления, "
+        "переименования и дублирования каналов..."
+    )
+
     channel_count = 0
-    sig_to_target_ids = {} # sig -> list of target channel names to generate programs for
-    
-    for sig, target_names in target_channels_map.items():
-        if sig in source_channels:
-            sample_elem, _ = source_channels[sig][0]
-            for t_name in target_names:
-                if sig not in sig_to_target_ids:
-                    sig_to_target_ids[sig] = []
-                sig_to_target_ids[sig].append(t_name)
-                
-                # Создаем элемент канала для каждого варианта (включая HD/FHD)
-                ch_elem = ET.Element("channel", {"id": t_name})
-                dn_elem = ET.SubElement(ch_elem, "display-name")
-                dn_elem.text = t_name
-                
-                # Переносим иконку из источника
-                for child in sample_elem:
-                    if child.tag == "icon":
-                        ch_elem.append(child)
-                        
-                new_root.append(ch_elem)
-                channel_count += 1
-
-    print(f"Отобрано и сгенерировано каналов (с учетом дублирования HD/FHD): {channel_count}")
-
-    # Шаг 3: Маппинг исходных ID каналов на списки целевых имен каналов для дублирования программ
-    source_ch_to_targets = {}
-    for src_ch_id, sig in source_ch_to_sig.items():
-        if sig in sig_to_target_ids:
-            source_ch_to_targets[src_ch_id] = sig_to_target_ids[sig]
-
-    # Диапазон дат по Московскому времени (UTC+3): 2 дня до и 2 дня после
-    now_msk = datetime.utcnow() + timedelta(hours=3)
-    min_date = (now_msk - timedelta(days=2)).strftime("%Y%m%d")
-    max_date = (now_msk + timedelta(days=2)).strftime("%Y%m%d")
-
-    print("Фильтрация программ и дублирование на HD/FHD...")
     programme_count = 0
-    added_programmes = set()
+    skipped_programmes = 0
 
-    with gzip.open("raw_epg.xml.gz", "rb") as f_in:
-        for event, elem in ET.iterparse(f_in, events=("end",)):
-            if elem.tag == "programme":
-                ch_ref = elem.get("channel")
-                start = elem.get("start", "")
-                
-                target_ids = source_ch_to_targets.get(ch_ref)
-                if target_ids and start:
-                    if min_date <= start[:8] <= max_date:
-                        # Дублируем программу на все варианты канала (обычный, HD, FHD)
-                        for t_id in target_ids:
-                            prog_key = (t_id, start)
-                            if prog_key not in added_programmes:
-                                added_programmes.add(prog_key)
-                                
-                                prog_elem = ET.Element(elem.tag, elem.attrib)
-                                prog_elem.set("channel", t_id)
-                                for child in elem:
-                                    prog_elem.append(child)
-                                    
-                                new_root.append(prog_elem)
-                                programme_count += 1
-                        elem.clear()
-                    else:
-                        elem.clear()
-                else:
-                    elem.clear()
+    root_element = None
+    depth = 0
 
-    print(f"Всего передач сохранено (с учетом дублирования): {programme_count}")
+    output_dir = os.path.dirname(
+        os.path.abspath(output_path)
+    )
 
-    print("Сохранение обрезанного EPG...")
-    tree = ET.ElementTree(new_root)
-    with gzip.open("epg_trimmed.xml.gz", "wb") as f_out:
-        tree.write(f_out, encoding="utf-8", xml_declaration=True)
-    print("Готово!")
-else:
-    print("Не удалось скачать исходный файл.")
+    fd, temporary_output = tempfile.mkstemp(
+        prefix="epg_trimmed_",
+        suffix=".xml.gz",
+        dir=output_dir
+    )
+
+    os.close(fd)
+
+    try:
+
+        with gzip.open(source_path, "rb") as source, \
+             gzip.open(
+                 temporary_output,
+                 "wb",
+                 compresslevel=6
+             ) as output:
+
+            output.write(
+                b'<?xml version="1.0" encoding="utf-8"?>\n'
+            )
+
+            for event, element in ET.iterparse(
+                source,
+                events=("start", "end")
+            ):
+
+                if event == "start":
+
+                    depth += 1
+
+                    if depth == 1:
+
+                        root_element = element
+
+                        # Preserve attributes of the original <tv> element.
+                        root_shell = ET.Element(
+                            root_element.tag,
+                            root_element.attrib
+                        )
+
+                        serialized_root = ET.tostring(
+                            root_shell,
+                            encoding="utf-8",
+                            short_empty_elements=False
+                        )
+
+                        opening_tag = serialized_root.rsplit(
+                            b"</",
+                            1
+                        )[0]
+
+                        output.write(opening_tag)
+
+                    continue
+
+                if depth == 2:
+
+                    keep_element = True
+
+                    if element.tag == "programme":
+
+                        keep_element = programme_is_in_window(
+                            element,
+                            window_start,
+                            window_end
+                        )
+
+                        if keep_element:
+                            programme_count += 1
+                        else:
+                            skipped_programmes += 1
+
+                    elif element.tag == "channel":
+
+                        channel_count += 1
+
+                    if keep_element:
+
+                        output.write(
+                            ET.tostring(
+                                element,
+                                encoding="utf-8",
+                                short_empty_elements=True
+                            )
+                        )
+
+                    # Remove processed elements to limit RAM usage.
+                    if root_element is not None:
+                        root_element.remove(element)
+
+                    element.clear()
+
+                depth -= 1
+
+            if root_element is None:
+                raise ValueError(
+                    "В исходном файле не найден корневой элемент <tv>"
+                )
+
+            output.write(b"</tv>")
+
+        # Validate the generated gzip/XML before replacing the result.
+        with gzip.open(temporary_output, "rb") as check_file:
+
+            for _, _ in ET.iterparse(
+                check_file,
+                events=("start",)
+            ):
+                break
+
+        os.replace(
+            temporary_output,
+            output_path
+        )
+
+    except Exception:
+
+        if os.path.exists(temporary_output):
+            os.remove(temporary_output)
+
+        raise
+
+    print(f"Сохранено каналов: {channel_count}")
+    print(f"Сохранено передач: {programme_count}")
+
+    print(
+        "Исключено передач вне диапазона или "
+        f"с некорректным start: {skipped_programmes}"
+    )
+
+    print(
+        f"Готово: {output_path} "
+        f"({os.path.getsize(output_path):,} байт)"
+    )
+
+
+def main():
+
+    print(f"Скачивание EPG: {EPG_URL}")
+
+    if not download_file(EPG_URL, RAW_FILE):
+
+        raise RuntimeError(
+            "Не удалось скачать исходный EPG. "
+            "Итоговый файл не изменён."
+        )
+
+    trim_epg(
+        RAW_FILE,
+        OUTPUT_FILE
+    )
+
+
+if __name__ == "__main__":
+    main()
