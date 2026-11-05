@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'check_epg_coverage.py'
-      - '.github/workflows/test_epg_coverage.yml'
 
   workflow_dispatch:
 
