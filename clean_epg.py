@@ -828,6 +828,7 @@ def main():
             "duplicates": 0,
             "optional_removed": 0,
             "overlaps_skipped": 0,
+            "channels_with_kept_programmes": set(),
         }
 
         with gzip.open(
