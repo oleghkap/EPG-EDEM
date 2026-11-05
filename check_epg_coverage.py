@@ -40,8 +40,8 @@ from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Europe/Moscow")
 
-DAYS_BEFORE = 1
-DAYS_AFTER = 7
+DAYS_BEFORE = 2
+DAYS_AFTER = 1
 
 MAX_PLAYLIST_SIZE = 100 * 1024 * 1024
 MAX_SOURCE_SIZE = 600 * 1024 * 1024
@@ -583,20 +583,38 @@ def process_source(
                     channel_id = elem.attrib.get("channel", "").strip()
                     matched_indexes = mapped.get(channel_id, set())
 
-                    start_dt = parse_xmltv_datetime(
-                        elem.attrib.get("start", "")
+                    start_value = elem.attrib.get("start", "")
+                    start_dt = parse_xmltv_datetime(start_value)
+
+                    stop_value = elem.attrib.get("stop")
+                    stop_dt = None
+
+                    # Как в trim_epg.py и clean_epg.py:
+                    # отсутствующий stop допустим, но явно указанный
+                    # некорректный stop или stop <= start делает запись невалидной.
+                    if stop_value is not None:
+                        stop_dt = parse_xmltv_datetime(stop_value)
+                        if stop_dt is None or start_dt is None or stop_dt <= start_dt:
+                            start_dt = None
+
+                    # Сохраняем все передачи, пересекающие окно,
+                    # а не только те, которые начинаются внутри него.
+                    in_period = (
+                        start_dt is not None
+                        and (
+                            period_start <= start_dt < period_end
+                            if stop_dt is None
+                            else start_dt < period_end and stop_dt > period_start
+                        )
                     )
 
-                    if start_dt is not None and period_start <= start_dt < period_end:
+                    if in_period:
                         title = element_text(elem, "title")
                         if title:
                             stats["programmes_in_period"] += 1
                             source_channels_with_programmes.add(channel_id)
 
                             if matched_indexes:
-                                stop_dt = parse_xmltv_datetime(
-                                    elem.attrib.get("stop", "")
-                                )
                                 description = element_text(elem, "desc")
                                 categories = [
                                     "".join(item.itertext()).strip()
