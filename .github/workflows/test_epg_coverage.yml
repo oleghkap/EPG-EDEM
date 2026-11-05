@@ -1,4 +1,3 @@
-
 name: Test EPG Coverage
 
 on:
@@ -7,9 +6,8 @@ on:
 permissions:
   contents: write
 
-# Та же группа, что и у Update All EPG.
 concurrency:
-  group: epg-main-update
+  group: epg-coverage-test
   cancel-in-progress: false
 
 jobs:
@@ -51,8 +49,6 @@ jobs:
           git commit -m "Update EPG coverage test results [skip ci]"
 
           for attempt in 1 2 3; do
-            echo "Push attempt: $attempt"
-
             git fetch origin main
             git rebase origin/main
 
@@ -61,9 +57,12 @@ jobs:
               exit 0
             fi
 
-            echo "Push failed. Retrying..."
-            sleep 2
+            echo "Push attempt $attempt failed."
+
+            if [ "$attempt" -lt 3 ]; then
+              sleep 5
+            fi
           done
 
-          echo "ERROR: Unable to push coverage results after 3 attempts."
+          echo "Failed to push EPG coverage results after 3 attempts."
           exit 1
