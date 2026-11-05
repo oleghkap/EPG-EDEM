@@ -1,6 +1,12 @@
 name: Test EPG Coverage
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'check_epg_coverage.py'
+
   workflow_dispatch:
 
 permissions:
