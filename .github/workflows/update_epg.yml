@@ -1,4 +1,3 @@
-
 name: Update All EPG
 
 on:
@@ -10,20 +9,15 @@ on:
       - 'trim_epg.py'
 
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '7 0 * * *'
 
 permissions:
   contents: write
 
-# Общая группа для обоих workflow.
-# Не допускаем одновременную запись в main.
-concurrency:
-  group: epg-main-update
-  cancel-in-progress: false
-
 jobs:
   update-epg:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repository
@@ -45,7 +39,7 @@ jobs:
       - name: Commit and Push EPG files
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add epg_custom.xml.gz epg_trimmed.xml.gz
 
@@ -57,8 +51,6 @@ jobs:
           git commit -m "Auto-update EPG files [skip ci]"
 
           for attempt in 1 2 3; do
-            echo "Push attempt: $attempt"
-
             git fetch origin main
             git rebase origin/main
 
@@ -67,9 +59,12 @@ jobs:
               exit 0
             fi
 
-            echo "Push failed. Retrying..."
-            sleep 2
+            echo "Push attempt $attempt failed."
+
+            if [ "$attempt" -lt 3 ]; then
+              sleep 5
+            fi
           done
 
-          echo "ERROR: Unable to push EPG files after 3 attempts."
+          echo "Failed to push EPG files after 3 attempts."
           exit 1
