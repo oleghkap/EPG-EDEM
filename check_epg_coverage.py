@@ -487,6 +487,7 @@ def process_source(
     period_start,
     period_end,
     global_programmes,
+    channel_icons,
 ):
     stats = {
         "source": source_name,
@@ -556,6 +557,21 @@ def process_source(
                             matched_indexes
                         )
 
+                        # Сохраняем один логотип на канал: первый доступный
+                        # по приоритету источников (EPG.ONE обрабатывается первым).
+                        icon_src = next(
+                            (
+                                item.attrib.get("src", "").strip()
+                                for item in elem
+                                if local_name(item.tag) == "icon"
+                                and item.attrib.get("src", "").strip()
+                            ),
+                            "",
+                        )
+                        if icon_src:
+                            for playlist_index in matched_indexes:
+                                channel_icons.setdefault(playlist_index, icon_src)
+
                         if method == "tvg-id":
                             stats["matched_by_tvg_id"] += 1
                         elif method == "exact name":
@@ -620,20 +636,30 @@ def process_source(
                                 )
 
                                 for index in matched_indexes:
-                                    identity = (
-                                        index,
-                                        start_dt.isoformat(),
-                                        stop_text,
-                                        normalize_name(title),
-                                    )
+                                    # Для одного канала не может одновременно
+                                    # начинаться две разные передачи. Источники
+                                    # часто расходятся в title/stop, поэтому эти
+                                    # поля не должны создавать дубликаты.
+                                    identity = (index, start_dt.isoformat())
 
                                     channels_with_programmes.add(index)
 
-                                    if (
-                                        identity in global_programmes
-                                        or identity in source_programmes
-                                    ):
+                                    existing = global_programmes.get(identity)
+                                    if existing is None:
+                                        existing = source_programmes.get(identity)
+
+                                    if existing is not None:
                                         stats["duplicates_skipped"] += 1
+                                        # Не теряем описание и категории, если
+                                        # приоритетный источник их не предоставил.
+                                        if not existing["description"] and description:
+                                            existing["description"] = description
+                                        if categories:
+                                            merged_categories = list(existing["categories"])
+                                            for category in categories:
+                                                if category and category not in merged_categories:
+                                                    merged_categories.append(category)
+                                            existing["categories"] = merged_categories
                                     else:
                                         source_programmes[identity] = {
                                             "channel_index": index,
@@ -646,9 +672,13 @@ def process_source(
                                         }
 
                             current_date = start_dt.strftime("%Y-%m-%d %H:%M")
-                            if not stats["first_programme"]:
+                            if (
+                                not stats["first_programme"]
+                                or current_date < stats["first_programme"]
+                            ):
                                 stats["first_programme"] = current_date
-                            stats["last_programme"] = current_date
+                            if current_date > stats["last_programme"]:
+                                stats["last_programme"] = current_date
 
                 # Чистим только завершённые channel/programme, не их дочерние
                 # display-name/title/desc/category до обработки родителя.
@@ -873,73 +903,63 @@ def write_channel_report(channels, global_programmes):
                 ),
             })
 
-def write_combined_xml(channels, global_programmes):
+def write_combined_xml(channels, global_programmes, channel_icons):
     path = OUTPUT_DIR / "epg_test_combined.xml.gz"
 
-    root = ET.Element("tv", {
-        "generator-info-name": "EPG-EDEM Coverage Test",
-    })
+    # Пишем XML потоково: не создаём гигантское дерево из сотен тысяч
+    # programme-элементов и не держим одновременно весь XML в памяти.
+    with gzip.open(path, "wb", compresslevel=9) as file:
+        file.write(b'<?xml version="1.0" encoding="utf-8"?>\n<tv generator-info-name="EPG-EDEM Coverage Test">')
 
-    for index, channel in enumerate(channels):
-        channel_element = ET.SubElement(
-            root,
-            "channel",
-            {"id": f"playlist_{index + 1}"},
+        for index, channel in enumerate(channels):
+            channel_element = ET.Element(
+                "channel",
+                {"id": f"playlist_{index + 1}"},
+            )
+            ET.SubElement(channel_element, "display-name").text = channel["title"]
+
+            icon_src = channel_icons.get(index, "")
+            if icon_src:
+                ET.SubElement(channel_element, "icon", {"src": icon_src})
+
+            file.write(ET.tostring(channel_element, encoding="utf-8"))
+
+        ordered = sorted(
+            global_programmes.values(),
+            key=lambda item: (
+                item["channel_index"],
+                item["start"],
+                item["title"].casefold(),
+            ),
         )
 
-        ET.SubElement(
-            channel_element,
-            "display-name",
-        ).text = channel["title"]
-
-    ordered = sorted(
-        global_programmes.values(),
-        key=lambda item: (
-            item["channel_index"],
-            item["start"],
-            item["title"].casefold(),
-        ),
-    )
-
-    for programme in ordered:
-        element = ET.SubElement(
-            root,
-            "programme",
-            {
-                "start": programme["start"].strftime("%Y%m%d%H%M%S %z"),
-                "channel": f"playlist_{programme['channel_index'] + 1}",
-            },
-        )
-
-        if programme["stop"] is not None:
-            element.set(
-                "stop",
-                programme["stop"].strftime("%Y%m%d%H%M%S %z"),
+        for programme in ordered:
+            element = ET.Element(
+                "programme",
+                {
+                    "start": programme["start"].strftime("%Y%m%d%H%M%S %z"),
+                    "channel": f"playlist_{programme['channel_index'] + 1}",
+                },
             )
 
-        ET.SubElement(element, "title").text = programme["title"]
+            if programme["stop"] is not None:
+                element.set(
+                    "stop",
+                    programme["stop"].strftime("%Y%m%d%H%M%S %z"),
+                )
 
-        if programme["description"]:
-            ET.SubElement(
-                element,
-                "desc",
-            ).text = programme["description"]
+            ET.SubElement(element, "title").text = programme["title"]
 
-        for category in programme["categories"]:
-            if category:
-                ET.SubElement(
-                    element,
-                    "category",
-                ).text = category
+            if programme["description"]:
+                ET.SubElement(element, "desc").text = programme["description"]
 
-    xml_data = ET.tostring(
-        root,
-        encoding="utf-8",
-        xml_declaration=True,
-    )
+            for category in programme["categories"]:
+                if category:
+                    ET.SubElement(element, "category").text = category
 
-    with gzip.open(path, "wb", compresslevel=6) as file:
-        file.write(xml_data)
+            file.write(ET.tostring(element, encoding="utf-8"))
+
+        file.write(b"</tv>")
 
 
 # ============================================================
@@ -970,6 +990,7 @@ def main():
     indexes = build_playlist_indexes(channels)
 
     global_programmes = {}
+    channel_icons = {}
     all_stats = []
 
     for number, (source_name, source_url) in enumerate(SOURCES, start=1):
@@ -986,13 +1007,14 @@ def main():
             period_start,
             period_end,
             global_programmes,
+            channel_icons,
         )
 
         all_stats.append(stats)
 
     write_coverage_report(all_stats)
     write_channel_report(channels, global_programmes)
-    write_combined_xml(channels, global_programmes)
+    write_combined_xml(channels, global_programmes, channel_icons)
 
     covered_channels = {
         programme["channel_index"]
