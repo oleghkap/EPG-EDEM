@@ -3,8 +3,10 @@
 
 """
 EPG-EDEM: ручная проверка покрытия персонального M3U
+
 Результаты:
   channels_test.txt
+  playlist_duplicates.csv
   coverage_report.csv
   channel_coverage.csv
   epg_test_combined.xml.gz
@@ -242,7 +244,6 @@ def parse_attributes(value):
 
 def parse_m3u(data):
     text = data.decode("utf-8-sig", errors="replace")
-
     channels = []
     current = None
 
@@ -268,31 +269,16 @@ def parse_m3u(data):
                 "title": name,
                 "tvg_id": attrs.get("tvg-id", "").strip(),
                 "tvg_name": attrs.get("tvg-name", "").strip(),
+                "tvg_rec": attrs.get("tvg-rec", "").strip(),
                 "group": attrs.get("group-title", "").strip(),
             }
 
-        elif line and not line.startswith("#") and current is not None:
-            # URL потока намеренно не сохраняется.
+        elif not line.startswith("#") and current is not None:
+            # Сохраняем каждую запись отдельно; URL потока не сохраняем.
             channels.append(current)
             current = None
 
-    # Убираем только полные повторы title + tvg-id.
-    unique = []
-    seen = set()
-
-    for channel in channels:
-        key = (
-            channel["title"].casefold(),
-            channel["tvg_id"].casefold(),
-        )
-
-        if key in seen:
-            continue
-
-        seen.add(key)
-        unique.append(channel)
-
-    return unique
+    return channels
 
 
 def load_playlist():
@@ -321,7 +307,7 @@ def load_playlist():
         if not channels:
             raise RuntimeError("no channels found in playlist")
 
-        log(f"Каналов в M3U после удаления полных повторов: {len(channels)}")
+        log(f"Записей каналов в M3U без удаления повторов: {len(channels)}")
         return channels
 
     finally:
@@ -574,7 +560,7 @@ def process_source(
 
                 if root is not None:
                     root.clear()
-                  
+
         stats["matched_playlist_channels"] = len(set(mapped.values()))
         stats["channels_with_programmes"] = len(channels_with_programmes)
         stats["status"] = "OK"
@@ -610,6 +596,64 @@ def write_channels(channels):
     with open(path, "w", encoding="utf-8") as file:
         for channel in channels:
             file.write(channel["title"] + "\n")
+
+
+def write_duplicate_report(channels):
+    """Записывает повторы по названию и tvg-id без URL потоков."""
+    path = OUTPUT_DIR / "playlist_duplicates.csv"
+    groups = defaultdict(list)
+
+    for index, channel in enumerate(channels, start=1):
+        title_key = " ".join(channel["title"].casefold().split())
+        tvg_id_key = channel["tvg_id"].casefold().strip()
+
+        if title_key:
+            groups[("same_title", title_key)].append(index)
+
+        if tvg_id_key:
+            groups[("same_tvg_id", tvg_id_key)].append(index)
+
+    fields = [
+        "duplicate_by",
+        "duplicate_group",
+        "playlist_entry",
+        "channel",
+        "tvg_id",
+        "tvg_name",
+        "tvg_rec",
+        "group",
+    ]
+
+    duplicate_group_count = 0
+    duplicate_entries = set()
+
+    with open(path, "w", newline="", encoding="utf-8-sig") as file:
+        writer = csv.DictWriter(file, fieldnames=fields)
+        writer.writeheader()
+
+        for (duplicate_by, duplicate_key), indexes in sorted(groups.items()):
+            if len(indexes) < 2:
+                continue
+
+            duplicate_group_count += 1
+            group_name = f"D{duplicate_group_count:04d}"
+
+            for index in indexes:
+                channel = channels[index - 1]
+                duplicate_entries.add(index)
+
+                writer.writerow({
+                    "duplicate_by": duplicate_by,
+                    "duplicate_group": group_name,
+                    "playlist_entry": index,
+                    "channel": channel["title"],
+                    "tvg_id": channel["tvg_id"],
+                    "tvg_name": channel["tvg_name"],
+                    "tvg_rec": channel["tvg_rec"],
+                    "group": channel["group"],
+                })
+
+    return duplicate_group_count, len(duplicate_entries)
 
 
 def write_coverage_report(stats_list):
@@ -786,6 +830,10 @@ def main():
     channels = load_playlist()
     write_channels(channels)
 
+    duplicate_groups, duplicate_entries = write_duplicate_report(channels)
+    log(f"Групп совпадений по названию или tvg-id: {duplicate_groups}")
+    log(f"Записей плейлиста в этих группах: {duplicate_entries}")
+
     indexes = build_playlist_indexes(channels)
 
     global_programmes = {}
@@ -831,6 +879,7 @@ def main():
     log()
     log("Созданы файлы:")
     log("  channels_test.txt")
+    log("  playlist_duplicates.csv")
     log("  coverage_report.csv")
     log("  channel_coverage.csv")
     log("  epg_test_combined.xml.gz")
