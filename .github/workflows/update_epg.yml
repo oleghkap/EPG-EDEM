@@ -7,7 +7,6 @@ on:
     paths:
       - 'clean_epg.py'
       - 'trim_epg.py'
-      - '.github/workflows/update_epg.yml'
 
   schedule:
     - cron: '7 0 * * *'
