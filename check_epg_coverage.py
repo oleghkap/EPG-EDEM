@@ -76,7 +76,7 @@ def log(message=""):
 
 
 QUALITY_RE = re.compile(
-    r"\b(ultra\s+hd|full\s+hd|fhd|uhd|4k|hevc|h\.?265|h\.?264|hd|sd)\b",
+    r"\b(ultra\s+hd|full\s+hd|fhd|uhd|4k|hevc|h\.?265|h\.?264|hd|sd|orig)\b",
     re.IGNORECASE,
 )
 COUNTRY_CODES = (
@@ -104,7 +104,7 @@ def normalize_name(value):
 
 
 def normalize_base_name(value):
-    """Осторожная нормализация качества для уникального fallback."""
+    """Базовое имя канала без маркеров качества и варианта orig."""
     value = re.sub(
         r"\b(?:hd|fhd|uhd)\s+(?:50|60)\b",
         " ",
@@ -417,19 +417,21 @@ def map_source_channels(channel_id, display_names, indexes):
     """
     Возвращает ВСЕ записи M3U, соответствующие одному XMLTV ID.
 
-    Один XMLTV <channel> может иметь несколько display-name:
-    например, название без суффикса, HD, FHD и другие варианты.
-    Все точные совпадения сохраняются, а не только первое найденное.
+    Одно расписание может быть назначено основному каналу и его отдельным
+    вариантам HD/FHD/UHD/orig. Эти варианты остаются самостоятельными
+    записями плейлиста. Числовые суффиксы (+2/+4 и т.п.) сохраняются.
     """
     by_id, by_name, by_base_name = indexes
 
-    if channel_id:
-        matches = by_id.get(channel_id.casefold(), set())
-        if matches:
-            return set(matches), "tvg-id"
+    id_matches = (
+        set(by_id.get(channel_id.casefold(), set()))
+        if channel_id else set()
+    )
 
     exact_matches = set()
+    base_matches = set()
     exact_method = "exact name"
+    country_method = False
 
     for name in display_names:
         source_name = strip_country_prefix(name)
@@ -437,42 +439,31 @@ def map_source_channels(channel_id, display_names, indexes):
 
         for variant in dict.fromkeys(variants):
             normalized = normalize_name(variant)
-            if not normalized:
-                continue
+            if normalized:
+                matches = by_name.get(normalized, set())
+                if matches:
+                    exact_matches.update(matches)
+                    if variant != name:
+                        country_method = True
 
-            matches = by_name.get(normalized, set())
-            if matches:
-                exact_matches.update(matches)
-                if variant != name:
-                    exact_method = "country-normalized name"
-
-    if exact_matches:
-        return exact_matches, exact_method
-
-    # Fallback только при единственном кандидате в M3U.
-    # Если есть HD/FHD/SD варианты с одинаковой базой, не смешиваем их.
-    base_matches = set()
-    ambiguous = False
-
-    for name in display_names:
-        source_name = strip_country_prefix(name)
-        variants = (source_name, strip_country_suffix(source_name))
-
-        for variant in dict.fromkeys(variants):
             base = normalize_base_name(variant)
-            if not base:
-                continue
+            if base:
+                # Все отдельные варианты одного базового канала получают
+                # программу, а не только единственный найденный вариант.
+                base_matches.update(by_base_name.get(base, set()))
 
-            matches = by_base_name.get(base, set())
-            if len(matches) == 1:
-                base_matches.update(matches)
-            elif len(matches) > 1:
-                ambiguous = True
+    all_matches = id_matches | exact_matches | base_matches
 
-    if base_matches:
-        return base_matches, "unique base name"
+    if all_matches:
+        if id_matches:
+            return all_matches, "tvg-id"
+        if exact_matches:
+            return all_matches, (
+                "country-normalized name" if country_method else exact_method
+            )
+        return all_matches, "variant base name"
 
-    return set(), "ambiguous" if ambiguous else "unmatched"
+    return set(), "unmatched"
 # ============================================================
 # ОБРАБОТКА XMLTV
 # ============================================================
