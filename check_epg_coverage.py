@@ -562,7 +562,7 @@ def process_source(
                             stats["matched_by_exact_name"] += 1
                         elif method == "country-normalized name":
                             stats["matched_by_country_name"] += 1
-                        elif method == "unique base name":
+                        elif method in ("unique base name", "variant base name"):
                             stats["matched_by_base_name"] += 1
                     elif method == "ambiguous":
                         stats["ambiguous_channels"] += 1
