@@ -19,11 +19,13 @@ import csv
 import gzip
 import os
 import re
+import socket
 import sys
 import time
 import shutil
 import tempfile
 import urllib.request
+from urllib.error import HTTPError, URLError
 import xml.etree.ElementTree as ET
 
 from collections import defaultdict
@@ -46,6 +48,7 @@ MAX_SOURCE_SIZE = 600 * 1024 * 1024
 
 CONNECT_TIMEOUT = 25
 READ_TIMEOUT = 90
+DOWNLOAD_RETRIES = 3
 
 USER_AGENT = "VLC/3.0.16"
 
@@ -53,29 +56,14 @@ OUTPUT_DIR = Path(".")
 
 SOURCES = [
     ("EPG.ONE epg2", "http://epg.one/epg2.xml.gz"),
-    ("EPG.ONE epg", "http://epg.one/epg.xml.gz"),
-    ("EPG.ONE ru2", "http://epg.one/ru2.xml.gz"),
-    ("EPG.ONE EDEM", "http://epg.one/edem.xml.gz"),
-
     ("IPTVX full", "http://iptvx.one/epg/epg.xml.gz"),
-    ("IPTVX lite", "http://iptvx.one/epg/epg_lite.xml.gz"),
-
     ("TV.TEAM full", "http://epg.team/tvteam.xml.3.1"),
-    ("TV.TEAM lite", "http://epg.team/tvteam.xml"),
-
-    ("Sharavoz", "http://iptv-content.webhop.net/guide.xml"),
-
-    ("TeleGuide", "http://download.teleguide.su/download/new3/xmltv.xml.gz"),
+    ("TeleGuide", "https://download.teleguide.su/download/new3/xmltv.xml.gz"),
     ("ProgramTV", "http://programtv.ru/xmltv.xml.gz"),
-    ("OTTClub", "http://ottepg.ru/ottepg.xml.gz"),
-
-    ("Shara TV", "http://stb.shara-tv.org/epg/epgtv.xml.gz"),
-    ("Kineskop", "http://st.kineskop.tv/epg.xml.gz"),
     ("TopIPTV", "http://topiptv.info/download/topiptv.xml.gz"),
-
-    ("Great IPTV", "http://epg.greatiptv.cc/iptv.xml.gz"),
-    ("IPTVXTV", "http://epg.iptvx.tv/xmltv.xml.gz"),
-
+    ("BCU Media", "https://epg.bcumedia.pro/epg.xml.gz"),
+    ("FOX TV", "https://epg.fox-tv.fun/1.xmltv"),
+    ("Satfor", "https://list.satfor.pro/f/epg.xml.gz"),
     ("M3U Edit ALL", "http://m3u-edit.com/epg-source.php?file=ALL_SOURCES1.xml.gz"),
 ]
 
@@ -88,26 +76,55 @@ def log(message=""):
     print(message, flush=True)
 
 
+QUALITY_RE = re.compile(
+    r"\b(ultra\s+hd|full\s+hd|fhd|uhd|4k|hevc|h\.?265|h\.?264|hd|sd)\b",
+    re.IGNORECASE,
+)
+COUNTRY_CODES = (
+    "RU|UA|UK|GB|US|DE|IL|TR|RO|PL|FR|CA|GE|AM|BY|LT|LV|RS|AZ|KZ|"
+    "IT|ES|NL|BE|CH|AT|FI|SE|NO|DK|HU|CZ|BG|GR|HR|SI|SK|PT|IE|AU|NZ|"
+    "IN|JP|KR|BR|AR|MX|MD"
+)
+COUNTRY_PREFIX_RE = re.compile(
+    rf"^(?:{COUNTRY_CODES})\s*[-–—:]\s*",
+    re.IGNORECASE,
+)
+COUNTRY_SUFFIX_RE = re.compile(
+    rf"\s+(?:{COUNTRY_CODES})\s*$",
+    re.IGNORECASE,
+)
+
+
 def normalize_name(value):
-    """Нормализация имени без удаления региональных суффиксов +2 и т.п."""
-    value = (value or "").lower().strip()
-    value = value.replace("ё", "е")
-    value = re.sub(r"\b(ultra hd|full hd|fhd|uhd|4k|hevc|h\.?265|h\.?264|hd|sd)\b", " ", value)
+    """Нормализация без удаления HD/FHD/SD/4K и суффиксов +2/+4."""
+    value = (value or "").casefold().replace("ё", "е")
+    value = re.sub(r"\+\s*(\d+)\b", r" plus \1 ", value)
+    value = value.replace("+", " plus ")
     value = re.sub(r"[^\w]+", " ", value, flags=re.UNICODE)
     return re.sub(r"\s+", " ", value).strip()
 
 
-def quality_normalize(value):
-    """Дополнительная нормализация для сопоставления HD/SD-вариантов."""
-    value = (value or "").lower().replace("ё", "е")
+def normalize_base_name(value):
+    """Осторожная нормализация качества для уникального fallback."""
     value = re.sub(
-        r"\b(ultra hd|full hd|fhd|uhd|4k|hevc|h\.?265|h\.?264|hd|sd)\b",
+        r"\b(?:hd|fhd|uhd)\s+(?:50|60)\b",
         " ",
-        value,
+        value or "",
+        flags=re.IGNORECASE,
     )
-    value = re.sub(r"[^\w]+", " ", value, flags=re.UNICODE)
-    return re.sub(r"\s+", " ", value).strip()
+    return normalize_name(QUALITY_RE.sub(" ", value))
 
+
+def has_quality_marker(value):
+    return bool(QUALITY_RE.search(value or ""))
+
+
+def strip_country_prefix(value):
+    return COUNTRY_PREFIX_RE.sub("", value or "").strip()
+
+
+def strip_country_suffix(value):
+    return COUNTRY_SUFFIX_RE.sub("", value or "").strip()
 
 def local_period():
     now = datetime.now(TZ)
@@ -167,38 +184,77 @@ def parse_xmltv_datetime(value):
         return None
 
 
+def safe_error_message(error):
+    """Диагностика без вывода URL и возможных секретов."""
+    if isinstance(error, HTTPError):
+        return f"HTTP {error.code} {error.reason}"
+    if isinstance(error, URLError):
+        reason = error.reason
+        if isinstance(reason, socket.gaierror):
+            return "DNS lookup failed"
+        if isinstance(reason, (TimeoutError, socket.timeout)):
+            return "network timeout"
+        return f"network error ({type(reason).__name__})"
+    if isinstance(error, ET.ParseError):
+        line, column = error.position
+        return f"XML parse error at line {line}, column {column}"
+    if isinstance(error, gzip.BadGzipFile):
+        return "invalid gzip data"
+    if isinstance(error, (TimeoutError, socket.timeout)):
+        return "network timeout"
+    return type(error).__name__
+
+
 def download_to_file(url, destination, max_size):
-    """Скачивание с ограничением размера и без отключения TLS-проверки."""
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": USER_AGENT},
-    )
+    """Скачивание с отдельными connect/read timeout и повторами."""
+    last_error = None
 
-    total = 0
+    for attempt in range(1, DOWNLOAD_RETRIES + 1):
+        try:
+            request = urllib.request.Request(
+                url,
+                headers={"User-Agent": USER_AGENT},
+            )
+            total = 0
 
-    with urllib.request.urlopen(
-        request,
-        timeout=CONNECT_TIMEOUT,
-    ) as response:
-        with open(destination, "wb") as output:
-            while True:
-                chunk = response.read(1024 * 1024)
+            with urllib.request.urlopen(
+                request,
+                timeout=CONNECT_TIMEOUT,
+            ) as response:
+                raw = getattr(getattr(response, "fp", None), "raw", None)
+                sock = getattr(raw, "_sock", None)
+                if sock is not None:
+                    sock.settimeout(READ_TIMEOUT)
 
-                if not chunk:
-                    break
+                with open(destination, "wb") as output:
+                    while True:
+                        chunk = response.read(1024 * 1024)
+                        if not chunk:
+                            break
+                        total += len(chunk)
+                        if total > max_size:
+                            raise RuntimeError("download size limit exceeded")
+                        output.write(chunk)
 
-                total += len(chunk)
+            if total == 0:
+                raise RuntimeError("empty response")
+            return total
 
-                if total > max_size:
-                    raise RuntimeError("download size limit exceeded")
+        except HTTPError as error:
+            if 400 <= error.code < 500:
+                raise
+            last_error = error
+        except (URLError, TimeoutError, OSError) as error:
+            last_error = error
 
-                output.write(chunk)
+        if attempt < DOWNLOAD_RETRIES:
+            log(
+                f"  Временная ошибка загрузки: {safe_error_message(last_error)}. "
+                f"Повтор {attempt + 1}/{DOWNLOAD_RETRIES}..."
+            )
+            time.sleep(2 * attempt)
 
-    if total == 0:
-        raise RuntimeError("empty response")
-
-    return total
-
+    raise last_error
 
 def open_xml_file(path):
     """Определение gzip по сигнатуре, а не по расширению."""
@@ -246,40 +302,51 @@ def parse_m3u(data):
     text = data.decode("utf-8-sig", errors="replace")
     channels = []
     current = None
+    pending_group = ""
 
     for raw_line in text.splitlines():
         line = raw_line.strip()
-
         if not line:
             continue
 
         if line.startswith("#EXTINF:"):
             header, title = split_extinf(line[8:])
             attrs = parse_attributes(header)
-
-            name = title.strip()
-
-            if not name:
-                name = attrs.get("tvg-name", "").strip()
+            name = title.strip() or attrs.get("tvg-name", "").strip()
 
             if not name:
+                current = None
                 continue
+
+            group = (
+                attrs.get("grp", "").strip()
+                or attrs.get("group-title", "").strip()
+                or pending_group
+            )
 
             current = {
                 "title": name,
                 "tvg_id": attrs.get("tvg-id", "").strip(),
                 "tvg_name": attrs.get("tvg-name", "").strip(),
                 "tvg_rec": attrs.get("tvg-rec", "").strip(),
-                "group": attrs.get("group-title", "").strip(),
+                "group": group,
             }
 
+        elif line.upper().startswith("#EXTGRP:"):
+            group = line.split(":", 1)[1].strip()
+            if current is not None:
+                if not current.get("group"):
+                    current["group"] = group
+            else:
+                pending_group = group
+
         elif not line.startswith("#") and current is not None:
-            # Сохраняем каждую запись отдельно; URL потока не сохраняем.
+            # URL нужен только как признак завершённой записи; не сохраняем его.
             channels.append(current)
             current = None
+            pending_group = ""
 
     return channels
-
 
 def load_playlist():
     playlist_url = os.environ.get("PLAYLIST_URL", "").strip()
@@ -324,90 +391,99 @@ def load_playlist():
 def build_playlist_indexes(channels):
     by_id = defaultdict(set)
     by_name = defaultdict(set)
-    by_quality_name = defaultdict(set)
+    by_base_name = defaultdict(set)
 
     for index, channel in enumerate(channels):
         channel["key"] = f"playlist_{index + 1}"
-
         if channel["tvg_id"]:
             by_id[channel["tvg_id"].casefold()].add(index)
 
-        names = {
-            channel["title"],
-            channel["tvg_name"],
-        }
-
-        for name in names:
+        for name in {channel["title"], channel["tvg_name"]}:
             if not name:
                 continue
 
-            normalized = normalize_name(name)
-            quality = quality_normalize(name)
+            variants = {name, strip_country_suffix(name)}
+            for variant in variants:
+                normalized = normalize_name(variant)
+                if normalized:
+                    by_name[normalized].add(index)
 
-            if normalized:
-                by_name[normalized].add(index)
+                base = normalize_base_name(variant)
+                if base:
+                    by_base_name[base].add(index)
 
-            if quality:
-                by_quality_name[quality].add(index)
-
-    return by_id, by_name, by_quality_name
+    return by_id, by_name, by_base_name
 
 
-def map_source_channel(
-    channel_id,
-    display_names,
-    indexes,
-):
-    by_id, by_name, by_quality_name = indexes
+def map_source_channel(channel_id, display_names, indexes):
+    by_id, by_name, by_base_name = indexes
+    ambiguous = False
 
     if channel_id:
         matches = by_id.get(channel_id.casefold(), set())
-
         if len(matches) == 1:
             return next(iter(matches)), "tvg-id"
-
         if len(matches) > 1:
-            return None, "ambiguous"
+            ambiguous = True
 
+    # Точные совпадения с сохранением качества и +2/+4.
+    # Неоднозначный alias не мешает проверить следующие aliases XMLTV.
     for name in display_names:
-        normalized = normalize_name(name)
+        source_name = strip_country_prefix(name)
+        variants = (source_name, strip_country_suffix(source_name))
 
-        if normalized:
+        for variant in dict.fromkeys(variants):
+            normalized = normalize_name(variant)
+            if not normalized:
+                continue
+
             matches = by_name.get(normalized, set())
-
             if len(matches) == 1:
-                return next(iter(matches)), "exact name"
-
+                method = (
+                    "exact name"
+                    if variant == name
+                    else "country-normalized name"
+                )
+                return next(iter(matches)), method
             if len(matches) > 1:
-                return None, "ambiguous"
+                ambiguous = True
 
+    # Если в XMLTV нет обозначения качества, разрешаем fallback только
+    # при единственном кандидате в M3U. При нескольких HD/FHD/SD версиях
+    # канал остаётся неоднозначным и не смешивается с другой версией.
     for name in display_names:
-        quality = quality_normalize(name)
+        source_name = strip_country_prefix(name)
+        if has_quality_marker(source_name):
+            continue
 
-        if quality:
-            matches = by_quality_name.get(quality, set())
+        variants = (source_name, strip_country_suffix(source_name))
+        for variant in dict.fromkeys(variants):
+            base = normalize_base_name(variant)
+            if not base:
+                continue
 
+            matches = by_base_name.get(base, set())
             if len(matches) == 1:
-                return next(iter(matches)), "quality fallback"
-
+                return next(iter(matches)), "unique base name"
             if len(matches) > 1:
-                return None, "ambiguous"
+                ambiguous = True
 
-    return None, "unmatched"
-
+    return None, "ambiguous" if ambiguous else "unmatched"
 
 # ============================================================
 # ОБРАБОТКА XMLTV
 # ============================================================
 
+def local_name(tag):
+    return tag.split("}", 1)[-1]
+
+
 def element_text(parent, tag):
-    element = parent.find(tag)
-
-    if element is None:
-        return ""
-
-    return "".join(element.itertext()).strip()
-
+    """Текст дочернего XMLTV-элемента, в том числе с namespace."""
+    for element in parent:
+        if local_name(element.tag) == tag:
+            return "".join(element.itertext()).strip()
+    return ""
 
 def process_source(
     source_name,
@@ -420,14 +496,20 @@ def process_source(
 ):
     stats = {
         "source": source_name,
-        "status": "error",
+        "status": "ERROR",
+        "error": "",
         "xml_channels": 0,
+        "xml_channels_with_programmes": 0,
         "matched_playlist_channels": 0,
         "channels_with_programmes": 0,
         "programmes_read": 0,
         "programmes_in_period": 0,
         "unique_programmes": 0,
         "duplicates_skipped": 0,
+        "matched_by_tvg_id": 0,
+        "matched_by_exact_name": 0,
+        "matched_by_country_name": 0,
+        "matched_by_base_name": 0,
         "ambiguous_channels": 0,
         "unmatched_channels": 0,
         "first_programme": "",
@@ -435,21 +517,16 @@ def process_source(
     }
 
     mapped = {}
+    source_channels_with_programmes = set()
     channels_with_programmes = set()
-    source_programmes = set()
+    source_programmes = {}
 
     with tempfile.NamedTemporaryFile(delete=False) as temp:
         temp_path = temp.name
 
     try:
         log(f"  Скачивание: {source_name}")
-
-        size = download_to_file(
-            source_url,
-            temp_path,
-            MAX_SOURCE_SIZE,
-        )
-
+        size = download_to_file(source_url, temp_path, MAX_SOURCE_SIZE)
         log(f"  Получено: {size / 1024 / 1024:.1f} MB")
 
         with open_xml_file(temp_path) as xml_file:
@@ -457,7 +534,7 @@ def process_source(
             root = None
 
             for event, elem in context:
-                tag = elem.tag.split("}")[-1]
+                tag = local_name(elem.tag)
 
                 if event == "start":
                     if root is None:
@@ -466,12 +543,11 @@ def process_source(
 
                 if tag == "channel":
                     stats["xml_channels"] += 1
-
                     channel_id = elem.attrib.get("id", "").strip()
-
                     display_names = [
                         "".join(item.itertext()).strip()
-                        for item in elem.findall("display-name")
+                        for item in elem
+                        if local_name(item.tag) == "display-name"
                     ]
 
                     index, method = map_source_channel(
@@ -480,8 +556,16 @@ def process_source(
                         indexes,
                     )
 
-                    if index is not None:
+                    if index is not None and channel_id:
                         mapped[channel_id] = index
+                        if method == "tvg-id":
+                            stats["matched_by_tvg_id"] += 1
+                        elif method == "exact name":
+                            stats["matched_by_exact_name"] += 1
+                        elif method == "country-normalized name":
+                            stats["matched_by_country_name"] += 1
+                        elif method == "unique base name":
+                            stats["matched_by_base_name"] += 1
                     elif method == "ambiguous":
                         stats["ambiguous_channels"] += 1
                     else:
@@ -489,93 +573,96 @@ def process_source(
 
                 elif tag == "programme":
                     stats["programmes_read"] += 1
-
                     channel_id = elem.attrib.get("channel", "").strip()
                     index = mapped.get(channel_id)
+                    start_dt = parse_xmltv_datetime(
+                        elem.attrib.get("start", "")
+                    )
 
-                    if index is not None:
-                        start_dt = parse_xmltv_datetime(
-                            elem.attrib.get("start", "")
-                        )
+                    if start_dt is not None and period_start <= start_dt < period_end:
+                        title = element_text(elem, "title")
+                        if title:
+                            source_channels_with_programmes.add(channel_id)
 
-                        stop_dt = parse_xmltv_datetime(
-                            elem.attrib.get("stop", "")
-                        )
+                            if index is not None:
+                                stop_dt = parse_xmltv_datetime(
+                                    elem.attrib.get("stop", "")
+                                )
+                                description = element_text(elem, "desc")
+                                categories = [
+                                    "".join(item.itertext()).strip()
+                                    for item in elem
+                                    if local_name(item.tag) == "category"
+                                ]
 
-                        if start_dt is not None:
-                            if period_start <= start_dt < period_end:
-                                title = element_text(elem, "title")
+                                stop_text = (
+                                    stop_dt.isoformat()
+                                    if stop_dt is not None
+                                    else ""
+                                )
+                                identity = (
+                                    index,
+                                    start_dt.isoformat(),
+                                    stop_text,
+                                    normalize_name(title),
+                                )
 
-                                if title:
-                                    description = element_text(elem, "desc")
+                                stats["programmes_in_period"] += 1
+                                channels_with_programmes.add(index)
 
-                                    category = [
-                                        "".join(item.itertext()).strip()
-                                        for item in elem.findall("category")
-                                    ]
+                                if (
+                                    identity in global_programmes
+                                    or identity in source_programmes
+                                ):
+                                    stats["duplicates_skipped"] += 1
+                                else:
+                                    source_programmes[identity] = {
+                                        "channel_index": index,
+                                        "start": start_dt,
+                                        "stop": stop_dt,
+                                        "title": title,
+                                        "description": description,
+                                        "categories": categories,
+                                        "source": source_name,
+                                    }
 
-                                    stop_text = (
-                                        stop_dt.isoformat()
-                                        if stop_dt is not None
-                                        else ""
-                                    )
+                                current_date = start_dt.strftime("%Y-%m-%d %H:%M")
+                                if not stats["first_programme"]:
+                                    stats["first_programme"] = current_date
+                                stats["last_programme"] = current_date
 
-                                    identity = (
-                                        index,
-                                        start_dt.isoformat(),
-                                        stop_text,
-                                        normalize_name(title),
-                                    )
-
-                                    stats["programmes_in_period"] += 1
-                                    channels_with_programmes.add(index)
-
-                                    if identity in global_programmes:
-                                        stats["duplicates_skipped"] += 1
-                                    else:
-                                        global_programmes[identity] = {
-                                            "channel_index": index,
-                                            "start": start_dt,
-                                            "stop": stop_dt,
-                                            "title": title,
-                                            "description": description,
-                                            "categories": category,
-                                            "source": source_name,
-                                        }
-
-                                        stats["unique_programmes"] += 1
-                                        source_programmes.add(identity)
-
-                                    current_date = start_dt.strftime(
-                                        "%Y-%m-%d %H:%M"
-                                    )
-
-                                    if not stats["first_programme"]:
-                                        stats["first_programme"] = current_date
-
-                                    stats["last_programme"] = current_date
-
+                # Чистим только завершённые channel/programme, не их дочерние
+                # display-name/title/desc/category до обработки родителя.
                 if tag in ("channel", "programme"):
                     elem.clear()
-
-                if root is not None:
-                    root.clear()
+                    if root is not None:
+                        root.clear()
 
         stats["matched_playlist_channels"] = len(set(mapped.values()))
+        stats["xml_channels_with_programmes"] = len(
+            source_channels_with_programmes
+        )
         stats["channels_with_programmes"] = len(channels_with_programmes)
+        stats["unique_programmes"] = len(source_programmes)
         stats["status"] = "OK"
 
+        # Сливаем данные только после полного успешного разбора источника.
+        global_programmes.update(source_programmes)
+
         log(
-            f"  Результат: каналов с программами "
-            f"{stats['channels_with_programmes']}, "
-            f"уникальных передач {stats['unique_programmes']}, "
+            f"  Результат: XMLTV-каналов с программами "
+            f"{stats['xml_channels_with_programmes']}; "
+            f"сопоставлено с плейлистом {stats['matched_playlist_channels']}; "
+            f"каналов плейлиста с программами "
+            f"{stats['channels_with_programmes']}; "
+            f"новых передач {stats['unique_programmes']}; "
             f"дубликатов {stats['duplicates_skipped']}"
         )
 
     except Exception as error:
-        # Не выводим текст исключения: в нём потенциально могут быть URL.
-        stats["status"] = "ERROR: download or XML parsing failed"
-        log("  Ошибка загрузки или разбора XMLTV.")
+        stats["status"] = "ERROR"
+        stats["error"] = safe_error_message(error)
+        log(f"  Ошибка источника: {stats['error']}")
 
     finally:
         try:
@@ -585,27 +672,14 @@ def process_source(
 
     return stats
 
-
 # ============================================================
 # СОХРАНЕНИЕ РЕЗУЛЬТАТОВ
 # ============================================================
 
 def write_channels(channels):
-    """
-    Сохраняет все записи M3U в channels_test.txt
-    в виде таблицы с ровными колонками.
-    URL потоков не сохраняются.
-    """
+    """Сохраняет только CHANNEL, TVG-REC и GRP; URL потоков не сохраняются."""
     path = OUTPUT_DIR / "channels_test.txt"
-
-    columns = [
-        ("№", "number", 6),
-        ("CHANNEL", "title", 42),
-        ("TVG-ID", "tvg_id", 28),
-        ("TVG-NAME", "tvg_name", 35),
-        ("TVG-REC", "tvg_rec", 24),
-        ("GROUP", "group", 30),
-    ]
+    headers = ["CHANNEL", "TVG-REC", "GRP"]
 
     def clean(value):
         return (
@@ -616,34 +690,36 @@ def write_channels(channels):
             .strip()
         )
 
+    rows = [
+        [
+            clean(channel.get("title")),
+            clean(channel.get("tvg_rec")),
+            clean(channel.get("group")),
+        ]
+        for channel in channels
+    ]
+
+    widths = [
+        max(
+            len(headers[index]),
+            max((len(row[index]) for row in rows), default=0),
+        )
+        for index in range(len(headers))
+    ]
+
     def format_row(values):
         return " | ".join(
-            str(value)[:width].ljust(width)
-            for value, (_, _, width) in zip(values, columns)
+            str(value).ljust(widths[index])
+            for index, value in enumerate(values)
         )
 
-    separator = "-+-".join(
-        "-" * width for _, _, width in columns
-    )
+    separator = "-+-".join("-" * width for width in widths)
 
     with open(path, "w", encoding="utf-8-sig") as file:
-        file.write(format_row([
-            name for name, _, _ in columns
-        ]) + "\n")
-
+        file.write(format_row(headers) + "\n")
         file.write(separator + "\n")
-
-        for index, channel in enumerate(channels, start=1):
-            values = [
-                index,
-                clean(channel.get("title")),
-                clean(channel.get("tvg_id")),
-                clean(channel.get("tvg_name")),
-                clean(channel.get("tvg_rec")),
-                clean(channel.get("group")),
-            ]
-
-            file.write(format_row(values) + "\n")
+        for row in rows:
+            file.write(format_row(row) + "\n")
 
 def write_duplicate_report(channels):
     """Записывает повторы по названию и tvg-id без URL потоков."""
@@ -653,10 +729,8 @@ def write_duplicate_report(channels):
     for index, channel in enumerate(channels, start=1):
         title_key = " ".join(channel["title"].casefold().split())
         tvg_id_key = channel["tvg_id"].casefold().strip()
-
         if title_key:
             groups[("same_title", title_key)].append(index)
-
         if tvg_id_key:
             groups[("same_tvg_id", tvg_id_key)].append(index)
 
@@ -665,8 +739,6 @@ def write_duplicate_report(channels):
         "duplicate_group",
         "playlist_entry",
         "channel",
-        "tvg_id",
-        "tvg_name",
         "tvg_rec",
         "group",
     ]
@@ -688,34 +760,35 @@ def write_duplicate_report(channels):
             for index in indexes:
                 channel = channels[index - 1]
                 duplicate_entries.add(index)
-
                 writer.writerow({
                     "duplicate_by": duplicate_by,
                     "duplicate_group": group_name,
                     "playlist_entry": index,
                     "channel": channel["title"],
-                    "tvg_id": channel["tvg_id"],
-                    "tvg_name": channel["tvg_name"],
                     "tvg_rec": channel["tvg_rec"],
                     "group": channel["group"],
                 })
 
     return duplicate_group_count, len(duplicate_entries)
 
-
 def write_coverage_report(stats_list):
     path = OUTPUT_DIR / "coverage_report.csv"
-
     fields = [
         "source",
         "status",
+        "error",
         "xml_channels",
+        "xml_channels_with_programmes",
         "matched_playlist_channels",
         "channels_with_programmes",
         "programmes_read",
         "programmes_in_period",
         "unique_programmes",
         "duplicates_skipped",
+        "matched_by_tvg_id",
+        "matched_by_exact_name",
+        "matched_by_country_name",
+        "matched_by_base_name",
         "ambiguous_channels",
         "unmatched_channels",
         "first_programme",
@@ -726,7 +799,6 @@ def write_coverage_report(stats_list):
         writer = csv.DictWriter(file, fieldnames=fields)
         writer.writeheader()
         writer.writerows(stats_list)
-
 
 def write_channel_report(channels, global_programmes):
     path = OUTPUT_DIR / "channel_coverage.csv"
@@ -741,21 +813,17 @@ def write_channel_report(channels, global_programmes):
     for programme in global_programmes.values():
         index = programme["channel_index"]
         item = by_channel[index]
-
         item["programme_count"] += 1
         item["sources"].add(programme["source"])
-
         start = programme["start"]
 
         if item["first"] is None or start < item["first"]:
             item["first"] = start
-
         if item["last"] is None or start > item["last"]:
             item["last"] = start
 
     fields = [
         "channel",
-        "tvg_id",
         "group",
         "programme_count",
         "sources",
@@ -769,10 +837,8 @@ def write_channel_report(channels, global_programmes):
 
         for index, channel in enumerate(channels):
             item = by_channel[index]
-
             writer.writerow({
                 "channel": channel["title"],
-                "tvg_id": channel["tvg_id"],
                 "group": channel["group"],
                 "programme_count": item["programme_count"],
                 "sources": "; ".join(sorted(item["sources"])),
@@ -785,7 +851,6 @@ def write_channel_report(channels, global_programmes):
                     if item["last"] else ""
                 ),
             })
-
 
 def write_combined_xml(channels, global_programmes):
     path = OUTPUT_DIR / "epg_test_combined.xml.gz"
