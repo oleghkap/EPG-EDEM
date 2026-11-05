@@ -803,24 +803,12 @@ def main():
                 root_attributes,
             )
 
-            # Сначала все объявления primary без потери метаданных.
+            # Сохраняем только объявления primary без потери метаданных.
+            # Каналы, существующие только в IPTVX, не добавляем.
             for channel in channels:
                 write_element(output, channel)
 
-            # Добавляем самостоятельные каналы IPTVX, отсутствующие в primary.
-            added_secondary_ids = set()
-            if secondary_available:
-                for secondary_id, channel in secondary_channel_elements:
-                    targets = channel_map.get(secondary_id, set())
-                    if (
-                        secondary_id not in primary_ids
-                        and targets == {secondary_id}
-                        and secondary_id not in added_secondary_ids
-                    ):
-                        write_element(output, channel)
-                        added_secondary_ids.add(secondary_id)
-
-            output_channel_ids = primary_ids | added_secondary_ids
+            output_channel_ids = primary_ids
 
             # Затем передачи primary.
             primary_stats = process_programmes(
