@@ -57,8 +57,8 @@ SOURCES = [
     ("EPG.ONE ru2", "http://epg.one/ru2.xml.gz"),
     ("EPG.ONE EDEM", "http://epg.one/edem.xml.gz"),
 
-    ("IPTVX full", "https://iptvx.one/epg/epg.xml.gz"),
-    ("IPTVX lite", "https://iptvx.one/epg/epg_lite.xml.gz"),
+    ("IPTVX full", "http://iptvx.one/epg/epg.xml.gz"),
+    ("IPTVX lite", "http://iptvx.one/epg/epg_lite.xml.gz"),
 
     ("TV.TEAM full", "http://epg.team/tvteam.xml.3.1"),
     ("TV.TEAM lite", "http://epg.team/tvteam.xml"),
@@ -67,16 +67,16 @@ SOURCES = [
 
     ("TeleGuide", "http://download.teleguide.su/download/new3/xmltv.xml.gz"),
     ("ProgramTV", "http://programtv.ru/xmltv.xml.gz"),
-    ("OTTClub", "https://ottepg.ru/ottepg.xml.gz"),
+    ("OTTClub", "http://ottepg.ru/ottepg.xml.gz"),
 
     ("Shara TV", "http://stb.shara-tv.org/epg/epgtv.xml.gz"),
     ("Kineskop", "http://st.kineskop.tv/epg.xml.gz"),
     ("TopIPTV", "http://topiptv.info/download/topiptv.xml.gz"),
 
-    ("Great IPTV", "https://epg.greatiptv.cc/iptv.xml.gz"),
+    ("Great IPTV", "http://epg.greatiptv.cc/iptv.xml.gz"),
     ("IPTVXTV", "http://epg.iptvx.tv/xmltv.xml.gz"),
 
-    ("M3U Edit ALL", "https://m3u-edit.com/epg-source.php?file=ALL_SOURCES1.xml.gz"),
+    ("M3U Edit ALL", "http://m3u-edit.com/epg-source.php?file=ALL_SOURCES1.xml.gz"),
 ]
 
 
