@@ -569,6 +569,10 @@ def process_programmes(
         "optional_removed": 0,
         "overlaps_skipped": 0,
         "channels_with_kept_programmes": set(),
+        "kept_standalone": 0,
+        "kept_matched": 0,
+        "standalone_channels_with_kept_programmes": set(),
+        "matched_channels_with_kept_programmes": set(),
     }
 
     source_name = "дополнительного" if secondary else "основного"
@@ -651,6 +655,13 @@ def process_programmes(
 
             stats["kept"] += 1
             stats["channels_with_kept_programmes"].add(target_channel)
+            if secondary:
+                if is_standalone_secondary:
+                    stats["kept_standalone"] += 1
+                    stats["standalone_channels_with_kept_programmes"].add(target_channel)
+                else:
+                    stats["kept_matched"] += 1
+                    stats["matched_channels_with_kept_programmes"].add(target_channel)
             wrote_any = True
 
         if not wrote_any and not secondary:
@@ -849,6 +860,10 @@ def main():
             "optional_removed": 0,
             "overlaps_skipped": 0,
             "channels_with_kept_programmes": set(),
+            "kept_standalone": 0,
+            "kept_matched": 0,
+            "standalone_channels_with_kept_programmes": set(),
+            "matched_channels_with_kept_programmes": set(),
         }
 
         with gzip.open(
@@ -997,7 +1012,23 @@ def main():
             f"{secondary_stats['kept']}"
         )
         print(
-            "Каналов с передачами, добавленными из IPTVX: "
+            "Передач самостоятельных каналов IPTVX: "
+            f"{secondary_stats['kept_standalone']}"
+        )
+        print(
+            "Передач сопоставленных каналов IPTVX: "
+            f"{secondary_stats['kept_matched']}"
+        )
+        print(
+            "Самостоятельных каналов IPTVX с передачами: "
+            f"{len(secondary_stats['standalone_channels_with_kept_programmes'])}"
+        )
+        print(
+            "Сопоставленных каналов с дополнительными передачами: "
+            f"{len(secondary_stats['matched_channels_with_kept_programmes'])}"
+        )
+        print(
+            "Всего каналов с передачами, добавленными из IPTVX: "
             f"{len(secondary_stats['channels_with_kept_programmes'])}"
         )
 
@@ -1098,8 +1129,12 @@ def main():
                 "| Показатель | Количество |",
                 "|---|---:|",
                 f"| Передачи EPG.ONE | {primary_stats['kept']} |",
-                f"| Добавлено передач IPTVX | {secondary_stats['kept']} |",
-                f"| Каналов с передачами, добавленными из IPTVX | {len(secondary_stats['channels_with_kept_programmes'])} |",
+                f"| Добавлено передач IPTVX — всего | {secondary_stats['kept']} |",
+                f"| Передачи самостоятельных каналов IPTVX | {secondary_stats['kept_standalone']} |",
+                f"| Передачи сопоставленных каналов IPTVX | {secondary_stats['kept_matched']} |",
+                f"| Самостоятельные каналы IPTVX с передачами | {len(secondary_stats['standalone_channels_with_kept_programmes'])} |",
+                f"| Сопоставленные каналы с дополнительными передачами | {len(secondary_stats['matched_channels_with_kept_programmes'])} |",
+                f"| Всего каналов с передачами, добавленными из IPTVX | {len(secondary_stats['channels_with_kept_programmes'])} |",
                 f"| **Всего передач** | **{total_programmes}** |",
                 f"| Дубли IPTVX по времени начала | {secondary_stats['duplicates']} |",
                 f"| Пересечения передач IPTVX, пропущенные при объединении | {secondary_stats['overlaps_skipped']} |",
