@@ -569,14 +569,12 @@ def process_source(
 
                                     stats["last_programme"] = current_date
 
-                elem.clear()
+                if tag in ("channel", "programme"):
+                    elem.clear()
 
-                    if tag in ("channel", "programme"):
-                        elem.clear()
-
-                    if root is not None:
-                        root.clear()
-
+                if root is not None:
+                    root.clear()
+                  
         stats["matched_playlist_channels"] = len(set(mapped.values()))
         stats["channels_with_programmes"] = len(channels_with_programmes)
         stats["status"] = "OK"
