@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'check_epg_coverage.py'
+      - '.github/workflows/test_epg_coverage.yml'
 
   workflow_dispatch:
 
@@ -46,6 +47,7 @@ jobs:
           git add coverage_report.csv
           git add channel_coverage.csv
           git add epg_test_combined.xml.gz
+          git add playlist_duplicates.csv
 
           if git diff --cached --quiet; then
             echo "No changes in EPG test results."
