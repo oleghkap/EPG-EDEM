@@ -590,25 +590,24 @@ def process_source(
 # СОХРАНЕНИЕ РЕЗУЛЬТАТОВ
 # ============================================================
 
-
 def write_channels(channels):
     """
-    Сохраняет все записи M3U в TSV-файл без URL потоков.
-    Поля разделены табуляцией; пустые параметры остаются пустыми.
+    Сохраняет все записи M3U в channels_test.txt
+    в виде таблицы с ровными колонками.
+    URL потоков не сохраняются.
     """
     path = OUTPUT_DIR / "channels_test.txt"
 
-    fields = [
-        "playlist_entry",
-        "channel",
-        "tvg-id",
-        "tvg-name",
-        "tvg-rec",
-        "group",
+    columns = [
+        ("№", "number", 6),
+        ("CHANNEL", "title", 42),
+        ("TVG-ID", "tvg_id", 28),
+        ("TVG-NAME", "tvg_name", 35),
+        ("TVG-REC", "tvg_rec", 24),
+        ("GROUP", "group", 30),
     ]
 
     def clean(value):
-        # Не допускаем переносов строк и табуляции внутри одного поля.
         return (
             str(value or "")
             .replace("\t", " ")
@@ -617,8 +616,22 @@ def write_channels(channels):
             .strip()
         )
 
-    with open(path, "w", encoding="utf-8-sig", newline="") as file:
-        file.write("\t".join(fields) + "\n")
+    def format_row(values):
+        return " | ".join(
+            str(value)[:width].ljust(width)
+            for value, (_, _, width) in zip(values, columns)
+        )
+
+    separator = "-+-".join(
+        "-" * width for _, _, width in columns
+    )
+
+    with open(path, "w", encoding="utf-8-sig") as file:
+        file.write(format_row([
+            name for name, _, _ in columns
+        ]) + "\n")
+
+        file.write(separator + "\n")
 
         for index, channel in enumerate(channels, start=1):
             values = [
@@ -630,7 +643,7 @@ def write_channels(channels):
                 clean(channel.get("group")),
             ]
 
-            file.write("\t".join(map(str, values)) + "\n")
+            file.write(format_row(values) + "\n")
 
 def write_duplicate_report(channels):
     """Записывает повторы по названию и tvg-id без URL потоков."""
