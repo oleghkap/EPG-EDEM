@@ -1091,7 +1091,7 @@ def main():
                 "",
             ]
             with open(summary_path, "a", encoding="utf-8") as summary_file:
-                summary_file.write("\\n".join(summary))
+                summary_file.write("\n".join(summary))
 
 
 if __name__ == "__main__":
