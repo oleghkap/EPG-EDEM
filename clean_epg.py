@@ -406,24 +406,27 @@ def build_secondary_channel_map(
     ambiguous_secondary_ids = set()
 
     for secondary_id, names in secondary_channels.items():
-        candidates = set()
-
-        for name in names:
-            candidates.update(primary_name_index.get(name, set()))
-
-        # Совпадающий ID — точное соответствие, даже если display-name различаются.
-        if not candidates and secondary_id in primary_ids:
-            candidates.add(secondary_id)
-
-        if candidates:
-            matched_secondary_ids.add(secondary_id)
+        # Совпадение channel ID имеет приоритет над названием.
+        if secondary_id in primary_ids:
+            candidates = {secondary_id}
         else:
-            # Канал отсутствует в primary: добавляем его отдельно.
-            candidates.add(secondary_id)
-            standalone_secondary_ids.add(secondary_id)
+            name_candidates = set()
+            for name in names:
+                name_candidates.update(primary_name_index.get(name, set()))
 
-        if len(candidates) > 1:
-            ambiguous_secondary_ids.add(secondary_id)
+            # По имени сопоставляем только при единственном результате.
+            # Неоднозначный канал не размножаем на несколько каналов EPG.ONE:
+            # сохраняем его отдельно с исходным ID и всеми его передачами.
+            if len(name_candidates) == 1:
+                candidates = name_candidates
+            else:
+                candidates = {secondary_id}
+                standalone_secondary_ids.add(secondary_id)
+                if len(name_candidates) > 1:
+                    ambiguous_secondary_ids.add(secondary_id)
+
+        if secondary_id not in standalone_secondary_ids:
+            matched_secondary_ids.add(secondary_id)
 
         channel_map[secondary_id] = candidates
 
@@ -554,6 +557,7 @@ def process_programmes(
     seen_starts,
     channel_map=None,
     secondary=False,
+    standalone_channel_ids=None,
 ):
     stats = {
         "read": 0,
@@ -605,18 +609,29 @@ def process_programmes(
 
         wrote_any = False
         for target_channel in target_channels:
-            if target_channel not in allowed_channels:
+            is_standalone_secondary = (
+                secondary
+                and source_channel in (standalone_channel_ids or set())
+            )
+
+            # Основной источник сохраняется без фильтрации по channel ID.
+            # Во втором источнике проверяем, что канал действительно объявлен.
+            if secondary and target_channel not in allowed_channels:
                 continue
 
-            starts = seen_starts.setdefault(target_channel, set())
-            if start_time in starts:
-                stats["duplicates"] += 1
-                continue
+            # Для самостоятельных каналов IPTVX сохраняем ВСЕ передачи
+            # в периоде: они не пересекаются с расписанием EPG.ONE по смыслу
+            # (канал отдельный), поэтому дедупликация и overlap-check не нужны.
+            if secondary and not is_standalone_secondary:
+                starts = seen_starts.setdefault(target_channel, set())
+                if start_time in starts:
+                    stats["duplicates"] += 1
+                    continue
 
-            intervals = channel_intervals.setdefault(target_channel, [])
-            if secondary and interval_overlaps(intervals, start_time, stop_time):
-                stats["overlaps_skipped"] += 1
-                continue
+                intervals = channel_intervals.setdefault(target_channel, [])
+                if interval_overlaps(intervals, start_time, stop_time):
+                    stats["overlaps_skipped"] += 1
+                    continue
 
             output_element = copy.deepcopy(element) if secondary else element
             if secondary:
@@ -624,10 +639,15 @@ def process_programmes(
 
             stats["optional_removed"] += remove_optional_tags(output_element)
             write_element(output, output_element)
-            starts.add(start_time)
 
-            if stop_time is not None:
-                add_interval(intervals, start_time, stop_time)
+            if not is_standalone_secondary:
+                seen_starts.setdefault(target_channel, set()).add(start_time)
+                if stop_time is not None:
+                    add_interval(
+                        channel_intervals.setdefault(target_channel, []),
+                        start_time,
+                        stop_time,
+                    )
 
             stats["kept"] += 1
             stats["channels_with_kept_programmes"].add(target_channel)
@@ -888,6 +908,7 @@ def main():
                     channel_intervals=channel_intervals,
                     seen_starts=seen_starts,
                     secondary=True,
+                    standalone_channel_ids=standalone_secondary_ids,
                 )
 
             output.write(root_end)
