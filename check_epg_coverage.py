@@ -58,7 +58,6 @@ SOURCES = [
     ("EPG.ONE epg2", "http://epg.one/epg2.xml.gz"),
     ("IPTVX full", "http://iptvx.one/epg/epg.xml.gz"),
     ("TV.TEAM full", "http://epg.team/tvteam.xml.3.1"),
-    ("TeleGuide", "https://download.teleguide.su/download/new3/xmltv.xml.gz"),
     ("ProgramTV", "http://programtv.ru/xmltv.xml.gz"),
     ("TopIPTV", "http://topiptv.info/download/topiptv.xml.gz"),
     ("BCU Media", "https://epg.bcumedia.pro/epg.xml.gz"),
@@ -328,7 +327,6 @@ def parse_m3u(data):
                 "title": name,
                 "tvg_id": attrs.get("tvg-id", "").strip(),
                 "tvg_name": attrs.get("tvg-name", "").strip(),
-                "tvg_rec": attrs.get("tvg-rec", "").strip(),
                 "group": group,
             }
 
@@ -415,19 +413,24 @@ def build_playlist_indexes(channels):
     return by_id, by_name, by_base_name
 
 
-def map_source_channel(channel_id, display_names, indexes):
+def map_source_channels(channel_id, display_names, indexes):
+    """
+    Возвращает ВСЕ записи M3U, соответствующие одному XMLTV ID.
+
+    Один XMLTV <channel> может иметь несколько display-name:
+    например, название без суффикса, HD, FHD и другие варианты.
+    Все точные совпадения сохраняются, а не только первое найденное.
+    """
     by_id, by_name, by_base_name = indexes
-    ambiguous = False
 
     if channel_id:
         matches = by_id.get(channel_id.casefold(), set())
-        if len(matches) == 1:
-            return next(iter(matches)), "tvg-id"
-        if len(matches) > 1:
-            ambiguous = True
+        if matches:
+            return set(matches), "tvg-id"
 
-    # Точные совпадения с сохранением качества и +2/+4.
-    # Неоднозначный alias не мешает проверить следующие aliases XMLTV.
+    exact_matches = set()
+    exact_method = "exact name"
+
     for name in display_names:
         source_name = strip_country_prefix(name)
         variants = (source_name, strip_country_suffix(source_name))
@@ -438,25 +441,23 @@ def map_source_channel(channel_id, display_names, indexes):
                 continue
 
             matches = by_name.get(normalized, set())
-            if len(matches) == 1:
-                method = (
-                    "exact name"
-                    if variant == name
-                    else "country-normalized name"
-                )
-                return next(iter(matches)), method
-            if len(matches) > 1:
-                ambiguous = True
+            if matches:
+                exact_matches.update(matches)
+                if variant != name:
+                    exact_method = "country-normalized name"
 
-    # Если в XMLTV нет обозначения качества, разрешаем fallback только
-    # при единственном кандидате в M3U. При нескольких HD/FHD/SD версиях
-    # канал остаётся неоднозначным и не смешивается с другой версией.
+    if exact_matches:
+        return exact_matches, exact_method
+
+    # Fallback только при единственном кандидате в M3U.
+    # Если есть HD/FHD/SD варианты с одинаковой базой, не смешиваем их.
+    base_matches = set()
+    ambiguous = False
+
     for name in display_names:
         source_name = strip_country_prefix(name)
-        if has_quality_marker(source_name):
-            continue
-
         variants = (source_name, strip_country_suffix(source_name))
+
         for variant in dict.fromkeys(variants):
             base = normalize_base_name(variant)
             if not base:
@@ -464,12 +465,14 @@ def map_source_channel(channel_id, display_names, indexes):
 
             matches = by_base_name.get(base, set())
             if len(matches) == 1:
-                return next(iter(matches)), "unique base name"
-            if len(matches) > 1:
+                base_matches.update(matches)
+            elif len(matches) > 1:
                 ambiguous = True
 
-    return None, "ambiguous" if ambiguous else "unmatched"
+    if base_matches:
+        return base_matches, "unique base name"
 
+    return set(), "ambiguous" if ambiguous else "unmatched"
 # ============================================================
 # ОБРАБОТКА XMLTV
 # ============================================================
@@ -516,6 +519,7 @@ def process_source(
         "last_programme": "",
     }
 
+    # Один XMLTV ID может соответствовать нескольким записям плейлиста.
     mapped = {}
     source_channels_with_programmes = set()
     channels_with_programmes = set()
@@ -550,14 +554,17 @@ def process_source(
                         if local_name(item.tag) == "display-name"
                     ]
 
-                    index, method = map_source_channel(
+                    matched_indexes, method = map_source_channels(
                         channel_id,
                         display_names,
                         indexes,
                     )
 
-                    if index is not None and channel_id:
-                        mapped[channel_id] = index
+                    if matched_indexes and channel_id:
+                        mapped.setdefault(channel_id, set()).update(
+                            matched_indexes
+                        )
+
                         if method == "tvg-id":
                             stats["matched_by_tvg_id"] += 1
                         elif method == "exact name":
@@ -574,7 +581,8 @@ def process_source(
                 elif tag == "programme":
                     stats["programmes_read"] += 1
                     channel_id = elem.attrib.get("channel", "").strip()
-                    index = mapped.get(channel_id)
+                    matched_indexes = mapped.get(channel_id, set())
+
                     start_dt = parse_xmltv_datetime(
                         elem.attrib.get("start", "")
                     )
@@ -582,9 +590,10 @@ def process_source(
                     if start_dt is not None and period_start <= start_dt < period_end:
                         title = element_text(elem, "title")
                         if title:
+                            stats["programmes_in_period"] += 1
                             source_channels_with_programmes.add(channel_id)
 
-                            if index is not None:
+                            if matched_indexes:
                                 stop_dt = parse_xmltv_datetime(
                                     elem.attrib.get("stop", "")
                                 )
@@ -600,36 +609,37 @@ def process_source(
                                     if stop_dt is not None
                                     else ""
                                 )
-                                identity = (
-                                    index,
-                                    start_dt.isoformat(),
-                                    stop_text,
-                                    normalize_name(title),
-                                )
 
-                                stats["programmes_in_period"] += 1
-                                channels_with_programmes.add(index)
+                                for index in matched_indexes:
+                                    identity = (
+                                        index,
+                                        start_dt.isoformat(),
+                                        stop_text,
+                                        normalize_name(title),
+                                    )
 
-                                if (
-                                    identity in global_programmes
-                                    or identity in source_programmes
-                                ):
-                                    stats["duplicates_skipped"] += 1
-                                else:
-                                    source_programmes[identity] = {
-                                        "channel_index": index,
-                                        "start": start_dt,
-                                        "stop": stop_dt,
-                                        "title": title,
-                                        "description": description,
-                                        "categories": categories,
-                                        "source": source_name,
-                                    }
+                                    channels_with_programmes.add(index)
 
-                                current_date = start_dt.strftime("%Y-%m-%d %H:%M")
-                                if not stats["first_programme"]:
-                                    stats["first_programme"] = current_date
-                                stats["last_programme"] = current_date
+                                    if (
+                                        identity in global_programmes
+                                        or identity in source_programmes
+                                    ):
+                                        stats["duplicates_skipped"] += 1
+                                    else:
+                                        source_programmes[identity] = {
+                                            "channel_index": index,
+                                            "start": start_dt,
+                                            "stop": stop_dt,
+                                            "title": title,
+                                            "description": description,
+                                            "categories": categories,
+                                            "source": source_name,
+                                        }
+
+                            current_date = start_dt.strftime("%Y-%m-%d %H:%M")
+                            if not stats["first_programme"]:
+                                stats["first_programme"] = current_date
+                            stats["last_programme"] = current_date
 
                 # Чистим только завершённые channel/programme, не их дочерние
                 # display-name/title/desc/category до обработки родителя.
@@ -638,7 +648,11 @@ def process_source(
                     if root is not None:
                         root.clear()
 
-        stats["matched_playlist_channels"] = len(set(mapped.values()))
+        all_matched_indexes = set()
+        for matched_set in mapped.values():
+            all_matched_indexes.update(matched_set)
+
+        stats["matched_playlist_channels"] = len(all_matched_indexes)
         stats["xml_channels_with_programmes"] = len(
             source_channels_with_programmes
         )
@@ -677,9 +691,9 @@ def process_source(
 # ============================================================
 
 def write_channels(channels):
-    """Сохраняет только CHANNEL, TVG-REC и GRP; URL потоков не сохраняются."""
+    """Таблица каналов: порядковый номер, название и группа. Без URL и TVG-REC."""
     path = OUTPUT_DIR / "channels_test.txt"
-    headers = ["CHANNEL", "TVG-REC", "GRP"]
+    headers = ["№", "CHANNEL", "GRP"]
 
     def clean(value):
         return (
@@ -692,11 +706,11 @@ def write_channels(channels):
 
     rows = [
         [
+            str(index),
             clean(channel.get("title")),
-            clean(channel.get("tvg_rec")),
             clean(channel.get("group")),
         ]
-        for channel in channels
+        for index, channel in enumerate(channels, start=1)
     ]
 
     widths = [
@@ -739,7 +753,6 @@ def write_duplicate_report(channels):
         "duplicate_group",
         "playlist_entry",
         "channel",
-        "tvg_rec",
         "group",
     ]
 
@@ -765,7 +778,6 @@ def write_duplicate_report(channels):
                     "duplicate_group": group_name,
                     "playlist_entry": index,
                     "channel": channel["title"],
-                    "tvg_rec": channel["tvg_rec"],
                     "group": channel["group"],
                 })
 
