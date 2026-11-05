@@ -310,45 +310,32 @@ def download_source(url, destination):
 def read_primary_channels(filename):
     print("\nЧтение каналов основного источника...")
 
-    channels = {}
-
+    # Список сохраняет все объявления каналов, включая повторные ID.
+    channels = []
     root_tag = None
     root_attributes = {}
-
-    context = iterparse_gzip(
-        filename,
-        events=("start", "end"),
-    )
-
+    context = iterparse_gzip(filename, events=("start", "end"))
     root = None
 
     for event, element in context:
-
         if event == "start" and root is None:
             root = element
             root_tag = element.tag
             root_attributes = dict(element.attrib)
             continue
-
         if event != "end":
             continue
 
         tag = local_name(element.tag)
-
         if tag == "channel":
-
-            channel_id = element.attrib.get("id")
-
-            if channel_id:
-                channels[channel_id] = copy.deepcopy(element)
-
+            channels.append(copy.deepcopy(element))
             release_element(root, element)
-
         elif tag == "programme":
             release_element(root, element)
 
-    print(f"Каналов основного источника: {len(channels)}")
-
+    unique_ids = {c.attrib.get("id") for c in channels if c.attrib.get("id")}
+    print(f"Объявлений каналов основного источника: {len(channels)}")
+    print(f"Уникальных channel ID основного источника: {len(unique_ids)}")
     return channels, root_tag, root_attributes
 
 
@@ -358,114 +345,85 @@ def read_primary_channels(filename):
 
 def build_primary_name_index(channels):
     index = {}
-
-    for channel_id, channel in channels.items():
-
+    for channel in channels:
+        channel_id = channel.attrib.get("id")
+        if not channel_id:
+            continue
         for name in get_channel_names(channel):
             index.setdefault(name, set()).add(channel_id)
-
     return index
 
 
 def read_secondary_channels(filename):
-    """
-    Читает каналы вторичного источника.
-
-    Важно: освобождает не только channel, но и programme.
-    Это предотвращает накопление всего XML в памяти.
-    """
-
+    """Читает ID, названия и все объявления каналов второго источника."""
     print("\nЧтение каналов дополнительного источника...")
-
     channels = {}
     name_index = {}
+    channel_elements = []
 
-    context = iterparse_gzip(
-        filename,
-        events=("start", "end"),
-    )
-
+    context = iterparse_gzip(filename, events=("start", "end"))
     root = None
     depth = 0
 
     for event, element in context:
-
         if event == "start":
-
             depth += 1
-
             if root is None:
                 root = element
-
             continue
 
         if depth == 2:
-
-            tag = local_name(element.tag)
-
-            if tag == "channel":
-
+            if local_name(element.tag) == "channel":
                 channel_id = element.attrib.get("id")
-
                 if channel_id:
-
                     names = get_channel_names(element)
-                    channels[channel_id] = names
-
+                    channels.setdefault(channel_id, set()).update(names)
+                    channel_elements.append((channel_id, copy.deepcopy(element)))
                     for name in names:
-                        name_index.setdefault(
-                            name,
-                            set(),
-                        ).add(channel_id)
-
-            # Освобождаем все обработанные элементы верхнего
-            # уровня, включая programme и неизвестные элементы.
+                        name_index.setdefault(name, set()).add(channel_id)
             release_element(root, element)
-
         depth -= 1
 
-    print(f"Каналов второго источника: {len(channels)}")
-
-    return channels, name_index
+    print(f"Объявлений каналов второго источника: {len(channel_elements)}")
+    print(f"Уникальных channel ID второго источника: {len(channels)}")
+    return channels, name_index, channel_elements
 
 
 def build_secondary_channel_map(
     primary_name_index,
     secondary_channels,
     secondary_name_index,
+    primary_ids,
 ):
-    """
-    Сопоставляет только точные нормализованные display-name.
-
-    Одно название может соответствовать нескольким channel ID основного
-    источника (например, базовая версия, HD/FHD и orig). В таком случае
-    расписание второго источника назначается всем этим ID. Никакого
-    нечёткого поиска, удаления суффиксов или сопоставления с плейлистом нет.
-    """
-
+    """Точное сопоставление по display-name; unmatched остаются самостоятельными."""
     channel_map = {}
     mapped_pairs = 0
     ambiguous = 0
+    standalone = 0
 
     for secondary_id, names in secondary_channels.items():
         candidates = set()
-
         for name in names:
             candidates.update(primary_name_index.get(name, set()))
 
-        if candidates:
-            channel_map[secondary_id] = candidates
-            mapped_pairs += len(candidates)
-            if len(candidates) > 1:
-                ambiguous += 1
+        # Совпадающий ID — точное соответствие, даже если display-name различаются.
+        if not candidates and secondary_id in primary_ids:
+            candidates.add(secondary_id)
 
-    unmatched = len(secondary_channels) - len(channel_map)
+        # Канал отсутствует в primary — оставляем его отдельным каналом IPTVX.
+        if not candidates:
+            candidates.add(secondary_id)
+            standalone += 1
 
-    print(f"Сопоставлено каналов второго источника: {len(channel_map)}")
+        channel_map[secondary_id] = candidates
+        mapped_pairs += len(candidates)
+        if len(candidates) > 1:
+            ambiguous += 1
+
+    print(f"Сопоставлено/сохранено каналов второго источника: {len(channel_map)}")
     print(f"Всего точных соответствий channel ID: {mapped_pairs}")
     print(f"Названий с несколькими каналами primary: {ambiguous}")
-    print(f"Не сопоставлено: {unmatched}")
-
+    print(f"Самостоятельных каналов IPTVX для добавления: {standalone}")
     return channel_map
 
 
@@ -789,10 +747,11 @@ def main():
                 "Основной источник не содержит каналов."
             )
 
-        primary_ids = set(channels.keys())
+        primary_ids = {channel.attrib.get("id") for channel in channels if channel.attrib.get("id")}
 
         # 4. Сопоставляем каналы secondary.
         channel_map = {}
+        secondary_channel_elements = []
 
         if secondary_available:
 
@@ -803,12 +762,14 @@ def main():
             (
                 secondary_channels,
                 secondary_name_index,
+                secondary_channel_elements,
             ) = read_secondary_channels(secondary_file)
 
             channel_map = build_secondary_channel_map(
                 primary_name_index,
                 secondary_channels,
                 secondary_name_index,
+                primary_ids,
             )
 
         # 5. Формируем временный выходной файл.
@@ -842,9 +803,24 @@ def main():
                 root_attributes,
             )
 
-            # Сначала все каналы primary без подмены иконок.
-            for channel in channels.values():
+            # Сначала все объявления primary без потери метаданных.
+            for channel in channels:
                 write_element(output, channel)
+
+            # Добавляем самостоятельные каналы IPTVX, отсутствующие в primary.
+            added_secondary_ids = set()
+            if secondary_available:
+                for secondary_id, channel in secondary_channel_elements:
+                    targets = channel_map.get(secondary_id, set())
+                    if (
+                        secondary_id not in primary_ids
+                        and targets == {secondary_id}
+                        and secondary_id not in added_secondary_ids
+                    ):
+                        write_element(output, channel)
+                        added_secondary_ids.add(secondary_id)
+
+            output_channel_ids = primary_ids | added_secondary_ids
 
             # Затем передачи primary.
             primary_stats = process_programmes(
@@ -852,7 +828,7 @@ def main():
                 output=output,
                 window_start=window_start,
                 window_end=window_end,
-                allowed_channels=primary_ids,
+                allowed_channels=output_channel_ids,
                 channel_intervals=channel_intervals,
                 seen_starts=seen_starts,
                 secondary=False,
@@ -866,7 +842,7 @@ def main():
                     output=output,
                     window_start=window_start,
                     window_end=window_end,
-                    allowed_channels=primary_ids,
+                    allowed_channels=output_channel_ids,
                     channel_map=channel_map,
                     channel_intervals=channel_intervals,
                     seen_starts=seen_starts,
