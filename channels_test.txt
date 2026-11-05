@@ -2121,6 +2121,7 @@ Luxury
 Девятая Волна
 СТС HD
 ТНТ HD 50
+ТНТ +2
 ТНТ4 HD
 Зал Суда HD
 СТС HD orig
@@ -2472,6 +2473,7 @@ Bratty Sis
 Brand New Amateurs
 Beate Uhse
 BBC Pie
+Barely Legal TV
 Bang POV
 Bang Bus
 Banana Fever
@@ -2631,15 +2633,21 @@ Bally Sports Arizona Plus
 [Spectrum] MTV2 HD
 FanDuel Sports Network Detroit
 FanDuel Sports Network Detroit Plus
+FanDuel Sports Network Florida
 FanDuel Sports Network Florida Plus
+Bally Sports Great Lakes
+FanDuel Sports Network Oklahoma
 [Spectrum] Newsmax TV HD
+FanDuel Sports Network Midwest
 [Spectrum] NFL Network HD
 [Spectrum] NFL Redzone HD
 Bally Sports Midwest Alternate
 [Spectrum] Nick Jr HD
 Bally Sports New Orleans
 [Spectrum] Nicktoons  HD
+FanDuel Sports Network North
 [Spectrum] Outdoor Channel HD
+FanDuel Sports Network Ohio
 [Spectrum] Ovation TV HD
 [Spectrum] OWN HD
 FanDuel Sports Network Ohio Cincinnati
@@ -2661,6 +2669,7 @@ Bally Sports Southwest Alternate
 [Spectrum] QVC2 HD
 FanDuel Sports Network Southeast Plus
 [Spectrum] Recipe.TV HD
+FanDuel Sports Network Sun
 [Spectrum] RetroPlex HD
 FanDuel Sports Network West
 FanDuel Sports Network West Plus
@@ -2709,6 +2718,7 @@ EU Music HD UA
 К1 HD UA
 Kvartal TV UA
 Enter
+Enter
 Новий Канал UA
 Новий Канал HD UA
 НТН UA
@@ -2756,13 +2766,18 @@ ICTV UA
 ICTV HD UA
 СТБ UA
 СТБ HD
+Інтер UA
+XSPORT UA
 Еспресо TV UA
+Пiксель TV UA
 Sport 1 UA
 Sport 2 UA
 1+1 Марафон HD UA
 ТРК Украина HD UA
 Перший Т2 UA
+Еспресо TV HD UA
 Болт HD UA
+Пiксель TV UA
 Перший HD UA
 Star Cinema Россия HD
 Star Family Россия HD
@@ -2772,8 +2787,11 @@ NIKI Kids HD UA
 NIKI Junior HD UA
 М1 HD UA
 М2 HD UA
+ICTV UA
+Новий Канал UA
 Апостроф TV HD UA
 Оце HD UA
+Перший HD UA
 ТЕТ HD
 2+2 HD UA
 ПлюсПлюс HD
@@ -2791,6 +2809,7 @@ FilmBox UA
 Enter-фільм HD UA
 ПЕРШИЙ ДІЛОВИЙ UA
 Eco TV UA
+EU Music HD UA
 EU Music UA
 4ever Music UA
 Українське радіо 1
@@ -2856,6 +2875,7 @@ D1
 Da Vinci HD
 Divi Sport HD
 Equalympic HD
+Fashion TV HD
 Film UA Drama
 FILMBOX+ Festival HD
 FilmUA Live HD
