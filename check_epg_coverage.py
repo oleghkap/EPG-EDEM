@@ -590,13 +590,47 @@ def process_source(
 # СОХРАНЕНИЕ РЕЗУЛЬТАТОВ
 # ============================================================
 
+
 def write_channels(channels):
+    """
+    Сохраняет все записи M3U в TSV-файл без URL потоков.
+    Поля разделены табуляцией; пустые параметры остаются пустыми.
+    """
     path = OUTPUT_DIR / "channels_test.txt"
 
-    with open(path, "w", encoding="utf-8") as file:
-        for channel in channels:
-            file.write(channel["title"] + "\n")
+    fields = [
+        "playlist_entry",
+        "channel",
+        "tvg-id",
+        "tvg-name",
+        "tvg-rec",
+        "group",
+    ]
 
+    def clean(value):
+        # Не допускаем переносов строк и табуляции внутри одного поля.
+        return (
+            str(value or "")
+            .replace("\t", " ")
+            .replace("\r", " ")
+            .replace("\n", " ")
+            .strip()
+        )
+
+    with open(path, "w", encoding="utf-8-sig", newline="") as file:
+        file.write("\t".join(fields) + "\n")
+
+        for index, channel in enumerate(channels, start=1):
+            values = [
+                index,
+                clean(channel.get("title")),
+                clean(channel.get("tvg_id")),
+                clean(channel.get("tvg_name")),
+                clean(channel.get("tvg_rec")),
+                clean(channel.get("group")),
+            ]
+
+            file.write("\t".join(map(str, values)) + "\n")
 
 def write_duplicate_report(channels):
     """Записывает повторы по названию и tvg-id без URL потоков."""
