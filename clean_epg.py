@@ -395,14 +395,19 @@ def build_secondary_channel_map(
     secondary_name_index,
     primary_ids,
 ):
-    """Точное сопоставление по display-name; unmatched остаются самостоятельными."""
+    """
+    Сопоставляет каналы IPTVX с EPG.ONE по точному display-name.
+    Каналы без соответствия помечаются как самостоятельные и добавляются
+    в итоговый XML со своими channel ID.
+    """
     channel_map = {}
-    mapped_pairs = 0
-    ambiguous = 0
-    standalone = 0
+    matched_secondary_ids = set()
+    standalone_secondary_ids = set()
+    ambiguous_secondary_ids = set()
 
     for secondary_id, names in secondary_channels.items():
         candidates = set()
+
         for name in names:
             candidates.update(primary_name_index.get(name, set()))
 
@@ -410,22 +415,41 @@ def build_secondary_channel_map(
         if not candidates and secondary_id in primary_ids:
             candidates.add(secondary_id)
 
-        # Канал отсутствует в primary — оставляем его отдельным каналом IPTVX.
-        if not candidates:
+        if candidates:
+            matched_secondary_ids.add(secondary_id)
+        else:
+            # Канал отсутствует в primary: добавляем его отдельно.
             candidates.add(secondary_id)
-            standalone += 1
+            standalone_secondary_ids.add(secondary_id)
+
+        if len(candidates) > 1:
+            ambiguous_secondary_ids.add(secondary_id)
 
         channel_map[secondary_id] = candidates
-        mapped_pairs += len(candidates)
-        if len(candidates) > 1:
-            ambiguous += 1
 
-    print(f"Сопоставлено/сохранено каналов второго источника: {len(channel_map)}")
-    print(f"Всего точных соответствий channel ID: {mapped_pairs}")
-    print(f"Названий с несколькими каналами primary: {ambiguous}")
-    print(f"Самостоятельных каналов IPTVX для добавления: {standalone}")
-    return channel_map
+    print(
+        "Каналов IPTVX, сопоставленных с EPG.ONE: "
+        f"{len(matched_secondary_ids)}"
+    )
+    print(
+        "Самостоятельных каналов IPTVX для добавления: "
+        f"{len(standalone_secondary_ids)}"
+    )
+    print(
+        "Каналов IPTVX с неоднозначным соответствием: "
+        f"{len(ambiguous_secondary_ids)}"
+    )
+    print(
+        "Всего связей IPTVX → каналы EPG.ONE: "
+        f"{sum(len(targets) for targets in channel_map.values())}"
+    )
 
+    return (
+        channel_map,
+        matched_secondary_ids,
+        standalone_secondary_ids,
+        ambiguous_secondary_ids,
+    )
 
 def interval_overlaps(intervals, start, stop):
     """Проверяет пересечение [start, stop) с уже объединёнными интервалами."""
@@ -540,6 +564,7 @@ def process_programmes(
         "duplicates": 0,
         "optional_removed": 0,
         "overlaps_skipped": 0,
+        "channels_with_kept_programmes": set(),
     }
 
     source_name = "дополнительного" if secondary else "основного"
@@ -605,6 +630,7 @@ def process_programmes(
                 add_interval(intervals, start_time, stop_time)
 
             stats["kept"] += 1
+            stats["channels_with_kept_programmes"].add(target_channel)
             wrote_any = True
 
         if not wrote_any and not secondary:
@@ -617,6 +643,10 @@ def process_programmes(
 
     print(f"Прочитано передач: {stats['read']}")
     print(f"Добавлено передач: {stats['kept']}")
+    print(
+        "Каналов с добавленными передачами: "
+        f"{len(stats['channels_with_kept_programmes'])}"
+    )
     print(f"За пределами периода: {stats['outside']}")
     print(f"Некорректное время: {stats['invalid']}")
     print(f"Не сопоставлено передач: {stats['unmapped']}")
@@ -635,18 +665,20 @@ def process_programmes(
 def validate_output(filename):
     checked_elements = 0
     channels = 0
+    channel_ids = set()
 
     with gzip.open(filename, "rb") as source:
-
         for event, element in ET.iterparse(
             source,
             events=("end",),
         ):
-
             checked_elements += 1
 
             if local_name(element.tag) == "channel":
                 channels += 1
+                channel_id = element.attrib.get("id")
+                if channel_id:
+                    channel_ids.add(channel_id)
 
     if checked_elements == 0:
         raise RuntimeError("Итоговый XML пуст.")
@@ -656,7 +688,7 @@ def validate_output(filename):
             "В итоговом XML отсутствуют каналы."
         )
 
-    return channels
+    return channels, len(channel_ids)
 
 
 # ============================================================
@@ -752,6 +784,10 @@ def main():
         # 4. Сопоставляем каналы secondary.
         channel_map = {}
         secondary_channel_elements = []
+        secondary_channels = {}
+        matched_secondary_ids = set()
+        standalone_secondary_ids = set()
+        ambiguous_secondary_ids = set()
 
         if secondary_available:
 
@@ -765,7 +801,12 @@ def main():
                 secondary_channel_elements,
             ) = read_secondary_channels(secondary_file)
 
-            channel_map = build_secondary_channel_map(
+            (
+                channel_map,
+                matched_secondary_ids,
+                standalone_secondary_ids,
+                ambiguous_secondary_ids,
+            ) = build_secondary_channel_map(
                 primary_name_index,
                 secondary_channels,
                 secondary_name_index,
@@ -803,12 +844,23 @@ def main():
                 root_attributes,
             )
 
-            # Сохраняем только объявления primary без потери метаданных.
-            # Каналы, существующие только в IPTVX, не добавляем.
+            # Сохраняем все объявления primary без потери метаданных.
             for channel in channels:
                 write_element(output, channel)
 
-            output_channel_ids = primary_ids
+            # Добавляем самостоятельные каналы IPTVX.
+            # Для каждого уникального channel ID записываем только одно объявление.
+            added_secondary_channel_ids = set()
+
+            for secondary_id, channel in secondary_channel_elements:
+                if (
+                    secondary_id in standalone_secondary_ids
+                    and secondary_id not in added_secondary_channel_ids
+                ):
+                    write_element(output, channel)
+                    added_secondary_channel_ids.add(secondary_id)
+
+            output_channel_ids = primary_ids | standalone_secondary_ids
 
             # Затем передачи primary.
             primary_stats = process_programmes(
@@ -845,7 +897,9 @@ def main():
         # 6. Проверяем временный файл до замены результата.
         print("\nПроверка итогового GZIP и XML...")
 
-        output_channels = validate_output(temporary_output)
+        output_channels, output_unique_channel_ids = validate_output(
+            temporary_output
+        )
 
         # Заменяем прежний результат только после проверки.
         os.replace(
@@ -876,16 +930,53 @@ def main():
         print("ИТОГОВАЯ СТАТИСТИКА CLEAN_EPG")
         print("=" * 65)
 
-        print(f"Каналов в выходном файле: {output_channels}")
+        print("КАНАЛЫ ПО ИСТОЧНИКАМ")
+        print(
+            "EPG.ONE — объявлений: "
+            f"{len(channels)}; уникальных channel ID: {len(primary_ids)}"
+        )
 
+        if secondary_available:
+            print(
+                "IPTVX — объявлений: "
+                f"{len(secondary_channel_elements)}; уникальных channel ID: "
+                f"{len(secondary_channels)}"
+            )
+            print(
+                "Совпало с EPG.ONE: "
+                f"{len(matched_secondary_ids)} каналов IPTVX"
+            )
+            print(
+                "Добавлено новых каналов IPTVX: "
+                f"{len(added_secondary_channel_ids)}"
+            )
+            print(
+                "Неоднозначных совпадений: "
+                f"{len(ambiguous_secondary_ids)}"
+            )
+        else:
+            print("IPTVX — источник недоступен")
+
+        print(
+            "ИТОГО — объявлений channel: "
+            f"{output_channels}; уникальных channel ID: "
+            f"{output_unique_channel_ids}"
+        )
+
+        print()
+        print("ПЕРЕДАЧИ ПО ИСТОЧНИКАМ")
         print(
             "Передач из основного источника: "
             f"{primary_stats['kept']}"
         )
 
         print(
-            "Дополнительных передач: "
+            "Передач, добавленных из IPTVX: "
             f"{secondary_stats['kept']}"
+        )
+        print(
+            "Каналов с передачами, добавленными из IPTVX: "
+            f"{len(secondary_stats['channels_with_kept_programmes'])}"
         )
 
         print(f"Всего передач: {total_programmes}")
