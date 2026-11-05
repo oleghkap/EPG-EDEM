@@ -1,5 +1,6 @@
 
 import copy
+from bisect import bisect_left
 import gzip
 import os
 import re
@@ -27,7 +28,7 @@ TIMEZONE = ZoneInfo("Europe/Moscow")
 DAYS_BEFORE = 2
 DAYS_AFTER = 1
 
-GZIP_LEVEL = 6
+GZIP_LEVEL = 9
 DOWNLOAD_TIMEOUT = 180
 BUFFER_SIZE = 1024 * 1024
 
@@ -434,49 +435,72 @@ def build_secondary_channel_map(
     secondary_name_index,
 ):
     """
-    Сопоставление только по уникальному точному имени
-    после нормализации регистра и пробелов.
+    Сопоставляет только точные нормализованные display-name.
+
+    Одно название может соответствовать нескольким channel ID основного
+    источника (например, базовая версия, HD/FHD и orig). В таком случае
+    расписание второго источника назначается всем этим ID. Никакого
+    нечёткого поиска, удаления суффиксов или сопоставления с плейлистом нет.
     """
 
     channel_map = {}
-
-    matched = 0
+    mapped_pairs = 0
     ambiguous = 0
 
     for secondary_id, names in secondary_channels.items():
-
         candidates = set()
 
         for name in names:
+            candidates.update(primary_name_index.get(name, set()))
 
-            primary_matches = primary_name_index.get(name, set())
-            secondary_matches = secondary_name_index.get(name, set())
+        if candidates:
+            channel_map[secondary_id] = candidates
+            mapped_pairs += len(candidates)
+            if len(candidates) > 1:
+                ambiguous += 1
 
-            if (
-                len(primary_matches) == 1
-                and len(secondary_matches) == 1
-            ):
-                candidates.update(primary_matches)
+    unmatched = len(secondary_channels) - len(channel_map)
 
-        if len(candidates) == 1:
-
-            channel_map[secondary_id] = next(iter(candidates))
-            matched += 1
-
-        elif len(candidates) > 1:
-            ambiguous += 1
-
-    unmatched = (
-        len(secondary_channels)
-        - matched
-        - ambiguous
-    )
-
-    print(f"Однозначно сопоставлено: {matched}")
-    print(f"Неоднозначных соответствий: {ambiguous}")
+    print(f"Сопоставлено каналов второго источника: {len(channel_map)}")
+    print(f"Всего точных соответствий channel ID: {mapped_pairs}")
+    print(f"Названий с несколькими каналами primary: {ambiguous}")
     print(f"Не сопоставлено: {unmatched}")
 
     return channel_map
+
+
+def interval_overlaps(intervals, start, stop):
+    """Проверяет пересечение [start, stop) с уже объединёнными интервалами."""
+    if stop is None:
+        return False
+
+    index = bisect_left(intervals, (start, datetime.min.replace(tzinfo=TIMEZONE)))
+
+    if index > 0 and intervals[index - 1][1] > start:
+        return True
+
+    return index < len(intervals) and intervals[index][0] < stop
+
+
+def add_interval(intervals, start, stop):
+    """Добавляет интервал и объединяет пересекающиеся интервалы."""
+    if stop is None:
+        return
+
+    index = bisect_left(intervals, (start, datetime.min.replace(tzinfo=TIMEZONE)))
+    merged_start = start
+    merged_stop = stop
+
+    if index > 0 and intervals[index - 1][1] >= merged_start:
+        index -= 1
+        merged_start = min(merged_start, intervals[index][0])
+        merged_stop = max(merged_stop, intervals[index][1])
+
+    while index < len(intervals) and intervals[index][0] < merged_stop:
+        merged_stop = max(merged_stop, intervals[index][1])
+        intervals.pop(index)
+
+    intervals.insert(index, (merged_start, merged_stop))
 
 
 # ============================================================
@@ -544,7 +568,8 @@ def process_programmes(
     window_start,
     window_end,
     allowed_channels,
-    seen_keys,
+    channel_intervals,
+    seen_starts,
     channel_map=None,
     secondary=False,
 ):
@@ -556,119 +581,91 @@ def process_programmes(
         "unmapped": 0,
         "duplicates": 0,
         "optional_removed": 0,
+        "overlaps_skipped": 0,
     }
 
-    source_name = (
-        "дополнительного"
-        if secondary
-        else "основного"
-    )
-
+    source_name = "дополнительного" if secondary else "основного"
     print(f"\nОбработка передач {source_name} источника...")
 
-    context = iterparse_gzip(
-        filename,
-        events=("start", "end"),
-    )
-
+    context = iterparse_gzip(filename, events=("start", "end"))
     root = None
 
     for event, element in context:
-
         if event == "start" and root is None:
             root = element
             continue
-
-        if event != "end":
-            continue
-
-        if local_name(element.tag) != "programme":
+        if event != "end" or local_name(element.tag) != "programme":
             continue
 
         stats["read"] += 1
-
         source_channel = element.attrib.get("channel", "")
 
         if secondary:
-
-            target_channel = (channel_map or {}).get(
-                source_channel
-            )
-
-            if target_channel is None:
+            target_channels = (channel_map or {}).get(source_channel, set())
+            if not target_channels:
                 stats["unmapped"] += 1
                 release_element(root, element)
                 continue
-
         else:
-            target_channel = source_channel
-
-        if target_channel not in allowed_channels:
-            stats["unmapped"] += 1
-            release_element(root, element)
-            continue
+            target_channels = {source_channel}
 
         start_time, stop_time = get_programme_times(element)
-
         if start_time is None:
             stats["invalid"] += 1
             release_element(root, element)
             continue
 
-        if not programme_is_in_window(
-            start_time,
-            stop_time,
-            window_start,
-            window_end,
-        ):
+        if not programme_is_in_window(start_time, stop_time, window_start, window_end):
             stats["outside"] += 1
             release_element(root, element)
             continue
 
-        # Изменяем ID канала только у передачи secondary.
-        if secondary:
-            element.attrib["channel"] = target_channel
+        wrote_any = False
+        for target_channel in target_channels:
+            if target_channel not in allowed_channels:
+                continue
 
-        key = get_programme_key(element)
+            starts = seen_starts.setdefault(target_channel, set())
+            if start_time in starts:
+                stats["duplicates"] += 1
+                continue
 
-        # Primary не дедуплицируется.
-        if secondary and key is not None and key in seen_keys:
-            stats["duplicates"] += 1
-            release_element(root, element)
-            continue
+            intervals = channel_intervals.setdefault(target_channel, [])
+            if secondary and interval_overlaps(intervals, start_time, stop_time):
+                stats["overlaps_skipped"] += 1
+                continue
 
-        if key is not None:
-            seen_keys.add(key)
+            output_element = copy.deepcopy(element) if secondary else element
+            if secondary:
+                output_element.attrib["channel"] = target_channel
 
-        stats["optional_removed"] += remove_optional_tags(
-            element
-        )
+            stats["optional_removed"] += remove_optional_tags(output_element)
+            write_element(output, output_element)
+            starts.add(start_time)
 
-        write_element(output, element)
+            if stop_time is not None:
+                add_interval(intervals, start_time, stop_time)
 
-        stats["kept"] += 1
+            stats["kept"] += 1
+            wrote_any = True
+
+        if not wrote_any and not secondary:
+            stats["unmapped"] += 1
 
         release_element(root, element)
 
         if stats["read"] % 100000 == 0:
-            print(
-                f"  Проверено: {stats['read']}; "
-                f"добавлено: {stats['kept']}"
-            )
+            print(f"  Проверено: {stats['read']}; добавлено: {stats['kept']}")
 
     print(f"Прочитано передач: {stats['read']}")
     print(f"Добавлено передач: {stats['kept']}")
     print(f"За пределами периода: {stats['outside']}")
     print(f"Некорректное время: {stats['invalid']}")
     print(f"Не сопоставлено передач: {stats['unmapped']}")
-
     if secondary:
-        print(f"Дубликатов пропущено: {stats['duplicates']}")
-
-    print(
-        "Удалено необязательных тегов: "
-        f"{stats['optional_removed']}"
-    )
+        print(f"Дубликатов по времени начала: {stats['duplicates']}")
+        print(f"Пересечений с уже добавленными передачами пропущено: {stats['overlaps_skipped']}")
+    print(f"Удалено необязательных тегов: {stats['optional_removed']}")
 
     return stats
 
@@ -817,7 +814,8 @@ def main():
         # 5. Формируем временный выходной файл.
         print("\nСоздание итогового EPG...")
 
-        seen_keys = set()
+        channel_intervals = {}
+        seen_starts = {}
 
         secondary_stats = {
             "read": 0,
@@ -827,6 +825,7 @@ def main():
             "unmapped": 0,
             "duplicates": 0,
             "optional_removed": 0,
+            "overlaps_skipped": 0,
         }
 
         with gzip.open(
@@ -854,7 +853,8 @@ def main():
                 window_start=window_start,
                 window_end=window_end,
                 allowed_channels=primary_ids,
-                seen_keys=seen_keys,
+                channel_intervals=channel_intervals,
+                seen_starts=seen_starts,
                 secondary=False,
             )
 
@@ -868,7 +868,8 @@ def main():
                     window_end=window_end,
                     allowed_channels=primary_ids,
                     channel_map=channel_map,
-                    seen_keys=seen_keys,
+                    channel_intervals=channel_intervals,
+                    seen_starts=seen_starts,
                     secondary=True,
                 )
 
@@ -926,8 +927,12 @@ def main():
         print(f"Всего передач: {total_programmes}")
 
         print(
-            "Дубликатов второго источника: "
+            "Дубликатов второго источника по времени начала: "
             f"{secondary_stats['duplicates']}"
+        )
+        print(
+            "Пересечений передач второго источника пропущено: "
+            f"{secondary_stats['overlaps_skipped']}"
         )
 
         print(
