@@ -1048,6 +1048,51 @@ def main():
         print(f"Итоговый файл: {OUTPUT_FILE}")
         print("=" * 65)
 
+        # Дублируем главные показатели в GitHub Actions → Summary,
+        # чтобы статистику объединения было видно без поиска в длинном логе.
+        summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+        if summary_path:
+            summary = [
+                "# EPG-EDEM — статистика объединения",
+                "",
+                f"**Период:** {window_start:%Y-%m-%d %H:%M} — {window_end:%Y-%m-%d %H:%M} (Москва)",
+                "",
+                "## Каналы",
+                "",
+                "| Показатель | Количество |",
+                "|---|---:|",
+                f"| EPG.ONE — объявления каналов | {len(channels)} |",
+                f"| EPG.ONE — уникальные channel ID | {len(primary_ids)} |",
+                f"| IPTVX — объявления каналов | {len(secondary_channel_elements)} |",
+                f"| IPTVX — уникальные channel ID | {len(secondary_channels)} |",
+                f"| IPTVX сопоставлено с EPG.ONE | {len(matched_secondary_ids)} |",
+                f"| Новые каналы IPTVX | {len(added_secondary_channel_ids)} |",
+                f"| Неоднозначные соответствия IPTVX | {len(ambiguous_secondary_ids)} |",
+                f"| **ИТОГО — объявления channel** | **{output_channels}** |",
+                f"| **ИТОГО — уникальные channel ID** | **{output_unique_channel_ids}** |",
+                "",
+                "## Телепрограмма",
+                "",
+                "| Показатель | Количество |",
+                "|---|---:|",
+                f"| Передачи EPG.ONE | {primary_stats['kept']} |",
+                f"| Добавлено передач IPTVX | {secondary_stats['kept']} |",
+                f"| Каналов с передачами, добавленными из IPTVX | {len(secondary_stats['channels_with_kept_programmes'])} |",
+                f"| **Всего передач** | **{total_programmes}** |",
+                f"| Дубли IPTVX по времени начала | {secondary_stats['duplicates']} |",
+                f"| Пересечения передач IPTVX, пропущенные при объединении | {secondary_stats['overlaps_skipped']} |",
+                f"| Несопоставленные передачи IPTVX | {secondary_stats['unmapped']} |",
+                "",
+                "## Размер результата",
+                "",
+                f"- Итоговый GZIP: **{format_size(compressed_size)}**",
+                f"- XML без сжатия: **{format_size(uncompressed_size)}**",
+                f"- Сжатие GZIP: **{compression_percent:.1f}%**",
+                "",
+            ]
+            with open(summary_path, "a", encoding="utf-8") as summary_file:
+                summary_file.write("\\n".join(summary))
+
 
 if __name__ == "__main__":
     main()
