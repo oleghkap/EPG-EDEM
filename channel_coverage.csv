@@ -393,7 +393,7 @@ Shot TV HD,Кино,201,EPG.ONE epg2,2026-11-04 23:57,2026-11-07 23:54
 О!Кино,Кино,0,,,
 4Ever Drama HD UA,Кино,35,BCU Media; EPG.ONE epg2,2026-11-04 23:07,2026-11-07 21:00
 NOW Series HD,Кино,117,BCU Media; EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:45
-FilmZone HD LV,Кино,146,BCU Media; FOX TV; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:00
+FilmZone HD LV,Кино,145,BCU Media; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:00
 FilmZone Plus HD EE,Кино,0,,,
 Shot TV orig,Кино,201,EPG.ONE epg2,2026-11-04 23:57,2026-11-07 23:54
 VF Счастливы Вместе,Кино,282,EPG.ONE epg2; IPTVX full,2026-11-04 23:38,2026-11-07 23:38
@@ -1561,10 +1561,10 @@ Bridge Rock,Музыка,49,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 22:30
 Europa Plus TV,Музыка,88,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-04 23:00,2026-11-07 23:00
 МУЗ-ТВ,Музыка,74,EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:00
 MTV Classic,Музыка,97,EPG.ONE epg2; TV.TEAM full,2026-11-04 23:46,2026-11-07 23:00
-MTV Hits,Музыка,72,M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 19:00
+MTV Hits,Музыка,73,FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 19:00
 Музыка Первого,Музыка,77,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 Mezzo Live HD,Музыка,259,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:30,2026-11-07 23:30
-MTV Club,Музыка,47,TV.TEAM full,2026-11-04 23:00,2026-11-07 06:36
+MTV Club,Музыка,48,FOX TV; TV.TEAM full,2026-11-04 23:00,2026-11-07 07:57
 Mezzo,Музыка,249,BCU Media; EPG.ONE epg2; IPTVX full; M3U Edit ALL,2026-11-04 22:30,2026-11-07 23:00
 FON Music,Музыка,92,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:05
 о2тв HD,Музыка,38,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:10
@@ -1857,12 +1857,12 @@ Big Planet,Познавательные,115,EPG.ONE epg2,2026-11-04 23:35,2026-1
 National Geographic HD,Познавательные,924,EPG.ONE epg2; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:55
 National Geographic HD orig,Познавательные,924,EPG.ONE epg2; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:55
 Наша Тема orig,Познавательные,155,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:25
-World Fashion Channel orig,Познавательные,1524,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 23:59,2026-11-07 23:57
+World Fashion Channel orig,Познавательные,1522,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 23:59,2026-11-07 23:57
 Мама orig,Познавательные,81,EPG.ONE epg2,2026-11-04 20:40,2026-11-07 23:40
 Связист ТВ orig,Познавательные,0,,,
 Т24 orig,Познавательные,68,EPG.ONE epg2,2026-11-04 22:25,2026-11-07 23:20
 Доктор orig,Познавательные,102,EPG.ONE epg2,2026-11-04 23:35,2026-11-07 23:40
-Viju Nature orig,Познавательные,157,BCU Media; EPG.ONE epg2; FOX TV,2026-11-04 23:40,2026-11-07 23:50
+Viju Nature orig,Познавательные,156,BCU Media; EPG.ONE epg2; FOX TV,2026-11-04 23:40,2026-11-07 23:50
 Домашние Животные orig,Познавательные,201,EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:45
 Вопросы и ответы orig,Познавательные,84,EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:25
 Время orig,Познавательные,24,EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 18:30
@@ -1898,8 +1898,8 @@ Home 4K,Познавательные,2331,EPG.ONE epg2; M3U Edit ALL,2026-11-04 
 Инсайт ТВ UHD,Познавательные,270,BCU Media; EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:45
 Love Nature 4K,Познавательные,458,EPG.ONE epg2; IPTVX full; M3U Edit ALL,2026-11-04 23:10,2026-11-07 23:55
 Наша Сибирь 4K,Познавательные,1591,EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-04 23:55,2026-11-07 23:55
-TERRA HD,Познавательные,246,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:58
-TERRA,Познавательные,246,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:58
+TERRA HD,Познавательные,252,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:58
+TERRA,Познавательные,252,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:58
 TLC HD,Познавательные,1043,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:35,2026-11-07 23:51
 Travel Channel HD,Познавательные,427,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:10,2026-11-07 23:56
 History HD,Познавательные,851,EPG.ONE epg2; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:29,2026-11-07 23:50
@@ -1918,9 +1918,9 @@ FoodTime FHD,Познавательные,149,EPG.ONE epg2,2026-11-05 00:00,2026
 FoodTime HD,Познавательные,149,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:35
 Food Network FHD,Познавательные,702,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:20,2026-11-07 23:55
 Живая природа HD,Познавательные,1433,EPG.ONE epg2,2026-11-04 23:59,2026-11-07 23:59
-В мире животных HD,Познавательные,192,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 21:15,2026-11-07 23:25
+В мире животных HD,Познавательные,191,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 21:15,2026-11-07 23:25
 Моя Планета HD,Познавательные,118,EPG.ONE epg2; ProgramTV,2026-11-04 23:50,2026-11-07 23:35
-Приключения HD,Познавательные,218,EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 23:35
+Приключения HD,Познавательные,217,EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 23:35
 Глазами Туриста HD,Познавательные,412,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:43,2026-11-07 23:55
 Большая Азия HD,Познавательные,187,EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:35
 DocuBox HD,Познавательные,511,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TopIPTV,2026-11-04 23:35,2026-11-07 23:55
@@ -1936,7 +1936,7 @@ Investigation Discovery HD,Познавательные,185,EPG.ONE epg2; M3U Ed
 Домашние Животные,Познавательные,201,EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:45
 Точка отрыва,Познавательные,187,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:15
 Надежда,Познавательные,172,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:40
-Viju Nature,Познавательные,157,BCU Media; EPG.ONE epg2; FOX TV,2026-11-04 23:40,2026-11-07 23:50
+Viju Nature,Познавательные,156,BCU Media; EPG.ONE epg2; FOX TV,2026-11-04 23:40,2026-11-07 23:50
 Viju History,Познавательные,88,EPG.ONE epg2; ProgramTV,2026-11-04 23:35,2026-11-07 23:20
 Viju Explore,Познавательные,176,BCU Media; EPG.ONE epg2; TopIPTV,2026-11-04 23:50,2026-11-07 23:00
 Наука HD,Познавательные,261,EPG.ONE epg2; FOX TV; IPTVX full; Satfor,2026-11-04 23:41,2026-11-07 23:52
@@ -1971,7 +1971,7 @@ Investigation Discovery,Познавательные,185,EPG.ONE epg2; M3U Edit 
 Наша Тема,Познавательные,155,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:25
 Пёс и Ко,Познавательные,46,EPG.ONE epg2; ProgramTV,2026-11-04 23:00,2026-11-07 23:00
 Fashion & Lifestyle,Познавательные,419,EPG.ONE epg2; ProgramTV,2026-11-04 23:44,2026-11-07 23:53
-World Fashion Channel,Познавательные,1524,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 23:59,2026-11-07 23:57
+World Fashion Channel,Познавательные,1522,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 23:59,2026-11-07 23:57
 Мужской,Познавательные,168,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:25
 Da Vinci,Познавательные,1232,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:54,2026-11-07 23:54
 Мама,Познавательные,81,EPG.ONE epg2,2026-11-04 20:40,2026-11-07 23:40
@@ -1992,7 +1992,7 @@ Outdoor Channel,Познавательные,580,M3U Edit ALL,2026-11-05 00:00,2
 Авто Плюс HD,Познавательные,348,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:55
 Viju Explore HD,Познавательные,176,BCU Media; EPG.ONE epg2; TopIPTV,2026-11-04 23:50,2026-11-07 23:00
 HGTV HD,Познавательные,907,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:00,2026-11-07 23:50
-Приключения HD orig,Познавательные,218,EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 23:35
+Приключения HD orig,Познавательные,217,EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 23:35
 Discovery Channel HD orig,Познавательные,956,EPG.ONE epg2; FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:55
 History 2 HD orig,Познавательные,357,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:45,2026-11-07 23:58
 Travel+Adventure HD orig,Познавательные,111,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:50
@@ -2002,7 +2002,7 @@ Travel Channel HD orig,Познавательные,427,EPG.ONE epg2; M3U Edit A
 Viju+ Planet HD,Познавательные,138,BCU Media; EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:40
 Живая природа HD orig,Познавательные,1433,EPG.ONE epg2,2026-11-04 23:59,2026-11-07 23:59
 Охотник и Рыболов HD orig,Познавательные,275,EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-05 00:00,2026-11-07 23:35
-В мире животных HD orig,Познавательные,192,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 21:15,2026-11-07 23:25
+В мире животных HD orig,Познавательные,191,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 21:15,2026-11-07 23:25
 Моя Планета HD orig,Познавательные,118,EPG.ONE epg2; ProgramTV,2026-11-04 23:50,2026-11-07 23:35
 Investigation Discovery HD orig,Познавательные,185,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:55,2026-11-07 23:55
 Viju History HD orig,Познавательные,88,EPG.ONE epg2; ProgramTV,2026-11-04 23:35,2026-11-07 23:20
@@ -2046,7 +2046,7 @@ Univer TV HD,Познавательные,117,EPG.ONE epg2,2026-11-05 00:00,2026
 Первый космический HD,Познавательные,164,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-05 00:00,2026-11-07 22:30
 Первый космический HD orig,Познавательные,164,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-05 00:00,2026-11-07 22:30
 Мир Вокруг HD,Познавательные,252,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:40
-Viju Nature HD,Познавательные,157,BCU Media; EPG.ONE epg2; FOX TV,2026-11-04 23:40,2026-11-07 23:50
+Viju Nature HD,Познавательные,156,BCU Media; EPG.ONE epg2; FOX TV,2026-11-04 23:40,2026-11-07 23:50
 NASA TV 4K,Познавательные,19,M3U Edit ALL,2026-11-05 10:30,2026-11-07 08:00
 VF Авто,Познавательные,152,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:53
 VF Охота,Познавательные,24,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 21:00
