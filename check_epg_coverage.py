@@ -413,6 +413,43 @@ def build_playlist_indexes(channels):
     return by_id, by_name, by_base_name
 
 
+def audit_mapping_candidates(display_names, indexes, playlist_channels):
+    """Диагностика кандидатов без изменения действующего сопоставления."""
+    _, by_name, by_base_name = indexes
+    exact = set()
+    country = set()
+    base = set()
+    for name in display_names:
+        if not name:
+            continue
+        normalized = normalize_name(name)
+        if normalized:
+            exact.update(by_name.get(normalized, set()))
+        country_name = strip_country_suffix(strip_country_prefix(name))
+        normalized_country = normalize_name(country_name)
+        if normalized_country:
+            country.update(by_name.get(normalized_country, set()))
+        normalized_base = normalize_base_name(country_name)
+        if normalized_base:
+            base.update(by_base_name.get(normalized_base, set()))
+
+    def index_text(values):
+        return " | ".join(str(i) for i in sorted(values))
+    def name_text(values):
+        return " | ".join(f"{i}:{playlist_channels[i]['title']}" for i in sorted(values))
+    exact_country = exact | country
+    return {
+        "exact_count": len(exact), "exact_indexes": index_text(exact), "exact_names": name_text(exact),
+        "country_count": len(country), "country_indexes": index_text(country), "country_names": name_text(country),
+        "exact_country_indexes": index_text(exact_country), "exact_country_names": name_text(exact_country),
+        "base_count": len(base), "base_indexes": index_text(base), "base_names": name_text(base),
+        "base_only_count": len(base - exact_country), "base_only_indexes": index_text(base - exact_country),
+        "base_only_names": name_text(base - exact_country),
+        "all_candidate_indexes": index_text(exact_country | base),
+        "all_candidate_names": name_text(exact_country | base),
+    }
+
+
 def map_source_channels(channel_id, display_names, indexes):
     """
     Возвращает ВСЕ записи M3U, соответствующие одному XMLTV ID.
@@ -494,6 +531,7 @@ def process_source(
     merge_text_details,
     duplicate_channel_id_details,
     channel_mapping_details,
+    mapping_rule_details,
 ):
     stats = {
         "source": source_name,
@@ -565,6 +603,13 @@ def process_source(
                     if channel_id:
                         source_channel_display_names[channel_id].update(name for name in display_names if name)
 
+                    audit = audit_mapping_candidates(display_names, indexes, playlist_channels)
+                    mapping_rule_details.append({
+                        "source": source_name,
+                        "xml_channel_id": channel_id,
+                        "xml_display_names": " | ".join(display_names),
+                        **audit,
+                    })
                     matched_indexes, method = map_source_channels(
                         channel_id,
                         display_names,
@@ -1490,6 +1535,7 @@ def main():
     merge_text_details = []
     duplicate_channel_id_details = []
     channel_mapping_details = []
+    mapping_rule_details = []
     all_stats = []
 
     for number, (source_name, source_url) in enumerate(SOURCES, start=1):
@@ -1513,6 +1559,7 @@ def main():
             merge_text_details,
             duplicate_channel_id_details,
             channel_mapping_details,
+            mapping_rule_details,
         )
 
         all_stats.append(stats)
@@ -1538,6 +1585,19 @@ def main():
     )
     write_diagnostic_csv("duplicate_xml_channel_ids.csv", duplicate_channel_id_details, ["source", "xml_channel_id", "occurrences", "display_names", "playlist_channels", "playlist_indexes"])
     write_diagnostic_csv("source_channel_mapping_collisions.csv", channel_mapping_details, ["source", "playlist_index", "playlist_channel", "xml_channel_id_count", "xml_channel_ids"])
+    write_diagnostic_csv(
+        "mapping_rule_candidates.csv",
+        mapping_rule_details,
+        [
+            "source", "xml_channel_id", "xml_display_names",
+            "exact_count", "exact_indexes", "exact_names",
+            "country_count", "country_indexes", "country_names",
+            "exact_country_indexes", "exact_country_names",
+            "base_count", "base_indexes", "base_names",
+            "base_only_count", "base_only_indexes", "base_only_names",
+            "all_candidate_indexes", "all_candidate_names",
+        ],
+    )
     xml_sizes = write_combined_xml(channels, global_programmes, channel_icons)
     diagnostics = write_epg_diagnostics(
         channels,
@@ -1591,6 +1651,7 @@ def main():
     log("  merge_collision_text_details.csv.gz")
     log("  duplicate_xml_channel_ids.csv")
     log("  source_channel_mapping_collisions.csv")
+    log("  mapping_rule_candidates.csv")
     log("  coverage_report.csv")
     log("  channel_coverage.csv")
     log("  epg_diagnostics.txt")
