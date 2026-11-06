@@ -956,6 +956,12 @@ def process_source(
         for matched_set in mapped.values():
             all_matched_indexes.update(matched_set)
 
+        # Помечаем в диагностике только XMLTV-каналы, у которых
+        # действительно есть передачи в проверяемом периоде.
+        for detail in mapping_rule_details:
+            if detail.get("source") == source_name:
+                detail["has_programmes"] = detail.get("xml_channel_id", "") in source_channels_with_programmes
+
         stats["matched_playlist_channels"] = len(all_matched_indexes)
         stats["xml_channels_with_programmes"] = len(
             source_channels_with_programmes
@@ -1255,6 +1261,90 @@ def write_diagnostic_csv(filename, rows, fieldnames):
         writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)
+
+
+def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule_details):
+    """
+    Для каждого канала плейлиста без передач показывает кандидатов
+    среди XMLTV-каналов, у которых есть передачи в проверяемом периоде.
+    Поиск диагностический: на сопоставление и итоговый EPG не влияет.
+    """
+    covered = {
+        item["channel_index"]
+        for item in global_programmes.values()
+    }
+    rows = []
+
+    for playlist_index, channel in enumerate(channels):
+        if playlist_index in covered:
+            continue
+
+        found = {}
+        for detail in mapping_rule_details:
+            if not detail.get("has_programmes"):
+                continue
+
+            tiers = (
+                ("exact name", detail.get("exact_indexes", "")),
+                ("country-normalized name", detail.get("country_indexes", "")),
+                ("compatible base name", detail.get("base_indexes", "")),
+            )
+            matched_rule = ""
+            for rule, raw_indexes in tiers:
+                candidate_indexes = {
+                    int(value.strip())
+                    for value in raw_indexes.split("|")
+                    if value.strip().isdigit()
+                }
+                if playlist_index in candidate_indexes:
+                    matched_rule = rule
+                    break
+
+            if not matched_rule:
+                continue
+
+            key = (
+                detail.get("source", ""),
+                detail.get("xml_channel_id", ""),
+                detail.get("xml_display_names", ""),
+                matched_rule,
+            )
+            found[key] = True
+
+        if found:
+            for source, xml_id, xml_names, rule in sorted(found):
+                rows.append({
+                    "playlist_index": playlist_index,
+                    "playlist_channel": channel.get("title", ""),
+                    "playlist_group": channel.get("group", ""),
+                    "candidate_status": "candidate_with_programmes",
+                    "match_rule": rule,
+                    "source": source,
+                    "xml_channel_id": xml_id,
+                    "xml_display_names": xml_names,
+                })
+        else:
+            rows.append({
+                "playlist_index": playlist_index,
+                "playlist_channel": channel.get("title", ""),
+                "playlist_group": channel.get("group", ""),
+                "candidate_status": "no_candidate_with_programmes",
+                "match_rule": "",
+                "source": "",
+                "xml_channel_id": "",
+                "xml_display_names": "",
+            })
+
+    fieldnames = [
+        "playlist_index", "playlist_channel", "playlist_group",
+        "candidate_status", "match_rule", "source",
+        "xml_channel_id", "xml_display_names",
+    ]
+    write_diagnostic_csv("uncovered_channel_candidates.csv", rows, fieldnames)
+    return len(rows), sum(
+        1 for row in rows
+        if row["candidate_status"] == "candidate_with_programmes"
+    )
 
 
 def write_diagnostic_csv_gzip(filename, rows, fieldnames):
@@ -1644,6 +1734,13 @@ def main():
 
     write_coverage_report(all_stats)
     write_channel_report(channels, global_programmes)
+    uncovered_rows, uncovered_with_candidates = write_uncovered_channel_candidates(
+        channels, global_programmes, mapping_rule_details
+    )
+    log(
+        f"Каналов без EPG: {uncovered_rows}; "
+        f"с кандидатами из источников, где есть передачи: {uncovered_with_candidates}"
+    )
     write_diagnostic_csv("merge_collision_details.csv", merge_collision_details, ["source", "playlist_channel", "playlist_index", "start", "existing_xml_channel_id", "incoming_xml_channel_id", "xml_channel_id_relation", "existing_title_chars", "incoming_title_chars", "existing_desc_chars", "incoming_desc_chars"])
     detailed_size = write_diagnostic_csv_gzip(
         "merge_collision_text_details.csv.gz",
@@ -1730,6 +1827,7 @@ def main():
     log("  duplicate_xml_channel_ids.csv")
     log("  source_channel_mapping_collisions.csv")
     log("  mapping_rule_candidates.csv")
+    log("  uncovered_channel_candidates.csv")
     log("  coverage_report.csv")
     log("  channel_coverage.csv")
     log("  epg_diagnostics.txt")
