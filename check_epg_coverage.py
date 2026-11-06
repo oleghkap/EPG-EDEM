@@ -400,15 +400,15 @@ def build_playlist_indexes(channels):
             if not name:
                 continue
 
-            variants = {name, strip_country_suffix(name)}
-            for variant in variants:
-                normalized = normalize_name(variant)
-                if normalized:
-                    by_name[normalized].add(index)
+            # Рабочий индекс содержит только полное название.
+            # Ослабленные правила используются только в диагностике.
+            normalized = normalize_name(name)
+            if normalized:
+                by_name[normalized].add(index)
 
-                base = normalize_base_name(variant)
-                if base:
-                    by_base_name[base].add(index)
+            base = normalize_base_name(name)
+            if base:
+                by_base_name[base].add(index)
 
     return by_id, by_name, by_base_name
 
@@ -452,13 +452,15 @@ def audit_mapping_candidates(display_names, indexes, playlist_channels):
 
 def map_source_channels(channel_id, display_names, indexes):
     """
-    Возвращает ВСЕ записи M3U, соответствующие одному XMLTV ID.
+    Сопоставляет XMLTV ID с записями плейлиста только по точному ID
+    или полному нормализованному display-name.
 
-    Одно расписание может быть назначено основному каналу и его отдельным
-    вариантам HD/FHD/UHD/orig. Эти варианты остаются самостоятельными
-    записями плейлиста. Числовые суффиксы (+2/+4 и т.п.) сохраняются.
+    Маркеры качества (HD/FHD/UHD/4K/orig) и коды стран не удаляются:
+    это могут быть разные версии или региональные варианты каналов.
+    Ослабленные кандидаты остаются в диагностическом CSV, но не
+    назначают передачи каналам плейлиста.
     """
-    by_id, by_name, by_base_name = indexes
+    by_id, by_name, _ = indexes
 
     id_matches = (
         set(by_id.get(channel_id.casefold(), set()))
@@ -466,40 +468,15 @@ def map_source_channels(channel_id, display_names, indexes):
     )
 
     exact_matches = set()
-    base_matches = set()
-    exact_method = "exact name"
-    country_method = False
-
     for name in display_names:
-        source_name = strip_country_prefix(name)
-        variants = (source_name, strip_country_suffix(source_name))
+        normalized = normalize_name(name)
+        if normalized:
+            exact_matches.update(by_name.get(normalized, set()))
 
-        for variant in dict.fromkeys(variants):
-            normalized = normalize_name(variant)
-            if normalized:
-                matches = by_name.get(normalized, set())
-                if matches:
-                    exact_matches.update(matches)
-                    if variant != name:
-                        country_method = True
-
-            base = normalize_base_name(variant)
-            if base:
-                # Все отдельные варианты одного базового канала получают
-                # программу, а не только единственный найденный вариант.
-                base_matches.update(by_base_name.get(base, set()))
-
-    all_matches = id_matches | exact_matches | base_matches
-
-    if all_matches:
-        if id_matches:
-            return all_matches, "tvg-id"
-        if exact_matches:
-            return all_matches, (
-                "country-normalized name" if country_method else exact_method
-            )
-        return all_matches, "variant base name"
-
+    if id_matches:
+        return id_matches, "tvg-id"
+    if exact_matches:
+        return exact_matches, "exact name"
     return set(), "unmatched"
 # ============================================================
 # ОБРАБОТКА XMLTV
