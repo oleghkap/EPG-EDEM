@@ -490,6 +490,9 @@ def process_source(
     channel_icons,
     exact_programmes_seen,
     merge_diagnostics,
+    merge_collision_details,
+    duplicate_channel_id_details,
+    channel_mapping_details,
 ):
     stats = {
         "source": source_name,
@@ -519,6 +522,8 @@ def process_source(
     mapped = {}
     source_channels_with_programmes = set()
     source_channel_ids = set()
+    source_channel_id_counts = defaultdict(int)
+    source_channel_display_names = defaultdict(set)
     channels_with_programmes = set()
     source_programmes = {}
 
@@ -546,7 +551,8 @@ def process_source(
                     stats["xml_channels"] += 1
                     channel_id = elem.attrib.get("id", "").strip()
                     if channel_id:
-                        if channel_id in source_channel_ids:
+                        source_channel_id_counts[channel_id] += 1
+                        if source_channel_id_counts[channel_id] > 1:
                             stats["duplicate_xml_channel_ids"] += 1
                         source_channel_ids.add(channel_id)
                     display_names = [
@@ -554,6 +560,9 @@ def process_source(
                         for item in elem
                         if local_name(item.tag) == "display-name"
                     ]
+
+                    if channel_id:
+                        source_channel_display_names[channel_id].update(name for name in display_names if name)
 
                     matched_indexes, method = map_source_channels(
                         channel_id,
@@ -674,16 +683,50 @@ def process_source(
                                     if existing is not None:
                                         stats["duplicates_skipped"] += 1
                                         merge_diagnostics["identity_collisions"] += 1
-                                        merge_diagnostics["same_source_collisions" if existing["source"] == source_name else "cross_source_collisions"] += 1
+                                        same_source = existing["source"] == source_name
+                                        merge_diagnostics["same_source_collisions" if same_source else "cross_source_collisions"] += 1
+                                        existing_xml_id = existing.get("xml_channel_id", "")
+                                        if same_source:
+                                            relation = "same ID" if existing_xml_id == channel_id else "different IDs"
+                                            merge_diagnostics["same_source_same_xml_id" if existing_xml_id == channel_id else "same_source_different_xml_id"] += 1
+                                            merge_collision_details.append({
+                                                "source": source_name,
+                                                "playlist_channel": playlist_channels[index]["title"],
+                                                "playlist_index": index,
+                                                "start": start_dt.isoformat(),
+                                                "existing_xml_channel_id": existing_xml_id,
+                                                "incoming_xml_channel_id": channel_id,
+                                                "xml_channel_id_relation": relation,
+                                                "existing_title_chars": len(existing["title"] or ""),
+                                                "incoming_title_chars": len(title or ""),
+                                                "existing_desc_chars": len(existing["description"] or ""),
+                                                "incoming_desc_chars": len(description or ""),
+                                            })
                                         if title == existing["title"]:
                                             merge_diagnostics["title_same"] += 1
                                         else:
                                             merge_diagnostics["title_different"] += 1
+                                            if " ".join(title.casefold().split()) == " ".join((existing["title"] or "").casefold().split()):
+                                                merge_diagnostics["title_normalized_same"] += 1
+                                            if len(title) > len(existing["title"] or ""):
+                                                merge_diagnostics["title_incoming_longer"] += 1
+                                            elif len(title) < len(existing["title"] or ""):
+                                                merge_diagnostics["title_incoming_shorter"] += 1
+                                            else:
+                                                merge_diagnostics["title_equal_length"] += 1
                                         if description and existing["description"]:
                                             if description == existing["description"]:
                                                 merge_diagnostics["desc_same_nonempty"] += 1
                                             else:
                                                 merge_diagnostics["desc_different_nonempty"] += 1
+                                                if " ".join(description.casefold().split()) == " ".join((existing["description"] or "").casefold().split()):
+                                                    merge_diagnostics["desc_normalized_same"] += 1
+                                                if len(description) > len(existing["description"] or ""):
+                                                    merge_diagnostics["desc_incoming_longer"] += 1
+                                                elif len(description) < len(existing["description"] or ""):
+                                                    merge_diagnostics["desc_incoming_shorter"] += 1
+                                                else:
+                                                    merge_diagnostics["desc_equal_length"] += 1
                                         elif description and not existing["description"]:
                                             merge_diagnostics["desc_filled_from_later_source"] += 1
                                         elif not description and existing["description"]:
@@ -714,6 +757,7 @@ def process_source(
                                             "description": description,
                                             "categories": categories,
                                             "source": source_name,
+                                            "xml_channel_id": channel_id,
                                         }
 
                             current_date = start_dt.strftime("%Y-%m-%d %H:%M")
@@ -731,6 +775,32 @@ def process_source(
                     elem.clear()
                     if root is not None:
                         root.clear()
+
+        for channel_id, occurrences in source_channel_id_counts.items():
+            if occurrences > 1:
+                indexes_for_id = sorted(mapped.get(channel_id, set()))
+                duplicate_channel_id_details.append({
+                    "source": source_name,
+                    "xml_channel_id": channel_id,
+                    "occurrences": occurrences,
+                    "display_names": " | ".join(sorted(source_channel_display_names[channel_id])),
+                    "playlist_channels": " | ".join(playlist_channels[i]["title"] for i in indexes_for_id),
+                    "playlist_indexes": " | ".join(str(i) for i in indexes_for_id),
+                })
+
+        reverse_mapping = defaultdict(set)
+        for channel_id, matched_set in mapped.items():
+            for playlist_index in matched_set:
+                reverse_mapping[playlist_index].add(channel_id)
+        for playlist_index, channel_ids in reverse_mapping.items():
+            if len(channel_ids) > 1:
+                channel_mapping_details.append({
+                    "source": source_name,
+                    "playlist_index": playlist_index,
+                    "playlist_channel": playlist_channels[playlist_index]["title"],
+                    "xml_channel_id_count": len(channel_ids),
+                    "xml_channel_ids": " | ".join(sorted(channel_ids)),
+                })
 
         all_matched_indexes = set()
         for matched_set in mapped.values():
@@ -1029,6 +1099,14 @@ def write_combined_xml(
     }
 
 
+def write_diagnostic_csv(filename, rows, fieldnames):
+    path = OUTPUT_DIR / filename
+    with path.open("w", encoding="utf-8-sig", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def write_epg_diagnostics(
     channels,
     global_programmes,
@@ -1286,6 +1364,12 @@ def write_epg_diagnostics(
         f"  Всего совпадений identity: {merge_diagnostics['identity_collisions']}",
         f"  Между разными источниками: {merge_diagnostics['cross_source_collisions']}",
         f"  Внутри одного источника: {merge_diagnostics['same_source_collisions']}",
+        f"    Один и тот же XMLTV ID: {merge_diagnostics['same_source_same_xml_id']}",
+        f"    Разные XMLTV ID сопоставлены одному каналу плейлиста: {merge_diagnostics['same_source_different_xml_id']}",
+        f"  Нормализованные совпадения title среди различающихся: {merge_diagnostics['title_normalized_same']}",
+        f"  Входящий title длиннее: {merge_diagnostics['title_incoming_longer']}; короче: {merge_diagnostics['title_incoming_shorter']}; равной длины: {merge_diagnostics['title_equal_length']}",
+        f"  Нормализованные совпадения desc среди различающихся: {merge_diagnostics['desc_normalized_same']}",
+        f"  Входящий непустой desc длиннее: {merge_diagnostics['desc_incoming_longer']}; короче: {merge_diagnostics['desc_incoming_shorter']}; равной длины: {merge_diagnostics['desc_equal_length']}",
         f"  Одинаковый title: {merge_diagnostics['title_same']}; различается: {merge_diagnostics['title_different']}",
         f"  Одинаковый непустой desc: {merge_diagnostics['desc_same_nonempty']}; различается: {merge_diagnostics['desc_different_nonempty']}",
         f"  Поздний источник заполнил пустой desc: {merge_diagnostics['desc_filled_from_later_source']}",
@@ -1359,6 +1443,9 @@ def main():
     channel_icons = {}
     exact_programmes_seen = {}
     merge_diagnostics = defaultdict(int)
+    merge_collision_details = []
+    duplicate_channel_id_details = []
+    channel_mapping_details = []
     all_stats = []
 
     for number, (source_name, source_url) in enumerate(SOURCES, start=1):
@@ -1378,12 +1465,18 @@ def main():
             channel_icons,
             exact_programmes_seen,
             merge_diagnostics,
+            merge_collision_details,
+            duplicate_channel_id_details,
+            channel_mapping_details,
         )
 
         all_stats.append(stats)
 
     write_coverage_report(all_stats)
     write_channel_report(channels, global_programmes)
+    write_diagnostic_csv("merge_collision_details.csv", merge_collision_details, ["source", "playlist_channel", "playlist_index", "start", "existing_xml_channel_id", "incoming_xml_channel_id", "xml_channel_id_relation", "existing_title_chars", "incoming_title_chars", "existing_desc_chars", "incoming_desc_chars"])
+    write_diagnostic_csv("duplicate_xml_channel_ids.csv", duplicate_channel_id_details, ["source", "xml_channel_id", "occurrences", "display_names", "playlist_channels", "playlist_indexes"])
+    write_diagnostic_csv("source_channel_mapping_collisions.csv", channel_mapping_details, ["source", "playlist_index", "playlist_channel", "xml_channel_id_count", "xml_channel_ids"])
     xml_sizes = write_combined_xml(channels, global_programmes, channel_icons)
     diagnostics = write_epg_diagnostics(
         channels,
