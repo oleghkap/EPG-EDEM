@@ -1,55 +1,139 @@
 ﻿source,playlist_index,playlist_channel,xml_channel_id_count,xml_channel_ids
+EPG.ONE epg2,1924,DocuBox HD,2,2186 | 3791
+EPG.ONE epg2,1729,Nickelodeon HD,2,11358 | 423
+EPG.ONE epg2,1734,Nickelodeon,3,3714 | 423 | 4857
+EPG.ONE epg2,1188,Sport 3 HD,2,2719 | 9297
+EPG.ONE epg2,1748,Baby TV,4,11355 | 2436 | 2701 | 3900
+EPG.ONE epg2,1181,Eurosport 1 HD,9,11404 | 11437 | 11842 | 2052 | 3734 | 3885 | 4902 | 5883 | 9378
+EPG.ONE epg2,1182,Eurosport 2 HD,9,11406 | 11438 | 11841 | 3554 | 4313 | 4903 | 6544 | 8052 | 9379
+EPG.ONE epg2,1548,MTV HD,4,1021 | 11348 | 4473 | 8081
+EPG.ONE epg2,1731,Nick Jr,5,2678 | 3784 | 4478 | 4856 | 917
+EPG.ONE epg2,1912,Animal Planet HD,3,365 | 3731 | 4476
+EPG.ONE epg2,1737,Cartoon Network,5,2620 | 3650 | 3708 | 601 | 7852
+EPG.ONE epg2,1741,Cartoonito,4,3716 | 3905 | 7780 | 929
+EPG.ONE epg2,1992,HGTV HD,2,3305 | 8060
+EPG.ONE epg2,1855,National Geographic HD,3,102 | 3922 | 4474
+EPG.ONE epg2,1901,TLC HD,6,3666 | 3711 | 3968 | 425 | 4864 | 8162
+EPG.ONE epg2,1903,History HD,6,1394 | 3596 | 3748 | 4014 | 4889 | 7863
+EPG.ONE epg2,1906,Discovery Channel HD,5,2689 | 3078 | 3132 | 325 | 3595
 EPG.ONE epg2,59,Звезда +2,2,2039 | 405
 EPG.ONE epg2,20,НТВ +2,2,162 | 2036
 EPG.ONE epg2,73,Пятница! +7,2,1003 | 3018
 EPG.ONE epg2,71,Пятница! +2,2,1003 | 3016
 EPG.ONE epg2,72,Пятница! +4,2,1003 | 3017
 EPG.ONE epg2,161,ТВ Центр International,2,5691 | 649
+EPG.ONE epg2,2535,Food Network,4,2057 | 2708 | 2741 | 3788
+EPG.ONE epg2,2874,Da Vinci HD,2,3912 | 410
+EPG.ONE epg2,370,FX HD,3,1031 | 3092 | 3578
+EPG.ONE epg2,2549,Disney XD,2,2375 | 3645
+EPG.ONE epg2,2867,AMC,4,3652 | 3691 | 8288 | 9646
+EPG.ONE epg2,499,FILMBOX+ One,2,2181 | 3690
+EPG.ONE epg2,1902,Travel Channel HD,2,3696 | 613
+EPG.ONE epg2,1965,Investigation Discovery,3,2507 | 3699 | 4851
+EPG.ONE epg2,1907,Discovery Channel,2,325 | 3710
+EPG.ONE epg2,1566,Mezzo,2,3753 | 575
+EPG.ONE epg2,2568,TNT,2,2343 | 3775
 EPG.ONE epg2,1247,FightBox HD,2,11442 | 3792
+EPG.ONE epg2,1905,History 2 HD,2,2356 | 4888
 EPG.ONE epg2,1852,TravelXP 4K,2,7617 | 9154
 EPG.ONE epg2,30,Пятый канал +2,2,2035 | 427
 EPG.ONE epg2,48,РЕН ТВ +4,2,18 | 3033
 EPG.ONE epg2,49,РЕН ТВ +7,2,18 | 3034
+IPTVX full,2286,Blue Hustler,2,blue-hustler | blue-hustler-ua
+IPTVX full,370,FX HD,2,fox | fx-tr
+IPTVX full,50,Мир,2,mir | mir-kz
 IPTVX full,438,Наше HD,2,nashe-music-hd | nashehd
-TV.TEAM full,1912,Animal Planet HD,2,ch124 | ch3073
-TV.TEAM full,1729,Nickelodeon HD,2,ch1937 | ch479
+IPTVX full,1901,TLC HD,3,tlc | tlc-blk | tlc-tr
+IPTVX full,37,ТНТ,2,tnt | tnt-kz
+TV.TEAM full,1901,TLC HD,11,ch1020 | ch1411 | ch160 | ch2632 | ch2856 | ch3212 | ch3688 | ch4020 | ch4212 | ch435 | ch941
+TV.TEAM full,1992,HGTV HD,5,ch2198 | ch2361 | ch4215 | ch723 | ch969
+TV.TEAM full,1182,Eurosport 2 HD,9,ch071 | ch1831 | ch2103 | ch2249 | ch2482 | ch2497 | ch287 | ch2993 | ch892
+TV.TEAM full,1906,Discovery Channel HD,7,ch1120 | ch123 | ch1373 | ch164 | ch2983 | ch3351 | ch3647
+TV.TEAM full,1737,Cartoon Network,6,ch081 | ch162 | ch1818 | ch2182 | ch2479 | ch3935
+TV.TEAM full,1903,History HD,7,ch1143 | ch171 | ch2199 | ch2398 | ch3972 | ch432 | ch909
+TV.TEAM full,1902,Travel Channel HD,3,ch1136 | ch4021 | ch445
+TV.TEAM full,1963,Nat Geo Wild HD,6,ch047 | ch1138 | ch1462 | ch176 | ch3006 | ch918
+TV.TEAM full,1729,Nickelodeon HD,5,ch1937 | ch2530 | ch3009 | ch3669 | ch479
+TV.TEAM full,1912,Animal Planet HD,5,ch124 | ch2624 | ch2932 | ch3073 | ch858
+TV.TEAM full,1731,Nick Jr,6,ch1853 | ch223 | ch2402 | ch3190 | ch379 | ch3983
+TV.TEAM full,370,FX HD,5,ch103 | ch1468 | ch2193 | ch3343 | ch903
+TV.TEAM full,447,Hollywood HD,3,ch2998 | ch3793 | ch525
+TV.TEAM full,1855,National Geographic HD,6,ch125 | ch1346 | ch3424 | ch3667 | ch3980 | ch4118
+TV.TEAM full,1748,Baby TV,3,ch1118 | ch2473 | ch489
+TV.TEAM full,2530,8 Канал HD,2,ch419 | ch611
+TV.TEAM full,1734,Nickelodeon,5,ch1854 | ch2401 | ch3191 | ch3207 | ch3982
+TV.TEAM full,1741,Cartoonito,6,ch1349 | ch161 | ch1816 | ch2351 | ch3936 | ch486
+TV.TEAM full,1181,Eurosport 1 HD,9,ch039 | ch1832 | ch2435 | ch2481 | ch2496 | ch286 | ch2992 | ch3653 | ch891
+TV.TEAM full,1548,MTV HD,5,ch238 | ch2400 | ch2618 | ch3432 | ch3664
+TV.TEAM full,2845,Viasat Kino HD,2,ch3081 | ch3218
+TV.TEAM full,647,CineMan,2,ch1030 | ch1478
+TV.TEAM full,2874,Da Vinci HD,2,ch2176 | ch2480
+TV.TEAM full,2867,AMC,2,ch1809 | ch3937
+TV.TEAM full,88,360 HD,2,ch1353 | ch516
+TV.TEAM full,1852,TravelXP 4K,2,ch3726 | ch613
+TV.TEAM full,1641,Trace Urban HD,3,ch3690 | ch402 | ch4146
+TV.TEAM full,1929,Investigation Discovery HD,3,ch2464 | ch434 | ch876
+TV.TEAM full,2843,Viasat Kino Action HD,2,ch3079 | ch3216
+TV.TEAM full,2844,Viasat Kino Comedy HD,2,ch3080 | ch3217
+TV.TEAM full,508,Comedy Central,2,ch1006 | ch2393
+TV.TEAM full,1752,NickToons HD,2,ch2156 | ch2278
+TV.TEAM full,1913,Animal Planet,2,ch1810 | ch3938
 BCU Media,387,.black HD,2,.Black HD | Black HD
 BCU Media,468,Наше Новое Кино,2,Наше Новое Кино | Наше новое кино
-FOX TV,1181,Eurosport 1 HD,2,12:ch286 | 1:101
-FOX TV,1906,Discovery Channel HD,2,1:1185 | 1:1322
+FOX TV,1741,Cartoonito,3,12:ch161 | 1:52 | 9:CARTOONITO
+FOX TV,1181,Eurosport 1 HD,3,12:ch2496 | 12:ch286 | 1:101
+FOX TV,1731,Nick Jr,4,12:ch3190 | 12:ch3206 | 1:1554 | 1:174
+FOX TV,1907,Discovery Channel,3,12:ch3196 | 1:1185 | 9:Discovery Channel
+FOX TV,1734,Nickelodeon,2,12:ch3207 | 8:Nickelodeon LT
+FOX TV,1913,Animal Planet,3,1:38 | 5:ch2624 | 9:Animal Planet
+FOX TV,1906,Discovery Channel HD,3,1:1185 | 1:1322 | 7:2689
 FOX TV,1903,History HD,2,1:129 | 1:1326
 FOX TV,1901,TLC HD,2,1:1311 | 1:1943
-FOX TV,1182,Eurosport 2 HD,2,1:98 | 8:Eurosport 2 DE
+FOX TV,1182,Eurosport 2 HD,3,1:98 | 7:4903 | 8:Eurosport 2 DE
+FOX TV,1748,Baby TV,2,1:1549 | 2:baby-tv
 FOX TV,1963,Nat Geo Wild HD,2,1:1205 | 8:Nat Geo Wild HD DE
+FOX TV,1910,Nat Geo Wild,2,1:2020 | 9:National Geographic Wild
+FOX TV,1849,National Geographic,2,1:1206 | 7:2677
+Satfor,647,CineMan,2,cineman | cineman_am
+Satfor,1737,Cartoon Network,3,cartoon_network | cartoonnetwork.de | cartoonnetwork_tr
+Satfor,508,Comedy Central,2,comedy-central-pl | comedycentral.de
+Satfor,1903,History HD,4,history-ru | history.de | history_pl | history_ua
+Satfor,1963,Nat Geo Wild HD,2,nat-geo-wild | natgeowild.de
+Satfor,1907,Discovery Channel,2,disc_ua | discovery-channel
+Satfor,1306,Eurosport 1,2,eurosport1 | eurosport1-pl
+Satfor,1564,Mezzo Live HD,2,mezzo | mezzo_fr
 Satfor,1905,History 2 HD,2,h2 | history_2_ua
+Satfor,1849,National Geographic,2,NationalGeographicPoland.pl | national-geographic
+Satfor,1734,Nickelodeon,2,nick | nickelodeon_pl
+Satfor,1691,Plan B HD,2,plan-b | planb_kz
 Satfor,2821,Наука,2,nauka-20 | nauka_ua
-M3U Edit ALL,324,CGTN,18,CGTN.ae | CGTN.au | CGTN.ch | CGTN.distro | CGTN.gr | CGTN.hk | CGTN.hr | CGTN.id | CGTN.kr | CGTN.mt | CGTN.ph | CGTN.pt | CGTN.ro | CGTN.rs | CGTN.sa | CGTN.sg | CGTN.th | CGTN.tr
+M3U Edit ALL,324,CGTN,29,CGTN.ae | CGTN.au | CGTN.ch | CGTN.distro | CGTN.gr | CGTN.hk | CGTN.hr | CGTN.id | CGTN.kr | CGTN.mt | CGTN.ph | CGTN.pt | CGTN.ro | CGTN.rs | CGTN.sa | CGTN.sg | CGTN.th | CGTN.tr | DE:.CGTN.be | DK:.CGTN.be | ES:.CGTN.be | FI:.CGTN.be | FR:.CGTN.be | IT:.CGTN.be | NL:.CGTN.be | NO:.CGTN.be | PL:.CGTN.be | SE:.CGTN.be | UK:.CGTN.be
 M3U Edit ALL,1985,Outdoor Channel,6,OUTDOOR.CHANNEL.ph | Outdoor.Channel.ae | Outdoor.Channel.cz | Outdoor.Channel.hk | Outdoor.Channel.id | OutdoorChannel.au
 M3U Edit ALL,2444,Dorcel XXX,4,Dorcel.XXX.al | Dorcel.XXX.be | Dorcel.XXX.cz | Dorcel.XXX.pl
 M3U Edit ALL,1418,TRT SPOR,4,TRT.SPOR.tr | TRT.Spor.al | TRT.Spor.ch | TRT.Spor.tr
 M3U Edit ALL,1913,Animal Planet,25,ANIMAL.PLANET..uy | ANIMAL.PLANET.at | ANIMAL.PLANET.in | ANIMAL.PLANET.ph | Animal.Planet.bg | Animal.Planet.br | Animal.Planet.co | Animal.Planet.cy | Animal.Planet.cz | Animal.Planet.de | Animal.Planet.dk | Animal.Planet.fi | Animal.Planet.gr | Animal.Planet.hk | Animal.Planet.id | Animal.Planet.kr | Animal.Planet.lt | Animal.Planet.lu | Animal.Planet.nl | Animal.Planet.nz | Animal.Planet.ro | Animal.Planet.sa | Animal.Planet.uk | AnimalPlanet.au | animal.planet.il
 M3U Edit ALL,1737,Cartoon Network,32,CARTOON.NETWORK..uy | CARTOON.NETWORK.at | CARTOON.NETWORK.be | CARTOON.NETWORK.in | CARTOON.NETWORK.ph | CARTOON.NETWORK.tr | Cartoon.Network.bg | Cartoon.Network.br | Cartoon.Network.co | Cartoon.Network.cz | Cartoon.Network.de | Cartoon.Network.dk | Cartoon.Network.fi | Cartoon.Network.fr | Cartoon.Network.hk | Cartoon.Network.hr | Cartoon.Network.hu | Cartoon.Network.id | Cartoon.Network.ie | Cartoon.Network.it | Cartoon.Network.lt | Cartoon.Network.lu | Cartoon.Network.mt | Cartoon.Network.ng | Cartoon.Network.nl | Cartoon.Network.nz | Cartoon.Network.pl | Cartoon.Network.ro | Cartoon.Network.rs | Cartoon.Network.sa | Cartoon.Network.th | CartoonNetwork.au
 M3U Edit ALL,1741,Cartoonito,25,CARTOONITO..uy | CARTOONITO.at | CARTOONITO.co | CARTOONITO.tr | CARTOONITO.uy | Cartoonito.cz | Cartoonito.de | Cartoonito.dk | Cartoonito.fr | Cartoonito.hr | Cartoonito.hu | Cartoonito.id | Cartoonito.ie | Cartoonito.it | Cartoonito.lu | Cartoonito.lv | Cartoonito.mt | Cartoonito.ng | Cartoonito.nl | Cartoonito.pt | Cartoonito.ro | Cartoonito.rs | Cartoonito.th | Cartoonito.uk | Cartoonito.za
-M3U Edit ALL,2573,CNBC,22,CNBC.at | CNBC.au | CNBC.be | CNBC.cy | CNBC.de | CNBC.dk | CNBC.fi | CNBC.gr | CNBC.hk | CNBC.hr | CNBC.id | CNBC.lu | CNBC.mt | CNBC.nz | CNBC.pl | CNBC.pt | CNBC.ro | CNBC.sa | CNBC.tr | CNBC.uk | CNBC.us | CNBC.vn
-M3U Edit ALL,508,Comedy Central,17,COMEDY.CENTRAL.at | COMEDY.CENTRAL.be | Comedy.Central.be | Comedy.Central.bg | Comedy.Central.br | Comedy.Central.ch | Comedy.Central.co | Comedy.Central.de | Comedy.Central.fr | Comedy.Central.hu | Comedy.Central.it | Comedy.Central.ng | Comedy.Central.nl | Comedy.Central.nz | Comedy.Central.pl | Comedy.Central.ro | Comedy.Central.za
+M3U Edit ALL,2573,CNBC,23,CNBC.UK.ch | CNBC.at | CNBC.au | CNBC.be | CNBC.cy | CNBC.de | CNBC.dk | CNBC.fi | CNBC.gr | CNBC.hk | CNBC.hr | CNBC.id | CNBC.lu | CNBC.mt | CNBC.nz | CNBC.pl | CNBC.pt | CNBC.ro | CNBC.sa | CNBC.tr | CNBC.uk | CNBC.us | CNBC.vn
+M3U Edit ALL,508,Comedy Central,18,COMEDY.CENTRAL.at | COMEDY.CENTRAL.be | Comedy.Central.HU.sk | Comedy.Central.be | Comedy.Central.bg | Comedy.Central.br | Comedy.Central.ch | Comedy.Central.co | Comedy.Central.de | Comedy.Central.fr | Comedy.Central.hu | Comedy.Central.it | Comedy.Central.ng | Comedy.Central.nl | Comedy.Central.nz | Comedy.Central.pl | Comedy.Central.ro | Comedy.Central.za
 M3U Edit ALL,1907,Discovery Channel,26,DISCOVERY.CHANNEL.be | DISCOVERY.CHANNEL.in | DISCOVERY.CHANNEL.ph | DISCOVERY.CHANNEL.tr | Discovery.Channel.at | Discovery.Channel.bg | Discovery.Channel.br | Discovery.Channel.ca2 | Discovery.Channel.co | Discovery.Channel.cy | Discovery.Channel.cz | Discovery.Channel.dk | Discovery.Channel.es | Discovery.Channel.fi | Discovery.Channel.fr | Discovery.Channel.hk | Discovery.Channel.hr | Discovery.Channel.hu | Discovery.Channel.id | Discovery.Channel.it | Discovery.Channel.lv | Discovery.Channel.mt | Discovery.Channel.pl | Discovery.Channel.ro | Discovery.Channel.rs | Discovery.Channel.th
 M3U Edit ALL,1306,Eurosport 1,16,EUROSPORT.1.at | EUROSPORT.1.tr | Eurosport.1..fr | Eurosport.1.be | Eurosport.1.cz | Eurosport.1.de | Eurosport.1.dk | Eurosport.1.es | Eurosport.1.fi | Eurosport.1.fr | Eurosport.1.hr | Eurosport.1.lt | Eurosport.1.nl | Eurosport.1.pl | Eurosport.1.ro | Eurosport.1.tr
 M3U Edit ALL,1849,National Geographic,20,NATIONAL.GEOGRAPHIC..uy | NATIONAL.GEOGRAPHIC.at | NATIONAL.GEOGRAPHIC.in | NATIONAL.GEOGRAPHIC.ph | NATIONAL.GEOGRAPHIC.tr | National.Geographic.co | National.Geographic.dk | National.Geographic.es | National.Geographic.fi | National.Geographic.fr | National.Geographic.gr | National.Geographic.hr | National.Geographic.hu | National.Geographic.ie | National.Geographic.lt | National.Geographic.lu | National.Geographic.nl | National.Geographic.ph | National.Geographic.pl | National.Geographic.ro
-M3U Edit ALL,1731,Nick Jr,30,NICK.JR..at | NICK.JR..ph | NICK.JR..uy | NICK.JR.in | NICK.JR.tr | Nick.JR.tr | Nick.Jr..bg | Nick.Jr..br | Nick.Jr..ch | Nick.Jr..cz | Nick.Jr..de | Nick.Jr..dk | Nick.Jr..fi | Nick.Jr..hk | Nick.Jr..hu | Nick.Jr..lu | Nick.Jr..my | Nick.Jr..nl | Nick.Jr..pl | Nick.Jr..pt | Nick.Jr..sa | Nick.Jr..sg | Nick.Jr..sk | Nick.Jr..th | Nick.Jr.be | Nick.Jr.co | Nick.Jr.hr | Nick.Jr.it | Nick.Jr.nz | Nick.Jr.ro
+M3U Edit ALL,1731,Nick Jr,31,NICK.JR..at | NICK.JR..ph | NICK.JR..uy | NICK.JR.in | NICK.JR.tr | Nick.JR.tr | Nick.Jr..bg | Nick.Jr..br | Nick.Jr..ch | Nick.Jr..cz | Nick.Jr..de | Nick.Jr..dk | Nick.Jr..fi | Nick.Jr..hk | Nick.Jr..hu | Nick.Jr..lu | Nick.Jr..my | Nick.Jr..nl | Nick.Jr..pl | Nick.Jr..pt | Nick.Jr..sa | Nick.Jr..sg | Nick.Jr..sk | Nick.Jr..th | Nick.Jr.HR.hr | Nick.Jr.be | Nick.Jr.co | Nick.Jr.hr | Nick.Jr.it | Nick.Jr.nz | Nick.Jr.ro
 M3U Edit ALL,1965,Investigation Discovery,8,Investigation.Discovery.bg | Investigation.Discovery.ca2 | Investigation.Discovery.dk | Investigation.Discovery.fi | Investigation.Discovery.in | Investigation.Discovery.lt | Investigation.Discovery.lv | InvestigationDiscovery.au
 M3U Edit ALL,2679,beIN Sports 2,6,beIN.SPORTS.2.fr | beIN.SPORTS.2.hk | beIN.SPORTS.2.my | beIN.SPORTS.2.tr | beIN.Sports.2.id | beINSports2.au
 M3U Edit ALL,2680,beIN Sports 3,6,beIN.SPORTS.3.fr | beIN.SPORTS.3.hk | beIN.SPORTS.3.my | beIN.SPORTS.3.tr | beIN.Sports.3.id | beINSports3.au
-M3U Edit ALL,2535,Food Network,18,FOOD.NETWORK..uy | FOOD.NETWORK.ph | Food.Network.be | Food.Network.ca2 | Food.Network.co | Food.Network.cz | Food.Network.fi | Food.Network.hk | Food.Network.hu | Food.Network.ie | Food.Network.it | Food.Network.lt | Food.Network.ng | Food.Network.pl | Food.Network.ro | Food.Network.th | Food.Network.uk | FoodNetwork.au
+M3U Edit ALL,2535,Food Network,19,FOOD.NETWORK..uy | FOOD.NETWORK.ph | Food.Network.IT.ch | Food.Network.be | Food.Network.ca2 | Food.Network.co | Food.Network.cz | Food.Network.fi | Food.Network.hk | Food.Network.hu | Food.Network.ie | Food.Network.it | Food.Network.lt | Food.Network.ng | Food.Network.pl | Food.Network.ro | Food.Network.th | Food.Network.uk | FoodNetwork.au
 M3U Edit ALL,1951,Travel Channel,10,TRAVEL.CHANNEL.ph | Travel.Channel.bg | Travel.Channel.cz | Travel.Channel.dk | Travel.Channel.fi | Travel.Channel.gr | Travel.Channel.lt | Travel.Channel.pl | Travel.Channel.za | TravelChannel.au
 M3U Edit ALL,1729,Nickelodeon HD,10,NICKELODEON.HD.uy | Nickelodeon.HD.be | Nickelodeon.HD.gr | Nickelodeon.HD.ie | Nickelodeon.HD.mt | Nickelodeon.HD.my | Nickelodeon.HD.ro | Nickelodeon.HD.rs | Nickelodeon.HD.sa | Nickelodeon.HD.us2
-M3U Edit ALL,1855,National Geographic HD,16,NATIONAL.GEOGRAPHIC.HD.in | NATIONAL.GEOGRAPHIC.HD.ph | NATIONAL.GEOGRAPHIC.HD.tr | National.Geographic.(HD).ro | National.Geographic.HD.be | National.Geographic.HD.cy | National.Geographic.HD.cz | National.Geographic.HD.gr | National.Geographic.HD.hu | National.Geographic.HD.ie | National.Geographic.HD.lv | National.Geographic.HD.mt | National.Geographic.HD.pl | National.Geographic.HD.pt | National.Geographic.HD.ro | National.Geographic.HD.us2
-M3U Edit ALL,1748,Baby TV,15,BABY.TV..uy | BABY.TV.co | BABY.TV.ph | BABY.TV.tr | Baby.TV.be | Baby.TV.br | Baby.TV.cy | Baby.TV.cz | Baby.TV.gr | Baby.TV.hr | Baby.TV.hu | Baby.TV.mt | Baby.TV.pl | Baby.TV.pt | Baby.TV.rs
-M3U Edit ALL,1566,Mezzo,13,MEZZO.be | MEZZO.hu | Mezzo.ch | Mezzo.cz | Mezzo.de | Mezzo.dk | Mezzo.fr | Mezzo.hr | Mezzo.hu | Mezzo.nl | Mezzo.pl | Mezzo.pt | Mezzo.ro
+M3U Edit ALL,1855,National Geographic HD,17,NATIONAL.GEOGRAPHIC.HD.in | NATIONAL.GEOGRAPHIC.HD.ph | NATIONAL.GEOGRAPHIC.HD.tr | National.Geographic.(HD).ro | National.Geographic.HD.UK.cz | National.Geographic.HD.be | National.Geographic.HD.cy | National.Geographic.HD.cz | National.Geographic.HD.gr | National.Geographic.HD.hu | National.Geographic.HD.ie | National.Geographic.HD.lv | National.Geographic.HD.mt | National.Geographic.HD.pl | National.Geographic.HD.pt | National.Geographic.HD.ro | National.Geographic.HD.us2
+M3U Edit ALL,1748,Baby TV,16,BABY.TV..uy | BABY.TV.co | BABY.TV.ph | BABY.TV.tr | Baby.TV.US.us2 | Baby.TV.be | Baby.TV.br | Baby.TV.cy | Baby.TV.cz | Baby.TV.gr | Baby.TV.hr | Baby.TV.hu | Baby.TV.mt | Baby.TV.pl | Baby.TV.pt | Baby.TV.rs
+M3U Edit ALL,1566,Mezzo,14,MEZZO.be | MEZZO.hu | Mezzo.FR.lu | Mezzo.ch | Mezzo.cz | Mezzo.de | Mezzo.dk | Mezzo.fr | Mezzo.hr | Mezzo.hu | Mezzo.nl | Mezzo.pl | Mezzo.pt | Mezzo.ro
 M3U Edit ALL,1392,FightBox,5,FightBox.be | FightBox.cz | FightBox.hu | FightBox.pl | Fightbox.lu
 M3U Edit ALL,1733,Gulli,6,GULLI.be | Gulli.ch | Gulli.cz | Gulli.es | Gulli.fr | Gulli.lu
 M3U Edit ALL,2549,Disney XD,3,DISNEY.XD.be | Disney.XD.cz | Disney.XD.pl
 M3U Edit ALL,1747,Duck TV,9,Duck.TV.be | Duck.TV.cy | Duck.TV.hr | Duck.TV.lv | Duck.TV.mt | Duck.TV.ro | Duck.Tv.hu | duck.TV.gr | duck.tv.cz
-M3U Edit ALL,1734,Nickelodeon,30,NICKELODEON..uy | NICKELODEON.be | NICKELODEON.gr | NICKELODEON.ph | NICKELODEON.tr | Nickelodeon.be | Nickelodeon.bg | Nickelodeon.br | Nickelodeon.ch | Nickelodeon.cz | Nickelodeon.dk | Nickelodeon.es | Nickelodeon.fr | Nickelodeon.hk | Nickelodeon.hr | Nickelodeon.hu | Nickelodeon.id | Nickelodeon.it | Nickelodeon.lt | Nickelodeon.lv | Nickelodeon.ng | Nickelodeon.nl | Nickelodeon.nz | Nickelodeon.pl | Nickelodeon.pt | Nickelodeon.ro | Nickelodeon.rs | Nickelodeon.sk | Nickelodeon.th | Nickelodeon.za
+M3U Edit ALL,1734,Nickelodeon,31,NICKELODEON..uy | NICKELODEON.be | NICKELODEON.gr | NICKELODEON.ph | NICKELODEON.tr | Nickelodeon.HU.sk | Nickelodeon.be | Nickelodeon.bg | Nickelodeon.br | Nickelodeon.ch | Nickelodeon.cz | Nickelodeon.dk | Nickelodeon.es | Nickelodeon.fr | Nickelodeon.hk | Nickelodeon.hr | Nickelodeon.hu | Nickelodeon.id | Nickelodeon.it | Nickelodeon.lt | Nickelodeon.lv | Nickelodeon.ng | Nickelodeon.nl | Nickelodeon.nz | Nickelodeon.pl | Nickelodeon.pt | Nickelodeon.ro | Nickelodeon.rs | Nickelodeon.sk | Nickelodeon.th | Nickelodeon.za
 M3U Edit ALL,2291,Dorcel TV HD,3,Dorcel.TV.HD.be | Dorcel.TV.HD.pl | Dorcel.TV.HD.sk
 M3U Edit ALL,2867,AMC,12,AMC..uy | AMC.bg | AMC.br | AMC.co | AMC.cz | AMC.es | AMC.hu | AMC.lt | AMC.lv | AMC.pl | AMC.ro | AMC.rs
 M3U Edit ALL,1910,Nat Geo Wild,7,NAT.GEO.WILD.de | NAT.GEO.WILD.in | NAT.GEO.WILD.ph | Nat.Geo.Wild.bg | Nat.Geo.Wild.gr | Nat.Geo.Wild.ie | Nat.Geo.Wild.uk
@@ -66,12 +150,12 @@ M3U Edit ALL,1615,Deejay TV,3,Deejay.TV.ch | Deejay.TV.cz | Deejay.TV.it
 M3U Edit ALL,1524,MTV 00s,11,MTV.'00s.lt | MTV.00S.co | MTV.00s.es | MTV.00s.gr | MTV.00s.hr | MTV.00s.lv | MTV.00s.mt | MTV.00s.pl | MTV.00s.ro | MTV.00s.sa | MTV.00s.sk
 M3U Edit ALL,2547,Telemundo,3,TELEMUNDO..uy | TeleMundo.ng | Telemundo.co
 M3U Edit ALL,1963,Nat Geo Wild HD,7,NAT.GEO.WILD.HD.in | NAT.GEO.WILD.HD.ph | Nat.Geo.Wild.HD.cy | Nat.Geo.Wild.HD.gr | Nat.Geo.Wild.HD.ie | Nat.Geo.Wild.HD.lv | Nat.Geo.Wild.HD.mt
-M3U Edit ALL,1903,History HD,17,HISTORY.HD..uy | HISTORY.HD.mt | HISTORY.HD.ph | HISTORY.HD.pl | HISTORY.HD.uy | HISTORY™.(HD).sg | History.(HD).ro | History.HD.cy | History.HD.hr | History.HD.lv | History.HD.my | History.HD.ph | History.HD.ro | History.HD.sa | History.HD.sk | History.HD.us2 | History.HD.za
+M3U Edit ALL,1903,History HD,18,HISTORY.HD..uy | HISTORY.HD.mt | HISTORY.HD.ph | HISTORY.HD.pl | HISTORY.HD.uy | HISTORY™.(HD).sg | History.(HD).ro | History.HD.UK.cz | History.HD.cy | History.HD.hr | History.HD.lv | History.HD.my | History.HD.ph | History.HD.ro | History.HD.sa | History.HD.sk | History.HD.us2 | History.HD.za
 M3U Edit ALL,1992,HGTV HD,10,HGTV.(HD).ro | HGTV.(HD).sg | HGTV.HD.cy | HGTV.HD.lv | HGTV.HD.mt | HGTV.HD.my | HGTV.HD.ph | HGTV.HD.pl | HGTV.HD.ro | HGTV.HD.uy
 M3U Edit ALL,1181,Eurosport 1 HD,10,EUROSPORT.1.HD.tr | Eurosport.1.(HD).ro | Eurosport.1.HD.cy | Eurosport.1.HD.gr | Eurosport.1.HD.lv | Eurosport.1.HD.pl | Eurosport.1.HD.pt | Eurosport.1.HD.ro | Eurosport.1.HD.rs | Eurosport.1.HD.sk
 M3U Edit ALL,1182,Eurosport 2 HD,12,EUROSPORT.2.HD.tr | EuroSport.2.HD.dk | Eurosport.2.(HD).ro | Eurosport.2.HD.cy | Eurosport.2.HD.gr | Eurosport.2.HD.hu | Eurosport.2.HD.lv | Eurosport.2.HD.pl | Eurosport.2.HD.pt | Eurosport.2.HD.ro | Eurosport.2.HD.rs | Eurosport.2.HD.sk
 M3U Edit ALL,2883,K1,2,K1.cz | K1.rs
-M3U Edit ALL,1402,Red Bull TV,2,Red.Bull.TV.cz | Red.Bull.TV.in
+M3U Edit ALL,1402,Red Bull TV,13,DE:.Red.Bull.TV.be | DK:.Red.Bull.TV.be | ES:.Red.Bull.TV.be | FI:.Red.Bull.TV.be | FR:.Red.Bull.TV.be | IT:.Red.Bull.TV.be | NL:.Red.Bull.TV.be | NO:.Red.Bull.TV.be | PL:.Red.Bull.TV.be | Red.Bull.TV.cz | Red.Bull.TV.in | SE:.Red.Bull.TV.be | UK:.Red.Bull.TV.be
 M3U Edit ALL,2413,Erox HD,4,Erox.HD.cz | Erox.HD.pl | Erox.HD.ro | Erox.HD.sk
 M3U Edit ALL,1852,TravelXP 4K,4,Travelxp.4K.cz | Travelxp.4K.pl | Travelxp.4K.rs | travelxp.4K.de
 M3U Edit ALL,1736,Jim Jam,5,Jim.Jam.cz | Jim.Jam.lv | Jim.Jam.ng | Jim.Jam.sk | Jim.Jam.za
@@ -121,5 +205,6 @@ M3U Edit ALL,2112,Fashion TV HD,5,FASHION.TV.HD.ph | Fashion.TV.HD.nl | Fashion.
 M3U Edit ALL,2877,Fashion TV HD,5,FASHION.TV.HD.ph | Fashion.TV.HD.nl | Fashion.TV.HD.ph | Fashion.TV.HD.pl | Fashion.TV.HD.ro
 M3U Edit ALL,1752,NickToons HD,2,NickToons.HD.sa | Nicktoons.HD.pl
 M3U Edit ALL,1247,FightBox HD,4,FIGHTBOX.HD.tr | FightBox.HD.pl | Fightbox.HD.ro | Fightbox.HD.sk
+M3U Edit ALL,1712,Cartoon Classics,7,DK:.Cartoon.Classics.be | FI:.Cartoon.Classics.be | NL:.Cartoon.Classics.be | NO:.Cartoon.Classics.be | PL:.Cartoon.Classics.be | SE:.Cartoon.Classics.be | UK:.Cartoon.Classics.be
 M3U Edit ALL,1266,Trace Sport Stars HD,2,TRACE.SPORT.STARS.HD.tr | TRACE.Sport.Stars.HD.ro
 M3U Edit ALL,1905,History 2 HD,2,HISTORY.2.HD.uy | History.2.HD.rs
