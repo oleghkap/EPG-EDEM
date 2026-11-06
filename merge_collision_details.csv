@@ -3724,7 +3724,6 @@ BCU Media,Viju+ Premiere HD,449,2026-11-07T07:20:00+03:00,Viju+ Premiere HD,Viju
 BCU Media,Viju+ Premiere HD,449,2026-11-07T09:00:00+03:00,Viju+ Premiere HD,Viju+ Premiere,different IDs,21,21,729,729
 BCU Media,Viju+ Premiere HD,449,2026-11-07T10:45:00+03:00,Viju+ Premiere HD,Viju+ Premiere,different IDs,16,16,583,583
 BCU Media,Viju+ Premiere HD,449,2026-11-07T13:50:00+03:00,Viju+ Premiere HD,Viju+ Premiere,different IDs,13,13,610,610
-BCU Media,Viju+ Serial HD,434,2026-11-05T23:30:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,47,47,5,5
 BCU Media,Viju+ Serial HD,434,2026-11-06T00:15:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,49,49,5,5
 BCU Media,Viju+ Serial HD,434,2026-11-06T01:00:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,26,26,396,396
 BCU Media,Viju+ Serial HD,434,2026-11-06T03:10:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,37,37,581,581
@@ -3755,19 +3754,6 @@ BCU Media,Viju+ Serial HD,434,2026-11-07T15:30:00+03:00,Viju+ Serial HD,Viju+ Se
 BCU Media,Viju+ Serial HD,434,2026-11-07T16:15:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,47,47,573,573
 BCU Media,Viju+ Serial HD,434,2026-11-07T17:00:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,46,46,5,5
 BCU Media,Viju+ Serial HD,434,2026-11-07T23:30:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,16,16,523,523
-BCU Media,Известия,320,2026-11-05T22:31:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
-BCU Media,Известия,320,2026-11-05T22:42:00+03:00,Известия,Известия HD,different IDs,9,9,110,110
-BCU Media,Известия,320,2026-11-05T22:43:00+03:00,Известия,Известия HD,different IDs,17,17,133,133
-BCU Media,Известия,320,2026-11-05T22:44:00+03:00,Известия,Известия HD,different IDs,10,10,124,124
-BCU Media,Известия,320,2026-11-05T22:45:00+03:00,Известия,Известия HD,different IDs,9,9,81,81
-BCU Media,Известия,320,2026-11-05T22:46:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:01:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:13:00+03:00,Известия,Известия HD,different IDs,9,9,110,110
-BCU Media,Известия,320,2026-11-05T23:14:00+03:00,Известия,Известия HD,different IDs,10,10,124,124
-BCU Media,Известия,320,2026-11-05T23:15:00+03:00,Известия,Известия HD,different IDs,9,9,81,81
-BCU Media,Известия,320,2026-11-05T23:16:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:27:00+03:00,Известия,Известия HD,different IDs,17,17,133,133
-BCU Media,Известия,320,2026-11-05T23:31:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
 BCU Media,Известия,320,2026-11-05T23:43:00+03:00,Известия,Известия HD,different IDs,9,9,110,110
 BCU Media,Известия,320,2026-11-05T23:44:00+03:00,Известия,Известия HD,different IDs,10,10,124,124
 BCU Media,Известия,320,2026-11-05T23:45:00+03:00,Известия,Известия HD,different IDs,9,9,81,81
@@ -3827,7 +3813,6 @@ BCU Media,Известия,320,2026-11-06T04:46:00+03:00,Известия,Изв
 BCU Media,Рыболов HD,2063,2026-11-07T23:35:00+03:00,Рыболов HD,Рыболов,different IDs,27,27,151,151
 BCU Media,Рыжий,1754,2026-11-05T23:48:00+03:00,Рыжий,Рыжий HD,different IDs,16,16,887,887
 BCU Media,Рыжий,1754,2026-11-06T00:47:00+03:00,Рыжий,Рыжий HD,different IDs,19,19,174,174
-BCU Media,СПАС,90,2026-11-05T22:25:00+03:00,Спас,Спас,same ID,15,15,290,290
 BCU Media,СПАС,90,2026-11-05T23:50:00+03:00,Спас,Спас,same ID,31,31,282,282
 BCU Media,СПАС,90,2026-11-06T06:40:00+03:00,Спас,Спас,same ID,23,23,218,218
 BCU Media,СПАС,90,2026-11-06T07:30:00+03:00,Спас,Спас,same ID,19,19,303,303
@@ -4133,8 +4118,6 @@ BCU Media,Kinowood HD,2888,2026-11-07T01:42:00+03:00,Kinowood HD,Kinowood HD,sam
 BCU Media,Kinowood HD,2888,2026-11-07T03:16:00+03:00,Kinowood HD,Kinowood HD,same ID,12,12,0,0
 BCU Media,Kinowood HD,2888,2026-11-07T06:34:00+03:00,Kinowood HD,Kinowood HD,same ID,12,12,0,0
 BCU Media,Megogo Спорт HD,1138,2026-11-06T00:45:00+03:00,Megogo Спорт HD,Megogo Спорт HD,same ID,24,24,0,0
-BCU Media,Museum TV HD,1842,2026-11-05T22:45:00+03:00,Museum TV HD,Museum TV HD,same ID,49,50,288,0
-BCU Media,Museum TV HD,1842,2026-11-05T23:35:00+03:00,Museum TV HD,Museum TV HD,same ID,45,45,278,0
 BCU Media,Museum TV HD,1842,2026-11-06T00:30:00+03:00,Museum TV HD,Museum TV HD,same ID,30,49,232,0
 BCU Media,Museum TV HD,1842,2026-11-06T01:20:00+03:00,Museum TV HD,Museum TV HD,same ID,24,25,192,0
 BCU Media,Museum TV HD,1842,2026-11-06T01:40:00+03:00,Museum TV HD,Museum TV HD,same ID,44,49,192,0
@@ -4201,7 +4184,6 @@ BCU Media,Museum TV HD,1842,2026-11-07T20:45:00+03:00,Museum TV HD,Museum TV HD,
 BCU Media,Museum TV HD,1842,2026-11-07T21:45:00+03:00,Museum TV HD,Museum TV HD,same ID,63,83,270,0
 BCU Media,Museum TV HD,1842,2026-11-07T22:45:00+03:00,Museum TV HD,Museum TV HD,same ID,32,33,224,0
 BCU Media,Museum TV HD,1842,2026-11-07T23:30:00+03:00,Museum TV HD,Museum TV HD,same ID,32,33,217,0
-BCU Media,RTG TV,1953,2026-11-05T23:30:00+03:00,RTG TV HD,RTG TV HD,same ID,33,33,374,0
 BCU Media,RTG TV,1953,2026-11-06T01:45:00+03:00,RTG TV HD,RTG TV HD,same ID,54,55,272,0
 BCU Media,RTG TV,1953,2026-11-06T04:45:00+03:00,RTG TV HD,RTG TV HD,same ID,46,38,116,0
 BCU Media,RTG TV,1953,2026-11-06T05:30:00+03:00,RTG TV HD,RTG TV HD,same ID,39,40,707,0
@@ -4270,8 +4252,6 @@ BCU Media,Глазами Туриста 4K,2042,2026-11-07T10:56:00+03:00,Гла
 BCU Media,Глазами Туриста HD,1922,2026-11-07T13:55:00+03:00,Глазами туриста HD,Глазами туриста HD,same ID,37,49,5,0
 BCU Media,Дача,2854,2026-11-06T06:10:00+03:00,Дача HD,Дача HD,same ID,19,19,0,0
 BCU Media,Дача,2854,2026-11-07T06:05:00+03:00,Дача HD,Дача HD,same ID,19,19,0,0
-BCU Media,Лёва HD,1720,2026-11-05T23:10:00+03:00,Лёва HD,Лёва,different IDs,6,6,0,0
-BCU Media,Лёва HD,1720,2026-11-05T23:35:00+03:00,Лёва HD,Лёва,different IDs,17,17,0,0
 BCU Media,Лёва HD,1720,2026-11-06T00:30:00+03:00,Лёва HD,Лёва,different IDs,14,14,0,0
 BCU Media,Лёва HD,1720,2026-11-06T01:05:00+03:00,Лёва HD,Лёва,different IDs,13,13,0,0
 BCU Media,Лёва HD,1720,2026-11-06T01:20:00+03:00,Лёва HD,Лёва,different IDs,26,26,0,0
@@ -4345,7 +4325,6 @@ BCU Media,Москва 24,316,2026-11-06T03:10:00+03:00,Москва 24,Моск
 BCU Media,Москва 24,316,2026-11-06T03:25:00+03:00,Москва 24,Москва 24 HD,different IDs,8,8,0,0
 BCU Media,Москва 24,316,2026-11-06T03:35:00+03:00,Москва 24,Москва 24 HD,different IDs,40,40,0,0
 BCU Media,Москва 24,316,2026-11-06T04:10:00+03:00,Москва 24,Москва 24 HD,different IDs,41,41,0,0
-BCU Media,Охота и рыбалка,1958,2026-11-05T22:55:00+03:00,Охота и рыбалка HD,Охота и рыбалка,different IDs,49,49,0,0
 BCU Media,Россия 24,315,2026-11-06T00:25:00+03:00,Россия 24,Россия 24 HD,different IDs,12,12,0,0
 BCU Media,Россия 24,315,2026-11-06T00:37:00+03:00,Россия 24,Россия 24 HD,different IDs,18,18,0,0
 BCU Media,Рыжий,1754,2026-11-06T03:10:00+03:00,Рыжий,Рыжий HD,different IDs,10,10,0,0
@@ -4354,11 +4333,8 @@ BCU Media,Рыжий,1754,2026-11-07T03:10:00+03:00,Рыжий,Рыжий HD,dif
 BCU Media,Рыжий,1754,2026-11-07T16:40:00+03:00,Рыжий,Рыжий HD,different IDs,10,10,0,0
 BCU Media,Рыболов HD,2063,2026-11-07T23:35:00+03:00,Рыболов HD,Рыболов HD,same ID,27,46,151,0
 BCU Media,Рыболов HD,2063,2026-11-07T23:35:00+03:00,Рыболов HD,Рыболов,different IDs,27,46,151,0
-BCU Media,Сарафан,85,2026-11-05T23:25:00+03:00,Сарафан,Сарафан,same ID,28,47,603,0
 BCU Media,СПАС,90,2026-11-07T16:20:00+03:00,Спас,Спас,same ID,6,6,239,0
 BCU Media,СПАС,90,2026-11-07T16:20:00+03:00,Спас,Спас,same ID,6,6,239,0
-BCU Media,ТипТоп HD,1728,2026-11-05T22:38:00+03:00,ТипТоп HD,ТипТоп,different IDs,46,46,0,0
-BCU Media,ТипТоп HD,1728,2026-11-05T23:01:00+03:00,ТипТоп HD,ТипТоп,different IDs,27,27,0,0
 BCU Media,ТипТоп HD,1728,2026-11-06T00:11:00+03:00,ТипТоп HD,ТипТоп,different IDs,28,28,0,0
 BCU Media,ТипТоп HD,1728,2026-11-06T00:58:00+03:00,ТипТоп HD,ТипТоп,different IDs,53,53,0,0
 BCU Media,ТипТоп HD,1728,2026-11-06T01:21:00+03:00,ТипТоп HD,ТипТоп,different IDs,29,29,0,0
@@ -4546,7 +4522,6 @@ BCU Media,6 Соток,2866,2026-11-07T04:25:00+03:00,6 Соток HD,6 Сото
 BCU Media,6 Соток,2866,2026-11-07T04:39:00+03:00,6 Соток HD,6 Соток HD,same ID,23,23,0,0
 BCU Media,6 Соток,2866,2026-11-07T06:14:00+03:00,6 Соток HD,6 Соток HD,same ID,21,21,0,0
 BCU Media,6 Соток,2866,2026-11-07T06:50:00+03:00,6 Соток HD,6 Соток HD,same ID,20,20,0,0
-BCU Media,4Ever Drama HD UA,392,2026-11-05T23:26:00+03:00,4Ever Drama HD,4Ever Drama HD,same ID,14,14,849,849
 BCU Media,4Ever Drama HD UA,392,2026-11-06T02:44:00+03:00,4Ever Drama HD,4Ever Drama HD,same ID,24,24,638,638
 BCU Media,4Ever Drama HD UA,392,2026-11-06T04:34:00+03:00,4Ever Drama HD,4Ever Drama HD,same ID,18,18,779,779
 BCU Media,4Ever Drama HD UA,392,2026-11-06T06:13:00+03:00,4Ever Drama HD,4Ever Drama HD,same ID,20,20,590,590
@@ -4562,7 +4537,6 @@ BCU Media,4Ever Drama HD UA,392,2026-11-06T21:27:00+03:00,4Ever Drama HD,4Ever D
 BCU Media,4Ever Drama HD UA,392,2026-11-06T23:27:00+03:00,4Ever Drama HD,4Ever Drama HD,same ID,17,17,1383,1383
 BCU Media,AMC,2867,2026-11-07T06:05:00+03:00,AMC,AMC,same ID,15,15,77,77
 BCU Media,AMC,2867,2026-11-07T06:30:00+03:00,AMC,AMC,same ID,15,15,77,77
-BCU Media,Arena Fight RS,1223,2026-11-05T23:00:00+03:00,Arena Fight HD,Arena Fight HD,same ID,22,22,162,162
 BCU Media,Arena Premium 1 RS,1224,2026-11-06T01:00:00+03:00,Arena Premium 1 HD,Arena Premium 1 HD,same ID,39,39,20,20
 BCU Media,Arena Premium 1 RS,1224,2026-11-06T03:00:00+03:00,Arena Premium 1 HD,Arena Premium 1 HD,same ID,16,16,29,29
 BCU Media,Arena Premium 1 RS,1224,2026-11-06T07:15:00+03:00,Arena Premium 1 HD,Arena Premium 1 HD,same ID,25,25,29,29
@@ -4604,9 +4578,6 @@ BCU Media,Arena Premium 3 RS,1226,2026-11-07T19:30:00+03:00,Arena Premium 3 HD,A
 BCU Media,Arena Premium 3 RS,1226,2026-11-07T20:30:00+03:00,Arena Premium 3 HD,Arena Premium 3 HD,same ID,44,44,19,19
 BCU Media,Arena Premium 3 RS,1226,2026-11-07T22:30:00+03:00,Arena Premium 3 HD,Arena Premium 3 HD,same ID,37,37,20,20
 BCU Media,Arena Premium 3 RS,1226,2026-11-07T23:00:00+03:00,Arena Premium 3 HD,Arena Premium 3 HD,same ID,33,33,19,19
-BCU Media,beIN Sports USA,2685,2026-11-05T22:30:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,32,32,130,130
-BCU Media,beIN Sports USA,2685,2026-11-05T23:00:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,59,59,46,46
-BCU Media,beIN Sports USA,2685,2026-11-05T23:30:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,63,63,107,107
 BCU Media,beIN Sports USA,2685,2026-11-06T00:00:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,57,57,86,86
 BCU Media,beIN Sports USA,2685,2026-11-06T02:00:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,55,55,44,44
 BCU Media,beIN Sports USA,2685,2026-11-06T02:30:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,55,55,43,43
@@ -4686,16 +4657,6 @@ BCU Media,Cinema HD,1034,2026-11-07T14:00:00+03:00,Cinema HD,Cinema HD,same ID,1
 BCU Media,Cinema HD,1034,2026-11-07T16:15:00+03:00,Cinema HD,Cinema HD,same ID,30,30,1083,1083
 BCU Media,Cinema HD,1034,2026-11-07T18:10:00+03:00,Cinema HD,Cinema HD,same ID,15,15,882,882
 BCU Media,Cinema HD,1034,2026-11-07T19:50:00+03:00,Cinema HD,Cinema HD,same ID,12,12,775,775
-BCU Media,Duck TV,1747,2026-11-05T22:32:00+03:00,Duck TV HD,Duck TV HD,same ID,6,6,271,271
-BCU Media,Duck TV,1747,2026-11-05T22:43:00+03:00,Duck TV HD,Duck TV HD,same ID,26,26,244,244
-BCU Media,Duck TV,1747,2026-11-05T22:45:00+03:00,Duck TV HD,Duck TV HD,same ID,19,19,170,170
-BCU Media,Duck TV,1747,2026-11-05T22:59:00+03:00,Duck TV HD,Duck TV HD,same ID,17,17,192,192
-BCU Media,Duck TV,1747,2026-11-05T23:02:00+03:00,Duck TV HD,Duck TV HD,same ID,11,11,284,284
-BCU Media,Duck TV,1747,2026-11-05T23:07:00+03:00,Duck TV HD,Duck TV HD,same ID,6,6,299,299
-BCU Media,Duck TV,1747,2026-11-05T23:16:00+03:00,Duck TV HD,Duck TV HD,same ID,15,15,258,258
-BCU Media,Duck TV,1747,2026-11-05T23:21:00+03:00,Duck TV HD,Duck TV HD,same ID,8,8,211,211
-BCU Media,Duck TV,1747,2026-11-05T23:27:00+03:00,Duck TV HD,Duck TV HD,same ID,12,12,318,318
-BCU Media,Duck TV,1747,2026-11-05T23:34:00+03:00,Duck TV HD,Duck TV HD,same ID,9,9,264,264
 BCU Media,Duck TV,1747,2026-11-05T23:45:00+03:00,Duck TV HD,Duck TV HD,same ID,13,13,203,203
 BCU Media,Duck TV,1747,2026-11-05T23:47:00+03:00,Duck TV HD,Duck TV HD,same ID,6,6,299,299
 BCU Media,Duck TV,1747,2026-11-05T23:49:00+03:00,Duck TV HD,Duck TV HD,same ID,13,13,203,203
@@ -5013,7 +4974,6 @@ BCU Media,Duck TV,1747,2026-11-07T23:46:00+03:00,Duck TV HD,Duck TV HD,same ID,1
 BCU Media,Duck TV,1747,2026-11-07T23:52:00+03:00,Duck TV HD,Duck TV HD,same ID,13,13,203,203
 BCU Media,Duck TV,1747,2026-11-07T23:54:00+03:00,Duck TV HD,Duck TV HD,same ID,17,17,230,230
 BCU Media,Duck TV,1747,2026-11-07T23:58:00+03:00,Duck TV HD,Duck TV HD,same ID,13,13,227,227
-BCU Media,FilmZone HD LV,394,2026-11-05T23:25:00+03:00,Filmzone HD,Filmzone HD,same ID,30,30,246,246
 BCU Media,FilmZone HD LV,394,2026-11-06T00:15:00+03:00,Filmzone HD,Filmzone HD,same ID,5,5,439,439
 BCU Media,FilmZone HD LV,394,2026-11-06T02:10:00+03:00,Filmzone HD,Filmzone HD,same ID,17,17,119,119
 BCU Media,FilmZone HD LV,394,2026-11-06T03:55:00+03:00,Filmzone HD,Filmzone HD,same ID,30,30,246,246
@@ -5056,7 +5016,6 @@ BCU Media,FX HD,370,2026-11-07T06:05:00+03:00,FX,FX,same ID,47,47,106,106
 BCU Media,FX HD,370,2026-11-07T06:05:00+03:00,FX,FX HD,different IDs,47,47,106,106
 BCU Media,FX HD,370,2026-11-07T06:30:00+03:00,FX,FX,same ID,23,23,200,200
 BCU Media,FX HD,370,2026-11-07T06:30:00+03:00,FX,FX HD,different IDs,23,23,200,200
-BCU Media,Gametoon,109,2026-11-05T23:25:00+03:00,Gametoon HD,Gametoon HD,same ID,21,21,78,78
 BCU Media,Gametoon,109,2026-11-05T23:50:00+03:00,Gametoon HD,Gametoon HD,same ID,21,21,71,71
 BCU Media,Gametoon,109,2026-11-06T00:10:00+03:00,Gametoon HD,Gametoon HD,same ID,21,21,71,71
 BCU Media,Gametoon,109,2026-11-06T00:35:00+03:00,Gametoon HD,Gametoon HD,same ID,12,12,78,78
@@ -5110,8 +5069,6 @@ BCU Media,Gametoon,109,2026-11-07T20:40:00+03:00,Gametoon HD,Gametoon HD,same ID
 BCU Media,Gametoon,109,2026-11-07T21:30:00+03:00,Gametoon HD,Gametoon HD,same ID,17,17,99,99
 BCU Media,Gametoon,109,2026-11-07T22:20:00+03:00,Gametoon HD,Gametoon HD,same ID,18,18,59,59
 BCU Media,Gametoon,109,2026-11-07T23:40:00+03:00,Gametoon HD,Gametoon HD,same ID,21,21,78,78
-BCU Media,Инсайт ТВ UHD,1896,2026-11-05T22:24:00+03:00,Инсайт ТВ UHD,Инсайт ТВ UHD,same ID,23,23,78,78
-BCU Media,Инсайт ТВ UHD,1896,2026-11-05T23:12:00+03:00,Инсайт ТВ UHD,Инсайт ТВ UHD,same ID,43,43,144,144
 BCU Media,Инсайт ТВ UHD,1896,2026-11-06T00:48:00+03:00,Инсайт ТВ UHD,Инсайт ТВ UHD,same ID,30,30,96,96
 BCU Media,Инсайт ТВ UHD,1896,2026-11-06T01:51:00+03:00,Инсайт ТВ UHD,Инсайт ТВ UHD,same ID,32,32,160,160
 BCU Media,Инсайт ТВ UHD,1896,2026-11-06T02:11:00+03:00,Инсайт ТВ UHD,Инсайт ТВ UHD,same ID,32,32,160,160
@@ -5190,8 +5147,6 @@ BCU Media,Kinowood HD,2888,2026-11-06T06:40:00+03:00,Kinowood HD,Kinowood HD,sam
 BCU Media,Kinowood HD,2888,2026-11-07T01:42:00+03:00,Kinowood HD,Kinowood HD,same ID,16,16,0,0
 BCU Media,Kinowood HD,2888,2026-11-07T03:16:00+03:00,Kinowood HD,Kinowood HD,same ID,12,12,0,0
 BCU Media,Kinowood HD,2888,2026-11-07T06:34:00+03:00,Kinowood HD,Kinowood HD,same ID,12,12,0,0
-BCU Media,Match 4 HU,1219,2026-11-05T22:45:00+03:00,Match 4 HD,Match 4 HD,same ID,10,10,3,3
-BCU Media,Match 4 HU,1219,2026-11-05T23:15:00+03:00,Match 4 HD,Match 4 HD,same ID,10,10,3,3
 BCU Media,Match 4 HU,1219,2026-11-05T23:45:00+03:00,Match 4 HD,Match 4 HD,same ID,10,10,3,3
 BCU Media,Match 4 HU,1219,2026-11-06T00:15:00+03:00,Match 4 HD,Match 4 HD,same ID,10,10,3,3
 BCU Media,Match 4 HU,1219,2026-11-06T00:45:00+03:00,Match 4 HD,Match 4 HD,same ID,7,7,110,110
@@ -5235,8 +5190,6 @@ BCU Media,Mezzo,1566,2026-11-07T04:15:00+03:00,Mezzo,Mezzo,same ID,89,89,0,0
 BCU Media,Mezzo,1566,2026-11-07T04:15:00+03:00,Mezzo,Mezzo HD,different IDs,89,89,0,0
 BCU Media,Mezzo,1566,2026-11-07T06:05:00+03:00,Mezzo,Mezzo,same ID,109,109,0,0
 BCU Media,Mezzo,1566,2026-11-07T06:05:00+03:00,Mezzo,Mezzo HD,different IDs,109,109,0,0
-BCU Media,Museum TV HD,1842,2026-11-05T22:45:00+03:00,Museum TV HD,Museum TV HD,same ID,49,49,288,288
-BCU Media,Museum TV HD,1842,2026-11-05T23:35:00+03:00,Museum TV HD,Museum TV HD,same ID,45,45,278,278
 BCU Media,Museum TV HD,1842,2026-11-06T00:30:00+03:00,Museum TV HD,Museum TV HD,same ID,30,30,232,232
 BCU Media,Museum TV HD,1842,2026-11-06T01:20:00+03:00,Museum TV HD,Museum TV HD,same ID,24,24,192,192
 BCU Media,Museum TV HD,1842,2026-11-06T01:40:00+03:00,Museum TV HD,Museum TV HD,same ID,44,44,192,192
@@ -5307,7 +5260,6 @@ BCU Media,Nova Sport 3 CZ,1195,2026-11-06T05:50:00+03:00,Nova Sport 3 HD,Nova Sp
 BCU Media,Nova Sport 3 CZ,1195,2026-11-07T05:45:00+03:00,Nova Sport 3 HD,Nova Sport 3 HD,same ID,15,15,0,0
 BCU Media,Nova Sport 4 CZ,1196,2026-11-06T05:00:00+03:00,Nova Sport 4 HD,Nova Sport 4 HD,same ID,15,15,0,0
 BCU Media,Nova Sport 4 CZ,1196,2026-11-07T05:00:00+03:00,Nova Sport 4 HD,Nova Sport 4 HD,same ID,15,15,0,0
-BCU Media,History CEE HD,1952,2026-11-05T23:00:00+03:00,History CEE HD,History CEE HD,same ID,28,28,682,682
 BCU Media,History CEE HD,1952,2026-11-05T23:45:00+03:00,History CEE HD,History CEE HD,same ID,46,46,490,490
 BCU Media,History CEE HD,1952,2026-11-06T00:30:00+03:00,History CEE HD,History CEE HD,same ID,110,110,573,573
 BCU Media,History CEE HD,1952,2026-11-06T01:15:00+03:00,History CEE HD,History CEE HD,same ID,28,28,1039,1039
@@ -5358,7 +5310,6 @@ BCU Media,QazSport HD,1265,2026-11-06T20:05:00+03:00,Qazsport HD,Qazsport HD,sam
 BCU Media,QazSport HD,1265,2026-11-06T20:35:00+03:00,Qazsport HD,Qazsport HD,same ID,100,100,0,0
 BCU Media,QazSport HD,1265,2026-11-06T22:50:00+03:00,Qazsport HD,Qazsport HD,same ID,93,93,0,0
 BCU Media,QazSport HD,1265,2026-11-07T01:50:00+03:00,Qazsport HD,Qazsport HD,same ID,7,7,396,396
-BCU Media,Q League HD KZ,1472,2026-11-05T23:00:00+03:00,Q League HD,Q League HD,same ID,71,71,0,0
 BCU Media,Q League HD KZ,1472,2026-11-06T01:10:00+03:00,Q League HD,Q League HD,same ID,64,64,0,0
 BCU Media,Q League HD KZ,1472,2026-11-06T09:40:00+03:00,Q League HD,Q League HD,same ID,65,65,0,0
 BCU Media,Q League HD KZ,1472,2026-11-06T13:20:00+03:00,Q League HD,Q League HD,same ID,38,38,0,0
@@ -5378,7 +5329,6 @@ BCU Media,Retro Music TV HD CZ,1633,2026-11-06T13:00:00+03:00,Retro Music TV,Ret
 BCU Media,Retro Music TV HD CZ,1633,2026-11-06T19:00:00+03:00,Retro Music TV,Retro Music TV,same ID,98,98,15,15
 BCU Media,Retro Music TV HD CZ,1633,2026-11-06T22:00:00+03:00,Retro Music TV,Retro Music TV,same ID,76,76,15,15
 BCU Media,Retro Music TV HD CZ,1633,2026-11-07T02:00:00+03:00,Retro Music TV,Retro Music TV,same ID,78,78,15,15
-BCU Media,RTG TV,1953,2026-11-05T23:30:00+03:00,RTG TV HD,RTG TV HD,same ID,33,33,374,374
 BCU Media,RTG TV,1953,2026-11-06T01:45:00+03:00,RTG TV HD,RTG TV HD,same ID,54,54,272,272
 BCU Media,RTG TV,1953,2026-11-06T04:45:00+03:00,RTG TV HD,RTG TV HD,same ID,46,46,116,116
 BCU Media,RTG TV,1953,2026-11-06T05:30:00+03:00,RTG TV HD,RTG TV HD,same ID,39,39,707,707
@@ -5398,8 +5348,6 @@ BCU Media,RTG TV,1953,2026-11-07T14:30:00+03:00,RTG TV HD,RTG TV HD,same ID,39,3
 BCU Media,RTG TV,1953,2026-11-07T19:45:00+03:00,RTG TV HD,RTG TV HD,same ID,54,54,272,272
 BCU Media,RTG TV,1953,2026-11-07T22:45:00+03:00,RTG TV HD,RTG TV HD,same ID,46,46,116,116
 BCU Media,RTG TV,1953,2026-11-07T23:30:00+03:00,RTG TV HD,RTG TV HD,same ID,39,39,707,707
-BCU Media,Russian Extreme HD,1322,2026-11-05T22:40:00+03:00,Russian Extreme HD,Russian Extreme HD,same ID,38,38,609,609
-BCU Media,Russian Extreme HD,1322,2026-11-05T23:00:00+03:00,Russian Extreme HD,Russian Extreme HD,same ID,26,26,377,377
 BCU Media,Russian Extreme HD,1322,2026-11-05T23:55:00+03:00,Russian Extreme HD,Russian Extreme HD,same ID,8,8,577,577
 BCU Media,Russian Extreme HD,1322,2026-11-06T01:35:00+03:00,Russian Extreme HD,Russian Extreme HD,same ID,24,24,169,169
 BCU Media,Russian Extreme HD,1322,2026-11-06T04:40:00+03:00,Russian Extreme HD,Russian Extreme HD,same ID,56,56,279,279
@@ -5649,7 +5597,6 @@ BCU Media,Sumiko HD,377,2026-11-06T03:05:00+03:00,Sumiko HD,Sumiko HD,same ID,32
 BCU Media,Sumiko HD,377,2026-11-06T03:30:00+03:00,Sumiko HD,Sumiko HD,same ID,18,18,439,439
 BCU Media,Sumiko HD,377,2026-11-06T03:55:00+03:00,Sumiko HD,Sumiko HD,same ID,27,27,277,277
 BCU Media,Sumiko HD,377,2026-11-06T04:20:00+03:00,Sumiko HD,Sumiko HD,same ID,28,28,486,486
-BCU Media,TV4 Fotboll SE,1316,2026-11-05T23:00:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,33,33,36,36
 BCU Media,TV4 Fotboll SE,1316,2026-11-06T02:00:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,47,47,50,50
 BCU Media,TV4 Fotboll SE,1316,2026-11-06T07:00:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,12,12,117,117
 BCU Media,TV4 Fotboll SE,1316,2026-11-06T08:00:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,47,47,68,68
@@ -5666,7 +5613,6 @@ BCU Media,TV4 Fotboll SE,1316,2026-11-07T14:00:00+03:00,TV4 Fotboll HD,TV4 Fotbo
 BCU Media,TV4 Fotboll SE,1316,2026-11-07T16:30:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,47,47,50,50
 BCU Media,TV4 Fotboll SE,1316,2026-11-07T19:30:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,48,48,51,51
 BCU Media,TV4 Fotboll SE,1316,2026-11-07T22:35:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,51,51,69,69
-BCU Media,Cinema,507,2026-11-05T23:05:00+03:00,Cinema UHD,Cinema UHD,same ID,19,19,713,713
 BCU Media,Cinema,507,2026-11-06T00:20:00+03:00,Cinema UHD,Cinema UHD,same ID,21,21,658,658
 BCU Media,Cinema,507,2026-11-06T01:55:00+03:00,Cinema UHD,Cinema UHD,same ID,13,13,592,592
 BCU Media,Cinema,507,2026-11-06T03:55:00+03:00,Cinema UHD,Cinema UHD,same ID,10,10,871,871
@@ -5704,10 +5650,6 @@ BCU Media,Viasat Serial HD,386,2026-11-07T04:00:00+03:00,Viasat Serial HD,Viasat
 BCU Media,Viasat Serial HD,386,2026-11-07T04:35:00+03:00,Viasat Serial HD,Viasat Serial HD,same ID,49,49,0,0
 BCU Media,Viasat Serial HD,386,2026-11-07T06:25:00+03:00,Viasat Serial HD,Viasat Serial HD,same ID,48,48,0,0
 BCU Media,Viasat Nature CEE HD,2846,2026-11-06T06:55:00+03:00,Viasat Nature CEE HD,Viasat Nature CEE HD,same ID,56,56,322,322
-BCU Media,Viju Nature,1937,2026-11-05T22:30:00+03:00,Viju Nature,Viju Nature,same ID,57,57,268,268
-BCU Media,Viju Nature HD,2047,2026-11-05T22:30:00+03:00,Viju Nature HD,Viju Nature HD,same ID,57,57,268,268
-BCU Media,Viju Nature,1937,2026-11-05T23:00:00+03:00,Viju Nature,Viju Nature,same ID,29,29,406,406
-BCU Media,Viju Nature HD,2047,2026-11-05T23:00:00+03:00,Viju Nature HD,Viju Nature HD,same ID,29,29,406,406
 BCU Media,Viju Nature,1937,2026-11-06T00:00:00+03:00,Viju Nature,Viju Nature,same ID,55,55,570,570
 BCU Media,Viju Nature HD,2047,2026-11-06T00:00:00+03:00,Viju Nature HD,Viju Nature HD,same ID,55,55,570,570
 BCU Media,Viju Nature,1937,2026-11-06T00:55:00+03:00,Viju Nature,Viju Nature,same ID,34,34,208,208
@@ -5802,8 +5744,6 @@ BCU Media,Аппетитный HD,2089,2026-11-07T09:30:00+03:00,Аппетит�
 BCU Media,Аппетитный HD,2089,2026-11-07T13:30:00+03:00,Аппетитный HD,Аппетитный HD,same ID,32,32,296,296
 BCU Media,Аппетитный HD,2089,2026-11-07T17:30:00+03:00,Аппетитный HD,Аппетитный HD,same ID,31,31,295,295
 BCU Media,Аппетитный HD,2089,2026-11-07T21:30:00+03:00,Аппетитный HD,Аппетитный HD,same ID,32,32,5,5
-BCU Media,Viju+ Serial HD,434,2026-11-05T23:30:00+03:00,Viju+ Serial HD,Viju+ Serial HD,same ID,47,47,5,5
-BCU Media,Viju+ Serial HD,434,2026-11-05T23:30:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,47,47,5,5
 BCU Media,Viju+ Serial HD,434,2026-11-06T00:15:00+03:00,Viju+ Serial HD,Viju+ Serial HD,same ID,49,49,5,5
 BCU Media,Viju+ Serial HD,434,2026-11-06T00:15:00+03:00,Viju+ Serial HD,Viju+ Serial,different IDs,49,49,5,5
 BCU Media,Viju+ Serial HD,434,2026-11-06T01:00:00+03:00,Viju+ Serial HD,Viju+ Serial HD,same ID,26,26,396,396
@@ -5876,8 +5816,6 @@ BCU Media,Блокбастер HD,429,2026-11-07T17:00:00+03:00,Блокбаст
 BCU Media,Блокбастер HD,429,2026-11-07T18:45:00+03:00,Блокбастер,Блокбастер,same ID,13,13,485,485
 BCU Media,Блокбастер HD,429,2026-11-07T20:40:00+03:00,Блокбастер,Блокбастер,same ID,8,8,446,446
 BCU Media,Блокбастер HD,429,2026-11-07T22:30:00+03:00,Блокбастер,Блокбастер,same ID,8,8,471,471
-BCU Media,Глазами Туриста HD,1922,2026-11-05T22:32:00+03:00,Глазами туриста HD,Глазами туриста HD,same ID,36,36,5,5
-BCU Media,Глазами Туриста HD,1922,2026-11-05T23:23:00+03:00,Глазами туриста HD,Глазами туриста HD,same ID,36,36,5,5
 BCU Media,Глазами Туриста HD,1922,2026-11-06T00:32:00+03:00,Глазами туриста HD,Глазами туриста HD,same ID,15,15,5,5
 BCU Media,Глазами Туриста HD,1922,2026-11-06T01:01:00+03:00,Глазами туриста HD,Глазами туриста HD,same ID,15,15,5,5
 BCU Media,Глазами Туриста HD,1922,2026-11-06T01:24:00+03:00,Глазами туриста HD,Глазами туриста HD,same ID,21,21,5,5
@@ -6000,32 +5938,6 @@ BCU Media,Глазами Туриста 4K,2042,2026-11-07T09:48:00+03:00,Гла
 BCU Media,Глазами Туриста 4K,2042,2026-11-07T10:02:00+03:00,Глазами туриста 4K,Глазами туриста 4K,same ID,43,43,143,143
 BCU Media,Глазами Туриста 4K,2042,2026-11-07T10:37:00+03:00,Глазами туриста 4K,Глазами туриста 4K,same ID,43,43,143,143
 BCU Media,Глазами Туриста 4K,2042,2026-11-07T10:56:00+03:00,Глазами туриста 4K,Глазами туриста 4K,same ID,40,40,143,143
-BCU Media,Известия,320,2026-11-05T22:31:00+03:00,Известия,Известия,same ID,8,8,185,185
-BCU Media,Известия,320,2026-11-05T22:31:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
-BCU Media,Известия,320,2026-11-05T22:42:00+03:00,Известия,Известия,same ID,9,9,110,110
-BCU Media,Известия,320,2026-11-05T22:42:00+03:00,Известия,Известия HD,different IDs,9,9,110,110
-BCU Media,Известия,320,2026-11-05T22:43:00+03:00,Известия,Известия,same ID,17,17,133,133
-BCU Media,Известия,320,2026-11-05T22:43:00+03:00,Известия,Известия HD,different IDs,17,17,133,133
-BCU Media,Известия,320,2026-11-05T22:44:00+03:00,Известия,Известия,same ID,10,10,124,124
-BCU Media,Известия,320,2026-11-05T22:44:00+03:00,Известия,Известия HD,different IDs,10,10,124,124
-BCU Media,Известия,320,2026-11-05T22:45:00+03:00,Известия,Известия,same ID,9,9,81,81
-BCU Media,Известия,320,2026-11-05T22:45:00+03:00,Известия,Известия HD,different IDs,9,9,81,81
-BCU Media,Известия,320,2026-11-05T22:46:00+03:00,Известия,Известия,same ID,8,8,185,185
-BCU Media,Известия,320,2026-11-05T22:46:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:01:00+03:00,Известия,Известия,same ID,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:01:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:13:00+03:00,Известия,Известия,same ID,9,9,110,110
-BCU Media,Известия,320,2026-11-05T23:13:00+03:00,Известия,Известия HD,different IDs,9,9,110,110
-BCU Media,Известия,320,2026-11-05T23:14:00+03:00,Известия,Известия,same ID,10,10,124,124
-BCU Media,Известия,320,2026-11-05T23:14:00+03:00,Известия,Известия HD,different IDs,10,10,124,124
-BCU Media,Известия,320,2026-11-05T23:15:00+03:00,Известия,Известия,same ID,9,9,81,81
-BCU Media,Известия,320,2026-11-05T23:15:00+03:00,Известия,Известия HD,different IDs,9,9,81,81
-BCU Media,Известия,320,2026-11-05T23:16:00+03:00,Известия,Известия,same ID,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:16:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:27:00+03:00,Известия,Известия,same ID,17,17,133,133
-BCU Media,Известия,320,2026-11-05T23:27:00+03:00,Известия,Известия HD,different IDs,17,17,133,133
-BCU Media,Известия,320,2026-11-05T23:31:00+03:00,Известия,Известия,same ID,8,8,185,185
-BCU Media,Известия,320,2026-11-05T23:31:00+03:00,Известия,Известия HD,different IDs,8,8,185,185
 BCU Media,Известия,320,2026-11-05T23:43:00+03:00,Известия,Известия,same ID,9,9,110,110
 BCU Media,Известия,320,2026-11-05T23:43:00+03:00,Известия,Известия HD,different IDs,9,9,110,110
 BCU Media,Известия,320,2026-11-05T23:44:00+03:00,Известия,Известия,same ID,10,10,124,124
@@ -6346,8 +6258,6 @@ BCU Media,Women`s Magazine HD,2275,2026-11-07T23:30:00+03:00,Women's Magazine HD
 BCU Media,Women`s Magazine HD,2275,2026-11-07T23:35:00+03:00,Women's Magazine HD,Women's Magazine HD,same ID,43,43,697,697
 BCU Media,Women`s Magazine HD,2275,2026-11-07T23:40:00+03:00,Women's Magazine HD,Women's Magazine HD,same ID,43,43,617,617
 BCU Media,Women`s Magazine HD,2275,2026-11-07T23:55:00+03:00,Women's Magazine HD,Women's Magazine HD,same ID,27,27,426,426
-BCU Media,Конгресс ТВ HD,1835,2026-11-05T22:36:00+03:00,Конгресс ТВ HD,Конгресс ТВ HD,same ID,51,51,267,267
-BCU Media,Конгресс ТВ HD,1835,2026-11-05T23:05:00+03:00,Конгресс ТВ HD,Конгресс ТВ HD,same ID,23,23,220,220
 BCU Media,Конгресс ТВ HD,1835,2026-11-06T00:00:00+03:00,Конгресс ТВ HD,Конгресс ТВ HD,same ID,59,59,248,248
 BCU Media,Конгресс ТВ HD,1835,2026-11-06T00:28:00+03:00,Конгресс ТВ HD,Конгресс ТВ HD,same ID,47,47,214,214
 BCU Media,Конгресс ТВ HD,1835,2026-11-06T00:56:00+03:00,Конгресс ТВ HD,Конгресс ТВ HD,same ID,22,22,187,187
@@ -6402,8 +6312,6 @@ BCU Media,Пятница! +4,72,2026-11-07T17:40:00+03:00,Пятница! (+4) H
 BCU Media,Пятница! +4,72,2026-11-07T20:30:00+03:00,Пятница! (+4) HD,Пятница! (+4) HD,same ID,37,37,942,942
 BCU Media,Пятница! +4,72,2026-11-07T21:20:00+03:00,Пятница! (+4) HD,Пятница! (+4) HD,same ID,38,38,943,943
 BCU Media,Пятница! +4,72,2026-11-07T22:50:00+03:00,Пятница! (+4) HD,Пятница! (+4) HD,same ID,26,26,1249,1249
-BCU Media,Пятница! +7,73,2026-11-05T22:40:00+03:00,Пятница! (+7) HD,Пятница! (+7) HD,same ID,26,26,1249,1249
-BCU Media,Пятница! +7,73,2026-11-05T23:10:00+03:00,Пятница! (+7) HD,Пятница! (+7) HD,same ID,60,60,467,467
 BCU Media,Пятница! +7,73,2026-11-06T00:10:00+03:00,Пятница! (+7) HD,Пятница! (+7) HD,same ID,89,89,5,5
 BCU Media,Пятница! +7,73,2026-11-06T04:00:00+03:00,Пятница! (+7) HD,Пятница! (+7) HD,same ID,45,45,667,667
 BCU Media,Пятница! +7,73,2026-11-06T06:30:00+03:00,Пятница! (+7) HD,Пятница! (+7) HD,same ID,52,52,365,365
@@ -6419,7 +6327,6 @@ BCU Media,Пятница! +7,73,2026-11-07T17:30:00+03:00,Пятница! (+7) H
 BCU Media,Пятница! +7,73,2026-11-07T18:20:00+03:00,Пятница! (+7) HD,Пятница! (+7) HD,same ID,38,38,943,943
 BCU Media,Пятница! +7,73,2026-11-07T19:50:00+03:00,Пятница! (+7) HD,Пятница! (+7) HD,same ID,26,26,1249,1249
 BCU Media,Пятница! +7,73,2026-11-07T22:40:00+03:00,Пятница! (+7) HD,Пятница! (+7) HD,same ID,57,57,5,5
-BCU Media,РБК HD,310,2026-11-05T22:50:00+03:00,РБК HD,РБК HD,same ID,16,16,106,106
 BCU Media,РБК HD,310,2026-11-06T01:20:00+03:00,РБК HD,РБК HD,same ID,16,16,106,106
 BCU Media,РБК HD,310,2026-11-06T01:25:00+03:00,РБК HD,РБК HD,same ID,4,4,533,533
 BCU Media,РБК HD,310,2026-11-06T02:20:00+03:00,РБК HD,РБК HD,same ID,16,16,106,106
@@ -6430,13 +6337,10 @@ BCU Media,РБК HD,310,2026-11-06T04:00:00+03:00,РБК HD,РБК HD,same ID,16
 BCU Media,РБК HD,310,2026-11-07T04:10:00+03:00,РБК HD,РБК HD,same ID,4,4,533,533
 BCU Media,Рыболов HD,2063,2026-11-07T23:35:00+03:00,Рыболов HD,Рыболов HD,same ID,27,27,151,151
 BCU Media,Рыболов HD,2063,2026-11-07T23:35:00+03:00,Рыболов HD,Рыболов,different IDs,27,27,151,151
-BCU Media,Сарафан,85,2026-11-05T23:25:00+03:00,Сарафан,Сарафан,same ID,28,28,603,603
 BCU Media,Рыжий,1754,2026-11-05T23:48:00+03:00,Рыжий,Рыжий,same ID,16,16,887,887
 BCU Media,Рыжий,1754,2026-11-05T23:48:00+03:00,Рыжий,Рыжий HD,different IDs,16,16,887,887
 BCU Media,Рыжий,1754,2026-11-06T00:47:00+03:00,Рыжий,Рыжий,same ID,19,19,174,174
 BCU Media,Рыжий,1754,2026-11-06T00:47:00+03:00,Рыжий,Рыжий HD,different IDs,19,19,174,174
-BCU Media,СПАС,90,2026-11-05T22:25:00+03:00,Спас,Спас,same ID,15,15,290,290
-BCU Media,СПАС,90,2026-11-05T22:25:00+03:00,Спас,Спас,same ID,15,15,290,290
 BCU Media,СПАС,90,2026-11-05T23:50:00+03:00,Спас,Спас,same ID,31,31,282,282
 BCU Media,СПАС,90,2026-11-05T23:50:00+03:00,Спас,Спас,same ID,31,31,282,282
 BCU Media,СПАС,90,2026-11-06T06:40:00+03:00,Спас,Спас,same ID,23,23,218,218
@@ -6510,7 +6414,6 @@ BCU Media,ТНВ-Планета,2170,2026-11-06T00:45:00+03:00,ТНВ Плане
 BCU Media,ТНВ-Планета,2170,2026-11-06T01:10:00+03:00,ТНВ Планета,ТНВ Планета,same ID,9,9,146,146
 BCU Media,ТНВ-Планета,2170,2026-11-06T02:45:00+03:00,ТНВ Планета,ТНВ Планета,same ID,11,11,360,360
 BCU Media,ТНВ-Планета,2170,2026-11-06T03:30:00+03:00,ТНВ Планета,ТНВ Планета,same ID,20,20,124,124
-BCU Media,ТНТ +4,39,2026-11-05T22:50:00+03:00,ТНТ (+4) HD,ТНТ (+4) HD,same ID,17,17,427,427
 BCU Media,ТНТ +4,39,2026-11-05T23:40:00+03:00,ТНТ (+4) HD,ТНТ (+4) HD,same ID,17,17,427,427
 BCU Media,ТНТ +4,39,2026-11-06T00:30:00+03:00,ТНТ (+4) HD,ТНТ (+4) HD,same ID,17,17,427,427
 BCU Media,ТНТ +4,39,2026-11-07T04:00:00+03:00,ТНТ (+4) HD,ТНТ (+4) HD,same ID,17,17,427,427
@@ -9954,6 +9857,7 @@ M3U Edit ALL,Gametoon,109,2026-11-05T19:45:00+03:00,Gametoon.HD.hr,Gametoon.hu,d
 M3U Edit ALL,Gametoon,109,2026-11-05T20:40:00+03:00,Gametoon.HD.hr,Gametoon.hu,different IDs,10,22,151,141
 M3U Edit ALL,Gametoon,109,2026-11-05T21:30:00+03:00,Gametoon.HD.hr,Gametoon.hu,different IDs,10,22,154,137
 M3U Edit ALL,Gametoon,109,2026-11-05T22:20:00+03:00,Gametoon.HD.hr,Gametoon.hu,different IDs,13,40,104,300
+M3U Edit ALL,Gametoon,109,2026-11-05T23:25:00+03:00,Gametoon.HD.hr,Gametoon.hu,different IDs,9,26,173,272
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T23:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.hu,different IDs,31,33,217,393
 M3U Edit ALL,National Geographic,1849,2026-11-07T06:25:00+03:00,National.Geographic.es,National.Geographic.hu,different IDs,32,18,860,628
 M3U Edit ALL,Nick Jr,1731,2026-11-05T08:15:00+03:00,Nick.Jr..ch,Nick.Jr..hu,different IDs,9,21,133,171
@@ -17833,6 +17737,7 @@ M3U Edit ALL,Gametoon,109,2026-11-05T19:45:00+03:00,Gametoon.HD.hr,Gametoon.HD.r
 M3U Edit ALL,Gametoon,109,2026-11-05T20:40:00+03:00,Gametoon.HD.hr,Gametoon.HD.ro,different IDs,10,10,151,141
 M3U Edit ALL,Gametoon,109,2026-11-05T21:30:00+03:00,Gametoon.HD.hr,Gametoon.HD.ro,different IDs,10,10,154,137
 M3U Edit ALL,Gametoon,109,2026-11-05T22:20:00+03:00,Gametoon.HD.hr,Gametoon.HD.ro,different IDs,13,28,104,300
+M3U Edit ALL,Gametoon,109,2026-11-05T23:25:00+03:00,Gametoon.HD.hr,Gametoon.HD.ro,different IDs,9,14,173,272
 M3U Edit ALL,Gametoon,109,2026-11-07T02:00:00+03:00,Gametoon.HD.hr,Gametoon.HD.ro,different IDs,13,27,103,300
 M3U Edit ALL,History HD,1903,2026-11-05T04:35:00+03:00,History.bg,History.ro,different IDs,30,20,73,248
 M3U Edit ALL,History HD,1903,2026-11-05T08:20:00+03:00,History.be,History.ro,different IDs,12,31,243,231
@@ -18539,7 +18444,9 @@ M3U Edit ALL,Duck TV,1747,2026-11-05T20:41:00+03:00,Duck.TV.cy,Duck.TV.ro,differ
 M3U Edit ALL,Duck TV,1747,2026-11-05T20:51:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,16,45,288,811
 M3U Edit ALL,Duck TV,1747,2026-11-05T21:00:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,10,32,96,293
 M3U Edit ALL,Duck TV,1747,2026-11-05T21:21:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,4,34,54,270
+M3U Edit ALL,Duck TV,1747,2026-11-05T22:32:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,7,43,40,447
 M3U Edit ALL,Duck TV,1747,2026-11-05T22:42:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,9,30,117,412
+M3U Edit ALL,Duck TV,1747,2026-11-05T23:02:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,7,51,40,326
 M3U Edit ALL,Duck TV,1747,2026-11-06T00:57:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,10,40,148,710
 M3U Edit ALL,Duck TV,1747,2026-11-06T01:55:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,11,52,39,187
 M3U Edit ALL,Duck TV,1747,2026-11-06T02:49:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,10,46,76,292
@@ -21753,10 +21660,15 @@ M3U Edit ALL,Duck TV,1747,2026-11-05T21:45:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,dif
 M3U Edit ALL,Duck TV,1747,2026-11-05T21:52:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,17,17,354,292
 M3U Edit ALL,Duck TV,1747,2026-11-05T22:13:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,9,9,117,179
 M3U Edit ALL,Duck TV,1747,2026-11-05T22:16:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,20,20,146,364
+M3U Edit ALL,Duck TV,1747,2026-11-05T22:32:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,7,7,40,299
 M3U Edit ALL,Duck TV,1747,2026-11-05T22:40:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,23,23,108,243
 M3U Edit ALL,Duck TV,1747,2026-11-05T22:42:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,9,9,117,179
+M3U Edit ALL,Duck TV,1747,2026-11-05T22:45:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,15,13,202,205
+M3U Edit ALL,Duck TV,1747,2026-11-05T23:02:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,7,7,40,299
 M3U Edit ALL,Duck TV,1747,2026-11-05T23:04:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,13,11,125,388
+M3U Edit ALL,Duck TV,1747,2026-11-05T23:16:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,10,10,76,399
 M3U Edit ALL,Duck TV,1747,2026-11-05T23:19:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,15,15,62,404
+M3U Edit ALL,Duck TV,1747,2026-11-05T23:27:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,17,17,100,378
 M3U Edit ALL,Duck TV,1747,2026-11-05T23:48:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,10,10,76,399
 M3U Edit ALL,Duck TV,1747,2026-11-05T23:58:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,9,9,99,398
 M3U Edit ALL,Duck TV,1747,2026-11-06T00:17:00+03:00,Duck.TV.cy,DUCK.TV.HD.tr,different IDs,13,13,60,198
