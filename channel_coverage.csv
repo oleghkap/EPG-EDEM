@@ -17,7 +17,7 @@
 Россия 1 +8,Общие,105,EPG.ONE epg2; IPTVX full,2026-11-04 21:00,2026-11-07 21:55
 НТВ HD,Общие,79,EPG.ONE epg2; ProgramTV; Satfor,2026-11-04 23:50,2026-11-07 21:20
 НТВ Хит HD,Общие,107,EPG.ONE epg2,2026-11-04 23:48,2026-11-07 23:14
-НТВ Мир,Общие,121,BCU Media; EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 22:20
+НТВ Мир,Общие,120,BCU Media; EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 22:20
 НТВ,Общие,79,EPG.ONE epg2; ProgramTV; Satfor,2026-11-04 23:50,2026-11-07 21:20
 НТВ +2,Общие,139,EPG.ONE epg2; TV.TEAM full; TopIPTV,2026-11-04 22:45,2026-11-07 22:50
 НТВ +4,Общие,79,EPG.ONE epg2; FOX TV; TopIPTV,2026-11-04 22:25,2026-11-07 23:30
@@ -71,7 +71,7 @@
 Пятница! HD,Общие,79,EPG.ONE epg2; ProgramTV,2026-11-04 18:30,2026-11-07 23:00
 Пятница!,Общие,79,EPG.ONE epg2; ProgramTV,2026-11-04 18:30,2026-11-07 23:00
 Пятница! +2,Общие,119,BCU Media; EPG.ONE epg2,2026-11-04 18:30,2026-11-07 23:30
-Пятница! +4,Общие,123,BCU Media; EPG.ONE epg2,2026-11-04 18:30,2026-11-07 23:20
+Пятница! +4,Общие,121,BCU Media; EPG.ONE epg2,2026-11-04 18:30,2026-11-07 23:20
 Пятница! +7,Общие,124,BCU Media; EPG.ONE epg2,2026-11-04 18:30,2026-11-07 23:50
 RTVi,Общие,101,EPG.ONE epg2; FOX TV; M3U Edit ALL; TopIPTV,2026-11-04 23:30,2026-11-07 23:50
 Суббота!,Общие,118,EPG.ONE epg2,2026-11-04 23:20,2026-11-07 23:50
@@ -82,7 +82,7 @@ RTVi,Общие,101,EPG.ONE epg2; FOX TV; M3U Edit ALL; TopIPTV,2026-11-04 23:30
 Настоящее время,Общие,89,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:30
 Ностальгия,Общие,91,EPG.ONE epg2; IPTVX full,2026-11-05 00:00,2026-11-07 23:35
 Ю ТВ,Общие,70,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
-ТНТ4,Общие,119,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
+ТНТ4,Общие,119,EPG.ONE epg2; TopIPTV,2026-11-05 00:00,2026-11-07 23:00
 КВН ТВ,Общие,41,EPG.ONE epg2,2026-11-04 22:45,2026-11-07 21:55
 Сарафан,Общие,88,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-05 00:00,2026-11-07 23:20
 Мособр TV HD,Общие,0,,,
@@ -90,7 +90,7 @@ RTVi,Общие,101,EPG.ONE epg2; FOX TV; M3U Edit ALL; TopIPTV,2026-11-04 23:30
 360 HD,Общие,226,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:30,2026-11-07 23:25
 360,Общие,226,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:30,2026-11-07 23:25
 СПАС,Общие,105,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:10,2026-11-07 23:05
-Союз,Общие,293,BCU Media; EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:30,2026-11-07 23:45
+Союз,Общие,293,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:30,2026-11-07 23:45
 Здоровое ТВ,Общие,155,EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:55
 Психология,Общие,218,EPG.ONE epg2; FOX TV,2026-11-04 23:45,2026-11-07 23:40
 Успех,Общие,158,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 23:45
@@ -131,7 +131,7 @@ RTVi orig,Общие,101,EPG.ONE epg2; FOX TV; M3U Edit ALL; TopIPTV,2026-11-04 
 Сарафан orig,Общие,88,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-05 00:00,2026-11-07 23:20
 Точка ТВ orig,Общие,71,EPG.ONE epg2; Satfor,2026-11-04 23:00,2026-11-07 23:00
 СПАС orig,Общие,105,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:10,2026-11-07 23:05
-Союз orig,Общие,293,BCU Media; EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:30,2026-11-07 23:45
+Союз orig,Общие,293,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:30,2026-11-07 23:45
 Здоровое ТВ orig,Общие,155,EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:55
 Психология orig,Общие,218,EPG.ONE epg2; FOX TV,2026-11-04 23:45,2026-11-07 23:40
 Успех orig,Общие,158,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 23:45
@@ -149,7 +149,7 @@ RTVi orig,Общие,101,EPG.ONE epg2; FOX TV; M3U Edit ALL; TopIPTV,2026-11-04 
 РЕН ТВ orig,Общие,136,BCU Media; EPG.ONE epg2; FOX TV; Satfor; TopIPTV,2026-11-04 21:18,2026-11-07 23:00
 ТВ-3 orig,Общие,82,EPG.ONE epg2; Satfor; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:00
 Пятница! orig,Общие,79,EPG.ONE epg2; ProgramTV,2026-11-04 18:30,2026-11-07 23:00
-ТНТ4 orig,Общие,119,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
+ТНТ4 orig,Общие,119,EPG.ONE epg2; TopIPTV,2026-11-05 00:00,2026-11-07 23:00
 360 orig,Общие,226,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:30,2026-11-07 23:25
 Три ангела orig,Общие,261,IPTVX full,2026-11-05 00:00,2026-11-07 23:55
 Мир orig,Общие,147,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV; TopIPTV,2026-11-04 18:15,2026-11-07 23:50
@@ -319,15 +319,15 @@ MS Crime HD,Общие,215,EPG.ONE epg2; IPTVX full,2026-11-04 23:39,2026-11-07 
 Мир 24 HD,Новостные,262,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:45
 Мир 24,Новостные,262,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:45
 Euronews Россия,Новостные,277,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:38
-Известия,Новостные,1354,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
+Известия,Новостные,1338,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
 Центральное телевидение,Новостные,92,EPG.ONE epg2,2026-11-04 23:50,2026-11-07 23:15
 NHK World TV,Новостные,376,EPG.ONE epg2; M3U Edit ALL,2026-11-05 00:00,2026-11-07 23:50
 РБК orig,Новостные,186,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-04 22:50,2026-11-07 23:40
 CGTN,Новостные,445,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:00,2026-11-07 23:33
 Мир 24 HD orig,Новостные,262,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:45
 Euronews Россия orig,Новостные,277,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:38
-Известия orig,Новостные,1354,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
-Известия FHD,Новостные,1354,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
+Известия orig,Новостные,1338,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
+Известия FHD,Новостные,1338,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
 CGTN orig,Новостные,445,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:00,2026-11-07 23:33
 Москва 24 orig,Новостные,209,BCU Media; EPG.ONE epg2; FOX TV; ProgramTV,2026-11-05 00:00,2026-11-07 23:45
 Мир 24 orig,Новостные,262,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:45
@@ -376,7 +376,7 @@ FX HD,Кино,529,BCU Media; EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM fu
 Мосфильм. Золотая коллекция HD (+4),Кино,46,EPG.ONE epg2,2026-11-04 20:00,2026-11-07 22:40
 VESNA HD,Кино,55,EPG.ONE epg2,2026-11-04 23:20,2026-11-07 23:25
 9-1-1 HD,Кино,78,EPG.ONE epg2,2026-11-04 23:20,2026-11-07 22:55
-Sumiko HD,Кино,280,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:40,2026-11-07 23:52
+Sumiko HD,Кино,277,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:40,2026-11-07 23:52
 KinoLiving,Кино,56,EPG.ONE epg2,2026-11-04 22:45,2026-11-07 22:50
 Лавстори HD,Кино,180,EPG.ONE epg2; IPTVX full,2026-11-04 23:15,2026-11-07 23:25
 Советская киноклассика HD,Кино,92,EPG.ONE epg2; IPTVX full,2026-11-04 22:35,2026-11-07 23:40
@@ -391,7 +391,7 @@ Viasat Serial HD,Кино,111,BCU Media; EPG.ONE epg2,2026-11-04 23:00,2026-11-0
 Scream HD,Кино,49,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 23:00
 Shot TV HD,Кино,201,EPG.ONE epg2,2026-11-04 23:57,2026-11-07 23:54
 О!Кино,Кино,0,,,
-4Ever Drama HD UA,Кино,34,BCU Media; EPG.ONE epg2,2026-11-04 23:07,2026-11-07 21:00
+4Ever Drama HD UA,Кино,45,BCU Media; EPG.ONE epg2,2026-11-04 23:07,2026-11-07 21:00
 NOW Series HD,Кино,117,BCU Media; EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:45
 FilmZone HD LV,Кино,145,BCU Media; FOX TV; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:00
 FilmZone Plus HD EE,Кино,0,,,
@@ -412,18 +412,18 @@ VF Теория большого взрыва,Кино,426,EPG.ONE epg2; IPTVX f
 Timeless Dizi Channel,Кино,94,IPTVX full,2026-11-04 23:35,2026-11-07 23:40
 TVRUS,Кино,0,,,
 CineMan Premium,Кино,81,EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:54,2026-11-07 23:21
-FX Life,Кино,277,BCU Media; EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:35,2026-11-07 23:55
-FX Life HD,Кино,277,BCU Media; EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:35,2026-11-07 23:55
+FX Life,Кино,275,BCU Media; EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:35,2026-11-07 23:55
+FX Life HD,Кино,275,BCU Media; EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:35,2026-11-07 23:55
 MM Family Guy HD,Кино,202,EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:42
 MM OldSchool HD,Кино,328,EPG.ONE epg2; IPTVX full,2026-11-04 23:41,2026-11-07 23:59
 FAN HD,Кино,43,EPG.ONE epg2,2026-11-04 23:10,2026-11-07 22:30
 Amedia Hit HD,Кино,128,EPG.ONE epg2; FOX TV,2026-11-04 23:30,2026-11-07 23:50
-Ultra HD Cinema 4K,Кино,194,BCU Media; EPG.ONE epg2; M3U Edit ALL; TopIPTV,2026-11-04 22:00,2026-11-07 23:40
-Comedy Central DE,Кино,1177,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:25,2026-11-07 23:50
+Ultra HD Cinema 4K,Кино,192,BCU Media; EPG.ONE epg2; M3U Edit ALL; TopIPTV,2026-11-04 22:00,2026-11-07 23:40
+Comedy Central DE,Кино,1178,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:25,2026-11-07 23:50
 Кино UHD 4K,Кино,58,EPG.ONE epg2,2026-11-04 23:51,2026-11-07 23:56
 Сериал UHD 4K,Кино,120,IPTVX full,2026-11-04 23:19,2026-11-07 23:20
 Остросюжетное HD,Кино,170,EPG.ONE epg2; IPTVX full,2026-11-04 23:10,2026-11-07 23:50
-Премиальное FHD,Кино,225,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:00,2026-11-07 23:00
+Премиальное FHD,Кино,224,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:00,2026-11-07 23:00
 Дом Кино Премиум HD,Кино,35,EPG.ONE epg2,2026-11-04 23:25,2026-11-07 13:30
 Дом Кино Премиум HD orig,Кино,35,EPG.ONE epg2,2026-11-04 23:25,2026-11-07 13:30
 Про Любовь HD,Кино,44,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 23:00
@@ -433,9 +433,9 @@ Comedy Central DE,Кино,1177,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.T
 Кинопоказ HD,Кино,103,EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:40,2026-11-07 23:55
 Наше Мужское HD,Кино,141,EPG.ONE epg2; IPTVX full,2026-11-04 23:45,2026-11-07 23:40
 Камеди HD,Кино,53,EPG.ONE epg2,2026-11-04 22:45,2026-11-07 22:45
-Viju+ Serial HD,Кино,126,BCU Media; EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:35
-Романтичное HD,Кино,195,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-04 23:45,2026-11-07 23:10
-Комедийное HD,Кино,120,BCU Media; EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 22:40,2026-11-07 23:00
+Viju+ Serial HD,Кино,124,BCU Media; EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:35
+Романтичное HD,Кино,194,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-04 23:45,2026-11-07 23:10
+Комедийное HD,Кино,119,BCU Media; EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 22:40,2026-11-07 23:00
 Душевное HD,Кино,110,EPG.ONE epg2; IPTVX full,2026-11-04 22:30,2026-11-07 23:05
 Наше HD,Кино,136,EPG.ONE epg2; IPTVX full,2026-11-04 23:00,2026-11-07 22:50
 Любимое HD,Кино,139,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-04 23:30,2026-11-07 23:55
@@ -446,15 +446,15 @@ Viju+ Serial HD,Кино,126,BCU Media; EPG.ONE epg2,2026-11-04 23:40,2026-11-07
 Дорама HD,Кино,57,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 22:20
 Кино ТВ HD,Кино,71,EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 22:40,2026-11-07 22:30
 Amedia Premium HD,Кино,111,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 22:30,2026-11-07 23:25
-Hollywood HD,Кино,140,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:10,2026-11-07 22:25
-Bollywood HD,Кино,89,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:35
+Hollywood HD,Кино,141,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:10,2026-11-07 22:25
+Bollywood HD,Кино,90,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:35
 Viju+ Premiere HD,Кино,50,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 22:40,2026-11-07 23:00
 Viju+ Premiere HD orig,Кино,50,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 22:40,2026-11-07 23:00
 Viju+ Comedy HD,Кино,53,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:10,2026-11-07 23:15
 Viju+ Comedy HD orig,Кино,53,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:10,2026-11-07 23:15
 Viju+ Megahit HD,Кино,46,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:30,2026-11-07 23:45
 Viju+ Megahit HD orig,Кино,46,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:30,2026-11-07 23:45
-Viasat Epic Drama,Кино,98,BCU Media; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:00
+Viasat Epic Drama,Кино,100,BCU Media; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:00
 День Победы HD,Кино,50,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 22:25
 Победа HD,Кино,24,EPG.ONE epg2,2026-11-04 18:00,2026-11-07 13:30
 Победа,Кино,24,EPG.ONE epg2,2026-11-04 18:00,2026-11-07 13:30
@@ -482,7 +482,7 @@ Amedia Premium,Кино,111,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 22:30,202
 Amedia Hit,Кино,128,EPG.ONE epg2; FOX TV,2026-11-04 23:30,2026-11-07 23:50
 Viju TV1000,Кино,95,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 22:40,2026-11-07 23:45
 Мужское Кино,Кино,37,EPG.ONE epg2,2026-11-04 23:25,2026-11-07 23:35
-Hollywood,Кино,140,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:10,2026-11-07 22:25
+Hollywood,Кино,141,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:10,2026-11-07 22:25
 .red,Кино,100,BCU Media; EPG.ONE epg2; Satfor,2026-11-04 23:00,2026-11-07 22:35
 2x2,Кино,112,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:05,2026-11-07 23:05
 .black,Кино,67,EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:50
@@ -498,7 +498,7 @@ FAN,Кино,43,EPG.ONE epg2,2026-11-04 23:10,2026-11-07 22:30
 НТВ Сериал,Кино,85,EPG.ONE epg2,2026-11-04 23:20,2026-11-07 23:25
 НСТ,Кино,54,BCU Media; EPG.ONE epg2,2026-11-04 22:45,2026-11-07 22:45
 Индия,Кино,179,EPG.ONE epg2,2026-11-04 23:50,2026-11-07 23:50
-FILMBOX+ One,Кино,153,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:35
+FILMBOX+ One,Кино,154,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:35
 Дорама,Кино,57,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 22:20
 Мир Сериала,Кино,82,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 23:45
 Ретро,Кино,58,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 22:35
@@ -506,8 +506,8 @@ FILMBOX+ One,Кино,153,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22
 Феникс плюс Кино,Кино,72,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 .red HD,Кино,100,BCU Media; EPG.ONE epg2; Satfor,2026-11-04 23:00,2026-11-07 22:35
 Киноман,Кино,45,EPG.ONE epg2,2026-11-04 22:45,2026-11-07 23:30
-Cinema,Кино,194,BCU Media; EPG.ONE epg2; M3U Edit ALL; TopIPTV,2026-11-04 22:00,2026-11-07 23:40
-Comedy Central,Кино,1177,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:25,2026-11-07 23:50
+Cinema,Кино,192,BCU Media; EPG.ONE epg2; M3U Edit ALL; TopIPTV,2026-11-04 22:00,2026-11-07 23:40
+Comedy Central,Кино,1178,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:25,2026-11-07 23:50
 Зал 1,Кино,0,,,
 Зал 2,Кино,0,,,
 Зал 3,Кино,0,,,
@@ -520,16 +520,16 @@ Comedy Central,Кино,1177,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM
 Зал 10,Кино,0,,,
 Зал 11,Кино,0,,,
 Зал 12,Кино,0,,,
-Шокирующее HD,Кино,149,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 22:40,2026-11-07 23:20
+Шокирующее HD,Кино,148,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 22:40,2026-11-07 23:20
 Viju TV1000 Action HD,Кино,41,EPG.ONE epg2; ProgramTV,2026-11-04 22:40,2026-11-07 23:35
 Viju TV1000 HD,Кино,95,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 22:40,2026-11-07 23:45
 Viju TV1000 Русское HD,Кино,56,EPG.ONE epg2; FOX TV,2026-11-04 22:45,2026-11-07 23:35
 Сапфир HD,Кино,86,EPG.ONE epg2,2026-11-04 23:30,2026-11-07 23:25
 Мосфильм. Золотая коллекция,Кино,66,EPG.ONE epg2; ProgramTV; Satfor,2026-11-05 00:00,2026-11-07 23:00
 Trash HD,Кино,45,EPG.ONE epg2,2026-11-04 22:48,2026-11-07 22:41
-Шокирующее HD orig,Кино,149,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 22:40,2026-11-07 23:20
-Комедийное HD orig,Кино,120,BCU Media; EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 22:40,2026-11-07 23:00
-Hollywood HD orig,Кино,140,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:10,2026-11-07 22:25
+Шокирующее HD orig,Кино,148,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 22:40,2026-11-07 23:20
+Комедийное HD orig,Кино,119,BCU Media; EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 22:40,2026-11-07 23:00
+Hollywood HD orig,Кино,141,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:10,2026-11-07 22:25
 FX HD orig,Кино,529,BCU Media; EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:09,2026-11-07 23:55
 Кинопремьера HD orig,Кино,44,EPG.ONE epg2,2026-11-04 22:35,2026-11-07 23:45
 Amedia Premium HD orig,Кино,111,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 22:30,2026-11-07 23:25
@@ -587,7 +587,7 @@ FILMBOX+ Festival orig,Кино,106,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,202
 Киноман orig,Кино,45,EPG.ONE epg2,2026-11-04 22:45,2026-11-07 23:30
 Мосфильм. Золотая коллекция orig,Кино,66,EPG.ONE epg2; ProgramTV; Satfor,2026-11-05 00:00,2026-11-07 23:00
 Дорама HD orig,Кино,57,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 22:20
-Bollywood HD orig,Кино,89,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:35
+Bollywood HD orig,Кино,90,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:35
 Победа orig,Кино,24,EPG.ONE epg2,2026-11-04 18:00,2026-11-07 13:30
 Viju TV1000 Русское orig,Кино,56,EPG.ONE epg2; FOX TV,2026-11-04 22:45,2026-11-07 23:35
 Киносемья HD orig,Кино,48,EPG.ONE epg2,2026-11-04 23:15,2026-11-07 22:35
@@ -597,18 +597,18 @@ Viju TV1000 Action orig,Кино,41,EPG.ONE epg2; ProgramTV,2026-11-04 22:40,202
 Amedia Premium orig,Кино,111,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 22:30,2026-11-07 23:25
 Amedia Hit orig,Кино,128,EPG.ONE epg2; FOX TV,2026-11-04 23:30,2026-11-07 23:50
 Viju TV1000 orig,Кино,95,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 22:40,2026-11-07 23:45
-Hollywood orig,Кино,140,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:10,2026-11-07 22:25
+Hollywood orig,Кино,141,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:10,2026-11-07 22:25
 .red orig,Кино,100,BCU Media; EPG.ONE epg2; Satfor,2026-11-04 23:00,2026-11-07 22:35
 Киносвидание orig,Кино,43,EPG.ONE epg2,2026-11-04 22:55,2026-11-07 23:35
 Дорама orig,Кино,57,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 22:20
 Русский роман orig,Кино,62,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 23:15,2026-11-07 22:00
 Иллюзион+ orig,Кино,43,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:55
 Кино ТВ orig,Кино,71,EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 22:40,2026-11-07 22:30
-Viju+ Serial HD orig,Кино,126,BCU Media; EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:35
-Премиальное HD,Кино,225,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:00,2026-11-07 23:00
+Viju+ Serial HD orig,Кино,124,BCU Media; EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:35
+Премиальное HD,Кино,224,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:00,2026-11-07 23:00
 Киносемья HD,Кино,48,EPG.ONE epg2,2026-11-04 23:15,2026-11-07 22:35
 Киносвидание HD,Кино,43,EPG.ONE epg2,2026-11-04 22:55,2026-11-07 23:35
-Страшное HD,Кино,97,BCU Media; EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 23:35,2026-11-07 23:45
+Страшное HD,Кино,96,BCU Media; EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 23:35,2026-11-07 23:45
 Кинокомедия HD,Кино,43,EPG.ONE epg2,2026-11-04 23:45,2026-11-07 22:50
 Киномикс HD,Кино,42,EPG.ONE epg2,2026-11-04 23:15,2026-11-07 23:25
 Кинохит HD,Кино,41,EPG.ONE epg2,2026-11-04 23:50,2026-11-07 22:20
@@ -639,9 +639,9 @@ VF Мосфильм,Кино,103,EPG.ONE epg2; IPTVX full,2026-11-04 23:50,2026-
 VF Фильмы СССР,Кино,101,EPG.ONE epg2; IPTVX full,2026-11-04 22:49,2026-11-07 23:19
 VF Мультфильмы СССР,Кино,485,EPG.ONE epg2; IPTVX full,2026-11-04 23:17,2026-11-07 23:55
 VF Боевик,Кино,53,EPG.ONE epg2; IPTVX full,2026-11-04 22:27,2026-11-07 23:33
-Премиальное HD 50,Кино,225,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:00,2026-11-07 23:00
+Премиальное HD 50,Кино,224,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:00,2026-11-07 23:00
 Душевное HD orig,Кино,110,EPG.ONE epg2; IPTVX full,2026-11-04 22:30,2026-11-07 23:05
-Премиальное HD orig,Кино,225,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:00,2026-11-07 23:00
+Премиальное HD orig,Кино,224,BCU Media; EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:00,2026-11-07 23:00
 Мужское Кино HD,Кино,37,EPG.ONE epg2,2026-11-04 23:25,2026-11-07 23:35
 Flix Snip,Кино,362,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:48
 Backus TV Dark HD,Кино,0,,,
@@ -665,7 +665,7 @@ CineMan MiniSeries,Кино,168,EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 22:3
 BCU Кинозал Premiere 1 HD,Кино,45,EPG.ONE epg2,2026-11-04 22:42,2026-11-07 23:38
 BCU Кинозал Premiere 2 HD,Кино,43,EPG.ONE epg2,2026-11-04 23:51,2026-11-07 23:55
 BCU Кинозал Premiere 3 HD,Кино,36,EPG.ONE epg2,2026-11-04 22:14,2026-11-07 22:40
-BCU СССР HD,Кино,81,BCU Media; EPG.ONE epg2,2026-11-04 23:25,2026-11-07 23:53
+BCU СССР HD,Кино,80,BCU Media; EPG.ONE epg2,2026-11-04 23:25,2026-11-07 23:53
 BCU Action HD,Кино,40,EPG.ONE epg2,2026-11-04 23:17,2026-11-07 23:52
 BCU Catastrophe HD,Кино,36,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 22:43
 BCU Cinema HD,Кино,34,EPG.ONE epg2,2026-11-04 21:35,2026-11-07 23:48
@@ -850,7 +850,7 @@ Z!Horror HD,Кино,0,,,
 Z!Serial HD,Кино,183,EPG.ONE epg2; Satfor,2026-11-04 23:34,2026-11-07 23:56
 Z!Sitcom HD,Кино,410,EPG.ONE epg2; Satfor,2026-11-04 23:46,2026-11-07 23:59
 Z! Smile HD,Кино,383,EPG.ONE epg2; Satfor,2026-11-04 23:51,2026-11-07 23:57
-Akudji TV HD,Кино,20,BCU Media,2026-11-05 12:00,2026-11-07 21:00
+Akudji TV HD,Кино,19,BCU Media,2026-11-05 15:00,2026-11-07 21:00
 Yosso TV Grand,Кино,67,EPG.ONE epg2; IPTVX full,2026-11-04 23:41,2026-11-07 22:42
 Yosso TV VHS,Кино,83,EPG.ONE epg2; IPTVX full,2026-11-04 23:03,2026-11-07 23:51
 Yosso TV Русские Фильмы,Кино,90,EPG.ONE epg2; IPTVX full,2026-11-04 21:28,2026-11-07 23:40
@@ -887,7 +887,7 @@ Dosug TV VHS,Кино,0,,,
 Dosug TV Detective HD,Кино,0,,,
 Dosug TV Сериал,Кино,0,,,
 Dosug TV Сваты,Кино,0,,,
-Твое ТВ HD,Кино,90,EPG.ONE epg2; TV.TEAM full,2026-11-04 23:00,2026-11-07 09:00
+Твое ТВ HD,Кино,92,EPG.ONE epg2; TV.TEAM full,2026-11-04 23:00,2026-11-07 11:00
 SKY HIGH SERIES HD,Кино,0,,,
 SKY HIGH HEROES HD,Кино,0,,,
 SKY HIGH EPOCH HD,Кино,0,,,
@@ -905,7 +905,7 @@ SKY HIGH VHS UHD,Кино,0,,,
 SKY HIGH UHD HDR,Кино,0,,,
 SKY HIGH ORIG HD,Кино,0,,,
 SKY HIGH LO FI HD,Кино,72,Satfor,2026-11-05 00:00,2026-11-07 23:00
-SKY HIGH BRAIN HD,Кино,174,IPTVX full; TV.TEAM full,2026-11-04 23:24,2026-11-07 23:32
+SKY HIGH BRAIN HD,Кино,177,IPTVX full; TV.TEAM full,2026-11-04 23:24,2026-11-07 23:32
 SKY HIGH ANIME HD,Кино,0,,,
 Liberty DC FHD,Кино,116,EPG.ONE epg2; IPTVX full,2026-11-04 23:51,2026-11-07 23:20
 Liberty Ужасы 4K,Кино,87,EPG.ONE epg2; IPTVX full,2026-11-04 23:30,2026-11-07 23:29
@@ -962,21 +962,21 @@ Fresh Russian,Кино,84,EPG.ONE epg2; IPTVX full,2026-11-04 23:52,2026-11-07 2
 Fresh Thriller,Кино,76,EPG.ONE epg2; IPTVX full,2026-11-04 23:32,2026-11-07 22:57
 Fresh Soviet,Кино,102,EPG.ONE epg2; IPTVX full,2026-11-04 23:50,2026-11-07 23:19
 KLI Cinema HD,Кино,0,,,
-KLI Comedy HD,Кино,34,TV.TEAM full,2026-11-04 23:26,2026-11-07 09:06
+KLI Comedy HD,Кино,35,TV.TEAM full,2026-11-04 23:26,2026-11-07 10:36
 KLI History HD,Кино,0,,,
-KLI Premium HD,Кино,25,TV.TEAM full,2026-11-04 22:27,2026-11-07 08:57
-KLI Russian HD,Кино,33,TV.TEAM full,2026-11-04 22:29,2026-11-07 09:10
-KLI Fantastic HD,Кино,28,TV.TEAM full,2026-11-04 23:14,2026-11-07 09:14
-KLI VHS HD,Кино,29,TV.TEAM full,2026-11-04 23:27,2026-11-07 08:41
+KLI Premium HD,Кино,26,TV.TEAM full,2026-11-04 22:27,2026-11-07 11:33
+KLI Russian HD,Кино,34,TV.TEAM full,2026-11-04 22:29,2026-11-07 11:16
+KLI Fantastic HD,Кино,29,TV.TEAM full,2026-11-04 23:14,2026-11-07 11:33
+KLI VHS HD,Кино,30,TV.TEAM full,2026-11-04 23:27,2026-11-07 10:38
 KLI Thriller HD,Кино,0,,,
 KLI СССР HD,Кино,0,,,
-KLI Family HD,Кино,32,TV.TEAM full,2026-11-04 22:48,2026-11-07 09:22
+KLI Family HD,Кино,33,TV.TEAM full,2026-11-04 22:48,2026-11-07 10:53
 KLI Retro HD,Кино,0,,,
-KLI Киносерия FHD,Кино,68,TV.TEAM full,2026-11-04 23:12,2026-11-07 09:00
-KLI Horror FHD,Кино,31,TV.TEAM full,2026-11-04 22:59,2026-11-07 08:59
-KLI Action FHD,Кино,31,TV.TEAM full,2026-11-04 23:14,2026-11-07 09:23
-KLI Drama FHD,Кино,28,TV.TEAM full,2026-11-04 22:51,2026-11-07 08:03
-KLI Fantasy FHD,Кино,27,TV.TEAM full,2026-11-04 22:38,2026-11-07 08:40
+KLI Киносерия FHD,Кино,71,TV.TEAM full,2026-11-04 23:12,2026-11-07 11:36
+KLI Horror FHD,Кино,32,TV.TEAM full,2026-11-04 22:59,2026-11-07 10:48
+KLI Action FHD,Кино,32,TV.TEAM full,2026-11-04 23:14,2026-11-07 11:17
+KLI Drama FHD,Кино,29,TV.TEAM full,2026-11-04 22:51,2026-11-07 09:54
+KLI Fantasy FHD,Кино,28,TV.TEAM full,2026-11-04 22:38,2026-11-07 10:38
 Eye Media HD,Кино,44,EPG.ONE epg2,2026-11-04 22:22,2026-11-07 23:35
 Eye Oscar HD,Кино,33,EPG.ONE epg2,2026-11-04 22:12,2026-11-07 22:30
 Eye Frozen HD,Кино,46,EPG.ONE epg2,2026-11-04 22:34,2026-11-07 22:50
@@ -1033,7 +1033,7 @@ Prokop TV Вторая Мировая,Кино,0,,,
 Prokop TV Сказки СССР,Кино,0,,,
 Киносерия HD,Кино,75,EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:20
 Наше Новое Кино HD,Кино,41,EPG.ONE epg2,2026-11-04 23:35,2026-11-07 23:05
-Cinema HD,Кино,194,BCU Media; EPG.ONE epg2; M3U Edit ALL; TopIPTV,2026-11-04 22:00,2026-11-07 23:40
+Cinema HD,Кино,192,BCU Media; EPG.ONE epg2; M3U Edit ALL; TopIPTV,2026-11-04 22:00,2026-11-07 23:40
 BOX Franchise HD,Кино,37,EPG.ONE epg2,2026-11-04 23:12,2026-11-07 23:23
 BOX Hybrid HD,Кино,44,EPG.ONE epg2,2026-11-04 23:21,2026-11-07 22:34
 BOX Anime HD,Кино,44,EPG.ONE epg2,2026-11-04 22:10,2026-11-07 22:50
@@ -1088,7 +1088,7 @@ CineMan Комедийные Сериалы,Кино,367,EPG.ONE epg2; IPTVX ful
 CineMan Фитнес,Кино,417,EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:35,2026-11-07 23:41
 Magic Russian HD,Кино,91,EPG.ONE epg2; IPTVX full,2026-11-04 23:05,2026-11-07 23:21
 KLI Millennium HD,Кино,0,,,
-KLI Marvel HD,Кино,23,TV.TEAM full,2026-11-04 22:19,2026-11-07 08:30
+KLI Marvel HD,Кино,24,TV.TEAM full,2026-11-04 22:19,2026-11-07 10:07
 KLI Franchise HD,Кино,0,,,
 KLI Relax HD,Кино,0,,,
 VeleS 60FPS,Кино,36,EPG.ONE epg2,2026-11-04 23:15,2026-11-07 23:04
@@ -1136,7 +1136,7 @@ Horror HD,Кино,0,,,
 Репка HD,Кино,0,,,
 Страх 2.0 HD,Кино,0,,,
 Фантастика 2.0 HD,Кино,0,,,
-KLI Новинки HD,Кино,62,TV.TEAM full,2026-11-04 22:03,2026-11-07 08:33
+KLI Новинки HD,Кино,65,TV.TEAM full,2026-11-04 22:03,2026-11-07 11:16
 Megogo Спорт HD,Спорт,54,BCU Media; EPG.ONE epg2,2026-11-04 22:45,2026-11-07 22:55
 Окко Event 15,Спорт,0,,,
 Sky Sports Tennis HD 50 UK,Спорт,69,EPG.ONE epg2; IPTVX full,2026-11-04 13:00,2026-11-07 23:30
@@ -1242,7 +1242,7 @@ BOX SR Sport 2 Live 4K HDR,Спорт,27,IPTVX full,2026-11-04 22:47,2026-11-07 
 Матч! Игра HD orig,Спорт,81,BCU Media; EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 22:55,2026-11-07 22:25
 Eurosport 1 FHD orig,Спорт,184,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full; TopIPTV,2026-11-04 23:39,2026-11-07 23:35
 UFC Fight Pass,Спорт,72,M3U Edit ALL,2026-11-05 00:00,2026-11-07 23:00
-Старт Триумф HD,Спорт,45,BCU Media; EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 22:25
+Старт Триумф HD,Спорт,45,EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 22:25
 Setanta Sports 1 HD KZ,Спорт,67,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TopIPTV,2026-11-04 22:45,2026-11-07 23:05
 Setanta Sports 2 HD KZ,Спорт,63,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TopIPTV,2026-11-04 21:00,2026-11-07 23:00
 Мир Баскетбола HD,Спорт,2,BCU Media,2026-11-06 00:00,2026-11-07 00:00
@@ -1266,7 +1266,7 @@ UPL 3 HD (Тест),Спорт,0,,,
 UPL 4 HD (Тест),Спорт,0,,,
 QazSport HD,Спорт,113,BCU Media; EPG.ONE epg2; TV.TEAM full,2026-11-04 22:35,2026-11-07 22:05
 Trace Sport Stars HD,Спорт,145,EPG.ONE epg2; IPTVX full; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:30
-Танцуй!,Спорт,20,BCU Media,2026-11-05 12:00,2026-11-07 21:00
+Танцуй!,Спорт,19,BCU Media,2026-11-05 15:00,2026-11-07 21:00
 Матч ТВ,Спорт,71,EPG.ONE epg2; Satfor,2026-11-04 23:45,2026-11-07 22:50
 Матч ТВ HD,Спорт,71,EPG.ONE epg2; Satfor,2026-11-04 23:45,2026-11-07 22:50
 Матч ТВ FHD,Спорт,71,EPG.ONE epg2; Satfor,2026-11-04 23:45,2026-11-07 22:50
@@ -1320,8 +1320,8 @@ TV4 Fotboll SE,Спорт,20,BCU Media,2026-11-05 14:00,2026-11-07 22:35
 Удар,Спорт,54,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:15
 XSPORT HD,Спорт,0,,,
 XSPORT HD orig UA,Спорт,0,,,
-Russian Extreme UHD,Спорт,190,BCU Media; EPG.ONE epg2,2026-11-04 22:25,2026-11-07 23:55
-Russian Extreme HD,Спорт,190,BCU Media; EPG.ONE epg2,2026-11-04 22:25,2026-11-07 23:55
+Russian Extreme UHD,Спорт,189,BCU Media; EPG.ONE epg2,2026-11-04 22:25,2026-11-07 23:55
+Russian Extreme HD,Спорт,189,BCU Media; EPG.ONE epg2,2026-11-04 22:25,2026-11-07 23:55
 KHL HD,Спорт,65,EPG.ONE epg2,2026-11-04 23:30,2026-11-07 23:25
 KHL Prime FHD,Спорт,61,EPG.ONE epg2,2026-11-04 22:25,2026-11-07 23:35
 KHL,Спорт,65,EPG.ONE epg2,2026-11-04 23:30,2026-11-07 23:25
@@ -1342,7 +1342,7 @@ Setanta Eurasia Plus HD orig,Спорт,35,EPG.ONE epg2,2026-11-04 22:30,2026-11
 Setanta Eurasia,Спорт,39,EPG.ONE epg2,2026-11-04 22:45,2026-11-07 22:45
 Setanta Eurasia Plus,Спорт,35,EPG.ONE epg2,2026-11-04 22:30,2026-11-07 23:00
 Окко Спорт HD,Спорт,41,EPG.ONE epg2; ProgramTV,2026-11-04 22:35,2026-11-07 21:30
-Russian Extreme HD orig,Спорт,190,BCU Media; EPG.ONE epg2,2026-11-04 22:25,2026-11-07 23:55
+Russian Extreme HD orig,Спорт,189,BCU Media; EPG.ONE epg2,2026-11-04 22:25,2026-11-07 23:55
 Конный Мир HD orig,Спорт,24,TopIPTV,2026-11-05 00:00,2026-11-07 21:00
 Старт HD orig,Спорт,51,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-04 21:55,2026-11-07 23:30
 InSport HD KZ,Спорт,0,,,
@@ -1430,7 +1430,7 @@ Sky Cinema Adventure IT,Спорт,0,,,
 Sky Sport Football HD IT,Спорт,0,,,
 Sky Sport Golf HD IT,Спорт,92,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:30
 Sky Sport MotoGP HD IT,Спорт,117,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-05 00:00,2026-11-07 23:15
-Sky Sport Basket,Спорт,48,TV.TEAM full,2026-11-04 22:25,2026-11-07 08:00
+Sky Sport Basket,Спорт,50,TV.TEAM full,2026-11-04 22:25,2026-11-07 10:30
 Sky Sport Tennis HD IT,Спорт,100,IPTVX full; M3U Edit ALL; TV.TEAM full; TopIPTV,2026-11-04 13:00,2026-11-07 23:30
 FanDuel Sports Network South,Спорт,65,M3U Edit ALL,2026-11-04 23:00,2026-11-07 23:30
 FOX SPORTS ARIZONA HD,Спорт,78,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 22:50
@@ -1454,9 +1454,9 @@ Sport TV 1 HD PT,Спорт,80,IPTVX full; TV.TEAM full,2026-11-04 22:55,2026-11
 Viasat Sport Ultra HD DK,Спорт,39,EPG.ONE epg2,2026-11-04 23:30,2026-11-07 22:30
 ESPN Deportes HD ES,Спорт,63,M3U Edit ALL,2026-11-05 00:00,2026-11-07 22:30
 ESPN 1 HD NL,Спорт,121,EPG.ONE epg2; IPTVX full; Satfor,2026-11-05 00:00,2026-11-07 23:00
-ESPN 2 HD NL,Спорт,302,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:40,2026-11-07 23:45
-ESPN 3 HD NL,Спорт,204,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:00,2026-11-07 23:45
-ESPN 4 HD NL,Спорт,192,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:40,2026-11-07 23:30
+ESPN 2 HD NL,Спорт,310,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:40,2026-11-07 23:45
+ESPN 3 HD NL,Спорт,218,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:00,2026-11-07 23:45
+ESPN 4 HD NL,Спорт,200,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:40,2026-11-07 23:30
 Матч! Страна HD,Спорт,90,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-04 23:40,2026-11-07 23:15
 Матч! Боец HD,Спорт,65,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 22:00
 MMA-TV.com HD,Спорт,30,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:20
@@ -1471,7 +1471,7 @@ BOX Be On Edge HD,Спорт,72,BCU Media; EPG.ONE epg2; TV.TEAM full,2026-11-04
 S Sport 2 HD TR,Спорт,56,IPTVX full,2026-11-05 00:00,2026-11-07 22:45
 Spor Smart HD TR,Спорт,43,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 Q Arena HD KZ,Спорт,38,EPG.ONE epg2; ProgramTV; TV.TEAM full,2026-11-04 22:45,2026-11-07 23:30
-Q League HD KZ,Спорт,66,BCU Media; EPG.ONE epg2,2026-11-04 22:45,2026-11-07 22:45
+Q League HD KZ,Спорт,65,BCU Media; EPG.ONE epg2,2026-11-04 22:45,2026-11-07 22:45
 Setanta Sports 1 Qazaqstan HD,Спорт,39,EPG.ONE epg2,2026-11-04 22:45,2026-11-07 22:45
 Eleven Sports 1 4K PL,Спорт,156,EPG.ONE epg2; IPTVX full,2026-11-04 22:30,2026-11-07 23:10
 Setanta Moldova HD,Спорт,37,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 22:45
@@ -1522,9 +1522,9 @@ Setanta Sports+ UA,Спорт,53,EPG.ONE epg2; FOX TV; IPTVX full; TopIPTV,2026-
 Setanta Sports+ HD UA,Спорт,53,EPG.ONE epg2; FOX TV; IPTVX full; TopIPTV,2026-11-04 21:00,2026-11-07 23:00
 Bridge Фрэш HD,Музыка,98,EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 23:00
 VF Michael Jackson,Музыка,217,EPG.ONE epg2,2026-11-04 23:53,2026-11-06 22:29
-MTV 80s,Музыка,36,M3U Edit ALL; TV.TEAM full,2026-11-04 22:19,2026-11-07 23:00
-MTV 00s,Музыка,40,TV.TEAM full,2026-11-04 22:00,2026-11-07 07:00
-MTV 90s UK,Музыка,24,TV.TEAM full,2026-11-04 23:00,2026-11-07 06:02
+MTV 80s,Музыка,37,M3U Edit ALL; TV.TEAM full,2026-11-04 22:19,2026-11-07 23:00
+MTV 00s,Музыка,42,TV.TEAM full,2026-11-04 22:00,2026-11-07 10:01
+MTV 90s UK,Музыка,25,TV.TEAM full,2026-11-04 23:00,2026-11-07 08:42
 1HD Music Television,Музыка,51,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 21:00
 Sochi Music HD,Музыка,0,,,
 Europa Plus TV HD,Музыка,88,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-04 23:00,2026-11-07 23:00
@@ -1561,15 +1561,15 @@ Bridge Rock,Музыка,49,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 22:30
 Europa Plus TV,Музыка,88,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-04 23:00,2026-11-07 23:00
 МУЗ-ТВ,Музыка,74,EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:00
 MTV Classic,Музыка,98,EPG.ONE epg2; TV.TEAM full,2026-11-04 23:46,2026-11-07 23:00
-MTV Hits,Музыка,73,M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 19:00
+MTV Hits,Музыка,74,M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 19:00
 Музыка Первого,Музыка,77,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 Mezzo Live HD,Музыка,259,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:30,2026-11-07 23:30
-MTV Club,Музыка,48,TV.TEAM full,2026-11-04 23:00,2026-11-07 07:57
+MTV Club,Музыка,49,TV.TEAM full,2026-11-04 23:00,2026-11-07 09:08
 Mezzo,Музыка,249,BCU Media; EPG.ONE epg2; IPTVX full; M3U Edit ALL,2026-11-04 22:30,2026-11-07 23:00
 FON Music,Музыка,92,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:05
 о2тв HD,Музыка,38,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:10
 Vostok TV,Музыка,20,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 21:00
-MTV 90s,Музыка,24,TV.TEAM full,2026-11-04 23:00,2026-11-07 06:02
+MTV 90s,Музыка,25,TV.TEAM full,2026-11-04 23:00,2026-11-07 08:42
 MCM Top Russia,Музыка,17,EPG.ONE epg2,2026-11-04 23:30,2026-11-07 23:30
 Clubbing TV HD,Музыка,221,IPTVX full; M3U Edit ALL,2026-11-05 00:00,2026-11-07 23:57
 RU TV,Музыка,43,EPG.ONE epg2,2026-11-04 22:00,2026-11-07 22:00
@@ -1613,7 +1613,7 @@ Bridge Шлягер,Музыка,19,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:
 VIVA TV Russia HD,Музыка,46,IPTVX full,2026-11-05 00:00,2026-11-07 22:45
 KroneHit TV HD AT,Музыка,74,EPG.ONE epg2,2026-11-04 23:35,2026-11-07 23:35
 MIXM TV HD,Музыка,33,IPTVX full,2026-11-05 00:00,2026-11-07 22:00
-4Fun TV PL,Музыка,64,BCU Media; IPTVX full,2026-11-05 00:00,2026-11-07 23:00
+4Fun TV PL,Музыка,63,BCU Media; IPTVX full,2026-11-05 00:00,2026-11-07 23:00
 Deejay TV,Музыка,45,BCU Media; EPG.ONE epg2; M3U Edit ALL,2026-11-05 00:00,2026-11-07 22:00
 Девятая Волна HD,Музыка,0,,,
 Spirit TV,Музыка,0,,,
@@ -1682,7 +1682,7 @@ Now 70s UK,Музыка,64,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 2
 Now 70s HD UK,Музыка,64,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:00
 Now 80s UK,Музыка,60,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 18:00,2026-11-07 22:00
 Now Rock UK,Музыка,70,EPG.ONE epg2; IPTVX full,2026-11-04 19:00,2026-11-07 23:45
-MTV Base UK,Музыка,49,TV.TEAM full,2026-11-04 23:35,2026-11-07 08:40
+MTV Base UK,Музыка,50,TV.TEAM full,2026-11-04 23:35,2026-11-07 09:45
 NRJ HITS HD,Музыка,19,EPG.ONE epg2,2026-11-04 21:00,2026-11-07 20:00
 ТНТ Music HD,Музыка,92,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:05
 Bridge Rock HD,Музыка,49,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 22:30
@@ -1715,11 +1715,11 @@ Cartoon Classics,Детские,327,EPG.ONE epg2,2026-11-04 23:48,2026-11-07 23:
 Тооку,Детские,103,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 22:45
 Карусель HD,Детские,89,EPG.ONE epg2; IPTVX full; TV.TEAM full,2026-11-04 21:15,2026-11-07 23:25
 КиноМульт,Детские,60,EPG.ONE epg2,2026-11-04 23:40,2026-11-07 22:00
-Kids TV HD,Детские,647,BCU Media; EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:12,2026-11-07 23:56
+Kids TV HD,Детские,641,BCU Media; EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:12,2026-11-07 23:56
 Аниме HD,Детские,0,,,
 В гостях у сказки HD,Детские,473,EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:50,2026-11-07 23:55
 СуперГерои HD,Детские,366,EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
-Лёва HD,Детские,286,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:35
+Лёва HD,Детские,284,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:35
 Мультиландия HD,Детские,36,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 Baby Time,Детские,287,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:35
 KinoKazka HD,Детские,107,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 22:35
@@ -1728,12 +1728,12 @@ VF Disney Cartoon,Детские,101,EPG.ONE epg2; IPTVX full,2026-11-04 22:43,2
 VF Союзмультфильм,Детские,676,EPG.ONE epg2; IPTVX full,2026-11-04 23:20,2026-11-07 23:52
 VF Ералаш,Детские,928,EPG.ONE epg2; IPTVX full,2026-11-04 23:58,2026-11-07 23:55
 ТипТоп HD,Детские,287,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:37,2026-11-07 23:41
-Nickelodeon HD,Детские,1415,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:15,2026-11-07 23:58
+Nickelodeon HD,Детские,1420,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:15,2026-11-07 23:58
 Tiji TV,Детские,486,EPG.ONE epg2,2026-11-04 23:46,2026-11-07 23:46
-Nick Jr,Детские,1870,BCU Media; EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full; TopIPTV,2026-11-04 23:40,2026-11-07 23:55
+Nick Jr,Детские,1872,BCU Media; EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full; TopIPTV,2026-11-04 23:40,2026-11-07 23:55
 СТС Kids HD,Детские,451,EPG.ONE epg2; FOX TV,2026-11-04 22:55,2026-11-07 23:55
 Gulli,Детские,477,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:45,2026-11-07 23:52
-Nickelodeon,Детские,1415,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:15,2026-11-07 23:58
+Nickelodeon,Детские,1420,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:15,2026-11-07 23:58
 Детский мир,Детские,558,EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:50
 Jim Jam,Детские,1369,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:59,2026-11-07 23:59
 Cartoon Network,Детские,1737,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:03,2026-11-07 23:58
@@ -1746,26 +1746,26 @@ Cartoonito,Детские,1703,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL; TV
 В гостях у сказки,Детские,473,EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:50,2026-11-07 23:55
 Карусель +3,Детские,90,EPG.ONE epg2; IPTVX full,2026-11-04 23:20,2026-11-07 22:55
 Мультимузыка,Детские,98,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 23:00
-Duck TV,Детские,7123,BCU Media; EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 23:50,2026-11-07 23:59
-Baby TV,Детские,3510,EPG.ONE epg2; FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:58
+Duck TV,Детские,7120,BCU Media; EPG.ONE epg2; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 23:50,2026-11-07 23:59
+Baby TV,Детские,3516,EPG.ONE epg2; FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:58
 Da Vinci orig,Детские,1232,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:54,2026-11-07 23:54
 Da Vinci Kids UA,Детские,775,EPG.ONE epg2; Satfor,2026-11-04 23:48,2026-11-07 23:54
 СуперГерои,Детские,366,EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
-NickToons HD,Детские,1488,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full; TopIPTV,2026-11-04 23:45,2026-11-07 23:59
+NickToons HD,Детские,1489,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full; TopIPTV,2026-11-04 23:45,2026-11-07 23:59
 Радость моя,Детские,220,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
-Рыжий,Детские,258,BCU Media; EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-04 23:38,2026-11-07 23:41
+Рыжий,Детские,257,BCU Media; EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-04 23:38,2026-11-07 23:41
 Капитан Фантастика HD,Детские,119,EPG.ONE epg2; ProgramTV,2026-11-04 18:45,2026-11-07 18:55
 Тамыр,Детские,213,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:30
 Смайл ТВ,Детские,452,EPG.ONE epg2,2026-11-04 23:51,2026-11-07 23:52
 Мультиландия,Детские,36,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 Мульт HD,Детские,77,EPG.ONE epg2; FOX TV,2026-11-04 20:10,2026-11-07 20:20
-Nickelodeon HD orig,Детские,1415,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:15,2026-11-07 23:58
+Nickelodeon HD orig,Детские,1420,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:15,2026-11-07 23:58
 Мульт HD orig,Детские,77,EPG.ONE epg2; FOX TV,2026-11-04 20:10,2026-11-07 20:20
 Детский HD orig,Детские,431,IPTVX full; ProgramTV,2026-11-05 00:00,2026-11-07 22:15
 СТС Kids HD orig,Детские,451,EPG.ONE epg2; FOX TV,2026-11-04 22:55,2026-11-07 23:55
 Tiji TV orig,Детские,486,EPG.ONE epg2,2026-11-04 23:46,2026-11-07 23:46
 Gulli orig,Детские,477,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:45,2026-11-07 23:52
-Nick Jr orig,Детские,1870,BCU Media; EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full; TopIPTV,2026-11-04 23:40,2026-11-07 23:55
+Nick Jr orig,Детские,1872,BCU Media; EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full; TopIPTV,2026-11-04 23:40,2026-11-07 23:55
 Детский мир orig,Детские,558,EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:50
 Jim Jam orig,Детские,1369,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:59,2026-11-07 23:59
 Карусель orig,Детские,89,EPG.ONE epg2; IPTVX full; TV.TEAM full,2026-11-04 21:15,2026-11-07 23:25
@@ -1777,19 +1777,19 @@ Cartoonito orig,Детские,1703,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit AL
 Детский мир HD,Детские,558,EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:50
 СуперГерои orig,Детские,366,EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:59
 Радость моя orig,Детские,220,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
-Рыжий orig,Детские,258,BCU Media; EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-04 23:38,2026-11-07 23:41
+Рыжий orig,Детские,257,BCU Media; EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-04 23:38,2026-11-07 23:41
 Капитан Фантастика HD orig,Детские,119,EPG.ONE epg2; ProgramTV,2026-11-04 18:45,2026-11-07 18:55
 Тамыр orig,Детские,213,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:30
 Смайл ТВ orig,Детские,452,EPG.ONE epg2,2026-11-04 23:51,2026-11-07 23:52
 Мультиландия orig,Детские,36,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
-Nickelodeon orig,Детские,1415,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:15,2026-11-07 23:58
+Nickelodeon orig,Детские,1420,EPG.ONE epg2; IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:15,2026-11-07 23:58
 Cartoon Network orig,Детские,1737,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:03,2026-11-07 23:58
 Мультимузыка orig,Детские,98,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 23:00
 В гостях у сказки orig,Детские,473,EPG.ONE epg2; IPTVX full; Satfor,2026-11-04 23:50,2026-11-07 23:55
 CineMan Cartoons 90,Детские,193,EPG.ONE epg2,2026-11-04 23:52,2026-11-07 23:42
 CineMan Cartoons Short,Детские,594,EPG.ONE epg2,2026-11-04 23:59,2026-11-07 23:58
 CineMan Cartoons Big,Детские,49,EPG.ONE epg2; TopIPTV,2026-11-04 23:14,2026-11-07 23:33
-BCU Multserial HD,Детские,380,BCU Media; EPG.ONE epg2,2026-11-04 23:38,2026-11-07 23:49
+BCU Multserial HD,Детские,375,BCU Media; EPG.ONE epg2,2026-11-04 23:38,2026-11-07 23:49
 BCU Kids HD,Детские,145,BCU Media; EPG.ONE epg2; TV.TEAM full,2026-11-04 22:59,2026-11-07 23:45
 BCU Kids+ HD,Детские,43,EPG.ONE epg2,2026-11-04 21:12,2026-11-07 23:57
 BCU Kids 4K,Детские,145,BCU Media; EPG.ONE epg2; TV.TEAM full,2026-11-04 22:59,2026-11-07 23:45
@@ -1822,19 +1822,19 @@ Magic Disney HD,Детские,94,EPG.ONE epg2; IPTVX full,2026-11-04 22:23,2026
 MYTV Kids,Детские,60,EPG.ONE epg2,2026-11-04 22:44,2026-11-07 23:33
 BCU Little HD,Детские,1021,EPG.ONE epg2; IPTVX full; TV.TEAM full,2026-11-04 23:58,2026-11-07 23:56
 VB Контент Моего Детства,Детские,0,,,
-KLI Kids FHD,Детские,36,TV.TEAM full,2026-11-04 22:34,2026-11-07 09:22
+KLI Kids FHD,Детские,37,TV.TEAM full,2026-11-04 22:34,2026-11-07 10:43
 KLI Мультики FHD,Детские,0,,,
 VeleS Kids,Детские,41,EPG.ONE epg2,2026-11-04 23:06,2026-11-07 11:14
 Prokop TV Масяня,Детские,0,,,
 Prokop TV Мульт HD UA,Детские,0,,,
 Том и Джерри (Russian),Детские,0,,,
 Настоящее время HD,Познавательные,89,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:30
-BOX History 4K,Познавательные,260,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-04 23:34,2026-11-07 23:22
+BOX History 4K,Познавательные,259,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-04 23:34,2026-11-07 23:22
 BOX Kosmo 4K,Познавательные,612,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-04 23:56,2026-11-07 23:59
 Моя Стихия,Познавательные,245,EPG.ONE epg2; IPTVX full,2026-11-04 23:00,2026-11-07 23:57
 National Geographic orig,Познавательные,923,EPG.ONE epg2; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:55
 РЖД ТВ,Познавательные,89,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
-Конгресс ТВ HD,Познавательные,257,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:55,2026-11-07 23:40
+Конгресс ТВ HD,Познавательные,254,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:55,2026-11-07 23:40
 Арт,Познавательные,79,EPG.ONE epg2,2026-11-04 23:40,2026-11-07 21:10
 НТВ Неизвестная Россия,Познавательные,112,IPTVX full,2026-11-04 23:50,2026-11-07 23:20
 The Explorers,Познавательные,422,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:58
@@ -1876,7 +1876,7 @@ Travel+Adventure orig,Познавательные,111,EPG.ONE epg2,2026-11-05 0
 Авто 24 orig,Познавательные,214,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:25
 Flix Snip orig,Познавательные,362,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:48
 Океан orig,Познавательные,110,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
-History CEE HD orig,Познавательные,55,BCU Media,2026-11-05 11:30,2026-11-07 02:45
+History CEE HD orig,Познавательные,53,BCU Media,2026-11-05 13:00,2026-11-07 02:45
 История orig,Познавательные,88,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:15
 Тайна orig,Познавательные,72,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 23:00
 Galaxy orig,Познавательные,191,EPG.ONE epg2; M3U Edit ALL,2026-11-04 22:30,2026-11-07 23:50
@@ -1898,18 +1898,18 @@ Home 4K,Познавательные,2331,EPG.ONE epg2; M3U Edit ALL,2026-11-04 
 Инсайт ТВ UHD,Познавательные,270,BCU Media; EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:45
 Love Nature 4K,Познавательные,458,EPG.ONE epg2; IPTVX full; M3U Edit ALL,2026-11-04 23:10,2026-11-07 23:55
 Наша Сибирь 4K,Познавательные,1591,EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-04 23:55,2026-11-07 23:55
-TERRA HD,Познавательные,248,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:58
-TERRA,Познавательные,248,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:58
-TLC HD,Познавательные,1076,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:35,2026-11-07 23:51
-Travel Channel HD,Познавательные,410,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:10,2026-11-07 23:56
-History HD,Познавательные,828,EPG.ONE epg2; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:29,2026-11-07 23:45
+TERRA HD,Познавательные,246,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:58
+TERRA,Познавательные,246,BCU Media; EPG.ONE epg2; FOX TV; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:58
+TLC HD,Познавательные,1078,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:35,2026-11-07 23:51
+Travel Channel HD,Познавательные,413,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:10,2026-11-07 23:56
+History HD,Познавательные,830,EPG.ONE epg2; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:29,2026-11-07 23:45
 Viju History HD,Познавательные,88,EPG.ONE epg2; ProgramTV,2026-11-04 23:35,2026-11-07 23:20
 History 2 HD,Познавательные,357,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:45,2026-11-07 23:58
 Discovery Channel HD,Познавательные,951,EPG.ONE epg2; FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:55
 Discovery Channel,Познавательные,951,EPG.ONE epg2; FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:55
 RTG HD,Познавательные,202,EPG.ONE epg2; IPTVX full; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:45
-Nat Geo Wild FHD,Познавательные,611,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:15,2026-11-07 23:47
-Nat Geo Wild,Познавательные,611,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:15,2026-11-07 23:47
+Nat Geo Wild FHD,Познавательные,619,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:15,2026-11-07 23:47
+Nat Geo Wild,Познавательные,619,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:15,2026-11-07 23:47
 Discovery Science PL,Познавательные,494,EPG.ONE epg2; IPTVX full; M3U Edit ALL,2026-11-04 23:36,2026-11-07 23:51
 Animal Planet HD,Познавательные,833,EPG.ONE epg2; FOX TV; M3U Edit ALL; ProgramTV; TV.TEAM full,2026-11-04 23:20,2026-11-07 23:45
 Animal Planet,Познавательные,833,EPG.ONE epg2; FOX TV; M3U Edit ALL; ProgramTV; TV.TEAM full,2026-11-04 23:20,2026-11-07 23:45
@@ -1921,7 +1921,7 @@ Food Network FHD,Познавательные,702,EPG.ONE epg2; FOX TV; M3U Edit
 В мире животных HD,Познавательные,191,EPG.ONE epg2; FOX TV; IPTVX full; ProgramTV,2026-11-04 21:15,2026-11-07 23:25
 Моя Планета HD,Познавательные,118,EPG.ONE epg2; ProgramTV,2026-11-04 23:50,2026-11-07 23:35
 Приключения HD,Познавательные,216,EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 23:35
-Глазами Туриста HD,Познавательные,409,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:43,2026-11-07 23:55
+Глазами Туриста HD,Познавательные,406,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:43,2026-11-07 23:55
 Большая Азия HD,Познавательные,187,EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:35
 DocuBox HD,Познавательные,511,EPG.ONE epg2; IPTVX full; M3U Edit ALL; TopIPTV,2026-11-04 23:35,2026-11-07 23:55
 Дикая охота HD,Познавательные,132,EPG.ONE epg2,2026-11-04 23:50,2026-11-07 23:50
@@ -1950,9 +1950,9 @@ E TV,Познавательные,126,M3U Edit ALL,2026-11-04 23:35,2026-11-07 2
 English Class,Познавательные,574,EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:51
 English Class HD,Познавательные,574,EPG.ONE epg2; ProgramTV,2026-11-05 00:00,2026-11-07 23:51
 History 2,Познавательные,357,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:45,2026-11-07 23:58
-Travel Channel,Познавательные,410,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:10,2026-11-07 23:56
-History CEE HD,Познавательные,55,BCU Media,2026-11-05 11:30,2026-11-07 02:45
-RTG TV,Познавательные,188,BCU Media; EPG.ONE epg2,2026-11-05 05:00,2026-11-07 23:45
+Travel Channel,Познавательные,413,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:10,2026-11-07 23:56
+History CEE HD,Познавательные,53,BCU Media,2026-11-05 13:00,2026-11-07 02:45
+RTG TV,Познавательные,187,BCU Media; EPG.ONE epg2,2026-11-05 05:00,2026-11-07 23:45
 Дикий,Познавательные,111,EPG.ONE epg2,2026-11-04 23:35,2026-11-07 23:35
 Travel+Adventure,Познавательные,111,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:50
 Поехали!,Познавательные,116,EPG.ONE epg2; Satfor,2026-11-04 23:55,2026-11-07 23:55
@@ -1962,7 +1962,7 @@ Galaxy,Познавательные,191,EPG.ONE epg2; M3U Edit ALL,2026-11-04 22
 365 дней ТВ,Познавательные,96,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:10
 Телепутешествия,Познавательные,118,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:35
 Тайна,Познавательные,72,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 23:00
-Nat Geo Wild HD,Познавательные,611,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:15,2026-11-07 23:47
+Nat Geo Wild HD,Познавательные,619,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:15,2026-11-07 23:47
 Nano,Познавательные,130,EPG.ONE epg2; IPTVX full,2026-11-05 00:00,2026-11-07 23:30
 Investigation Discovery,Познавательные,185,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:55,2026-11-07 23:55
 Оружие,Познавательные,138,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:45
@@ -1991,14 +1991,14 @@ Outdoor Channel,Познавательные,580,M3U Edit ALL,2026-11-05 00:00,2
 Авто 24,Познавательные,214,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:25
 Авто Плюс HD,Познавательные,348,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:55
 Viju Explore HD,Познавательные,174,BCU Media; EPG.ONE epg2; TopIPTV,2026-11-04 23:50,2026-11-07 23:00
-HGTV HD,Познавательные,903,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:00,2026-11-07 23:50
+HGTV HD,Познавательные,905,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:00,2026-11-07 23:50
 Приключения HD orig,Познавательные,216,EPG.ONE epg2; FOX TV,2026-11-05 00:00,2026-11-07 23:35
 Discovery Channel HD orig,Познавательные,951,EPG.ONE epg2; FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:55
 History 2 HD orig,Познавательные,357,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:45,2026-11-07 23:58
 Travel+Adventure HD orig,Познавательные,111,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:50
 RTG HD orig,Познавательные,202,EPG.ONE epg2; IPTVX full; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:45
-TLC HD orig,Познавательные,1076,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:35,2026-11-07 23:51
-Travel Channel HD orig,Познавательные,410,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:10,2026-11-07 23:56
+TLC HD orig,Познавательные,1078,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:35,2026-11-07 23:51
+Travel Channel HD orig,Познавательные,413,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 23:10,2026-11-07 23:56
 Viju+ Planet HD,Познавательные,138,BCU Media; EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:40
 Живая природа HD orig,Познавательные,1433,EPG.ONE epg2,2026-11-04 23:59,2026-11-07 23:59
 Охотник и Рыболов HD orig,Познавательные,275,EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-05 00:00,2026-11-07 23:35
@@ -2006,14 +2006,14 @@ Viju+ Planet HD,Познавательные,138,BCU Media; EPG.ONE epg2; Satfor
 Моя Планета HD orig,Познавательные,118,EPG.ONE epg2; ProgramTV,2026-11-04 23:50,2026-11-07 23:35
 Investigation Discovery HD orig,Познавательные,185,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:55,2026-11-07 23:55
 Viju History HD orig,Познавательные,88,EPG.ONE epg2; ProgramTV,2026-11-04 23:35,2026-11-07 23:20
-Глазами Туриста HD orig,Познавательные,409,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:43,2026-11-07 23:55
+Глазами Туриста HD orig,Познавательные,406,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:43,2026-11-07 23:55
 Трофей,Познавательные,149,BCU Media; EPG.ONE epg2,2026-11-04 23:54,2026-11-07 23:44
 Дикая охота HD orig,Познавательные,132,EPG.ONE epg2,2026-11-04 23:50,2026-11-07 23:50
 Дикая рыбалка HD orig,Познавательные,126,EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:40
 Наука HD orig,Познавательные,261,EPG.ONE epg2; FOX TV; IPTVX full; Satfor,2026-11-04 23:41,2026-11-07 23:52
-History HD orig,Познавательные,828,EPG.ONE epg2; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:29,2026-11-07 23:45
+History HD orig,Познавательные,830,EPG.ONE epg2; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:29,2026-11-07 23:45
 Viju Explore HD orig,Познавательные,174,BCU Media; EPG.ONE epg2; TopIPTV,2026-11-04 23:50,2026-11-07 23:00
-Nat Geo Wild orig,Познавательные,611,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:15,2026-11-07 23:47
+Nat Geo Wild orig,Познавательные,619,EPG.ONE epg2; FOX TV; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 23:15,2026-11-07 23:47
 Большая Азия HD orig,Познавательные,187,EPG.ONE epg2; Satfor,2026-11-05 00:00,2026-11-07 23:35
 Загородный int HD orig,Познавательные,164,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:35
 Авто Плюс orig,Познавательные,348,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:55
@@ -2025,7 +2025,7 @@ Viju Explore orig,Познавательные,174,BCU Media; EPG.ONE epg2; TopI
 Zоопарк orig,Познавательные,94,EPG.ONE epg2,2026-11-04 23:30,2026-11-07 23:05
 Телекафе orig,Познавательные,31,EPG.ONE epg2; FOX TV; ProgramTV,2026-11-04 18:00,2026-11-07 22:30
 Усадьба orig,Познавательные,157,EPG.ONE epg2,2026-11-04 23:40,2026-11-07 23:40
-RTG TV orig,Познавательные,188,BCU Media; EPG.ONE epg2,2026-11-05 05:00,2026-11-07 23:45
+RTG TV orig,Познавательные,187,BCU Media; EPG.ONE epg2,2026-11-05 05:00,2026-11-07 23:45
 Восьмой канал orig,Познавательные,54,EPG.ONE epg2,2026-11-04 22:00,2026-11-07 21:00
 Дикий orig,Познавательные,111,EPG.ONE epg2,2026-11-04 23:35,2026-11-07 23:35
 Охота и рыбалка orig,Познавательные,186,BCU Media; EPG.ONE epg2; FOX TV,2026-11-04 23:30,2026-11-07 23:50
@@ -2041,11 +2041,11 @@ Liberty BBC FHD,Познавательные,167,EPG.ONE epg2; IPTVX full,2026-1
 Liberty Планета360 FHD,Познавательные,84,EPG.ONE epg2; IPTVX full,2026-11-04 22:27,2026-11-06 23:12
 Liberty Наука FHD,Познавательные,101,EPG.ONE epg2; IPTVX full,2026-11-04 22:36,2026-11-07 18:57
 Univer TV HD,Познавательные,117,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:15
-Глазами Туриста 4K,Познавательные,409,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:43,2026-11-07 23:55
+Глазами Туриста 4K,Познавательные,406,BCU Media; EPG.ONE epg2; ProgramTV,2026-11-04 23:43,2026-11-07 23:55
 Наша Сибирь 4K (HEVC),Познавательные,1591,EPG.ONE epg2; IPTVX full; ProgramTV,2026-11-04 23:55,2026-11-07 23:55
 Первый космический HD,Познавательные,164,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-05 00:00,2026-11-07 22:30
 Первый космический HD orig,Познавательные,164,EPG.ONE epg2; ProgramTV; TopIPTV,2026-11-05 00:00,2026-11-07 22:30
-Мир Вокруг HD,Познавательные,249,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:40
+Мир Вокруг HD,Познавательные,246,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:40
 Viju Nature HD,Познавательные,156,BCU Media; EPG.ONE epg2; FOX TV,2026-11-04 23:40,2026-11-07 23:50
 NASA TV 4K,Познавательные,19,M3U Edit ALL,2026-11-05 10:30,2026-11-07 08:00
 VF Авто,Познавательные,152,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:53
@@ -2097,12 +2097,12 @@ MyZen TV HD,Развлекательные,290,EPG.ONE epg2; M3U Edit ALL; TV.TE
 НТВ Стиль жизни HD,Развлекательные,98,IPTVX full,2026-11-04 22:55,2026-11-07 23:20
 Кухня HD,Развлекательные,178,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:30
 FashionBox HD,Развлекательные,101,EPG.ONE epg2; M3U Edit ALL,2026-11-05 00:00,2026-11-07 23:30
-Танцуй! HD,Развлекательные,20,BCU Media,2026-11-05 12:00,2026-11-07 21:00
+Танцуй! HD,Развлекательные,19,BCU Media,2026-11-05 15:00,2026-11-07 21:00
 Ключ HD,Развлекательные,84,EPG.ONE epg2,2026-11-04 23:50,2026-11-07 23:05
 Silk Way,Развлекательные,203,EPG.ONE epg2,2026-11-04 23:35,2026-11-07 23:50
 VF Концерты,Развлекательные,57,EPG.ONE epg2; IPTVX full,2026-11-04 23:32,2026-11-06 20:55
 VF КВН,Развлекательные,79,EPG.ONE epg2; IPTVX full,2026-11-04 22:14,2026-11-07 22:16
-Большой Эфир HD,Развлекательные,155,BCU Media; EPG.ONE epg2,2026-11-04 22:20,2026-11-07 23:10
+Большой Эфир HD,Развлекательные,153,BCU Media; EPG.ONE epg2,2026-11-04 22:20,2026-11-07 23:10
 E TV HD orig,Развлекательные,126,M3U Edit ALL,2026-11-04 23:35,2026-11-07 22:00
 OstWest DE,Развлекательные,118,BCU Media; EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:15,2026-11-07 23:30
 Gags Network,Развлекательные,203,EPG.ONE epg2,2026-11-04 23:56,2026-11-07 23:42
@@ -2123,7 +2123,7 @@ Luxury,Развлекательные,110,EPG.ONE epg2,2026-11-05 00:00,2026-11-
 СТС HD,Развлекательные,59,EPG.ONE epg2; FOX TV; ProgramTV; TopIPTV,2026-11-04 07:05,2026-11-07 23:40
 ТНТ HD 50,Развлекательные,164,BCU Media; EPG.ONE epg2; FOX TV; IPTVX full,2026-11-04 22:00,2026-11-07 23:10
 ТНТ +2,Развлекательные,106,BCU Media; EPG.ONE epg2,2026-11-04 22:35,2026-11-07 22:00
-ТНТ4 HD,Развлекательные,119,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
+ТНТ4 HD,Развлекательные,119,EPG.ONE epg2; TopIPTV,2026-11-05 00:00,2026-11-07 23:00
 Зал Суда HD,Развлекательные,101,EPG.ONE epg2,2026-11-04 23:32,2026-11-07 23:55
 СТС HD orig,Развлекательные,59,EPG.ONE epg2; FOX TV; ProgramTV; TopIPTV,2026-11-04 07:05,2026-11-07 23:40
 СТС International,Развлекательные,308,EPG.ONE epg2; FOX TV,2026-11-04 23:43,2026-11-07 23:45
@@ -2274,7 +2274,7 @@ Sochi Live HD,Региональные,0,,,
 ЯПервый FHD,Региональные,100,IPTVX full,2026-11-05 00:00,2026-11-07 22:40
 Shopping Live,Телемагазины,72,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 Digital Media (JWL),Телемагазины,0,,,
-Women`s Magazine HD,Телемагазины,371,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:55
+Women`s Magazine HD,Телемагазины,367,BCU Media; EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:55
 Leomax 24,Телемагазины,21,IPTVX full,2026-11-05 00:00,2026-11-07 21:00
 Nano orig,Телемагазины,130,EPG.ONE epg2; IPTVX full,2026-11-05 00:00,2026-11-07 23:30
 VF Граиндхаус,Взрослые,98,EPG.ONE epg2; IPTVX full,2026-11-04 23:55,2026-11-07 22:38
@@ -2540,46 +2540,46 @@ CINEMAXX MORE MAXX US,США | USA,0,,,
 CINEMAX THRILLERMAX HD US,США | USA,0,,,
 CINEMAX OUTER MAX US,США | USA,0,,,
 CINEMAX MOVIEMAX US,США | USA,0,,,
-NHL Network US,США | USA,107,BCU Media; IPTVX full; TV.TEAM full,2026-11-04 23:00,2026-11-07 22:00
+NHL Network US,США | USA,107,IPTVX full; TV.TEAM full,2026-11-04 23:00,2026-11-07 22:00
 NBA TV HD US,США | USA,122,IPTVX full; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:00
 Ion Television,США | USA,85,M3U Edit ALL,2026-11-05 00:00,2026-11-07 23:00
 NYCTV Life,США | USA,0,,,
-CBS New York,США | USA,86,TV.TEAM full,2026-11-05 00:00,2026-11-07 09:37
+CBS New York,США | USA,90,TV.TEAM full,2026-11-05 00:00,2026-11-07 11:37
 Hallmark Movies & Mysteries HD,США | USA,0,,,
 Telemundo,США | USA,139,M3U Edit ALL,2026-11-04 23:20,2026-11-07 23:20
 NBC,США | USA,0,,,
 Disney XD,США | USA,347,FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-05 00:00,2026-11-07 23:30
-AMC US,США | USA,488,BCU Media; EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:50
-HGTV HD US,США | USA,903,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:00,2026-11-07 23:50
+AMC US,США | USA,489,BCU Media; EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:50
+HGTV HD US,США | USA,905,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:00,2026-11-07 23:50
 tru TV,США | USA,0,,,
 RACER Network HD,США | USA,96,M3U Edit ALL,2026-11-05 00:00,2026-11-07 23:30
 ABC HD,США | USA,0,,,
 Fox 5 WNYW,США | USA,0,,,
 My9NJ,США | USA,0,,,
-MOTORTREND,США | USA,130,M3U Edit ALL; TV.TEAM full,2026-11-04 22:30,2026-11-07 23:00
+MOTORTREND,США | USA,132,M3U Edit ALL; TV.TEAM full,2026-11-04 22:30,2026-11-07 23:00
 BBC America,США | USA,51,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 WPIX-TV,США | USA,0,,,
 THIRTEEN,США | USA,0,,,
 WLIW21,США | USA,0,,,
 NJTV,США | USA,0,,,
-MeTV,США | USA,87,TV.TEAM full,2026-11-05 00:00,2026-11-07 09:35
+MeTV,США | USA,89,TV.TEAM full,2026-11-05 00:00,2026-11-07 11:05
 WMBC Digital Television,США | USA,0,,,
 Univision,США | USA,0,,,
 UniMÁS,США | USA,0,,,
 USA,США | USA,0,,,
 TNT,США | USA,270,FOX TV; M3U Edit ALL; TV.TEAM full,2026-11-04 23:33,2026-11-07 23:30
 TBS,США | USA,238,M3U Edit ALL; TV.TEAM full,2026-11-04 23:20,2026-11-07 23:45
-TLC US,США | USA,1076,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:35,2026-11-07 23:51
+TLC US,США | USA,1078,EPG.ONE epg2; FOX TV; IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 21:35,2026-11-07 23:51
 FXM en,США | USA,0,,,
 A&E,США | USA,201,M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:50
 CNBC,США | USA,146,EPG.ONE epg2; M3U Edit ALL; ProgramTV,2026-11-05 00:00,2026-11-07 23:30
-FOX SPORTS 1 US,США | USA,49,TV.TEAM full,2026-11-04 23:00,2026-11-07 09:30
-FOX SPORTS 2 US,США | USA,49,TV.TEAM full,2026-11-04 23:30,2026-11-07 07:59
+FOX SPORTS 1 US,США | USA,50,TV.TEAM full,2026-11-04 23:00,2026-11-07 10:00
+FOX SPORTS 2 US,США | USA,50,TV.TEAM full,2026-11-04 23:30,2026-11-07 10:00
 CBS SPORTS NETWORK US,США | USA,85,IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 23:00,2026-11-07 23:30
-MSG US,США | USA,99,IPTVX full; TV.TEAM full,2026-11-05 00:00,2026-11-07 23:30
+MSG US,США | USA,100,IPTVX full; TV.TEAM full,2026-11-05 00:00,2026-11-07 23:30
 MSG 2 US,США | USA,0,,,
-NBC SPORTS NETWORK US,США | USA,52,TV.TEAM full,2026-11-05 00:00,2026-11-07 09:37
-NHL Network HD US,США | USA,107,BCU Media; IPTVX full; TV.TEAM full,2026-11-04 23:00,2026-11-07 22:00
+NBC SPORTS NETWORK US,США | USA,55,TV.TEAM full,2026-11-05 00:00,2026-11-07 11:30
+NHL Network HD US,США | USA,107,IPTVX full; TV.TEAM full,2026-11-04 23:00,2026-11-07 22:00
 AT&T SPORTSNET HD,США | USA,0,,,
 SPECTRUM SPORTSNET,США | USA,0,,,
 NESN HD,США | USA,0,,,
@@ -2677,8 +2677,8 @@ FanDuel Sports Network West Plus,США | USA,0,,,
 [Spectrum] Science Channel HD,США | USA,0,,,
 FanDuel Sports Network Wisconsin,США | USA,83,M3U Edit ALL,2026-11-05 00:00,2026-11-07 23:00
 FanDuel Sports Network Wisconsin Plus,США | USA,0,,,
-beIN Sports,США | USA,184,IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:45,2026-11-07 23:30
-beIN Sports 2,США | USA,211,IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:55,2026-11-07 23:30
+beIN Sports,США | USA,185,IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:45,2026-11-07 23:30
+beIN Sports 2,США | USA,212,IPTVX full; M3U Edit ALL; Satfor; TV.TEAM full,2026-11-04 22:55,2026-11-07 23:30
 beIN Sports 3,США | USA,240,IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:30,2026-11-07 22:55
 beIN Sports 4,США | USA,108,IPTVX full; M3U Edit ALL; TV.TEAM full,2026-11-04 22:45,2026-11-07 23:00
 beIN Sports 5,США | USA,85,IPTVX full; M3U Edit ALL,2026-11-04 22:30,2026-11-07 23:00
@@ -2704,19 +2704,19 @@ ICTV 2 HD UA,Украина | Українські,49,EPG.ONE epg2,2026-11-04 23
 НТН HD UA,Украина | Українські,53,EPG.ONE epg2; TopIPTV,2026-11-05 00:00,2026-11-07 23:45
 Сфера ТВ HD UA,Украина | Українські,0,,,
 Наше Улюблене Кіно HD UA,Украина | Українські,57,IPTVX full,2026-11-04 22:43,2026-11-07 23:49
-5 Канал UA,Украина | Українські,170,IPTVX full; TV.TEAM full,2026-11-04 22:50,2026-11-07 23:00
+5 Канал UA,Украина | Українські,173,IPTVX full; TV.TEAM full,2026-11-04 22:50,2026-11-07 23:00
 FilmBox orig UA,Украина | Українські,239,EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:40
 24 Канал UA,Украина | Українські,95,IPTVX full,2026-11-05 00:00,2026-11-07 23:00
 Надiя ТВ UA,Украина | Українські,172,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:30
 UA:Київ,Украина | Українські,0,,,
-EU Music HD UA,Украина | Українські,34,BCU Media; EPG.ONE epg2,2026-11-04 22:00,2026-11-07 22:00
+EU Music HD UA,Украина | Українські,33,BCU Media; EPG.ONE epg2,2026-11-04 22:00,2026-11-07 22:00
 Еспресо TV HD UA,Украина | Українські,105,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:00
 Мега UA,Украина | Українські,121,EPG.ONE epg2; FOX TV,2026-11-04 23:45,2026-11-07 23:50
 Мега HD UA,Украина | Українські,121,EPG.ONE epg2; FOX TV,2026-11-04 23:45,2026-11-07 23:50
 К2 UA,Украина | Українські,104,EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 23:35,2026-11-07 23:40
 К2 HD UA,Украина | Українські,104,EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 23:35,2026-11-07 23:40
-К1 UA,Украина | Українські,47,EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 23:55,2026-11-07 16:00
-К1 HD UA,Украина | Українські,47,EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 23:55,2026-11-07 16:00
+К1 UA,Украина | Українські,43,EPG.ONE epg2; IPTVX full,2026-11-04 23:55,2026-11-07 16:00
+К1 HD UA,Украина | Українські,43,EPG.ONE epg2; IPTVX full,2026-11-04 23:55,2026-11-07 16:00
 Kvartal TV UA,Украина | Українські,58,IPTVX full,2026-11-04 23:00,2026-11-07 22:00
 Enter,Украина | Українські,49,EPG.ONE epg2,2026-11-04 22:00,2026-11-07 20:00
 Enter,Украина | Українські,49,EPG.ONE epg2,2026-11-04 22:00,2026-11-07 20:00
@@ -2738,7 +2738,7 @@ Star Cinema HD UA,Украина | Українські,145,EPG.ONE epg2; FOX TV
 Перший UA,Украина | Українські,145,EPG.ONE epg2; FOX TV; TV.TEAM full,2026-11-04 23:00,2026-11-07 22:30
 Суспільне Крим HD UA,Украина | Українські,139,EPG.ONE epg2,2026-11-04 23:00,2026-11-07 22:30
 Obozrevatel TV HD UA,Украина | Українські,0,,,
-5 Канал HD UA,Украина | Українські,170,IPTVX full; TV.TEAM full,2026-11-04 22:50,2026-11-07 23:00
+5 Канал HD UA,Украина | Українські,173,IPTVX full; TV.TEAM full,2026-11-04 22:50,2026-11-07 23:00
 Свiтло UA,Украина | Українські,0,,,
 Інтер HD UA,Украина | Українські,91,EPG.ONE epg2; TopIPTV,2026-11-05 00:00,2026-11-07 23:00
 Телеканал Рибалка,Украина | Українські,0,,,
@@ -2810,8 +2810,8 @@ FilmBox UA,Украина | Українські,239,EPG.ONE epg2; M3U Edit ALL;
 Enter-фільм HD UA,Украина | Українські,58,EPG.ONE epg2; TV.TEAM full,2026-11-04 22:00,2026-11-07 20:00
 ПЕРШИЙ ДІЛОВИЙ UA,Украина | Українські,0,,,
 Eco TV UA,Украина | Українські,73,IPTVX full,2026-11-04 23:30,2026-11-07 23:30
-EU Music HD UA,Украина | Українські,34,BCU Media; EPG.ONE epg2,2026-11-04 22:00,2026-11-07 22:00
-EU Music UA,Украина | Українські,34,BCU Media; EPG.ONE epg2,2026-11-04 22:00,2026-11-07 22:00
+EU Music HD UA,Украина | Українські,33,BCU Media; EPG.ONE epg2,2026-11-04 22:00,2026-11-07 22:00
+EU Music UA,Украина | Українські,33,BCU Media; EPG.ONE epg2,2026-11-04 22:00,2026-11-07 22:00
 4ever Music UA,Украина | Українські,37,EPG.ONE epg2; IPTVX full; TopIPTV,2026-11-04 22:00,2026-11-07 22:00
 Українське радіо 1,Украина | Українські,245,IPTVX full,2026-11-05 00:00,2026-11-07 23:07
 Українське радіо 3,Украина | Українські,66,IPTVX full,2026-11-04 23:00,2026-11-07 06:00
@@ -2863,10 +2863,10 @@ RAZ 3 HD,Украина | Українські,58,IPTVX full,2026-11-04 23:00,20
 1+1 Україна HD,Украина | Українські,57,EPG.ONE epg2; FOX TV; Satfor,2026-11-04 23:15,2026-11-07 22:00
 11 Канал Дніпро,Украина | Українські,133,EPG.ONE epg2,2026-11-05 00:00,2026-11-07 23:30
 36.6,Украина | Українські,251,EPG.ONE epg2,2026-11-04 23:55,2026-11-07 23:50
-4Ever Cinema HD,Украина | Українські,17,EPG.ONE epg2; IPTVX full,2026-11-04 23:19,2026-11-07 13:00
-5 Канал HD,Украина | Українські,170,IPTVX full; TV.TEAM full,2026-11-04 22:50,2026-11-07 23:00
+4Ever Cinema HD,Украина | Українські,30,BCU Media; EPG.ONE epg2; IPTVX full,2026-11-04 23:19,2026-11-07 13:00
+5 Канал HD,Украина | Українські,173,IPTVX full; TV.TEAM full,2026-11-04 22:50,2026-11-07 23:00
 6 Соток,Украина | Українські,205,BCU Media; EPG.ONE epg2,2026-11-04 23:51,2026-11-07 23:51
-AMC,Украина | Українські,488,BCU Media; EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:50
+AMC,Украина | Українські,489,BCU Media; EPG.ONE epg2; M3U Edit ALL; TV.TEAM full,2026-11-04 22:00,2026-11-07 23:50
 Bolt HD UA,Украина | Українські,252,EPG.ONE epg2; M3U Edit ALL,2026-11-04 23:30,2026-11-07 23:50
 Cine+ HD,Украина | Українські,42,IPTVX full,2026-11-04 22:30,2026-11-07 23:00
 Cine+ Hit HD,Украина | Українські,41,IPTVX full,2026-11-04 22:45,2026-11-07 23:45
