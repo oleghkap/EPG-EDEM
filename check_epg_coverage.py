@@ -406,7 +406,10 @@ def build_playlist_indexes(channels):
             if normalized:
                 by_name[normalized].add(index)
 
-            base = normalize_base_name(name)
+            # Для базового поиска учитываем региональный суффикс,
+            # но ниже обязательно проверяем совместимость страны и качества.
+            base_source_name = strip_country_suffix(strip_country_prefix(name))
+            base = normalize_base_name(base_source_name)
             if base:
                 by_base_name[base].add(index)
 
@@ -450,16 +453,65 @@ def audit_mapping_candidates(display_names, indexes, playlist_channels):
     }
 
 
-def map_source_channels(channel_id, display_names, indexes):
-    """
-    Сопоставление по tvg-id, затем по точному имени, затем по
-    региональному имени (только если оно ведёт к одному каналу плейлиста).
+def quality_markers(value):
+    return {
+        match.group(1).casefold().replace(" ", "")
+        for match in QUALITY_RE.finditer(value or "")
+    }
 
-    Маркеры качества HD/FHD/UHD/4K/orig не удаляются: это могут быть
-    разные версии каналов. Неоднозначное региональное совпадение
-    не назначается и остаётся только в диагностике.
+
+def edge_country_codes(value):
+    value = (value or "").strip()
+    found = set()
+    prefix = re.match(
+        rf"^({COUNTRY_CODES})\\s*[-–—:]\\s*",
+        value,
+        re.IGNORECASE,
+    )
+    suffix = re.search(
+        rf"\\s+({COUNTRY_CODES})$",
+        value,
+        re.IGNORECASE,
+    )
+    if prefix:
+        found.add(prefix.group(1).upper())
+    if suffix:
+        found.add(suffix.group(1).upper())
+    return found
+
+
+def base_names_compatible(source_name, playlist_name):
     """
-    by_id, by_name, _ = indexes
+    Разрешает базовое совпадение только без явного противоречия:
+    разные маркеры качества или разные коды стран не объединяем.
+    orig остаётся отдельным вариантом.
+    """
+    source_quality = quality_markers(source_name)
+    playlist_quality = quality_markers(playlist_name)
+
+    if "orig" in source_quality or "orig" in playlist_quality:
+        if source_quality != playlist_quality:
+            return False
+
+    if source_quality and playlist_quality and source_quality.isdisjoint(playlist_quality):
+        return False
+
+    source_countries = edge_country_codes(source_name)
+    playlist_countries = edge_country_codes(playlist_name)
+    if source_countries and playlist_countries and source_countries.isdisjoint(playlist_countries):
+        return False
+
+    return True
+
+
+def map_source_channels(channel_id, display_names, indexes, playlist_channels):
+    """
+    Сопоставление по tvg-id, точному имени, региональному имени,
+    затем по базовому имени при совместимых маркерах качества/страны.
+    Ослабленные правила назначают канал только при единственном
+    кандидате в плейлисте.
+    """
+    by_id, by_name, by_base_name = indexes
 
     id_matches = (
         set(by_id.get(channel_id.casefold(), set()))
@@ -491,6 +543,30 @@ def map_source_channels(channel_id, display_names, indexes):
     if len(country_matches) == 1:
         return country_matches, "country-normalized name"
     if len(country_matches) > 1:
+        return set(), "ambiguous"
+
+    base_matches = set()
+    for source_name in display_names:
+        if not source_name:
+            continue
+        countryless_name = strip_country_suffix(strip_country_prefix(source_name))
+        normalized_base = normalize_base_name(countryless_name)
+        if not normalized_base:
+            continue
+        for index in by_base_name.get(normalized_base, set()):
+            playlist_names = {
+                playlist_channels[index].get("title", ""),
+                playlist_channels[index].get("tvg_name", ""),
+            }
+            if any(
+                name and base_names_compatible(source_name, name)
+                for name in playlist_names
+            ):
+                base_matches.add(index)
+
+    if len(base_matches) == 1:
+        return base_matches, "unique base name"
+    if len(base_matches) > 1:
         return set(), "ambiguous"
     return set(), "unmatched"
 # ============================================================
@@ -606,6 +682,7 @@ def process_source(
                         channel_id,
                         display_names,
                         indexes,
+                        playlist_channels,
                     )
 
                     if matched_indexes and channel_id:
