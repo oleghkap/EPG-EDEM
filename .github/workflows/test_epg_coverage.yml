@@ -45,6 +45,7 @@ jobs:
           git add channels_test.txt
           git add coverage_report.csv
           git add channel_coverage.csv
+          git add epg_diagnostics.txt
           git add epg_test_combined.xml.gz
           git add playlist_duplicates.csv
 
