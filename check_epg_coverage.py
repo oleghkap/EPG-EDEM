@@ -17,14 +17,18 @@ PLAYLIST_URL берётся только из GitHub Secrets.
 
 import csv
 import gzip
+import hashlib
+import io
 import os
 import re
 import socket
+import subprocess
 import sys
 import time
 import shutil
 import tempfile
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.error import HTTPError, URLError
 import xml.etree.ElementTree as ET
 
@@ -327,6 +331,7 @@ def parse_m3u(data):
                 "title": name,
                 "tvg_id": attrs.get("tvg-id", "").strip(),
                 "tvg_name": attrs.get("tvg-name", "").strip(),
+                "tvg_logo": attrs.get("tvg-logo", "").strip(),
                 "group": group,
             }
 
@@ -602,6 +607,7 @@ def process_source(
     period_end,
     global_programmes,
     channel_icons,
+    channel_icon_sources,
     exact_programmes_seen,
     merge_diagnostics,
     merge_collision_details,
@@ -712,7 +718,9 @@ def process_source(
                         )
                         if icon_src:
                             for playlist_index in matched_indexes:
-                                channel_icons.setdefault(playlist_index, icon_src)
+                                if playlist_index not in channel_icons:
+                                    channel_icons[playlist_index] = icon_src
+                                    channel_icon_sources[playlist_index] = source_name
 
                         if method == "tvg-id":
                             stats["matched_by_tvg_id"] += 1
@@ -1124,7 +1132,7 @@ def write_coverage_report(stats_list):
         writer.writeheader()
         writer.writerows(stats_list)
 
-def write_channel_report(channels, global_programmes):
+def write_channel_report(channels, global_programmes, logo_diagnostics):
     path = OUTPUT_DIR / "channel_coverage.csv"
 
     by_channel = defaultdict(lambda: {
@@ -1153,6 +1161,22 @@ def write_channel_report(channels, global_programmes):
         "sources",
         "first_programme",
         "last_programme",
+        "m3u_logo_present",
+        "epg_logo_present",
+        "epg_logo_source",
+        "logo_source_comparison",
+        "m3u_logo_sha256",
+        "epg_logo_sha256",
+        "m3u_logo_status",
+        "m3u_logo_dimensions",
+        "m3u_logo_shape",
+        "m3u_logo_transparency",
+        "m3u_logo_black_background",
+        "epg_logo_status",
+        "epg_logo_dimensions",
+        "epg_logo_shape",
+        "epg_logo_transparency",
+        "epg_logo_black_background",
     ]
 
     with open(path, "w", newline="", encoding="utf-8-sig") as file:
@@ -1174,6 +1198,7 @@ def write_channel_report(channels, global_programmes):
                     item["last"].strftime("%Y-%m-%d %H:%M")
                     if item["last"] else ""
                 ),
+                **logo_diagnostics.get(index, {}),
             })
 
 def write_combined_xml(
@@ -1255,6 +1280,247 @@ def write_combined_xml(
     }
 
 
+def ensure_pillow():
+    """Гарантирует Pillow для анализа прозрачности и пикселей фона."""
+    try:
+        import PIL  # noqa: F401
+        return True
+    except ImportError:
+        log("  Pillow не установлен; установка для анализа изображений...")
+        try:
+            subprocess.run(
+                [sys.executable, "-m", "pip", "install", "--quiet", "Pillow"],
+                check=True,
+                timeout=180,
+            )
+            import PIL  # noqa: F401
+            return True
+        except Exception as error:
+            log(f"  Не удалось установить Pillow: {type(error).__name__}")
+            return False
+
+
+def inspect_logo_image(url):
+    """Загружает и анализирует одно изображение; URL не записывается в отчёт."""
+    result = {
+        "status": "missing",
+        "width": "",
+        "height": "",
+        "shape": "",
+        "transparency": "",
+        "black_background": "",
+    }
+    if not url:
+        return result
+    if not url.lower().startswith(("http://", "https://")):
+        result["status"] = "unsupported_url_scheme"
+        return result
+
+    try:
+        request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        data = bytearray()
+        with urllib.request.urlopen(request, timeout=15) as response:
+            while True:
+                chunk = response.read(65536)
+                if not chunk:
+                    break
+                data.extend(chunk)
+                if len(data) > 4 * 1024 * 1024:
+                    result["status"] = "too_large"
+                    return result
+
+        if not data:
+            result["status"] = "empty"
+            return result
+
+        from PIL import Image, ImageFile
+        ImageFile.LOAD_TRUNCATED_IMAGES = True
+        Image.MAX_IMAGE_PIXELS = 40_000_000
+
+        with Image.open(io.BytesIO(data)) as image:
+            image.load()
+            width, height = image.size
+            result["width"] = width
+            result["height"] = height
+            ratio = width / height if height else 0
+            result["shape"] = (
+                "square" if 0.90 <= ratio <= 1.10
+                else "landscape" if ratio > 1.10
+                else "portrait"
+            )
+
+            rgba = image.convert("RGBA")
+            alpha_min, _ = rgba.getchannel("A").getextrema()
+            result["transparency"] = "yes" if alpha_min < 255 else "no"
+
+            # Чёрный фон — эвристика: не менее 85% непрозрачных пикселей
+            # в полосе шириной 4% по краям имеют RGB не выше 40.
+            sample = rgba.copy()
+            sample.thumbnail((256, 256))
+            pixels = sample.load()
+            sw, sh = sample.size
+            border = max(1, min(sw, sh) // 25)
+            opaque = 0
+            dark = 0
+            for y in range(sh):
+                for x in range(sw):
+                    if x < border or x >= sw - border or y < border or y >= sh - border:
+                        red, green, blue, alpha = pixels[x, y]
+                        if alpha >= 128:
+                            opaque += 1
+                            if max(red, green, blue) <= 40:
+                                dark += 1
+            result["black_background"] = (
+                "yes" if opaque and dark / opaque >= 0.85
+                else "no" if opaque
+                else "indeterminate"
+            )
+            result["status"] = "ok"
+            return result
+
+    except HTTPError as error:
+        result["status"] = f"http_{error.code}"
+    except (TimeoutError, socket.timeout):
+        result["status"] = "timeout"
+    except Exception:
+        result["status"] = "invalid_image"
+    return result
+
+
+def analyze_channel_logos(channels, channel_icons, channel_icon_sources):
+    """Кеширует загрузку по URL и классифицирует логотипы из M3U и EPG."""
+    urls = set()
+    for index, channel in enumerate(channels):
+        m3u_url = channel.get("tvg_logo", "")
+        epg_url = channel_icons.get(index, "")
+        if m3u_url:
+            urls.add(m3u_url)
+        if epg_url:
+            urls.add(epg_url)
+
+    url_hashes = {
+        url: hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
+        for url in urls
+    }
+    image_results = {}
+    log(f"  Уникальных URL логотипов для анализа: {len(urls)}")
+    if urls and not ensure_pillow():
+        image_results = {
+            url: {
+                "status": "pillow_unavailable",
+                "width": "", "height": "", "shape": "",
+                "transparency": "", "black_background": "",
+            }
+            for url in urls
+        }
+    elif urls:
+        with ThreadPoolExecutor(max_workers=12) as executor:
+            futures = {executor.submit(inspect_logo_image, url): url for url in urls}
+            for future in as_completed(futures):
+                url = futures[future]
+                image_results[url] = future.result()
+
+    per_channel = {}
+    for index, channel in enumerate(channels):
+        m3u_url = channel.get("tvg_logo", "")
+        epg_url = channel_icons.get(index, "")
+        m3u_info = image_results.get(m3u_url, {})
+        epg_info = image_results.get(epg_url, "")
+        if m3u_url and epg_url:
+            comparison = "both"
+        elif m3u_url:
+            comparison = "M3U only"
+        elif epg_url:
+            comparison = "EPG only"
+        else:
+            comparison = "no logo"
+
+        def dimension(info):
+            return (
+                f"{info.get('width')}x{info.get('height')}"
+                if info.get("width") and info.get("height") else ""
+            )
+
+        per_channel[index] = {
+            "m3u_logo_present": bool(m3u_url),
+            "epg_logo_present": bool(epg_url),
+            "epg_logo_source": channel_icon_sources.get(index, ""),
+            "logo_source_comparison": comparison,
+            "m3u_logo_sha256": url_hashes.get(m3u_url, ""),
+            "epg_logo_sha256": url_hashes.get(epg_url, ""),
+            "m3u_logo_status": m3u_info.get("status", ""),
+            "m3u_logo_dimensions": dimension(m3u_info),
+            "m3u_logo_shape": m3u_info.get("shape", ""),
+            "m3u_logo_transparency": m3u_info.get("transparency", ""),
+            "m3u_logo_black_background": m3u_info.get("black_background", ""),
+            "epg_logo_status": epg_info.get("status", ""),
+            "epg_logo_dimensions": dimension(epg_info),
+            "epg_logo_shape": epg_info.get("shape", ""),
+            "epg_logo_transparency": epg_info.get("transparency", ""),
+            "epg_logo_black_background": epg_info.get("black_background", ""),
+        }
+
+    m3u_urls = {channel.get("tvg_logo", "") for channel in channels if channel.get("tvg_logo")}
+    epg_urls = set(channel_icons.values())
+    m3u_channels = sum(bool(channel.get("tvg_logo")) for channel in channels)
+    epg_channels = len(channel_icons)
+    both_channels = sum(
+        bool(channel.get("tvg_logo")) and index in channel_icons
+        for index, channel in enumerate(channels)
+    )
+
+    lines = [
+        "",
+        "ДИАГНОСТИКА ЛОГОТИПОВ КАНАЛОВ",
+        "  ВАЖНО: итоговый XML сейчас получает иконки только из EPG; tvg-logo из M3U не подставляется.",
+        f"  Каналов с tvg-logo в M3U: {m3u_channels}; уникальных URL: {len(m3u_urls)}",
+        f"  Каналов с иконкой из EPG: {epg_channels}; уникальных URL: {len(epg_urls)}",
+        f"  Иконки есть и в M3U, и в EPG: {both_channels}",
+        f"  Только M3U: {m3u_channels - both_channels}",
+        f"  Только EPG: {epg_channels - both_channels}",
+        f"  Без логотипа в обоих источниках: {len(channels) - m3u_channels - epg_channels + both_channels}",
+        "  Классификация изображений по уникальным URL (один URL анализируется один раз):",
+        f"    Успешно разобрано: {sum(info['status'] == 'ok' for info in image_results.values())}",
+        f"    Ошибки/недоступны: {sum(info['status'] != 'ok' for info in image_results.values())}",
+    ]
+
+    for label, selected_urls in (("M3U", m3u_urls), ("EPG", epg_urls)):
+        selected = [image_results[url] for url in selected_urls if url in image_results]
+        ok = [info for info in selected if info.get("status") == "ok"]
+        lines.append(f"  {label}: уникальных URL {len(selected_urls)}; успешно {len(ok)}; ошибок {len(selected) - len(ok)}")
+        for key, title in (
+            ("square", "квадратных"), ("landscape", "альбомных"), ("portrait", "портретных"),
+        ):
+            lines.append(f"    {title}: {sum(info.get('shape') == key for info in ok)}")
+        lines.append(f"    прозрачных: {sum(info.get('transparency') == 'yes' for info in ok)}")
+        lines.append(f"    непрозрачных: {sum(info.get('transparency') == 'no' for info in ok)}")
+        lines.append(f"    чёрный фон (эвристика): {sum(info.get('black_background') == 'yes' for info in ok)}")
+        lines.append(f"    фон не определён: {sum(info.get('black_background') == 'indeterminate' for info in ok)}")
+
+    owner_counts = defaultdict(int)
+    for source in channel_icon_sources.values():
+        owner_counts[source] += 1
+    lines.append("  Каналов, чьи EPG-логотипы впервые предоставил источник:")
+    for source, _ in SOURCES:
+        lines.append(f"    {source}: {owner_counts.get(source, 0)}")
+
+    for label, prefix in (("M3U", "m3u"), ("EPG", "epg")):
+        records = [
+            item for item in per_channel.values()
+            if item[f"{prefix}_logo_present"]
+        ]
+        lines.append(
+            f"  {label} по каналам (повторные URL учитываются для каждого канала): "
+            f"прозрачных {sum(item[f'{prefix}_logo_transparency'] == 'yes' for item in records)}, "
+            f"чёрный фон {sum(item[f'{prefix}_logo_black_background'] == 'yes' for item in records)}, "
+            f"квадратных {sum(item[f'{prefix}_logo_shape'] == 'square' for item in records)}, "
+            f"альбомных {sum(item[f'{prefix}_logo_shape'] == 'landscape' for item in records)}, "
+            f"портретных {sum(item[f'{prefix}_logo_shape'] == 'portrait' for item in records)}"
+        )
+
+    return per_channel, lines
+
+
 def write_diagnostic_csv(filename, rows, fieldnames):
     path = OUTPUT_DIR / filename
     with path.open("w", encoding="utf-8-sig", newline="") as file:
@@ -1274,6 +1540,7 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
         for item in global_programmes.values()
     }
     rows = []
+    candidate_playlist_indexes = set()
 
     for playlist_index, channel in enumerate(channels):
         if playlist_index in covered:
@@ -1312,6 +1579,7 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
             found[key] = True
 
         if found:
+            candidate_playlist_indexes.add(playlist_index)
             for source, xml_id, xml_names, rule in sorted(found):
                 rows.append({
                     "playlist_index": playlist_index,
@@ -1341,10 +1609,7 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
         "xml_channel_id", "xml_display_names",
     ]
     write_diagnostic_csv("uncovered_channel_candidates.csv", rows, fieldnames)
-    return len(rows), sum(
-        1 for row in rows
-        if row["candidate_status"] == "candidate_with_programmes"
-    )
+    return len(channels) - len(covered), len(candidate_playlist_indexes)
 
 
 def write_diagnostic_csv_gzip(filename, rows, fieldnames):
@@ -1697,6 +1962,7 @@ def main():
 
     global_programmes = {}
     channel_icons = {}
+    channel_icon_sources = {}
     exact_programmes_seen = {}
     merge_diagnostics = defaultdict(int)
     merge_collision_details = []
@@ -1721,6 +1987,7 @@ def main():
             period_end,
             global_programmes,
             channel_icons,
+            channel_icon_sources,
             exact_programmes_seen,
             merge_diagnostics,
             merge_collision_details,
@@ -1733,12 +2000,11 @@ def main():
         all_stats.append(stats)
 
     write_coverage_report(all_stats)
-    write_channel_report(channels, global_programmes)
     uncovered_rows, uncovered_with_candidates = write_uncovered_channel_candidates(
         channels, global_programmes, mapping_rule_details
     )
     log(
-        f"Каналов без EPG: {uncovered_rows}; "
+        f"Уникальных каналов без EPG: {uncovered_rows}; "
         f"с кандидатами из источников, где есть передачи: {uncovered_with_candidates}"
     )
     write_diagnostic_csv("merge_collision_details.csv", merge_collision_details, ["source", "playlist_channel", "playlist_index", "start", "existing_xml_channel_id", "incoming_xml_channel_id", "xml_channel_id_relation", "existing_title_chars", "incoming_title_chars", "existing_desc_chars", "incoming_desc_chars"])
@@ -1773,6 +2039,10 @@ def main():
             "all_candidate_indexes", "all_candidate_names",
         ],
     )
+    logo_diagnostics, logo_report_lines = analyze_channel_logos(
+        channels, channel_icons, channel_icon_sources
+    )
+    write_channel_report(channels, global_programmes, logo_diagnostics)
     xml_sizes = write_combined_xml(channels, global_programmes, channel_icons)
     diagnostics = write_epg_diagnostics(
         channels,
@@ -1784,6 +2054,8 @@ def main():
         exact_programmes_seen,
         merge_diagnostics,
     )
+    with (OUTPUT_DIR / "epg_diagnostics.txt").open("a", encoding="utf-8") as report:
+        report.write("\n".join(logo_report_lines) + "\n")
 
     covered_channels = {
         programme["channel_index"]
