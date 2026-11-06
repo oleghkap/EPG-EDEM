@@ -990,22 +990,85 @@ def write_combined_xml(channels, global_programmes, channel_icons):
 
 
 def write_epg_diagnostics(channels, global_programmes, period_start, period_end, xml_sizes, exact_programmes_seen):
-    """Сводная диагностика объёма XMLTV и распределения передач по дням."""
+    """Сводная диагностика объёма XMLTV, описаний и распределения передач."""
     programmes = list(global_programmes.values())
 
     title_bytes = sum(
         len((item.get("title") or "").encode("utf-8"))
         for item in programmes
     )
-    description_bytes = sum(
-        len((item.get("description") or "").encode("utf-8"))
-        for item in programmes
-    )
+    descriptions = [(item.get("description") or "") for item in programmes]
+    description_bytes = sum(len(value.encode("utf-8")) for value in descriptions)
+    description_chars = sum(len(value) for value in descriptions)
     category_bytes = sum(
         len((category or "").encode("utf-8"))
         for item in programmes
         for category in item.get("categories", [])
     )
+
+    nonempty_descriptions = [value for value in descriptions if value]
+    description_lengths_chars = [len(value) for value in nonempty_descriptions]
+    description_lengths_bytes = [
+        len(value.encode("utf-8")) for value in nonempty_descriptions
+    ]
+
+    def percentile(values, percent):
+        """Линейный процентиль; возвращает 0 для пустого набора."""
+        if not values:
+            return 0
+        ordered = sorted(values)
+        position = (len(ordered) - 1) * percent / 100
+        lower = int(position)
+        upper = min(lower + 1, len(ordered) - 1)
+        fraction = position - lower
+        return round(ordered[lower] * (1 - fraction) + ordered[upper] * fraction)
+
+    description_percentiles = {
+        percent: percentile(description_lengths_bytes, percent)
+        for percent in (50, 75, 90, 95, 99, 100)
+    }
+
+    # Распределение непустых описаний по длине в UTF-8 байтах.
+    description_buckets = [
+        ("1–256 байт", 1, 256),
+        ("257–512 байт", 257, 512),
+        ("513–1024 байта", 513, 1024),
+        ("1025–2048 байт", 1025, 2048),
+        ("2049–4096 байт", 2049, 4096),
+        ("более 4096 байт", 4097, None),
+    ]
+    bucket_counts = {}
+    for label, lower, upper in description_buckets:
+        bucket_counts[label] = sum(
+            1 for length in description_lengths_bytes
+            if length >= lower and (upper is None or length <= upper)
+        )
+
+    # Оценка экономии при ограничении по символам. Срез строки безопасен
+    # для UTF-8: он не разрезает многобайтовый символ.
+    truncation_savings = {}
+    for limit in (500, 750, 1000):
+        saved = sum(
+            len(value.encode("utf-8")) - len(value[:limit].encode("utf-8"))
+            for value in nonempty_descriptions
+            if len(value) > limit
+        )
+        truncation_savings[limit] = saved
+
+    # Десять самых длинных описаний: сами тексты описаний в отчёт не попадают.
+    longest_descriptions = sorted(
+        (
+            (
+                len((item.get("description") or "")),
+                len((item.get("description") or "").encode("utf-8")),
+                item.get("channel_index", -1),
+                item.get("title") or "",
+            )
+            for item in programmes
+            if item.get("description")
+        ),
+        reverse=True,
+    )[:10]
 
     exact_duplicate_count = sum(
         count - 1 for count in exact_programmes_seen.values() if count > 1
@@ -1055,12 +1118,57 @@ def write_epg_diagnostics(channels, global_programmes, period_start, period_end,
         f"  category: {category_bytes:,} байт ({category_bytes / 1024 / 1024:.2f} MiB)",
         f"  Всего текста: {title_bytes + description_bytes + category_bytes:,} байт",
         "",
+        "ДЕТАЛИЗАЦИЯ ОПИСАНИЙ DESC",
+        f"  Всего передач: {len(descriptions)}",
+        f"  С непустым desc: {len(nonempty_descriptions)}",
+        f"  С пустым desc: {len(descriptions) - len(nonempty_descriptions)}",
+        f"  Всего символов: {description_chars:,}",
+        f"  Всего UTF-8 байт: {description_bytes:,}",
+    ]
+
+    lines.append("  Процентили длины непустого desc (UTF-8 байты):")
+    lines.extend(
+        f"    P{percent}: {value:,} байт"
+        for percent, value in description_percentiles.items()
+    )
+
+    lines.append("  Распределение непустых описаний по длине:")
+    lines.extend(
+        f"    {label}: {bucket_counts[label]:,}"
+        for label, _, _ in description_buckets
+    )
+
+    lines.append("  Оценка экономии при ограничении длины (по символам):")
+    for limit, saved in truncation_savings.items():
+        share = (saved / description_bytes * 100) if description_bytes else 0
+        lines.append(
+            f"    До {limit} символов: {saved:,} байт "
+            f"({saved / 1024 / 1024:.2f} MiB; {share:.1f}% объёма desc)"
+        )
+    lines.extend([
+        "    Примечание: это оценка экономии UTF-8 текста до XML-экранирования и GZIP.",
+        "  10 самых длинных описаний (текст desc не выводится):",
+    ])
+    for chars, byte_count, channel_index, title in longest_descriptions:
+        channel_name = (
+            channels[channel_index].get("title", "")
+            if 0 <= channel_index < len(channels)
+            else "неизвестный канал"
+        )
+        safe_title = " ".join(title.split())[:80]
+        lines.append(
+            f"    {byte_count:,} байт / {chars:,} симв. | "
+            f"{channel_name} | {safe_title}"
+        )
+
+    lines.extend([
+        "",
         "Точные дубликаты programme по каналу, времени и полному содержимому:",
         f"  Повторных записей в источниках: {exact_duplicate_count}",
         f"  Групп дубликатов: {exact_duplicate_groups}",
         "",
         "Передач по календарным дням (по пересечению интервала):",
-    ]
+    ])
 
     lines.extend(
         f"  {date}: {count}"
@@ -1074,6 +1182,12 @@ def write_epg_diagnostics(channels, global_programmes, period_start, period_end,
         "programmes": len(programmes),
         "title_bytes": title_bytes,
         "description_bytes": description_bytes,
+        "description_chars": description_chars,
+        "nonempty_descriptions": len(nonempty_descriptions),
+        "empty_descriptions": len(descriptions) - len(nonempty_descriptions),
+        "description_percentiles": description_percentiles,
+        "description_buckets": bucket_counts,
+        "truncation_savings": truncation_savings,
         "category_bytes": category_bytes,
         "exact_duplicate_count": exact_duplicate_count,
         "daily_counts": daily_counts,
@@ -1167,6 +1281,11 @@ def main():
     log(f"Размер GZIP: {diagnostics['gzip_bytes'] / 1024 / 1024:.2f} MiB")
     log(f"Объём title: {diagnostics['title_bytes'] / 1024 / 1024:.2f} MiB")
     log(f"Объём desc: {diagnostics['description_bytes'] / 1024 / 1024:.2f} MiB")
+    log(f"Непустых desc: {diagnostics['nonempty_descriptions']}; пустых: {diagnostics['empty_descriptions']}")
+    for percent, value in diagnostics["description_percentiles"].items():
+        log(f"  P{percent} длины desc: {value} байт")
+    for limit, saved in diagnostics["truncation_savings"].items():
+        log(f"  Экономия при ограничении desc до {limit} символов: {saved / 1024 / 1024:.2f} MiB")
     log(f"Объём category: {diagnostics['category_bytes'] / 1024 / 1024:.2f} MiB")
     log(f"Точных дубликатов в источниках: {diagnostics['exact_duplicate_count']}")
     for date, count in diagnostics["daily_counts"].items():
