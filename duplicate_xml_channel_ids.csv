@@ -37,16 +37,16 @@ Satfor,bcu_kinop1,2,BCU Premiere 1 HDR | BCU Кинозал PREMIERE 1 HD,BCU К
 Satfor,bcu_prem_hdr_2,2,BCU Premiere 2 HDR | BCU Кинозал PREMIERE 2 HD,BCU Кинозал Premiere 2 HD,664
 Satfor,bcu_prem_hdr_3,2,BCU Premiere 3 HDR | BCU Кинозал PREMIERE 3 HD,BCU Кинозал Premiere 3 HD,665
 Satfor,bcu_premiere,2,BCU Premiere HD | BCU Premiere HDR,BCU Premiere HD,677
-Satfor,static-2,17,CineMan ExExEx | CineMan ExExEx 2 | EroXXX | Erox HD | Evil Angel | KinoXXX | MÖDO Honey Twins | OLERO Fake Hostel | Pornbox 1 | Pornbox 2 | Sexy 1 | Sexy 2 | Sexy 3 | Sexy 4 | Tushy | Z!Adult TV | Эротические клипы для взрослых,Erox HD | KinoXXX | Tushy | CineMan ExExEx,2413 | 2420 | 2494 | 2512
-Satfor,enter-film,2,Enter-фільм | Enter-фільм HD,,
+Satfor,static-2,17,CineMan ExExEx | CineMan ExExEx 2 | EroXXX | Erox HD | Evil Angel | KinoXXX | MÖDO Honey Twins | OLERO Fake Hostel | Pornbox 1 | Pornbox 2 | Sexy 1 | Sexy 2 | Sexy 3 | Sexy 4 | Tushy | Z!Adult TV | Эротические клипы для взрослых,Eroxxx HD | Evil Angel HD | Erox HD | KinoXXX | Tushy | CineMan ExExEx,2282 | 2330 | 2413 | 2420 | 2494 | 2512
+Satfor,enter-film,2,Enter-фільм | Enter-фільм HD,Enter-фільм HD UA,2808
 Satfor,fanhd,2,FAN | FAN HD,FAN HD | FAN,417 | 494
-Satfor,static-13,2,Fresh Concerts | Концерты популярных исполнителей,,
-Satfor,static-1,10,Fresh Dance | Fresh PopHits | Fresh Retro | Fresh RussianPop | Liberty МиксМузыка | MM World Hits HD | MÖDO Top Music | SKY HIGH Music HD Ai | Z!Musiс HD | Музыкальные клипы нон-стоп,MM World Hits HD,751
-Satfor,static-15,2,Fresh Lyrics | Лирическая музыка,,
-Satfor,static-12,2,Fresh Rock Covers | Музыкальные клипы с хитами рока и металла.,,
+Satfor,static-13,2,Fresh Concerts | Концерты популярных исполнителей,FRESH Concerts HD,1673
+Satfor,static-1,10,Fresh Dance | Fresh PopHits | Fresh Retro | Fresh RussianPop | Liberty МиксМузыка | MM World Hits HD | MÖDO Top Music | SKY HIGH Music HD Ai | Z!Musiс HD | Музыкальные клипы нон-стоп,MM World Hits HD | FRESH Dance HD | FRESH Retro HD,751 | 1669 | 1674
+Satfor,static-15,2,Fresh Lyrics | Лирическая музыка,FRESH Lyrics HD,1675
+Satfor,static-12,2,Fresh Rock Covers | Музыкальные клипы с хитами рока и металла.,FRESH Rock Covers HD,1671
 Satfor,static-8,4,Fresh RockHits | MM Rock HD | Z!Rock HD | Клипы в стиле Rock,MM Rock HD | Z!Rock HD,743 | 1620
 Satfor,static-22,2,Fresh RussianRap | Музыкальные клипы российского рэпа,,
-Satfor,static-14,2,Fresh Sad Music | Спокойная музыка для релакса,,
+Satfor,static-14,2,Fresh Sad Music | Спокойная музыка для релакса,FRESH Sad Music HD,1668
 Satfor,1TV Sport,2,GE: 1 TV | GE: 1TV Sport,,
 Satfor,static-55,2,GL Naked&Funny | Голые и смешные,,
 Satfor,ictv-ua,2,ICTV | ICTV HD,,
@@ -65,7 +65,7 @@ Satfor,star-family,2,LAT: Star Family | Star Family HD,,
 Satfor,history-viasat-en,2,LAT: Viasat History | Viasat History CEE,,
 Satfor,balticum-tv,2,LIT: Balticum | LIT: Balticum TV,,
 Satfor,LIBERTYKINOMIKS4K,2,Liberty Кино UKR 4K | Liberty Кино-микс 4K,Liberty Кино Микс 4K | Liberty Кино UKR 4K,915 | 924
-Satfor,static-56,2,Liberty Эротика,,
+Satfor,static-56,2,Liberty Эротика,Liberty Эротика FHD,2505
 Satfor,static-28,2,MM Disney HD | Лучшие мультфильмы Disney,,
 Satfor,static-48,2,MÖDO Music 2021 | Музыкальные клипы 2021,,
 Satfor,static-49,2,MÖDO Music 2022 | Музыкальные клипы 2022,,
@@ -82,7 +82,7 @@ Satfor,static-4,2,SKY HIGH Lo-Fi HD | Музыка для наслаждения
 Satfor,tet-ua,2,TET | TET HD,,
 Satfor,terra-ru,2,Terra | Terra HD,TERRA HD | TERRA,1899 | 1900
 Satfor,travel-adventure,2,Travel+Adventure | Travel+Adventure HD,Travel+Adventure,1955
-Satfor,sky-sports-f1,2,UK: Sky Sports F1 | UK: Sky Sports F1 4K,,
+Satfor,sky-sports-f1,2,UK: Sky Sports F1 | UK: Sky Sports F1 4K,Sky Sports F1 UHD UK,1183
 Satfor,Z_Smile,2,Z!Smile HD,Z! Smile HD,850
 Satfor,viasat-explore,2,viju Explore | viju Explore HD,Viju Explore | Viju Explore HD,1939 | 1991
 Satfor,viasat-history,2,viju History | viju History HD,Viju History HD | Viju History,1904 | 1938
@@ -92,7 +92,7 @@ Satfor,tv1000-action,2,viju TV1000 Action | viju TV1000 Action HD,Viju TV1000 Ac
 Satfor,tv1000-russkoe-kino,2,viju TV1000 Русское | viju TV1000 Русское HD,Viju TV1000 Русское | Viju TV1000 Русское HD,460 | 524
 Satfor,viasat-sport,2,viju+ Sport | viju+ Sport HD,Viju+ Sport HD | Viju+ Sport,1314 | 1328
 Satfor,avto24,2,Авто 24 | Авто 24 HD,Авто 24 HD | Авто 24,1843 | 1989
-Satfor,static-44,2,Актуальные события и новости из стран Азии и Росси | Большая Азия,,
+Satfor,static-44,2,Актуальные события и новости из стран Азии и Росси | Большая Азия,Большая Азия HD,1923
 Satfor,detsky,2,Детский HD | Детский мир,Детский мир | Детский HD,1735 | 1774
 Satfor,domashny,2,Домашний | Домашний HD,Домашний | Домашний HD,76 | 125
 Satfor,evrokino,2,Еврокино | Еврокино HD,Еврокино,474
@@ -136,7 +136,7 @@ Satfor,tnt4,2,ТНТ4 | ТНТ4 HD,ТНТ4 | ТНТ4 HD,83 | 2124
 Satfor,galaxy-tv,2,Тайны Галактики (Galaxy) HD | Тайны галактики (Galaxy),,
 M3U Edit ALL,Newsmax.us,2,Newsmax,,
 M3U Edit ALL,ESPN.br,2,ESPN,,
-M3U Edit ALL,ESPN.2.br,2,ESPN 2,,
+M3U Edit ALL,ESPN.2.br,2,ESPN 2,ESPN 2 HD NL,1455
 M3U Edit ALL,ESPN.5.br,2,ESPN 5,,
 M3U Edit ALL,HBO.br,2,HBO,,
 M3U Edit ALL,CNBC.TV18.Prime.in,2,CNBC TV18 Prime,,
@@ -170,7 +170,7 @@ M3U Edit ALL,Aastha.Telugu.in,2,Aastha Telugu,,
 M3U Edit ALL,Aastha.Gujarati.in,2,Aastha Gujarati,,
 M3U Edit ALL,Aastha.Kannada.in,2,Aastha Kannada,,
 M3U Edit ALL,Calcutta.News.in,2,Calcutta News,,
-M3U Edit ALL,Eurosport.in,2,Eurosport,,
+M3U Edit ALL,Eurosport.in,2,Eurosport,Eurosport 4K,1180
 M3U Edit ALL,SVBC.in,2,SVBC,,
 M3U Edit ALL,News.Tamil.24x7.in,2,News Tamil 24x7,,
 M3U Edit ALL,Star.Sports.Khel.in,2,Star Sports Khel,,
@@ -223,9 +223,9 @@ M3U Edit ALL,plex.tv.Victory+.plex,2,Victory+,,
 M3U Edit ALL,National.TV.ro,2,National TV,,
 M3U Edit ALL,TVR.Cultural.ro,2,TVR Cultural,,
 M3U Edit ALL,Duck.TV.ro,2,Duck TV,Duck TV,1747
-M3U Edit ALL,Nicktoons.ro,2,Nicktoons,,
+M3U Edit ALL,Nicktoons.ro,2,Nicktoons,NickToons HD,1752
 M3U Edit ALL,AXN.Spin.ro,2,AXN Spin,,
-M3U Edit ALL,Duck.TV.HD.ro,2,Duck TV HD,,
+M3U Edit ALL,Duck.TV.HD.ro,2,Duck TV HD,Duck TV,1747
 M3U Edit ALL,Nickelodeon.ro,2,Nickelodeon,Nickelodeon,1734
 M3U Edit ALL,Diva.ro,2,Diva,,
 M3U Edit ALL,Disney.Channel.ro,2,Disney Channel,,
@@ -299,7 +299,7 @@ M3U Edit ALL,NATIONAL.GEOGRAPHIC.HD.tr,2,NATIONAL GEOGRAPHIC HD,National Geograp
 M3U Edit ALL,VIASAT.EXPLORE.tr,2,VIASAT EXPLORE,,
 M3U Edit ALL,TV5.MONDE.tr,2,TV5 MONDE,,
 M3U Edit ALL,TRT.SPOR.HD.tr,2,TRT SPOR HD,TRT SPOR HD,1413
-M3U Edit ALL,A.SPOR.tr,2,A SPOR,,
+M3U Edit ALL,A.SPOR.tr,2,A SPOR,A SPOR HD,1415
 M3U Edit ALL,EUROSPORT.1.HD.tr,2,EUROSPORT 1 HD,Eurosport 1 HD,1181
 M3U Edit ALL,FX.HD.tr,2,FX HD,FX HD,370
 M3U Edit ALL,TRT.ÇOCUK.tr,2,TRT ÇOCUK,,
