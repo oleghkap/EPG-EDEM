@@ -40,8 +40,8 @@ from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Europe/Moscow")
 
-DAYS_BEFORE = 0
-DAYS_AFTER = 2
+DAYS_BEFORE = 1
+DAYS_AFTER = 1
 
 MAX_PLAYLIST_SIZE = 100 * 1024 * 1024
 MAX_SOURCE_SIZE = 600 * 1024 * 1024
