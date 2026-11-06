@@ -491,6 +491,7 @@ def process_source(
     exact_programmes_seen,
     merge_diagnostics,
     merge_collision_details,
+    merge_text_details,
     duplicate_channel_id_details,
     channel_mapping_details,
 ):
@@ -702,6 +703,32 @@ def process_source(
                                                 "existing_desc_chars": len(existing["description"] or ""),
                                                 "incoming_desc_chars": len(description or ""),
                                             })
+
+                                            # Сохраняем реальные значения только для конфликтов
+                                            # разных XMLTV ID внутри одного источника.
+                                            # На итоговое слияние этот диагностический сбор не влияет.
+                                            if existing_xml_id != channel_id:
+                                                merge_text_details.append({
+                                                    "source": source_name,
+                                                    "playlist_channel": playlist_channels[index]["title"],
+                                                    "playlist_index": index,
+                                                    "start": start_dt.isoformat(),
+                                                    "existing_xml_channel_id": existing_xml_id,
+                                                    "incoming_xml_channel_id": channel_id,
+                                                    "existing_stop": (
+                                                        existing["stop"].isoformat()
+                                                        if existing.get("stop") is not None else ""
+                                                    ),
+                                                    "incoming_stop": (
+                                                        stop_dt.isoformat() if stop_dt is not None else ""
+                                                    ),
+                                                    "existing_title": existing["title"] or "",
+                                                    "incoming_title": title or "",
+                                                    "existing_desc": existing["description"] or "",
+                                                    "incoming_desc": description or "",
+                                                    "existing_categories": " | ".join(existing["categories"]),
+                                                    "incoming_categories": " | ".join(categories),
+                                                })
                                         if title == existing["title"]:
                                             merge_diagnostics["title_same"] += 1
                                         else:
@@ -1107,6 +1134,22 @@ def write_diagnostic_csv(filename, rows, fieldnames):
         writer.writerows(rows)
 
 
+def write_diagnostic_csv_gzip(filename, rows, fieldnames):
+    """Записывает подробную диагностику CSV в GZIP, чтобы не раздувать репозиторий."""
+    path = OUTPUT_DIR / filename
+    with gzip.open(
+        path,
+        "wt",
+        encoding="utf-8-sig",
+        newline="",
+        compresslevel=6,
+    ) as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(rows)
+    return path.stat().st_size
+
+
 def write_epg_diagnostics(
     channels,
     global_programmes,
@@ -1444,6 +1487,7 @@ def main():
     exact_programmes_seen = {}
     merge_diagnostics = defaultdict(int)
     merge_collision_details = []
+    merge_text_details = []
     duplicate_channel_id_details = []
     channel_mapping_details = []
     all_stats = []
@@ -1466,6 +1510,7 @@ def main():
             exact_programmes_seen,
             merge_diagnostics,
             merge_collision_details,
+            merge_text_details,
             duplicate_channel_id_details,
             channel_mapping_details,
         )
@@ -1475,6 +1520,22 @@ def main():
     write_coverage_report(all_stats)
     write_channel_report(channels, global_programmes)
     write_diagnostic_csv("merge_collision_details.csv", merge_collision_details, ["source", "playlist_channel", "playlist_index", "start", "existing_xml_channel_id", "incoming_xml_channel_id", "xml_channel_id_relation", "existing_title_chars", "incoming_title_chars", "existing_desc_chars", "incoming_desc_chars"])
+    detailed_size = write_diagnostic_csv_gzip(
+        "merge_collision_text_details.csv.gz",
+        merge_text_details,
+        [
+            "source", "playlist_channel", "playlist_index", "start",
+            "existing_xml_channel_id", "incoming_xml_channel_id",
+            "existing_stop", "incoming_stop",
+            "existing_title", "incoming_title",
+            "existing_desc", "incoming_desc",
+            "existing_categories", "incoming_categories",
+        ],
+    )
+    log(
+        f"Подробные конфликты разных XMLTV ID: {len(merge_text_details)}; "
+        f"файл GZIP: {detailed_size:,} байт"
+    )
     write_diagnostic_csv("duplicate_xml_channel_ids.csv", duplicate_channel_id_details, ["source", "xml_channel_id", "occurrences", "display_names", "playlist_channels", "playlist_indexes"])
     write_diagnostic_csv("source_channel_mapping_collisions.csv", channel_mapping_details, ["source", "playlist_index", "playlist_channel", "xml_channel_id_count", "xml_channel_ids"])
     xml_sizes = write_combined_xml(channels, global_programmes, channel_icons)
@@ -1527,6 +1588,7 @@ def main():
     log("  channels_test.txt")
     log("  playlist_duplicates.csv")
     log("  merge_collision_details.csv")
+    log("  merge_collision_text_details.csv.gz")
     log("  duplicate_xml_channel_ids.csv")
     log("  source_channel_mapping_collisions.csv")
     log("  coverage_report.csv")

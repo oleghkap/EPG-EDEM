@@ -49,6 +49,7 @@ jobs:
           git add epg_test_combined.xml.gz
           git add playlist_duplicates.csv
           git add merge_collision_details.csv
+          git add merge_collision_text_details.csv.gz
           git add duplicate_xml_channel_ids.csv
           git add source_channel_mapping_collisions.csv
 
