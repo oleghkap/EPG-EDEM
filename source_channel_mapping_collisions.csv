@@ -1,18 +1,10 @@
 ﻿source,playlist_index,playlist_channel,xml_channel_id_count,xml_channel_ids
-EPG.ONE epg2,1227,Arena Sport 1 RS,2,4563 | 9274
-EPG.ONE epg2,1228,Arena Sport 3 RS,2,4565 | 9275
-EPG.ONE epg2,1230,Arena Sport 4 RS,2,4566 | 9277
-EPG.ONE epg2,1231,Arena Sport 5 RS,2,4567 | 9278
-EPG.ONE epg2,1232,Arena Sport 6 RS,2,4568 | 9279
-EPG.ONE epg2,1233,Arena Sport 7 RS,2,11835 | 9280
 EPG.ONE epg2,1924,DocuBox HD,2,2186 | 3791
-EPG.ONE epg2,1455,ESPN 2 HD NL,2,6509 | 6686
 EPG.ONE epg2,1729,Nickelodeon HD,2,11358 | 423
 EPG.ONE epg2,1734,Nickelodeon,3,3714 | 423 | 4857
-EPG.ONE epg2,1370,Sky Sport F1 FHD DE,2,4656 | 6533
-EPG.ONE epg2,1429,Sky Sport Golf HD IT,2,6560 | 9114
 EPG.ONE epg2,1188,Sport 3 HD,2,2719 | 9297
 EPG.ONE epg2,1748,Baby TV,4,11355 | 2436 | 2701 | 3900
+EPG.ONE epg2,508,Comedy Central,2,3767 | 5682
 EPG.ONE epg2,1181,Eurosport 1 HD,9,11404 | 11437 | 11842 | 2052 | 3734 | 3885 | 4902 | 5883 | 9378
 EPG.ONE epg2,1182,Eurosport 2 HD,9,11406 | 11438 | 11841 | 3554 | 4313 | 4903 | 6544 | 8052 | 9379
 EPG.ONE epg2,1548,MTV HD,6,1021 | 11348 | 3773 | 4473 | 4806 | 8081
@@ -53,11 +45,10 @@ EPG.ONE epg2,1905,History 2 HD,2,2356 | 4888
 EPG.ONE epg2,2542,NBA TV HD US,2,3894 | 4587
 EPG.ONE epg2,1752,NickToons HD,2,2994 | 4858
 EPG.ONE epg2,2681,beIN Sports 4,2,3878 | 9216
-EPG.ONE epg2,1244,Setanta Sports 1 HD KZ,2,6806 | 7238
-EPG.ONE epg2,1245,Setanta Sports 2 HD KZ,2,6805 | 7239
 EPG.ONE epg2,30,Пятый канал +2,2,2035 | 427
 EPG.ONE epg2,48,РЕН ТВ +4,2,18 | 3033
 EPG.ONE epg2,49,РЕН ТВ +7,2,18 | 3034
+EPG.ONE epg2,2865,5 Канал HD,2,2079 | 2643
 IPTVX full,2678,beIN Sports,2,bein-sports-4k | bein-sports-fta
 IPTVX full,429,Блокбастер HD,2,blokbaster | blokbaster-hd
 IPTVX full,2286,Blue Hustler,2,blue-hustler | blue-hustler-ua
@@ -81,14 +72,14 @@ IPTVX full,380,Советская киноклассика HD,2,sov-kinklass | s
 IPTVX full,1901,TLC HD,3,tlc | tlc-blk | tlc-tr
 IPTVX full,37,ТНТ,2,tnt | tnt-kz
 TV.TEAM full,1901,TLC HD,11,ch1020 | ch1411 | ch160 | ch2632 | ch2856 | ch3212 | ch3688 | ch4020 | ch4212 | ch435 | ch941
-TV.TEAM full,1992,HGTV HD,5,ch2198 | ch2361 | ch4215 | ch723 | ch969
+TV.TEAM full,1992,HGTV HD,6,ch2198 | ch2361 | ch4215 | ch723 | ch908 | ch969
 TV.TEAM full,1182,Eurosport 2 HD,9,ch071 | ch1831 | ch2103 | ch2249 | ch2482 | ch2497 | ch287 | ch2993 | ch892
 TV.TEAM full,1906,Discovery Channel HD,7,ch1120 | ch123 | ch1373 | ch164 | ch2983 | ch3351 | ch3647
 TV.TEAM full,1737,Cartoon Network,10,ch081 | ch162 | ch1818 | ch2182 | ch2280 | ch2394 | ch2479 | ch2524 | ch3636 | ch3935
+TV.TEAM full,2867,AMC,5,ch1809 | ch2141 | ch2963 | ch3937 | ch4136
 TV.TEAM full,1903,History HD,7,ch1143 | ch171 | ch2199 | ch2398 | ch3972 | ch432 | ch909
 TV.TEAM full,1902,Travel Channel HD,3,ch1136 | ch4021 | ch445
 TV.TEAM full,1963,Nat Geo Wild HD,6,ch047 | ch1138 | ch1462 | ch176 | ch3006 | ch918
-TV.TEAM full,358,BBC First UK,2,ch2601 | ch864
 TV.TEAM full,1729,Nickelodeon HD,5,ch1937 | ch2530 | ch3009 | ch3669 | ch479
 TV.TEAM full,1912,Animal Planet HD,5,ch124 | ch2624 | ch2932 | ch3073 | ch858
 TV.TEAM full,2535,Food Network,5,ch1363 | ch2357 | ch3967 | ch455 | ch901
@@ -99,12 +90,10 @@ TV.TEAM full,447,Hollywood HD,3,ch2998 | ch3793 | ch525
 TV.TEAM full,1855,National Geographic HD,6,ch125 | ch1346 | ch3424 | ch3667 | ch3980 | ch4118
 TV.TEAM full,1748,Baby TV,4,ch1118 | ch2473 | ch2971 | ch489
 TV.TEAM full,2530,8 Канал HD,2,ch419 | ch611
-TV.TEAM full,1455,ESPN 2 HD NL,2,ch1626 | ch2196
-TV.TEAM full,1449,DAZN 1 PT,2,ch2098 | ch2958
+TV.TEAM full,2865,5 Канал HD,2,ch087 | ch2711
 TV.TEAM full,1734,Nickelodeon,5,ch1854 | ch2401 | ch3191 | ch3207 | ch3982
 TV.TEAM full,2879,FILMBOX+ Festival HD,2,ch684 | ch897
 TV.TEAM full,1752,NickToons HD,6,ch2128 | ch2156 | ch2278 | ch2484 | ch3984 | ch666
-TV.TEAM full,1432,Sky Sport Tennis HD IT,2,ch1877 | ch2424
 TV.TEAM full,1741,Cartoonito,8,ch1349 | ch161 | ch1816 | ch2351 | ch2529 | ch3637 | ch3936 | ch486
 TV.TEAM full,2681,beIN Sports 4,2,ch1448 | ch230
 TV.TEAM full,1245,Setanta Sports 2 HD KZ,2,ch2035 | ch477
@@ -115,8 +104,6 @@ TV.TEAM full,1548,MTV HD,5,ch238 | ch2400 | ch2618 | ch3432 | ch3664
 TV.TEAM full,2845,Viasat Kino HD,2,ch3081 | ch3218
 TV.TEAM full,647,CineMan,2,ch1030 | ch1478
 TV.TEAM full,2874,Da Vinci HD,2,ch2176 | ch2480
-TV.TEAM full,2867,AMC,2,ch1809 | ch3937
-TV.TEAM full,2542,NBA TV HD US,3,ch1196 | ch1395 | ch725
 TV.TEAM full,88,360 HD,2,ch1353 | ch516
 TV.TEAM full,315,Россия 24,2,ch007 | ch2589
 TV.TEAM full,1852,TravelXP 4K,2,ch3726 | ch613
@@ -124,11 +111,10 @@ TV.TEAM full,1524,MTV 00s,2,ch2619 | ch3918
 TV.TEAM full,1641,Trace Urban HD,3,ch3690 | ch402 | ch4146
 TV.TEAM full,448,Bollywood HD,2,ch2616 | ch326
 TV.TEAM full,1929,Investigation Discovery HD,3,ch2464 | ch434 | ch876
+TV.TEAM full,508,Comedy Central,5,ch1006 | ch2393 | ch2461 | ch2977 | ch3645
 TV.TEAM full,2843,Viasat Kino Action HD,2,ch3079 | ch3216
 TV.TEAM full,2844,Viasat Kino Comedy HD,2,ch3080 | ch3217
 TV.TEAM full,2682,beIN Sports 5,2,ch1461 | ch231
-TV.TEAM full,508,Comedy Central,2,ch1006 | ch2393
-TV.TEAM full,1429,Sky Sport Golf HD IT,2,ch1875 | ch2421
 TV.TEAM full,1913,Animal Planet,2,ch1810 | ch3938
 ProgramTV,1955,Travel+Adventure,2,1035 | 996
 TopIPTV,1182,Eurosport 2 HD,2,Eurosport 2 | Eurosport 2 HD
@@ -221,11 +207,12 @@ FOX TV,1907,Discovery Channel,3,12:ch3196 | 1:1185 | 9:Discovery Channel
 FOX TV,394,FilmZone HD LV,2,12:ch3200 | 1:2060
 FOX TV,1734,Nickelodeon,2,12:ch3207 | 8:Nickelodeon LT
 FOX TV,1752,NickToons HD,3,12:ch2128 | 8:Nicktoons DE | 8:Nicktoons LT
+FOX TV,1901,TLC HD,5,12:ch3212 | 1:1311 | 1:1943 | 5:ch2632 | 9:TLC
 FOX TV,1913,Animal Planet,3,1:38 | 5:ch2624 | 9:Animal Planet
 FOX TV,1906,Discovery Channel HD,3,1:1185 | 1:1322 | 7:2689
 FOX TV,1903,History HD,3,1:129 | 1:1326 | 7:4014
-FOX TV,1901,TLC HD,2,1:1311 | 1:1943
 FOX TV,1182,Eurosport 2 HD,4,1:98 | 2:eurosport2-pl | 7:4903 | 8:Eurosport 2 DE
+FOX TV,1992,HGTV HD,2,1:2156 | 9:HGTV
 FOX TV,1748,Baby TV,2,1:1549 | 2:baby-tv
 FOX TV,1963,Nat Geo Wild HD,2,1:1205 | 8:Nat Geo Wild HD DE
 FOX TV,1910,Nat Geo Wild,2,1:2020 | 9:National Geographic Wild
@@ -241,8 +228,6 @@ Satfor,1907,Discovery Channel,2,disc_ua | discovery-channel
 Satfor,1306,Eurosport 1,3,eurosport-4k | eurosport1 | eurosport1-pl
 Satfor,2679,beIN Sports 2,2,beinsport2_tr | beinsports2.fr
 Satfor,1564,Mezzo Live HD,2,mezzo | mezzo_fr
-Satfor,1244,Setanta Sports 1 HD KZ,2,SetantaSports1.ge | setanta-sports
-Satfor,1245,Setanta Sports 2 HD KZ,2,SetantaSports2.ge | setanta-sports-plus
 Satfor,1905,History 2 HD,2,h2 | history_2_ua
 Satfor,788,MM Синематограф HD,2,sinematograf-mm | ues-krejven-hd-minimax
 Satfor,1849,National Geographic,2,NationalGeographicPoland.pl | national-geographic
@@ -400,7 +385,6 @@ M3U Edit ALL,1716,Kids TV HD,2,Kids.TV.HD.id | Kids.TV.id
 M3U Edit ALL,1906,Discovery Channel HD,10,DISCOVERY.CHANNEL.HD.ph | DISCOVERY.CHANNEL.HD.tr | Discovery.Channel.(HD).sg | Discovery.Channel.HD.id | Discovery.Channel.HD.my | Discovery.Channel.HD.ng | Discovery.Channel.HD.pl | Discovery.Channel.HD.sk | Discovery.Channel.HD.us2 | Discovery.Channel.HD.za
 M3U Edit ALL,1140,Sky Sports Tennis HD 50 UK,2,Sky.Sports.Tennis.HD.ie | Sky.Sports.Tennis.ie
 M3U Edit ALL,1407,TNT Sports 4 HD UK,3,TNT.Sports.4.HD.ie | TNT.Sports.4.HD.uk | TNT.Sports.4.ie
-M3U Edit ALL,394,FilmZone HD LV,2,Filmzone.HD.lv | Filmzone.LT.lt
 M3U Edit ALL,2283,Playboy,3,PLAYBOY..uy | Playboy.HD.us2 | Playboy.lt
 M3U Edit ALL,2843,Viasat Kino Action HD,2,Viasat.Kino.Action.lt | Viasat.Kino.Action.lv
 M3U Edit ALL,2844,Viasat Kino Comedy HD,2,Viasat.Kino.Comedy.HD.lv | Viasat.Kino.Comedy.lt
