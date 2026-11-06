@@ -1425,7 +1425,7 @@ def analyze_channel_logos(channels, channel_icons, channel_icon_sources):
         m3u_url = channel.get("tvg_logo", "")
         epg_url = channel_icons.get(index, "")
         m3u_info = image_results.get(m3u_url, {})
-        epg_info = image_results.get(epg_url, "")
+        epg_info = image_results.get(epg_url, {})
         if m3u_url and epg_url:
             comparison = "both"
         elif m3u_url:
