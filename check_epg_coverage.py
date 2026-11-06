@@ -40,8 +40,8 @@ from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Europe/Moscow")
 
-DAYS_BEFORE = 2
-DAYS_AFTER = 1
+DAYS_BEFORE = 0
+DAYS_AFTER = 2
 
 MAX_PLAYLIST_SIZE = 100 * 1024 * 1024
 MAX_SOURCE_SIZE = 600 * 1024 * 1024
@@ -908,7 +908,7 @@ def write_combined_xml(channels, global_programmes, channel_icons):
 
     # Пишем XML потоково: не создаём гигантское дерево из сотен тысяч
     # programme-элементов и не держим одновременно весь XML в памяти.
-    with gzip.open(path, "wb", compresslevel=9) as file:
+    with gzip.open(path, "wb", compresslevel=6) as file:
         file.write(b'<?xml version="1.0" encoding="utf-8"?>\n<tv generator-info-name="EPG-EDEM Coverage Test">')
 
         for index, channel in enumerate(channels):
@@ -977,6 +977,7 @@ def main():
 
     log(f"Московское начало периода: {period_start}")
     log(f"Московский конец периода:  {period_end}")
+    log(f"Количество календарных дней: {(period_end.date() - period_start.date()).days}")
     log(f"Количество источников: {len(SOURCES)}")
     log()
 
