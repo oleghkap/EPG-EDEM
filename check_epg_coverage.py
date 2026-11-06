@@ -489,12 +489,14 @@ def process_source(
     global_programmes,
     channel_icons,
     exact_programmes_seen,
+    merge_diagnostics,
 ):
     stats = {
         "source": source_name,
         "status": "ERROR",
         "error": "",
         "xml_channels": 0,
+        "duplicate_xml_channel_ids": 0,
         "xml_channels_with_programmes": 0,
         "matched_playlist_channels": 0,
         "channels_with_programmes": 0,
@@ -516,6 +518,7 @@ def process_source(
     # Один XMLTV ID может соответствовать нескольким записям плейлиста.
     mapped = {}
     source_channels_with_programmes = set()
+    source_channel_ids = set()
     channels_with_programmes = set()
     source_programmes = {}
 
@@ -542,6 +545,10 @@ def process_source(
                 if tag == "channel":
                     stats["xml_channels"] += 1
                     channel_id = elem.attrib.get("id", "").strip()
+                    if channel_id:
+                        if channel_id in source_channel_ids:
+                            stats["duplicate_xml_channel_ids"] += 1
+                        source_channel_ids.add(channel_id)
                     display_names = [
                         "".join(item.itertext()).strip()
                         for item in elem
@@ -666,6 +673,28 @@ def process_source(
 
                                     if existing is not None:
                                         stats["duplicates_skipped"] += 1
+                                        merge_diagnostics["identity_collisions"] += 1
+                                        merge_diagnostics["same_source_collisions" if existing["source"] == source_name else "cross_source_collisions"] += 1
+                                        if title == existing["title"]:
+                                            merge_diagnostics["title_same"] += 1
+                                        else:
+                                            merge_diagnostics["title_different"] += 1
+                                        if description and existing["description"]:
+                                            if description == existing["description"]:
+                                                merge_diagnostics["desc_same_nonempty"] += 1
+                                            else:
+                                                merge_diagnostics["desc_different_nonempty"] += 1
+                                        elif description and not existing["description"]:
+                                            merge_diagnostics["desc_filled_from_later_source"] += 1
+                                        elif not description and existing["description"]:
+                                            merge_diagnostics["incoming_desc_empty"] += 1
+                                        existing_categories = set(existing["categories"])
+                                        incoming_categories = set(categories)
+                                        if existing_categories == incoming_categories:
+                                            merge_diagnostics["categories_same_set"] += 1
+                                        else:
+                                            merge_diagnostics["categories_different_set"] += 1
+                                        merge_diagnostics["new_categories_added"] += len(incoming_categories - existing_categories)
                                         # Не теряем описание и категории, если
                                         # приоритетный источник их не предоставил.
                                         if not existing["description"] and description:
@@ -845,6 +874,7 @@ def write_coverage_report(stats_list):
         "status",
         "error",
         "xml_channels",
+        "duplicate_xml_channel_ids",
         "xml_channels_with_programmes",
         "matched_playlist_channels",
         "channels_with_programmes",
@@ -1007,6 +1037,7 @@ def write_epg_diagnostics(
     period_end,
     xml_sizes,
     exact_programmes_seen,
+    merge_diagnostics,
 ):
     """Сводная диагностика объёма XMLTV, описаний и распределения передач."""
     programmes = list(global_programmes.values())
@@ -1093,6 +1124,43 @@ def write_epg_diagnostics(
     )
     exact_duplicate_groups = sum(
         1 for count in exact_programmes_seen.values() if count > 1
+    )
+
+    def duplicate_value_stats(values):
+        counts = defaultdict(int)
+        channel_sets = defaultdict(set)
+        for channel_index, value in values:
+            if value:
+                counts[value] += 1
+                channel_sets[value].add(channel_index)
+        repeated_groups = {value: count for value, count in counts.items() if count > 1}
+        return {
+            "groups": len(repeated_groups),
+            "extra_occurrences": sum(count - 1 for count in repeated_groups.values()),
+            "items_in_repeated_groups": sum(repeated_groups.values()),
+            "repeated_on_same_channel_groups": sum(
+                1 for value in repeated_groups if len(channel_sets[value]) == 1
+            ),
+            "repeated_across_channels_groups": sum(
+                1 for value in repeated_groups if len(channel_sets[value]) > 1
+            ),
+        }
+
+    title_duplicates = duplicate_value_stats(
+        [(item["channel_index"], item.get("title", "")) for item in programmes]
+    )
+    desc_duplicates = duplicate_value_stats(
+        [(item["channel_index"], item.get("description", "")) for item in programmes]
+    )
+    category_values = [
+        (item["channel_index"], category)
+        for item in programmes
+        for category in item.get("categories", [])
+    ]
+    category_duplicates = duplicate_value_stats(category_values)
+    duplicate_categories_within_programme = sum(
+        len(item.get("categories", [])) - len(set(item.get("categories", [])))
+        for item in programmes
     )
 
     # Передача учитывается в каждом календарном дне, с которым пересекается
@@ -1208,6 +1276,23 @@ def write_epg_diagnostics(
 
     lines.extend([
         "",
+        "ПОВТОРЫ ПОЛЕЙ В ИТОГОВОМ EPG (непустые значения, точное совпадение):",
+        f"  title: групп {title_duplicates['groups']}, повторных вхождений {title_duplicates['extra_occurrences']}, групп только на одном канале {title_duplicates['repeated_on_same_channel_groups']}, на разных каналах {title_duplicates['repeated_across_channels_groups']}",
+        f"  desc: групп {desc_duplicates['groups']}, повторных вхождений {desc_duplicates['extra_occurrences']}, групп только на одном канале {desc_duplicates['repeated_on_same_channel_groups']}, на разных каналах {desc_duplicates['repeated_across_channels_groups']}",
+        f"  category: групп {category_duplicates['groups']}, повторных вхождений {category_duplicates['extra_occurrences']}, групп только на одном канале {category_duplicates['repeated_on_same_channel_groups']}, на разных каналах {category_duplicates['repeated_across_channels_groups']}",
+        f"  Повторяющихся category внутри одной передачи: {duplicate_categories_within_programme}",
+        "",
+        "СОВПАДЕНИЯ ПРИ СЛИЯНИИ ИСТОЧНИКОВ ДЛЯ ОДНОГО КАНАЛА И ВРЕМЕНИ:",
+        f"  Всего совпадений identity: {merge_diagnostics['identity_collisions']}",
+        f"  Между разными источниками: {merge_diagnostics['cross_source_collisions']}",
+        f"  Внутри одного источника: {merge_diagnostics['same_source_collisions']}",
+        f"  Одинаковый title: {merge_diagnostics['title_same']}; различается: {merge_diagnostics['title_different']}",
+        f"  Одинаковый непустой desc: {merge_diagnostics['desc_same_nonempty']}; различается: {merge_diagnostics['desc_different_nonempty']}",
+        f"  Поздний источник заполнил пустой desc: {merge_diagnostics['desc_filled_from_later_source']}",
+        f"  У поздней записи desc пустой, у сохранённой непустой: {merge_diagnostics['incoming_desc_empty']}",
+        f"  Одинаковые наборы category: {merge_diagnostics['categories_same_set']}; разные: {merge_diagnostics['categories_different_set']}",
+        f"  Дополнительных категорий добавлено при слиянии: {merge_diagnostics['new_categories_added']}",
+        "",
         "Точные дубликаты programme по каналу, времени и полному содержимому:",
         f"  Повторных записей в источниках: {exact_duplicate_count}",
         f"  Групп дубликатов: {exact_duplicate_groups}",
@@ -1273,6 +1358,7 @@ def main():
     global_programmes = {}
     channel_icons = {}
     exact_programmes_seen = {}
+    merge_diagnostics = defaultdict(int)
     all_stats = []
 
     for number, (source_name, source_url) in enumerate(SOURCES, start=1):
@@ -1291,6 +1377,7 @@ def main():
             global_programmes,
             channel_icons,
             exact_programmes_seen,
+            merge_diagnostics,
         )
 
         all_stats.append(stats)
@@ -1306,6 +1393,7 @@ def main():
         period_end,
         xml_sizes,
         exact_programmes_seen,
+        merge_diagnostics,
     )
 
     covered_channels = {
