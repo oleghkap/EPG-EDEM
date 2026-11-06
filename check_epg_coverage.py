@@ -452,13 +452,12 @@ def audit_mapping_candidates(display_names, indexes, playlist_channels):
 
 def map_source_channels(channel_id, display_names, indexes):
     """
-    Сопоставляет XMLTV ID с записями плейлиста только по точному ID
-    или полному нормализованному display-name.
+    Сопоставление по tvg-id, затем по точному имени, затем по
+    региональному имени (только если оно ведёт к одному каналу плейлиста).
 
-    Маркеры качества (HD/FHD/UHD/4K/orig) и коды стран не удаляются:
-    это могут быть разные версии или региональные варианты каналов.
-    Ослабленные кандидаты остаются в диагностическом CSV, но не
-    назначают передачи каналам плейлиста.
+    Маркеры качества HD/FHD/UHD/4K/orig не удаляются: это могут быть
+    разные версии каналов. Неоднозначное региональное совпадение
+    не назначается и остаётся только в диагностике.
     """
     by_id, by_name, _ = indexes
 
@@ -477,6 +476,22 @@ def map_source_channels(channel_id, display_names, indexes):
         return id_matches, "tvg-id"
     if exact_matches:
         return exact_matches, "exact name"
+
+    country_matches = set()
+    for name in display_names:
+        if not name:
+            continue
+        country_name = strip_country_suffix(strip_country_prefix(name))
+        if country_name == name.strip():
+            continue
+        normalized_country = normalize_name(country_name)
+        if normalized_country:
+            country_matches.update(by_name.get(normalized_country, set()))
+
+    if len(country_matches) == 1:
+        return country_matches, "country-normalized name"
+    if len(country_matches) > 1:
+        return set(), "ambiguous"
     return set(), "unmatched"
 # ============================================================
 # ОБРАБОТКА XMLTV
