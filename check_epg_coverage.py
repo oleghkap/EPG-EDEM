@@ -488,6 +488,7 @@ def process_source(
     period_end,
     global_programmes,
     channel_icons,
+    exact_programmes_seen,
 ):
     stats = {
         "source": source_name,
@@ -501,6 +502,7 @@ def process_source(
         "programmes_in_period": 0,
         "unique_programmes": 0,
         "duplicates_skipped": 0,
+        "exact_duplicates": 0,
         "matched_by_tvg_id": 0,
         "matched_by_exact_name": 0,
         "matched_by_country_name": 0,
@@ -636,6 +638,20 @@ def process_source(
                                 )
 
                                 for index in matched_indexes:
+                                    exact_signature = (
+                                        index,
+                                        start_dt.isoformat(),
+                                        stop_text,
+                                        title,
+                                        description,
+                                        tuple(categories),
+                                    )
+                                    if exact_signature in exact_programmes_seen:
+                                        stats["exact_duplicates"] += 1
+                                        exact_programmes_seen[exact_signature] += 1
+                                    else:
+                                        exact_programmes_seen[exact_signature] = 1
+
                                     # Для одного канала не может одновременно
                                     # начинаться две разные передачи. Источники
                                     # часто расходятся в title/stop, поэтому эти
@@ -836,6 +852,7 @@ def write_coverage_report(stats_list):
         "programmes_in_period",
         "unique_programmes",
         "duplicates_skipped",
+        "exact_duplicates",
         "matched_by_tvg_id",
         "matched_by_exact_name",
         "matched_by_country_name",
@@ -905,11 +922,16 @@ def write_channel_report(channels, global_programmes):
 
 def write_combined_xml(channels, global_programmes, channel_icons):
     path = OUTPUT_DIR / "epg_test_combined.xml.gz"
+    uncompressed_size = 0
 
-    # Пишем XML потоково: не создаём гигантское дерево из сотен тысяч
-    # programme-элементов и не держим одновременно весь XML в памяти.
+    # Пишем XML потоково и параллельно считаем точный размер XML до GZIP.
     with gzip.open(path, "wb", compresslevel=6) as file:
-        file.write(b'<?xml version="1.0" encoding="utf-8"?>\n<tv generator-info-name="EPG-EDEM Coverage Test">')
+        def write_xml(data):
+            nonlocal uncompressed_size
+            file.write(data)
+            uncompressed_size += len(data)
+
+        write_xml(b'<?xml version="1.0" encoding="utf-8"?>\n<tv generator-info-name="EPG-EDEM Coverage Test">')
 
         for index, channel in enumerate(channels):
             channel_element = ET.Element(
@@ -922,7 +944,7 @@ def write_combined_xml(channels, global_programmes, channel_icons):
             if icon_src:
                 ET.SubElement(channel_element, "icon", {"src": icon_src})
 
-            file.write(ET.tostring(channel_element, encoding="utf-8"))
+            write_xml(ET.tostring(channel_element, encoding="utf-8"))
 
         ordered = sorted(
             global_programmes.values(),
@@ -957,9 +979,107 @@ def write_combined_xml(channels, global_programmes, channel_icons):
                 if category:
                     ET.SubElement(element, "category").text = category
 
-            file.write(ET.tostring(element, encoding="utf-8"))
+            write_xml(ET.tostring(element, encoding="utf-8"))
 
-        file.write(b"</tv>")
+        write_xml(b"</tv>")
+
+    return {
+        "xml_uncompressed_bytes": uncompressed_size,
+        "gzip_bytes": path.stat().st_size,
+    }
+
+
+def write_epg_diagnostics(channels, global_programmes, period_start, period_end, xml_sizes, exact_programmes_seen):
+    """Сводная диагностика объёма XMLTV и распределения передач по дням."""
+    programmes = list(global_programmes.values())
+
+    title_bytes = sum(
+        len((item.get("title") or "").encode("utf-8"))
+        for item in programmes
+    )
+    description_bytes = sum(
+        len((item.get("description") or "").encode("utf-8"))
+        for item in programmes
+    )
+    category_bytes = sum(
+        len((category or "").encode("utf-8"))
+        for item in programmes
+        for category in item.get("categories", [])
+    )
+
+    exact_duplicate_count = sum(
+        count - 1 for count in exact_programmes_seen.values() if count > 1
+    )
+    exact_duplicate_groups = sum(
+        1 for count in exact_programmes_seen.values() if count > 1
+    )
+
+    # Передача учитывается в каждом календарном дне, с которым пересекается
+    # её интервал. Если stop отсутствует, учитываем день её начала.
+    daily_counts = {}
+    day = period_start.date()
+    while day < period_end.date():
+        day_start = datetime.combine(day, datetime.min.time(), tzinfo=TZ)
+        day_end = day_start + timedelta(days=1)
+        daily_counts[day.isoformat()] = 0
+
+        for item in programmes:
+            start = item["start"].astimezone(TZ)
+            stop = item["stop"].astimezone(TZ) if item["stop"] is not None else None
+            overlaps = (
+                day_start <= start < day_end
+                if stop is None
+                else start < day_end and stop > day_start
+            )
+            if overlaps:
+                daily_counts[day.isoformat()] += 1
+
+        day += timedelta(days=1)
+
+    xml_bytes = xml_sizes["xml_uncompressed_bytes"]
+    gzip_bytes = xml_sizes["gzip_bytes"]
+    report_path = OUTPUT_DIR / "epg_diagnostics.txt"
+
+    lines = [
+        "EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG",
+        "=" * 55,
+        f"Период: {period_start.isoformat()} — {period_end.isoformat()} (конец не включён)",
+        f"Каналов в итоговом XML: {len(channels)}",
+        f"Передач в итоговом XML: {len(programmes)}",
+        f"Размер несжатого XML: {xml_bytes:,} байт ({xml_bytes / 1024 / 1024:.2f} MiB)",
+        f"Размер GZIP: {gzip_bytes:,} байт ({gzip_bytes / 1024 / 1024:.2f} MiB)",
+        "",
+        "Объём текстовых полей (UTF-8, без XML-разметки):",
+        f"  title: {title_bytes:,} байт ({title_bytes / 1024 / 1024:.2f} MiB)",
+        f"  desc: {description_bytes:,} байт ({description_bytes / 1024 / 1024:.2f} MiB)",
+        f"  category: {category_bytes:,} байт ({category_bytes / 1024 / 1024:.2f} MiB)",
+        f"  Всего текста: {title_bytes + description_bytes + category_bytes:,} байт",
+        "",
+        "Точные дубликаты programme по каналу, времени и полному содержимому:",
+        f"  Повторных записей в источниках: {exact_duplicate_count}",
+        f"  Групп дубликатов: {exact_duplicate_groups}",
+        "",
+        "Передач по календарным дням (по пересечению интервала):",
+    ]
+
+    lines.extend(
+        f"  {date}: {count}"
+        for date, count in daily_counts.items()
+    )
+
+    report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    return {
+        "channels": len(channels),
+        "programmes": len(programmes),
+        "title_bytes": title_bytes,
+        "description_bytes": description_bytes,
+        "category_bytes": category_bytes,
+        "exact_duplicate_count": exact_duplicate_count,
+        "daily_counts": daily_counts,
+        "xml_uncompressed_bytes": xml_bytes,
+        "gzip_bytes": gzip_bytes,
+    }
 
 
 # ============================================================
@@ -992,6 +1112,7 @@ def main():
 
     global_programmes = {}
     channel_icons = {}
+    exact_programmes_seen = {}
     all_stats = []
 
     for number, (source_name, source_url) in enumerate(SOURCES, start=1):
@@ -1009,13 +1130,22 @@ def main():
             period_end,
             global_programmes,
             channel_icons,
+            exact_programmes_seen,
         )
 
         all_stats.append(stats)
 
     write_coverage_report(all_stats)
     write_channel_report(channels, global_programmes)
-    write_combined_xml(channels, global_programmes, channel_icons)
+    xml_sizes = write_combined_xml(channels, global_programmes, channel_icons)
+    diagnostics = write_epg_diagnostics(
+        channels,
+        global_programmes,
+        period_start,
+        period_end,
+        xml_sizes,
+        exact_programmes_seen,
+    )
 
     covered_channels = {
         programme["channel_index"]
@@ -1031,6 +1161,16 @@ def main():
     log(f"Каналов с программами хотя бы из одного источника: {len(covered_channels)}")
     log(f"Каналов без программ: {len(channels) - len(covered_channels)}")
     log(f"Уникальных передач в объединённом EPG: {len(global_programmes)}")
+    log()
+    log("ДИАГНОСТИКА ИТОГОВОГО EPG")
+    log(f"Размер несжатого XML: {diagnostics['xml_uncompressed_bytes'] / 1024 / 1024:.2f} MiB")
+    log(f"Размер GZIP: {diagnostics['gzip_bytes'] / 1024 / 1024:.2f} MiB")
+    log(f"Объём title: {diagnostics['title_bytes'] / 1024 / 1024:.2f} MiB")
+    log(f"Объём desc: {diagnostics['description_bytes'] / 1024 / 1024:.2f} MiB")
+    log(f"Объём category: {diagnostics['category_bytes'] / 1024 / 1024:.2f} MiB")
+    log(f"Точных дубликатов в источниках: {diagnostics['exact_duplicate_count']}")
+    for date, count in diagnostics["daily_counts"].items():
+        log(f"  Передач за {date}: {count}")
 
     log()
     log("Созданы файлы:")
@@ -1038,6 +1178,7 @@ def main():
     log("  playlist_duplicates.csv")
     log("  coverage_report.csv")
     log("  channel_coverage.csv")
+    log("  epg_diagnostics.txt")
     log("  epg_test_combined.xml.gz")
 
     log()
