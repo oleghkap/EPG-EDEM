@@ -920,8 +920,14 @@ def write_channel_report(channels, global_programmes):
                 ),
             })
 
-def write_combined_xml(channels, global_programmes, channel_icons):
-    path = OUTPUT_DIR / "epg_test_combined.xml.gz"
+def write_combined_xml(
+    channels,
+    global_programmes,
+    channel_icons,
+    description_limit=None,
+    output_path=None,
+):
+    path = output_path or (OUTPUT_DIR / "epg_test_combined.xml.gz")
     uncompressed_size = 0
 
     # Пишем XML потоково и параллельно считаем точный размер XML до GZIP.
@@ -972,8 +978,12 @@ def write_combined_xml(channels, global_programmes, channel_icons):
 
             ET.SubElement(element, "title").text = programme["title"]
 
-            if programme["description"]:
-                ET.SubElement(element, "desc").text = programme["description"]
+            description = programme["description"]
+            if description_limit is not None:
+                description = description[:description_limit]
+
+            if description:
+                ET.SubElement(element, "desc").text = description
 
             for category in programme["categories"]:
                 if category:
@@ -989,7 +999,15 @@ def write_combined_xml(channels, global_programmes, channel_icons):
     }
 
 
-def write_epg_diagnostics(channels, global_programmes, period_start, period_end, xml_sizes, exact_programmes_seen):
+def write_epg_diagnostics(
+    channels,
+    global_programmes,
+    channel_icons,
+    period_start,
+    period_end,
+    xml_sizes,
+    exact_programmes_seen,
+):
     """Сводная диагностика объёма XMLTV, описаний и распределения передач."""
     programmes = list(global_programmes.values())
 
@@ -1101,6 +1119,24 @@ def write_epg_diagnostics(channels, global_programmes, period_start, period_end,
 
     xml_bytes = xml_sizes["xml_uncompressed_bytes"]
     gzip_bytes = xml_sizes["gzip_bytes"]
+    # Точное измерение GZIP для нескольких лимитов desc.
+    # Временные файлы не заменяют основной EPG и удаляются после измерения.
+    variant_gzip_sizes = {}
+    for limit in (200, 250, 300, 350, 400, 500, 750):
+        variant_path = OUTPUT_DIR / f".epg_test_combined_desc_{limit}.xml.gz"
+        try:
+            variant_sizes = write_combined_xml(
+                channels,
+                global_programmes,
+                channel_icons,
+                description_limit=limit,
+                output_path=variant_path,
+            )
+            variant_gzip_sizes[limit] = variant_sizes["gzip_bytes"]
+        finally:
+            if variant_path.exists():
+                variant_path.unlink()
+
     report_path = OUTPUT_DIR / "epg_diagnostics.txt"
 
     lines = [
@@ -1137,6 +1173,15 @@ def write_epg_diagnostics(channels, global_programmes, period_start, period_end,
         f"    {label}: {bucket_counts[label]:,}"
         for label, _, _ in description_buckets
     )
+
+    lines.append("  Фактический GZIP при ограничении desc (level 6):")
+    for limit, size in variant_gzip_sizes.items():
+        reduction = gzip_bytes - size
+        lines.append(
+            f"    До {limit} символов: {size:,} байт "
+            f"({size / 1_000_000:.2f} MB; {size / 1024 / 1024:.2f} MiB), "
+            f"экономия {reduction / 1_000_000:.2f} MB"
+        )
 
     lines.append("  Оценка экономии при ограничении длины (по символам):")
     for limit, saved in truncation_savings.items():
@@ -1188,6 +1233,7 @@ def write_epg_diagnostics(channels, global_programmes, period_start, period_end,
         "description_percentiles": description_percentiles,
         "description_buckets": bucket_counts,
         "truncation_savings": truncation_savings,
+        "variant_gzip_sizes": variant_gzip_sizes,
         "category_bytes": category_bytes,
         "exact_duplicate_count": exact_duplicate_count,
         "daily_counts": daily_counts,
@@ -1255,6 +1301,7 @@ def main():
     diagnostics = write_epg_diagnostics(
         channels,
         global_programmes,
+        channel_icons,
         period_start,
         period_end,
         xml_sizes,
@@ -1281,6 +1328,9 @@ def main():
     log(f"Размер GZIP: {diagnostics['gzip_bytes'] / 1024 / 1024:.2f} MiB")
     log(f"Объём title: {diagnostics['title_bytes'] / 1024 / 1024:.2f} MiB")
     log(f"Объём desc: {diagnostics['description_bytes'] / 1024 / 1024:.2f} MiB")
+    log("Фактический GZIP при ограничении desc (level 6):")
+    for limit, size in diagnostics["variant_gzip_sizes"].items():
+        log(f"  До {limit} символов: {size / 1_000_000:.2f} MB ({size / 1024 / 1024:.2f} MiB)")
     log(f"Непустых desc: {diagnostics['nonempty_descriptions']}; пустых: {diagnostics['empty_descriptions']}")
     for percent, value in diagnostics["description_percentiles"].items():
         log(f"  P{percent} длины desc: {value} байт")
