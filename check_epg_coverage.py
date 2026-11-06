@@ -473,12 +473,12 @@ def edge_country_codes(value):
     value = (value or "").strip()
     found = set()
     prefix = re.match(
-        rf"^({COUNTRY_CODES})\\s*[-–—:]\\s*",
+        rf"^({COUNTRY_CODES})\s*[-–—:]\s*",
         value,
         re.IGNORECASE,
     )
     suffix = re.search(
-        rf"\\s+({COUNTRY_CODES})$",
+        rf"\s+({COUNTRY_CODES})$",
         value,
         re.IGNORECASE,
     )
