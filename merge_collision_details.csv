@@ -782,10 +782,15 @@ TV.TEAM full,Cartoon Network,1737,2026-11-07T07:35:00+03:00,ch2479,ch162,differe
 TV.TEAM full,Cartoon Network,1737,2026-11-07T08:20:00+03:00,ch2479,ch162,different IDs,25,21,192,228
 TV.TEAM full,Cartoon Network,1737,2026-11-07T08:30:00+03:00,ch2479,ch162,different IDs,25,21,192,226
 TV.TEAM full,Cartoon Network,1737,2026-11-07T09:30:00+03:00,ch2479,ch162,different IDs,10,33,155,180
+TV.TEAM full,Cartoon Network,1737,2026-11-07T09:45:00+03:00,ch2479,ch162,different IDs,10,33,155,41
+TV.TEAM full,Cartoon Network,1737,2026-11-07T11:30:00+03:00,ch2479,ch162,different IDs,25,21,145,224
+TV.TEAM full,Cartoon Network,1737,2026-11-07T12:45:00+03:00,ch2479,ch162,different IDs,8,9,133,116
+TV.TEAM full,Cartoon Network,1737,2026-11-07T13:00:00+03:00,ch2479,ch162,different IDs,8,15,133,132
 TV.TEAM full,Animal Planet HD,1912,2026-11-05T13:00:00+03:00,ch2932,ch3073,different IDs,16,19,209,680
 TV.TEAM full,Animal Planet HD,1912,2026-11-06T10:00:00+03:00,ch2932,ch3073,different IDs,22,40,240,374
 TV.TEAM full,Animal Planet HD,1912,2026-11-06T13:00:00+03:00,ch2932,ch3073,different IDs,22,19,140,680
 TV.TEAM full,Animal Planet HD,1912,2026-11-06T14:30:00+03:00,ch2932,ch3073,different IDs,9,31,130,537
+TV.TEAM full,Animal Planet HD,1912,2026-11-07T10:00:00+03:00,ch2932,ch3073,different IDs,17,40,141,374
 TV.TEAM full,TLC HD,1901,2026-11-05T14:00:00+03:00,ch941,ch2856,different IDs,34,24,0,148
 TV.TEAM full,TLC HD,1901,2026-11-06T00:00:00+03:00,ch941,ch2856,different IDs,23,18,548,229
 TV.TEAM full,Animal Planet HD,1912,2026-11-05T03:00:00+03:00,ch2932,ch858,different IDs,16,30,231,158
@@ -807,6 +812,10 @@ TV.TEAM full,Animal Planet HD,1912,2026-11-06T15:00:00+03:00,ch2932,ch858,differ
 TV.TEAM full,Animal Planet HD,1912,2026-11-07T03:00:00+03:00,ch2932,ch858,different IDs,17,32,158,158
 TV.TEAM full,Animal Planet HD,1912,2026-11-07T04:00:00+03:00,ch2932,ch858,different IDs,17,18,229,182
 TV.TEAM full,Animal Planet HD,1912,2026-11-07T09:00:00+03:00,ch2932,ch858,different IDs,17,27,206,190
+TV.TEAM full,Animal Planet HD,1912,2026-11-07T10:00:00+03:00,ch2932,ch858,different IDs,17,27,141,190
+TV.TEAM full,Animal Planet HD,1912,2026-11-07T11:00:00+03:00,ch2932,ch858,different IDs,17,30,135,117
+TV.TEAM full,Animal Planet HD,1912,2026-11-07T12:00:00+03:00,ch2932,ch858,different IDs,17,28,176,193
+TV.TEAM full,Animal Planet HD,1912,2026-11-07T13:00:00+03:00,ch2932,ch858,different IDs,17,27,121,186
 TV.TEAM full,Cartoon Network,1737,2026-11-05T07:50:00+03:00,ch2479,ch3935,different IDs,17,21,129,63
 TV.TEAM full,Cartoon Network,1737,2026-11-06T07:50:00+03:00,ch2479,ch3935,different IDs,17,21,129,78
 TV.TEAM full,History HD,1903,2026-11-05T00:00:00+03:00,ch909,ch2199,different IDs,17,10,0,234
@@ -822,6 +831,9 @@ TV.TEAM full,History HD,1903,2026-11-07T01:00:00+03:00,ch909,ch2199,different ID
 TV.TEAM full,TLC HD,1901,2026-11-06T03:10:00+03:00,ch1411,ch160,different IDs,22,54,168,606
 TV.TEAM full,TLC HD,1901,2026-11-06T03:55:00+03:00,ch1411,ch160,different IDs,31,25,142,680
 TV.TEAM full,TLC HD,1901,2026-11-06T04:40:00+03:00,ch1411,ch160,different IDs,19,25,149,675
+TV.TEAM full,TLC HD,1901,2026-11-07T10:30:00+03:00,ch2856,ch160,different IDs,21,11,226,459
+TV.TEAM full,TLC HD,1901,2026-11-07T11:00:00+03:00,ch941,ch160,different IDs,18,11,198,459
+TV.TEAM full,TLC HD,1901,2026-11-07T11:30:00+03:00,ch2856,ch160,different IDs,28,11,105,459
 TV.TEAM full,Discovery Channel HD,1906,2026-11-05T13:50:00+03:00,ch3647,ch164,different IDs,18,47,153,237
 TV.TEAM full,Discovery Channel HD,1906,2026-11-05T16:10:00+03:00,ch3647,ch164,different IDs,30,35,179,695
 TV.TEAM full,Discovery Channel HD,1906,2026-11-05T18:25:00+03:00,ch3647,ch164,different IDs,13,35,155,692
@@ -832,16 +844,19 @@ TV.TEAM full,National Geographic HD,1855,2026-11-05T23:00:00+03:00,ch3667,ch4118
 TV.TEAM full,National Geographic HD,1855,2026-11-06T09:00:00+03:00,ch3667,ch4118,different IDs,17,37,1010,74
 TV.TEAM full,National Geographic HD,1855,2026-11-06T13:00:00+03:00,ch3667,ch4118,different IDs,21,37,730,46
 TV.TEAM full,National Geographic HD,1855,2026-11-06T23:00:00+03:00,ch3667,ch4118,different IDs,7,22,545,45
+TV.TEAM full,National Geographic HD,1855,2026-11-07T13:00:00+03:00,ch3667,ch4118,different IDs,7,22,506,176
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-05T09:00:00+03:00,ch918,ch176,different IDs,12,30,149,598
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-06T02:00:00+03:00,ch918,ch176,different IDs,16,14,151,608
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-06T05:00:00+03:00,ch918,ch176,different IDs,19,28,144,601
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-06T13:00:00+03:00,ch918,ch176,different IDs,16,26,151,0
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-07T07:00:00+03:00,ch918,ch176,different IDs,16,23,156,578
+TV.TEAM full,Nat Geo Wild HD,1963,2026-11-07T13:00:00+03:00,ch918,ch176,different IDs,24,26,0,0
 TV.TEAM full,History HD,1903,2026-11-05T02:50:00+03:00,ch909,ch171,different IDs,21,40,0,266
 TV.TEAM full,History HD,1903,2026-11-06T02:50:00+03:00,ch909,ch171,different IDs,21,39,0,601
 TV.TEAM full,History HD,1903,2026-11-06T12:20:00+03:00,ch909,ch171,different IDs,32,14,196,287
 TV.TEAM full,History HD,1903,2026-11-06T19:10:00+03:00,ch909,ch171,different IDs,29,40,0,530
 TV.TEAM full,History HD,1903,2026-11-07T02:50:00+03:00,ch909,ch171,different IDs,21,34,0,210
+TV.TEAM full,History HD,1903,2026-11-07T13:05:00+03:00,ch909,ch171,different IDs,36,28,519,382
 TV.TEAM full,Nickelodeon,1734,2026-11-06T11:00:00+03:00,ch3191,ch1854,different IDs,21,71,55,488
 TV.TEAM full,Nickelodeon,1734,2026-11-06T15:45:00+03:00,ch3191,ch1854,different IDs,14,38,170,218
 TV.TEAM full,Nickelodeon,1734,2026-11-06T16:30:00+03:00,ch3191,ch1854,different IDs,21,63,95,142
@@ -960,7 +975,15 @@ TV.TEAM full,Cartoon Network,1737,2026-11-07T08:05:00+03:00,ch2479,ch1818,differ
 TV.TEAM full,Cartoon Network,1737,2026-11-07T08:35:00+03:00,ch2479,ch1818,different IDs,25,40,192,127
 TV.TEAM full,Cartoon Network,1737,2026-11-07T09:20:00+03:00,ch162,ch1818,different IDs,33,50,91,148
 TV.TEAM full,Cartoon Network,1737,2026-11-07T09:30:00+03:00,ch2479,ch1818,different IDs,10,51,155,149
+TV.TEAM full,Cartoon Network,1737,2026-11-07T10:00:00+03:00,ch2479,ch1818,different IDs,11,40,106,261
+TV.TEAM full,Cartoon Network,1737,2026-11-07T10:45:00+03:00,ch162,ch1818,different IDs,38,51,123,148
+TV.TEAM full,Cartoon Network,1737,2026-11-07T11:10:00+03:00,ch162,ch1818,different IDs,27,47,130,127
+TV.TEAM full,Cartoon Network,1737,2026-11-07T11:40:00+03:00,ch2479,ch1818,different IDs,25,39,145,127
+TV.TEAM full,Cartoon Network,1737,2026-11-07T12:30:00+03:00,ch2479,ch1818,different IDs,8,54,133,148
+TV.TEAM full,Cartoon Network,1737,2026-11-07T13:00:00+03:00,ch2479,ch1818,different IDs,8,36,133,313
+TV.TEAM full,Cartoon Network,1737,2026-11-07T13:45:00+03:00,ch2479,ch1818,different IDs,17,51,129,148
 TV.TEAM full,MTV HD,1548,2026-11-06T07:00:00+03:00,ch2618,ch2400,different IDs,18,28,52,60
+TV.TEAM full,MTV HD,1548,2026-11-07T12:00:00+03:00,ch2618,ch2400,different IDs,7,19,107,75
 TV.TEAM full,National Geographic HD,1855,2026-11-06T09:35:00+03:00,ch3667,ch1346,different IDs,11,14,0,137
 TV.TEAM full,National Geographic HD,1855,2026-11-06T15:30:00+03:00,ch4118,ch1346,different IDs,36,21,192,233
 TV.TEAM full,National Geographic HD,1855,2026-11-05T00:00:00+03:00,ch4118,ch3980,different IDs,27,15,75,746
@@ -997,6 +1020,9 @@ TV.TEAM full,National Geographic HD,1855,2026-11-06T22:00:00+03:00,ch4118,ch3980
 TV.TEAM full,National Geographic HD,1855,2026-11-06T23:00:00+03:00,ch3667,ch3980,different IDs,7,21,545,312
 TV.TEAM full,National Geographic HD,1855,2026-11-07T01:00:00+03:00,ch4118,ch3980,different IDs,22,28,72,1323
 TV.TEAM full,National Geographic HD,1855,2026-11-07T08:00:00+03:00,ch4118,ch3980,different IDs,22,26,146,726
+TV.TEAM full,National Geographic HD,1855,2026-11-07T10:00:00+03:00,ch4118,ch3980,different IDs,22,31,56,0
+TV.TEAM full,National Geographic HD,1855,2026-11-07T11:00:00+03:00,ch4118,ch3980,different IDs,22,31,74,258
+TV.TEAM full,National Geographic HD,1855,2026-11-07T13:00:00+03:00,ch3667,ch3980,different IDs,7,32,506,440
 TV.TEAM full,Da Vinci HD,2874,2026-11-05T08:18:00+03:00,ch2480,ch2176,different IDs,31,15,303,189
 TV.TEAM full,Da Vinci HD,2874,2026-11-05T08:57:00+03:00,ch2480,ch2176,different IDs,32,7,286,200
 TV.TEAM full,Da Vinci HD,2874,2026-11-05T10:27:00+03:00,ch2480,ch2176,different IDs,51,6,75,200
@@ -1007,6 +1033,7 @@ TV.TEAM full,Da Vinci HD,2874,2026-11-06T08:57:00+03:00,ch2480,ch2176,different 
 TV.TEAM full,Da Vinci HD,2874,2026-11-06T10:00:00+03:00,ch2480,ch2176,different IDs,30,6,91,200
 TV.TEAM full,Da Vinci HD,2874,2026-11-06T14:54:00+03:00,ch2480,ch2176,different IDs,44,13,115,163
 TV.TEAM full,Da Vinci HD,2874,2026-11-06T16:00:00+03:00,ch2480,ch2176,different IDs,49,16,130,171
+TV.TEAM full,Da Vinci HD,2874,2026-11-07T11:30:00+03:00,ch2480,ch2176,different IDs,42,6,145,200
 TV.TEAM full,Discovery Channel HD,1906,2026-11-06T17:35:00+03:00,ch164,ch2983,different IDs,44,11,566,175
 TV.TEAM full,Discovery Channel HD,1906,2026-11-07T08:45:00+03:00,ch3647,ch2983,different IDs,7,17,133,176
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-05T04:30:00+03:00,ch918,ch1462,different IDs,22,10,576,248
@@ -1026,10 +1053,16 @@ TV.TEAM full,Nat Geo Wild HD,1963,2026-11-06T22:00:00+03:00,ch918,ch1462,differe
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-07T00:35:00+03:00,ch176,ch1462,different IDs,24,17,608,329
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-07T04:30:00+03:00,ch918,ch1462,different IDs,22,24,576,531
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-07T06:00:00+03:00,ch918,ch1462,different IDs,20,14,140,319
+TV.TEAM full,Nat Geo Wild HD,1963,2026-11-07T12:00:00+03:00,ch918,ch1462,different IDs,11,28,0,749
 TV.TEAM full,TLC HD,1901,2026-11-05T14:00:00+03:00,ch941,ch1020,different IDs,34,19,148,196
 TV.TEAM full,TLC HD,1901,2026-11-05T21:00:00+03:00,ch2856,ch1020,different IDs,15,19,192,392
 TV.TEAM full,TLC HD,1901,2026-11-06T00:00:00+03:00,ch941,ch1020,different IDs,23,13,548,134
 TV.TEAM full,TLC HD,1901,2026-11-06T21:00:00+03:00,ch2856,ch1020,different IDs,12,19,226,143
+TV.TEAM full,TLC HD,1901,2026-11-07T10:30:00+03:00,ch2856,ch1020,different IDs,21,13,226,115
+TV.TEAM full,TLC HD,1901,2026-11-07T11:00:00+03:00,ch941,ch1020,different IDs,18,13,198,121
+TV.TEAM full,TLC HD,1901,2026-11-07T11:30:00+03:00,ch2856,ch1020,different IDs,28,13,105,105
+TV.TEAM full,TLC HD,1901,2026-11-07T12:30:00+03:00,ch160,ch1020,different IDs,22,13,533,160
+TV.TEAM full,TLC HD,1901,2026-11-07T13:30:00+03:00,ch160,ch1020,different IDs,22,13,535,117
 TV.TEAM full,Trace Urban HD,1641,2026-11-05T01:00:00+03:00,ch4146,ch3690,different IDs,15,9,105,160
 TV.TEAM full,Trace Urban HD,1641,2026-11-05T07:00:00+03:00,ch4146,ch3690,different IDs,11,14,30,96
 TV.TEAM full,Trace Urban HD,1641,2026-11-05T13:00:00+03:00,ch4146,ch3690,different IDs,13,11,53,75
@@ -1038,6 +1071,7 @@ TV.TEAM full,Trace Urban HD,1641,2026-11-06T07:00:00+03:00,ch4146,ch3690,differe
 TV.TEAM full,Trace Urban HD,1641,2026-11-06T13:00:00+03:00,ch4146,ch3690,different IDs,13,22,53,115
 TV.TEAM full,Trace Urban HD,1641,2026-11-07T01:00:00+03:00,ch4146,ch3690,different IDs,15,10,105,144
 TV.TEAM full,Trace Urban HD,1641,2026-11-07T07:00:00+03:00,ch4146,ch3690,different IDs,14,14,47,96
+TV.TEAM full,Trace Urban HD,1641,2026-11-07T12:45:00+03:00,ch4146,ch3690,different IDs,13,14,53,131
 TV.TEAM full,Nickelodeon,1734,2026-11-05T14:55:00+03:00,ch3191,ch2401,different IDs,17,42,228,147
 TV.TEAM full,Nickelodeon,1734,2026-11-05T19:25:00+03:00,ch3191,ch2401,different IDs,21,21,98,83
 TV.TEAM full,Nickelodeon,1734,2026-11-06T11:00:00+03:00,ch3191,ch2401,different IDs,21,43,55,98
@@ -1047,7 +1081,9 @@ TV.TEAM full,Nickelodeon,1734,2026-11-07T03:20:00+03:00,ch3191,ch2401,different 
 TV.TEAM full,Nickelodeon,1734,2026-11-07T04:05:00+03:00,ch3191,ch2401,different IDs,21,22,64,178
 TV.TEAM full,Nickelodeon,1734,2026-11-07T05:30:00+03:00,ch3191,ch2401,different IDs,12,11,104,86
 TV.TEAM full,Nickelodeon,1734,2026-11-07T07:50:00+03:00,ch3191,ch2401,different IDs,21,12,76,162
+TV.TEAM full,Nickelodeon,1734,2026-11-07T12:45:00+03:00,ch3191,ch2401,different IDs,21,27,66,56
 TV.TEAM full,History HD,1903,2026-11-05T07:30:00+03:00,ch909,ch1143,different IDs,19,28,135,193
+TV.TEAM full,History HD,1903,2026-11-07T12:01:00+03:00,ch2199,ch1143,different IDs,8,24,162,176
 TV.TEAM full,Nick Jr,1731,2026-11-05T06:25:00+03:00,ch1853,ch3983,different IDs,53,12,215,72
 TV.TEAM full,Cartoonito,1741,2026-11-05T08:00:00+03:00,ch161,ch2351,different IDs,46,10,157,200
 TV.TEAM full,Cartoonito,1741,2026-11-05T23:30:00+03:00,ch161,ch2351,different IDs,46,6,101,120
@@ -1066,6 +1102,7 @@ TV.TEAM full,Nat Geo Wild HD,1963,2026-11-06T17:10:00+03:00,ch1462,ch3006,differ
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-06T18:05:00+03:00,ch1462,ch3006,different IDs,32,19,84,275
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-06T19:00:00+03:00,ch918,ch3006,different IDs,17,19,97,352
 TV.TEAM full,Nat Geo Wild HD,1963,2026-11-07T09:00:00+03:00,ch918,ch3006,different IDs,16,20,190,112
+TV.TEAM full,Nat Geo Wild HD,1963,2026-11-07T12:00:00+03:00,ch918,ch3006,different IDs,11,22,749,205
 TV.TEAM full,MTV HD,1548,2026-11-05T03:35:00+03:00,ch2400,ch238,different IDs,38,15,171,226
 TV.TEAM full,MTV HD,1548,2026-11-05T08:25:00+03:00,ch2400,ch238,different IDs,36,14,151,247
 TV.TEAM full,MTV HD,1548,2026-11-05T14:40:00+03:00,ch2400,ch238,different IDs,44,29,144,108
@@ -1165,6 +1202,8 @@ TV.TEAM full,Cartoonito,1741,2026-11-07T06:30:00+03:00,ch2351,ch1816,different I
 TV.TEAM full,Cartoonito,1741,2026-11-07T07:15:00+03:00,ch2351,ch1816,different IDs,32,49,227,166
 TV.TEAM full,Cartoonito,1741,2026-11-07T08:10:00+03:00,ch2351,ch1816,different IDs,10,25,204,150
 TV.TEAM full,Cartoonito,1741,2026-11-07T08:25:00+03:00,ch2351,ch1816,different IDs,10,60,179,140
+TV.TEAM full,Cartoonito,1741,2026-11-07T10:20:00+03:00,ch2351,ch1816,different IDs,10,42,185,407
+TV.TEAM full,Cartoonito,1741,2026-11-07T10:50:00+03:00,ch2351,ch1816,different IDs,10,42,117,369
 TV.TEAM full,TLC HD,1901,2026-11-05T11:15:00+03:00,ch160,ch3688,different IDs,11,7,459,327
 TV.TEAM full,TLC HD,1901,2026-11-05T17:25:00+03:00,ch160,ch3688,different IDs,47,11,516,155
 TV.TEAM full,TLC HD,1901,2026-11-05T22:30:00+03:00,ch1020,ch3688,different IDs,19,15,256,139
@@ -1176,6 +1215,8 @@ TV.TEAM full,TLC HD,1901,2026-11-06T22:30:00+03:00,ch1020,ch3688,different IDs,1
 TV.TEAM full,TLC HD,1901,2026-11-07T05:30:00+03:00,ch1020,ch3688,different IDs,15,20,140,168
 TV.TEAM full,TLC HD,1901,2026-11-07T08:25:00+03:00,ch160,ch3688,different IDs,36,9,599,152
 TV.TEAM full,TLC HD,1901,2026-11-07T08:50:00+03:00,ch160,ch3688,different IDs,36,9,590,139
+TV.TEAM full,TLC HD,1901,2026-11-07T10:30:00+03:00,ch2856,ch3688,different IDs,21,9,226,152
+TV.TEAM full,TLC HD,1901,2026-11-07T12:30:00+03:00,ch160,ch3688,different IDs,22,13,533,149
 TV.TEAM full,Comedy Central,508,2026-11-05T00:00:00+03:00,ch2393,ch1006,different IDs,19,21,111,179
 TV.TEAM full,Comedy Central,508,2026-11-05T04:15:00+03:00,ch2393,ch1006,different IDs,12,23,65,215
 TV.TEAM full,Comedy Central,508,2026-11-05T08:00:00+03:00,ch2393,ch1006,different IDs,10,12,116,19
@@ -1206,6 +1247,9 @@ TV.TEAM full,Comedy Central,508,2026-11-07T02:00:00+03:00,ch2393,ch1006,differen
 TV.TEAM full,Comedy Central,508,2026-11-07T02:30:00+03:00,ch2393,ch1006,different IDs,48,29,70,199
 TV.TEAM full,Comedy Central,508,2026-11-07T03:30:00+03:00,ch2393,ch1006,different IDs,12,16,64,169
 TV.TEAM full,Comedy Central,508,2026-11-07T08:00:00+03:00,ch2393,ch1006,different IDs,15,12,100,19
+TV.TEAM full,Comedy Central,508,2026-11-07T10:00:00+03:00,ch2393,ch1006,different IDs,23,27,129,179
+TV.TEAM full,Comedy Central,508,2026-11-07T12:00:00+03:00,ch2393,ch1006,different IDs,15,27,171,158
+TV.TEAM full,Comedy Central,508,2026-11-07T13:00:00+03:00,ch2393,ch1006,different IDs,11,7,34,223
 TV.TEAM full,Discovery Channel HD,1906,2026-11-05T08:30:00+03:00,ch164,ch1373,different IDs,47,17,278,174
 TV.TEAM full,Discovery Channel HD,1906,2026-11-05T11:35:00+03:00,ch164,ch1373,different IDs,47,18,231,152
 TV.TEAM full,Discovery Channel HD,1906,2026-11-05T12:20:00+03:00,ch164,ch1373,different IDs,47,23,228,160
@@ -1293,6 +1337,13 @@ TV.TEAM full,Discovery Channel HD,1906,2026-11-07T05:35:00+03:00,ch1373,ch1120,d
 TV.TEAM full,Discovery Channel HD,1906,2026-11-07T06:50:00+03:00,ch1373,ch1120,different IDs,17,29,179,126
 TV.TEAM full,Discovery Channel HD,1906,2026-11-07T07:40:00+03:00,ch1373,ch1120,different IDs,17,29,179,122
 TV.TEAM full,Discovery Channel HD,1906,2026-11-07T09:20:00+03:00,ch1373,ch1120,different IDs,15,26,177,123
+TV.TEAM full,Discovery Channel HD,1906,2026-11-07T09:43:00+03:00,ch1373,ch1120,different IDs,15,26,172,202
+TV.TEAM full,Discovery Channel HD,1906,2026-11-07T10:05:00+03:00,ch1373,ch1120,different IDs,15,25,124,159
+TV.TEAM full,Discovery Channel HD,1906,2026-11-07T10:28:00+03:00,ch1373,ch1120,different IDs,15,25,115,169
+TV.TEAM full,Discovery Channel HD,1906,2026-11-07T10:50:00+03:00,ch1373,ch1120,different IDs,16,17,175,116
+TV.TEAM full,Discovery Channel HD,1906,2026-11-07T11:35:00+03:00,ch1373,ch1120,different IDs,28,31,133,96
+TV.TEAM full,Discovery Channel HD,1906,2026-11-07T12:20:00+03:00,ch1373,ch1120,different IDs,28,31,135,136
+TV.TEAM full,Discovery Channel HD,1906,2026-11-07T13:05:00+03:00,ch1373,ch1120,different IDs,44,40,176,141
 TV.TEAM full,Cartoonito,1741,2026-11-05T00:05:00+03:00,ch2351,ch1349,different IDs,6,10,224,155
 TV.TEAM full,Cartoonito,1741,2026-11-05T00:20:00+03:00,ch1816,ch1349,different IDs,45,10,173,155
 TV.TEAM full,Cartoonito,1741,2026-11-05T00:30:00+03:00,ch1816,ch1349,different IDs,60,10,234,155
@@ -1421,11 +1472,23 @@ TV.TEAM full,Cartoonito,1741,2026-11-07T07:15:00+03:00,ch2351,ch1349,different I
 TV.TEAM full,Cartoonito,1741,2026-11-07T07:25:00+03:00,ch2351,ch1349,different IDs,32,20,230,105
 TV.TEAM full,Cartoonito,1741,2026-11-07T08:00:00+03:00,ch161,ch1349,different IDs,46,25,132,145
 TV.TEAM full,Cartoonito,1741,2026-11-07T09:05:00+03:00,ch1816,ch1349,different IDs,30,16,325,137
+TV.TEAM full,Cartoonito,1741,2026-11-07T10:10:00+03:00,ch2351,ch1349,different IDs,10,24,183,136
+TV.TEAM full,Cartoonito,1741,2026-11-07T11:05:00+03:00,ch2351,ch1349,different IDs,47,8,189,133
+TV.TEAM full,Cartoonito,1741,2026-11-07T11:25:00+03:00,ch1816,ch1349,different IDs,27,20,199,105
+TV.TEAM full,Cartoonito,1741,2026-11-07T11:55:00+03:00,ch1816,ch1349,different IDs,36,20,191,105
+TV.TEAM full,Cartoonito,1741,2026-11-07T12:00:00+03:00,ch1816,ch1349,different IDs,36,20,190,105
+TV.TEAM full,Cartoonito,1741,2026-11-07T12:30:00+03:00,ch1816,ch1349,different IDs,25,20,195,105
+TV.TEAM full,Cartoonito,1741,2026-11-07T13:05:00+03:00,ch2351,ch1349,different IDs,13,20,234,105
+TV.TEAM full,Cartoonito,1741,2026-11-07T13:10:00+03:00,ch1816,ch1349,different IDs,51,22,166,98
+TV.TEAM full,Cartoonito,1741,2026-11-07T13:25:00+03:00,ch1816,ch1349,different IDs,40,8,166,133
 TV.TEAM full,NickToons HD,1752,2026-11-05T11:15:00+03:00,ch2278,ch2156,different IDs,21,11,136,193
 TV.TEAM full,NickToons HD,1752,2026-11-05T22:40:00+03:00,ch2278,ch2156,different IDs,21,26,172,582
 TV.TEAM full,NickToons HD,1752,2026-11-06T11:15:00+03:00,ch2278,ch2156,different IDs,21,11,189,193
 TV.TEAM full,NickToons HD,1752,2026-11-06T16:10:00+03:00,ch2278,ch2156,different IDs,21,22,93,177
 TV.TEAM full,NickToons HD,1752,2026-11-06T22:40:00+03:00,ch2278,ch2156,different IDs,21,26,104,582
+TV.TEAM full,NickToons HD,1752,2026-11-07T10:50:00+03:00,ch2278,ch2156,different IDs,21,8,134,149
+TV.TEAM full,NickToons HD,1752,2026-11-07T13:10:00+03:00,ch2278,ch2156,different IDs,21,11,120,180
+TV.TEAM full,TLC HD,1901,2026-11-07T11:30:00+03:00,ch2856,ch4020,different IDs,28,12,105,178
 TV.TEAM full,Cartoon Network,1737,2026-11-05T07:50:00+03:00,ch2479,ch2182,different IDs,17,26,129,896
 TV.TEAM full,Cartoon Network,1737,2026-11-06T07:50:00+03:00,ch2479,ch2182,different IDs,17,26,129,896
 TV.TEAM full,Cartoon Network,1737,2026-11-07T03:45:00+03:00,ch3935,ch2182,different IDs,21,26,111,896
@@ -1489,6 +1552,8 @@ TV.TEAM full,National Geographic HD,1855,2026-11-07T01:00:00+03:00,ch4118,ch3424
 TV.TEAM full,National Geographic HD,1855,2026-11-07T03:00:00+03:00,ch4118,ch3424,different IDs,22,35,60,105
 TV.TEAM full,National Geographic HD,1855,2026-11-07T04:00:00+03:00,ch4118,ch3424,different IDs,22,37,69,68
 TV.TEAM full,National Geographic HD,1855,2026-11-07T05:00:00+03:00,ch4118,ch3424,different IDs,22,35,146,73
+TV.TEAM full,National Geographic HD,1855,2026-11-07T10:00:00+03:00,ch4118,ch3424,different IDs,22,24,56,60
+TV.TEAM full,National Geographic HD,1855,2026-11-07T13:06:00+03:00,ch1346,ch3424,different IDs,15,13,153,243
 TV.TEAM full,History HD,1903,2026-11-05T00:00:00+03:00,ch909,ch2398,different IDs,17,16,234,105
 TV.TEAM full,History HD,1903,2026-11-05T10:40:00+03:00,ch1143,ch2398,different IDs,36,11,202,173
 TV.TEAM full,History HD,1903,2026-11-05T14:10:00+03:00,ch909,ch2398,different IDs,19,29,198,101
@@ -1502,6 +1567,7 @@ TV.TEAM full,History HD,1903,2026-11-06T18:30:00+03:00,ch1143,ch2398,different I
 TV.TEAM full,History HD,1903,2026-11-06T21:30:00+03:00,ch171,ch2398,different IDs,40,20,583,167
 TV.TEAM full,History HD,1903,2026-11-07T07:05:00+03:00,ch2199,ch2398,different IDs,33,9,142,200
 TV.TEAM full,History HD,1903,2026-11-07T07:30:00+03:00,ch909,ch2398,different IDs,19,9,135,166
+TV.TEAM full,History HD,1903,2026-11-07T11:45:00+03:00,ch909,ch2398,different IDs,19,18,135,222
 TV.TEAM full,FX HD,370,2026-11-05T07:00:00+03:00,ch3343,ch903,different IDs,11,36,73,132
 TV.TEAM full,FX HD,370,2026-11-05T08:00:00+03:00,ch3343,ch903,different IDs,11,33,79,138
 TV.TEAM full,FX HD,370,2026-11-05T10:00:00+03:00,ch3343,ch903,different IDs,11,5,73,768
@@ -1519,6 +1585,9 @@ TV.TEAM full,FX HD,370,2026-11-06T12:30:00+03:00,ch3343,ch2193,different IDs,33,
 TV.TEAM full,FX HD,370,2026-11-06T13:00:00+03:00,ch3343,ch2193,different IDs,12,60,140,245
 TV.TEAM full,FX HD,370,2026-11-06T15:00:00+03:00,ch3343,ch2193,different IDs,12,16,86,119
 TV.TEAM full,FX HD,370,2026-11-06T16:00:00+03:00,ch3343,ch2193,different IDs,12,16,149,248
+TV.TEAM full,FX HD,370,2026-11-07T12:00:00+03:00,ch3343,ch2193,different IDs,12,17,149,47
+TV.TEAM full,FX HD,370,2026-11-07T12:30:00+03:00,ch903,ch2193,different IDs,36,16,132,17
+TV.TEAM full,FX HD,370,2026-11-07T13:00:00+03:00,ch3343,ch2193,different IDs,12,60,88,245
 TV.TEAM full,Baby TV,1748,2026-11-05T00:27:00+03:00,ch1118,ch2473,different IDs,14,13,34,251
 TV.TEAM full,Baby TV,1748,2026-11-05T00:37:00+03:00,ch1118,ch2473,different IDs,22,13,118,251
 TV.TEAM full,Baby TV,1748,2026-11-05T01:08:00+03:00,ch1118,ch2473,different IDs,17,28,66,306
@@ -1659,6 +1728,7 @@ TV.TEAM full,Discovery Channel HD,1906,2026-11-07T02:35:00+03:00,ch1373,ch3351,d
 TV.TEAM full,Discovery Channel HD,1906,2026-11-07T03:35:00+03:00,ch164,ch3351,different IDs,13,20,728,122
 TV.TEAM full,Discovery Channel HD,1906,2026-11-07T08:25:00+03:00,ch3647,ch3351,different IDs,18,22,147,188
 TV.TEAM full,Discovery Channel HD,1906,2026-11-07T08:50:00+03:00,ch164,ch3351,different IDs,42,22,555,216
+TV.TEAM full,Discovery Channel HD,1906,2026-11-07T10:05:00+03:00,ch1373,ch3351,different IDs,15,32,124,99
 TV.TEAM full,TLC HD,1901,2026-11-04T23:50:00+03:00,ch3212,ch4212,different IDs,34,19,156,229
 TV.TEAM full,TLC HD,1901,2026-11-05T00:40:00+03:00,ch3212,ch4212,different IDs,31,10,153,259
 TV.TEAM full,TLC HD,1901,2026-11-05T01:30:00+03:00,ch2856,ch4212,different IDs,20,17,177,240
@@ -4426,15 +4496,12 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T07:58:00+03:00,Baby.TV.be,BABY.TV.co,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T08:40:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,17,12,75,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:01:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,13,12,95,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:30:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,31,15,209,58
-M3U Edit ALL,Baby TV,1748,2026-11-07T09:51:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,12,15,190,58
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:06:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,12,15,192,58
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:17:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,12,15,93,58
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:06:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,4,15,203,196
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:17:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,12,17,99,95
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:27:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,13,12,84,138
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:32:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,18,12,64,138
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:38:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,18,17,80,97
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:39:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,18,17,187,97
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:48:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,22,9,78,175
 M3U Edit ALL,Baby TV,1748,2026-11-07T14:19:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,27,13,151,102
 M3U Edit ALL,Baby TV,1748,2026-11-07T14:48:00+03:00,Baby.TV.be,BABY.TV.co,different IDs,10,21,98,235
@@ -4472,7 +4539,6 @@ M3U Edit ALL,Cartoon Network,1737,2026-11-05T12:47:00+03:00,Cartoon.Network.br,C
 M3U Edit ALL,Cartoon Network,1737,2026-11-05T13:23:00+03:00,Cartoon.Network.br,Cartoon.Network.co,different IDs,14,29,0,71
 M3U Edit ALL,Cartoon Network,1737,2026-11-05T13:34:00+03:00,Cartoon.Network.br,Cartoon.Network.co,different IDs,14,29,0,101
 M3U Edit ALL,Cartoon Network,1737,2026-11-06T03:45:00+03:00,CARTOON.NETWORK.be,Cartoon.Network.co,different IDs,16,32,251,73
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,Cartoon.Network.co,different IDs,15,17,0,98
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T16:11:00+03:00,Cartoon.Network.br,Cartoon.Network.co,different IDs,44,29,0,112
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T16:41:00+03:00,Cartoon.Network.br,Cartoon.Network.co,different IDs,37,44,0,181
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T19:11:00+03:00,Cartoon.Network.br,Cartoon.Network.co,different IDs,14,29,0,134
@@ -4493,8 +4559,6 @@ M3U Edit ALL,Comedy Central,508,2026-11-06T04:20:00+03:00,Comedy.Central.be,Come
 M3U Edit ALL,Comedy Central,508,2026-11-06T04:45:00+03:00,Comedy.Central.be,Comedy.Central.co,different IDs,11,16,250,158
 M3U Edit ALL,Comedy Central,508,2026-11-07T03:10:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.co,different IDs,7,9,125,137
 M3U Edit ALL,Comedy Central,508,2026-11-07T04:45:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.co,different IDs,11,16,240,158
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:20:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.co,different IDs,9,10,100,118
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:45:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.co,different IDs,16,10,202,105
 M3U Edit ALL,Comedy Central,508,2026-11-07T15:00:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.co,different IDs,7,21,160,82
 M3U Edit ALL,Comedy Central,508,2026-11-07T17:00:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.co,different IDs,6,5,100,96
 M3U Edit ALL,Comedy Central,508,2026-11-07T17:25:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.co,different IDs,6,5,90,93
@@ -4990,13 +5054,11 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T09:24:00+03:00,Baby.TV.be,Baby.TV.cy,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:30:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,31,15,209,14
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:35:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,31,15,92,14
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:46:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,215,13
-M3U Edit ALL,Baby TV,1748,2026-11-07T09:51:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,190,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:00:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,192,14
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:06:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,192,14
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:12:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,195,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:17:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,93,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:27:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,91,16
-M3U Edit ALL,Baby TV,1748,2026-11-07T10:32:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,94,16
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:38:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,88,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:39:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,240,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:41:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,80,13
@@ -5005,34 +5067,22 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T10:48:00+03:00,Baby.TV.be,Baby.TV.cy,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:53:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,28,15,0,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:56:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,20,15,200,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:02:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,20,15,83,13
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:07:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,95,13
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:11:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,100,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:13:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,211,22
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:19:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,186,22
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:25:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,199,22
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:31:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,31,15,92,14
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:37:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,31,15,94,14
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:47:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,200,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:52:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,200,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:57:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,240,13
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:59:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,80,13
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:01:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,25,15,233,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:06:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,4,15,203,22
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:17:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,12,15,99,16
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:21:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,13,15,194,14
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:24:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,13,15,68,14
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:27:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,13,15,84,14
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:32:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,64,13
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:34:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,240,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:36:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,64,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:38:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,80,13
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:39:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,187,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:42:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,22,15,92,30
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:48:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,22,15,78,30
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:06:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,19,15,101,30
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:12:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,25,15,81,23
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:16:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,25,15,96,23
-M3U Edit ALL,Baby TV,1748,2026-11-07T13:20:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,25,15,88,23
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:27:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,18,15,119,13
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:29:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,15,15,0,23
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:36:00+03:00,Baby.TV.be,Baby.TV.cy,different IDs,15,15,0,23
@@ -5152,7 +5202,6 @@ M3U Edit ALL,Duck TV,1747,2026-11-05T19:43:00+03:00,Duck.TV.be,Duck.TV.cy,differ
 M3U Edit ALL,Duck TV,1747,2026-11-06T14:33:00+03:00,Duck.TV.be,Duck.TV.cy,different IDs,19,3,224,67
 M3U Edit ALL,Duck TV,1747,2026-11-06T21:50:00+03:00,Duck.TV.be,Duck.TV.cy,different IDs,9,6,242,88
 M3U Edit ALL,Duck TV,1747,2026-11-07T10:10:00+03:00,Duck.TV.be,Duck.TV.cy,different IDs,19,18,224,119
-M3U Edit ALL,Duck TV,1747,2026-11-07T10:23:00+03:00,Duck.TV.be,Duck.TV.cy,different IDs,19,19,224,55
 M3U Edit ALL,Duck TV,1747,2026-11-07T19:43:00+03:00,Duck.TV.be,Duck.TV.cy,different IDs,16,20,239,146
 M3U Edit ALL,Duck TV,1747,2026-11-07T22:04:00+03:00,Duck.TV.be,Duck.TV.cy,different IDs,9,9,242,99
 M3U Edit ALL,CNBC,2573,2026-11-07T16:30:00+03:00,CNBC.at,CNBC.cy,different IDs,20,16,319,300
@@ -5423,7 +5472,6 @@ M3U Edit ALL,Animal Planet,1913,2026-11-07T19:55:00+03:00,ANIMAL.PLANET.at,Anima
 M3U Edit ALL,Animal Planet,1913,2026-11-07T20:45:00+03:00,ANIMAL.PLANET.at,Animal.Planet.de,different IDs,20,20,497,511
 M3U Edit ALL,Animal Planet,1913,2026-11-07T22:15:00+03:00,ANIMAL.PLANET.at,Animal.Planet.de,different IDs,22,22,553,567
 M3U Edit ALL,Animal Planet,1913,2026-11-07T23:45:00+03:00,ANIMAL.PLANET.at,Animal.Planet.de,different IDs,17,17,406,533
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:25:00+03:00,CARTOONITO.co,Cartoonito.de,different IDs,20,23,83,311
 M3U Edit ALL,Discovery Channel,1907,2026-11-05T08:25:00+03:00,DISCOVERY.CHANNEL.be,Discovery.Channel.dk,different IDs,18,17,118,353
 M3U Edit ALL,Discovery Channel,1907,2026-11-05T09:15:00+03:00,Discovery.Channel.at,Discovery.Channel.dk,different IDs,47,11,599,262
 M3U Edit ALL,Discovery Channel,1907,2026-11-05T15:20:00+03:00,Discovery.Channel.at,Discovery.Channel.dk,different IDs,35,25,688,355
@@ -5621,9 +5669,6 @@ M3U Edit ALL,Comedy Central,508,2026-11-05T01:55:00+03:00,COMEDY.CENTRAL.be,Come
 M3U Edit ALL,Comedy Central,508,2026-11-05T22:05:00+03:00,Comedy.Central.be,Comedy.Central.fr,different IDs,8,16,250,199
 M3U Edit ALL,Comedy Central,508,2026-11-07T02:20:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.fr,different IDs,10,10,196,158
 M3U Edit ALL,Comedy Central,508,2026-11-07T02:45:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.fr,different IDs,9,26,176,107
-M3U Edit ALL,Comedy Central,508,2026-11-07T10:25:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.fr,different IDs,5,5,153,79
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:20:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.fr,different IDs,9,9,100,48
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:45:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.fr,different IDs,16,16,202,166
 M3U Edit ALL,Comedy Central,508,2026-11-07T13:50:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.fr,different IDs,16,16,233,356
 M3U Edit ALL,Comedy Central,508,2026-11-07T14:15:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.fr,different IDs,16,16,188,209
 M3U Edit ALL,Comedy Central,508,2026-11-07T14:35:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.fr,different IDs,7,7,134,175
@@ -5663,10 +5708,6 @@ M3U Edit ALL,Cartoonito,1741,2026-11-06T21:35:00+03:00,Cartoonito.dk,Cartoonito.
 M3U Edit ALL,Cartoonito,1741,2026-11-07T00:35:00+03:00,Cartoonito.dk,Cartoonito.fr,different IDs,29,24,264,96
 M3U Edit ALL,Cartoonito,1741,2026-11-07T07:20:00+03:00,Cartoonito.dk,Cartoonito.fr,different IDs,21,5,441,143
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:20:00+03:00,Cartoonito.dk,Cartoonito.fr,different IDs,13,9,203,120
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:15:00+03:00,CARTOONITO.co,Cartoonito.fr,different IDs,23,19,119,83
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:40:00+03:00,Cartoonito.dk,Cartoonito.fr,different IDs,6,23,373,35
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:00:00+03:00,Cartoonito.dk,Cartoonito.fr,different IDs,29,24,265,164
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:45:00+03:00,Cartoonito.dk,Cartoonito.fr,different IDs,29,9,225,110
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.fr,different IDs,6,18,133,149
 M3U Edit ALL,Cartoonito,1741,2026-11-07T15:15:00+03:00,Cartoonito.dk,Cartoonito.fr,different IDs,13,9,197,161
 M3U Edit ALL,Cartoonito,1741,2026-11-07T15:45:00+03:00,Cartoonito.dk,Cartoonito.fr,different IDs,21,16,200,83
@@ -6353,7 +6394,6 @@ M3U Edit ALL,National Geographic HD,1855,2026-11-07T07:20:00+03:00,National.Geog
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T08:05:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.gr,different IDs,27,36,175,222
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T08:50:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.gr,different IDs,27,36,174,267
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T09:40:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.gr,different IDs,27,36,175,218
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T10:25:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.gr,different IDs,27,36,174,267
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T11:10:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.gr,different IDs,26,18,150,259
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T13:30:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.gr,different IDs,26,18,143,215
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T14:15:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.gr,different IDs,26,18,150,191
@@ -6375,7 +6415,6 @@ M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-06T03:15:00+03:00,Nat.Geo.Wild.HD.cy,N
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-06T08:20:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.gr,different IDs,22,28,195,254
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T08:20:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.gr,different IDs,28,27,304,278
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T09:05:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.gr,different IDs,26,28,373,223
-M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T11:00:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.gr,different IDs,33,26,312,263
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T11:45:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.gr,different IDs,17,22,319,237
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T15:30:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.gr,different IDs,26,18,246,220
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T16:15:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.gr,different IDs,18,33,377,297
@@ -7007,14 +7046,11 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T08:24:00+03:00,BABY.TV.co,Baby.TV.hu,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T08:40:00+03:00,Baby.TV.be,Baby.TV.hu,different IDs,17,1,75,7
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:41:00+03:00,BABY.TV.co,Baby.TV.hu,different IDs,15,1,58,22
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:37:00+03:00,BABY.TV.co,Baby.TV.hu,different IDs,15,1,58,9
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:19:00+03:00,Baby.TV.be,Baby.TV.hu,different IDs,12,1,186,15
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:24:00+03:00,BABY.TV.co,Baby.TV.hu,different IDs,13,1,233,16
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:01:00+03:00,Baby.TV.be,Baby.TV.hu,different IDs,25,1,233,30
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:06:00+03:00,Baby.TV.be,Baby.TV.hu,different IDs,4,1,203,35
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:27:00+03:00,Baby.TV.be,Baby.TV.hu,different IDs,13,1,84,19
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:36:00+03:00,Baby.TV.be,Baby.TV.hu,different IDs,18,1,64,6
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:48:00+03:00,Baby.TV.be,Baby.TV.hu,different IDs,22,1,78,8
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:56:00+03:00,BABY.TV.co,Baby.TV.hu,different IDs,21,1,245,16
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:19:00+03:00,BABY.TV.co,Baby.TV.hu,different IDs,12,1,197,7
 M3U Edit ALL,Baby TV,1748,2026-11-07T14:03:00+03:00,Baby.TV.be,Baby.TV.hu,different IDs,22,1,185,21
 M3U Edit ALL,Baby TV,1748,2026-11-07T14:24:00+03:00,BABY.TV.co,Baby.TV.hu,different IDs,13,1,90,19
@@ -7056,15 +7092,6 @@ M3U Edit ALL,Discovery Channel,1907,2026-11-07T05:40:00+03:00,Discovery.Channel.
 M3U Edit ALL,Discovery Channel,1907,2026-11-07T06:30:00+03:00,DISCOVERY.CHANNEL.be,Discovery.Channel.hu,different IDs,40,13,147,138
 M3U Edit ALL,Discovery Channel,1907,2026-11-07T07:15:00+03:00,DISCOVERY.CHANNEL.be,Discovery.Channel.hu,different IDs,10,13,171,138
 M3U Edit ALL,Discovery Channel,1907,2026-11-07T23:30:00+03:00,Discovery.Channel.es,Discovery.Channel.hu,different IDs,31,11,173,121
-M3U Edit ALL,Duck TV,1747,2026-11-07T10:06:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,11,100,243,15
-M3U Edit ALL,Duck TV,1747,2026-11-07T10:21:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,10,99,81,14
-M3U Edit ALL,Duck TV,1747,2026-11-07T10:23:00+03:00,Duck.TV.be,Duck.Tv.hu,different IDs,19,100,224,12
-M3U Edit ALL,Duck TV,1747,2026-11-07T11:06:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,6,100,88,17
-M3U Edit ALL,Duck TV,1747,2026-11-07T12:12:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,12,99,126,21
-M3U Edit ALL,Duck TV,1747,2026-11-07T12:45:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,12,99,199,14
-M3U Edit ALL,Duck TV,1747,2026-11-07T12:56:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,16,100,105,11
-M3U Edit ALL,Duck TV,1747,2026-11-07T13:03:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,7,100,40,19
-M3U Edit ALL,Duck TV,1747,2026-11-07T13:13:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,12,100,242,12
 M3U Edit ALL,Duck TV,1747,2026-11-07T15:53:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,12,99,227,15
 M3U Edit ALL,Duck TV,1747,2026-11-07T15:59:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,10,63,109,8
 M3U Edit ALL,Duck TV,1747,2026-11-07T16:18:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,11,99,96,15
@@ -7087,7 +7114,6 @@ M3U Edit ALL,Duck TV,1747,2026-11-07T23:04:00+03:00,Duck.TV.cy,Duck.Tv.hu,differ
 M3U Edit ALL,Duck TV,1747,2026-11-07T23:17:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,10,71,76,13
 M3U Edit ALL,Duck TV,1747,2026-11-07T23:30:00+03:00,Duck.TV.cy,Duck.Tv.hu,different IDs,17,99,100,21
 M3U Edit ALL,Extreme Sports,1327,2026-11-07T01:15:00+03:00,EXTREME.SPORTS.de,Extreme.Sports.hu,different IDs,32,32,207,193
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T13:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.hu,different IDs,27,38,194,303
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T15:00:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.hu,different IDs,26,13,156,419
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T20:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.hu,different IDs,41,35,85,414
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T23:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.hu,different IDs,31,33,217,393
@@ -7167,7 +7193,6 @@ M3U Edit ALL,Nickelodeon,1734,2026-11-06T06:00:00+03:00,NICKELODEON.gr,Nickelode
 M3U Edit ALL,Nickelodeon,1734,2026-11-06T09:30:00+03:00,NICKELODEON.gr,Nickelodeon.hu,different IDs,22,22,140,245
 M3U Edit ALL,Nickelodeon,1734,2026-11-06T22:00:00+03:00,NICKELODEON.gr,Nickelodeon.hu,different IDs,10,6,177,246
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T04:30:00+03:00,NICKELODEON.gr,Nickelodeon.hu,different IDs,18,15,137,186
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T10:30:00+03:00,NICKELODEON.gr,Nickelodeon.hu,different IDs,28,22,52,245
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T14:00:00+03:00,NICKELODEON.gr,Nickelodeon.hu,different IDs,15,16,156,232
 M3U Edit ALL,beIN Sports 2,2679,2026-11-05T01:00:00+03:00,beINSports2.au,beIN.Sports.2.id,different IDs,22,27,123,0
 M3U Edit ALL,beIN Sports 2,2679,2026-11-05T12:00:00+03:00,beIN.SPORTS.2.hk,beIN.Sports.2.id,different IDs,18,29,0,0
@@ -7360,29 +7385,22 @@ M3U Edit ALL,Food Network,2535,2026-11-07T22:00:00+03:00,FoodNetwork.au,Food.Net
 M3U Edit ALL,Food Network,2535,2026-11-07T23:00:00+03:00,Food.Network.be,Food.Network.ie,different IDs,25,25,136,136
 M3U Edit ALL,National Geographic HD,1855,2026-11-06T05:55:00+03:00,National.Geographic.HD.gr,National.Geographic.HD.ie,different IDs,33,15,225,144
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T05:55:00+03:00,National.Geographic.HD.be,National.Geographic.HD.ie,different IDs,32,15,199,157
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T11:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.ie,different IDs,31,21,263,79
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T13:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.ie,different IDs,27,23,194,171
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T14:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.ie,different IDs,38,23,288,169
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T15:00:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.ie,different IDs,26,19,156,133
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T19:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.ie,different IDs,23,27,447,150
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T20:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.ie,different IDs,41,23,85,141
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T22:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.ie,different IDs,34,23,460,126
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T23:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.ie,different IDs,31,23,217,141
-M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T11:00:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.ie,different IDs,33,22,312,172
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T17:00:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.ie,different IDs,25,24,310,173
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-06T12:30:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.ie,different IDs,23,16,175,199
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-06T16:30:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.ie,different IDs,18,11,159,145
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T14:15:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.ie,different IDs,14,28,204,118
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T16:30:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.ie,different IDs,12,19,221,224
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T18:00:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.ie,different IDs,23,31,242,147
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:00:00+03:00,Cartoon.Network.br,Cartoon.Network.ie,different IDs,15,15,0,173
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,Cartoon.Network.ie,different IDs,15,15,98,184
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T22:30:00+03:00,CARTOON.NETWORK.be,Cartoon.Network.ie,different IDs,30,8,110,250
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T23:00:00+03:00,Cartoon.Network.br,Cartoon.Network.ie,different IDs,44,12,173,144
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:00:00+03:00,Cartoonito.fr,Cartoonito.ie,different IDs,19,28,151,167
 M3U Edit ALL,Cartoonito,1741,2026-11-07T10:30:00+03:00,Cartoonito.dk,Cartoonito.ie,different IDs,6,9,424,206
 M3U Edit ALL,Cartoonito,1741,2026-11-07T11:00:00+03:00,Cartoonito.fr,Cartoonito.ie,different IDs,17,11,92,214
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:00:00+03:00,Cartoonito.dk,Cartoonito.ie,different IDs,29,11,265,214
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.ie,different IDs,6,30,133,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T17:00:00+03:00,Cartoonito.dk,Cartoonito.ie,different IDs,21,11,210,214
 M3U Edit ALL,Cartoonito,1741,2026-11-07T19:00:00+03:00,Cartoonito.dk,Cartoonito.ie,different IDs,31,11,191,247
@@ -7401,7 +7419,6 @@ M3U Edit ALL,National Geographic,1849,2026-11-07T05:30:00+03:00,National.Geograp
 M3U Edit ALL,National Geographic,1849,2026-11-07T05:55:00+03:00,NATIONAL.GEOGRAPHIC.at,National.Geographic.ie,different IDs,25,15,479,157
 M3U Edit ALL,National Geographic,1849,2026-11-07T07:35:00+03:00,National.Geographic.fr,National.Geographic.ie,different IDs,19,29,602,119
 M3U Edit ALL,Nat Geo Wild,1910,2026-11-05T23:50:00+03:00,NAT.GEO.WILD.de,Nat.Geo.Wild.ie,different IDs,24,28,594,70
-M3U Edit ALL,TLC HD,1901,2026-11-07T13:30:00+03:00,TLC.HD.ie,TLC.HD.in,different IDs,13,25,117,245
 M3U Edit ALL,TLC HD,1901,2026-11-07T14:30:00+03:00,TLC.HD.ie,TLC.HD.in,different IDs,19,18,142,203
 M3U Edit ALL,TLC HD,1901,2026-11-07T15:30:00+03:00,TLC.HD.ie,TLC.HD.in,different IDs,19,28,110,157
 M3U Edit ALL,TLC HD,1901,2026-11-07T16:30:00+03:00,TLC.HD.ie,TLC.HD.in,different IDs,19,25,127,245
@@ -7445,9 +7462,6 @@ M3U Edit ALL,Comedy Central,508,2026-11-04T23:50:00+03:00,COMEDY.CENTRAL.at,Come
 M3U Edit ALL,Comedy Central,508,2026-11-05T03:50:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,7,7,136,65
 M3U Edit ALL,Comedy Central,508,2026-11-05T04:55:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,11,11,232,177
 M3U Edit ALL,Comedy Central,508,2026-11-05T06:05:00+03:00,Comedy.Central.fr,Comedy.Central.it,different IDs,19,15,112,126
-M3U Edit ALL,Comedy Central,508,2026-11-07T10:25:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,5,5,153,159
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:20:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,9,27,100,229
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:45:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,16,16,202,38
 M3U Edit ALL,Comedy Central,508,2026-11-07T13:50:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,16,16,233,50
 M3U Edit ALL,Comedy Central,508,2026-11-07T14:15:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,16,16,188,33
 M3U Edit ALL,Comedy Central,508,2026-11-07T14:35:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,7,7,134,82
@@ -7460,18 +7474,11 @@ M3U Edit ALL,Comedy Central,508,2026-11-07T19:00:00+03:00,COMEDY.CENTRAL.be,Come
 M3U Edit ALL,Comedy Central,508,2026-11-07T20:10:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,9,12,189,215
 M3U Edit ALL,Comedy Central,508,2026-11-07T22:50:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,10,10,209,110
 M3U Edit ALL,Comedy Central,508,2026-11-07T23:15:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.it,different IDs,10,10,195,136
-M3U Edit ALL,MTV HD,1548,2026-11-07T12:00:00+03:00,MTV.HD.in,MTV.HD.it,different IDs,10,24,160,184
-M3U Edit ALL,Nick Jr,1731,2026-11-07T11:45:00+03:00,Nick.Jr..ch,Nick.Jr.it,different IDs,9,18,151,95
-M3U Edit ALL,Nick Jr,1731,2026-11-07T13:05:00+03:00,Nick.Jr.co,Nick.Jr.it,different IDs,19,39,188,145
 M3U Edit ALL,Nick Jr,1731,2026-11-07T19:20:00+03:00,Nick.Jr..ch,Nick.Jr.it,different IDs,20,13,197,146
 M3U Edit ALL,Nick Jr,1731,2026-11-07T22:35:00+03:00,Nick.Jr..ch,Nick.Jr.it,different IDs,20,85,240,84
 M3U Edit ALL,Nick Jr,1731,2026-11-07T22:50:00+03:00,Nick.Jr..hu,Nick.Jr.it,different IDs,21,76,171,153
 M3U Edit ALL,Nick Jr,1731,2026-11-07T23:00:00+03:00,Nick.Jr..ch,Nick.Jr.it,different IDs,20,31,122,180
 M3U Edit ALL,Nick Jr,1731,2026-11-07T23:10:00+03:00,Nick.Jr..hu,Nick.Jr.it,different IDs,21,39,166,168
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T10:05:00+03:00,Nickelodeon.hu,Nickelodeon.it,different IDs,22,7,245,71
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T10:40:00+03:00,Nickelodeon.ch,Nickelodeon.it,different IDs,12,13,192,112
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T12:20:00+03:00,Nickelodeon.ch,Nickelodeon.it,different IDs,18,9,193,89
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T13:35:00+03:00,Nickelodeon.hu,Nickelodeon.it,different IDs,39,28,118,111
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T14:00:00+03:00,NICKELODEON.gr,Nickelodeon.it,different IDs,15,25,156,100
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T14:25:00+03:00,Nickelodeon.hu,Nickelodeon.it,different IDs,16,25,232,100
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T15:10:00+03:00,Nickelodeon.hu,Nickelodeon.it,different IDs,26,12,163,172
@@ -7486,17 +7493,9 @@ M3U Edit ALL,Cartoon Network,1737,2026-11-06T09:40:00+03:00,CARTOON.NETWORK.be,C
 M3U Edit ALL,Cartoon Network,1737,2026-11-06T14:15:00+03:00,Cartoon.Network.br,Cartoon.Network.it,different IDs,17,33,149,116
 M3U Edit ALL,Cartoon Network,1737,2026-11-06T17:25:00+03:00,CARTOON.NETWORK.be,Cartoon.Network.it,different IDs,21,33,140,151
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T09:40:00+03:00,Cartoon.Network.br,Cartoon.Network.it,different IDs,23,21,0,165
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,Cartoon.Network.it,different IDs,15,36,98,154
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T14:15:00+03:00,Cartoon.Network.hk,Cartoon.Network.it,different IDs,28,33,377,166
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T21:50:00+03:00,CARTOON.NETWORK.be,Cartoon.Network.it,different IDs,44,15,104,167
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T22:15:00+03:00,CARTOON.NETWORK.be,Cartoon.Network.it,different IDs,30,15,114,212
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:10:00+03:00,Cartoonito.fr,Cartoonito.it,different IDs,19,10,147,106
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:15:00+03:00,CARTOONITO.co,Cartoonito.it,different IDs,23,10,119,106
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:20:00+03:00,Cartoonito.dk,Cartoonito.it,different IDs,6,10,412,106
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:40:00+03:00,Cartoonito.dk,Cartoonito.it,different IDs,6,10,373,106
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:50:00+03:00,Cartoonito.fr,Cartoonito.it,different IDs,16,10,81,106
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:05:00+03:00,Cartoonito.dk,Cartoonito.it,different IDs,6,45,562,198
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:05:00+03:00,Cartoonito.dk,Cartoonito.it,different IDs,29,13,270,173
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:15:00+03:00,Cartoonito.dk,Cartoonito.it,different IDs,22,6,317,338
 M3U Edit ALL,Cartoonito,1741,2026-11-07T15:10:00+03:00,CARTOONITO.co,Cartoonito.it,different IDs,25,30,246,145
 M3U Edit ALL,Cartoonito,1741,2026-11-07T15:35:00+03:00,Cartoonito.dk,Cartoonito.it,different IDs,31,30,191,145
@@ -7659,9 +7658,6 @@ M3U Edit ALL,Cartoon Network,1737,2026-11-07T03:25:00+03:00,Cartoon.Network.it,C
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T03:35:00+03:00,CARTOON.NETWORK.be,Cartoon.Network.lt,different IDs,44,28,104,941
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T09:15:00+03:00,Cartoon.Network.hk,Cartoon.Network.lt,different IDs,6,28,169,436
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:40:00+03:00,Cartoon.Network.it,Cartoon.Network.lt,different IDs,21,28,137,539
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T11:20:00+03:00,Cartoon.Network.it,Cartoon.Network.lt,different IDs,66,39,201,232
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,Cartoon.Network.lt,different IDs,15,28,98,941
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T13:15:00+03:00,Cartoon.Network.hk,Cartoon.Network.lt,different IDs,19,28,98,941
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T14:15:00+03:00,Cartoon.Network.hk,Cartoon.Network.lt,different IDs,28,39,377,232
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T14:25:00+03:00,Cartoon.Network.br,Cartoon.Network.lt,different IDs,45,39,0,232
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T14:50:00+03:00,Cartoon.Network.it,Cartoon.Network.lt,different IDs,33,28,139,941
@@ -7763,8 +7759,6 @@ M3U Edit ALL,Nickelodeon,1734,2026-11-06T16:15:00+03:00,Nickelodeon.hu,Nickelode
 M3U Edit ALL,Nickelodeon,1734,2026-11-06T17:00:00+03:00,NICKELODEON.gr,Nickelodeon.lt,different IDs,16,22,140,103
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T02:20:00+03:00,Nickelodeon.hu,Nickelodeon.lt,different IDs,21,24,132,359
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T09:30:00+03:00,NICKELODEON.gr,Nickelodeon.lt,different IDs,22,24,140,359
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T10:40:00+03:00,Nickelodeon.ch,Nickelodeon.lt,different IDs,12,17,192,213
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T13:00:00+03:00,NICKELODEON.gr,Nickelodeon.lt,different IDs,13,18,204,247
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T16:15:00+03:00,Nickelodeon.hu,Nickelodeon.lt,different IDs,15,11,169,0
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T16:40:00+03:00,Nickelodeon.hu,Nickelodeon.lt,different IDs,15,22,228,299
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T17:00:00+03:00,NICKELODEON.gr,Nickelodeon.lt,different IDs,16,22,140,491
@@ -7819,8 +7813,6 @@ M3U Edit ALL,Cartoon Network,1737,2026-11-06T17:35:00+03:00,CARTOON.NETWORK.be,C
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T01:15:00+03:00,Cartoon.Network.hk,Cartoon.Network.lu,different IDs,35,15,103,94
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T03:25:00+03:00,Cartoon.Network.it,Cartoon.Network.lu,different IDs,16,33,149,225
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T03:35:00+03:00,CARTOON.NETWORK.be,Cartoon.Network.lu,different IDs,44,33,104,158
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T11:20:00+03:00,Cartoon.Network.it,Cartoon.Network.lu,different IDs,66,33,201,60
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,Cartoon.Network.lu,different IDs,15,38,98,135
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T19:55:00+03:00,Cartoon.Network.it,Cartoon.Network.lu,different IDs,33,33,105,307
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T20:05:00+03:00,Cartoon.Network.co,Cartoon.Network.lu,different IDs,29,33,107,237
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T20:50:00+03:00,Cartoon.Network.lt,Cartoon.Network.lu,different IDs,28,38,941,133
@@ -7849,13 +7841,6 @@ M3U Edit ALL,Cartoonito,1741,2026-11-07T01:25:00+03:00,Cartoonito.dk,Cartoonito.
 M3U Edit ALL,Cartoonito,1741,2026-11-07T03:35:00+03:00,Cartoonito.dk,Cartoonito.lu,different IDs,26,23,199,231
 M3U Edit ALL,Cartoonito,1741,2026-11-07T03:55:00+03:00,Cartoonito.dk,Cartoonito.lu,different IDs,21,23,204,207
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:30:00+03:00,Cartoonito.ie,Cartoonito.lu,different IDs,18,22,182,242
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:10:00+03:00,Cartoonito.fr,Cartoonito.lu,different IDs,19,25,147,138
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:05:00+03:00,Cartoonito.dk,Cartoonito.lu,different IDs,6,28,562,227
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:25:00+03:00,Cartoonito.dk,Cartoonito.lu,different IDs,6,28,435,146
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:35:00+03:00,Cartoonito.fr,Cartoonito.lu,different IDs,35,28,150,136
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:55:00+03:00,Cartoonito.fr,Cartoonito.lu,different IDs,24,22,162,331
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:25:00+03:00,CARTOONITO.co,Cartoonito.lu,different IDs,20,23,83,395
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:35:00+03:00,CARTOONITO.co,Cartoonito.lu,different IDs,6,23,133,448
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.lu,different IDs,6,23,133,326
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:15:00+03:00,Cartoonito.dk,Cartoonito.lu,different IDs,22,23,317,399
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:30:00+03:00,Cartoonito.it,Cartoonito.lu,different IDs,6,23,338,341
@@ -8422,21 +8407,17 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T10:19:00+03:00,Baby.TV.hu,Baby.TV.mt,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:25:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,12,16,128
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:37:00+03:00,BABY.TV.co,Baby.TV.mt,different IDs,15,13,58,129
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:52:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,13,10,133
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:19:00+03:00,Baby.TV.be,Baby.TV.mt,different IDs,12,13,186,118
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:24:00+03:00,BABY.TV.co,Baby.TV.mt,different IDs,13,13,233,108
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:27:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,13,15,108
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:29:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,13,10,114
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:39:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,14,30,84
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:48:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,21,25,138
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:01:00+03:00,Baby.TV.be,Baby.TV.mt,different IDs,25,20,233,89
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:06:00+03:00,Baby.TV.be,Baby.TV.mt,different IDs,4,20,203,96
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:16:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,20,14,125
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:27:00+03:00,Baby.TV.be,Baby.TV.mt,different IDs,13,14,84,112
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:36:00+03:00,Baby.TV.be,Baby.TV.mt,different IDs,18,15,64,117
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:48:00+03:00,Baby.TV.be,Baby.TV.mt,different IDs,22,8,78,133
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:56:00+03:00,BABY.TV.co,Baby.TV.mt,different IDs,21,14,245,139
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:03:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,27,10,142
-M3U Edit ALL,Baby TV,1748,2026-11-07T13:08:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,27,34,125
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:19:00+03:00,BABY.TV.co,Baby.TV.mt,different IDs,12,27,197,133
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:35:00+03:00,Baby.TV.hu,Baby.TV.mt,different IDs,1,11,12,123
 M3U Edit ALL,Baby TV,1748,2026-11-07T14:03:00+03:00,Baby.TV.be,Baby.TV.mt,different IDs,22,24,185,143
@@ -8487,14 +8468,10 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T23:51:00+03:00,Baby.TV.be,Baby.TV.mt,differ
 M3U Edit ALL,CNBC,2573,2026-11-07T16:30:00+03:00,CNBC.at,CNBC.mt,different IDs,20,16,319,300
 M3U Edit ALL,CNBC,2573,2026-11-07T17:30:00+03:00,CNBC.at,CNBC.mt,different IDs,25,25,324,224
 M3U Edit ALL,Cartoon Network,1737,2026-11-05T09:31:00+03:00,Cartoon.Network.co,Cartoon.Network.mt,different IDs,29,28,118,78
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:00:00+03:00,Cartoon.Network.br,Cartoon.Network.mt,different IDs,15,15,173,78
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,Cartoon.Network.mt,different IDs,15,15,98,138
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T17:31:00+03:00,Cartoon.Network.br,Cartoon.Network.mt,different IDs,23,28,0,170
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T23:00:00+03:00,Cartoon.Network.br,Cartoon.Network.mt,different IDs,44,12,173,57
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:00:00+03:00,Cartoonito.fr,Cartoonito.mt,different IDs,19,28,151,121
 M3U Edit ALL,Cartoonito,1741,2026-11-07T10:31:00+03:00,CARTOONITO.co,Cartoonito.mt,different IDs,27,9,121,83
 M3U Edit ALL,Cartoonito,1741,2026-11-07T11:00:00+03:00,Cartoonito.fr,Cartoonito.mt,different IDs,17,11,92,281
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:00:00+03:00,Cartoonito.dk,Cartoonito.mt,different IDs,29,25,265,281
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.mt,different IDs,6,30,133,150
 M3U Edit ALL,Cartoonito,1741,2026-11-07T17:00:00+03:00,Cartoonito.dk,Cartoonito.mt,different IDs,21,11,210,257
 M3U Edit ALL,Cartoonito,1741,2026-11-07T19:00:00+03:00,Cartoonito.dk,Cartoonito.mt,different IDs,31,11,191,106
@@ -8511,7 +8488,6 @@ M3U Edit ALL,Duck TV,1747,2026-11-06T21:50:00+03:00,Duck.TV.be,Duck.TV.mt,differ
 M3U Edit ALL,Duck TV,1747,2026-11-07T09:10:00+03:00,Duck.TV.cy,Duck.TV.mt,different IDs,10,16,46,56
 M3U Edit ALL,Duck TV,1747,2026-11-07T09:51:00+03:00,Duck.TV.cy,Duck.TV.mt,different IDs,19,11,55,184
 M3U Edit ALL,Duck TV,1747,2026-11-07T10:10:00+03:00,Duck.TV.be,Duck.TV.mt,different IDs,19,11,224,184
-M3U Edit ALL,Duck TV,1747,2026-11-07T10:23:00+03:00,Duck.TV.be,Duck.TV.mt,different IDs,19,17,224,194
 M3U Edit ALL,Duck TV,1747,2026-11-07T21:50:00+03:00,Duck.TV.cy,Duck.TV.mt,different IDs,13,12,125,177
 M3U Edit ALL,Duck TV,1747,2026-11-07T23:40:00+03:00,Duck.TV.cy,Duck.TV.mt,different IDs,20,17,96,244
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-05T09:25:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.mt,different IDs,17,17,234,136
@@ -8527,7 +8503,6 @@ M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-06T05:25:00+03:00,Nat.Geo.Wild.HD.gr,N
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-06T08:20:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.mt,different IDs,22,22,195,130
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T08:20:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.mt,different IDs,28,28,304,124
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T09:05:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.mt,different IDs,26,17,373,145
-M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T11:00:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.mt,different IDs,33,23,312,112
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T11:45:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.mt,different IDs,17,17,319,64
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T15:30:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.mt,different IDs,26,22,246,141
 M3U Edit ALL,Nat Geo Wild HD,1963,2026-11-07T16:15:00+03:00,Nat.Geo.Wild.HD.cy,Nat.Geo.Wild.HD.mt,different IDs,18,18,377,145
@@ -8562,7 +8537,6 @@ M3U Edit ALL,National Geographic HD,1855,2026-11-07T07:20:00+03:00,National.Geog
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T08:05:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,27,27,175,142
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T08:50:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,27,27,174,108
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T09:40:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,27,27,175,130
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T10:25:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,27,27,174,108
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T11:10:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,26,6,150,150
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T13:30:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,26,6,143,143
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T14:15:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,26,6,150,150
@@ -8573,7 +8547,6 @@ M3U Edit ALL,National Geographic HD,1855,2026-11-07T21:25:00+03:00,National.Geog
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T22:50:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,49,27,135,135
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T23:40:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.mt,different IDs,42,32,148,135
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T07:50:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.mt,different IDs,12,21,202,90
-M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T13:00:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.mt,different IDs,27,14,198,223
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T14:15:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.mt,different IDs,14,27,204,106
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T15:20:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.mt,different IDs,12,12,193,128
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T18:00:00+03:00,Nickelodeon.HD.be,Nickelodeon.HD.mt,different IDs,23,14,242,87
@@ -8745,10 +8718,6 @@ M3U Edit ALL,Cartoon Network,1737,2026-11-06T09:40:00+03:00,CARTOON.NETWORK.be,C
 M3U Edit ALL,Cartoon Network,1737,2026-11-06T22:20:00+03:00,Cartoon.Network.lu,Cartoon.Network.ng,different IDs,15,15,98,0
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T08:15:00+03:00,Cartoon.Network.lu,Cartoon.Network.ng,different IDs,33,15,386,0
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T09:40:00+03:00,Cartoon.Network.br,Cartoon.Network.ng,different IDs,23,13,165,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T09:50:00+03:00,Cartoon.Network.it,Cartoon.Network.ng,different IDs,21,13,137,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:15:00+03:00,Cartoon.Network.it,Cartoon.Network.ng,different IDs,21,18,142,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T11:20:00+03:00,Cartoon.Network.it,Cartoon.Network.ng,different IDs,66,14,201,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,Cartoon.Network.ng,different IDs,15,12,98,0
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:15:00+03:00,Cartoon.Network.hk,Cartoon.Network.ng,different IDs,14,18,250,0
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T14:50:00+03:00,Cartoon.Network.it,Cartoon.Network.ng,different IDs,33,21,139,0
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T21:40:00+03:00,Cartoon.Network.lt,Cartoon.Network.ng,different IDs,28,28,941,0
@@ -8794,23 +8763,8 @@ M3U Edit ALL,Cartoonito,1741,2026-11-07T03:35:00+03:00,Cartoonito.dk,Cartoonito.
 M3U Edit ALL,Cartoonito,1741,2026-11-07T03:55:00+03:00,Cartoonito.dk,Cartoonito.ng,different IDs,21,9,204,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:30:00+03:00,Cartoonito.ie,Cartoonito.ng,different IDs,18,16,182,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:45:00+03:00,Cartoonito.dk,Cartoonito.ng,different IDs,31,16,215,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:15:00+03:00,CARTOONITO.co,Cartoonito.ng,different IDs,23,20,119,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:40:00+03:00,Cartoonito.dk,Cartoonito.ng,different IDs,6,17,373,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T11:00:00+03:00,Cartoonito.fr,Cartoonito.ng,different IDs,17,17,92,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:25:00+03:00,Cartoonito.dk,Cartoonito.ng,different IDs,6,19,435,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:30:00+03:00,CARTOONITO.co,Cartoonito.ng,different IDs,9,19,175,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:35:00+03:00,Cartoonito.fr,Cartoonito.ng,different IDs,35,19,150,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T11:45:00+03:00,Cartoonito.fr,Cartoonito.ng,different IDs,24,19,161,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:55:00+03:00,Cartoonito.fr,Cartoonito.ng,different IDs,24,19,162,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:10:00+03:00,Cartoonito.dk,Cartoonito.ng,different IDs,29,22,274,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:15:00+03:00,Cartoonito.fr,Cartoonito.ng,different IDs,24,22,146,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:30:00+03:00,Cartoonito.dk,Cartoonito.ng,different IDs,29,22,198,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:40:00+03:00,CARTOONITO.co,Cartoonito.ng,different IDs,21,22,220,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:45:00+03:00,Cartoonito.dk,Cartoonito.ng,different IDs,29,22,225,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:05:00+03:00,Cartoonito.dk,Cartoonito.ng,different IDs,29,16,270,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:25:00+03:00,CARTOONITO.co,Cartoonito.ng,different IDs,20,26,83,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:35:00+03:00,CARTOONITO.co,Cartoonito.ng,different IDs,6,26,133,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:40:00+03:00,Cartoonito.fr,Cartoonito.ng,different IDs,36,23,207,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.ng,different IDs,6,28,133,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:30:00+03:00,Cartoonito.it,Cartoonito.ng,different IDs,6,22,338,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:45:00+03:00,Cartoonito.it,Cartoonito.ng,different IDs,6,8,338,0
@@ -8841,7 +8795,6 @@ M3U Edit ALL,Cartoonito,1741,2026-11-07T23:50:00+03:00,Cartoonito.dk,Cartoonito.
 M3U Edit ALL,Comedy Central,508,2026-11-05T04:20:00+03:00,Comedy.Central.co,Comedy.Central.ng,different IDs,6,11,96,0
 M3U Edit ALL,Comedy Central,508,2026-11-05T20:15:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.ng,different IDs,9,9,197,0
 M3U Edit ALL,Comedy Central,508,2026-11-06T01:15:00+03:00,Comedy.Central.be,Comedy.Central.ng,different IDs,14,15,230,0
-M3U Edit ALL,Comedy Central,508,2026-11-07T10:25:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.ng,different IDs,5,11,153,0
 M3U Edit ALL,Food Network,2535,2026-11-05T05:00:00+03:00,FoodNetwork.au,Food.Network.ng,different IDs,15,38,74,0
 M3U Edit ALL,Food Network,2535,2026-11-05T05:55:00+03:00,Food.Network.IT.ch,Food.Network.ng,different IDs,18,28,195,0
 M3U Edit ALL,Food Network,2535,2026-11-05T06:45:00+03:00,Food.Network.IT.ch,Food.Network.ng,different IDs,18,22,226,0
@@ -8929,7 +8882,6 @@ M3U Edit ALL,Nickelodeon,1734,2026-11-06T15:35:00+03:00,Nickelodeon.lt,Nickelode
 M3U Edit ALL,Nickelodeon,1734,2026-11-06T18:38:00+03:00,Nickelodeon.bg,Nickelodeon.ng,different IDs,39,16,114,0
 M3U Edit ALL,Nickelodeon,1734,2026-11-06T22:00:00+03:00,NICKELODEON.gr,Nickelodeon.ng,different IDs,10,17,177,0
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T04:00:00+03:00,NICKELODEON.gr,Nickelodeon.ng,different IDs,20,17,50,0
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T12:10:00+03:00,Nickelodeon.lt,Nickelodeon.ng,different IDs,28,12,480,0
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T14:00:00+03:00,NICKELODEON.gr,Nickelodeon.ng,different IDs,15,21,156,0
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T16:34:00+03:00,NICKELODEON.be,Nickelodeon.ng,different IDs,12,14,250,0
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T20:50:00+03:00,Nickelodeon.hu,Nickelodeon.ng,different IDs,15,14,186,0
@@ -8959,9 +8911,6 @@ M3U Edit ALL,Comedy Central,508,2026-11-06T11:40:00+03:00,Comedy.Central.co,Come
 M3U Edit ALL,Comedy Central,508,2026-11-07T01:55:00+03:00,Comedy.Central.fr,Comedy.Central.nl,different IDs,10,32,41,202
 M3U Edit ALL,Comedy Central,508,2026-11-07T04:15:00+03:00,Comedy.Central.fr,Comedy.Central.nl,different IDs,7,12,319,132
 M3U Edit ALL,Comedy Central,508,2026-11-07T09:20:00+03:00,Comedy.Central.co,Comedy.Central.nl,different IDs,10,12,122,142
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:20:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.nl,different IDs,9,10,100,231
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:45:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.nl,different IDs,16,10,202,145
-M3U Edit ALL,Comedy Central,508,2026-11-07T13:30:00+03:00,Comedy.Central.co,Comedy.Central.nl,different IDs,21,10,82,117
 M3U Edit ALL,Comedy Central,508,2026-11-07T17:50:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.nl,different IDs,6,10,84,129
 M3U Edit ALL,Comedy Central,508,2026-11-07T20:35:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.nl,different IDs,9,15,203,389
 M3U Edit ALL,Eurosport 1,1306,2026-11-07T15:00:00+03:00,EUROSPORT.1.at,Eurosport.1.nl,different IDs,35,20,39,61
@@ -9052,7 +9001,6 @@ M3U Edit ALL,Comedy Central,508,2026-11-07T00:10:00+03:00,Comedy.Central.co,Come
 M3U Edit ALL,Comedy Central,508,2026-11-07T02:25:00+03:00,Comedy.Central.nl,Comedy.Central.nz,different IDs,14,15,225,139
 M3U Edit ALL,Comedy Central,508,2026-11-07T02:50:00+03:00,Comedy.Central.co,Comedy.Central.nz,different IDs,8,9,150,145
 M3U Edit ALL,Comedy Central,508,2026-11-07T11:30:00+03:00,Comedy.Central.ng,Comedy.Central.nz,different IDs,10,16,0,150
-M3U Edit ALL,Comedy Central,508,2026-11-07T13:30:00+03:00,Comedy.Central.co,Comedy.Central.nz,different IDs,21,7,82,159
 M3U Edit ALL,Comedy Central,508,2026-11-07T16:30:00+03:00,Comedy.Central.nl,Comedy.Central.nz,different IDs,10,21,137,137
 M3U Edit ALL,Comedy Central,508,2026-11-07T16:55:00+03:00,Comedy.Central.nl,Comedy.Central.nz,different IDs,10,10,148,110
 M3U Edit ALL,Comedy Central,508,2026-11-07T17:25:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.nz,different IDs,6,11,90,153
@@ -9088,14 +9036,10 @@ M3U Edit ALL,Nickelodeon,1734,2026-11-07T02:00:00+03:00,NICKELODEON.gr,Nickelode
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T02:57:00+03:00,Nickelodeon.bg,Nickelodeon.nz,different IDs,26,11,180,150
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T04:00:00+03:00,NICKELODEON.gr,Nickelodeon.nz,different IDs,20,12,50,132
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T07:35:00+03:00,Nickelodeon.lt,Nickelodeon.nz,different IDs,17,11,206,184
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T10:05:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,22,11,245,185
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T10:30:00+03:00,NICKELODEON.gr,Nickelodeon.nz,different IDs,28,12,52,174
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T11:15:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,21,30,144,178
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T11:40:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,15,6,169,186
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T12:05:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,15,30,169,181
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T12:25:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,15,8,169,185
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T12:50:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,15,17,169,163
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T13:35:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,39,7,118,190
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T14:00:00+03:00,NICKELODEON.gr,Nickelodeon.nz,different IDs,15,7,156,186
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T14:25:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,16,11,232,185
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T15:15:00+03:00,Nickelodeon.lt,Nickelodeon.nz,different IDs,17,14,206,194
@@ -9113,8 +9057,6 @@ M3U Edit ALL,Nickelodeon,1734,2026-11-07T23:10:00+03:00,Nickelodeon.hu,Nickelode
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T23:35:00+03:00,Nickelodeon.hu,Nickelodeon.nz,different IDs,32,10,245,148
 M3U Edit ALL,Fashion TV HD,2112,2026-11-05T03:30:00+03:00,Fashion.TV.HD.nl,Fashion.TV.HD.ph,different IDs,14,18,168,169
 M3U Edit ALL,Fashion TV HD,2877,2026-11-05T03:30:00+03:00,Fashion.TV.HD.nl,Fashion.TV.HD.ph,different IDs,14,18,168,169
-M3U Edit ALL,Da Vinci HD,2874,2026-11-07T12:30:00+03:00,Da.Vinci.HD.gr,Da.Vinci.HD.pl,different IDs,3,7,177,141
-M3U Edit ALL,Da Vinci HD,2874,2026-11-07T13:00:00+03:00,Da.Vinci.HD.gr,Da.Vinci.HD.pl,different IDs,31,11,63,141
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T15:15:00+03:00,Da.Vinci.HD.gr,Da.Vinci.HD.pl,different IDs,20,6,139,200
 M3U Edit ALL,Film UA Drama,2878,2026-11-05T11:00:00+03:00,Film.UA.Drama.lt,Film.UA.Drama.pl,different IDs,18,9,1093,0
 M3U Edit ALL,Film UA Drama,2878,2026-11-05T13:00:00+03:00,Film.UA.Drama.lt,Film.UA.Drama.pl,different IDs,14,20,531,0
@@ -9144,9 +9086,6 @@ M3U Edit ALL,Film UA Drama,2878,2026-11-07T22:00:00+03:00,Film.UA.Drama.lt,Film.
 M3U Edit ALL,Film UA Drama,2878,2026-11-07T23:00:00+03:00,Film.UA.Drama.lt,Film.UA.Drama.pl,different IDs,13,14,717,0
 M3U Edit ALL,Discovery Channel HD,1906,2026-11-07T01:30:00+03:00,Discovery.Channel.HD.ng,Discovery.Channel.HD.pl,different IDs,20,25,0,0
 M3U Edit ALL,National Geographic HD,1855,2026-11-06T10:30:00+03:00,NATIONAL.GEOGRAPHIC.HD.in,National.Geographic.HD.pl,different IDs,39,14,148,134
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T10:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.pl,different IDs,49,31,676,107
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T11:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.pl,different IDs,31,31,263,107
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T13:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.pl,different IDs,27,26,194,200
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T14:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.pl,different IDs,38,26,288,200
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T15:00:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.pl,different IDs,26,26,156,193
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T16:00:00+03:00,National.Geographic.HD.ie,National.Geographic.HD.pl,different IDs,27,26,131,193
@@ -9161,8 +9100,6 @@ M3U Edit ALL,Nickelodeon,1734,2026-11-05T19:10:00+03:00,Nickelodeon.es,Nickelode
 M3U Edit ALL,Nickelodeon,1734,2026-11-05T20:30:00+03:00,Nickelodeon.es,Nickelodeon.pl,different IDs,17,10,256,186
 M3U Edit ALL,Nickelodeon,1734,2026-11-05T21:30:00+03:00,NICKELODEON.gr,Nickelodeon.pl,different IDs,20,20,50,190
 M3U Edit ALL,Nickelodeon,1734,2026-11-06T00:25:00+03:00,Nickelodeon.hu,Nickelodeon.pl,different IDs,22,27,245,200
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T12:00:00+03:00,NICKELODEON.gr,Nickelodeon.pl,different IDs,28,26,52,552
-M3U Edit ALL,Nickelodeon,1734,2026-11-07T12:20:00+03:00,Nickelodeon.ch,Nickelodeon.pl,different IDs,18,26,193,552
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T12:50:00+03:00,Nickelodeon.hu,Nickelodeon.pl,different IDs,15,10,169,182
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T20:25:00+03:00,Nickelodeon.hu,Nickelodeon.pl,different IDs,39,27,118,693
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T21:15:00+03:00,Nickelodeon.it,Nickelodeon.pl,different IDs,9,14,79,188
@@ -9221,10 +9158,6 @@ M3U Edit ALL,Da Vinci,1974,2026-11-06T12:30:00+03:00,Da.Vinci.hr,Da.Vinci.pl,dif
 M3U Edit ALL,Da Vinci,1974,2026-11-06T14:54:00+03:00,Da.Vinci.hr,Da.Vinci.pl,different IDs,10,13,141,163
 M3U Edit ALL,Da Vinci,1974,2026-11-06T20:18:00+03:00,Da.Vinci.hr,Da.Vinci.pl,different IDs,13,15,121,136
 M3U Edit ALL,Da Vinci,1974,2026-11-06T21:24:00+03:00,Da.Vinci.hr,Da.Vinci.pl,different IDs,14,13,149,197
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T10:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.pl,different IDs,12,27,163,190
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T11:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.pl,different IDs,16,30,164,117
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T12:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.pl,different IDs,23,28,149,193
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T13:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.pl,different IDs,13,27,158,186
 M3U Edit ALL,Animal Planet HD,1912,2026-11-07T14:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.pl,different IDs,28,27,186,186
 M3U Edit ALL,Animal Planet HD,1912,2026-11-07T15:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.pl,different IDs,28,13,199,193
 M3U Edit ALL,Animal Planet HD,1912,2026-11-07T22:30:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.pl,different IDs,23,22,226,156
@@ -9561,13 +9494,11 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T09:06:00+03:00,Baby.TV.hu,Baby.TV.pl,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:17:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,13,12,182
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:32:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,12,21,159
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:41:00+03:00,BABY.TV.co,Baby.TV.pl,different IDs,15,15,58,193
-M3U Edit ALL,Baby TV,1748,2026-11-07T10:09:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,15,21,193
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:11:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,15,26,193
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:19:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,25,15,184
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:25:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,25,16,184
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:37:00+03:00,BABY.TV.co,Baby.TV.pl,different IDs,15,13,58,193
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:52:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,13,10,180
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:19:00+03:00,Baby.TV.be,Baby.TV.pl,different IDs,12,9,186,196
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:24:00+03:00,BABY.TV.co,Baby.TV.pl,different IDs,13,13,233,173
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:27:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,13,15,173
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:29:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,13,10,173
@@ -9575,15 +9506,12 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T11:34:00+03:00,Baby.TV.hu,Baby.TV.pl,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:38:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,15,21,193
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:39:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,15,30,193
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:48:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,17,25,200
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:01:00+03:00,Baby.TV.be,Baby.TV.pl,different IDs,25,18,233,184
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:06:00+03:00,Baby.TV.be,Baby.TV.pl,different IDs,4,18,203,184
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:16:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,21,14,185
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:27:00+03:00,Baby.TV.be,Baby.TV.pl,different IDs,13,15,84,193
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:36:00+03:00,Baby.TV.be,Baby.TV.pl,different IDs,18,15,64,162
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:48:00+03:00,Baby.TV.be,Baby.TV.pl,different IDs,22,8,78,188
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:56:00+03:00,BABY.TV.co,Baby.TV.pl,different IDs,21,15,245,193
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:03:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,26,10,196
-M3U Edit ALL,Baby TV,1748,2026-11-07T13:08:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,26,34,196
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:19:00+03:00,BABY.TV.co,Baby.TV.pl,different IDs,12,16,197,192
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:35:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,13,12,182
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:41:00+03:00,Baby.TV.hu,Baby.TV.pl,different IDs,1,15,25,193
@@ -9669,9 +9597,6 @@ M3U Edit ALL,HGTV HD,1992,2026-11-07T20:25:00+03:00,HGTV.HD.my,HGTV.HD.pl,differ
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T14:00:00+03:00,TRACE.Urban.HD.mt,Trace.Urban.HD.pt,different IDs,5,14,6,47
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T21:00:00+03:00,TRACE.Urban.HD.mt,Trace.Urban.HD.pt,different IDs,10,12,99,213
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T23:55:00+03:00,National.Geographic.HD.be,National.Geographic.HD.pt,different IDs,23,13,151,130
-M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T10:49:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.pt,different IDs,20,61,0,219
-M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T11:18:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.pt,different IDs,10,10,0,50
-M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T13:04:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.pt,different IDs,23,97,0,300
 M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T20:54:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.pt,different IDs,25,64,0,288
 M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T22:08:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.pt,different IDs,10,10,0,50
 M3U Edit ALL,Baby TV,1748,2026-11-05T00:04:00+03:00,Baby.TV.cz,Baby.TV.pt,different IDs,15,14,76,65
@@ -10041,13 +9966,11 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T09:06:00+03:00,Baby.TV.hu,Baby.TV.pt,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:17:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,17,12,273
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:32:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,12,21,270
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:41:00+03:00,BABY.TV.co,Baby.TV.pt,different IDs,15,15,58,252
-M3U Edit ALL,Baby TV,1748,2026-11-07T10:09:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,15,21,252
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:11:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,15,26,252
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:19:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,11,15,280
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:25:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,11,16,280
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:37:00+03:00,BABY.TV.co,Baby.TV.pt,different IDs,15,13,58,337
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:52:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,13,10,160
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:19:00+03:00,Baby.TV.be,Baby.TV.pt,different IDs,12,12,186,242
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:24:00+03:00,BABY.TV.co,Baby.TV.pt,different IDs,13,13,233,105
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:27:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,13,15,105
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:29:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,13,10,105
@@ -10055,15 +9978,12 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T11:34:00+03:00,Baby.TV.hu,Baby.TV.pt,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:38:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,15,21,252
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:39:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,15,30,252
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:48:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,20,25,170
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:01:00+03:00,Baby.TV.be,Baby.TV.pt,different IDs,25,19,233,151
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:06:00+03:00,Baby.TV.be,Baby.TV.pt,different IDs,4,19,203,151
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:16:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,29,14,218
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:27:00+03:00,Baby.TV.be,Baby.TV.pt,different IDs,13,15,84,252
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:36:00+03:00,Baby.TV.be,Baby.TV.pt,different IDs,18,15,64,198
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:48:00+03:00,Baby.TV.be,Baby.TV.pt,different IDs,22,8,78,172
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:56:00+03:00,BABY.TV.co,Baby.TV.pt,different IDs,21,15,245,252
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:03:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,30,10,153
-M3U Edit ALL,Baby TV,1748,2026-11-07T13:08:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,30,34,153
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:19:00+03:00,BABY.TV.co,Baby.TV.pt,different IDs,12,30,197,282
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:35:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,17,12,273
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:41:00+03:00,Baby.TV.hu,Baby.TV.pt,different IDs,1,15,25,252
@@ -10154,17 +10074,6 @@ M3U Edit ALL,Cartoonito,1741,2026-11-06T17:20:00+03:00,Cartoonito.dk,Cartoonito.
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:20:00+03:00,Cartoonito.dk,Cartoonito.pt,different IDs,13,28,203,242
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:30:00+03:00,Cartoonito.ie,Cartoonito.pt,different IDs,18,28,182,213
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:50:00+03:00,Cartoonito.fr,Cartoonito.pt,different IDs,18,28,170,144
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:00:00+03:00,Cartoonito.fr,Cartoonito.pt,different IDs,19,28,151,150
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:15:00+03:00,CARTOONITO.co,Cartoonito.pt,different IDs,23,18,119,143
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:20:00+03:00,Cartoonito.dk,Cartoonito.pt,different IDs,6,18,412,147
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:45:00+03:00,Cartoonito.it,Cartoonito.pt,different IDs,10,32,106,103
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:05:00+03:00,Cartoonito.dk,Cartoonito.pt,different IDs,6,6,562,209
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:30:00+03:00,CARTOONITO.co,Cartoonito.pt,different IDs,9,6,175,182
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:40:00+03:00,Cartoonito.dk,Cartoonito.pt,different IDs,29,6,204,240
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:55:00+03:00,Cartoonito.fr,Cartoonito.pt,different IDs,24,6,162,120
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:15:00+03:00,Cartoonito.fr,Cartoonito.pt,different IDs,24,6,146,128
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:40:00+03:00,CARTOONITO.co,Cartoonito.pt,different IDs,21,28,220,202
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:10:00+03:00,Cartoonito.fr,Cartoonito.pt,different IDs,9,28,145,213
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:15:00+03:00,Cartoonito.dk,Cartoonito.pt,different IDs,22,28,317,158
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:30:00+03:00,Cartoonito.it,Cartoonito.pt,different IDs,6,20,338,198
 M3U Edit ALL,Cartoonito,1741,2026-11-07T15:15:00+03:00,Cartoonito.dk,Cartoonito.pt,different IDs,13,20,197,154
@@ -12067,35 +11976,18 @@ M3U Edit ALL,CGTN,324,2026-11-07T23:00:01+03:00,NL:.CGTN.be,SE:.CGTN.be,differen
 M3U Edit ALL,CGTN,324,2026-11-07T23:30:01+03:00,NL:.CGTN.be,SE:.CGTN.be,different IDs,22,22,143,143
 M3U Edit ALL,Trace Urban HD,1641,2026-11-05T14:00:00+03:00,TRACE.Urban.HD.mt,Trace.Urban.HD.ro,different IDs,13,15,96,0
 M3U Edit ALL,Trace Urban HD,1641,2026-11-06T14:00:00+03:00,TRACE.Urban.HD.mt,Trace.Urban.HD.ro,different IDs,13,8,96,72
-M3U Edit ALL,Trace Urban HD,1641,2026-11-07T11:00:00+03:00,Trace.Urban.HD.pt,Trace.Urban.HD.ro,different IDs,12,23,213,0
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T14:00:00+03:00,TRACE.Urban.HD.mt,Trace.Urban.HD.ro,different IDs,5,10,6,61
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T15:00:00+03:00,TRACE.Urban.HD.mt,Trace.Urban.HD.ro,different IDs,14,14,47,131
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T21:00:00+03:00,TRACE.Urban.HD.mt,Trace.Urban.HD.ro,different IDs,10,14,99,131
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T23:00:00+03:00,Trace.Urban.HD.pt,Trace.Urban.HD.ro,different IDs,14,6,47,0
-M3U Edit ALL,AMC,2867,2026-11-07T09:50:00+03:00,AMC.hu,AMC.ro,different IDs,17,9,735,250
 M3U Edit ALL,AMC,2867,2026-11-07T15:20:00+03:00,AMC.lt,AMC.ro,different IDs,11,25,567,0
 M3U Edit ALL,AMC,2867,2026-11-07T21:00:00+03:00,AMC.lt,AMC.ro,different IDs,4,31,548,249
 M3U Edit ALL,Blue Hustler,2286,2026-11-05T23:46:00+03:00,Blue.Hustler.lt,Blue.Hustler.ro,different IDs,16,15,124,131
 M3U Edit ALL,Blue Hustler,2286,2026-11-06T23:16:00+03:00,Blue.Hustler.lt,Blue.Hustler.ro,different IDs,35,30,142,199
 M3U Edit ALL,Blue Hustler,2286,2026-11-06T23:30:00+03:00,Blue.Hustler.lt,Blue.Hustler.ro,different IDs,7,20,187,171
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:15:00+03:00,Cartoon.Network.it,Cartoon.Network.ro,different IDs,21,42,142,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:25:00+03:00,Cartoon.Network.ng,Cartoon.Network.ro,different IDs,18,42,0,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:55:00+03:00,Cartoon.Network.lu,Cartoon.Network.ro,different IDs,33,29,209,229
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T14:15:00+03:00,Cartoon.Network.hk,Cartoon.Network.ro,different IDs,28,29,377,229
 M3U Edit ALL,Cartoonito,1741,2026-11-05T17:05:00+03:00,Cartoonito.dk,Cartoonito.ro,different IDs,16,18,267,168
 M3U Edit ALL,Cartoonito,1741,2026-11-06T17:05:00+03:00,Cartoonito.fr,Cartoonito.ro,different IDs,24,18,225,168
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:20:00+03:00,Cartoonito.dk,Cartoonito.ro,different IDs,6,21,412,205
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:50:00+03:00,Cartoonito.fr,Cartoonito.ro,different IDs,16,21,81,205
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:25:00+03:00,Cartoonito.dk,Cartoonito.ro,different IDs,6,18,435,168
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:35:00+03:00,Cartoonito.fr,Cartoonito.ro,different IDs,35,18,150,168
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:55:00+03:00,Cartoonito.fr,Cartoonito.ro,different IDs,24,18,162,168
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:00:00+03:00,Cartoonito.dk,Cartoonito.ro,different IDs,29,18,265,168
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:15:00+03:00,Cartoonito.fr,Cartoonito.ro,different IDs,24,18,146,168
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:30:00+03:00,Cartoonito.dk,Cartoonito.ro,different IDs,29,18,198,168
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:45:00+03:00,Cartoonito.dk,Cartoonito.ro,different IDs,29,32,225,225
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:10:00+03:00,Cartoonito.fr,Cartoonito.ro,different IDs,9,32,145,225
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:25:00+03:00,CARTOONITO.co,Cartoonito.ro,different IDs,20,32,83,225
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:40:00+03:00,Cartoonito.fr,Cartoonito.ro,different IDs,36,23,207,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.ro,different IDs,6,23,133,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:30:00+03:00,Cartoonito.it,Cartoonito.ro,different IDs,6,23,338,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T15:10:00+03:00,CARTOONITO.co,Cartoonito.ro,different IDs,25,7,246,0
@@ -12153,8 +12045,6 @@ M3U Edit ALL,Comedy Central,508,2026-11-07T00:25:00+03:00,COMEDY.CENTRAL.be,Come
 M3U Edit ALL,Comedy Central,508,2026-11-07T00:50:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.ro,different IDs,14,7,114,498
 M3U Edit ALL,Comedy Central,508,2026-11-07T01:20:00+03:00,Comedy.Central.co,Comedy.Central.ro,different IDs,16,7,228,498
 M3U Edit ALL,Comedy Central,508,2026-11-07T08:20:00+03:00,Comedy.Central.nl,Comedy.Central.ro,different IDs,12,15,156,0
-M3U Edit ALL,Comedy Central,508,2026-11-07T11:00:00+03:00,Comedy.Central.nz,Comedy.Central.ro,different IDs,21,16,137,0
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:20:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.ro,different IDs,9,7,100,498
 M3U Edit ALL,Comedy Central,508,2026-11-07T13:40:00+03:00,Comedy.Central.ng,Comedy.Central.ro,different IDs,33,8,0,0
 M3U Edit ALL,Comedy Central,508,2026-11-07T14:35:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.ro,different IDs,7,8,134,0
 M3U Edit ALL,Comedy Central,508,2026-11-07T16:30:00+03:00,Comedy.Central.nl,Comedy.Central.ro,different IDs,10,18,137,172
@@ -12523,9 +12413,6 @@ M3U Edit ALL,Hustler HD,2290,2026-11-07T12:00:00+03:00,Hustler.HD.gr,Hustler.HD.
 M3U Edit ALL,Hustler HD,2290,2026-11-07T15:00:00+03:00,Hustler.HD.gr,Hustler.HD.ro,different IDs,18,37,257,202
 M3U Edit ALL,Mezzo,1566,2026-11-05T01:55:00+03:00,MEZZO.be,Mezzo.ro,different IDs,54,50,250,0
 M3U Edit ALL,Mezzo Live HD,1564,2026-11-04T23:00:00+03:00,Mezzo.Live.HD.fr,Mezzo.Live.HD.ro,different IDs,34,31,0,0
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T10:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.ro,different IDs,49,9,676,421
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T11:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.ro,different IDs,31,20,263,151
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T13:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.ro,different IDs,27,21,194,383
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T14:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.ro,different IDs,38,15,288,1517
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T15:00:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.ro,different IDs,26,20,156,808
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T16:00:00+03:00,National.Geographic.HD.ie,National.Geographic.HD.ro,different IDs,27,22,131,142
@@ -12584,8 +12471,6 @@ M3U Edit ALL,Comedy Central,508,2026-11-07T02:15:00+03:00,Comedy.Central.ro,Come
 M3U Edit ALL,Comedy Central,508,2026-11-07T05:55:00+03:00,Comedy.Central.ro,Comedy.Central.ro,same ID,7,7,0,183
 M3U Edit ALL,Comedy Central,508,2026-11-07T07:55:00+03:00,Comedy.Central.ro,Comedy.Central.ro,same ID,15,15,0,294
 M3U Edit ALL,Comedy Central,508,2026-11-07T08:20:00+03:00,Comedy.Central.nl,Comedy.Central.ro,different IDs,12,15,156,201
-M3U Edit ALL,Comedy Central,508,2026-11-07T11:00:00+03:00,Comedy.Central.nz,Comedy.Central.ro,different IDs,21,16,137,261
-M3U Edit ALL,Comedy Central,508,2026-11-07T12:20:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.ro,different IDs,9,14,100,108
 M3U Edit ALL,Comedy Central,508,2026-11-07T13:40:00+03:00,Comedy.Central.ng,Comedy.Central.ro,different IDs,33,8,0,168
 M3U Edit ALL,Comedy Central,508,2026-11-07T14:05:00+03:00,Comedy.Central.ro,Comedy.Central.ro,same ID,8,8,0,208
 M3U Edit ALL,Comedy Central,508,2026-11-07T14:35:00+03:00,COMEDY.CENTRAL.be,Comedy.Central.ro,different IDs,7,8,134,248
@@ -12662,8 +12547,6 @@ M3U Edit ALL,Da Vinci HD,2874,2026-11-07T09:55:00+03:00,Da.Vinci.HD.gr,Da.Vinci.
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T10:50:00+03:00,Da.Vinci.HD.gr,Da.Vinci.(HD).ro,different IDs,22,17,201,155
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T11:25:00+03:00,Da.Vinci.HD.gr,Da.Vinci.(HD).ro,different IDs,9,10,208,247
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T11:55:00+03:00,Da.Vinci.HD.gr,Da.Vinci.(HD).ro,different IDs,18,6,121,210
-M3U Edit ALL,Da Vinci HD,2874,2026-11-07T12:18:00+03:00,Da.Vinci.HD.pl,Da.Vinci.(HD).ro,different IDs,7,8,141,245
-M3U Edit ALL,Da Vinci HD,2874,2026-11-07T12:30:00+03:00,Da.Vinci.HD.gr,Da.Vinci.(HD).ro,different IDs,3,5,177,257
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T14:40:00+03:00,Da.Vinci.HD.gr,Da.Vinci.(HD).ro,different IDs,13,11,253,153
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T16:05:00+03:00,Da.Vinci.HD.gr,Da.Vinci.(HD).ro,different IDs,17,15,229,276
 M3U Edit ALL,Duck TV,1747,2026-11-04T23:50:00+03:00,Duck.TV.be,Duck.TV.ro,different IDs,19,48,224,340
@@ -12749,12 +12632,8 @@ M3U Edit ALL,Duck TV,1747,2026-11-07T06:53:00+03:00,Duck.TV.cy,Duck.TV.ro,differ
 M3U Edit ALL,Duck TV,1747,2026-11-07T07:04:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,16,49,107,343
 M3U Edit ALL,Duck TV,1747,2026-11-07T07:26:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,13,49,83,240
 M3U Edit ALL,Duck TV,1747,2026-11-07T08:41:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,19,44,55,715
-M3U Edit ALL,Duck TV,1747,2026-11-07T10:06:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,11,36,243,508
-M3U Edit ALL,Duck TV,1747,2026-11-07T11:06:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,6,50,88,918
 M3U Edit ALL,Duck TV,1747,2026-11-07T11:49:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,13,50,125,717
 M3U Edit ALL,Duck TV,1747,2026-11-07T12:07:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,13,62,356,1075
-M3U Edit ALL,Duck TV,1747,2026-11-07T12:45:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,12,31,199,562
-M3U Edit ALL,Duck TV,1747,2026-11-07T12:56:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,16,64,105,620
 M3U Edit ALL,Duck TV,1747,2026-11-07T13:05:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,17,64,233,857
 M3U Edit ALL,Duck TV,1747,2026-11-07T13:22:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,10,54,148,438
 M3U Edit ALL,Duck TV,1747,2026-11-07T13:55:00+03:00,Duck.TV.cy,Duck.TV.ro,different IDs,6,48,88,548
@@ -12839,10 +12718,8 @@ M3U Edit ALL,History HD,1903,2026-11-07T07:55:00+03:00,History.HD.ro,History.(HD
 M3U Edit ALL,History HD,1903,2026-11-07T08:25:00+03:00,History.HD.ro,History.(HD).ro,different IDs,20,29,248,156
 M3U Edit ALL,History HD,1903,2026-11-07T08:50:00+03:00,History.HD.ro,History.(HD).ro,different IDs,15,15,238,252
 M3U Edit ALL,History HD,1903,2026-11-07T09:45:00+03:00,History.HD.ro,History.(HD).ro,different IDs,15,15,238,194
-M3U Edit ALL,History HD,1903,2026-11-07T10:40:00+03:00,History.HD.ro,History.(HD).ro,different IDs,19,19,244,206
 M3U Edit ALL,History HD,1903,2026-11-07T11:35:00+03:00,History.HD.ro,History.(HD).ro,different IDs,29,29,241,250
 M3U Edit ALL,History HD,1903,2026-11-07T12:30:00+03:00,History.HD.ro,History.(HD).ro,different IDs,36,36,247,263
-M3U Edit ALL,History HD,1903,2026-11-07T13:25:00+03:00,History.HD.ro,History.(HD).ro,different IDs,15,15,203,244
 M3U Edit ALL,History HD,1903,2026-11-07T14:25:00+03:00,History.HD.ro,History.(HD).ro,different IDs,20,20,319,182
 M3U Edit ALL,History HD,1903,2026-11-07T14:55:00+03:00,History.HD.ro,History.(HD).ro,different IDs,20,20,319,187
 M3U Edit ALL,History HD,1903,2026-11-07T15:20:00+03:00,History.HD.ro,History.(HD).ro,different IDs,20,20,319,195
@@ -12855,14 +12732,8 @@ M3U Edit ALL,History HD,1903,2026-11-07T19:05:00+03:00,History.HD.ro,History.(HD
 M3U Edit ALL,History HD,1903,2026-11-07T20:00:00+03:00,History.HD.ro,History.(HD).ro,different IDs,29,29,241,250
 M3U Edit ALL,History HD,1903,2026-11-07T21:00:00+03:00,History.HD.ro,History.(HD).ro,different IDs,39,39,249,266
 M3U Edit ALL,History HD,1903,2026-11-07T23:10:00+03:00,History.HD.ro,History.(HD).ro,different IDs,24,24,33,253
-M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T10:49:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.ro,different IDs,20,63,219,85
-M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T11:18:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.ro,different IDs,10,10,50,18
-M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T13:04:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.ro,different IDs,23,64,300,117
 M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T20:54:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.ro,different IDs,25,64,288,91
 M3U Edit ALL,Mezzo Live HD,1564,2026-11-07T22:08:00+03:00,Mezzo.Live.HD.pl,Mezzo.Live.HD.ro,different IDs,10,10,50,18
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T10:00:00+03:00,National.Geographic.HD.hu,National.Geographic.(HD).ro,different IDs,49,24,676,439
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T11:00:00+03:00,National.Geographic.HD.hu,National.Geographic.(HD).ro,different IDs,31,20,263,173
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T13:00:00+03:00,National.Geographic.HD.be,National.Geographic.(HD).ro,different IDs,27,21,194,406
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T14:00:00+03:00,National.Geographic.HD.hu,National.Geographic.(HD).ro,different IDs,38,15,288,1538
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T15:00:00+03:00,National.Geographic.HD.cy,National.Geographic.(HD).ro,different IDs,26,42,156,767
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T16:00:00+03:00,National.Geographic.HD.ie,National.Geographic.(HD).ro,different IDs,27,22,131,407
@@ -13154,7 +13025,6 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T09:47:00+03:00,BABY.TV.co,Baby.TV.rs,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:50:00+03:00,Baby.TV.gr,Baby.TV.rs,different IDs,9,15,619,61
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:12:00+03:00,Baby.TV.be,Baby.TV.rs,different IDs,12,13,195,167
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:30:00+03:00,BABY.TV.co,Baby.TV.rs,different IDs,15,13,58,175
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:00:00+03:00,Baby.TV.gr,Baby.TV.rs,different IDs,25,12,611,68
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:27:00+03:00,Baby.TV.hu,Baby.TV.rs,different IDs,1,12,15,124
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:38:00+03:00,Baby.TV.hu,Baby.TV.rs,different IDs,1,14,21,145
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:39:00+03:00,Baby.TV.hu,Baby.TV.rs,different IDs,1,14,30,143
@@ -13264,8 +13134,6 @@ M3U Edit ALL,Cartoon Network,1737,2026-11-07T00:40:00+03:00,Cartoon.Network.lt,C
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T02:20:00+03:00,Cartoon.Network.lt,Cartoon.Network.rs,different IDs,28,21,941,212
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T06:55:00+03:00,Cartoon.Network.lt,Cartoon.Network.rs,different IDs,39,21,232,80
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T09:40:00+03:00,Cartoon.Network.br,Cartoon.Network.rs,different IDs,23,21,165,186
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:25:00+03:00,Cartoon.Network.ng,Cartoon.Network.rs,different IDs,18,21,0,110
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:55:00+03:00,Cartoon.Network.lu,Cartoon.Network.rs,different IDs,33,21,209,39
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T11:05:00+03:00,Cartoon.Network.lt,Cartoon.Network.rs,different IDs,28,21,941,405
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:15:00+03:00,Cartoon.Network.hk,Cartoon.Network.rs,different IDs,14,21,250,265
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T14:50:00+03:00,Cartoon.Network.it,Cartoon.Network.rs,different IDs,33,21,139,370
@@ -13299,13 +13167,6 @@ M3U Edit ALL,Cartoonito,1741,2026-11-07T01:25:00+03:00,Cartoonito.dk,Cartoonito.
 M3U Edit ALL,Cartoonito,1741,2026-11-07T03:35:00+03:00,Cartoonito.dk,Cartoonito.rs,different IDs,26,16,199,246
 M3U Edit ALL,Cartoonito,1741,2026-11-07T03:55:00+03:00,Cartoonito.dk,Cartoonito.rs,different IDs,21,16,204,246
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:30:00+03:00,Cartoonito.ie,Cartoonito.rs,different IDs,18,11,182,178
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:10:00+03:00,Cartoonito.fr,Cartoonito.rs,different IDs,19,9,147,195
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:05:00+03:00,Cartoonito.dk,Cartoonito.rs,different IDs,6,25,562,271
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:25:00+03:00,Cartoonito.dk,Cartoonito.rs,different IDs,6,25,435,271
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:35:00+03:00,Cartoonito.fr,Cartoonito.rs,different IDs,35,25,150,271
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:55:00+03:00,Cartoonito.fr,Cartoonito.rs,different IDs,24,22,162,384
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:25:00+03:00,CARTOONITO.co,Cartoonito.rs,different IDs,20,16,83,125
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:35:00+03:00,CARTOONITO.co,Cartoonito.rs,different IDs,6,16,133,155
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.rs,different IDs,6,16,133,117
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:15:00+03:00,Cartoonito.dk,Cartoonito.rs,different IDs,22,16,317,153
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:30:00+03:00,Cartoonito.it,Cartoonito.rs,different IDs,6,16,338,149
@@ -13533,9 +13394,7 @@ M3U Edit ALL,.sci-fi,461,2026-11-07T15:15:00+03:00,SCI.FI.pl,Sci.Fi.rs,different
 M3U Edit ALL,.sci-fi,461,2026-11-07T17:20:00+03:00,SCI.FI.pl,Sci.Fi.rs,different IDs,28,31,0,149
 M3U Edit ALL,.sci-fi,461,2026-11-07T18:20:00+03:00,SCI.FI.pl,Sci.Fi.rs,different IDs,18,31,581,149
 M3U Edit ALL,Discovery Channel HD,1906,2026-11-06T13:15:00+03:00,Discovery.Channel.HD.ng,Discovery.Channel.(HD).sg,different IDs,15,32,0,145
-M3U Edit ALL,Discovery Channel HD,1906,2026-11-07T13:15:00+03:00,Discovery.Channel.HD.ng,Discovery.Channel.(HD).sg,different IDs,15,21,0,150
 M3U Edit ALL,Discovery Channel HD,1906,2026-11-07T19:40:00+03:00,Discovery.Channel.HD.ng,Discovery.Channel.(HD).sg,different IDs,13,21,0,147
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T13:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.(HD).sg,different IDs,13,21,158,142
 M3U Edit ALL,Animal Planet HD,1912,2026-11-07T14:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.(HD).sg,different IDs,28,18,186,115
 M3U Edit ALL,Animal Planet HD,1912,2026-11-07T15:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.(HD).sg,different IDs,28,17,199,108
 M3U Edit ALL,History HD,1903,2026-11-05T03:55:00+03:00,History.HD.ph,HISTORY™.(HD).sg,different IDs,38,38,171,171
@@ -13575,7 +13434,6 @@ M3U Edit ALL,History HD,1903,2026-11-07T09:30:00+03:00,History.HD.ph,HISTORY™.
 M3U Edit ALL,History HD,1903,2026-11-07T10:25:00+03:00,History.HD.ph,HISTORY™.(HD).sg,different IDs,26,26,189,189
 M3U Edit ALL,History HD,1903,2026-11-07T10:55:00+03:00,History.HD.ph,HISTORY™.(HD).sg,different IDs,26,26,204,204
 M3U Edit ALL,History HD,1903,2026-11-07T11:25:00+03:00,History.HD.ph,HISTORY™.(HD).sg,different IDs,34,34,204,204
-M3U Edit ALL,History HD,1903,2026-11-07T12:20:00+03:00,History.HD.ph,HISTORY™.(HD).sg,different IDs,20,20,169,169
 M3U Edit ALL,History HD,1903,2026-11-07T13:15:00+03:00,History.HD.ph,HISTORY™.(HD).sg,different IDs,45,45,195,195
 M3U Edit ALL,History HD,1903,2026-11-07T14:10:00+03:00,History.HD.ph,HISTORY™.(HD).sg,different IDs,38,38,204,204
 M3U Edit ALL,History HD,1903,2026-11-07T17:50:00+03:00,History.HD.ph,HISTORY™.(HD).sg,different IDs,20,20,197,197
@@ -14567,7 +14425,6 @@ M3U Edit ALL,DocuBox HD,1924,2026-11-07T21:50:00+03:00,DocuBox.HD.fr,DOCUBOX.HD.
 M3U Edit ALL,DocuBox HD,1924,2026-11-07T22:45:00+03:00,DocuBox.HD.fr,DOCUBOX.HD.tr,different IDs,18,17,310,0
 M3U Edit ALL,DocuBox HD,1924,2026-11-07T23:40:00+03:00,DocuBox.HD.fr,DOCUBOX.HD.tr,different IDs,36,38,201,0
 M3U Edit ALL,FightBox HD,1247,2026-11-05T12:00:00+03:00,Fightbox.HD.sk,FIGHTBOX.HD.tr,different IDs,68,9,232,0
-M3U Edit ALL,FX HD,370,2026-11-07T13:00:00+03:00,FX.HD.ca2,FX.HD.tr,different IDs,12,22,88,0
 M3U Edit ALL,Baby TV,1748,2026-11-05T00:04:00+03:00,Baby.TV.cz,BABY.TV.tr,different IDs,15,15,76,0
 M3U Edit ALL,Baby TV,1748,2026-11-05T00:08:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,13,15,88,0
 M3U Edit ALL,Baby TV,1748,2026-11-05T00:15:00+03:00,Baby.TV.cz,BABY.TV.tr,different IDs,15,15,72,0
@@ -14936,13 +14793,11 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T09:06:00+03:00,Baby.TV.hu,BABY.TV.tr,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:17:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,13,12,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:32:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,12,21,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:41:00+03:00,BABY.TV.co,BABY.TV.tr,different IDs,15,20,58,0
-M3U Edit ALL,Baby TV,1748,2026-11-07T10:09:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,20,21,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:11:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,20,26,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:19:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,12,15,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:25:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,12,16,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:37:00+03:00,BABY.TV.co,BABY.TV.tr,different IDs,15,13,58,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:52:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,12,10,0
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:19:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,12,10,186,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:24:00+03:00,BABY.TV.co,BABY.TV.tr,different IDs,13,13,233,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:27:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,13,15,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:29:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,13,10,0
@@ -14950,15 +14805,12 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T11:34:00+03:00,Baby.TV.hu,BABY.TV.tr,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:38:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,20,21,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:39:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,20,30,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:48:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,17,25,0
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:01:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,25,18,233,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:06:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,4,18,203,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:16:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,23,14,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:27:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,13,20,84,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:36:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,18,15,64,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:48:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,22,8,78,0
-M3U Edit ALL,Baby TV,1748,2026-11-07T12:56:00+03:00,BABY.TV.co,BABY.TV.tr,different IDs,21,20,245,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:03:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,18,10,0
-M3U Edit ALL,Baby TV,1748,2026-11-07T13:08:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,18,34,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:19:00+03:00,BABY.TV.co,BABY.TV.tr,different IDs,12,20,197,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:35:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,13,12,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:41:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,20,25,0
@@ -15024,10 +14876,6 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T23:26:00+03:00,Baby.TV.hu,BABY.TV.tr,differ
 M3U Edit ALL,Baby TV,1748,2026-11-07T23:36:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,31,13,94,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T23:41:00+03:00,Baby.TV.hu,BABY.TV.tr,different IDs,1,13,13,0
 M3U Edit ALL,Baby TV,1748,2026-11-07T23:51:00+03:00,Baby.TV.be,BABY.TV.tr,different IDs,12,10,200,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:00:00+03:00,Cartoon.Network.br,CARTOON.NETWORK.tr,different IDs,15,11,173,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,CARTOON.NETWORK.tr,different IDs,15,25,98,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T13:15:00+03:00,Cartoon.Network.hk,CARTOON.NETWORK.tr,different IDs,19,8,98,0
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T13:35:00+03:00,Cartoon.Network.br,CARTOON.NETWORK.tr,different IDs,14,17,0,0
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T19:15:00+03:00,Cartoon.Network.rs,CARTOON.NETWORK.tr,different IDs,29,15,105,0
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T21:15:00+03:00,Cartoon.Network.lt,CARTOON.NETWORK.tr,different IDs,28,12,941,0
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T22:15:00+03:00,CARTOON.NETWORK.be,CARTOON.NETWORK.tr,different IDs,30,15,114,0
@@ -15071,8 +14919,6 @@ M3U Edit ALL,FX HD,370,2026-11-07T01:30:00+03:00,FX.HD.tr,FX.HD.tr,same ID,9,7,0
 M3U Edit ALL,FX HD,370,2026-11-07T04:30:00+03:00,FX.HD.tr,FX.HD.tr,same ID,20,21,0,587
 M3U Edit ALL,FX HD,370,2026-11-07T14:00:00+03:00,FX.HD.ca2,FX.HD.tr,different IDs,12,12,137,362
 M3U Edit ALL,FX HD,370,2026-11-07T19:00:00+03:00,FX.HD.ca2,FX.HD.tr,different IDs,12,6,136,257
-M3U Edit ALL,360 HD,88,2026-11-07T10:15:00+03:00,360.HD.tr,360.HD.tr,same ID,8,8,0,315
-M3U Edit ALL,360 HD,88,2026-11-07T12:45:00+03:00,360.HD.tr,360.HD.tr,same ID,9,9,0,556
 M3U Edit ALL,360 HD,88,2026-11-07T15:45:00+03:00,360.HD.tr,360.HD.tr,same ID,17,16,0,152
 M3U Edit ALL,360 HD,88,2026-11-07T16:00:00+03:00,360.HD.tr,360.HD.tr,same ID,20,22,0,242
 M3U Edit ALL,360 HD,88,2026-11-07T16:45:00+03:00,360.HD.tr,360.HD.tr,same ID,20,20,0,0
@@ -15081,8 +14927,6 @@ M3U Edit ALL,360 HD,88,2026-11-07T17:30:00+03:00,360.HD.tr,360.HD.tr,same ID,12,
 M3U Edit ALL,360 HD,88,2026-11-07T19:30:00+03:00,360.HD.tr,360.HD.tr,same ID,29,31,0,156
 M3U Edit ALL,360 HD,88,2026-11-07T21:00:00+03:00,360.HD.tr,360.HD.tr,same ID,17,17,0,190
 M3U Edit ALL,360 HD,88,2026-11-07T23:00:00+03:00,360.HD.tr,360.HD.tr,same ID,9,9,0,556
-M3U Edit ALL,A SPOR HD,1415,2026-11-07T11:00:00+03:00,A.SPOR.HD.tr,A.SPOR.HD.tr,same ID,24,24,0,0
-M3U Edit ALL,A SPOR HD,1415,2026-11-07T12:00:00+03:00,A.SPOR.HD.tr,A.SPOR.HD.tr,same ID,18,18,0,0
 M3U Edit ALL,A SPOR HD,1415,2026-11-07T14:00:00+03:00,A.SPOR.HD.tr,A.SPOR.HD.tr,same ID,8,8,0,0
 M3U Edit ALL,A SPOR HD,1415,2026-11-07T15:00:00+03:00,A.SPOR.HD.tr,A.SPOR.HD.tr,same ID,8,8,0,55
 M3U Edit ALL,A SPOR HD,1415,2026-11-07T19:00:00+03:00,A.SPOR.HD.tr,A.SPOR.HD.tr,same ID,8,8,0,65
@@ -15135,22 +14979,6 @@ M3U Edit ALL,National Geographic HD,1855,2026-11-07T19:00:00+03:00,National.Geog
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T20:00:00+03:00,National.Geographic.HD.be,NATIONAL.GEOGRAPHIC.HD.tr,different IDs,41,47,85,568
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T22:00:00+03:00,National.Geographic.HD.hu,NATIONAL.GEOGRAPHIC.HD.tr,different IDs,34,22,460,506
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T23:00:00+03:00,National.Geographic.HD.be,NATIONAL.GEOGRAPHIC.HD.tr,different IDs,31,16,217,806
-M3U Edit ALL,Discovery Channel HD,1906,2026-11-07T12:20:00+03:00,Discovery.Channel.(HD).sg,DISCOVERY.CHANNEL.HD.tr,different IDs,27,28,128,135
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:00:00+03:00,Cartoonito.fr,CARTOONITO.tr,different IDs,19,24,151,136
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:10:00+03:00,Cartoonito.fr,CARTOONITO.tr,different IDs,19,24,147,136
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:05:00+03:00,Cartoonito.dk,CARTOONITO.tr,different IDs,6,8,562,133
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:25:00+03:00,Cartoonito.dk,CARTOONITO.tr,different IDs,6,20,435,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:30:00+03:00,CARTOONITO.co,CARTOONITO.tr,different IDs,9,20,175,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:40:00+03:00,Cartoonito.dk,CARTOONITO.tr,different IDs,29,20,204,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:55:00+03:00,Cartoonito.fr,CARTOONITO.tr,different IDs,24,20,162,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:00:00+03:00,Cartoonito.dk,CARTOONITO.tr,different IDs,29,20,265,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:10:00+03:00,Cartoonito.dk,CARTOONITO.tr,different IDs,29,20,274,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:30:00+03:00,Cartoonito.dk,CARTOONITO.tr,different IDs,29,20,198,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:40:00+03:00,CARTOONITO.co,CARTOONITO.tr,different IDs,21,20,220,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:05:00+03:00,Cartoonito.dk,CARTOONITO.tr,different IDs,29,20,270,105
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:10:00+03:00,Cartoonito.fr,CARTOONITO.tr,different IDs,9,22,145,98
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:25:00+03:00,CARTOONITO.co,CARTOONITO.tr,different IDs,20,8,83,133
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:35:00+03:00,CARTOONITO.co,CARTOONITO.tr,different IDs,6,8,133,133
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:05:00+03:00,Cartoonito.pt,CARTOONITO.tr,different IDs,28,8,137,133
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:45:00+03:00,Cartoonito.it,CARTOONITO.tr,different IDs,6,22,338,98
 M3U Edit ALL,Cartoonito,1741,2026-11-07T15:10:00+03:00,CARTOONITO.co,CARTOONITO.tr,different IDs,25,9,246,35
@@ -15396,19 +15224,11 @@ M3U Edit ALL,Nickelodeon,1734,2026-11-07T22:37:00+03:00,NICKELODEON.be,NICKELODE
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T22:59:00+03:00,NICKELODEON.be,NICKELODEON.tr,different IDs,6,8,784,160
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T23:24:00+03:00,NICKELODEON.be,NICKELODEON.tr,different IDs,6,8,784,228
 M3U Edit ALL,Nickelodeon,1734,2026-11-07T23:49:00+03:00,NICKELODEON.be,NICKELODEON.tr,different IDs,10,17,250,237
-M3U Edit ALL,Da Vinci HD,2874,2026-11-07T10:25:00+03:00,Da.Vinci.HD.gr,DA.VINCI.HD.tr,different IDs,22,31,184,286
-M3U Edit ALL,Da Vinci HD,2874,2026-11-07T11:30:00+03:00,Da.Vinci.HD.pl,DA.VINCI.HD.tr,different IDs,6,42,200,145
-M3U Edit ALL,Da Vinci HD,2874,2026-11-07T11:40:00+03:00,Da.Vinci.HD.gr,DA.VINCI.HD.tr,different IDs,10,56,120,130
-M3U Edit ALL,Da Vinci HD,2874,2026-11-07T12:20:00+03:00,Da.Vinci.HD.gr,DA.VINCI.HD.tr,different IDs,9,37,140,291
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T15:22:00+03:00,Da.Vinci.(HD).ro,DA.VINCI.HD.tr,different IDs,14,13,61,145
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T21:30:00+03:00,Da.Vinci.HD.pl,DA.VINCI.HD.tr,different IDs,9,58,140,115
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T22:39:00+03:00,Da.Vinci.(HD).ro,DA.VINCI.HD.tr,different IDs,19,35,106,299
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T22:48:00+03:00,Da.Vinci.HD.pl,DA.VINCI.HD.tr,different IDs,24,26,188,120
 M3U Edit ALL,Da Vinci HD,2874,2026-11-07T23:15:00+03:00,Da.Vinci.HD.pl,DA.VINCI.HD.tr,different IDs,9,103,189,151
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T10:00:00+03:00,Cartoon.Network.br,CARTOON.NETWORK.tr,different IDs,15,11,173,106
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T12:00:00+03:00,Cartoon.Network.br,CARTOON.NETWORK.tr,different IDs,15,25,98,145
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T13:15:00+03:00,Cartoon.Network.hk,CARTOON.NETWORK.tr,different IDs,19,8,98,133
-M3U Edit ALL,Cartoon Network,1737,2026-11-07T13:35:00+03:00,Cartoon.Network.br,CARTOON.NETWORK.tr,different IDs,14,17,0,129
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T19:15:00+03:00,Cartoon.Network.rs,CARTOON.NETWORK.tr,different IDs,29,15,105,78
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T21:15:00+03:00,Cartoon.Network.lt,CARTOON.NETWORK.tr,different IDs,28,28,941,137
 M3U Edit ALL,Cartoon Network,1737,2026-11-07T22:15:00+03:00,CARTOON.NETWORK.be,CARTOON.NETWORK.tr,different IDs,30,15,114,78
@@ -15786,7 +15606,6 @@ M3U Edit ALL,TRT SPOR,1418,2026-11-07T17:50:00+03:00,TRT.SPOR.tr,TRT.Spor.tr,dif
 M3U Edit ALL,TRT SPOR,1418,2026-11-07T18:00:00+03:00,TRT.SPOR.tr,TRT.Spor.tr,different IDs,13,13,0,0
 M3U Edit ALL,TRT SPOR,1418,2026-11-07T22:00:00+03:00,TRT.SPOR.tr,TRT.Spor.tr,different IDs,7,7,0,0
 M3U Edit ALL,TRT SPOR,1418,2026-11-07T23:30:00+03:00,TRT.SPOR.tr,TRT.Spor.tr,different IDs,13,13,0,0
-M3U Edit ALL,TLC HD,1901,2026-11-07T13:30:00+03:00,TLC.HD.ie,TLC.HD.uk,different IDs,13,13,117,126
 M3U Edit ALL,TLC HD,1901,2026-11-07T14:30:00+03:00,TLC.HD.ie,TLC.HD.uk,different IDs,19,19,142,149
 M3U Edit ALL,TLC HD,1901,2026-11-07T15:30:00+03:00,TLC.HD.ie,TLC.HD.uk,different IDs,19,19,110,68
 M3U Edit ALL,TLC HD,1901,2026-11-07T16:30:00+03:00,TLC.HD.ie,TLC.HD.uk,different IDs,19,19,127,149
@@ -15826,10 +15645,8 @@ M3U Edit ALL,Cartoonito,1741,2026-11-06T21:31:00+03:00,Cartoonito.mt,Cartoonito.
 M3U Edit ALL,Cartoonito,1741,2026-11-06T22:31:00+03:00,Cartoonito.mt,Cartoonito.uk,different IDs,11,11,150,195
 M3U Edit ALL,Cartoonito,1741,2026-11-06T23:31:00+03:00,Cartoonito.mt,Cartoonito.uk,different IDs,18,18,286,141
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:31:00+03:00,Cartoonito.mt,Cartoonito.uk,different IDs,18,18,243,141
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:00:00+03:00,Cartoonito.fr,Cartoonito.uk,different IDs,19,28,151,165
 M3U Edit ALL,Cartoonito,1741,2026-11-07T10:31:00+03:00,CARTOONITO.co,Cartoonito.uk,different IDs,27,9,121,119
 M3U Edit ALL,Cartoonito,1741,2026-11-07T11:00:00+03:00,Cartoonito.fr,Cartoonito.uk,different IDs,17,11,92,147
-M3U Edit ALL,Cartoonito,1741,2026-11-07T12:00:00+03:00,Cartoonito.dk,Cartoonito.uk,different IDs,29,25,265,142
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.uk,different IDs,6,30,133,150
 M3U Edit ALL,Cartoonito,1741,2026-11-07T17:00:00+03:00,Cartoonito.dk,Cartoonito.uk,different IDs,21,11,210,147
 M3U Edit ALL,Cartoonito,1741,2026-11-07T18:31:00+03:00,Cartoonito.mt,Cartoonito.uk,different IDs,28,28,87,144
@@ -15873,16 +15690,10 @@ M3U Edit ALL,Food Network,2535,2026-11-07T21:00:00+03:00,Food.Network.be,Food.Ne
 M3U Edit ALL,Food Network,2535,2026-11-07T22:00:00+03:00,FoodNetwork.au,Food.Network.uk,different IDs,26,34,75,175
 M3U Edit ALL,Food Network,2535,2026-11-07T23:00:00+03:00,Food.Network.be,Food.Network.uk,different IDs,25,25,136,177
 M3U Edit ALL,MTV HD,1548,2026-11-06T09:00:00+03:00,MTV.HD.jp,MTV.HD.uk,different IDs,17,10,57,134
-M3U Edit ALL,MTV HD,1548,2026-11-07T11:00:00+03:00,MTV.HD.in,MTV.HD.uk,different IDs,13,27,108,93
-M3U Edit ALL,MTV HD,1548,2026-11-07T12:00:00+03:00,MTV.HD.in,MTV.HD.uk,different IDs,10,10,160,172
-M3U Edit ALL,FX HD,370,2026-11-07T12:00:00+03:00,FX.HD.ca2,FX.HD.us2,different IDs,12,17,149,47
-M3U Edit ALL,FX HD,370,2026-11-07T13:00:00+03:00,FX.HD.ca2,FX.HD.us2,different IDs,12,60,88,245
 M3U Edit ALL,FX HD,370,2026-11-07T14:00:00+03:00,FX.HD.ca2,FX.HD.us2,different IDs,12,53,137,94
 M3U Edit ALL,History HD,1903,2026-11-07T17:00:00+03:00,History.HD.my,History.HD.us2,different IDs,27,12,185,301
 M3U Edit ALL,History HD,1903,2026-11-07T20:00:00+03:00,History.HD.ro,History.HD.us2,different IDs,29,14,241,248
 M3U Edit ALL,History HD,1903,2026-11-07T21:00:00+03:00,History.HD.ro,History.HD.us2,different IDs,39,14,249,247
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T10:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.us2,different IDs,49,24,676,60
-M3U Edit ALL,National Geographic HD,1855,2026-11-07T13:06:00+03:00,National.Geographic.HD.pt,National.Geographic.HD.us2,different IDs,15,13,153,243
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T14:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.us2,different IDs,38,16,288,17
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T15:00:00+03:00,National.Geographic.HD.cy,National.Geographic.HD.us2,different IDs,26,39,156,115
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T16:00:00+03:00,National.Geographic.HD.ie,National.Geographic.HD.us2,different IDs,27,41,131,112
@@ -15891,10 +15702,6 @@ M3U Edit ALL,National Geographic HD,1855,2026-11-07T19:00:00+03:00,National.Geog
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T20:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.us2,different IDs,41,28,85,250
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T22:00:00+03:00,National.Geographic.HD.hu,National.Geographic.HD.us2,different IDs,34,42,460,87
 M3U Edit ALL,National Geographic HD,1855,2026-11-07T23:00:00+03:00,National.Geographic.HD.be,National.Geographic.HD.us2,different IDs,31,27,217,75
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T10:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.us2,different IDs,12,17,163,141
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T11:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.us2,different IDs,16,17,164,135
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T12:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.us2,different IDs,23,17,149,176
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T13:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.us2,different IDs,13,17,158,121
 M3U Edit ALL,Animal Planet HD,1912,2026-11-07T14:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.us2,different IDs,28,10,186,114
 M3U Edit ALL,Animal Planet HD,1912,2026-11-07T15:00:00+03:00,Animal.Planet.HD.ie,Animal.Planet.HD.us2,different IDs,28,10,199,121
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-05T06:30:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.us2,different IDs,16,7,184,116
@@ -15929,7 +15736,6 @@ M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T10:30:00+03:00,Nickelodeon.HD.ie,Nic
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T11:00:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.us2,different IDs,28,7,129,167
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T12:00:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.us2,different IDs,31,7,148,193
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T12:30:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.us2,different IDs,31,7,149,155
-M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T13:00:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.us2,different IDs,27,7,198,203
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T13:30:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.us2,different IDs,27,7,199,174
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T14:00:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.us2,different IDs,24,21,126,230
 M3U Edit ALL,Nickelodeon HD,1729,2026-11-07T14:30:00+03:00,Nickelodeon.HD.ie,Nickelodeon.HD.us2,different IDs,21,21,146,173
@@ -15988,7 +15794,6 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T07:30:00+03:00,Baby.TV.be,Baby.TV.US.us2,di
 M3U Edit ALL,Baby TV,1748,2026-11-07T09:30:00+03:00,Baby.TV.be,Baby.TV.US.us2,different IDs,31,13,209,78
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:00:00+03:00,Baby.TV.be,Baby.TV.US.us2,different IDs,12,13,192,78
 M3U Edit ALL,Baby TV,1748,2026-11-07T10:30:00+03:00,BABY.TV.co,Baby.TV.US.us2,different IDs,15,14,58,0
-M3U Edit ALL,Baby TV,1748,2026-11-07T11:00:00+03:00,Baby.TV.gr,Baby.TV.US.us2,different IDs,25,29,611,78
 M3U Edit ALL,Baby TV,1748,2026-11-07T11:30:00+03:00,BABY.TV.co,Baby.TV.US.us2,different IDs,13,12,144,61
 M3U Edit ALL,Baby TV,1748,2026-11-07T12:30:00+03:00,Baby.TV.gr,Baby.TV.US.us2,different IDs,15,13,542,78
 M3U Edit ALL,Baby TV,1748,2026-11-07T13:00:00+03:00,Baby.TV.gr,Baby.TV.US.us2,different IDs,22,14,618,0
@@ -16002,7 +15807,6 @@ M3U Edit ALL,Baby TV,1748,2026-11-07T20:30:00+03:00,Baby.TV.be,Baby.TV.US.us2,di
 M3U Edit ALL,Baby TV,1748,2026-11-07T23:30:00+03:00,Baby.TV.be,Baby.TV.US.us2,different IDs,31,32,92,0
 M3U Edit ALL,Animal Planet HD,1912,2026-11-05T13:30:00+03:00,Animal.Planet.(HD).sg,ANIMAL.PLANET.HD.uy,different IDs,18,21,121,234
 M3U Edit ALL,Animal Planet HD,1912,2026-11-06T13:30:00+03:00,Animal.Planet.(HD).sg,ANIMAL.PLANET.HD.uy,different IDs,18,21,103,234
-M3U Edit ALL,Animal Planet HD,1912,2026-11-07T12:00:00+03:00,Animal.Planet.HD.ie,ANIMAL.PLANET.HD.uy,different IDs,23,23,149,225
 M3U Edit ALL,HGTV HD,1992,2026-11-05T07:05:00+03:00,HGTV.HD.my,HGTV.HD.uy,different IDs,33,17,121,235
 M3U Edit ALL,HGTV HD,1992,2026-11-06T01:35:00+03:00,HGTV.HD.pl,HGTV.HD.uy,different IDs,37,34,188,226
 M3U Edit ALL,HGTV HD,1992,2026-11-07T08:10:00+03:00,HGTV.HD.pl,HGTV.HD.uy,different IDs,22,24,195,127
@@ -16073,7 +15877,6 @@ M3U Edit ALL,Travel Channel,1951,2026-11-06T03:30:00+03:00,TravelChannel.au,Trav
 M3U Edit ALL,Travel Channel,1951,2026-11-06T11:45:00+03:00,TravelChannel.au,Travel.Channel.za,different IDs,16,16,82,0
 M3U Edit ALL,Travel Channel,1951,2026-11-07T09:30:00+03:00,Travel.Channel.lt,Travel.Channel.za,different IDs,19,37,448,0
 M3U Edit ALL,Travel Channel,1951,2026-11-07T11:45:00+03:00,TravelChannel.au,Travel.Channel.za,different IDs,14,15,92,0
-M3U Edit ALL,Travel Channel,1951,2026-11-07T13:15:00+03:00,Travel.Channel.pl,Travel.Channel.za,different IDs,23,37,935,0
 M3U Edit ALL,Travel Channel,1951,2026-11-07T16:20:00+03:00,Travel.Channel.pl,Travel.Channel.za,different IDs,22,24,200,0
 M3U Edit ALL,Travel Channel,1951,2026-11-07T17:10:00+03:00,Travel.Channel.pl,Travel.Channel.za,different IDs,22,24,200,0
 M3U Edit ALL,History HD,1903,2026-11-05T00:55:00+03:00,History.HD.ro,History.HD.za,different IDs,54,19,169,0
@@ -16133,17 +15936,9 @@ M3U Edit ALL,Cartoonito,1741,2026-11-07T03:55:00+03:00,Cartoonito.dk,Cartoonito.
 M3U Edit ALL,Cartoonito,1741,2026-11-07T07:20:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,21,26,441,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:20:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,13,13,203,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T09:45:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,31,28,215,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:00:00+03:00,Cartoonito.fr,Cartoonito.za,different IDs,19,9,151,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:10:00+03:00,Cartoonito.fr,Cartoonito.za,different IDs,19,9,147,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T10:30:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,6,18,424,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:40:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,6,12,373,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T10:45:00+03:00,Cartoonito.it,Cartoonito.za,different IDs,10,12,106,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T11:00:00+03:00,Cartoonito.fr,Cartoonito.za,different IDs,17,23,92,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:05:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,6,23,562,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T11:15:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,6,28,556,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:25:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,6,28,435,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T11:40:00+03:00,Cartoonito.dk,Cartoonito.za,different IDs,29,33,204,0
-M3U Edit ALL,Cartoonito,1741,2026-11-07T13:40:00+03:00,Cartoonito.fr,Cartoonito.za,different IDs,36,13,207,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:00:00+03:00,CARTOONITO.co,Cartoonito.za,different IDs,6,23,133,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:05:00+03:00,Cartoonito.pt,Cartoonito.za,different IDs,28,23,137,0
 M3U Edit ALL,Cartoonito,1741,2026-11-07T14:30:00+03:00,Cartoonito.it,Cartoonito.za,different IDs,6,18,338,0
@@ -16246,7 +16041,6 @@ M3U Edit ALL,Trace Urban HD,1641,2026-11-06T10:00:00+03:00,Trace.Urban.HD.ro,TRA
 M3U Edit ALL,Trace Urban HD,1641,2026-11-06T11:00:00+03:00,Trace.Urban.HD.ro,TRACE.URBAN.HD.za,different IDs,9,9,0,0
 M3U Edit ALL,Trace Urban HD,1641,2026-11-06T14:00:00+03:00,TRACE.Urban.HD.mt,TRACE.URBAN.HD.za,different IDs,13,13,96,0
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T03:00:00+03:00,Trace.Urban.HD.ro,TRACE.URBAN.HD.za,different IDs,10,14,84,0
-M3U Edit ALL,Trace Urban HD,1641,2026-11-07T11:00:00+03:00,Trace.Urban.HD.pt,TRACE.URBAN.HD.za,different IDs,12,9,213,0
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T13:45:00+03:00,TRACE.Urban.HD.mt,TRACE.URBAN.HD.za,different IDs,13,7,96,0
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T14:00:00+03:00,TRACE.Urban.HD.mt,TRACE.URBAN.HD.za,different IDs,5,7,6,0
 M3U Edit ALL,Trace Urban HD,1641,2026-11-07T15:00:00+03:00,TRACE.Urban.HD.mt,TRACE.URBAN.HD.za,different IDs,14,10,47,0
