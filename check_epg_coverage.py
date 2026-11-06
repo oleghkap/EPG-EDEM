@@ -434,7 +434,16 @@ def audit_mapping_candidates(display_names, indexes, playlist_channels):
             country.update(by_name.get(normalized_country, set()))
         normalized_base = normalize_base_name(country_name)
         if normalized_base:
-            base.update(by_base_name.get(normalized_base, set()))
+            for index in by_base_name.get(normalized_base, set()):
+                playlist_names = {
+                    playlist_channels[index].get("title", ""),
+                    playlist_channels[index].get("tvg_name", ""),
+                }
+                if any(
+                    candidate and base_names_compatible(name, candidate)
+                    for candidate in playlist_names
+                ):
+                    base.add(index)
 
     def index_text(values):
         return " | ".join(str(i) for i in sorted(values))
