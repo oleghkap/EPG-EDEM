@@ -139,12 +139,13 @@ def has_quality_marker(value):
 
 def canonical_mapping_name(value):
     """
-    Нормализует имя для сопоставления региональных/временных вариантов.
-    Удаляет страну, качество и суффикс +N с необязательным регионом в скобках.
+    Нормализует имя для сопоставления региональных вариантов.
+    Удаляет только +0 (нулевой сдвиг) с необязательным регионом.
+    Суффиксы +2/+4/+7 и другие временные сдвиги сохраняются.
     """
     value = strip_country_suffix(strip_country_prefix(value or "")).strip()
     value = re.sub(
-        r"\s*\+\s*\d+\s*(?:\([^)]*\))?\s*$",
+        r"\s*\+\s*0\s*(?:\([^)]*\))?\s*$",
         "",
         value,
         flags=re.IGNORECASE,
@@ -842,6 +843,8 @@ def process_source(
                                 if canonical_mapping_name(name)
                             }
                             matching_indexes = set()
+                            matched_keys_by_index = {}
+                            candidate_name_keys = set()
                             for playlist_index in candidate_indexes:
                                 playlist_channel = playlist_channels[playlist_index]
                                 playlist_keys = {
@@ -852,20 +855,45 @@ def process_source(
                                     )
                                     if canonical_mapping_name(name)
                                 }
-                                if source_keys & playlist_keys:
+                                candidate_name_keys.update(playlist_keys)
+                                matched_keys = source_keys & playlist_keys
+                                if matched_keys:
                                     matching_indexes.add(playlist_index)
+                                    matched_keys_by_index[playlist_index] = matched_keys
 
-                            if matching_indexes:
-                                # Оставляем только кандидатов, подтверждённых
-                                # display-name. Неподтверждённые не получают этот EPG.
+                            # Один XMLTV ID нельзя раздавать нескольким логически
+                            # разным каналам. Региональные +0 остаются одним ключом,
+                            # но +2/+4/+7 и разные названия сохраняют различия.
+                            matched_logical_keys = {
+                                key
+                                for keys in matched_keys_by_index.values()
+                                for key in keys
+                            }
+                            conflicting_matches = (
+                                len(matching_indexes) > 1
+                                and len(matched_logical_keys) > 1
+                            )
+                            no_safe_match = (
+                                not matching_indexes
+                                and len(candidate_name_keys) > 1
+                            )
+
+                            if conflicting_matches or no_safe_match:
+                                mapped[mapped_id] = set()
+                                ambiguous_xml_id_mappings[mapped_id] = True
+                                stats["ambiguous_xml_ids_quarantined"] += 1
+                                merge_diagnostics["ambiguous_xml_ids_quarantined"] += 1
+                            elif matching_indexes:
+                                # Оставляем только подтверждённые имена.
                                 if matching_indexes != candidate_indexes:
                                     mapping_filtered_ids.add(mapped_id)
                                 mapped[mapped_id] = matching_indexes
 
-                            # Если остаётся несколько кандидатов или display-name
-                            # не помог определить канал, ничего не удаляем молча:
-                            # ID сохраняется и попадает в отчёт ручной проверки.
-                            if len(mapped[mapped_id]) > 1 or not matching_indexes:
+                            # Несколько playlist-записей с одним логическим именем
+                            # (например, региональные +0) допустимы, но требуют аудита.
+                            if mapped[mapped_id] and len(mapped[mapped_id]) > 1:
+                                mapping_review_ids.add(mapped_id)
+                            elif not matching_indexes and mapped[mapped_id]:
                                 mapping_review_ids.add(mapped_id)
 
                         for detail in mapping_rule_details:
@@ -879,9 +907,14 @@ def process_source(
                             detail["mapping_playlist_names"] = " | ".join(
                                 playlist_channels[i]["title"] for i in final_indexes
                             )
-                            if detail_id in mapping_review_ids:
+                            if detail_id in ambiguous_xml_id_mappings:
                                 detail["mapping_status"] = (
-                                    "review: shared XMLTV ID remains mapped to multiple channels; "
+                                    "quarantined: conflicting playlist channel names; "
+                                    "programmes not assigned"
+                                )
+                            elif detail_id in mapping_review_ids:
+                                detail["mapping_status"] = (
+                                    "review: shared XMLTV ID maps to same logical channel; "
                                     "programmes preserved"
                                 )
                             elif final_indexes and detail_id in mapping_filtered_ids:
@@ -891,9 +924,9 @@ def process_source(
                             else:
                                 detail["mapping_status"] = "unmatched or ambiguous"
 
-                        # Неизвестные/неоднозначные ID больше не приводят к потере EPG.
-                        stats["ambiguous_xml_ids_quarantined"] = 0
-                        stats["programmes_quarantined_by_ambiguous_xml_id"] = 0
+                        # Неоднозначные ID с конфликтующими именами изолируются,
+                        # чтобы их расписание не попадало на чужие каналы.
+                        # Количество непривязанных передач считается при чтении programme.
                         stats["ambiguous_xml_ids_review"] = len(mapping_review_ids)
                         merge_diagnostics["ambiguous_xml_ids_review"] += len(mapping_review_ids)
                         mapping_finalized = True
