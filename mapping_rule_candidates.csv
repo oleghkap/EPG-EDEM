@@ -15139,8 +15139,8 @@ Satfor,kiinoman_am,AM: Kinoman,0,,,0,,,,,0,,,0,,,,
 Satfor,am_kot,AM: Kotayk TV,0,,,0,,,,,0,,,0,,,,
 Satfor,am_lifeh,AM: Lifehack,0,,,0,,,,,0,,,0,,,,
 Satfor,am_loti,AM: Lori TV,0,,,0,,,,,0,,,0,,,,
-Satfor,am_muzz,AM: Muzzone,0,,,0,,,,,0,,,0,,,,
 Satfor,muzzone_am,AM: Muzzone,0,,,0,,,,,0,,,0,,,,
+Satfor,am_muzz,AM: Muzzone,0,,,0,,,,,0,,,0,,,,
 Satfor,h3_am,AM: Nor Hayastan,0,,,0,,,,,0,,,0,,,,
 Satfor,am_nt,AM: Noyan Tapan,0,,,0,,,,,0,,,0,,,,
 Satfor,am_panam,AM: PanArmenian TV,0,,,0,,,,,0,,,0,,,,
@@ -15708,8 +15708,8 @@ Satfor,arenasp4_hr,HR: Arena Sport 4,0,,,0,,,,,0,,,0,,,,
 Satfor,arenasp5_hr,HR: Arena Sport 5,0,,,0,,,,,0,,,0,,,,
 Satfor,hustler-hd,HUSTLER HD,1,2290,2290:Hustler HD,1,2290,2290:Hustler HD,2290,2290:Hustler HD,1,2290,2290:Hustler HD,0,,,2290,2290:Hustler HD
 Satfor,Happy.Radio.cz,Happy Radio,0,,,0,,,,,0,,,0,,,,
-Satfor,h2,History 2 HD,1,1905,1905:History 2 HD,1,1905,1905:History 2 HD,1905,1905:History 2 HD,2,1905 | 1950,1905:History 2 HD | 1950:History 2,1,1950,1950:History 2,1905 | 1950,1905:History 2 HD | 1950:History 2
 Satfor,history_2_ua,History 2 HD,1,1905,1905:History 2 HD,1,1905,1905:History 2 HD,1905,1905:History 2 HD,2,1905 | 1950,1905:History 2 HD | 1950:History 2,1,1950,1950:History 2,1905 | 1950,1905:History 2 HD | 1950:History 2
+Satfor,h2,History 2 HD,1,1905,1905:History 2 HD,1,1905,1905:History 2 HD,1905,1905:History 2 HD,2,1905 | 1950,1905:History 2 HD | 1950:History 2,1,1950,1950:History 2,1905 | 1950,1905:History 2 HD | 1950:History 2
 Satfor,history-ru,History HD,1,1903,1903:History HD,1,1903,1903:History HD,1903,1903:History HD,1,1903,1903:History HD,0,,,1903,1903:History HD
 Satfor,history_ua,History HD UA,0,,,1,1903,1903:History HD,1903,1903:History HD,1,1903,1903:History HD,0,,,1903,1903:History HD
 Satfor,hollywood,Hollywood,1,483,483:Hollywood,1,483,483:Hollywood,483,483:Hollywood,2,447 | 483,447:Hollywood HD | 483:Hollywood,1,447,447:Hollywood HD,447 | 483,447:Hollywood HD | 483:Hollywood
@@ -16015,8 +16015,8 @@ Satfor,roskino-mm,MM Роскино,0,,,0,,,,,1,777,777:MM Роскино HD,1,7
 Satfor,svati-mm,MM Сваты,0,,,0,,,,,1,778,778:MM Сваты HD,1,778,778:MM Сваты HD,778,778:MM Сваты HD
 Satfor,family_1-mm,MM Семейный 1,0,,,0,,,,,1,794,794:MM Семейный 1 HD,1,794,794:MM Семейный 1 HD,794,794:MM Семейный 1 HD
 Satfor,family2-mm,MM Семейный 2,0,,,0,,,,,1,795,795:MM Семейный 2 HD,1,795,795:MM Семейный 2 HD,795,795:MM Семейный 2 HD
-Satfor,sinematograf-mm,MM Синематограф,0,,,0,,,,,1,788,788:MM Синематограф HD,1,788,788:MM Синематограф HD,788,788:MM Синематограф HD
 Satfor,ues-krejven-hd-minimax,MM Синематограф,0,,,0,,,,,1,788,788:MM Синематограф HD,1,788,788:MM Синематограф HD,788,788:MM Синематограф HD
+Satfor,sinematograf-mm,MM Синематограф,0,,,0,,,,,1,788,788:MM Синематограф HD,1,788,788:MM Синематограф HD,788,788:MM Синематограф HD
 Satfor,sitkom-mm,MM Ситком,0,,,0,,,,,1,779,779:MM Ситком HD,1,779,779:MM Ситком HD,779,779:MM Ситком HD
 Satfor,sitkom_2.0-mm,MM Ситком 2.0,0,,,0,,,,,1,773,773:MM Ситком 2.0 HD,1,773,773:MM Ситком 2.0 HD,773,773:MM Ситком 2.0 HD
 Satfor,skorost-mm,MM Скорость,0,,,0,,,,,1,780,780:MM Скорость HD,1,780,780:MM Скорость HD,780,780:MM Скорость HD
