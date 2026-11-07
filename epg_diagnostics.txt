@@ -2,48 +2,48 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
 =======================================================
 Период: 2026-11-06T00:00:00+03:00 — 2026-11-09T00:00:00+03:00 (конец не включён)
 Каналов в итоговом XML: 2889
-Передач в итоговом XML: 286763
-Размер несжатого XML: 186,674,339 байт (178.03 MiB)
-Размер GZIP: 25,302,724 байт (24.13 MiB)
+Передач в итоговом XML: 287096
+Размер несжатого XML: 186,827,426 байт (178.17 MiB)
+Размер GZIP: 25,313,712 байт (24.14 MiB)
 
 Объём текстовых полей (UTF-8, без XML-разметки):
-  title: 11,613,676 байт (11.08 MiB)
-  desc: 131,955,939 байт (125.84 MiB)
-  category: 2,024,728 байт (1.93 MiB)
-  Всего текста: 145,594,343 байт
+  title: 11,624,669 байт (11.09 MiB)
+  desc: 132,051,282 байт (125.93 MiB)
+  category: 2,025,710 байт (1.93 MiB)
+  Всего текста: 145,701,661 байт
 
 ДЕТАЛИЗАЦИЯ ОПИСАНИЙ DESC
-  Всего передач: 286763
-  С непустым desc: 223814
-  С пустым desc: 62949
-  Всего символов: 76,682,957
-  Всего UTF-8 байт: 131,955,939
+  Всего передач: 287096
+  С непустым desc: 224182
+  С пустым desc: 62914
+  Всего символов: 76,745,404
+  Всего UTF-8 байт: 132,051,282
   Процентили длины непустого desc (UTF-8 байты):
-    P50: 516 байт
+    P50: 515 байт
     P75: 817 байт
     P90: 1,163 байт
     P95: 1,411 байт
     P99: 2,173 байт
     P100: 12,593 байт
   Распределение непустых описаний по длине:
-    1–256 байт: 61,426
-    257–512 байт: 49,843
-    513–1024 байта: 80,501
-    1025–2048 байт: 29,147
-    2049–4096 байт: 2,816
+    1–256 байт: 61,707
+    257–512 байт: 49,872
+    513–1024 байта: 80,553
+    1025–2048 байт: 29,152
+    2049–4096 байт: 2,817
     более 4096 байт: 81
   Фактический GZIP при ограничении desc (level 6):
-    До 200 символов: 15,242,811 байт (15.24 MB; 14.54 MiB), экономия 10.06 MB
-    До 250 символов: 17,111,202 байт (17.11 MB; 16.32 MiB), экономия 8.19 MB
-    До 300 символов: 18,631,840 байт (18.63 MB; 17.77 MiB), экономия 6.67 MB
-    До 350 символов: 19,855,264 байт (19.86 MB; 18.94 MiB), экономия 5.45 MB
-    До 400 символов: 20,909,383 байт (20.91 MB; 19.94 MiB), экономия 4.39 MB
-    До 500 символов: 22,502,162 байт (22.50 MB; 21.46 MiB), экономия 2.80 MB
-    До 750 символов: 24,460,194 байт (24.46 MB; 23.33 MiB), экономия 0.84 MB
+    До 200 символов: 15,260,474 байт (15.26 MB; 14.55 MiB), экономия 10.05 MB
+    До 250 символов: 17,126,849 байт (17.13 MB; 16.33 MiB), экономия 8.19 MB
+    До 300 символов: 18,647,065 байт (18.65 MB; 17.78 MiB), экономия 6.67 MB
+    До 350 символов: 19,871,709 байт (19.87 MB; 18.95 MiB), экономия 5.44 MB
+    До 400 символов: 20,925,605 байт (20.93 MB; 19.96 MiB), экономия 4.39 MB
+    До 500 символов: 22,516,277 байт (22.52 MB; 21.47 MiB), экономия 2.80 MB
+    До 750 символов: 24,472,459 байт (24.47 MB; 23.34 MiB), экономия 0.84 MB
   Оценка экономии при ограничении длины (по символам):
-    До 500 символов: 17,815,358 байт (16.99 MiB; 13.5% объёма desc)
-    До 750 символов: 6,057,742 байт (5.78 MiB; 4.6% объёма desc)
-    До 1000 символов: 2,625,037 байт (2.50 MiB; 2.0% объёма desc)
+    До 500 символов: 17,814,192 байт (16.99 MiB; 13.5% объёма desc)
+    До 750 символов: 6,055,790 байт (5.78 MiB; 4.6% объёма desc)
+    До 1000 символов: 2,624,557 байт (2.50 MiB; 2.0% объёма desc)
     Примечание: это оценка экономии UTF-8 текста до XML-экранирования и GZIP.
   10 самых длинных описаний (текст desc не выводится):
     12,593 байт / 6,870 симв. | Cine+ Kids HD | м/с Уроки тітоньки Сови
@@ -58,77 +58,77 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
     12,593 байт / 6,870 симв. | Cine+ Kids HD | м/с Уроки тітоньки Сови
 
 ПОВТОРЫ ПОЛЕЙ В ИТОГОВОМ EPG (непустые значения, точное совпадение):
-  title: групп 43770, повторных вхождений 191604, групп только на одном канале 20576, на разных каналах 23194
-  desc: групп 28318, повторных вхождений 161494, групп только на одном канале 12859, на разных каналах 15459
-  category: групп 1296, повторных вхождений 178697, групп только на одном канале 511, на разных каналах 785
+  title: групп 43832, повторных вхождений 191778, групп только на одном канале 20628, на разных каналах 23204
+  desc: групп 28421, повторных вхождений 161717, групп только на одном канале 12953, на разных каналах 15468
+  category: групп 1296, повторных вхождений 178765, групп только на одном канале 511, на разных каналах 785
   Повторяющихся category внутри одной передачи: 0
 
 СОВПАДЕНИЯ ПРИ СЛИЯНИИ ИСТОЧНИКОВ ДЛЯ ОДНОГО КАНАЛА И ВРЕМЕНИ:
-  Всего совпадений identity: 466336
-  Между разными источниками: 439325
-  Внутри одного источника: 27011
-    Один и тот же XMLTV ID: 3292
-    Разные XMLTV ID сопоставлены одному каналу плейлиста: 23719
-  Нормализованные совпадения title среди различающихся: 1816
-  Входящий title длиннее: 211991; короче: 96973; равной длины: 15589
-  Нормализованные совпадения desc среди различающихся: 772
-  Входящий непустой desc длиннее: 81618; короче: 118863; равной длины: 1484
-  Одинаковый title: 141783; различается: 324553
-  Одинаковый непустой desc: 112813; различается: 201965
+  Всего совпадений identity: 469418
+  Между разными источниками: 442601
+  Внутри одного источника: 26817
+    Один и тот же XMLTV ID: 3279
+    Разные XMLTV ID сопоставлены одному каналу плейлиста: 23538
+  Нормализованные совпадения title среди различающихся: 1790
+  Входящий title длиннее: 212731; короче: 97733; равной длины: 15602
+  Нормализованные совпадения desc среди различающихся: 687
+  Входящий непустой desc длиннее: 82403; короче: 119633; равной длины: 1401
+  Одинаковый title: 143352; различается: 326066
+  Одинаковый непустой desc: 113920; различается: 203437
   Поздний источник заполнил пустой desc: 17142
-  У поздней записи desc пустой, у сохранённой непустой: 87607
-  Одинаковые наборы category: 232509; разные: 233827
-  Дополнительных категорий добавлено при слиянии: 171665
+  У поздней записи desc пустой, у сохранённой непустой: 87758
+  Одинаковые наборы category: 232622; разные: 236796
+  Дополнительных категорий добавлено при слиянии: 174487
 
 ПЕРЕСЕЧЕНИЯ ИНТЕРВАЛОВ ПЕРЕДАЧ НА ОДНОМ КАНАЛЕ:
-  Всего пересекающихся пар: 282031
-  Внутри одного источника: 65733
-  Между разными источниками: 216298
+  Всего пересекающихся пар: 283671
+  Внутри одного источника: 65582
+  Между разными источниками: 218089
   Передач без stop (не проверяются на пересечение): 0
-  Подробности: programme_interval_overlaps.csv.gz (3,440,674 байт)
+  Подробности: programme_interval_overlaps.csv.gz (4,937,109 байт)
 
 Точные дубликаты programme по каналу, времени и полному содержимому:
-  Повторных записей в источниках: 152243
-  Групп дубликатов: 109724
+  Повторных записей в источниках: 152324
+  Групп дубликатов: 109792
 
 Передач по календарным дням (по пересечению интервала):
-  2026-11-06: 101867
-  2026-11-07: 100152
-  2026-11-08: 89206
+  2026-11-06: 101869
+  2026-11-07: 100251
+  2026-11-08: 89445
 
-Каналов с пересекающимися передачами: 877
+Каналов с пересекающимися передачами: 878
 
 ПЕРЕСЕЧЕНИЯ ПО КАНАЛАМ (все каналы, по убыванию числа пар):
-  27004: playlist_1748 | Duck TV
-  14871: playlist_1749 | Baby TV
-  12597: playlist_1732 | Nick Jr
-  9608: playlist_1738 | Cartoon Network
-  8542: playlist_1753 | NickToons HD
-  6933: playlist_1904 | History HD
-  6420: playlist_1549 | MTV HD
-  5769: playlist_1735 | Nickelodeon
-  5442: playlist_1742 | Cartoonito
+  27008: playlist_1748 | Duck TV
+  14895: playlist_1749 | Baby TV
+  12748: playlist_1732 | Nick Jr
+  9601: playlist_1738 | Cartoon Network
+  8543: playlist_1753 | NickToons HD
+  7006: playlist_1904 | History HD
+  6436: playlist_1549 | MTV HD
+  5763: playlist_1735 | Nickelodeon
+  5492: playlist_1742 | Cartoonito
   5330: playlist_1908 | Discovery Channel
-  5079: playlist_509 | Comedy Central
-  5020: playlist_1902 | TLC HD
+  5102: playlist_509 | Comedy Central
+  5055: playlist_1902 | TLC HD
+  4802: playlist_1856 | National Geographic HD
   4645: playlist_1850 | National Geographic
-  4264: playlist_1907 | Discovery Channel HD
-  4232: playlist_1856 | National Geographic HD
+  4333: playlist_1907 | Discovery Channel HD
   4095: playlist_1914 | Animal Planet
-  3754: playlist_2868 | AMC
-  3641: playlist_2875 | Da Vinci HD
-  3296: playlist_1993 | HGTV HD
+  3845: playlist_2868 | AMC
+  3644: playlist_2875 | Da Vinci HD
+  3355: playlist_1993 | HGTV HD
   3272: playlist_1853 | TravelXP 4K
+  3099: playlist_2536 | Food Network
   3058: playlist_371 | FX HD
-  3012: playlist_2536 | Food Network
-  2925: playlist_1730 | Nickelodeon HD
+  2971: playlist_1730 | Nickelodeon HD
   2617: playlist_1737 | Jim Jam
   2444: playlist_1975 | Da Vinci
+  2281: playlist_1964 | Nat Geo Wild HD
   2225: playlist_1898 | Love Nature 4K
-  2214: playlist_1964 | Nat Geo Wild HD
   2039: playlist_1403 | Red Bull TV
   1940: playlist_2284 | Playboy
-  1829: playlist_1913 | Animal Planet HD
+  1859: playlist_1913 | Animal Planet HD
   1578: playlist_1925 | DocuBox HD
   1537: playlist_1895 | Home 4K
   1485: playlist_827 | VF Привет из 90х
@@ -168,9 +168,9 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   569: playlist_1087 | CineMan Фитнес
   548: playlist_1638 | M1 HD
   518: playlist_2298 | Penthouse Gold HD
-  498: playlist_2679 | beIN Sports
+  500: playlist_2679 | beIN Sports
   495: playlist_749 | MM USSR Мультфильм HD
-  489: playlist_508 | Cinema
+  488: playlist_508 | Cinema
   480: playlist_1727 | VF Союзмультфильм
   472: playlist_2423 | VF Cartoon 18+
   467: playlist_1042 | BOX M.Serial HD
@@ -181,8 +181,8 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   418: playlist_1086 | CineMan Комедийные Сериалы
   413: playlist_792 | MM Walt Disney HD
   407: playlist_943 | MS Animated HD
-  404: playlist_1457 | ESPN 3 HD NL
   399: playlist_940 | MS Toons HD
+  399: playlist_1457 | ESPN 3 HD NL
   397: playlist_1642 | Trace Urban HD
   395: playlist_2570 | TBS
   394: playlist_2447 | Playboy TV Europe HD
@@ -193,11 +193,11 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   372: playlist_414 | FX Life
   372: playlist_1900 | TERRA HD
   369: playlist_774 | MM Ситком 2.0 HD
+  367: playlist_500 | FILMBOX+ One
   363: playlist_639 | VF Мультфильмы СССР
   362: playlist_2369 | Reality Kings HD
   360: playlist_607 | Премиальное HD
   357: playlist_1958 | Galaxy
-  353: playlist_500 | FILMBOX+ One
   353: playlist_759 | MM Воронины HD
   351: playlist_1307 | Eurosport 1
   347: playlist_1729 | ТипТоп HD
@@ -208,15 +208,15 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   333: playlist_2068 | MM Открытия HD
   321: playlist_436 | Романтичное HD
   321: playlist_2082 | Z!Science HD
+  314: playlist_448 | Hollywood HD
+  312: playlist_917 | Liberty Симпсоны FHD
   312: playlist_2283 | Eroxxx HD
-  305: playlist_32 | Пятый канал +4
+  308: playlist_32 | Пятый канал +4
+  307: playlist_1903 | Travel Channel HD
   300: playlist_424 | Остросюжетное HD
   299: playlist_1798 | VF VHS Cartoon
-  298: playlist_917 | Liberty Симпсоны FHD
   297: playlist_928 | Liberty Куб 4K
   297: playlist_1458 | ESPN 4 HD NL
-  297: playlist_1903 | Travel Channel HD
-  295: playlist_448 | Hollywood HD
   291: playlist_1808 | Liberty Бебимульт FHD
   289: playlist_410 | VF Теория большого взрыва
   289: playlist_2276 | Women`s Magazine HD
@@ -228,6 +228,7 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   286: playlist_648 | CineMan
   284: playlist_1972 | Fashion & Lifestyle
   283: playlist_1248 | FightBox HD
+  283: playlist_1451 | Benfica TV HD PT
   281: playlist_826 | VF Наша Раша
   281: playlist_1059 | Liberty Планктон FHD
   278: playlist_2805 | FilmBox ArtHouse HD UA
@@ -235,8 +236,9 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   270: playlist_1639 | M2 HD
   269: playlist_401 | VF Два с половиной человека
   269: playlist_2152 | VF Баня
+  268: playlist_421 | Comedy Central DE
   267: playlist_2822 | Наука
-  261: playlist_73 | Пятница! +4
+  266: playlist_73 | Пятница! +4
   260: playlist_1755 | Рыжий
   259: playlist_98 | Загородный
   259: playlist_398 | VF Счастливы Вместе
@@ -244,7 +246,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   258: playlist_60 | Звезда +2
   258: playlist_2128 | СТС International
   257: playlist_1843 | Museum TV HD
-  256: playlist_421 | Comedy Central DE
   255: playlist_824 | VF СашаТаня
   255: playlist_1405 | Auto Motor Sport HD DE
   255: playlist_1966 | Investigation Discovery
@@ -279,13 +280,12 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   217: playlist_2151 | VF Кухня
   217: playlist_2506 | Liberty Эротика FHD
   216: playlist_2047 | Мир Вокруг HD
-  212: playlist_1451 | Benfica TV HD PT
   211: playlist_2083 | Epic HD
   210: playlist_1228 | Arena Sport 1 RS
+  210: playlist_2682 | beIN Sports 4
   209: playlist_462 | .sci-fi
   207: playlist_2060 | MM Микромир HD
   207: playlist_2149 | VF Юмор 18+
-  207: playlist_2682 | beIN Sports 4
   205: playlist_161 | MS Crime HD
   204: playlist_1833 | Моя Стихия
   204: playlist_2032 | Моя Стихия HD
@@ -298,7 +298,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   191: playlist_956 | Fresh Series
   191: playlist_1848 | Еда
   191: playlist_1940 | Viju Explore
-  190: playlist_1216 | Sport TV+ HD PT
   189: playlist_726 | VF Сериал 4K
   188: playlist_653 | CineMan Marvel
   187: playlist_807 | VF Series
@@ -318,18 +317,19 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   167: playlist_90 | 360
   165: playlist_430 | Блокбастер HD
   165: playlist_755 | MM Honey HD
+  164: playlist_449 | Bollywood HD
   164: playlist_850 | Z!Sitcom HD
   163: playlist_793 | MM Live Planet HD
   163: playlist_1406 | Sportdigital Fussball HD DE
   162: playlist_432 | Кинопоказ HD
   161: playlist_870 | Yosso TV Disney
-  160: playlist_449 | Bollywood HD
   160: playlist_2141 | Liberty Шоу FHD
   158: playlist_1419 | TRT SPOR
   156: playlist_2548 | Telemundo
   155: playlist_851 | Z! Smile HD
   155: playlist_918 | Liberty Сваты FHD
   154: playlist_833 | VF Без цензуры
+  154: playlist_907 | SKY HIGH BRAIN HD
   154: playlist_1745 | В гостях у сказки
   153: playlist_753 | MM Агата Кристи HD
   153: playlist_779 | MM Сваты HD
@@ -341,7 +341,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   148: playlist_31 | Пятый канал +2
   148: playlist_808 | VF След
   148: playlist_2095 | MyZen TV HD
-  146: playlist_907 | SKY HIGH BRAIN HD
   145: playlist_162 | ТВ Центр International
   145: playlist_1043 | BOX Serial HD
   145: playlist_1704 | BOX RU.RAP HD
@@ -354,6 +353,7 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   143: playlist_2045 | Первый космический HD
   142: playlist_1233 | Arena Sport 6 RS
   141: playlist_783 | MM Стивен Кинг HD
+  141: playlist_1266 | QazSport HD
   141: playlist_1938 | Viju Nature
   140: playlist_50 | РЕН ТВ +7
   140: playlist_378 | Sumiko HD
@@ -362,17 +362,18 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   140: playlist_2683 | beIN Sports 5
   139: playlist_160 | RT Documentary HD
   139: playlist_810 | VF Мыльные оперы
+  139: playlist_1216 | Sport TV+ HD PT
   138: playlist_51 | Мир
   138: playlist_2874 | D1
   137: playlist_2513 | CineMan ExExEx
   136: playlist_651 | CineMan Thriller
   136: playlist_815 | VF Криминал
   136: playlist_832 | VF Доктор Хаус
-  136: playlist_1266 | QazSport HD
   135: playlist_772 | MM Мифология HD
   135: playlist_2091 | VF Орел и решка
   133: playlist_80 | Домашний +7
   133: playlist_909 | Liberty DC FHD
+  132: playlist_2036 | SKY HIGH DOC HD
   130: playlist_431 | Хит HD
   130: playlist_830 | VF Ходячие мертвецы
   130: playlist_1235 | Arena Sport 8 RS
@@ -393,21 +394,22 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   122: playlist_1936 | Точка отрыва
   122: playlist_2073 | Yosso TV Nature
   121: playlist_1232 | Arena Sport 5 RS
+  121: playlist_1430 | Sky Sport Golf HD IT
   120: playlist_927 | Liberty Индия 4K
   119: playlist_804 | VF Тайны следствия
-  119: playlist_1430 | Sky Sport Golf HD IT
   118: playlist_38 | ТНТ
   118: playlist_402 | VF Новогодний
   118: playlist_1845 | Точка Отрыва HD
   117: playlist_54 | Мир +7
-  117: playlist_1328 | Extreme Sports
+  116: playlist_2866 | 5 Канал HD
   115: playlist_781 | MM Скорость HD
   115: playlist_1189 | Sport 3 HD
+  115: playlist_1328 | Extreme Sports
   114: playlist_1950 | English Class HD
   111: playlist_654 | CineMan Ужасы
   111: playlist_794 | MM USSR Детектив HD
   111: playlist_1103 | BOX Serial 4K
-  110: playlist_2866 | 5 Канал HD
+  111: playlist_2558 | MOTORTREND
   109: playlist_45 | СТС +7
   109: playlist_408 | VF Карточный домик
   109: playlist_657 | CineMan РуКино
@@ -419,20 +421,19 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   108: playlist_843 | VF Netflix
   108: playlist_2040 | Liberty Планета360 FHD
   108: playlist_2880 | FILMBOX+ Festival HD
+  107: playlist_52 | Мир +2
   107: playlist_636 | VF Наша победа
   107: playlist_1915 | Охотник и Рыболов HD
+  106: playlist_53 | Мир +4
   106: playlist_836 | VF Игра престолов
   106: playlist_2074 | Yosso TV Travel
   105: playlist_46 | РЕН ТВ HD
-  104: playlist_52 | Мир +2
   104: playlist_429 | Наш Кинопоказ HD
   104: playlist_2059 | Z!Travel HD
   103: playlist_844 | VF HBO
   103: playlist_1804 | Yosso TV Наше Детское
   103: playlist_1851 | Museum TV 4K
-  103: playlist_2558 | MOTORTREND
   103: playlist_2735 | Star Cinema HD UA
-  102: playlist_53 | Мир +4
   101: playlist_754 | MM Грайндхаус HD
   101: playlist_802 | VF Сваты
   101: playlist_842 | VF Беларусьфильм
@@ -499,6 +500,7 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   85: playlist_949 | Fresh Kids
   85: playlist_1088 | Magic Russian HD
   85: playlist_1187 | Sky Sports 2 UHD UK
+  85: playlist_1562 | MTV Classic
   85: playlist_1635 | SKY HIGH CONCERT HD
   85: playlist_2393 | Leo TV HD
   85: playlist_2445 | Dorcel XXX
@@ -512,6 +514,7 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   83: playlist_950 | Fresh Comedy
   83: playlist_957 | Fresh Horror
   83: playlist_1000 | Magic Family HD
+  82: playlist_14 | Россия 1 +4
   82: playlist_361 | VF Сериалы Турции
   82: playlist_405 | VF С новым годом!
   82: playlist_1226 | Arena Premium 2 RS
@@ -533,13 +536,11 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   79: playlist_739 | MM Love HD
   79: playlist_920 | Liberty Комедии FHD
   79: playlist_959 | Fresh Romantic
-  79: playlist_1562 | MTV Classic
   79: playlist_1584 | Муз ТВ +4
   79: playlist_1968 | Зоо ТВ
   79: playlist_2063 | MM Translation HD
   79: playlist_2122 | СТС HD
   79: playlist_2140 | Liberty Занавес  HD
-  78: playlist_14 | Россия 1 +4
   78: playlist_649 | CineMan Top
   78: playlist_1805 | SKY HIGH Bunny HD
   77: playlist_762 | MM Катастрофа HD
@@ -561,7 +562,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   75: playlist_1001 | Magic Love HD
   75: playlist_1067 | Liberty XX Век 4K
   75: playlist_1725 | VF Disney Cartoon
-  75: playlist_2036 | SKY HIGH DOC HD
   74: playlist_619 | VF Cartoon
   74: playlist_996 | Magic Thriller HD
   73: playlist_67 | ТВ-3 +2
@@ -575,6 +575,7 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   72: playlist_1294 | Матч! Планета
   71: playlist_23 | НТВ +7
   71: playlist_61 | Звезда +4
+  71: playlist_456 | Viasat Epic Drama
   71: playlist_625 | VF Ужасы
   71: playlist_627 | VF Ужасы VHS
   71: playlist_741 | MM NewFilm 2 HD
@@ -598,6 +599,7 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   67: playlist_953 | Fresh Rating
   67: playlist_1060 | Magic Adventure HD
   66: playlist_911 | Liberty Триллеры 4K
+  66: playlist_1426 | Sky Sport Arena HD IT
   65: playlist_49 | РЕН ТВ +4
   65: playlist_628 | VF Премьера
   65: playlist_677 | BCU Marvel HDR
@@ -606,7 +608,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   65: playlist_948 | Fresh Cinema
   64: playlist_70 | Пятница! HD
   64: playlist_403 | VF Ёлки
-  64: playlist_456 | Viasat Epic Drama
   64: playlist_1469 | BOX Be On Edge HD
   64: playlist_1654 | Bridge Фрэш
   64: playlist_2279 | VF Граиндхаус
@@ -637,6 +638,7 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   59: playlist_814 | VF Comics
   59: playlist_855 | Yosso TV Русские Фильмы
   59: playlist_923 | Liberty Кино ENG 4K
+  59: playlist_1524 | MTV 80s
   59: playlist_2290 | Private TV
   58: playlist_729 | VF Detective
   58: playlist_1214 | BOX SR Sport 4K HDR
@@ -656,7 +658,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   55: playlist_860 | Yosso TV Ковбойское
   55: playlist_924 | Liberty Мульт ENG 4K
   55: playlist_1507 | BOX SportCast HD
-  55: playlist_1524 | MTV 80s
   55: playlist_2505 | Yosso TV Sexy
   54: playlist_118 | Звезда HD
   54: playlist_622 | VF Fantasy
@@ -666,7 +667,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   53: playlist_828 | VF Эльдар Рязанов
   53: playlist_859 | Yosso TV Забавное
   53: playlist_915 | Liberty Боевики FHD
-  53: playlist_1426 | Sky Sport Arena HD IT
   52: playlist_731 | VF Оскар
   52: playlist_1733 | СТС Kids HD
   51: playlist_485 | .red
@@ -675,9 +675,9 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   51: playlist_869 | Yosso TV Netflix
   51: playlist_2103 | VF КВН
   50: playlist_71 | Пятница!
+  50: playlist_889 | Твое ТВ HD
   49: playlist_864 | Yosso TV Oblivion
   49: playlist_865 | Yosso TV Adventure
-  49: playlist_889 | Твое ТВ HD
   49: playlist_1416 | A SPOR HD
   49: playlist_2075 | Yosso TV 4K HDR
   49: playlist_2135 | Загородная Жизнь HD
@@ -694,30 +694,31 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   45: playlist_861 | Yosso TV Best
   45: playlist_866 | Yosso TV 4K
   45: playlist_929 | Liberty Семейный 4K
+  44: playlist_1563 | MTV Hits
   44: playlist_1581 | МузСоюз
   43: playlist_393 | 4Ever Drama HD UA
   43: playlist_916 | Liberty Кино Микс 4K
   43: playlist_1237 | Arena Sport 1x2 RS
   43: playlist_1809 | Liberty Мульт UKR 4K
   42: playlist_527 | Мосфильм. Золотая коллекция
+  42: playlist_933 | Liberty Союз 4K
   42: playlist_1655 | Deluxe Music HD DE
   41: playlist_6 | Первый канал +4
   41: playlist_406 | VF Гарри Поттер
   41: playlist_926 | Liberty РусФильм 4K
-  41: playlist_933 | Liberty Союз 4K
+  41: playlist_1525 | MTV 00s
   41: playlist_2296 | XXL
   41: playlist_2684 | beIN Sports 6
   40: playlist_1683 | Now Rock UK
   40: playlist_2862 | 1+1 Україна HD
   39: playlist_834 | VF Городок
-  39: playlist_1525 | MTV 00s
-  39: playlist_1563 | MTV Hits
   38: playlist_867 | Yosso TV Мелодрама
   37: playlist_846 | Z!Comedy HD
   37: playlist_1186 | Sky Sports 1 UHD UK
   37: playlist_1832 | BOX Kosmo 4K
   36: playlist_652 | CineMan Мелодрама
   36: playlist_1066 | BOX Mayday HD
+  36: playlist_2578 | MSG US
   35: playlist_419 | Amedia Hit HD
   35: playlist_1185 | Sky Sports Main Event UHD UK
   35: playlist_2271 | Арис 24 HD
@@ -732,7 +733,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   33: playlist_2327 | Digital Desire HD
   32: playlist_1414 | TRT SPOR HD
   32: playlist_1992 | Viju Explore HD
-  32: playlist_2578 | MSG US
   31: playlist_91 | СПАС
   31: playlist_1711 | Liberty Мюзикл 4K
   31: playlist_2534 | Союзный
@@ -772,12 +772,12 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   21: playlist_1333 | Старт
   21: playlist_1338 | Старт HD
   21: playlist_2785 | Бігуді UA
+  20: playlist_1427 | Sky Sport Calcio HD IT
   20: playlist_1954 | RTG TV
   19: playlist_395 | FilmZone HD LV
   19: playlist_1408 | TNT Sports 4 HD UK
   18: playlist_452 | Viju+ Comedy HD
   18: playlist_454 | Viju+ Megahit HD
-  18: playlist_1431 | Sky Sport MotoGP HD IT
   18: playlist_1924 | Большая Азия HD
   18: playlist_2520 | Беларусь 1
   17: playlist_1473 | Q League HD KZ
@@ -798,7 +798,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   14: playlist_357 | BBC Alba UK
   14: playlist_1246 | Setanta Sports 2 HD KZ
   14: playlist_1374 | Живи Активно HD
-  14: playlist_2064 | Рыболов HD
   14: playlist_2753 | ТЕТ
   14: playlist_2768 | СТБ HD
   13: playlist_450 | Viju+ Premiere HD
@@ -807,6 +806,7 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   12: playlist_77 | Домашний
   12: playlist_126 | Домашний HD
   12: playlist_482 | Viju TV1000
+  12: playlist_1196 | Nova Sport 3 CZ
   12: playlist_2523 | Беларусь 1 HD
   11: playlist_307 | Дождь HD
   11: playlist_490 | Русский детектив
@@ -814,12 +814,14 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   11: playlist_1212 | Cosmote Sport 9 GR
   11: playlist_1343 | Окко Спорт HD
   11: playlist_1459 | Матч! Страна HD
+  11: playlist_2064 | Рыболов HD
   11: playlist_2090 | Аппетитный HD
   11: playlist_2754 | Сонце
   11: playlist_2795 | ТЕТ HD
   10: playlist_394 | NOW Series HD
   10: playlist_426 | Дом Кино Премиум HD
   10: playlist_1206 | Cosmote Sport 3 GR
+  10: playlist_1431 | Sky Sport MotoGP HD IT
   10: playlist_1629 | Страна FM HD
   10: playlist_1957 | Поехали!
   10: playlist_2686 | beIN Sports USA
@@ -864,7 +866,6 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   5: playlist_17 | НТВ HD
   5: playlist_22 | НТВ +4
   5: playlist_498 | НСТ
-  5: playlist_1196 | Nova Sport 3 CZ
   5: playlist_1460 | Матч! Боец HD
   5: playlist_1724 | KinoKazka HD
   5: playlist_1934 | Время
@@ -978,47 +979,303 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
   1: playlist_2870 | Cine+ HD
 
 ПЕРЕСЕЧЕНИЯ ПО ПАРАМ ИСТОЧНИКОВ (по убыванию числа пар):
-  58486: EPG.ONE epg2 + M3U Edit ALL
+  58019: EPG.ONE epg2 + M3U Edit ALL
   54015: EPG.ONE epg2 + IPTVX full
-  50866: M3U Edit ALL + M3U Edit ALL
-  29893: M3U Edit ALL + TV.TEAM full
-  21975: EPG.ONE epg2 + TV.TEAM full
-  9554: IPTVX full + M3U Edit ALL
-  7914: TV.TEAM full + TV.TEAM full
-  6336: BCU Media + EPG.ONE epg2
+  50202: M3U Edit ALL + M3U Edit ALL
+  31573: M3U Edit ALL + TV.TEAM full
+  23207: EPG.ONE epg2 + TV.TEAM full
+  9520: IPTVX full + M3U Edit ALL
+  8439: TV.TEAM full + TV.TEAM full
+  6294: BCU Media + EPG.ONE epg2
   6290: EPG.ONE epg2 + EPG.ONE epg2
-  5309: FOX TV + M3U Edit ALL
-  5277: EPG.ONE epg2 + Satfor
-  4813: EPG.ONE epg2 + FOX TV
-  2916: BCU Media + M3U Edit ALL
-  2827: IPTVX full + TV.TEAM full
+  5196: EPG.ONE epg2 + Satfor
+  5004: FOX TV + M3U Edit ALL
+  4673: EPG.ONE epg2 + FOX TV
+  2987: IPTVX full + TV.TEAM full
+  2887: BCU Media + M3U Edit ALL
   2714: EPG.ONE epg2 + ProgramTV
-  2486: M3U Edit ALL + Satfor
-  2001: FOX TV + TV.TEAM full
-  1299: EPG.ONE epg2 + TopIPTV
-  1139: IPTVX full + Satfor
-  1004: BCU Media + IPTVX full
-  992: Satfor + TV.TEAM full
-  755: M3U Edit ALL + TopIPTV
-  496: BCU Media + TV.TEAM full
+  2345: M3U Edit ALL + Satfor
+  2089: FOX TV + TV.TEAM full
+  1274: EPG.ONE epg2 + TopIPTV
+  1138: IPTVX full + Satfor
+  1017: Satfor + TV.TEAM full
+  988: BCU Media + IPTVX full
+  686: M3U Edit ALL + TopIPTV
+  514: BCU Media + TV.TEAM full
   368: M3U Edit ALL + ProgramTV
-  363: FOX TV + Satfor
+  332: FOX TV + Satfor
   314: IPTVX full + IPTVX full
-  235: BCU Media + BCU Media
-  197: BCU Media + ProgramTV
-  185: Satfor + TopIPTV
-  182: FOX TV + IPTVX full
-  162: TV.TEAM full + TopIPTV
+  228: BCU Media + BCU Media
+  194: BCU Media + ProgramTV
+  183: Satfor + TopIPTV
+  164: FOX TV + IPTVX full
+  163: TV.TEAM full + TopIPTV
   124: IPTVX full + ProgramTV
-  108: BCU Media + TopIPTV
   106: FOX TV + ProgramTV
   103: BCU Media + Satfor
-  86: Satfor + Satfor
+  101: BCU Media + TopIPTV
+  84: Satfor + Satfor
   62: BCU Media + FOX TV
-  28: FOX TV + FOX TV
-  27: FOX TV + TopIPTV
+  25: FOX TV + FOX TV
+  25: FOX TV + TopIPTV
   14: ProgramTV + Satfor
   10: IPTVX full + TopIPTV
+
+КЛАССИФИКАЦИЯ ПЕРЕСЕЧЕНИЙ:
+  По названиям:
+    Полностью одинаковое название: 7,643
+    Совпадает после нормализации: 4,362
+    Разные названия: 271,666
+  По длительности самого пересечения:
+    ≤5 мин: 108,049
+    6–15 мин: 64,537
+    16–30 мин: 58,813
+    31–60 мин: 35,931
+    61–120 мин: 13,900
+    >120 мин: 2,441
+  По разнице времени начала передач:
+    ≤5 мин: 96,927
+    6–15 мин: 60,964
+    16–30 мин: 53,752
+    31–60 мин: 41,826
+    61–120 мин: 21,550
+    >120 мин: 8,652
+
+ПЕРЕСЕЧЕНИЯ ВНУТРИ ОДНОГО ИСТОЧНИКА: ОДИН ИЛИ РАЗНЫЕ XMLTV ID:
+  M3U Edit ALL: всего 50,202; один XMLTV ID 44; разные XMLTV ID 50,158
+  TV.TEAM full: всего 8,439; один XMLTV ID 90; разные XMLTV ID 8,349
+  EPG.ONE epg2: всего 6,290; один XMLTV ID 108; разные XMLTV ID 6,182
+  IPTVX full: всего 314; один XMLTV ID 32; разные XMLTV ID 282
+  BCU Media: всего 228; один XMLTV ID 180; разные XMLTV ID 48
+  Satfor: всего 84; один XMLTV ID 65; разные XMLTV ID 19
+  FOX TV: всего 25; один XMLTV ID 0; разные XMLTV ID 25
+
+ДЕТАЛИ ПО ПАРАМ ИСТОЧНИКОВ:
+  EPG.ONE epg2 + M3U Edit ALL: всего 58,019; одинаковое название 724; разное название 57,295; среднее пересечение 16.4 мин; разница стартов: {'16–30 мин': 11454, '31–60 мин': 8216, '61–120 мин': 2968, '6–15 мин': 14023, '>120 мин': 1368, '≤5 мин': 19990}
+  EPG.ONE epg2 + IPTVX full: всего 54,015; одинаковое название 6,395; разное название 47,620; среднее пересечение 23.6 мин; разница стартов: {'>120 мин': 1663, '31–60 мин': 5645, '61–120 мин': 6413, '16–30 мин': 7242, '6–15 мин': 7430, '≤5 мин': 25622}
+  M3U Edit ALL + M3U Edit ALL: всего 50,202; одинаковое название 960; разное название 49,242; среднее пересечение 18.7 мин; разница стартов: {'16–30 мин': 11133, '31–60 мин': 9605, '61–120 мин': 3317, '6–15 мин': 11014, '≤5 мин': 13963, '>120 мин': 1170}
+  M3U Edit ALL + TV.TEAM full: всего 31,573; одинаковое название 956; разное название 30,617; среднее пересечение 17.9 мин; разница стартов: {'≤5 мин': 8767, '16–30 мин': 6722, '31–60 мин': 4719, '61–120 мин': 1956, '6–15 мин': 8199, '>120 мин': 1210}
+  EPG.ONE epg2 + TV.TEAM full: всего 23,207; одинаковое название 612; разное название 22,595; среднее пересечение 19.2 мин; разница стартов: {'≤5 мин': 6503, '61–120 мин': 1484, '6–15 мин': 6167, '16–30 мин': 4838, '31–60 мин': 3497, '>120 мин': 718}
+  IPTVX full + M3U Edit ALL: всего 9,520; одинаковое название 40; разное название 9,480; среднее пересечение 17.9 мин; разница стартов: {'31–60 мин': 1271, '16–30 мин': 1183, '61–120 мин': 780, '>120 мин': 393, '6–15 мин': 999, '≤5 мин': 4894}
+  TV.TEAM full + TV.TEAM full: всего 8,439; одинаковое название 99; разное название 8,340; среднее пересечение 21.6 мин; разница стартов: {'>120 мин': 395, '31–60 мин': 1552, '61–120 мин': 626, '6–15 мин': 2277, '16–30 мин': 1926, '≤5 мин': 1663}
+  BCU Media + EPG.ONE epg2: всего 6,294; одинаковое название 611; разное название 5,683; среднее пересечение 25.5 мин; разница стартов: {'≤5 мин': 1955, '61–120 мин': 462, '31–60 мин': 1317, '>120 мин': 200, '6–15 мин': 1190, '16–30 мин': 1170}
+  EPG.ONE epg2 + EPG.ONE epg2: всего 6,290; одинаковое название 54; разное название 6,236; среднее пересечение 17.2 мин; разница стартов: {'≤5 мин': 1760, '6–15 мин': 1744, '16–30 мин': 1554, '31–60 мин': 857, '61–120 мин': 270, '>120 мин': 105}
+  EPG.ONE epg2 + Satfor: всего 5,196; одинаковое название 573; разное название 4,623; среднее пересечение 22.5 мин; разница стартов: {'≤5 мин': 1522, '>120 мин': 191, '31–60 мин': 707, '61–120 мин': 507, '16–30 мин': 1052, '6–15 мин': 1217}
+  FOX TV + M3U Edit ALL: всего 5,004; одинаковое название 2; разное название 5,002; среднее пересечение 12.2 мин; разница стартов: {'≤5 мин': 2011, '6–15 мин': 1168, '16–30 мин': 856, '31–60 мин': 528, '61–120 мин': 257, '>120 мин': 184}
+  EPG.ONE epg2 + FOX TV: всего 4,673; одинаковое название 56; разное название 4,617; среднее пересечение 20.7 мин; разница стартов: {'>120 мин': 141, '≤5 мин': 1344, '31–60 мин': 624, '16–30 мин': 984, '6–15 мин': 1260, '61–120 мин': 320}
+  IPTVX full + TV.TEAM full: всего 2,987; одинаковое название 95; разное название 2,892; среднее пересечение 31.0 мин; разница стартов: {'6–15 мин': 423, '>120 мин': 185, '31–60 мин': 617, '≤5 мин': 904, '61–120 мин': 377, '16–30 мин': 481}
+  BCU Media + M3U Edit ALL: всего 2,887; одинаковое название 0; разное название 2,887; среднее пересечение 10.3 мин; разница стартов: {'≤5 мин': 1844, '6–15 мин': 250, '16–30 мин': 289, '31–60 мин': 309, '61–120 мин': 177, '>120 мин': 18}
+  EPG.ONE epg2 + ProgramTV: всего 2,714; одинаковое название 495; разное название 2,219; среднее пересечение 18.0 мин; разница стартов: {'>120 мин': 95, '31–60 мин': 316, '61–120 мин': 240, '16–30 мин': 442, '6–15 мин': 757, '≤5 мин': 864}
+  M3U Edit ALL + Satfor: всего 2,345; одинаковое название 44; разное название 2,301; среднее пересечение 17.6 мин; разница стартов: {'≤5 мин': 479, '61–120 мин': 144, '31–60 мин': 229, '6–15 мин': 738, '16–30 мин': 642, '>120 мин': 113}
+  FOX TV + TV.TEAM full: всего 2,089; одинаковое название 26; разное название 2,063; среднее пересечение 10.4 мин; разница стартов: {'≤5 мин': 903, '6–15 мин': 537, '16–30 мин': 284, '31–60 мин': 114, '61–120 мин': 57, '>120 мин': 194}
+  EPG.ONE epg2 + TopIPTV: всего 1,274; одинаковое название 73; разное название 1,201; среднее пересечение 34.9 мин; разница стартов: {'16–30 мин': 174, '≤5 мин': 242, '31–60 мин': 361, '61–120 мин': 234, '6–15 мин': 209, '>120 мин': 54}
+  IPTVX full + Satfor: всего 1,138; одинаковое название 49; разное название 1,089; среднее пересечение 37.6 мин; разница стартов: {'>120 мин': 62, '31–60 мин': 225, '16–30 мин': 149, '≤5 мин': 403, '61–120 мин': 203, '6–15 мин': 96}
+  Satfor + TV.TEAM full: всего 1,017; одинаковое название 20; разное название 997; среднее пересечение 14.3 мин; разница стартов: {'61–120 мин': 14, '6–15 мин': 385, '31–60 мин': 94, '16–30 мин': 255, '>120 мин': 3, '≤5 мин': 266}
+  BCU Media + IPTVX full: всего 988; одинаковое название 22; разное название 966; среднее пересечение 30.3 мин; разница стартов: {'61–120 мин': 157, '≤5 мин': 418, '>120 мин': 27, '31–60 мин': 173, '6–15 мин': 85, '16–30 мин': 128}
+  M3U Edit ALL + TopIPTV: всего 686; одинаковое название 0; разное название 686; среднее пересечение 18.3 мин; разница стартов: {'31–60 мин': 117, '16–30 мин': 136, '6–15 мин': 225, '≤5 мин': 158, '>120 мин': 5, '61–120 мин': 45}
+  BCU Media + TV.TEAM full: всего 514; одинаковое название 10; разное название 504; среднее пересечение 32.9 мин; разница стартов: {'61–120 мин': 93, '6–15 мин': 58, '31–60 мин': 114, '>120 мин': 38, '16–30 мин': 69, '≤5 мин': 142}
+  M3U Edit ALL + ProgramTV: всего 368; одинаковое название 7; разное название 361; среднее пересечение 23.2 мин; разница стартов: {'31–60 мин': 122, '16–30 мин': 111, '6–15 мин': 98, '≤5 мин': 35, '61–120 мин': 1, '>120 мин': 1}
+  FOX TV + Satfor: всего 332; одинаковое название 0; разное название 332; среднее пересечение 13.5 мин; разница стартов: {'≤5 мин': 76, '16–30 мин': 101, '6–15 мин': 118, '31–60 мин': 19, '61–120 мин': 8, '>120 мин': 10}
+  IPTVX full + IPTVX full: всего 314; одинаковое название 5; разное название 309; среднее пересечение 42.7 мин; разница стартов: {'31–60 мин': 68, '6–15 мин': 41, '≤5 мин': 18, '61–120 мин': 103, '16–30 мин': 61, '>120 мин': 23}
+  BCU Media + BCU Media: всего 228; одинаковое название 1; разное название 227; среднее пересечение 40.6 мин; разница стартов: {'61–120 мин': 59, '6–15 мин': 47, '31–60 мин': 50, '16–30 мин': 48, '>120 мин': 6, '≤5 мин': 18}
+  BCU Media + ProgramTV: всего 194; одинаковое название 3; разное название 191; среднее пересечение 15.2 мин; разница стартов: {'31–60 мин': 53, '≤5 мин': 16, '16–30 мин': 40, '61–120 мин': 34, '6–15 мин': 34, '>120 мин': 17}
+  Satfor + TopIPTV: всего 183; одинаковое название 0; разное название 183; среднее пересечение 19.9 мин; разница стартов: {'61–120 мин': 35, '>120 мин': 9, '≤5 мин': 29, '6–15 мин': 14, '31–60 мин': 46, '16–30 мин': 50}
+  FOX TV + IPTVX full: всего 164; одинаковое название 1; разное название 163; среднее пересечение 27.3 мин; разница стартов: {'31–60 мин': 44, '61–120 мин': 19, '>120 мин': 4, '16–30 мин': 42, '≤5 мин': 35, '6–15 мин': 20}
+  TV.TEAM full + TopIPTV: всего 163; одинаковое название 0; разное название 163; среднее пересечение 52.0 мин; разница стартов: {'61–120 мин': 60, '16–30 мин': 28, '31–60 мин': 39, '6–15 мин': 22, '≤5 мин': 10, '>120 мин': 4}
+  IPTVX full + ProgramTV: всего 124; одинаковое название 0; разное название 124; среднее пересечение 27.7 мин; разница стартов: {'16–30 мин': 19, '31–60 мин': 29, '≤5 мин': 23, '61–120 мин': 25, '6–15 мин': 13, '>120 мин': 15}
+  FOX TV + ProgramTV: всего 106; одинаковое название 2; разное название 104; среднее пересечение 48.6 мин; разница стартов: {'>120 мин': 12, '16–30 мин': 20, '≤5 мин': 10, '31–60 мин': 26, '61–120 мин': 18, '6–15 мин': 20}
+  BCU Media + Satfor: всего 103; одинаковое название 30; разное название 73; среднее пересечение 31.5 мин; разница стартов: {'61–120 мин': 30, '31–60 мин': 40, '16–30 мин': 21, '6–15 мин': 8, '≤5 мин': 4}
+  BCU Media + TopIPTV: всего 101; одинаковое название 0; разное название 101; среднее пересечение 45.9 мин; разница стартов: {'>120 мин': 4, '31–60 мин': 31, '61–120 мин': 28, '6–15 мин': 12, '16–30 мин': 21, '≤5 мин': 5}
+  Satfor + Satfor: всего 84; одинаковое название 40; разное название 44; среднее пересечение 15.4 мин; разница стартов: {'31–60 мин': 17, '16–30 мин': 8, '≤5 мин': 10, '6–15 мин': 49}
+  BCU Media + FOX TV: всего 62; одинаковое название 0; разное название 62; среднее пересечение 34.0 мин; разница стартов: {'31–60 мин': 13, '≤5 мин': 10, '16–30 мин': 7, '61–120 мин': 14, '>120 мин': 10, '6–15 мин': 8}
+  FOX TV + FOX TV: всего 25; одинаковое название 0; разное название 25; среднее пересечение 22.2 мин; разница стартов: {'16–30 мин': 8, '61–120 мин': 2, '6–15 мин': 6, '≤5 мин': 3, '31–60 мин': 6}
+  FOX TV + TopIPTV: всего 25; одинаковое название 0; разное название 25; среднее пересечение 47.8 мин; разница стартов: {'31–60 мин': 12, '≤5 мин': 3, '6–15 мин': 2, '16–30 мин': 2, '61–120 мин': 6}
+  ProgramTV + Satfor: всего 14; одинаковое название 0; разное название 14; среднее пересечение 33.9 мин; разница стартов: {'≤5 мин': 2, '>120 мин': 4, '31–60 мин': 2, '61–120 мин': 4, '16–30 мин': 2}
+  IPTVX full + TopIPTV: всего 10; одинаковое название 0; разное название 10; среднее пересечение 54.6 мин; разница стартов: {'≤5 мин': 3, '31–60 мин': 2, '6–15 мин': 1, '61–120 мин': 3, '>120 мин': 1}
+
+ПРОБЛЕМНЫЕ КАНАЛЫ: ПАРЫ ИСТОЧНИКОВ (топ-100):
+  8,009: Duck TV | EPG.ONE epg2 + M3U Edit ALL
+  6,488: Duck TV | M3U Edit ALL + M3U Edit ALL
+  4,797: Duck TV | IPTVX full + M3U Edit ALL
+  4,055: Discovery Channel | M3U Edit ALL + M3U Edit ALL
+  3,722: Baby TV | M3U Edit ALL + TV.TEAM full
+  3,177: Cartoon Network | EPG.ONE epg2 + M3U Edit ALL
+  3,007: Baby TV | M3U Edit ALL + M3U Edit ALL
+  2,837: Nick Jr | EPG.ONE epg2 + M3U Edit ALL
+  2,761: National Geographic | M3U Edit ALL + M3U Edit ALL
+  2,722: NickToons HD | M3U Edit ALL + TV.TEAM full
+  2,478: NickToons HD | M3U Edit ALL + M3U Edit ALL
+  2,310: Baby TV | EPG.ONE epg2 + M3U Edit ALL
+  2,255: Animal Planet | M3U Edit ALL + M3U Edit ALL
+  2,157: Baby TV | FOX TV + M3U Edit ALL
+  2,065: History HD | M3U Edit ALL + TV.TEAM full
+  2,039: Red Bull TV | M3U Edit ALL + M3U Edit ALL
+  2,017: Nick Jr | EPG.ONE epg2 + TV.TEAM full
+  1,948: TravelXP 4K | M3U Edit ALL + M3U Edit ALL
+  1,893: Nickelodeon | M3U Edit ALL + M3U Edit ALL
+  1,891: Cartoonito | EPG.ONE epg2 + M3U Edit ALL
+  1,854: Duck TV | EPG.ONE epg2 + IPTVX full
+  1,831: Cartoon Network | M3U Edit ALL + TV.TEAM full
+  1,810: Duck TV | BCU Media + M3U Edit ALL
+  1,782: Duck TV | M3U Edit ALL + TV.TEAM full
+  1,770: MTV HD | EPG.ONE epg2 + M3U Edit ALL
+  1,690: MTV HD | EPG.ONE epg2 + TV.TEAM full
+  1,631: Cartoon Network | EPG.ONE epg2 + TV.TEAM full
+  1,592: Jim Jam | EPG.ONE epg2 + M3U Edit ALL
+  1,537: Home 4K | EPG.ONE epg2 + M3U Edit ALL
+  1,493: AMC | M3U Edit ALL + TV.TEAM full
+  1,486: NickToons HD | EPG.ONE epg2 + M3U Edit ALL
+  1,485: VF Привет из 90х | EPG.ONE epg2 + IPTVX full
+  1,484: Cartoon Network | M3U Edit ALL + M3U Edit ALL
+  1,416: Nickelodeon | EPG.ONE epg2 + M3U Edit ALL
+  1,406: Da Vinci | EPG.ONE epg2 + M3U Edit ALL
+  1,404: Love Nature 4K | M3U Edit ALL + M3U Edit ALL
+  1,387: Nick Jr | M3U Edit ALL + TV.TEAM full
+  1,359: Cartoonito | EPG.ONE epg2 + TV.TEAM full
+  1,357: History HD | EPG.ONE epg2 + M3U Edit ALL
+  1,327: Nick Jr | EPG.ONE epg2 + EPG.ONE epg2
+  1,312: TravelXP 4K | EPG.ONE epg2 + M3U Edit ALL
+  1,292: National Geographic HD | M3U Edit ALL + TV.TEAM full
+  1,288: Baby TV | EPG.ONE epg2 + TV.TEAM full
+  1,287: VF Малыш | EPG.ONE epg2 + IPTVX full
+  1,214: Nickelodeon | M3U Edit ALL + TV.TEAM full
+  1,206: History HD | M3U Edit ALL + M3U Edit ALL
+  1,180: Discovery Channel | EPG.ONE epg2 + M3U Edit ALL
+  1,173: World Fashion Channel | EPG.ONE epg2 + IPTVX full
+  1,163: National Geographic HD | EPG.ONE epg2 + M3U Edit ALL
+  1,158: Discovery Channel HD | M3U Edit ALL + TV.TEAM full
+  1,120: National Geographic | EPG.ONE epg2 + M3U Edit ALL
+  1,116: MTV HD | EPG.ONE epg2 + EPG.ONE epg2
+  1,110: Da Vinci HD | M3U Edit ALL + TV.TEAM full
+  1,096: History HD | EPG.ONE epg2 + TV.TEAM full
+  1,093: Comedy Central | M3U Edit ALL + TV.TEAM full
+  1,038: Da Vinci | M3U Edit ALL + M3U Edit ALL
+  1,029: MM Lesson HD | EPG.ONE epg2 + IPTVX full
+  1,029: Food Network | M3U Edit ALL + M3U Edit ALL
+  1,025: Jim Jam | M3U Edit ALL + M3U Edit ALL
+  1,012: Da Vinci HD | EPG.ONE epg2 + M3U Edit ALL
+  998: Baby TV | FOX TV + TV.TEAM full
+  977: MTV HD | M3U Edit ALL + TV.TEAM full
+  972: Outdoor Channel | M3U Edit ALL + M3U Edit ALL
+  954: AMC | M3U Edit ALL + M3U Edit ALL
+  953: MM Smile HD | EPG.ONE epg2 + IPTVX full
+  944: Nick Jr | EPG.ONE epg2 + FOX TV
+  937: TLC HD | EPG.ONE epg2 + M3U Edit ALL
+  935: VF Каламбур | EPG.ONE epg2 + IPTVX full
+  923: Nickelodeon HD | EPG.ONE epg2 + TV.TEAM full
+  919: Food Network | M3U Edit ALL + TV.TEAM full
+  918: Animal Planet | EPG.ONE epg2 + M3U Edit ALL
+  895: National Geographic HD | EPG.ONE epg2 + TV.TEAM full
+  890: MM Tom and Jerry HD | EPG.ONE epg2 + IPTVX full
+  871: Nick Jr | M3U Edit ALL + M3U Edit ALL
+  867: TLC HD | M3U Edit ALL + TV.TEAM full
+  866: BCU Little HD | EPG.ONE epg2 + IPTVX full
+  864: BBC First UK | M3U Edit ALL + M3U Edit ALL
+  859: Discovery Channel HD | EPG.ONE epg2 + TV.TEAM full
+  851: Cartoonito | M3U Edit ALL + TV.TEAM full
+  823: Nickelodeon HD | EPG.ONE epg2 + M3U Edit ALL
+  809: History HD | TV.TEAM full + TV.TEAM full
+  798: VF Стройка | EPG.ONE epg2 + IPTVX full
+  780: Nat Geo Wild HD | TV.TEAM full + TV.TEAM full
+  772: Da Vinci HD | EPG.ONE epg2 + TV.TEAM full
+  767: NickToons HD | EPG.ONE epg2 + TV.TEAM full
+  764: DocuBox HD | EPG.ONE epg2 + M3U Edit ALL
+  757: DocuBox HD | M3U Edit ALL + M3U Edit ALL
+  736: National Geographic HD | M3U Edit ALL + M3U Edit ALL
+  735: Duck TV | BCU Media + EPG.ONE epg2
+  735: Love Nature 4K | EPG.ONE epg2 + M3U Edit ALL
+  723: Cartoonito | EPG.ONE epg2 + EPG.ONE epg2
+  722: Nick Jr | FOX TV + M3U Edit ALL
+  719: HGTV HD | M3U Edit ALL + TV.TEAM full
+  711: Liberty МиМ FHD | EPG.ONE epg2 + IPTVX full
+  707: Baby TV | TV.TEAM full + TV.TEAM full
+  706: Baby TV | EPG.ONE epg2 + FOX TV
+  705: TLC HD | EPG.ONE epg2 + TV.TEAM full
+  704: Discovery Channel HD | EPG.ONE epg2 + M3U Edit ALL
+  694: Duck TV | EPG.ONE epg2 + TV.TEAM full
+  693: NickToons HD | TV.TEAM full + TV.TEAM full
+
+ПРИМЕРЫ ПЕРЕСЕКАЮЩИХСЯ ПЕРЕДАЧ (до 3 пар для каждого из 20 самых проблемных каналов):
+  Duck TV (27,008 пар):
+    2026-11-05T23:05:00+03:00–2026-11-06T01:11:00+03:00 [M3U Edit ALL/Duck.TV.hr] Auto Moto Show Tv || 2026-11-05T23:40:00+03:00–2026-11-06T00:01:00+03:00 [M3U Edit ALL/Duck.TV.HD.sk] Animovaný blok DUCK TV (накладка 21.0 мин; старты отличаются на 35.0 мин; different_title)
+    2026-11-05T23:05:00+03:00–2026-11-06T01:11:00+03:00 [M3U Edit ALL/Duck.TV.hr] Auto Moto Show Tv || 2026-11-05T23:50:00+03:00–2026-11-06T00:50:00+03:00 [M3U Edit ALL/duck.TV.gr] Αγαπημένα Παραμύθια (накладка 60.0 мин; старты отличаются на 45.0 мин; different_title)
+    2026-11-05T23:40:00+03:00–2026-11-06T00:01:00+03:00 [M3U Edit ALL/Duck.TV.HD.sk] Animovaný blok DUCK TV || 2026-11-05T23:50:00+03:00–2026-11-06T00:50:00+03:00 [M3U Edit ALL/duck.TV.gr] Αγαπημένα Παραμύθια (накладка 11.0 мин; старты отличаются на 10.0 мин; different_title)
+  Baby TV (14,895 пар):
+    2026-11-05T22:00:00+03:00–2026-11-06T02:00:00+03:00 [M3U Edit ALL/Baby.TV.br] COMUNICADO IMPORTANTE || 2026-11-05T23:54:00+03:00–2026-11-06T00:04:00+03:00 [TV.TEAM full/ch1118] פרחים - פרק 6 (накладка 10.0 мин; старты отличаются на 114.0 мин; different_title)
+    2026-11-05T22:00:00+03:00–2026-11-06T02:00:00+03:00 [M3U Edit ALL/Baby.TV.br] COMUNICADO IMPORTANTE || 2026-11-05T23:56:00+03:00–2026-11-06T00:01:00+03:00 [TV.TEAM full/ch2473] Küçük Lola Şehirde (накладка 5.0 мин; старты отличаются на 116.0 мин; different_title)
+    2026-11-05T23:54:00+03:00–2026-11-06T00:04:00+03:00 [TV.TEAM full/ch1118] פרחים - פרק 6 || 2026-11-05T23:56:00+03:00–2026-11-06T00:01:00+03:00 [TV.TEAM full/ch2473] Küçük Lola Şehirde (накладка 5.0 мин; старты отличаются на 2.0 мин; different_title)
+  Nick Jr (12,748 пар):
+    2026-11-05T23:40:00+03:00–2026-11-06T00:25:00+03:00 [EPG.ONE epg2/917] Дора || 2026-11-05T23:41:37+03:00–2026-11-06T00:03:58+03:00 [EPG.ONE epg2/4478] DORA (накладка 22.4 мин; старты отличаются на 1.6 мин; different_title)
+    2026-11-05T23:40:00+03:00–2026-11-06T00:25:00+03:00 [EPG.ONE epg2/917] Дора || 2026-11-05T23:50:00+03:00–2026-11-06T00:15:00+03:00 [M3U Edit ALL/Nick.Jr..ch] La Pat'Patrouille (накладка 25.0 мин; старты отличаются на 10.0 мин; different_title)
+    2026-11-05T23:41:37+03:00–2026-11-06T00:03:58+03:00 [EPG.ONE epg2/4478] DORA || 2026-11-05T23:50:00+03:00–2026-11-06T00:15:00+03:00 [M3U Edit ALL/Nick.Jr..ch] La Pat'Patrouille (накладка 14.0 мин; старты отличаются на 8.4 мин; different_title)
+  Cartoon Network (9,601 пар):
+    2026-11-05T23:03:00+03:00–2026-11-06T00:03:00+03:00 [M3U Edit ALL/Cartoon.Network.HD.my] Ben 10 || 2026-11-05T23:54:00+03:00–2026-11-06T00:06:00+03:00 [M3U Edit ALL/Cartoon.Network.co] El submarino de Jim (накладка 9.0 мин; старты отличаются на 51.0 мин; different_title)
+    2026-11-05T23:03:00+03:00–2026-11-06T00:03:00+03:00 [M3U Edit ALL/Cartoon.Network.HD.my] Ben 10 || 2026-11-05T23:55:00+03:00–2026-11-06T00:10:00+03:00 [TV.TEAM full/ch2479] Gumball'ın Muhteşem Tuhaf... (накладка 8.0 мин; старты отличаются на 52.0 мин; different_title)
+    2026-11-05T23:54:00+03:00–2026-11-06T00:06:00+03:00 [M3U Edit ALL/Cartoon.Network.co] El submarino de Jim || 2026-11-05T23:55:00+03:00–2026-11-06T00:10:00+03:00 [TV.TEAM full/ch2479] Gumball'ın Muhteşem Tuhaf... (накладка 11.0 мин; старты отличаются на 1.0 мин; different_title)
+  NickToons HD (8,543 пар):
+    2026-11-05T23:45:00+03:00–2026-11-06T00:15:00+03:00 [TV.TEAM full/ch2156] Pingwiny z Madagaskaru 2 || 2026-11-05T23:50:00+03:00–2026-11-06T00:15:00+03:00 [EPG.ONE epg2/2994] Кунг-фу Панда: Захватывающие легенды 2 ┊ 24 Тайный музей кунг-фу (накладка 25.0 мин; старты отличаются на 5.0 мин; different_title)
+    2026-11-05T23:45:00+03:00–2026-11-06T00:15:00+03:00 [TV.TEAM full/ch2156] Pingwiny z Madagaskaru 2 || 2026-11-05T23:51:00+03:00–2026-11-06T00:14:00+03:00 [TV.TEAM full/ch2484] Kung Fu Panda: Legends of Awesomeness (накладка 23.0 мин; старты отличаются на 6.0 мин; different_title)
+    2026-11-05T23:50:00+03:00–2026-11-06T00:15:00+03:00 [EPG.ONE epg2/2994] Кунг-фу Панда: Захватывающие легенды 2 ┊ 24 Тайный музей кунг-фу || 2026-11-05T23:51:00+03:00–2026-11-06T00:14:00+03:00 [TV.TEAM full/ch2484] Kung Fu Panda: Legends of Awesomeness (накладка 23.0 мин; старты отличаются на 1.0 мин; different_title)
+  History HD (7,006 пар):
+    2026-11-05T23:10:00+03:00–2026-11-06T00:15:00+03:00 [TV.TEAM full/ch2398] L'ultimo papiro di Ercolano || 2026-11-05T23:20:00+03:00–2026-11-06T00:15:00+03:00 [M3U Edit ALL/History.id] Forged In Fire (накладка 55.0 мин; старты отличаются на 10.0 мин; different_title)
+    2026-11-05T23:10:00+03:00–2026-11-06T00:15:00+03:00 [TV.TEAM full/ch2398] L'ultimo papiro di Ercolano || 2026-11-05T23:22:00+03:00–2026-11-06T00:18:00+03:00 [M3U Edit ALL/HISTORY.HD.uy] Misterios inexplorados con Danny Trejo (накладка 53.0 мин; старты отличаются на 12.0 мин; different_title)
+    2026-11-05T23:20:00+03:00–2026-11-06T00:15:00+03:00 [M3U Edit ALL/History.id] Forged In Fire || 2026-11-05T23:22:00+03:00–2026-11-06T00:18:00+03:00 [M3U Edit ALL/HISTORY.HD.uy] Misterios inexplorados con Danny Trejo (накладка 53.0 мин; старты отличаются на 2.0 мин; different_title)
+  MTV HD (6,436 пар):
+    2026-11-05T22:30:00+03:00–2026-11-06T01:10:00+03:00 [M3U Edit ALL/MTV.HD.in] एमटीवी हसल || 2026-11-05T23:00:00+03:00–2026-11-06T00:05:00+03:00 [TV.TEAM full/ch2618] המצעד הרשמי של MTV (накладка 65.0 мин; старты отличаются на 30.0 мин; different_title)
+    2026-11-05T22:30:00+03:00–2026-11-06T01:10:00+03:00 [M3U Edit ALL/MTV.HD.in] एमटीवी हसल || 2026-11-05T23:35:00+03:00–2026-11-06T00:15:00+03:00 [M3U Edit ALL/MTV.co] Ink Master (накладка 40.0 мин; старты отличаются на 65.0 мин; different_title)
+    2026-11-05T23:00:00+03:00–2026-11-06T00:05:00+03:00 [TV.TEAM full/ch2618] המצעד הרשמי של MTV || 2026-11-05T23:35:00+03:00–2026-11-06T00:15:00+03:00 [M3U Edit ALL/MTV.co] Ink Master (накладка 30.0 мин; старты отличаются на 35.0 мин; different_title)
+  Nickelodeon (5,763 пар):
+    2026-11-05T23:49:00+03:00–2026-11-06T00:14:00+03:00 [M3U Edit ALL/Nickelodeon.hr] Victoria Je Pobjeda || 2026-11-05T23:50:00+03:00–2026-11-06T00:15:00+03:00 [EPG.ONE epg2/423] Виктория-победительница (накладка 24.0 мин; старты отличаются на 1.0 мин; different_title)
+    2026-11-05T23:49:00+03:00–2026-11-06T00:14:00+03:00 [M3U Edit ALL/Nickelodeon.hr] Victoria Je Pobjeda || 2026-11-05T23:55:00+03:00–2026-11-06T00:05:00+03:00 [TV.TEAM full/ch2401] Invincibile (накладка 10.0 мин; старты отличаются на 6.0 мин; different_title)
+    2026-11-05T23:50:00+03:00–2026-11-06T00:15:00+03:00 [EPG.ONE epg2/423] Виктория-победительница || 2026-11-05T23:55:00+03:00–2026-11-06T00:05:00+03:00 [TV.TEAM full/ch2401] Invincibile (накладка 10.0 мин; старты отличаются на 5.0 мин; different_title)
+  Cartoonito (5,492 пар):
+    2026-11-05T23:55:00+03:00–2026-11-06T00:15:00+03:00 [EPG.ONE epg2/929] Бэтвилс ┊ 24 || 2026-11-05T23:56:00+03:00–2026-11-06T00:03:00+03:00 [M3U Edit ALL/CARTOONITO.co] Grizzy y los Lemmings (накладка 7.0 мин; старты отличаются на 1.0 мин; different_title)
+    2026-11-05T23:55:00+03:00–2026-11-06T00:15:00+03:00 [EPG.ONE epg2/929] Бэтвилс ┊ 24 || 2026-11-05T23:58:48+03:00–2026-11-06T00:16:41+03:00 [EPG.ONE epg2/7780] Hier kommen die Batwheels (с.21) (накладка 16.2 мин; старты отличаются на 3.8 мин; different_title)
+    2026-11-05T23:56:00+03:00–2026-11-06T00:03:00+03:00 [M3U Edit ALL/CARTOONITO.co] Grizzy y los Lemmings || 2026-11-05T23:58:48+03:00–2026-11-06T00:16:41+03:00 [EPG.ONE epg2/7780] Hier kommen die Batwheels (с.21) (накладка 4.2 мин; старты отличаются на 2.8 мин; different_title)
+  Discovery Channel (5,330 пар):
+    2026-11-05T23:00:00+03:00–2026-11-06T01:00:00+03:00 [EPG.ONE epg2/325] Операция Спасение дома 7 ┊ 14 Рейни возвращаются: Выжженное болото || 2026-11-05T23:15:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/Discovery.Channel.it] Le meraviglie del nostro pianeta (накладка 55.0 мин; старты отличаются на 15.0 мин; different_title)
+    2026-11-05T23:00:00+03:00–2026-11-06T01:00:00+03:00 [EPG.ONE epg2/325] Операция Спасение дома 7 ┊ 14 Рейни возвращаются: Выжженное болото || 2026-11-05T23:20:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/Discovery.Channel.th] Building Off The Grid (S5) (накладка 50.0 мин; старты отличаются на 20.0 мин; different_title)
+    2026-11-05T23:15:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/Discovery.Channel.it] Le meraviglie del nostro pianeta || 2026-11-05T23:20:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/Discovery.Channel.th] Building Off The Grid (S5) (накладка 50.0 мин; старты отличаются на 5.0 мин; different_title)
+  Comedy Central (5,102 пар):
+    2026-11-05T23:35:00+03:00–2026-11-06T00:05:00+03:00 [M3U Edit ALL/Comedy.Central.ro] SOUTH PARK || 2026-11-05T23:50:00+03:00–2026-11-06T00:20:00+03:00 [M3U Edit ALL/COMEDY.CENTRAL.at] South Park (накладка 15.0 мин; старты отличаются на 15.0 мин; exact_title)
+    2026-11-05T23:35:00+03:00–2026-11-06T00:05:00+03:00 [M3U Edit ALL/Comedy.Central.ro] SOUTH PARK || 2026-11-05T23:55:00+03:00–2026-11-06T00:15:00+03:00 [Satfor/comedycentral.de] American Dad! (накладка 10.0 мин; старты отличаются на 20.0 мин; different_title)
+    2026-11-05T23:50:00+03:00–2026-11-06T00:20:00+03:00 [M3U Edit ALL/COMEDY.CENTRAL.at] South Park || 2026-11-05T23:55:00+03:00–2026-11-06T00:15:00+03:00 [Satfor/comedycentral.de] American Dad! (накладка 20.0 мин; старты отличаются на 5.0 мин; different_title)
+  TLC HD (5,055 пар):
+    2026-11-05T23:00:00+03:00–2026-11-06T01:00:00+03:00 [IPTVX full/tlc-blk] Моето 300-килограмово тяло, сез.10, еп.8 – Епизод 8, Развлекателно, 2022. Запознайте се с  || 2026-11-05T23:20:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/TLC.(HD).sg] Say Yes To The Dress Lancashire (S2) (накладка 50.0 мин; старты отличаются на 20.0 мин; different_title)
+    2026-11-05T23:00:00+03:00–2026-11-06T01:00:00+03:00 [IPTVX full/tlc-blk] Моето 300-килограмово тяло, сез.10, еп.8 – Епизод 8, Развлекателно, 2022. Запознайте се с  || 2026-11-05T23:30:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/TLC.HD.in] You, Me \u0026 My Ex (накладка 60.0 мин; старты отличаются на 30.0 мин; different_title)
+    2026-11-05T23:20:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/TLC.(HD).sg] Say Yes To The Dress Lancashire (S2) || 2026-11-05T23:30:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/TLC.HD.in] You, Me \u0026 My Ex (накладка 40.0 мин; старты отличаются на 10.0 мин; different_title)
+  National Geographic HD (4,802 пар):
+    2026-11-05T23:15:00+03:00–2026-11-06T00:05:00+03:00 [EPG.ONE epg2/102] Служба безопасности аэропорта: Бразилия (Кокаиновое проклятие) || 2026-11-05T23:26:00+03:00–2026-11-06T00:10:00+03:00 [TV.TEAM full/ch1346] 9/11: The Plane That Hit The Pentagon (накладка 39.0 мин; старты отличаются на 11.0 мин; different_title)
+    2026-11-05T23:15:00+03:00–2026-11-06T00:05:00+03:00 [EPG.ONE epg2/102] Служба безопасности аэропорта: Бразилия (Кокаиновое проклятие) || 2026-11-05T23:30:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/National.Geographic.HD.be] Ice Road Rescue (накладка 35.0 мин; старты отличаются на 15.0 мин; different_title)
+    2026-11-05T23:26:00+03:00–2026-11-06T00:10:00+03:00 [TV.TEAM full/ch1346] 9/11: The Plane That Hit The Pentagon || 2026-11-05T23:30:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/National.Geographic.HD.be] Ice Road Rescue (накладка 40.0 мин; старты отличаются на 4.0 мин; different_title)
+  National Geographic (4,645 пар):
+    2026-11-05T23:15:00+03:00–2026-11-06T00:05:00+03:00 [EPG.ONE epg2/102] Служба безопасности аэропорта: Бразилия (Кокаиновое проклятие) || 2026-11-05T23:40:00+03:00–2026-11-06T00:25:00+03:00 [M3U Edit ALL/National.Geographic.gr] Υπερκατασκευές των Ναζί (накладка 25.0 мин; старты отличаются на 25.0 мин; different_title)
+    2026-11-05T23:15:00+03:00–2026-11-06T00:05:00+03:00 [EPG.ONE epg2/102] Служба безопасности аэропорта: Бразилия (Кокаиновое проклятие) || 2026-11-05T23:45:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/NATIONAL.GEOGRAPHIC.at] Verborgen unter unseren Städten (накладка 20.0 мин; старты отличаются на 30.0 мин; different_title)
+    2026-11-05T23:40:00+03:00–2026-11-06T00:25:00+03:00 [M3U Edit ALL/National.Geographic.gr] Υπερκατασκευές των Ναζί || 2026-11-05T23:45:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/NATIONAL.GEOGRAPHIC.at] Verborgen unter unseren Städten (накладка 40.0 мин; старты отличаются на 5.0 мин; different_title)
+  Discovery Channel HD (4,333 пар):
+    2026-11-05T23:00:00+03:00–2026-11-06T01:00:00+03:00 [EPG.ONE epg2/325] Операция Спасение дома 7 ┊ 14 Рейни возвращаются: Выжженное болото || 2026-11-05T23:15:00+03:00–2026-11-06T00:10:00+03:00 [TV.TEAM full/ch3351] Le meraviglie del nostro pianeta (накладка 55.0 мин; старты отличаются на 15.0 мин; different_title)
+    2026-11-05T23:00:00+03:00–2026-11-06T01:00:00+03:00 [EPG.ONE epg2/325] Операция Спасение дома 7 ┊ 14 Рейни возвращаются: Выжженное болото || 2026-11-05T23:20:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/Discovery.Channel.(HD).sg] Building Off The Grid (S5) (накладка 50.0 мин; старты отличаются на 20.0 мин; different_title)
+    2026-11-05T23:15:00+03:00–2026-11-06T00:10:00+03:00 [TV.TEAM full/ch3351] Le meraviglie del nostro pianeta || 2026-11-05T23:20:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/Discovery.Channel.(HD).sg] Building Off The Grid (S5) (накладка 50.0 мин; старты отличаются на 5.0 мин; different_title)
+  Animal Planet (4,095 пар):
+    2026-11-05T23:22:00+03:00–2026-11-06T00:07:00+03:00 [M3U Edit ALL/Animal.Planet.co] Carnada de tiburones || 2026-11-05T23:30:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/AnimalPlanet.au] Lone Star Law (?) (накладка 37.0 мин; старты отличаются на 8.0 мин; different_title)
+    2026-11-05T23:22:00+03:00–2026-11-06T00:07:00+03:00 [M3U Edit ALL/Animal.Planet.co] Carnada de tiburones || 2026-11-05T23:45:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/ANIMAL.PLANET.at] Wild Frank - Abenteuer in Mexiko (накладка 22.0 мин; старты отличаются на 23.0 мин; different_title)
+    2026-11-05T23:30:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/AnimalPlanet.au] Lone Star Law (?) || 2026-11-05T23:45:00+03:00–2026-11-06T00:30:00+03:00 [M3U Edit ALL/ANIMAL.PLANET.at] Wild Frank - Abenteuer in Mexiko (накладка 45.0 мин; старты отличаются на 15.0 мин; different_title)
+  AMC (3,845 пар):
+    2026-11-05T21:45:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/AMC.co] Los siete magníficos || 2026-11-05T21:58:00+03:00–2026-11-06T00:11:00+03:00 [M3U Edit ALL/AMC.es] La última fortaleza (накладка 132.0 мин; старты отличаются на 13.0 мин; different_title)
+    2026-11-05T21:45:00+03:00–2026-11-06T00:10:00+03:00 [M3U Edit ALL/AMC.co] Los siete magníficos || 2026-11-05T21:58:23+03:00–2026-11-06T00:11:05+03:00 [TV.TEAM full/ch2963] La última fortaleza (накладка 131.6 мин; старты отличаются на 13.4 мин; different_title)
+    2026-11-05T21:58:00+03:00–2026-11-06T00:11:00+03:00 [M3U Edit ALL/AMC.es] La última fortaleza || 2026-11-05T21:58:23+03:00–2026-11-06T00:11:05+03:00 [TV.TEAM full/ch2963] La última fortaleza (накладка 132.6 мин; старты отличаются на 0.4 мин; exact_title)
+  Da Vinci HD (3,644 пар):
+    2026-11-05T23:40:00+03:00–2026-11-06T00:02:00+03:00 [M3U Edit ALL/Da.Vinci.(HD).ro] AM ZIS INVENȚIE? || 2026-11-05T23:54:00+03:00–2026-11-06T00:24:00+03:00 [TV.TEAM full/ch2176] Śladem mistrzów. Zaprasza Bear Grylls (накладка 8.0 мин; старты отличаются на 14.0 мин; different_title)
+    2026-11-05T23:40:00+03:00–2026-11-06T00:02:00+03:00 [M3U Edit ALL/Da.Vinci.(HD).ro] AM ZIS INVENȚIE? || 2026-11-05T23:58:00+03:00–2026-11-06T00:11:00+03:00 [TV.TEAM full/ch2480] Tek Durak Bilim Dükkanı: İlgi çeken robotlar (накладка 4.0 мин; старты отличаются на 18.0 мин; different_title)
+    2026-11-05T23:54:00+03:00–2026-11-06T00:24:00+03:00 [TV.TEAM full/ch2176] Śladem mistrzów. Zaprasza Bear Grylls || 2026-11-05T23:58:00+03:00–2026-11-06T00:11:00+03:00 [TV.TEAM full/ch2480] Tek Durak Bilim Dükkanı: İlgi çeken robotlar (накладка 13.0 мин; старты отличаются на 4.0 мин; different_title)
+  HGTV HD (3,355 пар):
+    2026-11-05T23:05:00+03:00–2026-11-06T00:05:00+03:00 [TV.TEAM full/ch969] Space Invaders - Wir schaffen Platz! || 2026-11-05T23:35:00+03:00–2026-11-06T00:35:00+03:00 [TV.TEAM full/ch908] Poukładani 2 (накладка 30.0 мин; старты отличаются на 30.0 мин; different_title)
+    2026-11-05T23:05:00+03:00–2026-11-06T00:05:00+03:00 [TV.TEAM full/ch969] Space Invaders - Wir schaffen Platz! || 2026-11-05T23:36:14+03:00–2026-11-06T00:35:27+03:00 [EPG.ONE epg2/8060] fRaNkEnHoUsE - Renovieren statt kapitulieren (с.4) (накладка 28.8 мин; старты отличаются на 31.2 мин; different_title)
+    2026-11-05T23:35:00+03:00–2026-11-06T00:35:00+03:00 [TV.TEAM full/ch908] Poukładani 2 || 2026-11-05T23:36:14+03:00–2026-11-06T00:35:27+03:00 [EPG.ONE epg2/8060] fRaNkEnHoUsE - Renovieren statt kapitulieren (с.4) (накладка 58.8 мин; старты отличаются на 1.2 мин; different_title)
+  TravelXP 4K (3,272 пар):
+    2026-11-05T23:30:13+03:00–2026-11-06T00:00:07+03:00 [M3U Edit ALL/NL:.Travelxp.be] Backpack || 2026-11-05T23:30:24+03:00–2026-11-06T00:00:19+03:00 [M3U Edit ALL/FR:.Travelxp.be] Food Fact Fun (накладка 29.7 мин; старты отличаются на 0.2 мин; different_title)
+    2026-11-05T23:30:13+03:00–2026-11-06T00:00:07+03:00 [M3U Edit ALL/NL:.Travelxp.be] Backpack || 2026-11-05T23:30:33+03:00–2026-11-06T00:00:28+03:00 [M3U Edit ALL/SE:.Travelxp.be] XP Guide (накладка 29.6 мин; старты отличаются на 0.3 мин; different_title)
+    2026-11-05T23:30:24+03:00–2026-11-06T00:00:19+03:00 [M3U Edit ALL/FR:.Travelxp.be] Food Fact Fun || 2026-11-05T23:30:33+03:00–2026-11-06T00:00:28+03:00 [M3U Edit ALL/SE:.Travelxp.be] XP Guide (накладка 29.8 мин; старты отличаются на 0.1 мин; different_title)
 
 ДИАГНОСТИКА ЛОГОТИПОВ КАНАЛОВ
   ВАЖНО: итоговый XML сейчас получает иконки только из EPG; tvg-logo из M3U не подставляется.
