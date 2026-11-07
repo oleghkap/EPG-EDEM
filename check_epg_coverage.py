@@ -638,6 +638,9 @@ def process_source(
         "unmatched_channels": 0,
         "first_programme": "",
         "last_programme": "",
+        "new_channels_with_programmes": 0,
+        "cumulative_gzip_bytes": 0,
+        "marginal_gzip_bytes": 0,
     }
 
     # Один XMLTV ID может соответствовать нескольким записям плейлиста.
@@ -975,6 +978,7 @@ def process_source(
             source_channels_with_programmes
         )
         stats["channels_with_programmes"] = len(channels_with_programmes)
+        stats["_channel_indexes_with_programmes"] = sorted(channels_with_programmes)
         stats["unique_programmes"] = len(source_programmes)
         stats["status"] = "OK"
 
@@ -1125,6 +1129,9 @@ def write_coverage_report(stats_list):
         "unmatched_channels",
         "first_programme",
         "last_programme",
+        "new_channels_with_programmes",
+        "cumulative_gzip_bytes",
+        "marginal_gzip_bytes",
     ]
 
     with open(path, "w", newline="", encoding="utf-8-sig") as file:
@@ -1628,6 +1635,55 @@ def write_diagnostic_csv_gzip(filename, rows, fieldnames):
     return path.stat().st_size
 
 
+def analyze_programme_interval_overlaps(global_programmes):
+    """Ищет пересечения временных интервалов передач одного канала."""
+    by_channel = defaultdict(list)
+    missing_stop = 0
+    for item in global_programmes.values():
+        if item.get("stop") is None:
+            missing_stop += 1
+        by_channel[item["channel_index"]].append(item)
+
+    overlaps = []
+    same_source = 0
+    cross_source = 0
+    for channel_index, items in by_channel.items():
+        items.sort(key=lambda item: item["start"])
+        active = []
+        for current in items:
+            start = current["start"]
+            active = [
+                previous for previous in active
+                if previous.get("stop") is not None and previous["stop"] > start
+            ]
+            if current.get("stop") is not None:
+                for previous in active:
+                    if previous["start"] < current["stop"]:
+                        same = previous.get("source") == current.get("source")
+                        same_source += int(same)
+                        cross_source += int(not same)
+                        overlaps.append({
+                            "playlist_index": channel_index,
+                            "first_source": previous.get("source", ""),
+                            "second_source": current.get("source", ""),
+                            "first_start": previous["start"].isoformat(),
+                            "first_stop": previous["stop"].isoformat(),
+                            "first_title": previous.get("title", ""),
+                            "second_start": start.isoformat(),
+                            "second_stop": current["stop"].isoformat(),
+                            "second_title": current.get("title", ""),
+                        })
+                active.append(current)
+
+    return {
+        "overlaps": overlaps,
+        "count": len(overlaps),
+        "same_source": same_source,
+        "cross_source": cross_source,
+        "missing_stop": missing_stop,
+    }
+
+
 def write_epg_diagnostics(
     channels,
     global_programmes,
@@ -1637,6 +1693,7 @@ def write_epg_diagnostics(
     xml_sizes,
     exact_programmes_seen,
     merge_diagnostics,
+    interval_diagnostics,
 ):
     """Сводная диагностика объёма XMLTV, описаний и распределения передач."""
     programmes = list(global_programmes.values())
@@ -1723,6 +1780,16 @@ def write_epg_diagnostics(
     )
     exact_duplicate_groups = sum(
         1 for count in exact_programmes_seen.values() if count > 1
+    )
+
+    overlap_size = write_diagnostic_csv_gzip(
+        "programme_interval_overlaps.csv.gz",
+        interval_diagnostics["overlaps"],
+        [
+            "playlist_index", "first_source", "second_source",
+            "first_start", "first_stop", "first_title",
+            "second_start", "second_stop", "second_title",
+        ],
     )
 
     def duplicate_value_stats(values):
@@ -1898,6 +1965,13 @@ def write_epg_diagnostics(
         f"  Одинаковые наборы category: {merge_diagnostics['categories_same_set']}; разные: {merge_diagnostics['categories_different_set']}",
         f"  Дополнительных категорий добавлено при слиянии: {merge_diagnostics['new_categories_added']}",
         "",
+        "ПЕРЕСЕЧЕНИЯ ИНТЕРВАЛОВ ПЕРЕДАЧ НА ОДНОМ КАНАЛЕ:",
+        f"  Всего пересекающихся пар: {interval_diagnostics['count']}",
+        f"  Внутри одного источника: {interval_diagnostics['same_source']}",
+        f"  Между разными источниками: {interval_diagnostics['cross_source']}",
+        f"  Передач без stop (не проверяются на пересечение): {interval_diagnostics['missing_stop']}",
+        f"  Подробности: programme_interval_overlaps.csv.gz ({overlap_size:,} байт)",
+        "",
         "Точные дубликаты programme по каналу, времени и полному содержимому:",
         f"  Повторных записей в источниках: {exact_duplicate_count}",
         f"  Групп дубликатов: {exact_duplicate_groups}",
@@ -1972,6 +2046,17 @@ def main():
     mapping_rule_details = []
     all_stats = []
 
+    size_snapshot_path = OUTPUT_DIR / ".epg_source_size_snapshot.xml.gz"
+    try:
+        baseline_gzip_bytes = write_combined_xml(
+            channels, {}, channel_icons, output_path=size_snapshot_path
+        )["gzip_bytes"]
+    finally:
+        if size_snapshot_path.exists():
+            size_snapshot_path.unlink()
+    previous_gzip_bytes = baseline_gzip_bytes
+    previously_covered_channels = set()
+
     for number, (source_name, source_url) in enumerate(SOURCES, start=1):
         log()
         log("-" * 65)
@@ -1997,7 +2082,34 @@ def main():
             mapping_rule_details,
         )
 
+        source_channel_indexes = set(
+            stats.pop("_channel_indexes_with_programmes", [])
+        )
+        new_channel_indexes = source_channel_indexes - previously_covered_channels
+        stats["new_channels_with_programmes"] = len(new_channel_indexes)
+        previously_covered_channels.update(source_channel_indexes)
+
+        if stats["status"] == "OK":
+            try:
+                current_size = write_combined_xml(
+                    channels,
+                    global_programmes,
+                    channel_icons,
+                    output_path=size_snapshot_path,
+                )["gzip_bytes"]
+                stats["cumulative_gzip_bytes"] = current_size
+                stats["marginal_gzip_bytes"] = current_size - previous_gzip_bytes
+                previous_gzip_bytes = current_size
+            finally:
+                if size_snapshot_path.exists():
+                    size_snapshot_path.unlink()
+
         all_stats.append(stats)
+        log(
+            f"  Маржинальный вклад: новых каналов с программами "
+            f"{stats['new_channels_with_programmes']}; "
+            f"изменение GZIP {stats['marginal_gzip_bytes'] / 1_000_000:.2f} MB"
+        )
 
     write_coverage_report(all_stats)
     uncovered_rows, uncovered_with_candidates = write_uncovered_channel_candidates(
@@ -2044,6 +2156,7 @@ def main():
     )
     write_channel_report(channels, global_programmes, logo_diagnostics)
     xml_sizes = write_combined_xml(channels, global_programmes, channel_icons)
+    interval_diagnostics = analyze_programme_interval_overlaps(global_programmes)
     diagnostics = write_epg_diagnostics(
         channels,
         global_programmes,
@@ -2053,6 +2166,7 @@ def main():
         xml_sizes,
         exact_programmes_seen,
         merge_diagnostics,
+        interval_diagnostics,
     )
     with (OUTPUT_DIR / "epg_diagnostics.txt").open("a", encoding="utf-8") as report:
         report.write("\n".join(logo_report_lines) + "\n")
@@ -2103,6 +2217,7 @@ def main():
     log("  coverage_report.csv")
     log("  channel_coverage.csv")
     log("  epg_diagnostics.txt")
+    log("  programme_interval_overlaps.csv.gz")
     log("  epg_test_combined.xml.gz")
 
     log()
