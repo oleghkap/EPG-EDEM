@@ -892,8 +892,10 @@ EPG.ONE epg2,8786,Z! Drama HD | Z!Drama HD | Z!Drama,1,1120,1120:Z!Drama HD,1,11
 EPG.ONE epg2,8787,Z! Family HD | Z!Family HD | Z!Family,1,1121,1121:Z!Family HD,1,1121,1121:Z!Family HD,1121,1121:Z!Family HD,1,1121,1121:Z!Family HD,0,,,1121,1121:Z!Family HD
 EPG.ONE epg2,8788,Z! Fantastic HD | Z!Fantastic HD | Z!Fantastic,1,1122,1122:Z!Fantastic HD,1,1122,1122:Z!Fantastic HD,1122,1122:Z!Fantastic HD,1,1122,1122:Z!Fantastic HD,0,,,1122,1122:Z!Fantastic HD
 EPG.ONE epg2,8789,Z! Fantasy HD | Z!Fantasy HD | Z!Fantasy,1,1123,1123:Z!Fantasy HD,1,1123,1123:Z!Fantasy HD,1123,1123:Z!Fantasy HD,1,1123,1123:Z!Fantasy HD,0,,,1123,1123:Z!Fantasy HD
+EPG.ONE epg2,8791,Z! Fun HD | Z!Fun HD | Z!Fun,1,1125,1125:Z!Fun HD,1,1125,1125:Z!Fun HD,1125,1125:Z!Fun HD,1,1125,1125:Z!Fun HD,0,,,1125,1125:Z!Fun HD
 EPG.ONE epg2,8820,Z! Military HD | Z!Military HD | Z!Military,1,2079,2079:Z!Military HD,1,2079,2079:Z!Military HD,2079,2079:Z!Military HD,1,2079,2079:Z!Military HD,0,,,2079,2079:Z!Military HD
 EPG.ONE epg2,8822,Z! Science HD | Z!Science HD | Z!Science,1,2081,2081:Z!Science HD,1,2081,2081:Z!Science HD,2081,2081:Z!Science HD,1,2081,2081:Z!Science HD,0,,,2081,2081:Z!Science HD
+EPG.ONE epg2,8782,Z! Thriller HD | Z!Thriller HD | Z!Thriller,1,1116,1116:Z!Thriller HD,1,1116,1116:Z!Thriller HD,1116,1116:Z!Thriller HD,1,1116,1116:Z!Thriller HD,0,,,1116,1116:Z!Thriller HD
 EPG.ONE epg2,1113,Z! Channel HD | Z!Channel | Z!Channel HD,1,844,844:Z!Channel HD,1,844,844:Z!Channel HD,844,844:Z!Channel HD,1,844,844:Z!Channel HD,0,,,844,844:Z!Channel HD
 EPG.ONE epg2,1114,Z! Comedy HD | Z!Comedy | Z!Comedy HD,1,845,845:Z!Comedy HD,1,845,845:Z!Comedy HD,845,845:Z!Comedy HD,1,845,845:Z!Comedy HD,0,,,845,845:Z!Comedy HD
 EPG.ONE epg2,1115,Z! Crime HD | Z!Crime | Z!Crime HD,1,846,846:Z!Crime HD,1,846,846:Z!Crime HD,846,846:Z!Crime HD,1,846,846:Z!Crime HD,0,,,846,846:Z!Crime HD
@@ -2268,12 +2270,10 @@ EPG.ONE epg2,4804,VF Кино 4K,1,724,724:VF Кино 4K,1,724,724:VF Кино 
 EPG.ONE epg2,4805,VF Сериал 4K,1,725,725:VF Сериал 4K,1,725,725:VF Сериал 4K,725,725:VF Сериал 4K,2,725 | 808,725:VF Сериал 4K | 808:VF Сериал,1,808,808:VF Сериал,725 | 808,725:VF Сериал 4K | 808:VF Сериал
 EPG.ONE epg2,2150,OBOZ TV | Obozrevatel TV FHD UA | Obozrevatel TV HD UA | Обозреватель HD,2,2738 | 2822,2738:Obozrevatel TV HD UA | 2822:Обозреватель HD,1,2822,2822:Обозреватель HD,2738 | 2822,2738:Obozrevatel TV HD UA | 2822:Обозреватель HD,2,2738 | 2822,2738:Obozrevatel TV HD UA | 2822:Обозреватель HD,0,,,2738 | 2822,2738:Obozrevatel TV HD UA | 2822:Обозреватель HD
 EPG.ONE epg2,7153,Citrus Live HD | Citrus Live HD (C-Live HD) | YOSSO TV C-Live,1,1057,1057:Citrus Live HD,1,1057,1057:Citrus Live HD,1057,1057:Citrus Live HD,1,1057,1057:Citrus Live HD,0,,,1057,1057:Citrus Live HD
-EPG.ONE epg2,8782,Z! Thriller HD | Z!Thriller HD | Z!Thriller,1,1116,1116:Z!Thriller HD,1,1116,1116:Z!Thriller HD,1116,1116:Z!Thriller HD,1,1116,1116:Z!Thriller HD,0,,,1116,1116:Z!Thriller HD
 EPG.ONE epg2,8784,Z! Adventure HD | Z!Adventure HD | Z!Adventure,1,1118,1118:Z!Adventure HD,1,1118,1118:Z!Adventure HD,1118,1118:Z!Adventure HD,1,1118,1118:Z!Adventure HD,0,,,1118,1118:Z!Adventure HD
 EPG.ONE epg2,8819,Z! History HD | Z!History HD | Z!History,1,2078,2078:Z!History HD,1,2078,2078:Z!History HD,2078,2078:Z!History HD,1,2078,2078:Z!History HD,0,,,2078,2078:Z!History HD
 EPG.ONE epg2,1116,Z! Horror HD | Z!Horror | Z!Horror HD,1,847,847:Z!Horror HD,1,847,847:Z!Horror HD,847,847:Z!Horror HD,1,847,847:Z!Horror HD,0,,,847,847:Z!Horror HD
 EPG.ONE epg2,8785,Z! Detective HD | Z!Detective HD | Z!Detective,1,1119,1119:Z!Detective HD,1,1119,1119:Z!Detective HD,1119,1119:Z!Detective HD,1,1119,1119:Z!Detective HD,0,,,1119,1119:Z!Detective HD
-EPG.ONE epg2,8791,Z! Fun HD | Z!Fun HD | Z!Fun,1,1125,1125:Z!Fun HD,1,1125,1125:Z!Fun HD,1125,1125:Z!Fun HD,1,1125,1125:Z!Fun HD,0,,,1125,1125:Z!Fun HD
 EPG.ONE epg2,8790,Z! Russian HD | Z!Russian HD | Z!Russian,1,1124,1124:Z!Russian HD,1,1124,1124:Z!Russian HD,1124,1124:Z!Russian HD,1,1124,1124:Z!Russian HD,0,,,1124,1124:Z!Russian HD
 EPG.ONE epg2,9254,Cosmote Sport 4 GR | Cosmote Sport 4 HD GR,1,1206,1206:Cosmote Sport 4 GR,0,,,1206,1206:Cosmote Sport 4 GR,1,1206,1206:Cosmote Sport 4 GR,0,,,1206,1206:Cosmote Sport 4 GR
 EPG.ONE epg2,9255,Cosmote Sport 5 GR | Cosmote Sport 5 HD GR,1,1207,1207:Cosmote Sport 5 GR,0,,,1207,1207:Cosmote Sport 5 GR,1,1207,1207:Cosmote Sport 5 GR,0,,,1207,1207:Cosmote Sport 5 GR
@@ -15090,8 +15090,8 @@ Satfor,31-kanal-kz,31 канал,0,,,0,,,,,0,,,0,,,,
 Satfor,360-news,360° новости,0,,,0,,,,,1,352,352:360 Новости HD,1,352,352:360 Новости HD,352,352:360 Новости HD
 Satfor,365-dnej,365 дней ТВ,1,1960,1960:365 дней ТВ,1,1960,1960:365 дней ТВ,1960,1960:365 дней ТВ,1,1960,1960:365 дней ТВ,0,,,1960,1960:365 дней ТВ
 Satfor,4ever_music_ua,4ever Music HD,0,,,0,,,,,2,2726 | 2813,2726:4ever Music HD UA | 2813:4ever Music UA,2,2726 | 2813,2726:4ever Music HD UA | 2813:4ever Music UA,2726 | 2813,2726:4ever Music HD UA | 2813:4ever Music UA
-Satfor,5kanal-ua,5 канал,0,,,0,,,,,3,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD,3,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD
 Satfor,5kanal-karaganda,5 канал,0,,,0,,,,,3,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD,3,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD
+Satfor,5kanal-ua,5 канал,0,,,0,,,,,3,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD,3,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD
 Satfor,7kanal-kz,7 канал,0,,,0,,,,,1,2756,2756:7 Канал UA,1,2756,2756:7 Канал UA,2756,2756:7 Канал UA
 Satfor,8_ua,8 канал HD,1,2530,2530:8 Канал HD,1,2530,2530:8 Канал HD,2530,2530:8 Канал HD,2,2530 | 2783,2530:8 Канал HD | 2783:8 Канал UA,1,2783,2783:8 Канал UA,2530 | 2783,2530:8 Канал HD | 2783:8 Канал UA
 Satfor,911,9-1-1,0,,,0,,,,,1,376,376:9-1-1 HD,1,376,376:9-1-1 HD,376,376:9-1-1 HD
@@ -15708,8 +15708,8 @@ Satfor,arenasp4_hr,HR: Arena Sport 4,0,,,0,,,,,0,,,0,,,,
 Satfor,arenasp5_hr,HR: Arena Sport 5,0,,,0,,,,,0,,,0,,,,
 Satfor,hustler-hd,HUSTLER HD,1,2290,2290:Hustler HD,1,2290,2290:Hustler HD,2290,2290:Hustler HD,1,2290,2290:Hustler HD,0,,,2290,2290:Hustler HD
 Satfor,Happy.Radio.cz,Happy Radio,0,,,0,,,,,0,,,0,,,,
-Satfor,h2,History 2 HD,1,1905,1905:History 2 HD,1,1905,1905:History 2 HD,1905,1905:History 2 HD,2,1905 | 1950,1905:History 2 HD | 1950:History 2,1,1950,1950:History 2,1905 | 1950,1905:History 2 HD | 1950:History 2
 Satfor,history_2_ua,History 2 HD,1,1905,1905:History 2 HD,1,1905,1905:History 2 HD,1905,1905:History 2 HD,2,1905 | 1950,1905:History 2 HD | 1950:History 2,1,1950,1950:History 2,1905 | 1950,1905:History 2 HD | 1950:History 2
+Satfor,h2,History 2 HD,1,1905,1905:History 2 HD,1,1905,1905:History 2 HD,1905,1905:History 2 HD,2,1905 | 1950,1905:History 2 HD | 1950:History 2,1,1950,1950:History 2,1905 | 1950,1905:History 2 HD | 1950:History 2
 Satfor,history-ru,History HD,1,1903,1903:History HD,1,1903,1903:History HD,1903,1903:History HD,1,1903,1903:History HD,0,,,1903,1903:History HD
 Satfor,history_ua,History HD UA,0,,,1,1903,1903:History HD,1903,1903:History HD,1,1903,1903:History HD,0,,,1903,1903:History HD
 Satfor,hollywood,Hollywood,1,483,483:Hollywood,1,483,483:Hollywood,483,483:Hollywood,2,447 | 483,447:Hollywood HD | 483:Hollywood,1,447,447:Hollywood HD,447 | 483,447:Hollywood HD | 483:Hollywood
@@ -16490,8 +16490,8 @@ Satfor,arsenaltv,Арсенал HD,1,2114,2114:Арсенал HD,1,2114,2114:А�
 Satfor,blokbaster,Блокбастер HD,1,429,429:Блокбастер HD,1,429,429:Блокбастер HD,429,429:Блокбастер HD,1,429,429:Блокбастер HD,0,,,429,429:Блокбастер HD
 Satfor,bobior,Бобёр,1,1943,1943:Бобёр,1,1943,1943:Бобёр,1943,1943:Бобёр,1,1943,1943:Бобёр,0,,,1943,1943:Бобёр
 Satfor,box-tv,Бокс ТВ,1,1331,1331:Бокс ТВ,1,1331,1331:Бокс ТВ,1331,1331:Бокс ТВ,2,1331 | 1462,1331:Бокс ТВ | 1462:Бокс ТВ HD,1,1462,1462:Бокс ТВ HD,1331 | 1462,1331:Бокс ТВ | 1462:Бокс ТВ HD
-Satfor,bolt_ua,Болт HD,0,,,0,,,,,1,2778,2778:Болт HD UA,1,2778,2778:Болт HD UA,2778,2778:Болт HD UA
 Satfor,bolt-ru,Болт HD,0,,,0,,,,,1,2778,2778:Болт HD UA,1,2778,2778:Болт HD UA,2778,2778:Болт HD UA
+Satfor,bolt_ua,Болт HD,0,,,0,,,,,1,2778,2778:Болт HD UA,1,2778,2778:Болт HD UA,2778,2778:Болт HD UA
 Satfor,static-44,Большая Азия,0,,,0,,,,,1,1923,1923:Большая Азия HD,1,1923,1923:Большая Азия HD,1923,1923:Большая Азия HD
 Satfor,bigudi,Бігуді,0,,,0,,,,,1,2784,2784:Бігуді UA,1,2784,2784:Бігуді UA,2784,2784:Бігуді UA
 Satfor,v-gostiax-u-skazki,В гостях у сказки,1,1744,1744:В гостях у сказки,1,1744,1744:В гостях у сказки,1744,1744:В гостях у сказки,2,1718 | 1744,1718:В гостях у сказки HD | 1744:В гостях у сказки,1,1718,1718:В гостях у сказки HD,1718 | 1744,1718:В гостях у сказки HD | 1744:В гостях у сказки
