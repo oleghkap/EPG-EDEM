@@ -674,14 +674,13 @@ SEQUENCE_FINGERPRINT_MIN_MATCH_RATIO = 0.80
 SEQUENCE_FINGERPRINT_MAX_OTHER_RATIO = 0.25
 
 
-def programme_sequence_signature(title, start_dt, stop_dt):
-    """Стабильная подпись передачи: нормализованное название и точные границы."""
+def programme_sequence_signature(title, start_dt, stop_dt=None):
+    """Подпись передачи по нормализованному названию и старту; stop не учитывается."""
     if not title or start_dt is None:
         return None
     payload = "\x1f".join((
         normalize_name(title),
         start_dt.isoformat(),
-        stop_dt.isoformat() if stop_dt is not None else "",
     ))
     return hashlib.blake2b(payload.encode("utf-8"), digest_size=12).digest()
 
@@ -774,7 +773,7 @@ def scan_source_mapping_fingerprints(
 
 
 def compare_ambiguous_sequence(channel_id, candidate_indexes, mapped, fingerprints):
-    """Сравнивает неоднозначный ID с уникально сопоставленными ID каждого кандидата."""
+    """Сравнивает неоднозначный ID с уникальными ID и прежними источниками каждого кандидата."""
     target = fingerprints.get(channel_id, set())
     if len(target) < SEQUENCE_FINGERPRINT_MIN_PROGRAMMES:
         return {"status": "insufficient", "evidence": ""}
@@ -899,6 +898,36 @@ def process_source(
         sequence_mapped, sequence_fingerprints = scan_source_mapping_fingerprints(
             temp_path, indexes, playlist_channels, period_start, period_end
         )
+
+        # Для последующих источников используем уже принятые расписания как
+        # независимые опорные последовательности конкретных playlist-каналов.
+        # Это устраняет зависимость проверки исключительно от наличия
+        # уникальных XMLTV ID-якорей внутри текущего источника.
+        sequence_anchor_indexes = {
+            index
+            for candidate_set in sequence_mapped.values()
+            if len(candidate_set) > 1
+            for index in candidate_set
+        }
+        for playlist_index in sequence_anchor_indexes:
+            anchor_id = f"__previous_source_playlist_{playlist_index}"
+            anchor_signatures = {
+                signature
+                for programme in global_programmes.values()
+                if programme.get("channel_index") == playlist_index
+                for signature in (
+                    programme_sequence_signature(
+                        programme.get("title", ""),
+                        programme.get("start"),
+                        programme.get("stop"),
+                    ),
+                )
+                if signature is not None
+            }
+            if anchor_signatures:
+                sequence_mapped[anchor_id] = {playlist_index}
+                sequence_fingerprints[anchor_id] = anchor_signatures
+
         sequence_fingerprint_count = sum(
             len(programme_signatures)
             for programme_signatures in sequence_fingerprints.values()
