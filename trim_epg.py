@@ -14,8 +14,10 @@ from zoneinfo import ZoneInfo
 # CONFIGURATION
 # ============================================================
 
-EPG_INPUT_FILE = "epg_custom.xml.gz"
+EPG_URL = "http://epg.one/epg2.xml.gz"
+
 OUTPUT_FILE = "epg_trimmed.xml.gz"
+RAW_FILE = "raw_epg.xml.gz"
 
 DAYS_BEFORE = 2
 DAYS_AFTER = 1
@@ -291,8 +293,6 @@ def trim_epg(source_path, output_path):
     removed_programmes = 0
     invalid_dates = 0
     removed_metadata = 0
-    overlaps_detected = 0
-    last_stop_by_channel = {}
 
     root_element = None
     closing_tag = None
@@ -393,18 +393,6 @@ def trim_epg(source_path, output_path):
 
                         if keep_element:
 
-                            channel_id = element.attrib.get("channel", "")
-                            previous_stop = last_stop_by_channel.get(channel_id)
-                            if stop is not None:
-                                if previous_stop is not None and start < previous_stop:
-                                    overlaps_detected += 1
-                                    raise ValueError(
-                                        "Пересечение в объединённом EPG: "
-                                        f"channel={channel_id}, start={start}, "
-                                        f"previous_stop={previous_stop}"
-                                    )
-                                last_stop_by_channel[channel_id] = stop
-
                             removed_metadata += (
                                 remove_unneeded_metadata(element)
                             )
@@ -474,11 +462,6 @@ def trim_epg(source_path, output_path):
                 "В исходном EPG не найдено ни одного канала."
             )
 
-        if overlaps_detected != 0:
-            raise ValueError(
-                f"В итоговом EPG осталось пересечений: {overlaps_detected}"
-            )
-
         # Заменяем итоговый файл только после успешной проверки.
         os.replace(
             temporary_output,
@@ -518,7 +501,6 @@ def trim_epg(source_path, output_path):
     print(f"Передач удалено:               {removed_programmes}")
     print(f"Передач с некорректной датой:  {invalid_dates}")
     print(f"Удалено дополнительных тегов:  {removed_metadata}")
-    print(f"Пересечений после проверки:     {overlaps_detected}")
 
     print()
     print("РАЗМЕРЫ")
@@ -560,14 +542,25 @@ def trim_epg(source_path, output_path):
 
 def main():
 
-    if not os.path.isfile(EPG_INPUT_FILE):
+    print(f"Скачивание EPG: {EPG_URL}")
+
+    if not download_file(EPG_URL, RAW_FILE):
         raise RuntimeError(
-            f"Не найден объединённый EPG: {EPG_INPUT_FILE}. "
-            "Сначала выполните clean_epg.py."
+            "Не удалось скачать или проверить исходный EPG. "
+            "Итоговый файл не изменён."
         )
 
-    print(f"Обработка объединённого EPG: {EPG_INPUT_FILE}")
-    trim_epg(EPG_INPUT_FILE, OUTPUT_FILE)
+    try:
+        trim_epg(
+            RAW_FILE,
+            OUTPUT_FILE,
+        )
+
+    finally:
+        # Удаляем временный исходный архив
+        # независимо от результата обработки.
+        if os.path.exists(RAW_FILE):
+            os.remove(RAW_FILE)
 
 
 if __name__ == "__main__":
