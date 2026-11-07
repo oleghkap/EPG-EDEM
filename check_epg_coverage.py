@@ -883,6 +883,7 @@ def process_source(
     mapping_review_ids = set()
     mapping_filtered_ids = set()
     mapping_sequence_resolved_ids = set()
+    mapping_sequence_conflict_review_ids = set()
     source_programmes = {}
     # Разные передачи с разным временем начала сохраняются даже при
     # пересечении интервалов. Пересечения анализируются отдельно после merge.
@@ -1099,8 +1100,17 @@ def process_source(
                                 stats["ambiguous_xml_ids_sequence_conflicting"] += 1
                                 merge_diagnostics["ambiguous_xml_ids_sequence_conflicting"] += 1
 
+                            # Если display-name однозначно указывает на один канал,
+                            # конфликт fingerprint не должен удалять его EPG.
+                            # Сохраняем единственное именное совпадение и помечаем
+                            # его для ручной проверки; quarantine нужен только когда
+                            # последовательность конфликтует при нескольких/нулевых
+                            # подтверждённых кандидатах.
+                            if sequence_conflict and len(matching_indexes) == 1:
+                                mapping_sequence_conflict_review_ids.add(mapped_id)
+
                             conflicting_matches = (
-                                sequence_conflict
+                                (sequence_conflict and len(matching_indexes) != 1)
                                 or (
                                     sequence_result["status"] != "verified_shared"
                                     and len(matching_indexes) > 1
@@ -1156,6 +1166,10 @@ def process_source(
                                 )
                             elif detail_id in mapping_sequence_resolved_ids:
                                 detail["mapping_status"] = "accepted: narrowed by programme sequence"
+                            elif detail_id in mapping_sequence_conflict_review_ids:
+                                detail["mapping_status"] = (
+                                    "review: unique display-name match preserved despite sequence conflict"
+                                )
                             elif detail_id in mapping_review_ids:
                                 detail["mapping_status"] = (
                                     "review: shared XMLTV ID maps to same logical channel; "
