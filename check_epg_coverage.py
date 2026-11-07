@@ -668,6 +668,155 @@ def element_text(parent, tag):
             return "".join(element.itertext()).strip()
     return ""
 
+
+SEQUENCE_FINGERPRINT_MIN_PROGRAMMES = 8
+SEQUENCE_FINGERPRINT_MIN_MATCH_RATIO = 0.80
+SEQUENCE_FINGERPRINT_MAX_OTHER_RATIO = 0.25
+
+
+def programme_sequence_signature(title, start_dt, stop_dt):
+    """Стабильная подпись передачи: нормализованное название и точные границы."""
+    if not title or start_dt is None:
+        return None
+    payload = "\x1f".join((
+        normalize_name(title),
+        start_dt.isoformat(),
+        stop_dt.isoformat() if stop_dt is not None else "",
+    ))
+    return hashlib.blake2b(payload.encode("utf-8"), digest_size=12).digest()
+
+
+def scan_source_mapping_fingerprints(
+    source_path, indexes, playlist_channels, period_start, period_end
+):
+    """Первый проход: строит компактные fingerprints только для конфликтующих ID и их якорей."""
+    mapped = {}
+    fingerprints = defaultdict(set)
+    relevant_ids = set()
+    candidate_indexes = set()
+    relevant_ids_ready = False
+    root = None
+
+    with open_xml_file(source_path) as xml_file:
+        for event, elem in ET.iterparse(xml_file, events=("start", "end")):
+            if event == "start":
+                if root is None:
+                    root = elem
+                continue
+            tag = local_name(elem.tag)
+
+            if tag == "channel":
+                channel_id = elem.attrib.get("id", "").strip()
+                display_names = [
+                    "".join(item.itertext()).strip()
+                    for item in elem
+                    if local_name(item.tag) == "display-name"
+                ]
+                if channel_id:
+                    matched_indexes, _ = map_source_channels(
+                        channel_id, display_names, indexes, playlist_channels
+                    )
+                    if matched_indexes:
+                        mapped.setdefault(channel_id, set()).update(matched_indexes)
+                elem.clear()
+                if root is not None:
+                    root.clear()
+                continue
+
+            if tag != "programme":
+                continue
+
+            if not relevant_ids_ready:
+                candidate_indexes = {
+                    index
+                    for candidate_set in mapped.values()
+                    if len(candidate_set) > 1
+                    for index in candidate_set
+                }
+                relevant_ids = {
+                    channel_id
+                    for channel_id, candidate_set in mapped.items()
+                    if len(candidate_set) > 1
+                    or (len(candidate_set) == 1 and next(iter(candidate_set)) in candidate_indexes)
+                }
+                relevant_ids_ready = True
+                if not relevant_ids:
+                    elem.clear()
+                    if root is not None:
+                        root.clear()
+                    break
+
+            channel_id = elem.attrib.get("channel", "").strip()
+            if channel_id in relevant_ids:
+                start_dt = parse_xmltv_datetime(elem.attrib.get("start", ""))
+                stop_value = elem.attrib.get("stop")
+                stop_dt = parse_xmltv_datetime(stop_value) if stop_value else None
+                if stop_value and (stop_dt is None or start_dt is None or stop_dt <= start_dt):
+                    start_dt = None
+                in_period = (
+                    start_dt is not None
+                    and (
+                        period_start <= start_dt < period_end
+                        if stop_dt is None
+                        else start_dt < period_end and stop_dt > period_start
+                    )
+                )
+                if in_period:
+                    title = element_text(elem, "title")
+                    signature = programme_sequence_signature(title, start_dt, stop_dt)
+                    if signature is not None:
+                        fingerprints[channel_id].add(signature)
+            elem.clear()
+            if root is not None:
+                root.clear()
+
+    return mapped, fingerprints
+
+
+def compare_ambiguous_sequence(channel_id, candidate_indexes, mapped, fingerprints):
+    """Сравнивает неоднозначный ID с уникально сопоставленными ID каждого кандидата."""
+    target = fingerprints.get(channel_id, set())
+    if len(target) < SEQUENCE_FINGERPRINT_MIN_PROGRAMMES:
+        return {"status": "insufficient", "evidence": ""}
+
+    scores = {}
+    for playlist_index in sorted(candidate_indexes):
+        best = None
+        for anchor_id, anchor_indexes in mapped.items():
+            if anchor_id == channel_id or anchor_indexes != {playlist_index}:
+                continue
+            anchor = fingerprints.get(anchor_id, set())
+            if len(anchor) < SEQUENCE_FINGERPRINT_MIN_PROGRAMMES:
+                continue
+            common = len(target & anchor)
+            ratio = common / min(len(target), len(anchor))
+            candidate = (ratio, common, anchor_id, len(anchor))
+            if best is None or candidate[:2] > best[:2]:
+                best = candidate
+        if best is not None:
+            scores[playlist_index] = best
+
+    evidence = " | ".join(
+        f"{index}:anchor={score[2]},match={score[1]}/{min(len(target), score[3])},ratio={score[0]:.0%}"
+        for index, score in sorted(scores.items())
+    )
+    if len(scores) != len(candidate_indexes):
+        return {"status": "insufficient", "evidence": evidence}
+
+    strong = {
+        index: score for index, score in scores.items()
+        if score[1] >= SEQUENCE_FINGERPRINT_MIN_PROGRAMMES
+        and score[0] >= SEQUENCE_FINGERPRINT_MIN_MATCH_RATIO
+    }
+    if len(strong) == len(candidate_indexes):
+        return {"status": "verified_shared", "evidence": evidence}
+    if len(strong) == 1:
+        winner, winner_score = next(iter(strong.items()))
+        other_scores = [score[0] for index, score in scores.items() if index != winner]
+        if all(score <= SEQUENCE_FINGERPRINT_MAX_OTHER_RATIO for score in other_scores):
+            return {"status": "resolved", "winner": winner, "evidence": evidence}
+    return {"status": "conflicting", "evidence": evidence}
+
 def process_source(
     source_name,
     source_url,
@@ -710,6 +859,9 @@ def process_source(
         "ambiguous_xml_ids_quarantined": 0,
         "programmes_quarantined_by_ambiguous_xml_id": 0,
         "ambiguous_xml_ids_review": 0,
+        "ambiguous_xml_ids_sequence_resolved": 0,
+        "ambiguous_xml_ids_sequence_verified_shared": 0,
+        "ambiguous_xml_ids_sequence_conflicting": 0,
         "unmatched_channels": 0,
         "first_programme": "",
         "last_programme": "",
@@ -729,6 +881,7 @@ def process_source(
     ambiguous_xml_id_mappings = {}
     mapping_review_ids = set()
     mapping_filtered_ids = set()
+    mapping_sequence_resolved_ids = set()
     source_programmes = {}
     # Разные передачи с разным временем начала сохраняются даже при
     # пересечении интервалов. Пересечения анализируются отдельно после merge.
@@ -740,6 +893,18 @@ def process_source(
         log(f"  Скачивание: {source_name}")
         size = download_to_file(source_url, temp_path, MAX_SOURCE_SIZE)
         log(f"  Получено: {size / 1024 / 1024:.1f} MB")
+
+        sequence_mapped, sequence_fingerprints = scan_source_mapping_fingerprints(
+            temp_path, indexes, playlist_channels, period_start, period_end
+        )
+        sequence_fingerprint_count = sum(
+            len(programme_signatures)
+            for programme_signatures in sequence_fingerprints.values()
+        )
+        log(
+            f"  Sequence fingerprints: {sequence_fingerprint_count:,} уникальных передач "
+            f"для неоднозначных ID и контрольных каналов"
+        )
 
         with open_xml_file(temp_path) as xml_file:
             context = ET.iterparse(xml_file, events=("start", "end"))
@@ -779,6 +944,8 @@ def process_source(
                         "mapping_status": "pending",
                         "mapping_playlist_indexes": "",
                         "mapping_playlist_names": "",
+                        "sequence_fingerprint_status": "not evaluated",
+                        "sequence_fingerprint_evidence": "",
                     })
                     matched_indexes, method = map_source_channels(
                         channel_id,
@@ -869,9 +1036,45 @@ def process_source(
                                 for keys in matched_keys_by_index.values()
                                 for key in keys
                             }
+                            sequence_result = compare_ambiguous_sequence(
+                                mapped_id,
+                                candidate_indexes,
+                                sequence_mapped,
+                                sequence_fingerprints,
+                            )
+                            for detail in mapping_rule_details:
+                                if detail.get("source") == source_name and detail.get("xml_channel_id") == mapped_id:
+                                    detail["sequence_fingerprint_status"] = sequence_result["status"]
+                                    detail["sequence_fingerprint_evidence"] = sequence_result.get("evidence", "")
+
+                            sequence_conflict = sequence_result["status"] == "conflicting"
+                            if sequence_result["status"] == "resolved":
+                                winner = sequence_result["winner"]
+                                matching_indexes = {winner}
+                                matched_keys_by_index = {
+                                    winner: matched_keys_by_index.get(winner, set())
+                                }
+                                matched_logical_keys = set(matched_keys_by_index[winner])
+                                mapping_sequence_resolved_ids.add(mapped_id)
+                                if {winner} != candidate_indexes:
+                                    mapping_filtered_ids.add(mapped_id)
+                                stats["ambiguous_xml_ids_sequence_resolved"] += 1
+                                merge_diagnostics["ambiguous_xml_ids_sequence_resolved"] += 1
+                            elif sequence_result["status"] == "verified_shared":
+                                matching_indexes = set(candidate_indexes)
+                                stats["ambiguous_xml_ids_sequence_verified_shared"] += 1
+                                merge_diagnostics["ambiguous_xml_ids_sequence_verified_shared"] += 1
+                            elif sequence_conflict:
+                                stats["ambiguous_xml_ids_sequence_conflicting"] += 1
+                                merge_diagnostics["ambiguous_xml_ids_sequence_conflicting"] += 1
+
                             conflicting_matches = (
-                                len(matching_indexes) > 1
-                                and len(matched_logical_keys) > 1
+                                sequence_conflict
+                                or (
+                                    sequence_result["status"] != "verified_shared"
+                                    and len(matching_indexes) > 1
+                                    and len(matched_logical_keys) > 1
+                                )
                             )
                             no_safe_match = (
                                 not matching_indexes
@@ -891,7 +1094,11 @@ def process_source(
 
                             # Несколько playlist-записей с одним логическим именем
                             # (например, региональные +0) допустимы, но требуют аудита.
-                            if mapped[mapped_id] and len(mapped[mapped_id]) > 1:
+                            if (
+                                mapped[mapped_id]
+                                and len(mapped[mapped_id]) > 1
+                                and sequence_result["status"] != "verified_shared"
+                            ):
                                 mapping_review_ids.add(mapped_id)
                             elif not matching_indexes and mapped[mapped_id]:
                                 mapping_review_ids.add(mapped_id)
@@ -909,9 +1116,15 @@ def process_source(
                             )
                             if detail_id in ambiguous_xml_id_mappings:
                                 detail["mapping_status"] = (
-                                    "quarantined: conflicting playlist channel names; "
+                                    "quarantined: conflicting channel names or programme sequences; "
                                     "programmes not assigned"
                                 )
+                            elif detail.get("sequence_fingerprint_status") == "verified_shared":
+                                detail["mapping_status"] = (
+                                    "verified: programme sequences match for all mapped candidates"
+                                )
+                            elif detail_id in mapping_sequence_resolved_ids:
+                                detail["mapping_status"] = "accepted: narrowed by programme sequence"
                             elif detail_id in mapping_review_ids:
                                 detail["mapping_status"] = (
                                     "review: shared XMLTV ID maps to same logical channel; "
@@ -2278,6 +2491,9 @@ def write_epg_diagnostics(
         f"  XMLTV ID, изолированных из-за неоднозначности: {merge_diagnostics.get('ambiguous_xml_ids_quarantined', 0)}",
         f"  Передач, не назначенных из-за неоднозначности XMLTV ID: {merge_diagnostics.get('programmes_quarantined_by_ambiguous_xml_id', 0)}",
         f"  XMLTV ID оставлено на ручную проверку без удаления EPG: {merge_diagnostics.get('ambiguous_xml_ids_review', 0)}",
+        f"  Неоднозначных ID разрешено по последовательности передач: {merge_diagnostics.get('ambiguous_xml_ids_sequence_resolved', 0)}",
+        f"  Неоднозначных ID подтверждено одинаковой последовательностью для всех кандидатов: {merge_diagnostics.get('ambiguous_xml_ids_sequence_verified_shared', 0)}",
+        f"  Неоднозначных ID с конфликтующей последовательностью: {merge_diagnostics.get('ambiguous_xml_ids_sequence_conflicting', 0)}",
         f"  Нормализованные совпадения title среди различающихся: {merge_diagnostics['title_normalized_same']}",
         f"  Входящий title длиннее: {merge_diagnostics['title_incoming_longer']}; короче: {merge_diagnostics['title_incoming_shorter']}; равной длины: {merge_diagnostics['title_equal_length']}",
         f"  Нормализованные совпадения desc среди различающихся: {merge_diagnostics['desc_normalized_same']}",
@@ -2567,6 +2783,7 @@ def main():
             "base_only_count", "base_only_indexes", "base_only_names",
             "all_candidate_indexes", "all_candidate_names",
             "mapping_status", "mapping_playlist_indexes", "mapping_playlist_names",
+            "sequence_fingerprint_status", "sequence_fingerprint_evidence",
         ],
     )
     raw_interval_diagnostics = analyze_programme_interval_overlaps(global_programmes)
