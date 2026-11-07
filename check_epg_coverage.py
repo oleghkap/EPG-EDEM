@@ -88,6 +88,7 @@ COUNTRY_CODES = (
     "IT|ES|NL|BE|CH|AT|FI|SE|NO|DK|HU|CZ|BG|GR|HR|SI|SK|PT|IE|AU|NZ|"
     "IN|JP|KR|BR|AR|MX|MD"
 )
+COUNTRY_CODE_SET = frozenset(COUNTRY_CODES.split("|"))
 COUNTRY_PREFIX_RE = re.compile(
     rf"^(?:{COUNTRY_CODES})\s*[-–—:]\s*",
     re.IGNORECASE,
@@ -474,6 +475,15 @@ def quality_markers(value):
     }
 
 
+def xmltv_id_country_codes(channel_id):
+    """Извлекает региональный код из суффикса XMLTV ID (например, .hr или .it)."""
+    match = re.search(r"\.([a-z]{2})$", (channel_id or "").strip(), re.IGNORECASE)
+    if not match:
+        return set()
+    code = match.group(1).upper()
+    return {code} if code in COUNTRY_CODE_SET else set()
+
+
 def edge_country_codes(value):
     value = (value or "").strip()
     found = set()
@@ -540,6 +550,32 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
 
     if id_matches:
         return id_matches, "tvg-id"
+
+    # Регион в XMLTV ID — такой же значимый признак, как регион в имени.
+    # Например, Discovery.Channel.it нельзя присоединять к общему
+    # Discovery Channel: это расписание конкретной региональной версии.
+    id_countries = xmltv_id_country_codes(channel_id)
+    region_filtered = False
+
+    def keep_matching_region(indices):
+        nonlocal region_filtered
+        if not id_countries:
+            return set(indices)
+        compatible = set()
+        for index in indices:
+            playlist_countries = set()
+            for name in (
+                playlist_channels[index].get("title", ""),
+                playlist_channels[index].get("tvg_name", ""),
+            ):
+                playlist_countries.update(edge_country_codes(name))
+            if playlist_countries & id_countries:
+                compatible.add(index)
+        if compatible != set(indices):
+            region_filtered = True
+        return compatible
+
+    exact_matches = keep_matching_region(exact_matches)
     if exact_matches:
         return exact_matches, "exact name"
 
@@ -554,6 +590,7 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
         if normalized_country:
             country_matches.update(by_name.get(normalized_country, set()))
 
+    country_matches = keep_matching_region(country_matches)
     if len(country_matches) == 1:
         return country_matches, "country-normalized name"
     if len(country_matches) > 1:
@@ -578,10 +615,13 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
             ):
                 base_matches.add(index)
 
+    base_matches = keep_matching_region(base_matches)
     if len(base_matches) == 1:
         return base_matches, "unique base name"
     if len(base_matches) > 1:
         return set(), "ambiguous"
+    if region_filtered:
+        return set(), "region-ambiguous"
     return set(), "unmatched"
 # ============================================================
 # ОБРАБОТКА XMLTV
@@ -635,6 +675,7 @@ def process_source(
         "matched_by_country_name": 0,
         "matched_by_base_name": 0,
         "ambiguous_channels": 0,
+        "region_ambiguous_channels": 0,
         "unmatched_channels": 0,
         "first_programme": "",
         "last_programme": "",
@@ -735,6 +776,9 @@ def process_source(
                             stats["matched_by_base_name"] += 1
                     elif method == "ambiguous":
                         stats["ambiguous_channels"] += 1
+                    elif method == "region-ambiguous":
+                        stats["region_ambiguous_channels"] += 1
+                        stats["unmatched_channels"] += 1
                     else:
                         stats["unmatched_channels"] += 1
 
@@ -1126,6 +1170,7 @@ def write_coverage_report(stats_list):
         "matched_by_country_name",
         "matched_by_base_name",
         "ambiguous_channels",
+        "region_ambiguous_channels",
         "unmatched_channels",
         "first_programme",
         "last_programme",
