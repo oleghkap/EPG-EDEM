@@ -727,6 +727,7 @@ def process_source(
     mapping_finalized = False
     ambiguous_xml_id_mappings = {}
     mapping_review_ids = set()
+    mapping_filtered_ids = set()
     source_programmes = {}
     # Разные передачи с разным временем начала сохраняются даже при
     # пересечении интервалов. Пересечения анализируются отдельно после merge.
@@ -857,6 +858,8 @@ def process_source(
                             if matching_indexes:
                                 # Оставляем только кандидатов, подтверждённых
                                 # display-name. Неподтверждённые не получают этот EPG.
+                                if matching_indexes != candidate_indexes:
+                                    mapping_filtered_ids.add(mapped_id)
                                 mapped[mapped_id] = matching_indexes
 
                             # Если остаётся несколько кандидатов или display-name
@@ -881,8 +884,10 @@ def process_source(
                                     "review: shared XMLTV ID remains mapped to multiple channels; "
                                     "programmes preserved"
                                 )
+                            elif final_indexes and detail_id in mapping_filtered_ids:
+                                detail["mapping_status"] = "accepted: narrowed by display-name"
                             elif final_indexes:
-                                detail["mapping_status"] = "accepted: display-name matched"
+                                detail["mapping_status"] = "accepted"
                             else:
                                 detail["mapping_status"] = "unmatched or ambiguous"
 
