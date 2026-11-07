@@ -2171,6 +2171,8 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
     Для каждого канала плейлиста без передач показывает кандидатов
     среди XMLTV-каналов, у которых есть передачи в проверяемом периоде.
     Поиск диагностический: на сопоставление и итоговый EPG не влияет.
+    Дополнительно сохраняет итог сопоставления и проверку последовательностей,
+    чтобы отличить безопасно принятые соответствия от отклонённых/неоднозначных.
     """
     covered = {
         item["channel_index"]
@@ -2212,12 +2214,19 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
                 detail.get("xml_channel_id", ""),
                 detail.get("xml_display_names", ""),
                 matched_rule,
+                detail.get("mapping_status", ""),
+                detail.get("mapping_playlist_indexes", ""),
+                detail.get("mapping_playlist_names", ""),
+                detail.get("sequence_fingerprint_status", ""),
+                detail.get("sequence_fingerprint_evidence", ""),
             )
             found[key] = True
 
         if found:
             candidate_playlist_indexes.add(playlist_index)
-            for source, xml_id, xml_names, rule in sorted(found):
+            for (source, xml_id, xml_names, rule, mapping_status,
+                 mapping_playlist_indexes, mapping_playlist_names,
+                 sequence_status, sequence_evidence) in sorted(found):
                 rows.append({
                     "playlist_index": playlist_index,
                     "playlist_channel": channel.get("title", ""),
@@ -2227,6 +2236,11 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
                     "source": source,
                     "xml_channel_id": xml_id,
                     "xml_display_names": xml_names,
+                    "mapping_status": mapping_status,
+                    "mapping_playlist_indexes": mapping_playlist_indexes,
+                    "mapping_playlist_names": mapping_playlist_names,
+                    "sequence_fingerprint_status": sequence_status,
+                    "sequence_fingerprint_evidence": sequence_evidence,
                 })
         else:
             rows.append({
@@ -2238,12 +2252,19 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
                 "source": "",
                 "xml_channel_id": "",
                 "xml_display_names": "",
+                "mapping_status": "",
+                "mapping_playlist_indexes": "",
+                "mapping_playlist_names": "",
+                "sequence_fingerprint_status": "",
+                "sequence_fingerprint_evidence": "",
             })
 
     fieldnames = [
         "playlist_index", "playlist_channel", "playlist_group",
         "candidate_status", "match_rule", "source",
-        "xml_channel_id", "xml_display_names",
+        "xml_channel_id", "xml_display_names", "mapping_status",
+        "mapping_playlist_indexes", "mapping_playlist_names",
+        "sequence_fingerprint_status", "sequence_fingerprint_evidence",
     ]
     write_diagnostic_csv("uncovered_channel_candidates.csv", rows, fieldnames)
     return len(channels) - len(covered), len(candidate_playlist_indexes)
