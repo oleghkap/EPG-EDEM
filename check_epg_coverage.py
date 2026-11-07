@@ -491,7 +491,7 @@ def quality_markers(value):
 
 def xmltv_id_country_codes(channel_id):
     """Извлекает региональный код из суффикса XMLTV ID (например, .hr или .it)."""
-    match = re.search(r"\.([a-z]{2})$", (channel_id or "").strip(), re.IGNORECASE)
+    match = re.search(r"\.([a-z]{2})\d*$", (channel_id or "").strip(), re.IGNORECASE)
     if not match:
         return set()
     code = match.group(1).upper()
