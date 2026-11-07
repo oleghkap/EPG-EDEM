@@ -137,6 +137,21 @@ def has_quality_marker(value):
     return bool(QUALITY_RE.search(value or ""))
 
 
+def canonical_mapping_name(value):
+    """
+    Нормализует имя для сопоставления региональных/временных вариантов.
+    Удаляет страну, качество и суффикс +N с необязательным регионом в скобках.
+    """
+    value = strip_country_suffix(strip_country_prefix(value or "")).strip()
+    value = re.sub(
+        r"\s*\+\s*\d+\s*(?:\([^)]*\))?\s*$",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    )
+    return normalize_base_name(value) or normalize_name(value)
+
+
 def strip_country_prefix(value):
     return COUNTRY_PREFIX_RE.sub("", value or "").strip()
 
@@ -693,6 +708,7 @@ def process_source(
         "region_ambiguous_channels": 0,
         "ambiguous_xml_ids_quarantined": 0,
         "programmes_quarantined_by_ambiguous_xml_id": 0,
+        "ambiguous_xml_ids_review": 0,
         "unmatched_channels": 0,
         "first_programme": "",
         "last_programme": "",
@@ -710,6 +726,7 @@ def process_source(
     channels_with_programmes = set()
     mapping_finalized = False
     ambiguous_xml_id_mappings = {}
+    mapping_review_ids = set()
     source_programmes = {}
     # Разные передачи с разным временем начала сохраняются даже при
     # пересечении интервалов. Пересечения анализируются отдельно после merge.
@@ -813,58 +830,67 @@ def process_source(
                         for mapped_id, candidate_indexes in list(mapped.items()):
                             if len(candidate_indexes) < 2:
                                 continue
-                            base_names = set()
+
+                            # XMLTV display-name может сузить общий tvg-id до тех
+                            # playlist-каналов, чьи названия действительно совпадают.
+                            # +N и регион в скобках трактуются как вариант канала.
+                            source_names = source_channel_display_names.get(mapped_id, set())
+                            source_keys = {
+                                canonical_mapping_name(name)
+                                for name in source_names
+                                if canonical_mapping_name(name)
+                            }
+                            matching_indexes = set()
                             for playlist_index in candidate_indexes:
                                 playlist_channel = playlist_channels[playlist_index]
-                                for playlist_name in (
-                                    playlist_channel.get("title", ""),
-                                    playlist_channel.get("tvg_name", ""),
-                                ):
-                                    if not playlist_name:
-                                        continue
-                                    countryless = strip_country_suffix(
-                                        strip_country_prefix(playlist_name)
+                                playlist_keys = {
+                                    canonical_mapping_name(name)
+                                    for name in (
+                                        playlist_channel.get("title", ""),
+                                        playlist_channel.get("tvg_name", ""),
                                     )
-                                    base_name = normalize_base_name(countryless) or normalize_name(countryless)
-                                    if base_name:
-                                        base_names.add(base_name)
-                            # Same base channel in SD/HD variants is allowed.
-                            # Different base names under one XMLTV ID are not.
-                            if len(base_names) > 1:
-                                ambiguous_xml_id_mappings[mapped_id] = sorted(candidate_indexes)
-                                mapped[mapped_id] = set()
+                                    if canonical_mapping_name(name)
+                                }
+                                if source_keys & playlist_keys:
+                                    matching_indexes.add(playlist_index)
+
+                            if matching_indexes:
+                                # Оставляем только кандидатов, подтверждённых
+                                # display-name. Неподтверждённые не получают этот EPG.
+                                mapped[mapped_id] = matching_indexes
+
+                            # Если остаётся несколько кандидатов или display-name
+                            # не помог определить канал, ничего не удаляем молча:
+                            # ID сохраняется и попадает в отчёт ручной проверки.
+                            if len(mapped[mapped_id]) > 1 or not matching_indexes:
+                                mapping_review_ids.add(mapped_id)
 
                         for detail in mapping_rule_details:
                             if detail.get("source") != source_name:
                                 continue
                             detail_id = detail.get("xml_channel_id", "")
-                            if detail_id in ambiguous_xml_id_mappings:
-                                indexes_text = " | ".join(
-                                    str(i) for i in ambiguous_xml_id_mappings[detail_id]
+                            final_indexes = sorted(mapped.get(detail_id, set()))
+                            detail["mapping_playlist_indexes"] = " | ".join(
+                                str(i) for i in final_indexes
+                            )
+                            detail["mapping_playlist_names"] = " | ".join(
+                                playlist_channels[i]["title"] for i in final_indexes
+                            )
+                            if detail_id in mapping_review_ids:
+                                detail["mapping_status"] = (
+                                    "review: shared XMLTV ID remains mapped to multiple channels; "
+                                    "programmes preserved"
                                 )
-                                names_text = " | ".join(
-                                    playlist_channels[i]["title"]
-                                    for i in ambiguous_xml_id_mappings[detail_id]
-                                )
-                                detail["mapping_status"] = "quarantined: shared XMLTV ID maps to different channel names"
-                                detail["mapping_playlist_indexes"] = indexes_text
-                                detail["mapping_playlist_names"] = names_text
-                            elif mapped.get(detail_id):
-                                detail["mapping_status"] = "accepted"
-                                detail["mapping_playlist_indexes"] = " | ".join(
-                                    str(i) for i in sorted(mapped[detail_id])
-                                )
-                                detail["mapping_playlist_names"] = " | ".join(
-                                    playlist_channels[i]["title"]
-                                    for i in sorted(mapped[detail_id])
-                                )
+                            elif final_indexes:
+                                detail["mapping_status"] = "accepted: display-name matched"
                             else:
                                 detail["mapping_status"] = "unmatched or ambiguous"
 
-                        stats["ambiguous_xml_ids_quarantined"] = len(ambiguous_xml_id_mappings)
-                        merge_diagnostics["ambiguous_xml_ids_quarantined"] += len(
-                            ambiguous_xml_id_mappings
-                        )
+                        # Неизвестные/неоднозначные ID больше не приводят к потере EPG.
+                        stats["ambiguous_xml_ids_quarantined"] = 0
+                        stats["programmes_quarantined_by_ambiguous_xml_id"] = 0
+                        stats["ambiguous_xml_ids_review"] = len(mapping_review_ids)
+                        merge_diagnostics["ambiguous_xml_ids_review"] += len(mapping_review_ids)
                         mapping_finalized = True
 
                     stats["programmes_read"] += 1
@@ -1294,6 +1320,7 @@ def write_coverage_report(stats_list):
         "region_ambiguous_channels",
         "ambiguous_xml_ids_quarantined",
         "programmes_quarantined_by_ambiguous_xml_id",
+        "ambiguous_xml_ids_review",
         "unmatched_channels",
         "first_programme",
         "last_programme",
@@ -2210,8 +2237,9 @@ def write_epg_diagnostics(
         f"  Внутри одного источника: {merge_diagnostics['same_source_collisions']}",
         f"    Один и тот же XMLTV ID: {merge_diagnostics['same_source_same_xml_id']}",
         f"    Разные XMLTV ID сопоставлены одному каналу плейлиста: {merge_diagnostics['same_source_different_xml_id']}",
-        f"  XMLTV ID, изолированных из-за связи с разными каналами: {merge_diagnostics.get('ambiguous_xml_ids_quarantined', 0)}",
-        f"  Передач, не назначенных каналам из-за неоднозначного XMLTV ID: {merge_diagnostics.get('programmes_quarantined_by_ambiguous_xml_id', 0)}",
+        f"  XMLTV ID, изолированных из-за неоднозначности: {merge_diagnostics.get('ambiguous_xml_ids_quarantined', 0)}",
+        f"  Передач, не назначенных из-за неоднозначности XMLTV ID: {merge_diagnostics.get('programmes_quarantined_by_ambiguous_xml_id', 0)}",
+        f"  XMLTV ID оставлено на ручную проверку без удаления EPG: {merge_diagnostics.get('ambiguous_xml_ids_review', 0)}",
         f"  Нормализованные совпадения title среди различающихся: {merge_diagnostics['title_normalized_same']}",
         f"  Входящий title длиннее: {merge_diagnostics['title_incoming_longer']}; короче: {merge_diagnostics['title_incoming_shorter']}; равной длины: {merge_diagnostics['title_equal_length']}",
         f"  Нормализованные совпадения desc среди различающихся: {merge_diagnostics['desc_normalized_same']}",
