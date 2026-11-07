@@ -17,23 +17,16 @@ EPG.ONE epg2,1992,HGTV HD,2,3305 | 8060
 EPG.ONE epg2,1855,National Geographic HD,3,102 | 3922 | 4474
 EPG.ONE epg2,1901,TLC HD,6,3666 | 3711 | 3968 | 425 | 4864 | 8162
 EPG.ONE epg2,1903,History HD,7,1394 | 3596 | 3662 | 3748 | 4014 | 4889 | 7863
-EPG.ONE epg2,1852,TravelXP 4K,3,7617 | 8164 | 9154
+EPG.ONE epg2,1852,TravelXP 4K,2,7617 | 8164
 EPG.ONE epg2,2679,beIN Sports 2,2,2885 | 3874
 EPG.ONE epg2,2680,beIN Sports 3,2,2886 | 3876
 EPG.ONE epg2,1906,Discovery Channel HD,5,2689 | 3078 | 3132 | 325 | 3595
-EPG.ONE epg2,59,Звезда +2,2,2039 | 405
-EPG.ONE epg2,20,НТВ +2,2,162 | 2036
-EPG.ONE epg2,73,Пятница! +7,2,1003 | 3018
-EPG.ONE epg2,71,Пятница! +2,2,1003 | 3016
-EPG.ONE epg2,72,Пятница! +4,2,1003 | 3017
-EPG.ONE epg2,161,ТВ Центр International,2,5691 | 649
 EPG.ONE epg2,2535,Food Network,4,2057 | 2708 | 2741 | 3788
 EPG.ONE epg2,2874,Da Vinci HD,2,3912 | 410
 EPG.ONE epg2,370,FX HD,3,1031 | 3092 | 3578
 EPG.ONE epg2,2549,Disney XD,2,2375 | 3645
 EPG.ONE epg2,2867,AMC,4,3652 | 3691 | 8288 | 9646
 EPG.ONE epg2,2845,Viasat Kino HD,2,3686 | 8881
-EPG.ONE epg2,499,FILMBOX+ One,2,2181 | 3690
 EPG.ONE epg2,1902,Travel Channel HD,2,3696 | 613
 EPG.ONE epg2,1965,Investigation Discovery,3,2507 | 3699 | 4851
 EPG.ONE epg2,1907,Discovery Channel,2,325 | 3710
@@ -45,9 +38,6 @@ EPG.ONE epg2,1905,History 2 HD,2,2356 | 4888
 EPG.ONE epg2,2542,NBA TV HD US,2,3894 | 4587
 EPG.ONE epg2,1752,NickToons HD,2,2994 | 4858
 EPG.ONE epg2,2681,beIN Sports 4,2,3878 | 9216
-EPG.ONE epg2,30,Пятый канал +2,2,2035 | 427
-EPG.ONE epg2,48,РЕН ТВ +4,2,18 | 3033
-EPG.ONE epg2,49,РЕН ТВ +7,2,18 | 3034
 EPG.ONE epg2,2865,5 Канал HD,2,2079 | 2643
 IPTVX full,2678,beIN Sports,2,bein-sports-4k | bein-sports-fta
 IPTVX full,429,Блокбастер HD,2,blokbaster | blokbaster-hd

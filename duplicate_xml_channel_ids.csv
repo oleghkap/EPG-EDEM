@@ -1,12 +1,12 @@
 ﻿source,xml_channel_id,occurrences,display_names,playlist_channels,playlist_indexes
-EPG.ONE epg2,162,2,НТВ | НТВ +0 (Белгород) | НТВ +0 (Липецк) | НТВ +0 (Невинномысск) | НТВ +0 (Тамбов) | НТВ +0 (Элиста) | НТВ +2 | НТВ +4 (Алтай) | НТВ HD | НТВ HD orig | НТВ UHD | НТВ orig,НТВ HD | НТВ | НТВ +2 | НТВ HD orig | НТВ orig | НТВ +0 (Липецк) | НТВ +0 (Невинномысск) | НТВ +0 (Белгород) | НТВ +0 (Элиста) | НТВ +0 (Тамбов),16 | 19 | 20 | 110 | 145 | 184 | 191 | 255 | 275 | 288
-EPG.ONE epg2,146,2,Первый FHD | Первый HD | Первый HD Orig | Первый канал | Первый канал +0 (Белгород) | Первый канал +0 (Липецк) | Первый канал +0 (Невинномысск) | Первый канал +0 (Тамбов) | Первый канал +0 (Элиста) | Первый канал +4 (Алтай) | Первый канал FHD | Первый канал HD | Первый канал HD 50 | Первый канал HD orig | Первый канал UHD | Первый канал orig,Первый канал FHD | Первый канал HD | Первый канал | Первый канал orig | Первый канал HD orig | Первый канал +0 (Невинномысск) | Первый канал +0 (Липецк) | Первый канал +0 (Белгород) | Первый канал +0 (Элиста) | Первый канал +0 (Тамбов),1 | 2 | 3 | 142 | 157 | 192 | 231 | 253 | 272 | 286
-EPG.ONE epg2,1003,2,Пятница! | Пятница! +0 (Белгород) | Пятница! +0 (Липецк) | Пятница! +0 (Невинномысск) | Пятница! +0 (Тамбов) | Пятница! +2 | Пятница! +4 | Пятница! +4 (Алтай) | Пятница! +7 | Пятница! HD | Пятница! orig,Пятница! HD | Пятница! | Пятница! +2 | Пятница! +4 | Пятница! +7 | Пятница! orig | Пятница! +0 (Невинномысск) | Пятница! +0 (Липецк) | Пятница! +0 (Белгород) | Пятница! +0 (Тамбов),69 | 70 | 71 | 72 | 73 | 149 | 194 | 229 | 262 | 293
-EPG.ONE epg2,711,2,Россия 1 | Россия 1 +0 (Алания) | Россия 1 +0 (Белгород) | Россия 1 +0 (Липецк) | Россия 1 +0 (Невинномысск) | Россия 1 +0 (Тамбов) | Россия 1 +0 (Элиста) | Россия 1 +1 (Приволжье) | Россия 1 +8 | Россия 1 FHD | Россия 1 HD | Россия 1 HD 50 | Россия 1 HD orig | Россия 1 UHD | Россия 1 orig | Россия FHD | Россия HD | Россия HD Orig,Россия 1 FHD | Россия 1 HD | Россия 1 | Россия 1 +8 | Россия 1 orig | Россия 1 HD 50 | Россия 1 HD orig | Россия 1 +0 (Липецк) | Россия 1 +0 (Невинномысск) | Россия 1 +0 (Алания) | Россия 1 +0 (Белгород) | Россия 1 +0 (Элиста) | Россия 1 +0 (Тамбов),9 | 10 | 11 | 15 | 143 | 144 | 156 | 183 | 193 | 252 | 254 | 274 | 287
-EPG.ONE epg2,2102,2,Enter | Enter-фільм | Enter-фільм HD | Enter-фільм HD UA | Enter-фільм UA,Enter | Enter | Enter-фільм HD UA,2719 | 2720 | 2808
+EPG.ONE epg2,162,2,НТВ | НТВ +0 (Белгород) | НТВ +0 (Липецк) | НТВ +0 (Невинномысск) | НТВ +0 (Тамбов) | НТВ +0 (Элиста) | НТВ +2 | НТВ +4 (Алтай) | НТВ HD | НТВ HD orig | НТВ UHD | НТВ orig,,
+EPG.ONE epg2,146,2,Первый FHD | Первый HD | Первый HD Orig | Первый канал | Первый канал +0 (Белгород) | Первый канал +0 (Липецк) | Первый канал +0 (Невинномысск) | Первый канал +0 (Тамбов) | Первый канал +0 (Элиста) | Первый канал +4 (Алтай) | Первый канал FHD | Первый канал HD | Первый канал HD 50 | Первый канал HD orig | Первый канал UHD | Первый канал orig,,
+EPG.ONE epg2,1003,2,Пятница! | Пятница! +0 (Белгород) | Пятница! +0 (Липецк) | Пятница! +0 (Невинномысск) | Пятница! +0 (Тамбов) | Пятница! +2 | Пятница! +4 | Пятница! +4 (Алтай) | Пятница! +7 | Пятница! HD | Пятница! orig,,
+EPG.ONE epg2,711,2,Россия 1 | Россия 1 +0 (Алания) | Россия 1 +0 (Белгород) | Россия 1 +0 (Липецк) | Россия 1 +0 (Невинномысск) | Россия 1 +0 (Тамбов) | Россия 1 +0 (Элиста) | Россия 1 +1 (Приволжье) | Россия 1 +8 | Россия 1 FHD | Россия 1 HD | Россия 1 HD 50 | Россия 1 HD orig | Россия 1 UHD | Россия 1 orig | Россия FHD | Россия HD | Россия HD Orig,,
+EPG.ONE epg2,2102,2,Enter | Enter-фільм | Enter-фільм HD | Enter-фільм HD UA | Enter-фільм UA,,
 EPG.ONE epg2,2098,2,Мега | Мега HD | Мега HD UA | Мега UA,Мега UA | Мега HD UA,2712 | 2713
-EPG.ONE epg2,18,2,РЕН UHD | РЕН ТВ | РЕН ТВ +0 (Белгород) | РЕН ТВ +0 (Невинномысск) | РЕН ТВ +0 (Тамбов) | РЕН ТВ +0 (Элиста) | РЕН ТВ +2 | РЕН ТВ +2 (Уфа) | РЕН ТВ +4 | РЕН ТВ +7 | РЕН ТВ HD | РЕН ТВ HD orig | РЕН ТВ UHD | РЕН ТВ orig | Рен ТВ | Рен ТВ HD | Рен ТВ HD orig | Рен ТВ orig,РЕН ТВ HD | РЕН ТВ | РЕН ТВ +2 | РЕН ТВ +4 | РЕН ТВ +7 | РЕН ТВ HD orig | РЕН ТВ orig | РЕН ТВ +2 (Уфа) | РЕН ТВ +0 (Невинномысск) | РЕН ТВ +0 (Элиста) | РЕН ТВ +0 (Тамбов) | РЕН ТВ +0 (Белгород),45 | 46 | 47 | 48 | 49 | 108 | 147 | 181 | 196 | 279 | 290 | 298
-EPG.ONE epg2,353,2,ТНТ | ТНТ +0 (Белгород) | ТНТ +0 (Липецк) | ТНТ +0 (Невинномысск) | ТНТ +0 (Тамбов) | ТНТ +0 (Элиста) | ТНТ FHD | ТНТ HD | ТНТ HD 50 | ТНТ HD Orig | ТНТ HD orig | ТНТ UHD | ТНТ orig,ТНТ FHD | ТНТ HD | ТНТ | ТНТ orig | ТНТ HD orig | ТНТ +0 (Невинномысск) | ТНТ +0 (Липецк) | ТНТ +0 (Белгород) | ТНТ +0 (Элиста) | ТНТ +0 (Тамбов) | ТНТ HD 50,35 | 36 | 37 | 146 | 155 | 200 | 230 | 263 | 284 | 294 | 2122
+EPG.ONE epg2,18,2,РЕН UHD | РЕН ТВ | РЕН ТВ +0 (Белгород) | РЕН ТВ +0 (Невинномысск) | РЕН ТВ +0 (Тамбов) | РЕН ТВ +0 (Элиста) | РЕН ТВ +2 | РЕН ТВ +2 (Уфа) | РЕН ТВ +4 | РЕН ТВ +7 | РЕН ТВ HD | РЕН ТВ HD orig | РЕН ТВ UHD | РЕН ТВ orig | Рен ТВ | Рен ТВ HD | Рен ТВ HD orig | Рен ТВ orig,,
+EPG.ONE epg2,353,2,ТНТ | ТНТ +0 (Белгород) | ТНТ +0 (Липецк) | ТНТ +0 (Невинномысск) | ТНТ +0 (Тамбов) | ТНТ +0 (Элиста) | ТНТ FHD | ТНТ HD | ТНТ HD 50 | ТНТ HD Orig | ТНТ HD orig | ТНТ UHD | ТНТ orig,,
 EPG.ONE epg2,2932,2,Sport 1 HD LT | Sport 1 LT,,
 BCU Media,Спас,2,Спас,СПАС,90
 BCU Media,Stingray iConcerts HD,2,Stingray iConcerts HD,,
@@ -37,14 +37,14 @@ Satfor,bcu_kinop1,2,BCU Premiere 1 HDR | BCU Кинозал PREMIERE 1 HD,BCU К
 Satfor,bcu_prem_hdr_2,2,BCU Premiere 2 HDR | BCU Кинозал PREMIERE 2 HD,BCU Кинозал Premiere 2 HD,664
 Satfor,bcu_prem_hdr_3,2,BCU Premiere 3 HDR | BCU Кинозал PREMIERE 3 HD,BCU Кинозал Premiere 3 HD,665
 Satfor,bcu_premiere,2,BCU Premiere HD | BCU Premiere HDR,BCU Premiere HD,677
-Satfor,static-2,17,CineMan ExExEx | CineMan ExExEx 2 | EroXXX | Erox HD | Evil Angel | KinoXXX | MÖDO Honey Twins | OLERO Fake Hostel | Pornbox 1 | Pornbox 2 | Sexy 1 | Sexy 2 | Sexy 3 | Sexy 4 | Tushy | Z!Adult TV | Эротические клипы для взрослых,Eroxxx HD | Evil Angel HD | Erox HD | KinoXXX | Tushy | CineMan ExExEx,2282 | 2330 | 2413 | 2420 | 2494 | 2512
+Satfor,static-2,17,CineMan ExExEx | CineMan ExExEx 2 | EroXXX | Erox HD | Evil Angel | KinoXXX | MÖDO Honey Twins | OLERO Fake Hostel | Pornbox 1 | Pornbox 2 | Sexy 1 | Sexy 2 | Sexy 3 | Sexy 4 | Tushy | Z!Adult TV | Эротические клипы для взрослых,,
 Satfor,enter-film,2,Enter-фільм | Enter-фільм HD,Enter-фільм HD UA,2808
 Satfor,fanhd,2,FAN | FAN HD,FAN HD | FAN,417 | 494
 Satfor,static-13,2,Fresh Concerts | Концерты популярных исполнителей,FRESH Concerts HD,1673
-Satfor,static-1,10,Fresh Dance | Fresh PopHits | Fresh Retro | Fresh RussianPop | Liberty МиксМузыка | MM World Hits HD | MÖDO Top Music | SKY HIGH Music HD Ai | Z!Musiс HD | Музыкальные клипы нон-стоп,MM World Hits HD | FRESH Dance HD | FRESH Retro HD,751 | 1669 | 1674
+Satfor,static-1,10,Fresh Dance | Fresh PopHits | Fresh Retro | Fresh RussianPop | Liberty МиксМузыка | MM World Hits HD | MÖDO Top Music | SKY HIGH Music HD Ai | Z!Musiс HD | Музыкальные клипы нон-стоп,,
 Satfor,static-15,2,Fresh Lyrics | Лирическая музыка,FRESH Lyrics HD,1675
 Satfor,static-12,2,Fresh Rock Covers | Музыкальные клипы с хитами рока и металла.,FRESH Rock Covers HD,1671
-Satfor,static-8,4,Fresh RockHits | MM Rock HD | Z!Rock HD | Клипы в стиле Rock,MM Rock HD | Z!Rock HD,743 | 1620
+Satfor,static-8,4,Fresh RockHits | MM Rock HD | Z!Rock HD | Клипы в стиле Rock,,
 Satfor,static-22,2,Fresh RussianRap | Музыкальные клипы российского рэпа,,
 Satfor,static-14,2,Fresh Sad Music | Спокойная музыка для релакса,FRESH Sad Music HD,1668
 Satfor,1TV Sport,2,GE: 1 TV | GE: 1TV Sport,,
@@ -64,7 +64,7 @@ Satfor,star-cinema,2,LAT: Star Cinema | Star Cinema HD,,
 Satfor,star-family,2,LAT: Star Family | Star Family HD,,
 Satfor,history-viasat-en,2,LAT: Viasat History | Viasat History CEE,,
 Satfor,balticum-tv,2,LIT: Balticum | LIT: Balticum TV,,
-Satfor,LIBERTYKINOMIKS4K,2,Liberty Кино UKR 4K | Liberty Кино-микс 4K,Liberty Кино Микс 4K | Liberty Кино UKR 4K,915 | 924
+Satfor,LIBERTYKINOMIKS4K,2,Liberty Кино UKR 4K | Liberty Кино-микс 4K,,
 Satfor,static-56,2,Liberty Эротика,Liberty Эротика FHD,2505
 Satfor,static-28,2,MM Disney HD | Лучшие мультфильмы Disney,,
 Satfor,static-48,2,MÖDO Music 2021 | Музыкальные клипы 2021,,
@@ -93,7 +93,7 @@ Satfor,tv1000-russkoe-kino,2,viju TV1000 Русское | viju TV1000 Русск
 Satfor,viasat-sport,2,viju+ Sport | viju+ Sport HD,Viju+ Sport HD | Viju+ Sport,1314 | 1328
 Satfor,avto24,2,Авто 24 | Авто 24 HD,Авто 24 HD | Авто 24,1843 | 1989
 Satfor,static-44,2,Актуальные события и новости из стран Азии и Росси | Большая Азия,Большая Азия HD,1923
-Satfor,detsky,2,Детский HD | Детский мир,Детский мир | Детский HD,1735 | 1774
+Satfor,detsky,2,Детский HD | Детский мир,,
 Satfor,domashny,2,Домашний | Домашний HD,Домашний | Домашний HD,76 | 125
 Satfor,evrokino,2,Еврокино | Еврокино HD,Еврокино,474
 Satfor,zhara,2,Жара | Жара HD,Жара HD | Жара,1552 | 1553
