@@ -49,7 +49,6 @@ IPTVX full,430,Хит HD,2,khit | khit-hd
 IPTVX full,431,Кинопоказ HD,2,kinopokaz | kinopokaz-hd
 IPTVX full,436,Комедийное HD,2,komedijnoe | komedijnoe-hd
 IPTVX full,379,Лавстори HD,2,lavstori | lavstori-hd
-IPTVX full,50,Мир,2,mir | mir-kz
 IPTVX full,428,Наш Кинопоказ HD,2,nash-kinopokaz | nash-kinopokaz-hd
 IPTVX full,439,Любимое HD,2,nashe-lubimoe | nashe-lubimoe-hd
 IPTVX full,438,Наше HD,3,nashe-music-hd | nashehd | nashesd
@@ -60,7 +59,6 @@ IPTVX full,521,Шокирующее HD,2,shokiruyushchee | shokiruyushchee-hd
 IPTVX full,1183,Sky Sports F1 UHD UK,2,sky-sports-f1 | sky-sports-f1-uhd-uk
 IPTVX full,380,Советская киноклассика HD,2,sov-kinklass | sov-kinklass-hd
 IPTVX full,1901,TLC HD,3,tlc | tlc-blk | tlc-tr
-IPTVX full,37,ТНТ,2,tnt | tnt-kz
 TV.TEAM full,1901,TLC HD,11,ch1020 | ch1411 | ch160 | ch2632 | ch2856 | ch3212 | ch3688 | ch4020 | ch4212 | ch435 | ch941
 TV.TEAM full,1992,HGTV HD,6,ch2198 | ch2361 | ch4215 | ch723 | ch908 | ch969
 TV.TEAM full,1182,Eurosport 2 HD,9,ch071 | ch1831 | ch2103 | ch2249 | ch2482 | ch2497 | ch287 | ch2993 | ch892
@@ -198,7 +196,6 @@ FOX TV,394,FilmZone HD LV,2,12:ch3200 | 1:2060
 FOX TV,1734,Nickelodeon,2,12:ch3207 | 8:Nickelodeon LT
 FOX TV,1752,NickToons HD,3,12:ch2128 | 8:Nicktoons DE | 8:Nicktoons LT
 FOX TV,1901,TLC HD,5,12:ch3212 | 1:1311 | 1:1943 | 5:ch2632 | 9:TLC
-FOX TV,1913,Animal Planet,3,1:38 | 5:ch2624 | 9:Animal Planet
 FOX TV,1906,Discovery Channel HD,2,1:1322 | 7:2689
 FOX TV,1903,History HD,3,1:129 | 1:1326 | 7:4014
 FOX TV,1182,Eurosport 2 HD,4,1:98 | 2:eurosport2-pl | 7:4903 | 8:Eurosport 2 DE
@@ -207,6 +204,7 @@ FOX TV,1748,Baby TV,2,1:1549 | 2:baby-tv
 FOX TV,1963,Nat Geo Wild HD,2,1:1205 | 8:Nat Geo Wild HD DE
 FOX TV,1910,Nat Geo Wild,2,1:2020 | 9:National Geographic Wild
 FOX TV,1849,National Geographic,2,1:1206 | 7:2677
+FOX TV,1913,Animal Planet,2,5:ch2624 | 9:Animal Planet
 FOX TV,2535,Food Network,2,7:2708 | 9:Food Network
 Satfor,647,CineMan,2,cineman | cineman_am
 Satfor,1737,Cartoon Network,2,cartoon_network | cartoonnetwork_tr
