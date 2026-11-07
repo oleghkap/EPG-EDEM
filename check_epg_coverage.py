@@ -1718,6 +1718,10 @@ def analyze_programme_interval_overlaps(global_programmes):
     overlap_duration_buckets = defaultdict(int)
     start_delta_buckets = defaultdict(int)
     channel_source_counts = defaultdict(int)
+    xml_id_pair_analysis = defaultdict(lambda: {
+        "total": 0, "exact_title": 0, "normalized_title": 0,
+        "different_title": 0, "overlap_minutes": 0.0,
+    })
 
     def bucket(value, limits):
         for upper, label in limits:
@@ -1777,6 +1781,11 @@ def analyze_programme_interval_overlaps(global_programmes):
 
                     first_xml_id = previous.get("xml_channel_id", "") or ""
                     second_xml_id = current.get("xml_channel_id", "") or ""
+                    id_pair = tuple(sorted(((first_source, first_xml_id), (second_source, second_xml_id))))
+                    id_pair_stats = xml_id_pair_analysis[(channel_index, id_pair)]
+                    id_pair_stats["total"] += 1
+                    id_pair_stats[title_relation] += 1
+                    id_pair_stats["overlap_minutes"] += overlap_minutes
                     if same:
                         same_source_xml_id_counts[first_source][
                             "same_xml_id" if first_xml_id == second_xml_id else "different_xml_id"
@@ -1814,6 +1823,40 @@ def analyze_programme_interval_overlaps(global_programmes):
         "overlap_duration_buckets": dict(overlap_duration_buckets),
         "start_delta_buckets": dict(start_delta_buckets),
         "channel_source_counts": sorted(channel_source_counts.items(), key=lambda item: (-item[1], item[0])),
+        "xml_id_pair_analysis": sorted(xml_id_pair_analysis.items(), key=lambda item: (-item[1]["total"], item[0])),
+    }
+
+
+def normalize_programme_intervals(global_programmes):
+    """Обрезает только stop предыдущей передачи до начала следующей, не удаляя записи."""
+    by_channel = defaultdict(list)
+    for item in global_programmes.values():
+        by_channel[item["channel_index"]].append(item)
+
+    adjusted = 0
+    truncated_seconds = 0.0
+    max_truncation_seconds = 0.0
+    by_source = defaultdict(int)
+
+    for items in by_channel.values():
+        items.sort(key=lambda item: item["start"])
+        for previous, current in zip(items, items[1:]):
+            old_stop = previous.get("stop")
+            next_start = current["start"]
+            if old_stop is None or old_stop <= next_start:
+                continue
+            seconds = (old_stop - next_start).total_seconds()
+            previous["stop"] = next_start
+            adjusted += 1
+            truncated_seconds += seconds
+            max_truncation_seconds = max(max_truncation_seconds, seconds)
+            by_source[previous.get("source", "")] += 1
+
+    return {
+        "adjusted_programmes": adjusted,
+        "truncated_minutes": truncated_seconds / 60,
+        "max_truncation_minutes": max_truncation_seconds / 60,
+        "by_source": dict(by_source),
     }
 
 
@@ -1827,6 +1870,8 @@ def write_epg_diagnostics(
     exact_programmes_seen,
     merge_diagnostics,
     interval_diagnostics,
+    adjustment_diagnostics,
+    final_interval_diagnostics,
 ):
     """Сводная диагностика объёма XMLTV, описаний и распределения передач."""
     programmes = list(global_programmes.values())
@@ -2105,7 +2150,14 @@ def write_epg_diagnostics(
         f"  Внутри одного источника: {interval_diagnostics['same_source']}",
         f"  Между разными источниками: {interval_diagnostics['cross_source']}",
         f"  Передач без stop (не проверяются на пересечение): {interval_diagnostics['missing_stop']}",
-        f"  Подробности: programme_interval_overlaps.csv.gz ({overlap_size:,} байт)",
+        f"  Подробности до нормализации: programme_interval_overlaps.csv.gz ({overlap_size:,} байт)",
+        "",
+        "НОРМАЛИЗАЦИЯ ИНТЕРВАЛОВ (записи и время начала сохранены):",
+        f"  Передач с сокращённым stop: {adjustment_diagnostics['adjusted_programmes']:,}",
+        f"  Убрано пересекающегося времени: {adjustment_diagnostics['truncated_minutes'] / 60:.1f} ч",
+        f"  Максимальное сокращение одной передачи: {adjustment_diagnostics['max_truncation_minutes']:.1f} мин",
+        f"  Пересечений после нормализации: {final_interval_diagnostics['count']:,}",
+        "  По источникам: " + "; ".join(f"{name} — {count}" for name, count in sorted(adjustment_diagnostics["by_source"].items())),
         "",
         "Точные дубликаты programme по каналу, времени и полному содержимому:",
         f"  Повторных записей в источниках: {exact_duplicate_count}",
@@ -2168,6 +2220,20 @@ def write_epg_diagnostics(
             f"разное название {stats['different_title']:,}; "
             f"среднее пересечение {average_overlap:.1f} мин; "
             f"разница стартов: {dict(stats['start_delta_minutes'])}"
+        )
+
+    lines.extend(["", "ПЕРЕСЕЧЕНИЯ ПО КОНКРЕТНЫМ XMLTV ID (все группы):"])
+    for (channel_index, id_pair), stats in interval_diagnostics["xml_id_pair_analysis"]:
+        channel_name = channels[channel_index].get("title", "") if 0 <= channel_index < len(channels) else "неизвестный канал"
+        first_source, first_id = id_pair[0]
+        second_source, second_id = id_pair[1]
+        average_overlap = stats["overlap_minutes"] / stats["total"] if stats["total"] else 0
+        lines.append(
+            f"  {stats['total']:,}: {channel_name} | "
+            f"{first_source}/{first_id} + {second_source}/{second_id} | "
+            f"разные названия {stats['different_title']:,}; "
+            f"одинаковые/нормализованные {stats['exact_title'] + stats['normalized_title']:,}; "
+            f"средняя накладка {average_overlap:.1f} мин"
         )
 
     lines.extend(["", "ПРОБЛЕМНЫЕ КАНАЛЫ: ПАРЫ ИСТОЧНИКОВ (топ-100):"])
@@ -2357,12 +2423,15 @@ def main():
             "all_candidate_indexes", "all_candidate_names",
         ],
     )
+    raw_interval_diagnostics = analyze_programme_interval_overlaps(global_programmes)
+    adjustment_diagnostics = normalize_programme_intervals(global_programmes)
+    final_interval_diagnostics = analyze_programme_interval_overlaps(global_programmes)
+
     logo_diagnostics, logo_report_lines = analyze_channel_logos(
         channels, channel_icons, channel_icon_sources
     )
     write_channel_report(channels, global_programmes, logo_diagnostics)
     xml_sizes = write_combined_xml(channels, global_programmes, channel_icons)
-    interval_diagnostics = analyze_programme_interval_overlaps(global_programmes)
     diagnostics = write_epg_diagnostics(
         channels,
         global_programmes,
@@ -2372,7 +2441,9 @@ def main():
         xml_sizes,
         exact_programmes_seen,
         merge_diagnostics,
-        interval_diagnostics,
+        raw_interval_diagnostics,
+        adjustment_diagnostics,
+        final_interval_diagnostics,
     )
     with (OUTPUT_DIR / "epg_diagnostics.txt").open("a", encoding="utf-8") as report:
         report.write("\n".join(logo_report_lines) + "\n")
