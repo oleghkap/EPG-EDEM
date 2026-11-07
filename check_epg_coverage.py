@@ -687,9 +687,11 @@ def programme_sequence_signature(title, start_dt, stop_dt=None):
 
 
 def scan_source_mapping_fingerprints(
-    source_path, indexes, playlist_channels, period_start, period_end
+    source_path, indexes, playlist_channels, period_start, period_end,
+    excluded_playlist_indexes=None,
 ):
     """Первый проход: строит компактные fingerprints только для конфликтующих ID и их якорей."""
+    excluded_playlist_indexes = set(excluded_playlist_indexes or ())
     mapped = {}
     fingerprints = defaultdict(set)
     relevant_ids = set()
@@ -716,6 +718,7 @@ def scan_source_mapping_fingerprints(
                     matched_indexes, _ = map_source_channels(
                         channel_id, display_names, indexes, playlist_channels
                     )
+                    matched_indexes -= excluded_playlist_indexes
                     if matched_indexes:
                         mapped.setdefault(channel_id, set()).update(matched_indexes)
                 elem.clear()
@@ -884,7 +887,9 @@ def process_source(
     duplicate_channel_id_details,
     channel_mapping_details,
     mapping_rule_details,
+    excluded_playlist_indexes=None,
 ):
+    excluded_playlist_indexes = set(excluded_playlist_indexes or ())
     stats = {
         "source": source_name,
         "status": "ERROR",
@@ -946,7 +951,8 @@ def process_source(
         log(f"  Получено: {size / 1024 / 1024:.1f} MB")
 
         sequence_mapped, sequence_fingerprints = scan_source_mapping_fingerprints(
-            temp_path, indexes, playlist_channels, period_start, period_end
+            temp_path, indexes, playlist_channels, period_start, period_end,
+            excluded_playlist_indexes,
         )
 
         # Для последующих источников используем уже принятые расписания как
@@ -958,7 +964,7 @@ def process_source(
             for candidate_set in sequence_mapped.values()
             if len(candidate_set) > 1
             for index in candidate_set
-        }
+        } - excluded_playlist_indexes
         for playlist_index in sequence_anchor_indexes:
             anchor_id = f"__previous_source_playlist_{playlist_index}"
             anchor_signatures = {
@@ -1034,6 +1040,10 @@ def process_source(
                         indexes,
                         playlist_channels,
                     )
+                    # Каждый playlist-канал закрепляется за первым источником,
+                    # который смог его сопоставить. Последующие источники могут
+                    # обрабатывать только ещё не закреплённые каналы.
+                    matched_indexes -= excluded_playlist_indexes
 
                     if matched_indexes and channel_id:
                         mapped.setdefault(channel_id, set()).update(
@@ -1532,6 +1542,7 @@ def process_source(
         stats["xml_channels_with_programmes"] = len(source_channels_with_programmes)
         stats["channels_with_programmes"] = len(accepted_indexes)
         stats["_channel_indexes_with_programmes"] = sorted(accepted_indexes)
+        stats["_channel_indexes_matched"] = sorted(all_matched_indexes)
         stats["unique_programmes"] = len(source_programmes)
         stats["status"] = "OK"
 
@@ -2853,6 +2864,7 @@ def main():
             size_snapshot_path.unlink()
     previous_gzip_bytes = baseline_gzip_bytes
     previously_covered_channels = set()
+    claimed_channel_indexes = set()
 
     for number, (source_name, source_url) in enumerate(SOURCES, start=1):
         log()
@@ -2877,7 +2889,13 @@ def main():
             duplicate_channel_id_details,
             channel_mapping_details,
             mapping_rule_details,
+            claimed_channel_indexes,
         )
+
+        source_matched_indexes = set(
+            stats.pop("_channel_indexes_matched", [])
+        )
+        claimed_channel_indexes.update(source_matched_indexes)
 
         source_channel_indexes = set(
             stats.pop("_channel_indexes_with_programmes", [])
