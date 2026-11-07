@@ -1647,6 +1647,8 @@ def analyze_programme_interval_overlaps(global_programmes):
     overlaps = []
     same_source = 0
     cross_source = 0
+    channel_overlap_counts = defaultdict(int)
+    source_pair_counts = defaultdict(int)
     for channel_index, items in by_channel.items():
         items.sort(key=lambda item: item["start"])
         active = []
@@ -1659,13 +1661,17 @@ def analyze_programme_interval_overlaps(global_programmes):
             if current.get("stop") is not None:
                 for previous in active:
                     if previous["start"] < current["stop"]:
-                        same = previous.get("source") == current.get("source")
+                        first_source = previous.get("source", "")
+                        second_source = current.get("source", "")
+                        same = first_source == second_source
                         same_source += int(same)
                         cross_source += int(not same)
+                        channel_overlap_counts[channel_index] += 1
+                        source_pair_counts[tuple(sorted((first_source, second_source)))] += 1
                         overlaps.append({
                             "playlist_index": channel_index,
-                            "first_source": previous.get("source", ""),
-                            "second_source": current.get("source", ""),
+                            "first_source": first_source,
+                            "second_source": second_source,
                             "first_start": previous["start"].isoformat(),
                             "first_stop": previous["stop"].isoformat(),
                             "first_title": previous.get("title", ""),
@@ -1681,6 +1687,14 @@ def analyze_programme_interval_overlaps(global_programmes):
         "same_source": same_source,
         "cross_source": cross_source,
         "missing_stop": missing_stop,
+        "channel_counts": sorted(
+            channel_overlap_counts.items(),
+            key=lambda item: (-item[1], item[0]),
+        ),
+        "source_pair_counts": sorted(
+            source_pair_counts.items(),
+            key=lambda item: (-item[1], item[0]),
+        ),
     }
 
 
@@ -1983,6 +1997,27 @@ def write_epg_diagnostics(
         f"  {date}: {count}"
         for date, count in daily_counts.items()
     )
+
+    lines.extend([
+        "",
+        f"Каналов с пересекающимися передачами: {len(interval_diagnostics['channel_counts'])}",
+        "",
+        "ПЕРЕСЕЧЕНИЯ ПО КАНАЛАМ (все каналы, по убыванию числа пар):",
+    ])
+    for channel_index, count in interval_diagnostics["channel_counts"]:
+        channel_name = (
+            channels[channel_index].get("title", "")
+            if 0 <= channel_index < len(channels)
+            else "неизвестный канал"
+        )
+        lines.append(f"  {count}: playlist_{channel_index + 1} | {channel_name}")
+
+    lines.extend([
+        "",
+        "ПЕРЕСЕЧЕНИЯ ПО ПАРАМ ИСТОЧНИКОВ (по убыванию числа пар):",
+    ])
+    for (first_source, second_source), count in interval_diagnostics["source_pair_counts"]:
+        lines.append(f"  {count}: {first_source} + {second_source}")
 
     report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
