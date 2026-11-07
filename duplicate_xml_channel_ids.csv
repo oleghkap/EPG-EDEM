@@ -135,9 +135,9 @@ Satfor,tnt,3,ТНТ | ТНТ HD | ТНТ HD 50fps,ТНТ HD | ТНТ,36 | 37
 Satfor,tnt4,2,ТНТ4 | ТНТ4 HD,ТНТ4 | ТНТ4 HD,83 | 2124
 Satfor,galaxy-tv,2,Тайны Галактики (Galaxy) HD | Тайны галактики (Galaxy),,
 M3U Edit ALL,Newsmax.us,2,Newsmax,,
-M3U Edit ALL,ESPN.br,2,ESPN,,
-M3U Edit ALL,ESPN.2.br,2,ESPN 2,ESPN 2 HD NL,1455
 M3U Edit ALL,ESPN.5.br,2,ESPN 5,,
+M3U Edit ALL,ESPN.2.br,2,ESPN 2,ESPN 2 HD NL,1455
+M3U Edit ALL,ESPN.br,2,ESPN,,
 M3U Edit ALL,HBO.br,2,HBO,,
 M3U Edit ALL,CNBC.TV18.Prime.in,2,CNBC TV18 Prime,,
 M3U Edit ALL,NDTV.24x7.in,2,NDTV 24x7,,
@@ -220,39 +220,39 @@ M3U Edit ALL,TV5.ph,2,TV5,,
 M3U Edit ALL,plex.tv.Z.Nation.plex,2,Z Nation,,
 M3U Edit ALL,plex.tv.The.World.Poker.Tour.plex,2,The World Poker Tour,,
 M3U Edit ALL,plex.tv.Victory+.plex,2,Victory+,,
-M3U Edit ALL,National.TV.ro,2,National TV,,
-M3U Edit ALL,TVR.Cultural.ro,2,TVR Cultural,,
-M3U Edit ALL,Duck.TV.ro,2,Duck TV,Duck TV,1747
-M3U Edit ALL,Nicktoons.ro,2,Nicktoons,NickToons HD,1752
-M3U Edit ALL,AXN.Spin.ro,2,AXN Spin,,
-M3U Edit ALL,Duck.TV.HD.ro,2,Duck TV HD,Duck TV,1747
-M3U Edit ALL,Nickelodeon.ro,2,Nickelodeon,Nickelodeon,1734
-M3U Edit ALL,Diva.ro,2,Diva,,
-M3U Edit ALL,Disney.Channel.ro,2,Disney Channel,,
-M3U Edit ALL,Crime.+.Investigation.ro,2,Crime + Investigation,,
-M3U Edit ALL,National.24.Plus.ro,2,National 24 Plus,,
-M3U Edit ALL,TVR.International.ro,2,TVR International,,
-M3U Edit ALL,AXN.White.ro,2,AXN White,,
-M3U Edit ALL,TVR.Moldova.ro,2,TVR Moldova,,
-M3U Edit ALL,Mezzo.Live.HD.ro,2,Mezzo Live HD,Mezzo Live HD,1564
-M3U Edit ALL,Eurosport.4K.ro,2,Eurosport 4K,Eurosport 4K,1180
-M3U Edit ALL,AXN.Black.ro,2,AXN Black,,
+M3U Edit ALL,Mezzo.ro,2,Mezzo,Mezzo,1566
 M3U Edit ALL,Prima.News.ro,2,Prima News,,
-M3U Edit ALL,TVR.Iași.ro,2,TVR Iași,,
-M3U Edit ALL,TVR.Cluj.ro,2,TVR Cluj,,
-M3U Edit ALL,Agro.TV.ro,2,Agro TV,,
-M3U Edit ALL,Minimax.ro,2,Minimax,,
-M3U Edit ALL,Cinemaraton.ro,2,Cinemaraton,,
-M3U Edit ALL,TVR.Timișoara.ro,2,TVR Timișoara,,
+M3U Edit ALL,National.TV.ro,2,National TV,,
+M3U Edit ALL,Eurosport.4K.ro,2,Eurosport 4K,Eurosport 4K,1180
+M3U Edit ALL,Disney.Channel.ro,2,Disney Channel,,
+M3U Edit ALL,National.24.Plus.ro,2,National 24 Plus,,
 M3U Edit ALL,TVR.Info.ro,2,TVR Info,,
 M3U Edit ALL,Metropola.TV.ro,2,Metropola TV,,
-M3U Edit ALL,TVR.Folclor.ro,2,TVR Folclor,,
-M3U Edit ALL,Mezzo.ro,2,Mezzo,Mezzo,1566
-M3U Edit ALL,Prima.4K.ro,2,Prima 4K,,
-M3U Edit ALL,Nostalgia.TV.ro,2,Nostalgia TV,,
-M3U Edit ALL,TVR.Craiova.ro,2,TVR Craiova,,
-M3U Edit ALL,Nick.Jr.ro,2,Nick Jr,Nick Jr,1731
+M3U Edit ALL,TVR.International.ro,2,TVR International,,
 M3U Edit ALL,Comedy.Central.ro,2,Comedy Central,Comedy Central,508
+M3U Edit ALL,TVR.Craiova.ro,2,TVR Craiova,,
+M3U Edit ALL,AXN.Black.ro,2,AXN Black,,
+M3U Edit ALL,TVR.Cultural.ro,2,TVR Cultural,,
+M3U Edit ALL,Nick.Jr.ro,2,Nick Jr,Nick Jr,1731
+M3U Edit ALL,Nicktoons.ro,2,Nicktoons,NickToons HD,1752
+M3U Edit ALL,AXN.Spin.ro,2,AXN Spin,,
+M3U Edit ALL,AXN.White.ro,2,AXN White,,
+M3U Edit ALL,Duck.TV.HD.ro,2,Duck TV HD,Duck TV,1747
+M3U Edit ALL,TVR.Timișoara.ro,2,TVR Timișoara,,
+M3U Edit ALL,TVR.Moldova.ro,2,TVR Moldova,,
+M3U Edit ALL,Duck.TV.ro,2,Duck TV,Duck TV,1747
+M3U Edit ALL,Minimax.ro,2,Minimax,,
+M3U Edit ALL,Nostalgia.TV.ro,2,Nostalgia TV,,
+M3U Edit ALL,TVR.Cluj.ro,2,TVR Cluj,,
+M3U Edit ALL,Agro.TV.ro,2,Agro TV,,
+M3U Edit ALL,Nickelodeon.ro,2,Nickelodeon,Nickelodeon,1734
+M3U Edit ALL,Diva.ro,2,Diva,,
+M3U Edit ALL,Prima.4K.ro,2,Prima 4K,,
+M3U Edit ALL,TVR.Iași.ro,2,TVR Iași,,
+M3U Edit ALL,TVR.Folclor.ro,2,TVR Folclor,,
+M3U Edit ALL,Mezzo.Live.HD.ro,2,Mezzo Live HD,Mezzo Live HD,1564
+M3U Edit ALL,Crime.+.Investigation.ro,2,Crime + Investigation,,
+M3U Edit ALL,Cinemaraton.ro,2,Cinemaraton,,
 M3U Edit ALL,SİNEMA.TV.HD.tr,2,SİNEMA TV HD,,
 M3U Edit ALL,SİNEMA.AKSİYON.2.HD.tr,2,SİNEMA AKSİYON 2 HD,,
 M3U Edit ALL,SİNEMA.YERLİ.tr,2,SİNEMA YERLİ,,
