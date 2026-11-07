@@ -1204,6 +1204,7 @@ def write_coverage_report(stats_list):
         "programmes_in_period",
         "unique_programmes",
         "duplicates_skipped",
+        "interval_conflicts_skipped",
         "exact_duplicates",
         "matched_by_tvg_id",
         "matched_by_exact_name",
