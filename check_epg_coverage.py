@@ -789,7 +789,9 @@ def compare_ambiguous_sequence(channel_id, candidate_indexes, mapped, fingerprin
             if len(anchor) < SEQUENCE_FINGERPRINT_MIN_PROGRAMMES:
                 continue
             common = len(target & anchor)
-            ratio = common / min(len(target), len(anchor))
+            # Двустороннее покрытие: большой набор не должен считаться совпадением
+            # только потому, что содержит весь меньший набор.
+            ratio = common / max(len(target), len(anchor))
             candidate = (ratio, common, anchor_id, len(anchor))
             if best is None or candidate[:2] > best[:2]:
                 best = candidate
@@ -797,7 +799,7 @@ def compare_ambiguous_sequence(channel_id, candidate_indexes, mapped, fingerprin
             scores[playlist_index] = best
 
     evidence = " | ".join(
-        f"{index}:anchor={score[2]},match={score[1]}/{min(len(target), score[3])},ratio={score[0]:.0%}"
+        f"{index}:anchor={score[2]},match={score[1]}/{max(len(target), score[3])},ratio={score[0]:.0%}"
         for index, score in sorted(scores.items())
     )
     if len(scores) != len(candidate_indexes):
@@ -1572,6 +1574,9 @@ def write_coverage_report(stats_list):
         "ambiguous_xml_ids_quarantined",
         "programmes_quarantined_by_ambiguous_xml_id",
         "ambiguous_xml_ids_review",
+        "ambiguous_xml_ids_sequence_resolved",
+        "ambiguous_xml_ids_sequence_verified_shared",
+        "ambiguous_xml_ids_sequence_conflicting",
         "unmatched_channels",
         "first_programme",
         "last_programme",
