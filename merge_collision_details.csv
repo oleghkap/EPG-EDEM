@@ -782,8 +782,6 @@ TV.TEAM full,FILMBOX+ Festival HD,2879,2026-11-08T09:00:00+03:00,ch897,ch684,dif
 TV.TEAM full,FILMBOX+ Festival HD,2879,2026-11-08T10:15:00+03:00,ch897,ch684,different IDs,11,15,541,0
 TV.TEAM full,FILMBOX+ Festival HD,2879,2026-11-08T11:45:00+03:00,ch897,ch684,different IDs,11,21,199,0
 TV.TEAM full,FILMBOX+ Festival HD,2879,2026-11-08T13:25:00+03:00,ch897,ch684,different IDs,17,28,196,0
-TV.TEAM full,FILMBOX+ Festival HD,2879,2026-11-08T14:40:00+03:00,ch897,ch684,different IDs,12,14,196,0
-TV.TEAM full,FILMBOX+ Festival HD,2879,2026-11-08T15:55:00+03:00,ch897,ch684,different IDs,5,15,199,0
 ProgramTV,Новое Радио HD,1632,2026-11-07T22:00:00+03:00,1986,1986,same ID,10,10,0,0
 ProgramTV,Новое Радио HD,1632,2026-11-08T20:30:00+03:00,1986,1986,same ID,16,16,0,0
 ProgramTV,VHS HD,722,2026-11-08T04:35:00+03:00,2168,2168,same ID,25,25,0,0
@@ -1305,6 +1303,7 @@ BCU Media,beIN Sports USA,2685,2026-11-08T21:30:00+03:00,Bein Sports USA HD,Bein
 BCU Media,beIN Sports USA,2685,2026-11-08T22:00:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,58,58,43,43
 BCU Media,beIN Sports USA,2685,2026-11-08T22:30:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,23,23,269,269
 BCU Media,beIN Sports USA,2685,2026-11-08T22:35:00+03:00,Bein Sports USA HD,Bein Sports USA HD,same ID,112,112,146,146
+BCU Media,FilmZone HD LV,394,2026-11-08T16:35:00+03:00,Filmzone HD,Filmzone HD,same ID,7,7,287,287
 BCU Media,FilmZone HD LV,394,2026-11-08T18:30:00+03:00,Filmzone HD,Filmzone HD,same ID,6,6,340,340
 BCU Media,FilmZone HD LV,394,2026-11-08T21:00:00+03:00,Filmzone HD,Filmzone HD,same ID,13,13,237,237
 BCU Media,FilmZone HD LV,394,2026-11-08T22:45:00+03:00,Filmzone HD,Filmzone HD,same ID,11,11,198,198
@@ -1607,6 +1606,7 @@ BCU Media,Russian Extreme HD,1322,2026-11-08T22:50:00+03:00,Russian Extreme HD,R
 BCU Media,Russian Extreme HD,1322,2026-11-08T23:00:00+03:00,Russian Extreme HD,Russian Extreme HD,same ID,38,38,609,609
 BCU Media,Russian Extreme HD,1322,2026-11-08T23:25:00+03:00,Russian Extreme HD,Russian Extreme HD,same ID,54,54,23,23
 BCU Media,Russian Extreme HD,1322,2026-11-08T23:55:00+03:00,Russian Extreme HD,Russian Extreme HD,same ID,28,28,510,510
+BCU Media,Sportdigital Fussball HD DE,1405,2026-11-08T14:00:00+03:00,SportDigital Fussball HD,SportDigital Fussball HD,same ID,39,39,41,41
 BCU Media,Sportdigital Fussball HD DE,1405,2026-11-08T16:25:00+03:00,SportDigital Fussball HD,SportDigital Fussball HD,same ID,39,39,41,41
 BCU Media,Sportdigital Fussball HD DE,1405,2026-11-08T18:40:00+03:00,SportDigital Fussball HD,SportDigital Fussball HD,same ID,41,41,41,41
 BCU Media,Sportdigital Fussball HD DE,1405,2026-11-08T21:00:00+03:00,SportDigital Fussball HD,SportDigital Fussball HD,same ID,33,33,38,38
@@ -1632,6 +1632,8 @@ BCU Media,TV4 Fotboll SE,1316,2026-11-08T11:00:00+03:00,TV4 Fotboll HD,TV4 Fotbo
 BCU Media,TV4 Fotboll SE,1316,2026-11-08T14:25:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,47,47,65,65
 BCU Media,TV4 Fotboll SE,1316,2026-11-08T18:00:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,47,47,47,47
 BCU Media,TV4 Fotboll SE,1316,2026-11-08T22:35:00+03:00,TV4 Fotboll HD,TV4 Fotboll HD,same ID,54,54,72,72
+BCU Media,Viasat Epic Drama,455,2026-11-08T14:15:00+03:00,Viasat epic drama hd,Viasat epic drama hd,same ID,30,30,178,178
+BCU Media,Viasat Epic Drama,455,2026-11-08T15:10:00+03:00,Viasat epic drama hd,Viasat epic drama hd,same ID,30,30,188,188
 BCU Media,Viasat Epic Drama,455,2026-11-08T16:05:00+03:00,Viasat epic drama hd,Viasat epic drama hd,same ID,30,30,197,197
 BCU Media,Viasat Epic Drama,455,2026-11-08T17:05:00+03:00,Viasat epic drama hd,Viasat epic drama hd,same ID,34,34,148,148
 BCU Media,Viasat Epic Drama,455,2026-11-08T19:00:00+03:00,Viasat epic drama hd,Viasat epic drama hd,same ID,34,34,146,146
