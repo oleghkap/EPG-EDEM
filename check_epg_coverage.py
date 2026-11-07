@@ -939,6 +939,8 @@ def process_source(
     mapping_sequence_resolved_ids = set()
     mapping_sequence_conflict_review_ids = set()
     source_programmes = {}
+    source_channel_icons = {}
+    source_channel_icon_sources = {}
     # Разные передачи с разным временем начала сохраняются даже при
     # пересечении интервалов. Пересечения анализируются отдельно после merge.
 
@@ -1063,9 +1065,9 @@ def process_source(
                         )
                         if icon_src:
                             for playlist_index in matched_indexes:
-                                if playlist_index not in channel_icons:
-                                    channel_icons[playlist_index] = icon_src
-                                    channel_icon_sources[playlist_index] = source_name
+                                if playlist_index not in source_channel_icons:
+                                    source_channel_icons[playlist_index] = icon_src
+                                    source_channel_icon_sources[playlist_index] = source_name
 
                         if method == "tvg-id":
                             stats["matched_by_tvg_id"] += 1
@@ -1546,8 +1548,13 @@ def process_source(
         stats["unique_programmes"] = len(source_programmes)
         stats["status"] = "OK"
 
-        # Сливаем источник только после завершения его разбора и фильтрации.
+        # Фиксируем данные источника только после успешного полного разбора.
+        # При ошибке частично прочитанный источник не должен оставлять логотипы.
         global_programmes.update(source_programmes)
+        for playlist_index, icon_src in source_channel_icons.items():
+            if playlist_index not in channel_icons:
+                channel_icons[playlist_index] = icon_src
+                channel_icon_sources[playlist_index] = source_channel_icon_sources[playlist_index]
 
         log(
             f"  Результат: XMLTV-каналов с программами "
