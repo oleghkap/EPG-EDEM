@@ -2,22 +2,22 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
 =======================================================
 Период: 2026-11-06T00:00:00+03:00 — 2026-11-09T00:00:00+03:00 (конец не включён)
 Каналов в итоговом XML: 2889
-Передач в итоговом XML: 285641
-Размер несжатого XML: 186,211,883 байт (177.59 MiB)
-Размер GZIP: 25,277,864 байт (24.11 MiB)
+Передач в итоговом XML: 286763
+Размер несжатого XML: 186,674,339 байт (178.03 MiB)
+Размер GZIP: 25,302,724 байт (24.13 MiB)
 
 Объём текстовых полей (UTF-8, без XML-разметки):
-  title: 11,561,849 байт (11.03 MiB)
-  desc: 131,680,902 байт (125.58 MiB)
-  category: 2,026,070 байт (1.93 MiB)
-  Всего текста: 145,268,821 байт
+  title: 11,613,676 байт (11.08 MiB)
+  desc: 131,955,939 байт (125.84 MiB)
+  category: 2,024,728 байт (1.93 MiB)
+  Всего текста: 145,594,343 байт
 
 ДЕТАЛИЗАЦИЯ ОПИСАНИЙ DESC
-  Всего передач: 285641
-  С непустым desc: 223348
-  С пустым desc: 62293
-  Всего символов: 76,534,666
-  Всего UTF-8 байт: 131,680,902
+  Всего передач: 286763
+  С непустым desc: 223814
+  С пустым desc: 62949
+  Всего символов: 76,682,957
+  Всего UTF-8 байт: 131,955,939
   Процентили длины непустого desc (UTF-8 байты):
     P50: 516 байт
     P75: 817 байт
@@ -26,24 +26,24 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
     P99: 2,173 байт
     P100: 12,593 байт
   Распределение непустых описаний по длине:
-    1–256 байт: 61,430
-    257–512 байт: 49,523
-    513–1024 байта: 80,460
-    1025–2048 байт: 29,064
-    2049–4096 байт: 2,790
+    1–256 байт: 61,426
+    257–512 байт: 49,843
+    513–1024 байта: 80,501
+    1025–2048 байт: 29,147
+    2049–4096 байт: 2,816
     более 4096 байт: 81
   Фактический GZIP при ограничении desc (level 6):
-    До 200 символов: 15,228,798 байт (15.23 MB; 14.52 MiB), экономия 10.05 MB
-    До 250 символов: 17,097,736 байт (17.10 MB; 16.31 MiB), экономия 8.18 MB
-    До 300 символов: 18,619,308 байт (18.62 MB; 17.76 MiB), экономия 6.66 MB
-    До 350 символов: 19,843,989 байт (19.84 MB; 18.92 MiB), экономия 5.43 MB
-    До 400 символов: 20,895,482 байт (20.90 MB; 19.93 MiB), экономия 4.38 MB
-    До 500 символов: 22,486,142 байт (22.49 MB; 21.44 MiB), экономия 2.79 MB
-    До 750 символов: 24,434,880 байт (24.43 MB; 23.30 MiB), экономия 0.84 MB
+    До 200 символов: 15,242,811 байт (15.24 MB; 14.54 MiB), экономия 10.06 MB
+    До 250 символов: 17,111,202 байт (17.11 MB; 16.32 MiB), экономия 8.19 MB
+    До 300 символов: 18,631,840 байт (18.63 MB; 17.77 MiB), экономия 6.67 MB
+    До 350 символов: 19,855,264 байт (19.86 MB; 18.94 MiB), экономия 5.45 MB
+    До 400 символов: 20,909,383 байт (20.91 MB; 19.94 MiB), экономия 4.39 MB
+    До 500 символов: 22,502,162 байт (22.50 MB; 21.46 MiB), экономия 2.80 MB
+    До 750 символов: 24,460,194 байт (24.46 MB; 23.33 MiB), экономия 0.84 MB
   Оценка экономии при ограничении длины (по символам):
-    До 500 символов: 17,759,532 байт (16.94 MiB; 13.5% объёма desc)
-    До 750 символов: 6,035,539 байт (5.76 MiB; 4.6% объёма desc)
-    До 1000 символов: 2,618,082 байт (2.50 MiB; 2.0% объёма desc)
+    До 500 символов: 17,815,358 байт (16.99 MiB; 13.5% объёма desc)
+    До 750 символов: 6,057,742 байт (5.78 MiB; 4.6% объёма desc)
+    До 1000 символов: 2,625,037 байт (2.50 MiB; 2.0% объёма desc)
     Примечание: это оценка экономии UTF-8 текста до XML-экранирования и GZIP.
   10 самых длинных описаний (текст desc не выводится):
     12,593 байт / 6,870 симв. | Cine+ Kids HD | м/с Уроки тітоньки Сови
@@ -58,43 +58,967 @@ EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG
     12,593 байт / 6,870 симв. | Cine+ Kids HD | м/с Уроки тітоньки Сови
 
 ПОВТОРЫ ПОЛЕЙ В ИТОГОВОМ EPG (непустые значения, точное совпадение):
-  title: групп 43407, повторных вхождений 190714, групп только на одном канале 20236, на разных каналах 23171
-  desc: групп 28313, повторных вхождений 161048, групп только на одном канале 12866, на разных каналах 15447
-  category: групп 1296, повторных вхождений 178806, групп только на одном канале 511, на разных каналах 785
+  title: групп 43770, повторных вхождений 191604, групп только на одном канале 20576, на разных каналах 23194
+  desc: групп 28318, повторных вхождений 161494, групп только на одном канале 12859, на разных каналах 15459
+  category: групп 1296, повторных вхождений 178697, групп только на одном канале 511, на разных каналах 785
   Повторяющихся category внутри одной передачи: 0
 
 СОВПАДЕНИЯ ПРИ СЛИЯНИИ ИСТОЧНИКОВ ДЛЯ ОДНОГО КАНАЛА И ВРЕМЕНИ:
-  Всего совпадений identity: 472279
-  Между разными источниками: 444863
-  Внутри одного источника: 27416
-    Один и тот же XMLTV ID: 3515
-    Разные XMLTV ID сопоставлены одному каналу плейлиста: 23901
-  Нормализованные совпадения title среди различающихся: 1806
-  Входящий title длиннее: 216215; короче: 97604; равной длины: 15812
-  Нормализованные совпадения desc среди различающихся: 791
-  Входящий непустой desc длиннее: 83272; короче: 120617; равной длины: 1491
-  Одинаковый title: 142648; различается: 329631
-  Одинаковый непустой desc: 113567; различается: 205380
-  Поздний источник заполнил пустой desc: 17152
-  У поздней записи desc пустой, у сохранённой непустой: 89148
-  Одинаковые наборы category: 238144; разные: 234135
-  Дополнительных категорий добавлено при слиянии: 171652
+  Всего совпадений identity: 466336
+  Между разными источниками: 439325
+  Внутри одного источника: 27011
+    Один и тот же XMLTV ID: 3292
+    Разные XMLTV ID сопоставлены одному каналу плейлиста: 23719
+  Нормализованные совпадения title среди различающихся: 1816
+  Входящий title длиннее: 211991; короче: 96973; равной длины: 15589
+  Нормализованные совпадения desc среди различающихся: 772
+  Входящий непустой desc длиннее: 81618; короче: 118863; равной длины: 1484
+  Одинаковый title: 141783; различается: 324553
+  Одинаковый непустой desc: 112813; различается: 201965
+  Поздний источник заполнил пустой desc: 17142
+  У поздней записи desc пустой, у сохранённой непустой: 87607
+  Одинаковые наборы category: 232509; разные: 233827
+  Дополнительных категорий добавлено при слиянии: 171665
 
 ПЕРЕСЕЧЕНИЯ ИНТЕРВАЛОВ ПЕРЕДАЧ НА ОДНОМ КАНАЛЕ:
-  Всего пересекающихся пар: 280401
-  Внутри одного источника: 65925
-  Между разными источниками: 214476
+  Всего пересекающихся пар: 282031
+  Внутри одного источника: 65733
+  Между разными источниками: 216298
   Передач без stop (не проверяются на пересечение): 0
-  Подробности: programme_interval_overlaps.csv.gz (3,412,394 байт)
+  Подробности: programme_interval_overlaps.csv.gz (3,440,674 байт)
 
 Точные дубликаты programme по каналу, времени и полному содержимому:
-  Повторных записей в источниках: 155871
-  Групп дубликатов: 112006
+  Повторных записей в источниках: 152243
+  Групп дубликатов: 109724
 
 Передач по календарным дням (по пересечению интервала):
-  2026-11-06: 102063
-  2026-11-07: 99708
-  2026-11-08: 88310
+  2026-11-06: 101867
+  2026-11-07: 100152
+  2026-11-08: 89206
+
+Каналов с пересекающимися передачами: 877
+
+ПЕРЕСЕЧЕНИЯ ПО КАНАЛАМ (все каналы, по убыванию числа пар):
+  27004: playlist_1748 | Duck TV
+  14871: playlist_1749 | Baby TV
+  12597: playlist_1732 | Nick Jr
+  9608: playlist_1738 | Cartoon Network
+  8542: playlist_1753 | NickToons HD
+  6933: playlist_1904 | History HD
+  6420: playlist_1549 | MTV HD
+  5769: playlist_1735 | Nickelodeon
+  5442: playlist_1742 | Cartoonito
+  5330: playlist_1908 | Discovery Channel
+  5079: playlist_509 | Comedy Central
+  5020: playlist_1902 | TLC HD
+  4645: playlist_1850 | National Geographic
+  4264: playlist_1907 | Discovery Channel HD
+  4232: playlist_1856 | National Geographic HD
+  4095: playlist_1914 | Animal Planet
+  3754: playlist_2868 | AMC
+  3641: playlist_2875 | Da Vinci HD
+  3296: playlist_1993 | HGTV HD
+  3272: playlist_1853 | TravelXP 4K
+  3058: playlist_371 | FX HD
+  3012: playlist_2536 | Food Network
+  2925: playlist_1730 | Nickelodeon HD
+  2617: playlist_1737 | Jim Jam
+  2444: playlist_1975 | Da Vinci
+  2225: playlist_1898 | Love Nature 4K
+  2214: playlist_1964 | Nat Geo Wild HD
+  2039: playlist_1403 | Red Bull TV
+  1940: playlist_2284 | Playboy
+  1829: playlist_1913 | Animal Planet HD
+  1578: playlist_1925 | DocuBox HD
+  1537: playlist_1895 | Home 4K
+  1485: playlist_827 | VF Привет из 90х
+  1287: playlist_1799 | VF Малыш
+  1241: playlist_359 | BBC First UK
+  1173: playlist_1973 | World Fashion Channel
+  1129: playlist_2681 | beIN Sports 3
+  1084: playlist_1456 | ESPN 2 HD NL
+  1029: playlist_770 | MM Lesson HD
+  982: playlist_321 | Известия
+  972: playlist_1986 | Outdoor Channel
+  957: playlist_1822 | BCU Little HD
+  954: playlist_1952 | Travel Channel
+  953: playlist_771 | MM Smile HD
+  948: playlist_2806 | FilmBox UA
+  943: playlist_745 | MM Tom and Jerry HD
+  943: playlist_1183 | Eurosport 2 HD
+  936: playlist_2085 | VF Каламбур
+  895: playlist_2287 | Blue Hustler
+  882: playlist_325 | CGTN
+  868: playlist_1734 | Gulli
+  826: playlist_1450 | DAZN 1 PT
+  801: playlist_2055 | VF Стройка
+  784: playlist_2787 | NIKI Junior HD UA
+  749: playlist_1565 | Mezzo Live HD
+  712: playlist_2786 | NIKI Kids HD UA
+  711: playlist_932 | Liberty МиМ FHD
+  704: playlist_2680 | beIN Sports 2
+  667: playlist_1951 | History 2
+  656: playlist_660 | CineMan Ментовские войны
+  650: playlist_1717 | Kids TV HD
+  637: playlist_2569 | TNT
+  629: playlist_1728 | VF Ералаш
+  625: playlist_1911 | Nat Geo Wild
+  604: playlist_110 | Gametoon
+  579: playlist_2071 | Yosso TV Food
+  569: playlist_1087 | CineMan Фитнес
+  548: playlist_1638 | M1 HD
+  518: playlist_2298 | Penthouse Gold HD
+  498: playlist_2679 | beIN Sports
+  495: playlist_749 | MM USSR Мультфильм HD
+  489: playlist_508 | Cinema
+  480: playlist_1727 | VF Союзмультфильм
+  472: playlist_2423 | VF Cartoon 18+
+  467: playlist_1042 | BOX M.Serial HD
+  467: playlist_1567 | Mezzo
+  442: playlist_1803 | Yosso TV Союзмульт
+  440: playlist_938 | CineMan Симпсоны
+  431: playlist_2115 | Арсенал HD
+  418: playlist_1086 | CineMan Комедийные Сериалы
+  413: playlist_792 | MM Walt Disney HD
+  407: playlist_943 | MS Animated HD
+  404: playlist_1457 | ESPN 3 HD NL
+  399: playlist_940 | MS Toons HD
+  397: playlist_1642 | Trace Urban HD
+  395: playlist_2570 | TBS
+  394: playlist_2447 | Playboy TV Europe HD
+  389: playlist_1899 | Наша Сибирь 4K
+  379: playlist_1923 | Глазами Туриста HD
+  375: playlist_33 | Пятый канал +7
+  373: playlist_2431 | Brazzers TV Europe HD
+  372: playlist_414 | FX Life
+  372: playlist_1900 | TERRA HD
+  369: playlist_774 | MM Ситком 2.0 HD
+  363: playlist_639 | VF Мультфильмы СССР
+  362: playlist_2369 | Reality Kings HD
+  360: playlist_607 | Премиальное HD
+  357: playlist_1958 | Galaxy
+  353: playlist_500 | FILMBOX+ One
+  353: playlist_759 | MM Воронины HD
+  351: playlist_1307 | Eurosport 1
+  347: playlist_1729 | ТипТоп HD
+  346: playlist_2550 | Disney XD
+  345: playlist_1035 | Cinema HD
+  338: playlist_1181 | Eurosport 4K
+  336: playlist_1791 | BCU Multserial HD
+  333: playlist_2068 | MM Открытия HD
+  321: playlist_436 | Романтичное HD
+  321: playlist_2082 | Z!Science HD
+  312: playlist_2283 | Eroxxx HD
+  305: playlist_32 | Пятый канал +4
+  300: playlist_424 | Остросюжетное HD
+  299: playlist_1798 | VF VHS Cartoon
+  298: playlist_917 | Liberty Симпсоны FHD
+  297: playlist_928 | Liberty Куб 4K
+  297: playlist_1458 | ESPN 4 HD NL
+  297: playlist_1903 | Travel Channel HD
+  295: playlist_448 | Hollywood HD
+  291: playlist_1808 | Liberty Бебимульт FHD
+  289: playlist_410 | VF Теория большого взрыва
+  289: playlist_2276 | Women`s Magazine HD
+  289: playlist_2414 | Erox HD
+  289: playlist_2846 | Viasat Kino HD
+  288: playlist_618 | VF Anime
+  287: playlist_417 | MM OldSchool HD
+  286: playlist_74 | Пятница! +7
+  286: playlist_648 | CineMan
+  284: playlist_1972 | Fashion & Lifestyle
+  283: playlist_1248 | FightBox HD
+  281: playlist_826 | VF Наша Раша
+  281: playlist_1059 | Liberty Планктон FHD
+  278: playlist_2805 | FilmBox ArtHouse HD UA
+  277: playlist_937 | CineMan Скорая Помощь
+  270: playlist_1639 | M2 HD
+  269: playlist_401 | VF Два с половиной человека
+  269: playlist_2152 | VF Баня
+  267: playlist_2822 | Наука
+  261: playlist_73 | Пятница! +4
+  260: playlist_1755 | Рыжий
+  259: playlist_98 | Загородный
+  259: playlist_398 | VF Счастливы Вместе
+  259: playlist_655 | CineMan Комедия
+  258: playlist_60 | Звезда +2
+  258: playlist_2128 | СТС International
+  257: playlist_1843 | Museum TV HD
+  256: playlist_421 | Comedy Central DE
+  255: playlist_824 | VF СашаТаня
+  255: playlist_1405 | Auto Motor Sport HD DE
+  255: playlist_1966 | Investigation Discovery
+  254: playlist_89 | 360 HD
+  252: playlist_72 | Пятница! +2
+  252: playlist_831 | VF Реальные пацаны
+  252: playlist_1218 | Canal 11 PT
+  251: playlist_1371 | Sky Sport F1 FHD DE
+  251: playlist_2291 | Hustler HD
+  249: playlist_823 | VF Друзья
+  246: playlist_806 | VF Универ
+  242: playlist_805 | VF Воронины
+  242: playlist_2286 | Brazzers TV Europe Россия
+  239: playlist_1393 | FightBox
+  232: playlist_522 | Шокирующее HD
+  232: playlist_2879 | Film UA Drama
+  229: playlist_780 | MM Ситком HD
+  229: playlist_1855 | Криминальное HD
+  228: playlist_1085 | CineMan Криминальные Сериалы
+  228: playlist_2084 | VF Маски Шоу
+  227: playlist_1897 | Инсайт ТВ UHD
+  226: playlist_437 | Комедийное HD
+  226: playlist_1736 | Детский мир
+  224: playlist_63 | СТС Love
+  224: playlist_777 | MM Полицейский с Рублёвки HD
+  222: playlist_829 | VF Универ новая общага
+  221: playlist_439 | Наше HD
+  219: playlist_62 | Звезда +7
+  219: playlist_1836 | Конгресс ТВ HD
+  218: playlist_440 | Любимое HD
+  218: playlist_663 | CineMan MiniSeries
+  217: playlist_2151 | VF Кухня
+  217: playlist_2506 | Liberty Эротика FHD
+  216: playlist_2047 | Мир Вокруг HD
+  212: playlist_1451 | Benfica TV HD PT
+  211: playlist_2083 | Epic HD
+  210: playlist_1228 | Arena Sport 1 RS
+  209: playlist_462 | .sci-fi
+  207: playlist_2060 | MM Микромир HD
+  207: playlist_2149 | VF Юмор 18+
+  207: playlist_2682 | beIN Sports 4
+  205: playlist_161 | MS Crime HD
+  204: playlist_1833 | Моя Стихия
+  204: playlist_2032 | Моя Стихия HD
+  200: playlist_2573 | A&E
+  199: playlist_1433 | Sky Sport Tennis HD IT
+  198: playlist_407 | VF Секс в большом городе
+  197: playlist_1906 | History 2 HD
+  195: playlist_2062 | MM Мегамир HD
+  192: playlist_658 | CineMan Сваты
+  191: playlist_956 | Fresh Series
+  191: playlist_1848 | Еда
+  191: playlist_1940 | Viju Explore
+  190: playlist_1216 | Sport TV+ HD PT
+  189: playlist_726 | VF Сериал 4K
+  188: playlist_653 | CineMan Marvel
+  187: playlist_807 | VF Series
+  187: playlist_2061 | MM Макромир HD
+  186: playlist_1229 | Arena Sport 3 RS
+  185: playlist_2072 | Yosso TV Science
+  184: playlist_494 | Комедия
+  183: playlist_809 | VF Сериал
+  180: playlist_413 | CineMan Premium
+  179: playlist_415 | FX Life HD
+  179: playlist_787 | MM Ужастик HD
+  178: playlist_662 | CineMan Лесник
+  177: playlist_2067 | MM Experiment HD
+  175: playlist_656 | CineMan VHS
+  172: playlist_1236 | Arena Sport 9 RS
+  170: playlist_380 | Лавстори HD
+  167: playlist_90 | 360
+  165: playlist_430 | Блокбастер HD
+  165: playlist_755 | MM Honey HD
+  164: playlist_850 | Z!Sitcom HD
+  163: playlist_793 | MM Live Planet HD
+  163: playlist_1406 | Sportdigital Fussball HD DE
+  162: playlist_432 | Кинопоказ HD
+  161: playlist_870 | Yosso TV Disney
+  160: playlist_449 | Bollywood HD
+  160: playlist_2141 | Liberty Шоу FHD
+  158: playlist_1419 | TRT SPOR
+  156: playlist_2548 | Telemundo
+  155: playlist_851 | Z! Smile HD
+  155: playlist_918 | Liberty Сваты FHD
+  154: playlist_833 | VF Без цензуры
+  154: playlist_1745 | В гостях у сказки
+  153: playlist_753 | MM Агата Кристи HD
+  153: playlist_779 | MM Сваты HD
+  153: playlist_2117 | Театр
+  153: playlist_2779 | Болт HD UA
+  152: playlist_659 | CineMan Катастрофы
+  150: playlist_1182 | Eurosport 1 HD
+  149: playlist_768 | MM Крутые 90-е HD
+  148: playlist_31 | Пятый канал +2
+  148: playlist_808 | VF След
+  148: playlist_2095 | MyZen TV HD
+  146: playlist_907 | SKY HIGH BRAIN HD
+  145: playlist_162 | ТВ Центр International
+  145: playlist_1043 | BOX Serial HD
+  145: playlist_1704 | BOX RU.RAP HD
+  145: playlist_1710 | BOX Metall HD
+  145: playlist_2153 | VF Однажды в России
+  144: playlist_2385 | Vivid TV Europe
+  143: playlist_5 | Первый канал +2
+  143: playlist_939 | MS Prisons HD
+  143: playlist_1922 | Приключения HD
+  143: playlist_2045 | Первый космический HD
+  142: playlist_1233 | Arena Sport 6 RS
+  141: playlist_783 | MM Стивен Кинг HD
+  141: playlist_1938 | Viju Nature
+  140: playlist_50 | РЕН ТВ +7
+  140: playlist_378 | Sumiko HD
+  140: playlist_727 | VF TOP Series
+  140: playlist_820 | VF Сверхъестественное
+  140: playlist_2683 | beIN Sports 5
+  139: playlist_160 | RT Documentary HD
+  139: playlist_810 | VF Мыльные оперы
+  138: playlist_51 | Мир
+  138: playlist_2874 | D1
+  137: playlist_2513 | CineMan ExExEx
+  136: playlist_651 | CineMan Thriller
+  136: playlist_815 | VF Криминал
+  136: playlist_832 | VF Доктор Хаус
+  136: playlist_1266 | QazSport HD
+  135: playlist_772 | MM Мифология HD
+  135: playlist_2091 | VF Орел и решка
+  133: playlist_80 | Домашний +7
+  133: playlist_909 | Liberty DC FHD
+  130: playlist_431 | Хит HD
+  130: playlist_830 | VF Ходячие мертвецы
+  130: playlist_1235 | Arena Sport 8 RS
+  129: playlist_819 | VF The X-Files
+  129: playlist_1231 | Arena Sport 4 RS
+  129: playlist_1411 | beIN Sports Haber HD
+  128: playlist_2537 | TENNIS HD US
+  128: playlist_2884 | K1
+  127: playlist_40 | ТНТ +4
+  127: playlist_763 | MM Квартирник HD
+  127: playlist_822 | VF Американская история ужасов
+  127: playlist_2294 | Vivid Red HD
+  127: playlist_2844 | Viasat Kino Action HD
+  126: playlist_433 | Наше Мужское HD
+  126: playlist_803 | VF Солдаты
+  123: playlist_835 | VF Comedy Woman
+  123: playlist_1721 | Лёва HD
+  122: playlist_1936 | Точка отрыва
+  122: playlist_2073 | Yosso TV Nature
+  121: playlist_1232 | Arena Sport 5 RS
+  120: playlist_927 | Liberty Индия 4K
+  119: playlist_804 | VF Тайны следствия
+  119: playlist_1430 | Sky Sport Golf HD IT
+  118: playlist_38 | ТНТ
+  118: playlist_402 | VF Новогодний
+  118: playlist_1845 | Точка Отрыва HD
+  117: playlist_54 | Мир +7
+  117: playlist_1328 | Extreme Sports
+  115: playlist_781 | MM Скорость HD
+  115: playlist_1189 | Sport 3 HD
+  114: playlist_1950 | English Class HD
+  111: playlist_654 | CineMan Ужасы
+  111: playlist_794 | MM USSR Детектив HD
+  111: playlist_1103 | BOX Serial 4K
+  110: playlist_2866 | 5 Канал HD
+  109: playlist_45 | СТС +7
+  109: playlist_408 | VF Карточный домик
+  109: playlist_657 | CineMan РуКино
+  109: playlist_740 | MM NewFilm 1 HD
+  109: playlist_837 | VF Одесская киностудия
+  109: playlist_2039 | Liberty BBC FHD
+  108: playlist_399 | VF Бесстыжие
+  108: playlist_435 | Viju+ Serial HD
+  108: playlist_843 | VF Netflix
+  108: playlist_2040 | Liberty Планета360 FHD
+  108: playlist_2880 | FILMBOX+ Festival HD
+  107: playlist_636 | VF Наша победа
+  107: playlist_1915 | Охотник и Рыболов HD
+  106: playlist_836 | VF Игра престолов
+  106: playlist_2074 | Yosso TV Travel
+  105: playlist_46 | РЕН ТВ HD
+  104: playlist_52 | Мир +2
+  104: playlist_429 | Наш Кинопоказ HD
+  104: playlist_2059 | Z!Travel HD
+  103: playlist_844 | VF HBO
+  103: playlist_1804 | Yosso TV Наше Детское
+  103: playlist_1851 | Museum TV 4K
+  103: playlist_2558 | MOTORTREND
+  103: playlist_2735 | Star Cinema HD UA
+  102: playlist_53 | Мир +4
+  101: playlist_754 | MM Грайндхаус HD
+  101: playlist_802 | VF Сваты
+  101: playlist_842 | VF Беларусьфильм
+  100: playlist_838 | VF Ленфильм
+  100: playlist_840 | VF Рижская киностудия
+  99: playlist_389 | .sci-fi HD
+  99: playlist_791 | MM Фобия HD
+  99: playlist_796 | MM Семейный 2 HD
+  99: playlist_1110 | Liberty Сериалы 4K
+  97: playlist_650 | CineMan Action
+  97: playlist_747 | MM USSR 1941-1945 HD
+  97: playlist_773 | MM Нуар HD
+  97: playlist_798 | MM Ужасы Classic HD
+  97: playlist_925 | Liberty Кино UKR 4K
+  97: playlist_962 | Fresh Soviet
+  97: playlist_1792 | BCU Kids HD
+  96: playlist_1909 | RTG HD
+  94: playlist_486 | 2x2
+  94: playlist_2150 | VF Уральские пельмени
+  94: playlist_2289 | Redlight HD
+  93: playlist_19 | НТВ Мир
+  93: playlist_751 | MM USSR Драма HD
+  93: playlist_765 | MM Комедия Classic HD
+  93: playlist_775 | MM Погружение HD
+  93: playlist_789 | MM Синематограф HD
+  93: playlist_1817 | VF Скуби-Ду
+  93: playlist_2444 | Dorcel TV
+  92: playlist_21 | НТВ +2
+  92: playlist_746 | MM UFO HD
+  92: playlist_1225 | Arena Premium 1 RS
+  91: playlist_323 | NHK World TV
+  91: playlist_610 | Страшное HD
+  91: playlist_743 | MM NewFilm RU HD
+  91: playlist_748 | MM USSR Комедия HD
+  91: playlist_1573 | Clubbing TV HD
+  90: playlist_1223 | Arena Esport RS
+  89: playlist_488 | Русский бестселлер
+  89: playlist_756 | MM Боевик Classic HD
+  89: playlist_760 | MM Затмение HD
+  89: playlist_2386 | Vixen HD
+  87: playlist_438 | Душевное HD
+  87: playlist_524 | Viju TV1000 HD
+  87: playlist_758 | MM Вестерн HD
+  87: playlist_766 | MM Комедия HD
+  87: playlist_778 | MM Роскино HD
+  87: playlist_797 | MM Ужасы HD
+  87: playlist_800 | MM Classic HD
+  87: playlist_818 | VF Чернобыль
+  87: playlist_1234 | Arena Sport 7 RS
+  87: playlist_1820 | Magic Disney HD
+  86: playlist_48 | РЕН ТВ +2
+  86: playlist_484 | Hollywood
+  86: playlist_1227 | Arena Premium 3 RS
+  86: playlist_1962 | Телепутешествия
+  86: playlist_2035 | SKY HIGH NATURE 4K HDR
+  86: playlist_2848 | Viasat Kino World
+  85: playlist_381 | Советская киноклассика HD
+  85: playlist_742 | MM NewFilm 3 HD
+  85: playlist_757 | MM Боевик HD
+  85: playlist_769 | MM Кунг-Фу HD
+  85: playlist_788 | MM USSR Приключения HD
+  85: playlist_839 | VF Киностудия им. Горького
+  85: playlist_910 | Liberty Ужасы 4K
+  85: playlist_949 | Fresh Kids
+  85: playlist_1088 | Magic Russian HD
+  85: playlist_1187 | Sky Sports 2 UHD UK
+  85: playlist_1635 | SKY HIGH CONCERT HD
+  85: playlist_2393 | Leo TV HD
+  85: playlist_2445 | Dorcel XXX
+  84: playlist_841 | VF Свердловская киностудия
+  84: playlist_2403 | X-MO
+  83: playlist_41 | ТНТ +7
+  83: playlist_367 | BOX СССР 4K
+  83: playlist_782 | MM Спорт HD
+  83: playlist_790 | MM Фантастика HD
+  83: playlist_942 | MS Young Blood HD
+  83: playlist_950 | Fresh Comedy
+  83: playlist_957 | Fresh Horror
+  83: playlist_1000 | Magic Family HD
+  82: playlist_361 | VF Сериалы Турции
+  82: playlist_405 | VF С новым годом!
+  82: playlist_1226 | Arena Premium 2 RS
+  82: playlist_2710 | UA:Київ
+  81: playlist_68 | ТВ-3 +4
+  81: playlist_637 | VF Мосфильм
+  81: playlist_638 | VF Фильмы СССР
+  81: playlist_725 | VF Кино 4K
+  81: playlist_764 | MM Киберпанк HD
+  81: playlist_767 | MM Криминал HD
+  81: playlist_786 | MM Триллер HD
+  81: playlist_795 | MM Семейный 1 HD
+  81: playlist_863 | Yosso TV Thriller
+  81: playlist_922 | Liberty Аниме FHD
+  81: playlist_960 | Fresh Russian
+  81: playlist_993 | Magic Karate HD
+  81: playlist_998 | Magic Galaxy HD
+  81: playlist_1965 | Nano
+  79: playlist_739 | MM Love HD
+  79: playlist_920 | Liberty Комедии FHD
+  79: playlist_959 | Fresh Romantic
+  79: playlist_1562 | MTV Classic
+  79: playlist_1584 | Муз ТВ +4
+  79: playlist_1968 | Зоо ТВ
+  79: playlist_2063 | MM Translation HD
+  79: playlist_2122 | СТС HD
+  79: playlist_2140 | Liberty Занавес  HD
+  78: playlist_14 | Россия 1 +4
+  78: playlist_649 | CineMan Top
+  78: playlist_1805 | SKY HIGH Bunny HD
+  77: playlist_762 | MM Катастрофа HD
+  77: playlist_776 | MM Приключения HD
+  77: playlist_958 | Fresh Adventure
+  77: playlist_995 | Magic Comedy HD
+  77: playlist_999 | Magic Horror HD
+  77: playlist_1184 | Sky Sports F1 UHD UK
+  77: playlist_1802 | Yosso TV Kids
+  77: playlist_2531 | 8 Канал HD
+  76: playlist_630 | VF Классика
+  76: playlist_821 | VF Леонид Гайдай
+  76: playlist_1063 | BOX Fantasy HD
+  76: playlist_1920 | В мире животных HD
+  75: playlist_632 | VF Комедия
+  75: playlist_784 | MM Супергерои HD
+  75: playlist_941 | MS Magic 4K
+  75: playlist_952 | Fresh Family
+  75: playlist_1001 | Magic Love HD
+  75: playlist_1067 | Liberty XX Век 4K
+  75: playlist_1725 | VF Disney Cartoon
+  75: playlist_2036 | SKY HIGH DOC HD
+  74: playlist_619 | VF Cartoon
+  74: playlist_996 | Magic Thriller HD
+  73: playlist_67 | ТВ-3 +2
+  73: playlist_738 | MM 007 HD
+  73: playlist_785 | MM Flip UHD
+  73: playlist_849 | Z!Serial HD
+  73: playlist_951 | Fresh Premiere
+  73: playlist_997 | Magic Action HD
+  72: playlist_1044 | BOX Game HD
+  72: playlist_1219 | M4 Sport HU
+  72: playlist_1294 | Матч! Планета
+  71: playlist_23 | НТВ +7
+  71: playlist_61 | Звезда +4
+  71: playlist_625 | VF Ужасы
+  71: playlist_627 | VF Ужасы VHS
+  71: playlist_741 | MM NewFilm 2 HD
+  71: playlist_799 | MM Celebrity HD
+  71: playlist_853 | Yosso TV Grand
+  71: playlist_961 | Fresh Thriller
+  71: playlist_1083 | MM Кинофестиваль HD
+  70: playlist_1224 | Arena Fight RS
+  69: playlist_761 | MM История HD
+  69: playlist_801 | MM Драма HD
+  69: playlist_954 | Fresh VHS
+  69: playlist_955 | Fresh Fantastic
+  69: playlist_994 | Magic VHS HD
+  68: playlist_64 | Че!
+  68: playlist_69 | ТВ-3 +7
+  68: playlist_620 | VF Comedy
+  67: playlist_315 | РБК
+  67: playlist_400 | VF Владимир Высоцкий
+  67: playlist_621 | VF Family
+  67: playlist_624 | VF Mystic
+  67: playlist_953 | Fresh Rating
+  67: playlist_1060 | Magic Adventure HD
+  66: playlist_911 | Liberty Триллеры 4K
+  65: playlist_49 | РЕН ТВ +4
+  65: playlist_628 | VF Премьера
+  65: playlist_677 | BCU Marvel HDR
+  65: playlist_750 | MM USSR Сказки HD
+  65: playlist_856 | Yosso TV Советские Фильмы
+  65: playlist_948 | Fresh Cinema
+  64: playlist_70 | Пятница! HD
+  64: playlist_403 | VF Ёлки
+  64: playlist_456 | Viasat Epic Drama
+  64: playlist_1469 | BOX Be On Edge HD
+  64: playlist_1654 | Bridge Фрэш
+  64: playlist_2279 | VF Граиндхаус
+  63: playlist_446 | Кино ТВ HD
+  63: playlist_493 | Кино ТВ
+  63: playlist_634 | VF Marvel
+  63: playlist_730 | VF Fantastic
+  63: playlist_811 | VF Thriller
+  63: playlist_1141 | Sky Sports Tennis HD 50 UK
+  63: playlist_1810 | Liberty Мульт 4K
+  62: playlist_16 | Россия 1 +8
+  62: playlist_2041 | Liberty Наука FHD
+  61: playlist_42 | СТС
+  61: playlist_617 | VF Adventure
+  61: playlist_623 | VF Melodrama
+  61: playlist_629 | VF Premiere
+  61: playlist_667 | BCU СССР HD
+  61: playlist_914 | Liberty Мелодрамы FHD
+  61: playlist_931 | Liberty Сказки FHD
+  61: playlist_1555 | Bridge TV
+  60: playlist_15 | Россия 1 +6
+  60: playlist_489 | Русский роман
+  60: playlist_817 | VF Луи де Фюнес
+  60: playlist_2102 | VF Концерты
+  59: playlist_43 | СТС +2
+  59: playlist_633 | VF Катастрофы
+  59: playlist_635 | VF Военные
+  59: playlist_814 | VF Comics
+  59: playlist_855 | Yosso TV Русские Фильмы
+  59: playlist_923 | Liberty Кино ENG 4K
+  59: playlist_2290 | Private TV
+  58: playlist_729 | VF Detective
+  58: playlist_1214 | BOX SR Sport 4K HDR
+  58: playlist_2574 | CNBC
+  57: playlist_44 | СТС +4
+  57: playlist_317 | Москва 24
+  57: playlist_631 | VF Classic
+  57: playlist_728 | VF Art house
+  57: playlist_854 | Yosso TV VHS
+  57: playlist_857 | Yosso TV New Кино
+  57: playlist_862 | Yosso TV Adrenaline
+  57: playlist_868 | Yosso TV Советские Фильмы 4K
+  57: playlist_1102 | BOX Remast+ 4K
+  56: playlist_825 | VF Джеки Чан
+  56: playlist_1272 | Матч! Премьер
+  56: playlist_1273 | Матч! Премьер HD
+  55: playlist_860 | Yosso TV Ковбойское
+  55: playlist_924 | Liberty Мульт ENG 4K
+  55: playlist_1507 | BOX SportCast HD
+  55: playlist_1524 | MTV 80s
+  55: playlist_2505 | Yosso TV Sexy
+  54: playlist_118 | Звезда HD
+  54: playlist_622 | VF Fantasy
+  54: playlist_1744 | Детский
+  53: playlist_362 | VF Вестерн
+  53: playlist_409 | VF Disney Movie
+  53: playlist_828 | VF Эльдар Рязанов
+  53: playlist_859 | Yosso TV Забавное
+  53: playlist_915 | Liberty Боевики FHD
+  53: playlist_1426 | Sky Sport Arena HD IT
+  52: playlist_731 | VF Оскар
+  52: playlist_1733 | СТС Kids HD
+  51: playlist_485 | .red
+  51: playlist_506 | .red HD
+  51: playlist_858 | Yosso TV Трагичное
+  51: playlist_869 | Yosso TV Netflix
+  51: playlist_2103 | VF КВН
+  50: playlist_71 | Пятница!
+  49: playlist_864 | Yosso TV Oblivion
+  49: playlist_865 | Yosso TV Adventure
+  49: playlist_889 | Твое ТВ HD
+  49: playlist_1416 | A SPOR HD
+  49: playlist_2075 | Yosso TV 4K HDR
+  49: playlist_2135 | Загородная Жизнь HD
+  49: playlist_2764 | UA:Тернопіль
+  48: playlist_1323 | Russian Extreme HD
+  48: playlist_1901 | TERRA
+  47: playlist_404 | VF New Year
+  47: playlist_812 | VF Индия
+  47: playlist_813 | VF История
+  47: playlist_1682 | Now 80s UK
+  46: playlist_1464 | Удар HD
+  45: playlist_76 | Суббота!
+  45: playlist_685 | BCU RuSerial HD
+  45: playlist_861 | Yosso TV Best
+  45: playlist_866 | Yosso TV 4K
+  45: playlist_929 | Liberty Семейный 4K
+  44: playlist_1581 | МузСоюз
+  43: playlist_393 | 4Ever Drama HD UA
+  43: playlist_916 | Liberty Кино Микс 4K
+  43: playlist_1237 | Arena Sport 1x2 RS
+  43: playlist_1809 | Liberty Мульт UKR 4K
+  42: playlist_527 | Мосфильм. Золотая коллекция
+  42: playlist_1655 | Deluxe Music HD DE
+  41: playlist_6 | Первый канал +4
+  41: playlist_406 | VF Гарри Поттер
+  41: playlist_926 | Liberty РусФильм 4K
+  41: playlist_933 | Liberty Союз 4K
+  41: playlist_2296 | XXL
+  41: playlist_2684 | beIN Sports 6
+  40: playlist_1683 | Now Rock UK
+  40: playlist_2862 | 1+1 Україна HD
+  39: playlist_834 | VF Городок
+  39: playlist_1525 | MTV 00s
+  39: playlist_1563 | MTV Hits
+  38: playlist_867 | Yosso TV Мелодрама
+  37: playlist_846 | Z!Comedy HD
+  37: playlist_1186 | Sky Sports 1 UHD UK
+  37: playlist_1832 | BOX Kosmo 4K
+  36: playlist_652 | CineMan Мелодрама
+  36: playlist_1066 | BOX Mayday HD
+  35: playlist_419 | Amedia Hit HD
+  35: playlist_1185 | Sky Sports Main Event UHD UK
+  35: playlist_2271 | Арис 24 HD
+  34: playlist_37 | ТНТ HD
+  34: playlist_447 | Amedia Premium HD
+  34: playlist_640 | VF Боевик
+  34: playlist_2415 | SuperOne HD
+  34: playlist_2577 | CBS SPORTS NETWORK US
+  33: playlist_1108 | Liberty Криминал 4K
+  33: playlist_1545 | Yosso TV Music Hits
+  33: playlist_1959 | Охота и рыбалка
+  33: playlist_2327 | Digital Desire HD
+  32: playlist_1414 | TRT SPOR HD
+  32: playlist_1992 | Viju Explore HD
+  32: playlist_2578 | MSG US
+  31: playlist_91 | СПАС
+  31: playlist_1711 | Liberty Мюзикл 4K
+  31: playlist_2534 | Союзный
+  29: playlist_28 | ТВ Центр +7
+  29: playlist_934 | Liberty Легенда 4K
+  29: playlist_1249 | Extreme Sports HD
+  29: playlist_1475 | Eleven Sports 1 4K PL
+  28: playlist_460 | Amedia 2 HD
+  27: playlist_9 | Первый канал +8
+  27: playlist_1109 | Liberty Аванпост 4K
+  27: playlist_1324 | KHL HD
+  27: playlist_1326 | KHL
+  27: playlist_1521 | Setanta Sports+ HD UA
+  27: playlist_1560 | Europa Plus TV
+  27: playlist_1720 | СуперГерои HD
+  27: playlist_1752 | СуперГерои
+  27: playlist_2098 | FashionBox HD
+  26: playlist_3 | Первый канал HD
+  26: playlist_4 | Первый канал
+  26: playlist_1208 | Cosmote Sport 5 GR
+  26: playlist_1634 | Retro Music TV HD CZ
+  26: playlist_2001 | Viju+ Planet HD
+  25: playlist_8 | Первый канал +6
+  25: playlist_1245 | Setanta Sports 1 HD KZ
+  25: playlist_1370 | Мяч HD
+  25: playlist_2106 | OstWest DE
+  24: playlist_7 | Первый канал HD +4
+  24: playlist_479 | Amedia 1
+  24: playlist_1519 | Setanta Sports HD UA
+  24: playlist_1616 | Deejay TV
+  23: playlist_1304 | Super Tennis HD IT
+  23: playlist_2867 | 6 Соток
+  22: playlist_1335 | Драйв
+  22: playlist_1369 | ТВ Спорт HD
+  22: playlist_1529 | Europa Plus TV HD
+  21: playlist_1310 | Setanta Sports 1 Baltic HD
+  21: playlist_1333 | Старт
+  21: playlist_1338 | Старт HD
+  21: playlist_2785 | Бігуді UA
+  20: playlist_1954 | RTG TV
+  19: playlist_395 | FilmZone HD LV
+  19: playlist_1408 | TNT Sports 4 HD UK
+  18: playlist_452 | Viju+ Comedy HD
+  18: playlist_454 | Viju+ Megahit HD
+  18: playlist_1431 | Sky Sport MotoGP HD IT
+  18: playlist_1924 | Большая Азия HD
+  18: playlist_2520 | Беларусь 1
+  17: playlist_1473 | Q League HD KZ
+  17: playlist_1615 | 4Fun TV PL
+  17: playlist_1905 | Viju History HD
+  16: playlist_387 | Viasat Serial HD
+  16: playlist_1368 | Хоккей ТВ HD
+  16: playlist_1441 | FOX NEWS CHANNEL FHD
+  15: playlist_75 | RTVi
+  15: playlist_92 | Союз
+  15: playlist_1204 | Cosmote Sport 1 GR
+  15: playlist_1205 | Cosmote Sport 2 GR
+  15: playlist_1425 | Sky Sport 24 HD IT
+  15: playlist_2048 | Viju Nature HD
+  15: playlist_2089 | Драйв HD
+  15: playlist_2855 | Дача
+  14: playlist_119 | СТС Love orig
+  14: playlist_357 | BBC Alba UK
+  14: playlist_1246 | Setanta Sports 2 HD KZ
+  14: playlist_1374 | Живи Активно HD
+  14: playlist_2064 | Рыболов HD
+  14: playlist_2753 | ТЕТ
+  14: playlist_2768 | СТБ HD
+  13: playlist_450 | Viju+ Premiere HD
+  13: playlist_1697 | BOX Relax 4K
+  13: playlist_2104 | Большой Эфир HD
+  12: playlist_77 | Домашний
+  12: playlist_126 | Домашний HD
+  12: playlist_482 | Viju TV1000
+  12: playlist_2523 | Беларусь 1 HD
+  11: playlist_307 | Дождь HD
+  11: playlist_490 | Русский детектив
+  11: playlist_1207 | Cosmote Sport 4 GR
+  11: playlist_1212 | Cosmote Sport 9 GR
+  11: playlist_1343 | Окко Спорт HD
+  11: playlist_1459 | Матч! Страна HD
+  11: playlist_2090 | Аппетитный HD
+  11: playlist_2754 | Сонце
+  11: playlist_2795 | ТЕТ HD
+  10: playlist_394 | NOW Series HD
+  10: playlist_426 | Дом Кино Премиум HD
+  10: playlist_1206 | Cosmote Sport 3 GR
+  10: playlist_1629 | Страна FM HD
+  10: playlist_1957 | Поехали!
+  10: playlist_2686 | beIN Sports USA
+  10: playlist_2809 | Enter-фільм HD UA
+  10: playlist_2865 | 4Ever Cinema HD
+  9: playlist_59 | Звезда
+  9: playlist_86 | Сарафан
+  9: playlist_355 | BBC One UK
+  9: playlist_1209 | Cosmote Sport 6 GR
+  9: playlist_1287 | Матч! Игра
+  9: playlist_1288 | Матч! Игра HD
+  8: playlist_13 | Россия 1 +2
+  8: playlist_35 | Мир HD
+  8: playlist_124 | Суббота! HD
+  8: playlist_1197 | Nova Sport 4 CZ
+  8: playlist_1210 | Cosmote Sport 7 GR
+  8: playlist_1293 | Матч! Страна
+  8: playlist_1715 | Карусель HD
+  8: playlist_1739 | Карусель
+  8: playlist_1746 | Карусель +3
+  8: playlist_1921 | Моя Планета HD
+  8: playlist_1985 | Моя Планета
+  8: playlist_2174 | Волга
+  8: playlist_2755 | Прямий HD
+  8: playlist_2888 | Kinosweet HD
+  7: playlist_26 | ТВ Центр +2
+  7: playlist_88 | Точка ТВ
+  7: playlist_1267 | Trace Sport Stars HD
+  7: playlist_1779 | Рыжий orig
+  7: playlist_1813 | Карусель +7
+  7: playlist_1933 | Нано ТВ HD
+  7: playlist_1984 | История
+  7: playlist_2009 | Трофей
+  7: playlist_2179 | Москва Доверие
+  7: playlist_2209 | Мир Белогорья
+  6: playlist_27 | ТВ Центр +4
+  6: playlist_356 | BBC Two UK
+  6: playlist_1989 | Доктор
+  6: playlist_2195 | Матур ТВ
+  6: playlist_2818 | Фауна
+  6: playlist_2889 | Kinowood HD
+  5: playlist_17 | НТВ HD
+  5: playlist_22 | НТВ +4
+  5: playlist_498 | НСТ
+  5: playlist_1196 | Nova Sport 3 CZ
+  5: playlist_1460 | Матч! Боец HD
+  5: playlist_1724 | KinoKazka HD
+  5: playlist_1934 | Время
+  5: playlist_1947 | Телекафе
+  5: playlist_2116 | Анекдот ТВ
+  5: playlist_2125 | ТНТ4 HD
+  4: playlist_20 | НТВ
+  4: playlist_55 | ОТР
+  4: playlist_65 | ТВ-3 HD
+  4: playlist_94 | Психология
+  4: playlist_365 | Viasat Kino World HD
+  4: playlist_497 | НТВ Сериал
+  4: playlist_501 | Дорама
+  4: playlist_525 | Viju TV1000 Русское HD
+  4: playlist_1071 | DetectiveJam HD
+  4: playlist_1553 | Жара HD
+  4: playlist_1561 | МУЗ-ТВ
+  4: playlist_1575 | Шансон ТВ
+  4: playlist_1743 | О!
+  4: playlist_2004 | В мире животных HD orig
+  4: playlist_2170 | Санкт-Петербург
+  4: playlist_2522 | Беларусь 3
+  4: playlist_2830 | Рибалка HD
+  4: playlist_2873 | Cine+ Legend HD
+  3: playlist_11 | Россия 1 HD
+  3: playlist_12 | Россия 1
+  3: playlist_47 | РЕН ТВ
+  3: playlist_84 | ТНТ4
+  3: playlist_96 | Кто есть кто
+  3: playlist_104 | Дождь
+  3: playlist_316 | Россия 24
+  3: playlist_496 | НТВ Хит
+  3: playlist_1211 | Cosmote Sport 8 GR
+  3: playlist_1332 | Бокс ТВ
+  3: playlist_1731 | Tiji TV
+  3: playlist_1740 | Ani
+  3: playlist_1760 | Мульт HD
+  3: playlist_1930 | Investigation Discovery HD
+  3: playlist_1969 | Живая Планета
+  3: playlist_1979 | Первый Вегетарианский
+  3: playlist_2043 | Глазами Туриста 4K
+  3: playlist_2077 | BOX Gurman HD
+  3: playlist_2108 | Солнце
+  2: playlist_66 | ТВ-3
+  2: playlist_78 | Домашний +2
+  2: playlist_79 | Домашний +4
+  2: playlist_418 | FAN HD
+  2: playlist_478 | Дом Кино
+  2: playlist_523 | Viju TV1000 Action HD
+  2: playlist_573 | Русский бестселлер orig
+  2: playlist_615 | KinoJam 2 HD
+  2: playlist_616 | Мосфильм. Золотая коллекция HD
+  2: playlist_1072 | FamilyJam HD
+  2: playlist_1290 | Матч! Арена
+  2: playlist_1291 | Матч! Арена HD
+  2: playlist_1315 | Viju+ Sport HD
+  2: playlist_1465 | START World HD
+  2: playlist_1504 | BOX SportCast Live 5 HD
+  2: playlist_1505 | BOX SportCast Live 6 HD
+  2: playlist_1506 | BOX SportCast Live 7 HD
+  2: playlist_1756 | Капитан Фантастика HD
+  2: playlist_1761 | Nickelodeon HD orig
+  2: playlist_1767 | Nick Jr orig
+  2: playlist_1784 | Nickelodeon orig
+  2: playlist_1788 | CineMan Cartoons 90
+  2: playlist_1789 | CineMan Cartoons Short
+  2: playlist_1939 | Viju History
+  2: playlist_1944 | Бобёр
+  2: playlist_1956 | Travel+Adventure
+  2: playlist_1970 | Наша Тема
+  2: playlist_1971 | Пёс и Ко
+  2: playlist_2003 | Охотник и Рыболов HD orig
+  2: playlist_2114 | Fashion & Lifestyle HD
+  2: playlist_2292 | Dorcel TV HD
+  2: playlist_2815 | Українське радіо 1
+  2: playlist_2838 | Суспільне Спорт HD
+  1: playlist_81 | Настоящее время
+  1: playlist_82 | Ностальгия
+  1: playlist_311 | РБК HD
+  1: playlist_319 | Мир 24
+  1: playlist_459 | Победа
+  1: playlist_502 | Мир Сериала
+  1: playlist_554 | Хит HD orig
+  1: playlist_1104 | BCU Russia 90s HD
+  1: playlist_1139 | Megogo Спорт HD
+  1: playlist_1275 | Матч! Футбол 1
+  1: playlist_1276 | Матч! Футбол 1 HD
+  1: playlist_1279 | Матч! Футбол 2
+  1: playlist_1280 | Матч! Футбол 2 HD
+  1: playlist_1289 | Матч! Игра FHD
+  1: playlist_1336 | ЖИВИ!
+  1: playlist_1463 | Бокс ТВ HD
+  1: playlist_1500 | BOX SportCast Live 1 HD
+  1: playlist_1502 | BOX SportCast Live 3 HD
+  1: playlist_1569 | о2тв HD
+  1: playlist_1580 | о2тв
+  1: playlist_1708 | VeleS Dj Set
+  1: playlist_1765 | Tiji TV orig
+  1: playlist_1830 | Настоящее время HD
+  1: playlist_1831 | BOX History 4K
+  1: playlist_1912 | Discovery Science PL
+  1: playlist_1978 | НТВ Право
+  1: playlist_1980 | Загородная Жизнь
+  1: playlist_2038 | SKY HIGH NATURE FHD
+  1: playlist_2111 | DTX HD PL
+  1: playlist_2521 | Беларусь 2
+  1: playlist_2801 | Megogo live HD UA
+  1: playlist_2845 | Viasat Kino Comedy HD
+  1: playlist_2847 | Viasat Nature CEE HD
+  1: playlist_2851 | Армія ТБ HD
+  1: playlist_2870 | Cine+ HD
+
+ПЕРЕСЕЧЕНИЯ ПО ПАРАМ ИСТОЧНИКОВ (по убыванию числа пар):
+  58486: EPG.ONE epg2 + M3U Edit ALL
+  54015: EPG.ONE epg2 + IPTVX full
+  50866: M3U Edit ALL + M3U Edit ALL
+  29893: M3U Edit ALL + TV.TEAM full
+  21975: EPG.ONE epg2 + TV.TEAM full
+  9554: IPTVX full + M3U Edit ALL
+  7914: TV.TEAM full + TV.TEAM full
+  6336: BCU Media + EPG.ONE epg2
+  6290: EPG.ONE epg2 + EPG.ONE epg2
+  5309: FOX TV + M3U Edit ALL
+  5277: EPG.ONE epg2 + Satfor
+  4813: EPG.ONE epg2 + FOX TV
+  2916: BCU Media + M3U Edit ALL
+  2827: IPTVX full + TV.TEAM full
+  2714: EPG.ONE epg2 + ProgramTV
+  2486: M3U Edit ALL + Satfor
+  2001: FOX TV + TV.TEAM full
+  1299: EPG.ONE epg2 + TopIPTV
+  1139: IPTVX full + Satfor
+  1004: BCU Media + IPTVX full
+  992: Satfor + TV.TEAM full
+  755: M3U Edit ALL + TopIPTV
+  496: BCU Media + TV.TEAM full
+  368: M3U Edit ALL + ProgramTV
+  363: FOX TV + Satfor
+  314: IPTVX full + IPTVX full
+  235: BCU Media + BCU Media
+  197: BCU Media + ProgramTV
+  185: Satfor + TopIPTV
+  182: FOX TV + IPTVX full
+  162: TV.TEAM full + TopIPTV
+  124: IPTVX full + ProgramTV
+  108: BCU Media + TopIPTV
+  106: FOX TV + ProgramTV
+  103: BCU Media + Satfor
+  86: Satfor + Satfor
+  62: BCU Media + FOX TV
+  28: FOX TV + FOX TV
+  27: FOX TV + TopIPTV
+  14: ProgramTV + Satfor
+  10: IPTVX full + TopIPTV
 
 ДИАГНОСТИКА ЛОГОТИПОВ КАНАЛОВ
   ВАЖНО: итоговый XML сейчас получает иконки только из EPG; tvg-logo из M3U не подставляется.
