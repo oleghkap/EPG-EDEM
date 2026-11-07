@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'clean_epg.py'
-      - 'check_epg_coverage.py'
       - 'trim_epg.py'
       - '.github/workflows/update_epg.yml'
 
