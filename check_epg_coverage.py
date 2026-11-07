@@ -683,6 +683,7 @@ def process_source(
         "programmes_in_period": 0,
         "unique_programmes": 0,
         "duplicates_skipped": 0,
+        "interval_conflicts_skipped": 0,
         "exact_duplicates": 0,
         "matched_by_tvg_id": 0,
         "matched_by_exact_name": 0,
@@ -706,6 +707,9 @@ def process_source(
     source_channel_display_names = defaultdict(set)
     channels_with_programmes = set()
     source_programmes = {}
+    occupied_by_channel = defaultdict(list)
+    for existing_programme in global_programmes.values():
+        occupied_by_channel[existing_programme["channel_index"]].append(existing_programme)
 
     with tempfile.NamedTemporaryFile(delete=False) as temp:
         temp_path = temp.name
@@ -968,7 +972,26 @@ def process_source(
                                                     merged_categories.append(category)
                                             existing["categories"] = merged_categories
                                     else:
-                                        source_programmes[identity] = {
+                                        # При слиянии сохраняем приоритет уже принятой программы.
+                                        # Конфликтующий интервал из следующего источника не добавляем,
+                                        # но исходные start/stop существующих записей не меняем.
+                                        interval_conflict = None
+                                        if stop_dt is not None:
+                                            interval_conflict = next(
+                                                (
+                                                    item for item in occupied_by_channel[index]
+                                                    if item.get("stop") is not None
+                                                    and item["start"] < stop_dt
+                                                    and start_dt < item["stop"]
+                                                ),
+                                                None,
+                                            )
+                                        if interval_conflict is not None:
+                                            stats["interval_conflicts_skipped"] += 1
+                                            merge_diagnostics["interval_conflicts_skipped"] += 1
+                                            continue
+
+                                        accepted_programme = {
                                             "channel_index": index,
                                             "start": start_dt,
                                             "stop": stop_dt,
@@ -978,6 +1001,8 @@ def process_source(
                                             "source": source_name,
                                             "xml_channel_id": channel_id,
                                         }
+                                        source_programmes[identity] = accepted_programme
+                                        occupied_by_channel[index].append(accepted_programme)
 
                             current_date = start_dt.strftime("%Y-%m-%d %H:%M")
                             if (
@@ -1050,7 +1075,8 @@ def process_source(
             f"каналов плейлиста с программами "
             f"{stats['channels_with_programmes']}; "
             f"новых передач {stats['unique_programmes']}; "
-            f"дубликатов {stats['duplicates_skipped']}"
+            f"дубликатов {stats['duplicates_skipped']}; "
+            f"пересекающихся передач пропущено {stats['interval_conflicts_skipped']}"
         )
 
     except Exception as error:
@@ -1827,39 +1853,6 @@ def analyze_programme_interval_overlaps(global_programmes):
     }
 
 
-def normalize_programme_intervals(global_programmes):
-    """Обрезает только stop предыдущей передачи до начала следующей, не удаляя записи."""
-    by_channel = defaultdict(list)
-    for item in global_programmes.values():
-        by_channel[item["channel_index"]].append(item)
-
-    adjusted = 0
-    truncated_seconds = 0.0
-    max_truncation_seconds = 0.0
-    by_source = defaultdict(int)
-
-    for items in by_channel.values():
-        items.sort(key=lambda item: item["start"])
-        for previous, current in zip(items, items[1:]):
-            old_stop = previous.get("stop")
-            next_start = current["start"]
-            if old_stop is None or old_stop <= next_start:
-                continue
-            seconds = (old_stop - next_start).total_seconds()
-            previous["stop"] = next_start
-            adjusted += 1
-            truncated_seconds += seconds
-            max_truncation_seconds = max(max_truncation_seconds, seconds)
-            by_source[previous.get("source", "")] += 1
-
-    return {
-        "adjusted_programmes": adjusted,
-        "truncated_minutes": truncated_seconds / 60,
-        "max_truncation_minutes": max_truncation_seconds / 60,
-        "by_source": dict(by_source),
-    }
-
-
 def write_epg_diagnostics(
     channels,
     global_programmes,
@@ -2149,14 +2142,15 @@ def write_epg_diagnostics(
         f"  Всего пересекающихся пар: {interval_diagnostics['count']}",
         f"  Внутри одного источника: {interval_diagnostics['same_source']}",
         f"  Между разными источниками: {interval_diagnostics['cross_source']}",
+        f"  Передач из источников с более низким приоритетом пропущено из-за пересечения: {merge_diagnostics.get('interval_conflicts_skipped', 0):,}",
         f"  Передач без stop (не проверяются на пересечение): {interval_diagnostics['missing_stop']}",
-        f"  Подробности до нормализации: programme_interval_overlaps.csv.gz ({overlap_size:,} байт)",
+        f"  Полный список пересечений: programme_interval_overlaps.csv.gz ({overlap_size:,} байт)",
         "",
-        "НОРМАЛИЗАЦИЯ ИНТЕРВАЛОВ (записи и время начала сохранены):",
-        f"  Передач с сокращённым stop: {adjustment_diagnostics['adjusted_programmes']:,}",
-        f"  Убрано пересекающегося времени: {adjustment_diagnostics['truncated_minutes'] / 60:.1f} ч",
-        f"  Максимальное сокращение одной передачи: {adjustment_diagnostics['max_truncation_minutes']:.1f} мин",
-        f"  Пересечений после нормализации: {final_interval_diagnostics['count']:,}",
+        "СОХРАННОСТЬ ИНТЕРВАЛОВ (исходные start/stop не изменяются):",
+        f"  Передач с принудительно сокращённым stop: {adjustment_diagnostics['adjusted_programmes']:,}",
+        f"  Искусственно удалено эфирного времени: {adjustment_diagnostics['truncated_minutes'] / 60:.1f} ч",
+        f"  Максимальное искусственное сокращение одной передачи: {adjustment_diagnostics['max_truncation_minutes']:.1f} мин",
+        f"  Пересечений в итоговом EPG: {final_interval_diagnostics['count']:,}",
         "  По источникам: " + "; ".join(f"{name} — {count}" for name, count in sorted(adjustment_diagnostics["by_source"].items())),
         "",
         "Точные дубликаты programme по каналу, времени и полному содержимому:",
@@ -2424,8 +2418,13 @@ def main():
         ],
     )
     raw_interval_diagnostics = analyze_programme_interval_overlaps(global_programmes)
-    adjustment_diagnostics = normalize_programme_intervals(global_programmes)
-    final_interval_diagnostics = analyze_programme_interval_overlaps(global_programmes)
+    adjustment_diagnostics = {
+        "adjusted_programmes": 0,
+        "truncated_minutes": 0.0,
+        "max_truncation_minutes": 0.0,
+        "by_source": {},
+    }
+    final_interval_diagnostics = raw_interval_diagnostics
 
     logo_diagnostics, logo_report_lines = analyze_channel_logos(
         channels, channel_icons, channel_icon_sources
