@@ -1636,7 +1636,7 @@ def write_diagnostic_csv_gzip(filename, rows, fieldnames):
 
 
 def analyze_programme_interval_overlaps(global_programmes):
-    """Ищет пересечения временных интервалов передач одного канала."""
+    """Ищет и классифицирует пересечения интервалов передач одного канала."""
     by_channel = defaultdict(list)
     missing_stop = 0
     for item in global_programmes.values():
@@ -1649,6 +1649,26 @@ def analyze_programme_interval_overlaps(global_programmes):
     cross_source = 0
     channel_overlap_counts = defaultdict(int)
     source_pair_counts = defaultdict(int)
+    source_pair_analysis = defaultdict(lambda: {
+        "total": 0, "exact_title": 0, "normalized_title": 0,
+        "different_title": 0, "overlap_minutes": 0.0,
+        "start_delta_minutes": defaultdict(int),
+    })
+    same_source_xml_id_counts = defaultdict(lambda: {"same_xml_id": 0, "different_xml_id": 0})
+    title_relation_counts = defaultdict(int)
+    overlap_duration_buckets = defaultdict(int)
+    start_delta_buckets = defaultdict(int)
+    channel_source_counts = defaultdict(int)
+
+    def bucket(value, limits):
+        for upper, label in limits:
+            if value <= upper:
+                return label
+        return limits[-1][1].replace("≤", ">")
+
+    duration_limits = [(5, "≤5 мин"), (15, "6–15 мин"), (30, "16–30 мин"), (60, "31–60 мин"), (120, "61–120 мин"), (10**12, ">120 мин")]
+    delta_limits = [(5, "≤5 мин"), (15, "6–15 мин"), (30, "16–30 мин"), (60, "31–60 мин"), (120, "61–120 мин"), (10**12, ">120 мин")]
+
     for channel_index, items in by_channel.items():
         items.sort(key=lambda item: item["start"])
         active = []
@@ -1660,25 +1680,65 @@ def analyze_programme_interval_overlaps(global_programmes):
             ]
             if current.get("stop") is not None:
                 for previous in active:
-                    if previous["start"] < current["stop"]:
-                        first_source = previous.get("source", "")
-                        second_source = current.get("source", "")
-                        same = first_source == second_source
-                        same_source += int(same)
-                        cross_source += int(not same)
-                        channel_overlap_counts[channel_index] += 1
-                        source_pair_counts[tuple(sorted((first_source, second_source)))] += 1
-                        overlaps.append({
-                            "playlist_index": channel_index,
-                            "first_source": first_source,
-                            "second_source": second_source,
-                            "first_start": previous["start"].isoformat(),
-                            "first_stop": previous["stop"].isoformat(),
-                            "first_title": previous.get("title", ""),
-                            "second_start": start.isoformat(),
-                            "second_stop": current["stop"].isoformat(),
-                            "second_title": current.get("title", ""),
-                        })
+                    overlap_start = max(previous["start"], current["start"])
+                    overlap_end = min(previous["stop"], current["stop"])
+                    if overlap_start >= overlap_end:
+                        continue
+                    first_source = previous.get("source", "")
+                    second_source = current.get("source", "")
+                    same = first_source == second_source
+                    same_source += int(same)
+                    cross_source += int(not same)
+                    channel_overlap_counts[channel_index] += 1
+                    source_pair = tuple(sorted((first_source, second_source)))
+                    source_pair_counts[source_pair] += 1
+                    channel_source_counts[(channel_index, source_pair)] += 1
+
+                    first_title = previous.get("title", "") or ""
+                    second_title = current.get("title", "") or ""
+                    first_norm = normalize_name(first_title)
+                    second_norm = normalize_name(second_title)
+                    if first_title.casefold().strip() == second_title.casefold().strip():
+                        title_relation = "exact_title"
+                    elif first_norm and first_norm == second_norm:
+                        title_relation = "normalized_title"
+                    else:
+                        title_relation = "different_title"
+                    title_relation_counts[title_relation] += 1
+
+                    overlap_minutes = (overlap_end - overlap_start).total_seconds() / 60
+                    start_delta_minutes = abs((current["start"] - previous["start"]).total_seconds()) / 60
+                    overlap_duration_buckets[bucket(overlap_minutes, duration_limits)] += 1
+                    start_delta_buckets[bucket(start_delta_minutes, delta_limits)] += 1
+                    pair_stats = source_pair_analysis[source_pair]
+                    pair_stats["total"] += 1
+                    pair_stats[title_relation] += 1
+                    pair_stats["overlap_minutes"] += overlap_minutes
+                    pair_stats["start_delta_minutes"][bucket(start_delta_minutes, delta_limits)] += 1
+
+                    first_xml_id = previous.get("xml_channel_id", "") or ""
+                    second_xml_id = current.get("xml_channel_id", "") or ""
+                    if same:
+                        same_source_xml_id_counts[first_source][
+                            "same_xml_id" if first_xml_id == second_xml_id else "different_xml_id"
+                        ] += 1
+
+                    overlaps.append({
+                        "playlist_index": channel_index,
+                        "first_source": first_source,
+                        "second_source": second_source,
+                        "first_xml_channel_id": first_xml_id,
+                        "second_xml_channel_id": second_xml_id,
+                        "first_start": previous["start"].isoformat(),
+                        "first_stop": previous["stop"].isoformat(),
+                        "first_title": first_title,
+                        "second_start": current["start"].isoformat(),
+                        "second_stop": current["stop"].isoformat(),
+                        "second_title": second_title,
+                        "overlap_minutes": round(overlap_minutes, 2),
+                        "start_delta_minutes": round(start_delta_minutes, 2),
+                        "title_relation": title_relation,
+                    })
                 active.append(current)
 
     return {
@@ -1687,14 +1747,14 @@ def analyze_programme_interval_overlaps(global_programmes):
         "same_source": same_source,
         "cross_source": cross_source,
         "missing_stop": missing_stop,
-        "channel_counts": sorted(
-            channel_overlap_counts.items(),
-            key=lambda item: (-item[1], item[0]),
-        ),
-        "source_pair_counts": sorted(
-            source_pair_counts.items(),
-            key=lambda item: (-item[1], item[0]),
-        ),
+        "channel_counts": sorted(channel_overlap_counts.items(), key=lambda item: (-item[1], item[0])),
+        "source_pair_counts": sorted(source_pair_counts.items(), key=lambda item: (-item[1], item[0])),
+        "source_pair_analysis": sorted(source_pair_analysis.items(), key=lambda item: (-item[1]["total"], item[0])),
+        "same_source_xml_id_counts": dict(same_source_xml_id_counts),
+        "title_relation_counts": dict(title_relation_counts),
+        "overlap_duration_buckets": dict(overlap_duration_buckets),
+        "start_delta_buckets": dict(start_delta_buckets),
+        "channel_source_counts": sorted(channel_source_counts.items(), key=lambda item: (-item[1], item[0])),
     }
 
 
@@ -1801,8 +1861,10 @@ def write_epg_diagnostics(
         interval_diagnostics["overlaps"],
         [
             "playlist_index", "first_source", "second_source",
+            "first_xml_channel_id", "second_xml_channel_id",
             "first_start", "first_stop", "first_title",
             "second_start", "second_stop", "second_title",
+            "overlap_minutes", "start_delta_minutes", "title_relation",
         ],
     )
 
@@ -2018,6 +2080,56 @@ def write_epg_diagnostics(
     ])
     for (first_source, second_source), count in interval_diagnostics["source_pair_counts"]:
         lines.append(f"  {count}: {first_source} + {second_source}")
+
+    lines.extend([
+        "",
+        "КЛАССИФИКАЦИЯ ПЕРЕСЕЧЕНИЙ:",
+        "  По названиям:",
+    ])
+    for relation, label in (("exact_title", "Полностью одинаковое название"), ("normalized_title", "Совпадает после нормализации"), ("different_title", "Разные названия")):
+        lines.append(f"    {label}: {interval_diagnostics['title_relation_counts'].get(relation, 0):,}")
+    lines.append("  По длительности самого пересечения:")
+    for label in ("≤5 мин", "6–15 мин", "16–30 мин", "31–60 мин", "61–120 мин", ">120 мин"):
+        lines.append(f"    {label}: {interval_diagnostics['overlap_duration_buckets'].get(label, 0):,}")
+    lines.append("  По разнице времени начала передач:")
+    for label in ("≤5 мин", "6–15 мин", "16–30 мин", "31–60 мин", "61–120 мин", ">120 мин"):
+        lines.append(f"    {label}: {interval_diagnostics['start_delta_buckets'].get(label, 0):,}")
+
+    lines.extend(["", "ПЕРЕСЕЧЕНИЯ ВНУТРИ ОДНОГО ИСТОЧНИКА: ОДИН ИЛИ РАЗНЫЕ XMLTV ID:"])
+    for source, counts in sorted(interval_diagnostics["same_source_xml_id_counts"].items(), key=lambda item: -(item[1]["same_xml_id"] + item[1]["different_xml_id"])):
+        total = counts["same_xml_id"] + counts["different_xml_id"]
+        lines.append(f"  {source}: всего {total:,}; один XMLTV ID {counts['same_xml_id']:,}; разные XMLTV ID {counts['different_xml_id']:,}")
+
+    lines.extend(["", "ДЕТАЛИ ПО ПАРАМ ИСТОЧНИКОВ:"])
+    for (first_source, second_source), stats in interval_diagnostics["source_pair_analysis"]:
+        average_overlap = stats["overlap_minutes"] / stats["total"] if stats["total"] else 0
+        lines.append(
+            f"  {first_source} + {second_source}: всего {stats['total']:,}; "
+            f"одинаковое название {stats['exact_title'] + stats['normalized_title']:,}; "
+            f"разное название {stats['different_title']:,}; "
+            f"среднее пересечение {average_overlap:.1f} мин; "
+            f"разница стартов: {dict(stats['start_delta_minutes'])}"
+        )
+
+    lines.extend(["", "ПРОБЛЕМНЫЕ КАНАЛЫ: ПАРЫ ИСТОЧНИКОВ (топ-100):"])
+    for (channel_index, source_pair), count in interval_diagnostics["channel_source_counts"][:100]:
+        channel_name = channels[channel_index].get("title", "") if 0 <= channel_index < len(channels) else "неизвестный канал"
+        lines.append(f"  {count:,}: {channel_name} | {source_pair[0]} + {source_pair[1]}")
+
+    lines.extend(["", "ПРИМЕРЫ ПЕРЕСЕКАЮЩИХСЯ ПЕРЕДАЧ (до 3 пар для каждого из 20 самых проблемных каналов):"])
+    examples_by_channel = defaultdict(list)
+    for overlap in interval_diagnostics["overlaps"]:
+        examples_by_channel[overlap["playlist_index"]].append(overlap)
+    for channel_index, count in interval_diagnostics["channel_counts"][:20]:
+        channel_name = channels[channel_index].get("title", "") if 0 <= channel_index < len(channels) else "неизвестный канал"
+        lines.append(f"  {channel_name} ({count:,} пар):")
+        for overlap in examples_by_channel[channel_index][:3]:
+            lines.append(
+                f"    {overlap['first_start']}–{overlap['first_stop']} [{overlap['first_source']}/{overlap['first_xml_channel_id']}] "
+                f"{overlap['first_title'][:90]} || {overlap['second_start']}–{overlap['second_stop']} "
+                f"[{overlap['second_source']}/{overlap['second_xml_channel_id']}] {overlap['second_title'][:90]} "
+                f"(накладка {overlap['overlap_minutes']:.1f} мин; старты отличаются на {overlap['start_delta_minutes']:.1f} мин; {overlap['title_relation']})"
+            )
 
     report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
