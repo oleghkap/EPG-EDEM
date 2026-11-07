@@ -707,9 +707,8 @@ def process_source(
     source_channel_display_names = defaultdict(set)
     channels_with_programmes = set()
     source_programmes = {}
-    occupied_by_channel = defaultdict(list)
-    for existing_programme in global_programmes.values():
-        occupied_by_channel[existing_programme["channel_index"]].append(existing_programme)
+    # Разные передачи с разным временем начала сохраняются даже при
+    # пересечении интервалов. Пересечения анализируются отдельно после merge.
 
     with tempfile.NamedTemporaryFile(delete=False) as temp:
         temp_path = temp.name
@@ -972,25 +971,10 @@ def process_source(
                                                     merged_categories.append(category)
                                             existing["categories"] = merged_categories
                                     else:
-                                        # При слиянии сохраняем приоритет уже принятой программы.
-                                        # Конфликтующий интервал из следующего источника не добавляем,
-                                        # но исходные start/stop существующих записей не меняем.
-                                        interval_conflict = None
-                                        if stop_dt is not None:
-                                            interval_conflict = next(
-                                                (
-                                                    item for item in occupied_by_channel[index]
-                                                    if item.get("stop") is not None
-                                                    and item["start"] < stop_dt
-                                                    and start_dt < item["stop"]
-                                                ),
-                                                None,
-                                            )
-                                        if interval_conflict is not None:
-                                            stats["interval_conflicts_skipped"] += 1
-                                            merge_diagnostics["interval_conflicts_skipped"] += 1
-                                            continue
-
+                                        # Не отбрасываем запись только из-за пересечения
+                                        # интервала с другой передачей. Расписание источников
+                                        # может содержать альтернативные/региональные эфиры;
+                                        # все записи с разным start сохраняем для диагностики.
                                         accepted_programme = {
                                             "channel_index": index,
                                             "start": start_dt,
@@ -1002,7 +986,6 @@ def process_source(
                                             "xml_channel_id": channel_id,
                                         }
                                         source_programmes[identity] = accepted_programme
-                                        occupied_by_channel[index].append(accepted_programme)
 
                             current_date = start_dt.strftime("%Y-%m-%d %H:%M")
                             if (
