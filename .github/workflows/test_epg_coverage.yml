@@ -1,12 +1,6 @@
 name: Test EPG Coverage
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'check_epg_coverage.py'
-
   workflow_dispatch:
 
 permissions:
@@ -46,7 +40,7 @@ jobs:
           git add coverage_report.csv
           git add channel_coverage.csv
           git add epg_diagnostics.txt
-          git add epg_test_combined.xml.gz
+          git add epg_custom.xml.gz
           git add playlist_duplicates.csv
           git add merge_collision_details.csv
           git add merge_collision_text_details.csv.gz

@@ -9,7 +9,7 @@ EPG-EDEM: ручная проверка покрытия персонально�
   playlist_duplicates.csv
   coverage_report.csv
   channel_coverage.csv
-  epg_test_combined.xml.gz
+  epg_custom.xml.gz
 
 PLAYLIST_URL берётся только из GitHub Secrets.
 Персональный URL плейлиста не записывается в результаты.
@@ -32,6 +32,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.error import HTTPError, URLError
 import xml.etree.ElementTree as ET
 
+from bisect import bisect_left, insort
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -818,6 +819,54 @@ def compare_ambiguous_sequence(channel_id, candidate_indexes, mapped, fingerprin
             return {"status": "resolved", "winner": winner, "evidence": evidence}
     return {"status": "conflicting", "evidence": evidence}
 
+def resolve_source_programme_overlaps(global_programmes, source_programmes):
+    """Keeps higher-priority sources intact and maximizes non-overlapping
+    programme count inside the current source without modifying start/stop."""
+    existing_by_channel = defaultdict(list)
+    for item in global_programmes.values():
+        start, stop = item.get("start"), item.get("stop")
+        if start is not None and stop is not None:
+            insort(existing_by_channel[item["channel_index"]], (start, stop))
+
+    candidates_by_channel = defaultdict(list)
+    accepted = {}
+    skipped = 0
+
+    for identity, item in source_programmes.items():
+        start, stop = item.get("start"), item.get("stop")
+        channel_index = item["channel_index"]
+        if start is None or stop is None:
+            accepted[identity] = item
+            continue
+
+        intervals = existing_by_channel[channel_index]
+        pos = bisect_left(intervals, (start,))
+        conflict = (
+            (pos > 0 and intervals[pos - 1][1] > start)
+            or (pos < len(intervals) and intervals[pos][0] < stop)
+        )
+        if conflict:
+            skipped += 1
+        else:
+            candidates_by_channel[channel_index].append((identity, item))
+
+    # Earliest-finish-time yields the maximum number of compatible intervals.
+    for candidates in candidates_by_channel.values():
+        candidates.sort(key=lambda pair: (
+            pair[1]["stop"], pair[1]["start"],
+            normalize_name(pair[1].get("title", "")),
+        ))
+        last_stop = None
+        for identity, item in candidates:
+            if last_stop is None or item["start"] >= last_stop:
+                accepted[identity] = item
+                last_stop = item["stop"]
+            else:
+                skipped += 1
+
+    return accepted, skipped
+
+
 def process_source(
     source_name,
     source_url,
@@ -1109,8 +1158,17 @@ def process_source(
                             if sequence_conflict and len(matching_indexes) == 1:
                                 mapping_sequence_conflict_review_ids.add(mapped_id)
 
+                            # Один XMLTV ID может обслуживать SD/HD-варианты
+                            # одного логического канала. Совместное назначение безопасно,
+                            # когда все подтверждённые кандидаты имеют один canonical key.
                             conflicting_matches = (
-                                (sequence_conflict and len(matching_indexes) != 1)
+                                (
+                                    sequence_conflict
+                                    and (
+                                        not matching_indexes
+                                        or len(matched_logical_keys) > 1
+                                    )
+                                )
                                 or (
                                     sequence_result["status"] != "verified_shared"
                                     and len(matching_indexes) > 1
@@ -1458,16 +1516,26 @@ def process_source(
             if detail.get("source") == source_name:
                 detail["has_programmes"] = detail.get("xml_channel_id", "") in source_channels_with_programmes
 
-        stats["matched_playlist_channels"] = len(all_matched_indexes)
-        stats["xml_channels_with_programmes"] = len(
-            source_channels_with_programmes
+        # Источники с меньшим номером имеют абсолютный приоритет.
+        # В текущем источнике выбираем максимальное число передач,
+        # которые не пересекаются с уже принятыми интервалами.
+        source_programmes, skipped_overlaps = resolve_source_programme_overlaps(
+            global_programmes, source_programmes
         )
-        stats["channels_with_programmes"] = len(channels_with_programmes)
-        stats["_channel_indexes_with_programmes"] = sorted(channels_with_programmes)
+        stats["interval_conflicts_skipped"] = skipped_overlaps
+        merge_diagnostics["interval_conflicts_skipped"] += skipped_overlaps
+
+        accepted_indexes = {
+            item["channel_index"] for item in source_programmes.values()
+        }
+        stats["matched_playlist_channels"] = len(all_matched_indexes)
+        stats["xml_channels_with_programmes"] = len(source_channels_with_programmes)
+        stats["channels_with_programmes"] = len(accepted_indexes)
+        stats["_channel_indexes_with_programmes"] = sorted(accepted_indexes)
         stats["unique_programmes"] = len(source_programmes)
         stats["status"] = "OK"
 
-        # Сливаем данные только после полного успешного разбора источника.
+        # Сливаем источник только после завершения его разбора и фильтрации.
         global_programmes.update(source_programmes)
 
         log(
@@ -1709,7 +1777,7 @@ def write_combined_xml(
     description_limit=None,
     output_path=None,
 ):
-    path = output_path or (OUTPUT_DIR / "epg_test_combined.xml.gz")
+    path = output_path or (OUTPUT_DIR / "epg_custom.xml.gz")
     uncompressed_size = 0
 
     # Пишем XML потоково и параллельно считаем точный размер XML до GZIP.
@@ -1719,7 +1787,7 @@ def write_combined_xml(
             file.write(data)
             uncompressed_size += len(data)
 
-        write_xml(b'<?xml version="1.0" encoding="utf-8"?>\n<tv generator-info-name="EPG-EDEM Coverage Test">')
+        write_xml(b'<?xml version="1.0" encoding="utf-8"?>\n<tv generator-info-name="EPG-EDEM">')
 
         for index, channel in enumerate(channels):
             channel_element = ET.Element(
@@ -1779,6 +1847,54 @@ def write_combined_xml(
         "xml_uncompressed_bytes": uncompressed_size,
         "gzip_bytes": path.stat().st_size,
     }
+
+
+def validate_generated_xml(path, expected_channels, expected_programmes):
+    """Fully reads the generated archive and validates channel references/times."""
+    channel_ids = set()
+    channel_count = 0
+    programme_count = 0
+    root = None
+
+    with gzip.open(path, "rb") as source:
+        for event, element in ET.iterparse(source, events=("start", "end")):
+            if event == "start":
+                if root is None:
+                    root = element
+                continue
+
+            tag = local_name(element.tag)
+            if tag == "channel":
+                channel_id = element.attrib.get("id", "").strip()
+                if not channel_id or channel_id in channel_ids:
+                    raise RuntimeError(f"Missing or duplicate channel ID: {channel_id!r}")
+                channel_ids.add(channel_id)
+                channel_count += 1
+            elif tag == "programme":
+                channel_id = element.attrib.get("channel", "").strip()
+                if channel_id not in channel_ids:
+                    raise RuntimeError(f"Programme references unknown channel: {channel_id!r}")
+                start = parse_xmltv_datetime(element.attrib.get("start", ""))
+                stop_value = element.attrib.get("stop")
+                stop = parse_xmltv_datetime(stop_value) if stop_value else None
+                if start is None or (
+                    stop_value is not None and (stop is None or stop <= start)
+                ):
+                    raise RuntimeError("Invalid programme start/stop in generated XML.")
+                programme_count += 1
+
+            if tag in ("channel", "programme"):
+                element.clear()
+                if root is not None:
+                    root.clear()
+
+    if channel_count != expected_channels or programme_count != expected_programmes:
+        raise RuntimeError(
+            "Generated XML count mismatch: "
+            f"channels {channel_count}/{expected_channels}, "
+            f"programmes {programme_count}/{expected_programmes}."
+        )
+    return channel_count, programme_count
 
 
 def ensure_pillow():
@@ -2847,7 +2963,11 @@ def main():
         channels, channel_icons, channel_icon_sources
     )
     write_channel_report(channels, global_programmes, logo_diagnostics)
-    xml_sizes = write_combined_xml(channels, global_programmes, channel_icons)
+    pending_epg_path = OUTPUT_DIR / ".epg_custom.pending.xml.gz"
+    xml_sizes = write_combined_xml(
+        channels, global_programmes, channel_icons,
+        output_path=pending_epg_path,
+    )
     diagnostics = write_epg_diagnostics(
         channels,
         global_programmes,
@@ -2868,6 +2988,35 @@ def main():
         programme["channel_index"]
         for programme in global_programmes.values()
     }
+
+    failed_sources = [item["source"] for item in all_stats if item["status"] != "OK"]
+    if raw_interval_diagnostics["count"] != 0:
+        pending_epg_path.unlink(missing_ok=True)
+        log(
+            "ОТКАЗ ПУБЛИКАЦИИ: осталось пересекающихся пар: "
+            f"{raw_interval_diagnostics['count']}."
+        )
+        sys.exit(1)
+    if len(covered_channels) <= 2200:
+        pending_epg_path.unlink(missing_ok=True)
+        log(
+            "ОТКАЗ ПУБЛИКАЦИИ: EPG получили только "
+            f"{len(covered_channels)} каналов; требуется минимум 2201."
+        )
+        sys.exit(1)
+    if failed_sources:
+        pending_epg_path.unlink(missing_ok=True)
+        log("ОТКАЗ ПУБЛИКАЦИИ: не обработаны источники: " + "; ".join(failed_sources))
+        sys.exit(1)
+
+    validated_channels, validated_programmes = validate_generated_xml(
+        pending_epg_path, len(channels), len(global_programmes)
+    )
+    os.replace(pending_epg_path, OUTPUT_DIR / "epg_custom.xml.gz")
+    log(
+        "epg_custom.xml.gz проверен: "
+        f"{validated_channels} каналов, {validated_programmes} передач; пересечений 0."
+    )
 
     log()
     log("=" * 65)
@@ -2911,7 +3060,7 @@ def main():
     log("  channel_coverage.csv")
     log("  epg_diagnostics.txt")
     log("  programme_interval_overlaps.csv.gz")
-    log("  epg_test_combined.xml.gz")
+    log("  epg_custom.xml.gz")
 
     log()
     log(f"Время выполнения: {(time.time() - started) / 60:.1f} мин.")
