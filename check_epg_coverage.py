@@ -1101,6 +1101,7 @@ def process_source(
                         "mapping_playlist_names": "",
                         "sequence_fingerprint_status": "not evaluated",
                         "sequence_fingerprint_evidence": "",
+                        "mapping_decision_evidence": "",
                     })
                     matched_indexes, method = map_source_channels(
                         channel_id,
@@ -1256,6 +1257,28 @@ def process_source(
                                 not matching_indexes
                                 and len(candidate_name_keys) > 1
                             )
+
+                            decision_reason = (
+                                "sequence_conflict_and_multiple_logical_names"
+                                if conflicting_matches
+                                else "no_name_intersection_with_multiple_candidate_names"
+                                if no_safe_match
+                                else "sequence_verified_or_name_match"
+                            )
+                            decision_evidence = (
+                                f"reason={decision_reason}; "
+                                f"source_names={sorted(source_names)!r}; "
+                                f"source_keys={sorted(source_keys)!r}; "
+                                f"candidate_indexes={sorted(candidate_indexes)!r}; "
+                                f"candidate_keys={sorted(candidate_name_keys)!r}; "
+                                f"matched_indexes={sorted(matching_indexes)!r}; "
+                                f"matched_keys={sorted(matched_logical_keys)!r}; "
+                                f"sequence={sequence_result.get('status', '')}; "
+                                f"sequence_evidence={sequence_result.get('evidence', '')}"
+                            )
+                            for detail in mapping_rule_details:
+                                if detail.get("source") == source_name and detail.get("xml_channel_id") == mapped_id:
+                                    detail["mapping_decision_evidence"] = decision_evidence
 
                             if conflicting_matches or no_safe_match:
                                 mapped[mapped_id] = set()
@@ -2352,6 +2375,7 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
                 detail.get("mapping_playlist_names", ""),
                 detail.get("sequence_fingerprint_status", ""),
                 detail.get("sequence_fingerprint_evidence", ""),
+                detail.get("mapping_decision_evidence", ""),
             )
             found[key] = True
 
@@ -2359,7 +2383,7 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
             candidate_playlist_indexes.add(playlist_index)
             for (source, xml_id, xml_names, rule, mapping_status,
                  mapping_playlist_indexes, mapping_playlist_names,
-                 sequence_status, sequence_evidence) in sorted(found):
+                 sequence_status, sequence_evidence, decision_evidence) in sorted(found):
                 rows.append({
                     "playlist_index": playlist_index,
                     "playlist_channel": channel.get("title", ""),
@@ -2374,6 +2398,7 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
                     "mapping_playlist_names": mapping_playlist_names,
                     "sequence_fingerprint_status": sequence_status,
                     "sequence_fingerprint_evidence": sequence_evidence,
+                    "mapping_decision_evidence": decision_evidence,
                 })
         else:
             rows.append({
@@ -2398,6 +2423,7 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
         "xml_channel_id", "xml_display_names", "mapping_status",
         "mapping_playlist_indexes", "mapping_playlist_names",
         "sequence_fingerprint_status", "sequence_fingerprint_evidence",
+        "mapping_decision_evidence",
     ]
     write_diagnostic_csv("uncovered_channel_candidates.csv", rows, fieldnames)
 
@@ -2436,6 +2462,9 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
             f"sequence={row.get('sequence_fingerprint_status', '')} | "
             f"mapped={row.get('mapping_playlist_names', '')} | evidence={evidence}"
         )
+        decision = " ".join(str(row.get("mapping_decision_evidence", "")).split())
+        if decision:
+            log("    MAPPING_DECISION | " + (decision[:1200] + "..." if len(decision) > 1200 else decision))
 
     return len(channels) - len(covered), len(candidate_playlist_indexes)
 
