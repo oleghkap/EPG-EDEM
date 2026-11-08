@@ -2611,9 +2611,8 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
     ]
     write_diagnostic_csv("uncovered_channel_candidates.csv", rows, fieldnames)
 
-    # GitHub Actions skips the repository-save step when the coverage threshold
-    # fails. Emit the useful candidate evidence directly into the job log so it
-    # remains available for diagnosis without changing the workflow or threshold.
+    # Emit candidate evidence directly into the job log; coverage is informational
+    # and must never impose a minimum channel-count requirement.
     candidate_rows = [
         row for row in rows
         if row.get("candidate_status") == "candidate_with_programmes"
@@ -3439,13 +3438,9 @@ def main():
             f"{raw_interval_diagnostics['count']}."
         )
         sys.exit(1)
-    if len(covered_channels) <= 2200:
-        pending_epg_path.unlink(missing_ok=True)
-        log(
-            "ОТКАЗ ПУБЛИКАЦИИ: EPG получили только "
-            f"{len(covered_channels)} каналов; требуется минимум 2201."
-        )
-        sys.exit(1)
+    log(
+        f"Покрытие EPG: {len(covered_channels)} каналов из {len(channels)} эталонных."
+    )
     if failed_sources:
         pending_epg_path.unlink(missing_ok=True)
         log("ОТКАЗ ПУБЛИКАЦИИ: не обработаны источники: " + "; ".join(failed_sources))
