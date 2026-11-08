@@ -1227,12 +1227,40 @@ def process_source(
                                 stats["ambiguous_xml_ids_sequence_conflicting"] += 1
                                 merge_diagnostics["ambiguous_xml_ids_sequence_conflicting"] += 1
 
-                            # Если display-name однозначно указывает на один канал,
-                            # конфликт fingerprint не должен удалять его EPG.
-                            # Сохраняем единственное именное совпадение и помечаем
-                            # его для ручной проверки; quarantine нужен только когда
-                            # последовательность конфликтует при нескольких/нулевых
-                            # подтверждённых кандидатах.
+                            # При недостаточной/конфликтующей fingerprint-проверке
+                            # допускаем сужение только по точному названию из
+                            # channels_test.txt. Нормализация базового имени (HD/4K)
+                            # не является доказательством одинакового расписания.
+                            strict_exact_indexes = {
+                                playlist_index
+                                for playlist_index in candidate_indexes
+                                if normalize_name(
+                                    playlist_channels[playlist_index].get("title", "")
+                                ) in {
+                                    normalize_name(name)
+                                    for name in source_names
+                                    if name
+                                }
+                            }
+                            exact_name_narrowed = (
+                                sequence_result["status"] in ("insufficient", "conflicting")
+                                and len(strict_exact_indexes) == 1
+                            )
+                            if exact_name_narrowed:
+                                exact_winner = next(iter(strict_exact_indexes))
+                                matching_indexes = {exact_winner}
+                                matched_keys_by_index = {
+                                    exact_winner: matched_keys_by_index.get(exact_winner, set())
+                                }
+                                matched_logical_keys = set(
+                                    matched_keys_by_index[exact_winner]
+                                )
+                                if matching_indexes != candidate_indexes:
+                                    mapping_filtered_ids.add(mapped_id)
+
+                            # Конфликт последовательностей оставляет канал только
+                            # при единственном точном совпадении с эталонным именем.
+                            # Все остальные shared-ID с конфликтом изолируются.
                             if sequence_conflict and len(matching_indexes) == 1:
                                 mapping_sequence_conflict_review_ids.add(mapped_id)
 
@@ -1263,6 +1291,8 @@ def process_source(
                                 if conflicting_matches
                                 else "no_name_intersection_with_multiple_candidate_names"
                                 if no_safe_match
+                                else "narrowed_by_exact_reference_name"
+                                if exact_name_narrowed
                                 else "sequence_verified_or_name_match"
                             )
                             decision_evidence = (
