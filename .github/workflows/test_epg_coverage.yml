@@ -31,6 +31,40 @@ jobs:
           PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
         run: python check_epg_coverage.py
 
+      - name: Save synchronized channel reference
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add channels_test.txt
+
+          if git diff --cached --quiet; then
+            echo "No synchronized channel-name changes."
+            exit 0
+          fi
+
+          git commit -m "Synchronize channel reference names [skip ci]"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+
+            if git push origin HEAD:main; then
+              echo "Synchronized channels_test.txt successfully pushed."
+              exit 0
+            fi
+
+            echo "Push attempt $attempt failed."
+
+            if [ "$attempt" -lt 3 ]; then
+              sleep 5
+            fi
+          done
+
+          echo "Failed to push synchronized channels_test.txt after 3 attempts."
+          exit 1
+
       - name: Save results to repository
         run: |
           git config user.name "github-actions[bot]"
