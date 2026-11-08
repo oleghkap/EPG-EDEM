@@ -12,7 +12,7 @@ EPG-EDEM: ручная проверка покрытия персонально�
   playlist_duplicates.csv
   coverage_report.csv
   channel_coverage.csv
-  epg_custom.xml.gz
+  epg_test_combined.xml.gz
 
 PLAYLIST_URL берётся только из GitHub Secrets.
 Персональный URL плейлиста не записывается в результаты.
@@ -2137,7 +2137,7 @@ def write_combined_xml(
     description_limit=None,
     output_path=None,
 ):
-    path = output_path or (OUTPUT_DIR / "epg_custom.xml.gz")
+    path = output_path or (OUTPUT_DIR / "epg_test_combined.xml.gz")
     uncompressed_size = 0
 
     # Пишем XML потоково и параллельно считаем точный размер XML до GZIP.
@@ -3404,7 +3404,7 @@ def main():
         channels, channel_icons, channel_icon_sources
     )
     write_channel_report(channels, global_programmes, logo_diagnostics)
-    pending_epg_path = OUTPUT_DIR / ".epg_custom.pending.xml.gz"
+    pending_epg_path = OUTPUT_DIR / ".epg_test_combined.pending.xml.gz"
     xml_sizes = write_combined_xml(
         channels, global_programmes, channel_icons,
         output_path=pending_epg_path,
@@ -3449,9 +3449,9 @@ def main():
     validated_channels, validated_programmes = validate_generated_xml(
         pending_epg_path, len(channels), len(global_programmes)
     )
-    os.replace(pending_epg_path, OUTPUT_DIR / "epg_custom.xml.gz")
+    os.replace(pending_epg_path, OUTPUT_DIR / "epg_test_combined.xml.gz")
     log(
-        "epg_custom.xml.gz проверен: "
+        "epg_test_combined.xml.gz проверен: "
         f"{validated_channels} каналов, {validated_programmes} передач; пересечений 0."
     )
 
@@ -3497,7 +3497,7 @@ def main():
     log("  channel_coverage.csv")
     log("  epg_diagnostics.txt")
     log("  programme_interval_overlaps.csv.gz")
-    log("  epg_custom.xml.gz")
+    log("  epg_test_combined.xml.gz")
 
     log()
     log(f"Время выполнения: {(time.time() - started) / 60:.1f} мин.")
