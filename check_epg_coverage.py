@@ -994,6 +994,7 @@ def process_source(
         "logos_found": 0,
         "logos_added": 0,
         "new_channels_with_programmes": 0,
+        "fallback_channels_with_programmes": 0,
         "cumulative_gzip_bytes": 0,
         "marginal_gzip_bytes": 0,
     }
@@ -1651,6 +1652,18 @@ def process_source(
         for matched_set in mapped.values():
             all_matched_indexes.update(matched_set)
 
+        # Логотипы собирались во время чтения объявлений XMLTV, до окончательного
+        # разрешения неоднозначных ID. Отбрасываем кандидаты каналов, которые
+        # после финализации сопоставления не вошли в matched-набор источника.
+        source_channel_icons = {
+            index: icon for index, icon in source_channel_icons.items()
+            if index in all_matched_indexes
+        }
+        source_channel_icon_sources = {
+            index: source for index, source in source_channel_icon_sources.items()
+            if index in all_matched_indexes
+        }
+
         # Помечаем в диагностике только XMLTV-каналы, у которых
         # действительно есть передачи в проверяемом периоде.
         for detail in mapping_rule_details:
@@ -2064,6 +2077,7 @@ def write_coverage_report(stats_list):
         "logos_found",
         "logos_added",
         "new_channels_with_programmes",
+        "fallback_channels_with_programmes",
         "cumulative_gzip_bytes",
         "marginal_gzip_bytes",
     ]
@@ -3372,7 +3386,8 @@ def main():
         stats["new_channels_matched"] = len(new_matched_indexes)
         stats["fallback_channels_matched"] = len(fallback_matched_indexes)
         stats["channels_eligible_for_programmes"] = len(matched_channel_indexes - blocked_indexes)
-        stats["new_channels_with_programmes"] = len(source_channel_indexes - previously_covered_channels)
+        stats["new_channels_with_programmes"] = len(source_channel_indexes & new_matched_indexes)
+        stats["fallback_channels_with_programmes"] = len(source_channel_indexes & fallback_matched_indexes)
         previously_matched_channels.update(matched_channel_indexes)
         previously_covered_channels.update(source_channel_indexes)
 
@@ -3407,6 +3422,7 @@ def main():
             f"добавлено без перезаписи: {stats['logos_added']}; "
             f"каналов с принятыми передачами: {stats['channels_with_programmes']}; "
             f"новых каналов с передачами: {stats['new_channels_with_programmes']}; "
+            f"ранее найденных каналов, которым добавлены передачи: {stats['fallback_channels_with_programmes']}; "
             f"изменение GZIP {stats['marginal_gzip_bytes'] / 1_000_000:.2f} MB"
         )
 
