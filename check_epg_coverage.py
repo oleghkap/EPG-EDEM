@@ -632,7 +632,9 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
     if len(country_matches) == 1:
         return country_matches, "country-normalized name"
     if len(country_matches) > 1:
-        return set(), "ambiguous"
+        # Не отбрасываем кандидатов: sequence fingerprint и проверка
+        # логического имени ниже должны попытаться безопасно сузить набор.
+        return country_matches, "ambiguous"
 
     base_matches = set()
     for source_name in display_names:
@@ -657,7 +659,9 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
     if len(base_matches) == 1:
         return base_matches, "unique base name"
     if len(base_matches) > 1:
-        return set(), "ambiguous"
+        # Сохраняем неоднозначные кандидаты для проверки последовательностей.
+        # При конфликте они будут изолированы на этапе mapping_finalized.
+        return base_matches, "ambiguous"
     if region_filtered:
         return set(), "region-ambiguous"
     return set(), "unmatched"
@@ -1051,6 +1055,9 @@ def process_source(
                     # Сопоставление выполняется во всех источниках: более поздние
                     # источники могут заполнить отсутствующий логотип или EPG.
                     # Запрет на повторные передачи применяется отдельно ниже.
+                    if method == "ambiguous":
+                        stats["ambiguous_channels"] += 1
+
                     if matched_indexes and channel_id:
                         mapped.setdefault(channel_id, set()).update(
                             matched_indexes
@@ -1081,8 +1088,6 @@ def process_source(
                             stats["matched_by_country_name"] += 1
                         elif method in ("unique base name", "variant base name"):
                             stats["matched_by_base_name"] += 1
-                    elif method == "ambiguous":
-                        stats["ambiguous_channels"] += 1
                     elif method == "region-ambiguous":
                         stats["region_ambiguous_channels"] += 1
                         stats["unmatched_channels"] += 1
