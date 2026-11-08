@@ -1832,34 +1832,41 @@ def synchronize_reference_channel_names(reference_channels, playlist_channels):
     for reference_index, playlist_index in anchors:
         apply_title(reference_index, playlist_index)
 
-    boundaries = [(-1, -1), *anchors, (len(reference_channels), len(playlist_channels))]
-    for previous, following in zip(boundaries, boundaries[1:]):
-        old_start, new_start = previous[0] + 1, previous[1] + 1
-        old_count = following[0] - old_start
-        new_count = following[1] - new_start
+    if anchors:
+        boundaries = [(-1, -1), *anchors, (len(reference_channels), len(playlist_channels))]
+        for previous, following in zip(boundaries, boundaries[1:]):
+            old_start, new_start = previous[0] + 1, previous[1] + 1
+            old_count = following[0] - old_start
+            new_count = following[1] - new_start
 
-        if old_count == 0 and new_count == 0:
-            continue
+            if old_count == 0 and new_count == 0:
+                continue
 
-        # Одинаковая длина между неизменившимися опорами означает, что
-        # порядок записей внутри участка можно сохранить позиционно.
-        if old_count == new_count:
-            for offset in range(old_count):
-                apply_title(old_start + offset, new_start + offset)
+            # Два и более независимых якоря подтверждают общий порядок.
+            # При одном якоре позиционно обновляем только одиночные участки.
+            positional_alignment_is_supported = len(anchors) >= 2 or old_count <= 1
+            if old_count == new_count and positional_alignment_is_supported:
+                for offset in range(old_count):
+                    apply_title(old_start + offset, new_start + offset)
+            else:
+                ambiguous_segments += 1
+
+    else:
+        # Без общих уникальных названий нельзя восстановить выравнивание
+        # всего списка. Разрешаем только одну разницу на той же позиции.
+        if len(reference_channels) == len(playlist_channels):
+            differences = [
+                index
+                for index, (old_key, new_key) in enumerate(zip(reference_keys, playlist_keys))
+                if old_key != new_key
+            ]
+            if len(differences) == 1:
+                index = differences[0]
+                apply_title(index, index)
+            elif differences:
+                ambiguous_segments += 1
         else:
             ambiguous_segments += 1
-
-    # Если уникальных опор нет, допускаем ровно одно позиционное изменение
-    # при одинаковой длине и неизменности всех остальных позиций.
-    if not anchors and updated == 0 and len(reference_channels) == len(playlist_channels):
-        differences = [
-            index
-            for index, (old_key, new_key) in enumerate(zip(reference_keys, playlist_keys))
-            if old_key != new_key
-        ]
-        if len(differences) == 1:
-            index = differences[0]
-            apply_title(index, index)
 
     log(
         "Синхронизация названий без tvg-id: "
