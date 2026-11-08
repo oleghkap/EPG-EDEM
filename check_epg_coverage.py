@@ -140,12 +140,12 @@ def has_quality_marker(value):
 
 def canonical_mapping_name(value):
     """
-    Нормализует имя для сопоставления региональных вариантов.
-    Убирает географическую пометку в скобках после временного сдвига,
-    но сохраняет сам +N: каналы с разными сдвигами не объединяются.
-    +0 (нулевой сдвиг) эквивалентен базовому каналу.
+    Ключ логического канала: качество и городские пометки не разделяют
+    один канал, но явная страна и временной сдвиг остаются значимыми.
     """
-    value = strip_country_suffix(strip_country_prefix(value or "")).strip()
+    raw = (value or "").strip()
+    countries = edge_country_codes(raw)
+    value = strip_country_suffix(strip_country_prefix(raw)).strip()
     value = re.sub(
         r"(\+\s*\d+)\s*\([^)]*\)\s*$",
         r"\1",
@@ -158,7 +158,28 @@ def canonical_mapping_name(value):
         value,
         flags=re.IGNORECASE,
     )
-    return normalize_base_name(value) or normalize_name(value)
+    normalized = normalize_base_name(value) or normalize_name(value)
+    if countries and normalized:
+        normalized += " " + " ".join(sorted(countries))
+    return normalized
+
+
+def expand_logical_channel_variants(matches, display_names, indexes):
+    """
+    Добавляет SD/HD/FHD и региональные варианты только одного логического
+    канала. Страна и +N сохранены в ключе, поэтому разные регионы/сдвиги
+    не смешиваются.
+    """
+    matches = set(matches)
+    source_keys = {
+        canonical_mapping_name(name)
+        for name in display_names
+        if name and canonical_mapping_name(name)
+    }
+    if len(source_keys) != 1:
+        return matches
+    by_logical_name = indexes[3]
+    return matches | set(by_logical_name.get(next(iter(source_keys)), set()))
 
 
 def strip_country_prefix(value):
@@ -434,6 +455,7 @@ def build_playlist_indexes(channels):
     by_id = defaultdict(set)
     by_name = defaultdict(set)
     by_base_name = defaultdict(set)
+    by_logical_name = defaultdict(set)
 
     for index, channel in enumerate(channels):
         channel["key"] = f"playlist_{index + 1}"
@@ -457,12 +479,16 @@ def build_playlist_indexes(channels):
             if base:
                 by_base_name[base].add(index)
 
-    return by_id, by_name, by_base_name
+            logical_name = canonical_mapping_name(name)
+            if logical_name:
+                by_logical_name[logical_name].add(index)
+
+    return by_id, by_name, by_base_name, by_logical_name
 
 
 def audit_mapping_candidates(display_names, indexes, playlist_channels):
     """Диагностика кандидатов без изменения действующего сопоставления."""
-    _, by_name, by_base_name = indexes
+    _, by_name, by_base_name, _ = indexes
     exact = set()
     country = set()
     base = set()
@@ -575,7 +601,7 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
     Ослабленные правила назначают канал только при единственном
     кандидате в плейлисте.
     """
-    _, by_name, by_base_name = indexes
+    _, by_name, by_base_name, _ = indexes
 
     # XMLTV ID связывает programme с channel внутри самого XMLTV.
     # Для сопоставления с M3U используем display-name, а не tvg-id:
@@ -587,7 +613,9 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
             exact_matches.update(by_name.get(normalized, set()))
 
     if exact_matches:
-        return exact_matches, "exact name"
+        return expand_logical_channel_variants(
+            exact_matches, display_names, indexes
+        ), "exact name"
 
     # Регион в XMLTV ID — такой же значимый признак, как регион в имени.
     # Например, Discovery.Channel.it нельзя присоединять к общему
@@ -615,7 +643,9 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
 
     exact_matches = keep_matching_region(exact_matches)
     if exact_matches:
-        return exact_matches, "exact name"
+        return expand_logical_channel_variants(
+            exact_matches, display_names, indexes
+        ), "exact name"
 
     country_matches = set()
     for name in display_names:
@@ -630,11 +660,15 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
 
     country_matches = keep_matching_region(country_matches)
     if len(country_matches) == 1:
-        return country_matches, "country-normalized name"
+        return expand_logical_channel_variants(
+            country_matches, display_names, indexes
+        ), "country-normalized name"
     if len(country_matches) > 1:
         # Не отбрасываем кандидатов: sequence fingerprint и проверка
         # логического имени ниже должны попытаться безопасно сузить набор.
-        return country_matches, "ambiguous"
+        return expand_logical_channel_variants(
+            country_matches, display_names, indexes
+        ), "ambiguous"
 
     base_matches = set()
     for source_name in display_names:
@@ -657,11 +691,15 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
 
     base_matches = keep_matching_region(base_matches)
     if len(base_matches) == 1:
-        return base_matches, "unique base name"
+        return expand_logical_channel_variants(
+            base_matches, display_names, indexes
+        ), "unique base name"
     if len(base_matches) > 1:
         # Сохраняем неоднозначные кандидаты для проверки последовательностей.
         # При конфликте они будут изолированы на этапе mapping_finalized.
-        return base_matches, "ambiguous"
+        return expand_logical_channel_variants(
+            base_matches, display_names, indexes
+        ), "ambiguous"
     if region_filtered:
         return set(), "region-ambiguous"
     return set(), "unmatched"
