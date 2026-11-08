@@ -5,7 +5,8 @@
 EPG-EDEM: ручная проверка покрытия персонального M3U
 
 Входной эталонный список:
-  channels_test.txt (не изменяется скриптом)
+  channels_test.txt — эталон состава и порядка; названия безопасно
+  синхронизируются с персональным M3U по последовательности записей.
 
 Результаты:
   playlist_duplicates.csv
@@ -1710,7 +1711,7 @@ def process_source(
 def load_reference_channels():
     """
     Читает канонический список каналов из channels_test.txt.
-    Файл является входным эталоном и никогда не перезаписывается.
+    Состав, порядок, группы и повторяющиеся записи берутся из этого файла.
     """
     path = OUTPUT_DIR / "channels_test.txt"
     if not path.is_file():
@@ -1763,6 +1764,152 @@ def load_reference_channels():
 
     log(f"Эталонных каналов из channels_test.txt: {len(channels)}")
     return channels
+
+
+def synchronize_reference_channel_names(reference_channels, playlist_channels):
+    """
+    Синхронизирует названия каналов без использования tvg-id.
+
+    Опорные точки — названия, которые встречаются ровно один раз и в
+    эталоне, и в текущем M3U. Между соседними опорами записи связываются
+    по порядку, только если длина участка с обеих сторон одинакова.
+    Если порядок изменился или длины участков различаются, участок
+    пропускается. Это сохраняет повторы и не смешивает переименование
+    с очевидным добавлением, удалением или перестановкой.
+
+    Состав, порядок и группы эталона не меняются.
+    """
+    if not reference_channels or not playlist_channels:
+        log("Синхронизация названий пропущена: пустой эталон или плейлист.")
+        return reference_channels
+
+    reference_keys = [normalize_name(item.get("title", "")) for item in reference_channels]
+    playlist_keys = [normalize_name(item.get("title", "")) for item in playlist_channels]
+    reference_counts = Counter(key for key in reference_keys if key)
+    playlist_counts = Counter(key for key in playlist_keys if key)
+
+    unique_playlist_indexes = {
+        key: index
+        for index, key in enumerate(playlist_keys)
+        if key and playlist_counts[key] == 1
+    }
+    anchors = [
+        (reference_index, unique_playlist_indexes[key])
+        for reference_index, key in enumerate(reference_keys)
+        if key and reference_counts[key] == 1 and key in unique_playlist_indexes
+    ]
+
+    # Если общие уникальные названия идут в разном порядке, плейлист
+    # переставляли. Нельзя трактовать соседние позиции как переименования.
+    if any(
+        anchors[index][1] >= anchors[index + 1][1]
+        for index in range(len(anchors) - 1)
+    ):
+        log(
+            "Синхронизация названий пропущена: обнаружена перестановка "
+            "каналов относительно эталонного списка."
+        )
+        return reference_channels
+
+    updated = 0
+    ambiguous_segments = 0
+
+    def apply_title(reference_index, playlist_index):
+        nonlocal updated
+        old_title = reference_channels[reference_index].get("title", "")
+        new_title = playlist_channels[playlist_index].get("title", "").strip()
+        if not new_title or old_title == new_title:
+            return
+        reference_channels[reference_index]["title"] = new_title
+        reference_channels[reference_index]["tvg_name"] = new_title
+        updated += 1
+        log(
+            f"  Переименование channels_test.txt[{reference_index + 1}]: "
+            f"{old_title!r} -> {new_title!r}"
+        )
+
+    # Обновляем уникальные опоры, если изменились регистр/пунктуация.
+    for reference_index, playlist_index in anchors:
+        apply_title(reference_index, playlist_index)
+
+    boundaries = [(-1, -1), *anchors, (len(reference_channels), len(playlist_channels))]
+    for previous, following in zip(boundaries, boundaries[1:]):
+        old_start, new_start = previous[0] + 1, previous[1] + 1
+        old_count = following[0] - old_start
+        new_count = following[1] - new_start
+
+        if old_count == 0 and new_count == 0:
+            continue
+
+        # Одинаковая длина между неизменившимися опорами означает, что
+        # порядок записей внутри участка можно сохранить позиционно.
+        if old_count == new_count:
+            for offset in range(old_count):
+                apply_title(old_start + offset, new_start + offset)
+        else:
+            ambiguous_segments += 1
+
+    # Если уникальных опор нет, допускаем ровно одно позиционное изменение
+    # при одинаковой длине и неизменности всех остальных позиций.
+    if not anchors and updated == 0 and len(reference_channels) == len(playlist_channels):
+        differences = [
+            index
+            for index, (old_key, new_key) in enumerate(zip(reference_keys, playlist_keys))
+            if old_key != new_key
+        ]
+        if len(differences) == 1:
+            index = differences[0]
+            apply_title(index, index)
+
+    log(
+        "Синхронизация названий без tvg-id: "
+        f"эталонных записей {len(reference_channels)}, "
+        f"записей M3U {len(playlist_channels)}, "
+        f"переименовано {updated}, "
+        f"неоднозначных участков пропущено {ambiguous_segments}."
+    )
+    return reference_channels
+
+
+def write_reference_channels(channels):
+    """Записывает таблицу, сохраняя порядок, группы и повторяющиеся записи."""
+    path = OUTPUT_DIR / "channels_test.txt"
+    headers = ["№", "CHANNEL", "GRP"]
+
+    def clean(value):
+        return (
+            str(value or "")
+            .replace("|", " ")
+            .replace("\t", " ")
+            .replace("\r", " ")
+            .replace("\n", " ")
+            .strip()
+        )
+
+    rows = [
+        [str(index), clean(channel.get("title")), clean(channel.get("group"))]
+        for index, channel in enumerate(channels, start=1)
+    ]
+    widths = [
+        max(
+            len(headers[index]),
+            max((len(row[index]) for row in rows), default=0),
+        )
+        for index in range(len(headers))
+    ]
+
+    def format_row(values):
+        return " | ".join(
+            str(value).ljust(widths[index])
+            for index, value in enumerate(values)
+        )
+
+    separator = "-+-".join("-" * width for width in widths)
+    with path.open("w", encoding="utf-8-sig", newline="\n") as file:
+        file.write(format_row(headers) + "\n")
+        file.write(separator + "\n")
+        for row in rows:
+            file.write(format_row(row) + "\n")
 
 
 def attach_playlist_metadata(reference_channels, playlist_channels):
@@ -3094,6 +3241,13 @@ def main():
 
     playlist_channels = load_playlist()
     channels = load_reference_channels()
+    reference_titles_before_sync = [item.get("title", "") for item in channels]
+    channels = synchronize_reference_channel_names(channels, playlist_channels)
+    if any(
+        old_title != channel.get("title", "")
+        for old_title, channel in zip(reference_titles_before_sync, channels)
+    ):
+        write_reference_channels(channels)
     channels = attach_playlist_metadata(channels, playlist_channels)
     del playlist_channels
 
