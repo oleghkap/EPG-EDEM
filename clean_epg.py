@@ -1,4 +1,3 @@
-
 import copy
 from bisect import bisect_left
 import gzip
@@ -28,7 +27,7 @@ TIMEZONE = ZoneInfo("Europe/Moscow")
 DAYS_BEFORE = 2
 DAYS_AFTER = 1
 
-GZIP_LEVEL = 9
+GZIP_LEVEL = 6
 DOWNLOAD_TIMEOUT = 180
 BUFFER_SIZE = 1024 * 1024
 
