@@ -99,18 +99,6 @@ TV.TEAM full,1731,Nick Jr,10,ch1853 | ch223 | ch2277 | ch2402 | ch2637 | ch3008 
 TV.TEAM full,2679,beIN Sports 2,3,ch1425 | ch228 | ch3623
 TV.TEAM full,370,FX HD,5,ch103 | ch1468 | ch2193 | ch3343 | ch903
 TV.TEAM full,447,Hollywood HD,3,ch2998 | ch3793 | ch525
-TV.TEAM full,193,Россия 1 +0 (Невинномысск),2,ch002 | ch1644
-TV.TEAM full,9,Россия 1 FHD,2,ch002 | ch1644
-TV.TEAM full,10,Россия 1 HD,2,ch002 | ch1644
-TV.TEAM full,11,Россия 1,2,ch002 | ch1644
-TV.TEAM full,143,Россия 1 orig,2,ch002 | ch1644
-TV.TEAM full,144,Россия 1 HD 50,2,ch002 | ch1644
-TV.TEAM full,156,Россия 1 HD orig,2,ch002 | ch1644
-TV.TEAM full,274,Россия 1 +0 (Элиста),2,ch002 | ch1644
-TV.TEAM full,183,Россия 1 +0 (Липецк),2,ch002 | ch1644
-TV.TEAM full,252,Россия 1 +0 (Алания),2,ch002 | ch1644
-TV.TEAM full,254,Россия 1 +0 (Белгород),2,ch002 | ch1644
-TV.TEAM full,287,Россия 1 +0 (Тамбов),2,ch002 | ch1644
 TV.TEAM full,1855,National Geographic HD,6,ch125 | ch1346 | ch3424 | ch3667 | ch3980 | ch4118
 TV.TEAM full,1748,Baby TV,4,ch1118 | ch2473 | ch2971 | ch489
 TV.TEAM full,1287,Матч! Игра HD,2,ch3303 | ch3304
@@ -157,62 +145,19 @@ ProgramTV,2093,Fashion TV UHD,2,121 | 661
 ProgramTV,2877,Fashion TV HD,2,121 | 661
 ProgramTV,2111,Fashion TV FHD,2,121 | 661
 ProgramTV,507,Cinema,2,1844 | 37
-TopIPTV,480,Amedia Hit,2,Amedia Hit | Amedia Hit HD
-TopIPTV,545,Amedia Hit HD orig,2,Amedia Hit | Amedia Hit HD
-TopIPTV,418,Amedia Hit HD,2,Amedia Hit | Amedia Hit HD
-TopIPTV,596,Amedia Hit orig,2,Amedia Hit | Amedia Hit HD
-TopIPTV,595,Amedia Premium orig,2,Amedia Premium | Amedia Premium HD
-TopIPTV,533,Amedia Premium HD orig,2,Amedia Premium | Amedia Premium HD
-TopIPTV,446,Amedia Premium HD,2,Amedia Premium | Amedia Premium HD
-TopIPTV,479,Amedia Premium,2,Amedia Premium | Amedia Premium HD
-TopIPTV,1307,Eurosport 2 HD orig,2,Eurosport 2 | Eurosport 2 HD
+TopIPTV,1182,Eurosport 2 HD,2,Eurosport 2 | Eurosport 2 HD
 TopIPTV,370,FX HD,2,FX | FX HD
 TopIPTV,1244,Setanta Sports 1 HD KZ,2,Setanta Sports 1 | Setanta Sports 1 HD
 TopIPTV,594,Кинокомедия orig,2,Кинокомедия | Кинокомедия HD
 TopIPTV,470,Кинокомедия,2,Кинокомедия | Кинокомедия HD
 TopIPTV,610,Кинокомедия HD,2,Кинокомедия | Кинокомедия HD
-TopIPTV,600,Киносвидание orig,2,Киносвидание | Киносвидание HD
-TopIPTV,491,Киносвидание,2,Киносвидание | Киносвидание HD
-TopIPTV,608,Киносвидание HD,2,Киносвидание | Киносвидание HD
-TopIPTV,1289,Матч! Арена,2,Матч! Арена | Матч! Арена HD
-TopIPTV,1290,Матч! Арена HD,2,Матч! Арена | Матч! Арена HD
-TopIPTV,1291,Матч! Арена HD orig,2,Матч! Арена | Матч! Арена HD
-TopIPTV,1360,Матч! Футбол 1 HD 50,2,Матч! Футбол 1 | Матч! Футбол 1 HD
-TopIPTV,1274,Матч! Футбол 1,2,Матч! Футбол 1 | Матч! Футбол 1 HD
-TopIPTV,1275,Матч! Футбол 1 HD,2,Матч! Футбол 1 | Матч! Футбол 1 HD
-TopIPTV,1276,Матч! Футбол 1 HD 50 orig,2,Матч! Футбол 1 | Матч! Футбол 1 HD
-TopIPTV,1277,Матч! Футбол 1 FHD,2,Матч! Футбол 1 | Матч! Футбол 1 HD
-TopIPTV,1280,Матч! Футбол 2 FHD,2,Матч! Футбол 2 | Матч! Футбол 2 HD
-TopIPTV,1281,Матч! Футбол 2 HD orig,2,Матч! Футбол 2 | Матч! Футбол 2 HD
-TopIPTV,1364,Матч! Футбол 2 HD 50,2,Матч! Футбол 2 | Матч! Футбол 2 HD
-TopIPTV,1278,Матч! Футбол 2,2,Матч! Футбол 2 | Матч! Футбол 2 HD
-TopIPTV,1279,Матч! Футбол 2 HD,2,Матч! Футбол 2 | Матч! Футбол 2 HD
-TopIPTV,1361,Матч! Футбол 3 HD 50,2,Матч! Футбол 3 | Матч! Футбол 3 HD
-TopIPTV,1282,Матч! Футбол 3,2,Матч! Футбол 3 | Матч! Футбол 3 HD
-TopIPTV,1283,Матч! Футбол 3 HD,2,Матч! Футбол 3 | Матч! Футбол 3 HD
-TopIPTV,1284,Матч! Футбол 3 HD 50 orig,2,Матч! Футбол 3 | Матч! Футбол 3 HD
-TopIPTV,1285,Матч! Футбол 3 FHD,2,Матч! Футбол 3 | Матч! Футбол 3 HD
 TopIPTV,526,Мосфильм. Золотая коллекция,2,Мосфильм HD Золотая коллекция | Мосфильм. Золотая коллекция
-TopIPTV,1761,Мульт HD orig,2,Мульт | Мульт HD
-TopIPTV,1771,Мульт orig,2,Мульт | Мульт HD
-TopIPTV,1740,Мульт,2,Мульт | Мульт HD
-TopIPTV,1759,Мульт HD,2,Мульт | Мульт HD
 TopIPTV,16,НТВ HD,2,НТВ HD | НТВ SD
 TopIPTV,457,Победа HD,2,Победа | Победа HD
 TopIPTV,458,Победа,2,Победа | Победа HD
 TopIPTV,589,Победа orig,2,Победа | Победа HD
 TopIPTV,29,Пятый канал,2,Пятый Канал | Пятый Канал HD
-TopIPTV,35,ТНТ FHD,2,ТНТ HD | ТНТ SD
 TopIPTV,36,ТНТ HD,2,ТНТ HD | ТНТ SD
-TopIPTV,37,ТНТ,2,ТНТ HD | ТНТ SD
-TopIPTV,230,ТНТ +0 (Липецк),2,ТНТ HD | ТНТ SD
-TopIPTV,263,ТНТ +0 (Белгород),2,ТНТ HD | ТНТ SD
-TopIPTV,200,ТНТ +0 (Невинномысск),2,ТНТ HD | ТНТ SD
-TopIPTV,294,ТНТ +0 (Тамбов),2,ТНТ HD | ТНТ SD
-TopIPTV,2122,ТНТ HD 50,2,ТНТ HD | ТНТ SD
-TopIPTV,146,ТНТ orig,2,ТНТ HD | ТНТ SD
-TopIPTV,155,ТНТ HD orig,2,ТНТ HD | ТНТ SD
-TopIPTV,284,ТНТ +0 (Элиста),2,ТНТ HD | ТНТ SD
 TopIPTV,2721,Новий Канал UA,2,Новий Канал | Новий Канал HD
 TopIPTV,2722,Новий Канал HD UA,2,Новий Канал | Новий Канал HD
 TopIPTV,2790,Новий Канал UA,2,Новий Канал | Новий Канал HD
@@ -223,10 +168,6 @@ BCU Media,315,Россия 24,2,Россия 24 | Россия 24 HD
 BCU Media,106,Россия К,2,Россия К | Россия К HD
 BCU Media,74,RTVi,2,RTVI | RTVI HD
 BCU Media,320,Известия,2,Известия | Известия HD
-BCU Media,317,Мир 24 HD,2,МИР 24 | МИР 24 HD
-BCU Media,331,Мир 24 orig,2,МИР 24 | МИР 24 HD
-BCU Media,325,Мир 24 HD orig,2,МИР 24 | МИР 24 HD
-BCU Media,318,Мир 24,2,МИР 24 | МИР 24 HD
 BCU Media,316,Москва 24,2,Москва 24 | Москва 24 HD
 BCU Media,1834,РЖД ТВ,2,РЖД ТВ | РЖД ТВ HD
 BCU Media,2169,Санкт-Петербург,2,Санкт-Петербург | Санкт-Петербург HD
@@ -292,9 +233,7 @@ BCU Media,1741,Cartoonito,2,Cartoonito | Cartoonito HD
 BCU Media,1071,FamilyJam HD,2,FamilyJam | FamilyJam HD
 BCU Media,1716,Kids TV HD,2,Kids TV | Kids TV HD
 BCU Media,1720,Лёва HD,2,Лёва | Лёва HD
-BCU Media,1721,Мультиландия HD,2,Мультиландия | Мультиландия HD
 BCU Media,1758,Мультиландия,2,Мультиландия | Мультиландия HD
-BCU Media,1782,Мультиландия orig,2,Мультиландия | Мультиландия HD
 BCU Media,1754,Рыжий,2,Рыжий | Рыжий HD
 BCU Media,1732,СТС Kids HD,2,СТС Kids | СТС Kids HD
 BCU Media,1728,ТипТоп HD,2,ТипТоп | ТипТоп HD
@@ -342,7 +281,7 @@ Satfor,1734,Nickelodeon,2,nick | nickelodeon_pl
 Satfor,1691,Plan B HD,2,plan-b | planb_kz
 Satfor,2778,Болт HD UA,2,bolt-ru | bolt_ua
 Satfor,2821,Наука,2,nauka-20 | nauka_ua
-M3U Edit ALL,329,CGTN orig,7,CGTN.ae | CGTN.au | CGTN.hk | CGTN.id | CGTN.mt | CGTN.pt | CGTN.sg
+M3U Edit ALL,329,CGTN orig,8,CGTN.ae | CGTN.au | CGTN.ch | CGTN.hk | CGTN.id | CGTN.mt | CGTN.pt | CGTN.sg
 M3U Edit ALL,324,CGTN,18,CGTN.ae | CGTN.au | CGTN.ch | CGTN.distro | CGTN.gr | CGTN.hk | CGTN.hr | CGTN.id | CGTN.kr | CGTN.mt | CGTN.ph | CGTN.pt | CGTN.ro | CGTN.rs | CGTN.sa | CGTN.sg | CGTN.th | CGTN.tr
 M3U Edit ALL,1985,Outdoor Channel,6,OUTDOOR.CHANNEL.ph | Outdoor.Channel.ae | Outdoor.Channel.cz | Outdoor.Channel.hk | Outdoor.Channel.id | OutdoorChannel.au
 M3U Edit ALL,2444,Dorcel XXX,4,Dorcel.XXX.al | Dorcel.XXX.be | Dorcel.XXX.cz | Dorcel.XXX.pl
