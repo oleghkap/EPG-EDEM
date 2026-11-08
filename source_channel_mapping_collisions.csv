@@ -99,6 +99,18 @@ TV.TEAM full,1731,Nick Jr,10,ch1853 | ch223 | ch2277 | ch2402 | ch2637 | ch3008 
 TV.TEAM full,2679,beIN Sports 2,3,ch1425 | ch228 | ch3623
 TV.TEAM full,370,FX HD,5,ch103 | ch1468 | ch2193 | ch3343 | ch903
 TV.TEAM full,447,Hollywood HD,3,ch2998 | ch3793 | ch525
+TV.TEAM full,193,Россия 1 +0 (Невинномысск),2,ch002 | ch1644
+TV.TEAM full,9,Россия 1 FHD,2,ch002 | ch1644
+TV.TEAM full,10,Россия 1 HD,2,ch002 | ch1644
+TV.TEAM full,11,Россия 1,2,ch002 | ch1644
+TV.TEAM full,143,Россия 1 orig,2,ch002 | ch1644
+TV.TEAM full,144,Россия 1 HD 50,2,ch002 | ch1644
+TV.TEAM full,156,Россия 1 HD orig,2,ch002 | ch1644
+TV.TEAM full,274,Россия 1 +0 (Элиста),2,ch002 | ch1644
+TV.TEAM full,183,Россия 1 +0 (Липецк),2,ch002 | ch1644
+TV.TEAM full,252,Россия 1 +0 (Алания),2,ch002 | ch1644
+TV.TEAM full,254,Россия 1 +0 (Белгород),2,ch002 | ch1644
+TV.TEAM full,287,Россия 1 +0 (Тамбов),2,ch002 | ch1644
 TV.TEAM full,1855,National Geographic HD,6,ch125 | ch1346 | ch3424 | ch3667 | ch3980 | ch4118
 TV.TEAM full,1748,Baby TV,4,ch1118 | ch2473 | ch2971 | ch489
 TV.TEAM full,1287,Матч! Игра HD,2,ch3303 | ch3304
@@ -121,7 +133,13 @@ TV.TEAM full,2874,Da Vinci HD,2,ch2176 | ch2480
 TV.TEAM full,88,360 HD,2,ch1353 | ch516
 TV.TEAM full,1283,Матч! Футбол 3 HD,2,ch2125 | ch697
 TV.TEAM full,1285,Матч! Футбол 3 FHD,2,ch063 | ch2125
+TV.TEAM full,337,Россия 24 +0 (Невинномысск),2,ch007 | ch2589
+TV.TEAM full,344,Россия 24 +0 (Алания),2,ch007 | ch2589
+TV.TEAM full,345,Россия 24 +0 (Липецк),2,ch007 | ch2589
+TV.TEAM full,346,Россия 24 +0 (Белгород),2,ch007 | ch2589
 TV.TEAM full,315,Россия 24,2,ch007 | ch2589
+TV.TEAM full,349,Россия 24 +0 (Элиста),2,ch007 | ch2589
+TV.TEAM full,350,Россия 24 +0 (Тамбов),2,ch007 | ch2589
 TV.TEAM full,1852,TravelXP 4K,2,ch3726 | ch613
 TV.TEAM full,1524,MTV 00s,2,ch2619 | ch3918
 TV.TEAM full,1641,Trace Urban HD,3,ch3690 | ch402 | ch4146
