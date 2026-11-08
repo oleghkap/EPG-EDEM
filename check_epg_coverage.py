@@ -33,7 +33,7 @@ from urllib.error import HTTPError, URLError
 import xml.etree.ElementTree as ET
 
 from bisect import bisect_left, insort
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -2267,6 +2267,43 @@ def write_uncovered_channel_candidates(channels, global_programmes, mapping_rule
         "sequence_fingerprint_status", "sequence_fingerprint_evidence",
     ]
     write_diagnostic_csv("uncovered_channel_candidates.csv", rows, fieldnames)
+
+    # GitHub Actions skips the repository-save step when the coverage threshold
+    # fails. Emit the useful candidate evidence directly into the job log so it
+    # remains available for diagnosis without changing the workflow or threshold.
+    candidate_rows = [
+        row for row in rows
+        if row.get("candidate_status") == "candidate_with_programmes"
+    ]
+    status_counts = Counter(
+        row.get("mapping_status") or "status unavailable"
+        for row in candidate_rows
+    )
+    sequence_counts = Counter(
+        row.get("sequence_fingerprint_status") or "not evaluated"
+        for row in candidate_rows
+    )
+    log("ДИАГНОСТИКА КАНДИДАТОВ КАНАЛОВ БЕЗ EPG:")
+    log("  Кандидатных записей: " + str(len(candidate_rows)))
+    log("  Статусы сопоставления: " + "; ".join(
+        f"{name} — {count}" for name, count in sorted(status_counts.items())
+    ))
+    log("  Статусы fingerprint: " + "; ".join(
+        f"{name} — {count}" for name, count in sorted(sequence_counts.items())
+    ))
+    for row in candidate_rows:
+        evidence = " ".join(str(row.get("sequence_fingerprint_evidence", "")).split())
+        if len(evidence) > 180:
+            evidence = evidence[:177] + "..."
+        log(
+            "  UNCOVERED_CANDIDATE | "
+            f"playlist[{row.get('playlist_index')}] {row.get('playlist_channel', '')} | "
+            f"source={row.get('source', '')} | xml_id={row.get('xml_channel_id', '')} | "
+            f"rule={row.get('match_rule', '')} | status={row.get('mapping_status', '')} | "
+            f"sequence={row.get('sequence_fingerprint_status', '')} | "
+            f"mapped={row.get('mapping_playlist_names', '')} | evidence={evidence}"
+        )
+
     return len(channels) - len(covered), len(candidate_playlist_indexes)
 
 
