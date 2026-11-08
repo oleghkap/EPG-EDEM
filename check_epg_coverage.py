@@ -568,26 +568,26 @@ def base_names_compatible(source_name, playlist_name):
 
 def map_source_channels(channel_id, display_names, indexes, playlist_channels):
     """
-    Сопоставление по tvg-id, точному имени, региональному имени,
+    Сопоставление по названию канала: точное, региональное,
     затем по базовому имени при совместимых маркерах качества/страны.
+    tvg-id плейлиста не используется: это provider-specific ID,
+    который не является надёжным ключом XMLTV.
     Ослабленные правила назначают канал только при единственном
     кандидате в плейлисте.
     """
-    by_id, by_name, by_base_name = indexes
+    _, by_name, by_base_name = indexes
 
-    id_matches = (
-        set(by_id.get(channel_id.casefold(), set()))
-        if channel_id else set()
-    )
-
+    # XMLTV ID связывает programme с channel внутри самого XMLTV.
+    # Для сопоставления с M3U используем display-name, а не tvg-id:
+    # идентификаторы провайдера и EPG могут иметь разную семантику.
     exact_matches = set()
     for name in display_names:
         normalized = normalize_name(name)
         if normalized:
             exact_matches.update(by_name.get(normalized, set()))
 
-    if id_matches:
-        return id_matches, "tvg-id"
+    if exact_matches:
+        return exact_matches, "exact name"
 
     # Регион в XMLTV ID — такой же значимый признак, как регион в имени.
     # Например, Discovery.Channel.it нельзя присоединять к общему
