@@ -4,8 +4,10 @@
 """
 EPG-EDEM: ручная проверка покрытия персонального M3U
 
+Входной эталонный список:
+  channels_test.txt (не изменяется скриптом)
+
 Результаты:
-  channels_test.txt
   playlist_duplicates.csv
   coverage_report.csv
   channel_coverage.csv
@@ -1652,50 +1654,115 @@ def process_source(
 # СОХРАНЕНИЕ РЕЗУЛЬТАТОВ
 # ============================================================
 
-def write_channels(channels):
-    """Таблица каналов: порядковый номер, название и группа. Без URL и TVG-REC."""
+def load_reference_channels():
+    """
+    Читает канонический список каналов из channels_test.txt.
+    Файл является входным эталоном и никогда не перезаписывается.
+    """
     path = OUTPUT_DIR / "channels_test.txt"
-    headers = ["№", "CHANNEL", "GRP"]
+    if not path.is_file():
+        raise RuntimeError("required reference file channels_test.txt is missing")
 
-    def clean(value):
-        return (
-            str(value or "")
-            .replace("\t", " ")
-            .replace("\r", " ")
-            .replace("\n", " ")
-            .strip()
-        )
+    channels = []
+    expected_number = 1
+    with path.open("r", encoding="utf-8-sig") as file:
+        for line_number, raw_line in enumerate(file, start=1):
+            line = raw_line.strip()
+            if not line or line.startswith("---"):
+                continue
+            if line_number == 1 and "CHANNEL" in line.upper():
+                continue
+            if not re.match(r"^\s*\d+\s*\|", line):
+                continue
 
-    rows = [
-        [
-            str(index),
-            clean(channel.get("title")),
-            clean(channel.get("group")),
+            columns = [part.strip() for part in line.split("|")]
+            if len(columns) < 3:
+                raise RuntimeError(
+                    f"invalid channels_test.txt row at line {line_number}"
+                )
+            try:
+                number = int(columns[0])
+            except ValueError as error:
+                raise RuntimeError(
+                    f"invalid channel number at channels_test.txt line {line_number}"
+                ) from error
+
+            title = columns[1]
+            group = columns[2]
+            if number != expected_number or not title:
+                raise RuntimeError(
+                    f"channels_test.txt sequence/name error at line {line_number}: "
+                    f"expected channel {expected_number}, got {number}"
+                )
+
+            channels.append({
+                "title": title,
+                "tvg_id": "",
+                "tvg_name": title,
+                "tvg_logo": "",
+                "group": group,
+                "reference_number": number,
+            })
+            expected_number += 1
+
+    if not channels:
+        raise RuntimeError("channels_test.txt contains no channel records")
+
+    log(f"Эталонных каналов из channels_test.txt: {len(channels)}")
+    return channels
+
+
+def attach_playlist_metadata(reference_channels, playlist_channels):
+    """
+    Добавляет tvg-id и логотипы из M3U только по точному нормализованному
+    совпадению имени с эталонной строкой. Сам состав/порядок каналов
+    определяется исключительно channels_test.txt.
+    """
+    playlist_by_name = defaultdict(set)
+    for playlist_index, item in enumerate(playlist_channels):
+        for value in (item.get("title", ""), item.get("tvg_name", "")):
+            key = normalize_name(value)
+            if key:
+                playlist_by_name[key].add(playlist_index)
+
+    matched = 0
+    ambiguous_metadata = 0
+    for channel in reference_channels:
+        key = normalize_name(channel["title"])
+        candidates = [
+            playlist_channels[index]
+            for index in sorted(playlist_by_name.get(key, set()))
         ]
-        for index, channel in enumerate(channels, start=1)
-    ]
+        if not candidates:
+            continue
 
-    widths = [
-        max(
-            len(headers[index]),
-            max((len(row[index]) for row in rows), default=0),
+        matched += 1
+        for field in ("tvg_id", "tvg_logo"):
+            values = {
+                item.get(field, "").strip()
+                for item in candidates
+                if item.get(field, "").strip()
+            }
+            if len(values) == 1:
+                channel[field] = next(iter(values))
+            elif len(values) > 1:
+                ambiguous_metadata += 1
+
+    log(
+        f"Каналов эталонного списка с точным совпадением в M3U: "
+        f"{matched}/{len(reference_channels)}"
+    )
+    log(
+        f"Каналов без точного совпадения в M3U: "
+        f"{len(reference_channels) - matched}"
+    )
+    if ambiguous_metadata:
+        log(
+            f"Неоднозначных полей M3U (tvg-id/логотип): "
+            f"{ambiguous_metadata}; оставлены пустыми"
         )
-        for index in range(len(headers))
-    ]
+    return reference_channels
 
-    def format_row(values):
-        return " | ".join(
-            str(value).ljust(widths[index])
-            for index, value in enumerate(values)
-        )
-
-    separator = "-+-".join("-" * width for width in widths)
-
-    with open(path, "w", encoding="utf-8-sig") as file:
-        file.write(format_row(headers) + "\n")
-        file.write(separator + "\n")
-        for row in rows:
-            file.write(format_row(row) + "\n")
 
 def write_duplicate_report(channels):
     """Записывает повторы по названию и tvg-id без URL потоков."""
@@ -2966,8 +3033,10 @@ def main():
     log(f"Количество источников: {len(SOURCES)}")
     log()
 
-    channels = load_playlist()
-    write_channels(channels)
+    playlist_channels = load_playlist()
+    channels = load_reference_channels()
+    channels = attach_playlist_metadata(channels, playlist_channels)
+    del playlist_channels
 
     duplicate_groups, duplicate_entries = write_duplicate_report(channels)
     log(f"Групп совпадений по названию или tvg-id: {duplicate_groups}")
@@ -3201,7 +3270,7 @@ def main():
 
     log()
     log("Созданы файлы:")
-    log("  channels_test.txt")
+    log("  channels_test.txt (эталонный входной файл, не изменён)")
     log("  playlist_duplicates.csv")
     log("  merge_collision_details.csv")
     log("  merge_collision_text_details.csv.gz")
