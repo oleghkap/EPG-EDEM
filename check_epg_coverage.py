@@ -2148,6 +2148,7 @@ def write_combined_xml(
     channel_icons,
     description_limit=None,
     output_path=None,
+    included_channel_indexes=None,
 ):
     path = output_path or (OUTPUT_DIR / "epg_test_combined.xml.gz")
     uncompressed_size = 0
@@ -2161,7 +2162,15 @@ def write_combined_xml(
 
         write_xml(b'<?xml version="1.0" encoding="utf-8"?>\n<tv generator-info-name="EPG-EDEM">')
 
-        for index, channel in enumerate(channels):
+        channel_indexes_to_write = (
+            sorted(included_channel_indexes)
+            if included_channel_indexes is not None
+            else list(range(len(channels)))
+        )
+        for index in channel_indexes_to_write:
+            if index < 0 or index >= len(channels):
+                raise RuntimeError(f"Invalid included playlist channel index: {index}")
+            channel = channels[index]
             channel_element = ET.Element(
                 "channel",
                 {"id": f"playlist_{index + 1}"},
@@ -2173,6 +2182,16 @@ def write_combined_xml(
                 ET.SubElement(channel_element, "icon", {"src": icon_src})
 
             write_xml(ET.tostring(channel_element, encoding="utf-8"))
+
+        included_for_validation = set(channel_indexes_to_write)
+        orphan_programmes = [
+            item for item in global_programmes.values()
+            if item["channel_index"] not in included_for_validation
+        ]
+        if orphan_programmes:
+            raise RuntimeError(
+                f"Cannot write {len(orphan_programmes)} programmes for channels absent from the source union."
+            )
 
         ordered = sorted(
             global_programmes.values(),
@@ -2825,9 +2844,15 @@ def write_epg_diagnostics(
     interval_diagnostics,
     adjustment_diagnostics,
     final_interval_diagnostics,
+    included_channel_indexes=None,
 ):
     """Сводная диагностика объёма XMLTV, описаний и распределения передач."""
     programmes = list(global_programmes.values())
+    output_channel_count = (
+        len(included_channel_indexes)
+        if included_channel_indexes is not None
+        else len(channels)
+    )
 
     title_bytes = sum(
         len((item.get("title") or "").encode("utf-8"))
@@ -2998,6 +3023,7 @@ def write_epg_diagnostics(
                 channel_icons,
                 description_limit=limit,
                 output_path=variant_path,
+                included_channel_indexes=included_channel_indexes,
             )
             variant_gzip_sizes[limit] = variant_sizes["gzip_bytes"]
         finally:
@@ -3010,7 +3036,7 @@ def write_epg_diagnostics(
         "EPG-EDEM — ДИАГНОСТИКА ИТОГОВОГО EPG",
         "=" * 55,
         f"Период: {period_start.isoformat()} — {period_end.isoformat()} (конец не включён)",
-        f"Каналов в итоговом XML: {len(channels)}",
+        f"Каналов в итоговом XML: {output_channel_count}",
         f"Передач в итоговом XML: {len(programmes)}",
         f"Размер несжатого XML: {xml_bytes:,} байт ({xml_bytes / 1024 / 1024:.2f} MiB)",
         f"Размер GZIP: {gzip_bytes:,} байт ({gzip_bytes / 1024 / 1024:.2f} MiB)",
@@ -3219,7 +3245,7 @@ def write_epg_diagnostics(
     report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     return {
-        "channels": len(channels),
+        "channels": output_channel_count,
         "programmes": len(programmes),
         "title_bytes": title_bytes,
         "description_bytes": description_bytes,
@@ -3290,12 +3316,14 @@ def main():
     size_snapshot_path = OUTPUT_DIR / ".epg_source_size_snapshot.xml.gz"
     try:
         baseline_gzip_bytes = write_combined_xml(
-            channels, {}, channel_icons, output_path=size_snapshot_path
+            channels, {}, channel_icons, output_path=size_snapshot_path,
+            included_channel_indexes=set(),
         )["gzip_bytes"]
     finally:
         if size_snapshot_path.exists():
             size_snapshot_path.unlink()
     previous_gzip_bytes = baseline_gzip_bytes
+    included_channel_indexes = set()
     previously_covered_channels = set()
     previously_matched_channels = set()
 
@@ -3349,12 +3377,16 @@ def main():
         previously_covered_channels.update(source_channel_indexes)
 
         if stats["status"] == "OK":
+            # В XML попадают все сопоставленные каналы текущего источника,
+            # даже если у них нет передач. Уже включённые индексы не дублируются.
+            included_channel_indexes.update(matched_channel_indexes)
             try:
                 current_size = write_combined_xml(
                     channels,
                     global_programmes,
                     channel_icons,
                     output_path=size_snapshot_path,
+                    included_channel_indexes=included_channel_indexes,
                 )["gzip_bytes"]
                 stats["cumulative_gzip_bytes"] = current_size
                 stats["marginal_gzip_bytes"] = current_size - previous_gzip_bytes
@@ -3366,7 +3398,7 @@ def main():
         all_stats.append(stats)
         log(
             f"  Сопоставлено каналов: {stats['matched_playlist_channels']}; "
-            f"новых: {stats['new_channels_matched']}; "
+            f"новых добавлено в объединение: {stats['new_channels_matched']}; "
             f"ранее найденных без EPG (fallback): {stats['fallback_channels_matched']}; "
             f"допущено к приёму передач: {stats['channels_eligible_for_programmes']}"
         )
@@ -3437,6 +3469,7 @@ def main():
     xml_sizes = write_combined_xml(
         channels, global_programmes, channel_icons,
         output_path=pending_epg_path,
+        included_channel_indexes=included_channel_indexes,
     )
     diagnostics = write_epg_diagnostics(
         channels,
@@ -3450,6 +3483,7 @@ def main():
         raw_interval_diagnostics,
         adjustment_diagnostics,
         final_interval_diagnostics,
+        included_channel_indexes=included_channel_indexes,
     )
     with (OUTPUT_DIR / "epg_diagnostics.txt").open("a", encoding="utf-8") as report:
         report.write("\n".join(logo_report_lines) + "\n")
@@ -3476,7 +3510,7 @@ def main():
         sys.exit(1)
 
     validated_channels, validated_programmes = validate_generated_xml(
-        pending_epg_path, len(channels), len(global_programmes)
+        pending_epg_path, len(included_channel_indexes), len(global_programmes)
     )
     os.replace(pending_epg_path, OUTPUT_DIR / "epg_test_combined.xml.gz")
     log(
@@ -3489,9 +3523,10 @@ def main():
     log("ИТОГОВЫЕ РЕЗУЛЬТАТЫ")
     log("=" * 65)
 
-    log(f"Каналов в плейлисте: {len(channels)}")
+    log(f"Каналов в эталонном списке: {len(channels)}")
+    log(f"Каналов, добавленных из источников 1–9: {len(included_channel_indexes)}")
     log(f"Каналов с программами хотя бы из одного источника: {len(covered_channels)}")
-    log(f"Каналов без программ: {len(channels) - len(covered_channels)}")
+    log(f"Добавленных каналов без программ: {len(included_channel_indexes - covered_channels)}")
     log(f"Уникальных передач в объединённом EPG: {len(global_programmes)}")
     log()
     log("ДИАГНОСТИКА ИТОГОВОГО EPG")
