@@ -235,7 +235,7 @@ def parse_xmltv_datetime(value):
     value = value.strip()
 
     match = re.match(
-        r"^(\d{14})(?:\s*([+-]\d{4}))?$",
+        r"^(\d{14})(?:\s*([+-]\d{2}:?\d{2}))?$",
         value,
     )
 
@@ -248,8 +248,9 @@ def parse_xmltv_datetime(value):
 
         if offset:
             sign = 1 if offset[0] == "+" else -1
-            hours = int(offset[1:3])
-            minutes = int(offset[3:5])
+            offset_digits = offset[1:].replace(":", "")
+            hours = int(offset_digits[:2])
+            minutes = int(offset_digits[2:4])
 
             if hours > 23 or minutes > 59:
                 return None
@@ -1598,6 +1599,8 @@ def process_source(
                                             "channel_index": index,
                                             "start": start_dt,
                                             "stop": stop_dt,
+                                            "start_raw": start_value,
+                                            "stop_raw": stop_value,
                                             "title": title,
                                             "description": description,
                                             "categories": categories,
@@ -2220,7 +2223,7 @@ def write_combined_xml(
             element = ET.Element(
                 "programme",
                 {
-                    "start": programme["start"].strftime("%Y%m%d%H%M%S %z"),
+                    "start": programme["start_raw"],
                     "channel": f"playlist_{programme['channel_index'] + 1}",
                 },
             )
@@ -2228,7 +2231,7 @@ def write_combined_xml(
             if programme["stop"] is not None:
                 element.set(
                     "stop",
-                    programme["stop"].strftime("%Y%m%d%H%M%S %z"),
+                    programme["stop_raw"],
                 )
 
             ET.SubElement(element, "title").text = programme["title"]
