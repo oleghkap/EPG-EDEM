@@ -1000,10 +1000,12 @@ def process_source(
     mapping_sequence_resolved_ids = set()
     mapping_sequence_conflict_review_ids = set()
     source_programmes = {}
-    # Логотипы сначала связываем с XMLTV ID, а после разрешения
-    # неоднозначностей распространяем на логические варианты канала.
-    source_channel_icons_by_id = {}
-    source_channel_icon_sources_by_id = {}
+    # Логотипы обрабатываем отдельно от programme mapping.
+    # Для EPG.ONE и IPTVX сначала назначаем точные/регионально-нормализованные
+    # совпадения, затем заполняем оставшиеся варианты качества как fallback.
+    # Это не позволяет базовому каналу перехватить логотип HD/FHD/Orig,
+    # который объявлен отдельным XMLTV channel.
+    source_channel_logo_candidates_by_id = {}
     source_channel_icons = {}
     source_channel_icon_sources = {}
     # Разные передачи с разным временем начала сохраняются даже при
@@ -1113,13 +1115,10 @@ def process_source(
                     if method == "ambiguous":
                         stats["ambiguous_channels"] += 1
 
-                    if matched_indexes and channel_id:
-                        mapped.setdefault(channel_id, set()).update(
-                            matched_indexes
-                        )
-
-                        # Сохраняем один логотип на канал: первый доступный
-                        # по приоритету источников (EPG.ONE обрабатывается первым).
+                    # Логотипы берём только из двух разрешённых источников.
+                    # Кандидатов фиксируем до programme ambiguity quarantine:
+                    # неоднозначность расписания не должна отнимать корректный logo.
+                    if channel_id and source_name in ("EPG.ONE epg2", "IPTVX full"):
                         icon_src = next(
                             (
                                 item.attrib.get("src", "").strip()
@@ -1129,9 +1128,32 @@ def process_source(
                             ),
                             "",
                         )
-                        if icon_src and channel_id not in source_channel_icons_by_id:
-                            source_channel_icons_by_id[channel_id] = icon_src
-                            source_channel_icon_sources_by_id[channel_id] = source_name
+                        if icon_src:
+                            logo_entry = source_channel_logo_candidates_by_id.setdefault(
+                                channel_id,
+                                {
+                                    "icon": icon_src,
+                                    "exact": set(),
+                                    "base": set(),
+                                    "display_names": set(),
+                                },
+                            )
+                            logo_entry["display_names"].update(
+                                name for name in display_names if name
+                            )
+                            for field, target in (
+                                ("exact_country_indexes", "exact"),
+                                ("base_only_indexes", "base"),
+                            ):
+                                for value in audit.get(field, "").split(" | "):
+                                    value = value.strip()
+                                    if value.isdigit():
+                                        logo_entry[target].add(int(value))
+
+                    if matched_indexes and channel_id:
+                        mapped.setdefault(channel_id, set()).update(
+                            matched_indexes
+                        )
 
                         if method == "tvg-id":
                             stats["matched_by_tvg_id"] += 1
@@ -1655,13 +1677,35 @@ def process_source(
             )
             all_matched_indexes.update(channel_indexes)
 
-            icon_src = source_channel_icons_by_id.get(channel_id, "")
-            icon_source = source_channel_icon_sources_by_id.get(channel_id, source_name)
-            if icon_src:
-                for playlist_index in channel_indexes:
-                    if playlist_index not in source_channel_icons:
-                        source_channel_icons[playlist_index] = icon_src
-                        source_channel_icon_sources[playlist_index] = icon_source
+        # Сначала точные совпадения EPG.ONE/IPTVX для ВСЕХ XMLTV ID источника.
+        # Только после этого разрешаем fallback на варианты качества.
+        # Так отдельный logo для HD/FHD/Orig не перехватывается базовым каналом.
+        logo_direct_indexes_by_id = {}
+        for channel_id, logo_entry in source_channel_logo_candidates_by_id.items():
+            direct_indexes = set(logo_entry["exact"])
+            if not direct_indexes and len(logo_entry["base"]) == 1:
+                direct_indexes = set(logo_entry["base"])
+            logo_direct_indexes_by_id[channel_id] = direct_indexes
+            for playlist_index in sorted(direct_indexes):
+                if playlist_index not in source_channel_icons:
+                    source_channel_icons[playlist_index] = logo_entry["icon"]
+                    source_channel_icon_sources[playlist_index] = source_name
+
+        # Fallback на другой маркер качества — только в пустое место и
+        # только внутри того же базового имени/+N/региона.
+        for channel_id, logo_entry in source_channel_logo_candidates_by_id.items():
+            direct_indexes = logo_direct_indexes_by_id.get(channel_id, set())
+            if not direct_indexes:
+                continue
+            expanded_indexes = expand_logical_channel_variants(
+                direct_indexes,
+                logo_entry["display_names"],
+                indexes,
+            )
+            for playlist_index in sorted(expanded_indexes - direct_indexes):
+                if playlist_index not in source_channel_icons:
+                    source_channel_icons[playlist_index] = logo_entry["icon"]
+                    source_channel_icon_sources[playlist_index] = source_name
 
         # Помечаем в диагностике только XMLTV-каналы, у которых
         # действительно есть передачи в проверяемом периоде.
