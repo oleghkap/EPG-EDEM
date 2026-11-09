@@ -597,11 +597,9 @@ def base_names_compatible(source_name, playlist_name):
     source_quality = quality_markers(source_name)
     playlist_quality = quality_markers(playlist_name)
 
-    if "orig" in source_quality or "orig" in playlist_quality:
-        if source_quality != playlist_quality:
-            return False
-
-    if source_quality and playlist_quality and source_quality.isdisjoint(playlist_quality):
+    # Явный маркер качества должен совпадать. Базовый EPG переносится
+    # отдельным fallback-этапом, только если у варианта нет своего расписания.
+    if source_quality != playlist_quality:
         return False
 
     source_countries = edge_country_codes(source_name)
@@ -633,9 +631,7 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
             exact_matches.update(by_name.get(normalized, set()))
 
     if exact_matches:
-        return expand_logical_channel_variants(
-            exact_matches, display_names, indexes
-        ), "exact name"
+        return exact_matches, "exact name"
 
     # Регион в XMLTV ID — такой же значимый признак, как регион в имени.
     # Например, Discovery.Channel.it нельзя присоединять к общему
@@ -663,9 +659,7 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
 
     exact_matches = keep_matching_region(exact_matches)
     if exact_matches:
-        return expand_logical_channel_variants(
-            exact_matches, display_names, indexes
-        ), "exact name"
+        return exact_matches, "exact name"
 
     country_matches = set()
     for name in display_names:
@@ -680,15 +674,11 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
 
     country_matches = keep_matching_region(country_matches)
     if len(country_matches) == 1:
-        return expand_logical_channel_variants(
-            country_matches, display_names, indexes
-        ), "country-normalized name"
+        return country_matches, "country-normalized name"
     if len(country_matches) > 1:
         # Не отбрасываем кандидатов: sequence fingerprint и проверка
         # логического имени ниже должны попытаться безопасно сузить набор.
-        return expand_logical_channel_variants(
-            country_matches, display_names, indexes
-        ), "ambiguous"
+        return country_matches, "ambiguous"
 
     base_matches = set()
     for source_name in display_names:
@@ -711,15 +701,11 @@ def map_source_channels(channel_id, display_names, indexes, playlist_channels):
 
     base_matches = keep_matching_region(base_matches)
     if len(base_matches) == 1:
-        return expand_logical_channel_variants(
-            base_matches, display_names, indexes
-        ), "unique base name"
+        return base_matches, "unique base name"
     if len(base_matches) > 1:
         # Сохраняем неоднозначные кандидаты для проверки последовательностей.
         # При конфликте они будут изолированы на этапе mapping_finalized.
-        return expand_logical_channel_variants(
-            base_matches, display_names, indexes
-        ), "ambiguous"
+        return base_matches, "ambiguous"
     if region_filtered:
         return set(), "region-ambiguous"
     return set(), "unmatched"
@@ -1726,6 +1712,72 @@ def process_source(
             pass
 
     return stats
+
+def apply_base_schedule_fallback(channels, included_channel_indexes, global_programmes):
+    """
+    Копирует расписание базового канала в HD/FHD/Orig и другие варианты
+    качества только тогда, когда вариант не получил собственных передач
+    ни из одного источника.
+    """
+    programmes_by_channel = defaultdict(list)
+    for programme in global_programmes.values():
+        programmes_by_channel[programme["channel_index"]].append(programme)
+
+    logical_groups = defaultdict(lambda: {"base": [], "variants": []})
+    for index in sorted(included_channel_indexes):
+        title = channels[index].get("title", "")
+        logical_key = canonical_mapping_name(title)
+        if not logical_key:
+            continue
+        if quality_markers(title):
+            logical_groups[logical_key]["variants"].append(index)
+        else:
+            logical_groups[logical_key]["base"].append(index)
+
+    inherited_channels = 0
+    inherited_programmes = 0
+    ambiguous_base_groups = 0
+
+    for group in logical_groups.values():
+        base_candidates = [
+            index for index in group["base"]
+            if programmes_by_channel.get(index)
+        ]
+        if len(base_candidates) != 1:
+            if len(base_candidates) > 1 and group["variants"]:
+                ambiguous_base_groups += 1
+            continue
+
+        base_index = base_candidates[0]
+        base_programmes = programmes_by_channel[base_index]
+
+        for variant_index in group["variants"]:
+            # Не подмешиваем базовый EPG даже при частичном собственном расписании.
+            if programmes_by_channel.get(variant_index):
+                continue
+
+            copied = 0
+            for programme in base_programmes:
+                identity = (variant_index, programme["start"].isoformat())
+                if identity in global_programmes:
+                    continue
+                inherited = dict(programme)
+                inherited["channel_index"] = variant_index
+                inherited["inherited_from_base"] = base_index
+                global_programmes[identity] = inherited
+                programmes_by_channel[variant_index].append(inherited)
+                copied += 1
+
+            if copied:
+                inherited_channels += 1
+                inherited_programmes += copied
+
+    return {
+        "channels": inherited_channels,
+        "programmes": inherited_programmes,
+        "ambiguous_base_groups": ambiguous_base_groups,
+    }
+
 
 # ============================================================
 # СОХРАНЕНИЕ РЕЗУЛЬТАТОВ
@@ -3428,6 +3480,17 @@ def main():
             f"ранее найденных каналов, которым добавлены передачи: {stats['fallback_channels_with_programmes']}; "
             f"изменение GZIP {stats['marginal_gzip_bytes'] / 1_000_000:.2f} MB"
         )
+
+    variant_fallback_stats = apply_base_schedule_fallback(
+        channels, included_channel_indexes, global_programmes
+    )
+    log(
+        "Дозаполнение вариантов качества расписанием базового канала: "
+        f"{variant_fallback_stats['channels']} каналов, "
+        f"{variant_fallback_stats['programmes']} передач; "
+        f"неоднозначных базовых групп пропущено: "
+        f"{variant_fallback_stats['ambiguous_base_groups']}"
+    )
 
     write_coverage_report(all_stats)
     uncovered_rows, uncovered_with_candidates = write_uncovered_channel_candidates(
