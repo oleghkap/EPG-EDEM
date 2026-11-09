@@ -1115,10 +1115,12 @@ def process_source(
                     if method == "ambiguous":
                         stats["ambiguous_channels"] += 1
 
-                    # Логотипы берём только из двух разрешённых источников.
+                    # Логотипы собираем из всех девяти источников в порядке
+                    # приоритета. Более поздние источники смогут заполнить только
+                    # пустые места; уже назначенные логотипы не перезаписываются.
                     # Кандидатов фиксируем до programme ambiguity quarantine:
                     # неоднозначность расписания не должна отнимать корректный logo.
-                    if channel_id and source_name in ("EPG.ONE epg2", "IPTVX full"):
+                    if channel_id:
                         icon_src = next(
                             (
                                 item.attrib.get("src", "").strip()
@@ -1677,9 +1679,9 @@ def process_source(
             )
             all_matched_indexes.update(channel_indexes)
 
-        # Сначала точные совпадения EPG.ONE/IPTVX для ВСЕХ XMLTV ID источника.
-        # Только после этого разрешаем fallback на варианты качества.
-        # Так отдельный logo для HD/FHD/Orig не перехватывается базовым каналом.
+        # Сначала точные совпадения текущего источника для ВСЕХ XMLTV ID.
+        # Затем разрешаем fallback на варианты качества только в пустые места.
+        # Источники обрабатываются по приоритету; поздние не перезаписывают ранние.
         logo_direct_indexes_by_id = {}
         for channel_id, logo_entry in source_channel_logo_candidates_by_id.items():
             direct_indexes = set(logo_entry["exact"])
