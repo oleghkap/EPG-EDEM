@@ -3278,6 +3278,7 @@ IPTVX full,5kanal-ru-pl7,Пятый канал +7 | 5 канал Россия +7
 IPTVX full,5kanal-ua,5 канал [UA] | 5 канал (Україна) | 5 канал (Украина) | 5 канал | 5 канал (Украина) HD | 5 канал (Україна) HD | 5 канал HD,2,2705 | 2865,2705:5 Канал UA | 2865:5 Канал HD,2,2705 | 2865,2705:5 Канал UA | 2865:5 Канал HD,2705 | 2865,2705:5 Канал UA | 2865:5 Канал HD,3,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD,1,2739,2739:5 Канал HD UA,2705 | 2739 | 2865,2705:5 Канал UA | 2739:5 Канал HD UA | 2865:5 Канал HD,accepted: narrowed by display-name,2865,5 Канал HD,insufficient,
 IPTVX full,5sport-gold-il,5Sport Gold | 5Sport Gold HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,5sport-live-il,5Sport Live | 5Sport Live HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
+IPTVX full,5sport-max-il,5Sport Max [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,5sport-plus-il,5Sport Plus | 5Sport Plus HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,5sport-stars-il,5Sport Stars | 5Sport Stars HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,6kanal-vlad,6 канал (Владимир),0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -4345,7 +4346,7 @@ IPTVX full,etno-kanal-ua,Етно канал HD | Етно канал,1,2856,285
 IPTVX full,etv-ee,ETV Эстония,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,etv-plus-ee,ETV+ Эстония,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,etv2-ee,ETV2 Эстония,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
-IPTVX full,eu-music,EU.Music | EU.Music HD,0,,,0,,,,,3,2710 | 2811 | 2812,2710:EU Music HD UA | 2811:EU Music HD UA | 2812:EU Music UA,3,2710 | 2811 | 2812,2710:EU Music HD UA | 2811:EU Music HD UA | 2812:EU Music UA,2710 | 2811 | 2812,2710:EU Music HD UA | 2811:EU Music HD UA | 2812:EU Music UA,verified: programme sequences match for all mapped candidates,2710 | 2811 | 2812,EU Music HD UA | EU Music HD UA | EU Music UA,verified_shared,"2710:anchor=__previous_source_playlist_2710,match=9/9,ratio=100% | 2811:anchor=__previous_source_playlist_2811,match=9/9,ratio=100% | 2812:anchor=__previous_source_playlist_2812,match=9/9,ratio=100%"
+IPTVX full,eu-music,EU.Music | EU.Music HD,0,,,0,,,,,3,2710 | 2811 | 2812,2710:EU Music HD UA | 2811:EU Music HD UA | 2812:EU Music UA,3,2710 | 2811 | 2812,2710:EU Music HD UA | 2811:EU Music HD UA | 2812:EU Music UA,2710 | 2811 | 2812,2710:EU Music HD UA | 2811:EU Music HD UA | 2812:EU Music UA,quarantined: conflicting channel names or programme sequences; programmes not assigned,,,conflicting,"2710:anchor=__previous_source_playlist_2710,match=9/19,ratio=47% | 2811:anchor=__previous_source_playlist_2811,match=9/19,ratio=47% | 2812:anchor=__previous_source_playlist_2812,match=9/19,ratio=47%"
 IPTVX full,eureka-hd,Первый Космический | Первый Космический HD | Eureka HD | Eureka | Эврика | Эврика HD,1,2044,2044:Первый космический HD,1,2044,2044:Первый космический HD,2044,2044:Первый космический HD,1,2044,2044:Первый космический HD,0,,,2044,2044:Первый космический HD,accepted,2044,Первый космический HD,not evaluated,
 IPTVX full,euro-drama-ua,Euro Drama HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,eurochannel,Eurochannel | Euro Channel,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -4583,6 +4584,7 @@ IPTVX full,hot-cinema-1-il,Hot Cinema 1 [IL],0,,,0,,,,,0,,,0,,,,,unmatched or am
 IPTVX full,hot-cinema-2-il,Hot Cinema 2 [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,hot-cinema-3-il,Hot Cinema 3 [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,hot-cinema-4-il,Hot Cinema 4 [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
+IPTVX full,hot-cinema-5-il,Hot Cinema 5 [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,hot-zone-il,Hot Zone [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,hta,НТА,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,hub-premiere1-sg,Hub Premier 1 [SG],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -5249,7 +5251,7 @@ IPTVX full,motowizja-pl,Motowizja [PL] | Motowizja HD [PL],0,,,0,,,,,0,,,0,,,,,u
 IPTVX full,movify-history,Movify History | Movify Vēsture,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,movify-kino,Movify Kino,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,movify-series,Movify Series | Movify Seriāls,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
-IPTVX full,moya-planeta,Моя Планета | Моя Планета HD | Планета HD,2,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,2,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,2,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,0,,,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,review: shared XMLTV ID maps to same logical channel; programmes preserved,1920 | 1984,Моя Планета HD | Моя Планета,conflicting,"1920:anchor=__previous_source_playlist_1920,match=36/124,ratio=29% | 1984:anchor=__previous_source_playlist_1984,match=36/124,ratio=29%"
+IPTVX full,moya-planeta,Моя Планета | Моя Планета HD | Планета HD,2,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,2,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,2,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,0,,,1920 | 1984,1920:Моя Планета HD | 1984:Моя Планета,review: shared XMLTV ID maps to same logical channel; programmes preserved,1920 | 1984,Моя Планета HD | Моя Планета,conflicting,"1920:anchor=__previous_source_playlist_1920,match=56/126,ratio=44% | 1984:anchor=__previous_source_playlist_1984,match=56/126,ratio=44%"
 IPTVX full,ms-sport-de,MS Sport [DE],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,msg-us,MSG [US] | Madison Square Gardens [US],1,2577,2577:MSG US,1,2577,2577:MSG US,2577,2577:MSG US,0,,,0,,,2577,2577:MSG US,accepted,2577,MSG US,not evaluated,
 IPTVX full,msnbc-us,MS NOW [US] | MSNBC [US],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -5657,7 +5659,7 @@ IPTVX full,one-il,ONE | ONE HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not 
 IPTVX full,one-music-television-de,One Music Television [DE],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,one-planet,One Planet | One Planet HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,one2-il,ONE2 | ONE2 HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
-IPTVX full,onemuz,Первый музыкальный | Первый музыкальный HD | Первый музыкальный RU | Первый музыкальный HD RU,2,1621 | 1622,1621:Первый музыкальный HD | 1622:Первый музыкальный,2,1621 | 1622,1621:Первый музыкальный HD | 1622:Первый музыкальный,1621 | 1622,1621:Первый музыкальный HD | 1622:Первый музыкальный,4,1621 | 1622 | 1623 | 1624,1621:Первый музыкальный HD | 1622:Первый музыкальный | 1623:Первый музыкальный HD BY | 1624:Первый музыкальный BY,2,1623 | 1624,1623:Первый музыкальный HD BY | 1624:Первый музыкальный BY,1621 | 1622 | 1623 | 1624,1621:Первый музыкальный HD | 1622:Первый музыкальный | 1623:Первый музыкальный HD BY | 1624:Первый музыкальный BY,verified: programme sequences match for all mapped candidates,1621 | 1622,Первый музыкальный HD | Первый музыкальный,verified_shared,"1621:anchor=__previous_source_playlist_1621,match=24/24,ratio=100% | 1622:anchor=__previous_source_playlist_1622,match=24/24,ratio=100%"
+IPTVX full,onemuz,Первый музыкальный | Первый музыкальный HD | Первый музыкальный RU | Первый музыкальный HD RU,2,1621 | 1622,1621:Первый музыкальный HD | 1622:Первый музыкальный,2,1621 | 1622,1621:Первый музыкальный HD | 1622:Первый музыкальный,1621 | 1622,1621:Первый музыкальный HD | 1622:Первый музыкальный,4,1621 | 1622 | 1623 | 1624,1621:Первый музыкальный HD | 1622:Первый музыкальный | 1623:Первый музыкальный HD BY | 1624:Первый музыкальный BY,2,1623 | 1624,1623:Первый музыкальный HD BY | 1624:Первый музыкальный BY,1621 | 1622 | 1623 | 1624,1621:Первый музыкальный HD | 1622:Первый музыкальный | 1623:Первый музыкальный HD BY | 1624:Первый музыкальный BY,review: shared XMLTV ID maps to same logical channel; programmes preserved,1621 | 1622,Первый музыкальный HD | Первый музыкальный,conflicting,"1621:anchor=__previous_source_playlist_1621,match=24/36,ratio=67% | 1622:anchor=__previous_source_playlist_1622,match=24/36,ratio=67%"
 IPTVX full,oneplay-sport-1-cz,Oneplay Sport 1 [CZ],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,oneplay-sport-2-cz,Oneplay Sport 2 [CZ],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,oneplay-sport-3-cz,Oneplay Sport 3 [CZ],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -5783,7 +5785,7 @@ IPTVX full,playboy-tv,Playboy TV | Playboy,1,2283,2283:Playboy,1,2283,2283:Playb
 IPTVX full,playboy-tv-uk,Playboy TV [UK] | Playboy [UK],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,playboy-tv-uk-ua,Playboy TV UK (Украина),0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,plusplus,ПлюсПлюс | Плюс Плюс,1,2750,2750:ПлюсПлюс,1,2750,2750:ПлюсПлюс,2750,2750:ПлюсПлюс,1,2750,2750:ПлюсПлюс,0,,,2750,2750:ПлюсПлюс,accepted,2750,ПлюсПлюс,not evaluated,
-IPTVX full,pobeda,Победа | Победа HD,2,457 | 458,457:Победа HD | 458:Победа,2,457 | 458,457:Победа HD | 458:Победа,457 | 458,457:Победа HD | 458:Победа,2,457 | 458,457:Победа HD | 458:Победа,0,,,457 | 458,457:Победа HD | 458:Победа,review: shared XMLTV ID maps to same logical channel; programmes preserved,457 | 458,Победа HD | Победа,conflicting,"457:anchor=__previous_source_playlist_457,match=0/24,ratio=0% | 458:anchor=__previous_source_playlist_458,match=0/24,ratio=0%"
+IPTVX full,pobeda,Победа | Победа HD,2,457 | 458,457:Победа HD | 458:Победа,2,457 | 458,457:Победа HD | 458:Победа,457 | 458,457:Победа HD | 458:Победа,2,457 | 458,457:Победа HD | 458:Победа,0,,,457 | 458,457:Победа HD | 458:Победа,review: shared XMLTV ID maps to same logical channel; programmes preserved,457 | 458,Победа HD | Победа,conflicting,"457:anchor=__previous_source_playlist_457,match=1/24,ratio=4% | 458:anchor=__previous_source_playlist_458,match=1/24,ratio=4%"
 IPTVX full,poedinok,Поединок | Поединок HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,poexali,Поехали! | Поехали HD | Поехали! HD,2,1851 | 1956,1851:Поехали! HD | 1956:Поехали!,2,1851 | 1956,1851:Поехали! HD | 1956:Поехали!,1851 | 1956,1851:Поехали! HD | 1956:Поехали!,2,1851 | 1956,1851:Поехали! HD | 1956:Поехали!,0,,,1851 | 1956,1851:Поехали! HD | 1956:Поехали!,verified: programme sequences match for all mapped candidates,1851 | 1956,Поехали! HD | Поехали!,verified_shared,"1851:anchor=__previous_source_playlist_1851,match=86/95,ratio=91% | 1956:anchor=__previous_source_playlist_1956,match=86/95,ratio=91%"
 IPTVX full,poisk-tv,Поиск-ТВ | ТВ Поиск,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -6382,7 +6384,7 @@ IPTVX full,sport-plus-kz,Sport+ Qazaqstan | Sport+ KZ,0,,,0,,,,,0,,,0,,,,,unmatc
 IPTVX full,sport-tv-by,Спорт ТВ [BY],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,sport1-baltic,Sport 1 Baltic,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,sport1-de,Sport1 HD | Sport1 HD DE,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
-IPTVX full,sport1-lt,Sport 1 | Sport 1 LT | Sport 1 HD | Sport 1 HD [LT],0,,,0,,,,,2,1193 | 2772,1193:Sport 1 HU | 2772:Sport 1 UA,2,1193 | 2772,1193:Sport 1 HU | 2772:Sport 1 UA,1193 | 2772,1193:Sport 1 HU | 2772:Sport 1 UA,quarantined: conflicting channel names or programme sequences; programmes not assigned,,,conflicting,"1193:anchor=sport-1-hu,match=0/40,ratio=0% | 2772:anchor=sport1-ua,match=0/16,ratio=0%"
+IPTVX full,sport1-lt,Sport 1 | Sport 1 LT | Sport 1 HD | Sport 1 HD [LT],0,,,0,,,,,2,1193 | 2772,1193:Sport 1 HU | 2772:Sport 1 UA,2,1193 | 2772,1193:Sport 1 HU | 2772:Sport 1 UA,1193 | 2772,1193:Sport 1 HU | 2772:Sport 1 UA,quarantined: conflicting channel names or programme sequences; programmes not assigned,,,conflicting,"1193:anchor=sport-1-hu,match=0/40,ratio=0% | 2772:anchor=sport1-ua,match=0/39,ratio=0%"
 IPTVX full,sport1-plus-de,Sport1+ HD | Sport1+ HD DE,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,sport1-slo,Sport TV 1 Slovenia,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,sport1-ua,Спорт 1 Украина | Sport 1 UA,1,2772,2772:Sport 1 UA,0,,,2772,2772:Sport 1 UA,1,2772,2772:Sport 1 UA,0,,,2772,2772:Sport 1 UA,accepted,2772,Sport 1 UA,not evaluated,
@@ -6393,6 +6395,7 @@ IPTVX full,sport3-slo,Sport TV 3 Slovenia,0,,,0,,,,,0,,,0,,,,,unmatched or ambig
 IPTVX full,sport3-ua,Спорт 3 Украина | Спорт 1 HD Украина,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,sport4-ua,Спорт 4 Украина,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,sport5,Спорт 5 | Sport 5,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
+IPTVX full,sport6-il,Sport 6 [IL] | Sport 6 HD [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,sportdigital-fussball,Sportdigital Fussball | Sportdigital Fussball HD,0,,,0,,,,,1,1405,1405:Sportdigital Fussball HD DE,1,1405,1405:Sportdigital Fussball HD DE,1405,1405:Sportdigital Fussball HD DE,accepted,1405,Sportdigital Fussball HD DE,not evaluated,
 IPTVX full,sportdigital-fussball-2,Sportdigital Fussball 2 | Sportdigital Fussball 2 HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,sportitalia-it,Sportitalia [IT],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -7405,7 +7408,9 @@ IPTVX full,yes-drama,Yes Drama | Yes Drama HD | Yes TV Drama | Yes TV Drama HD,0
 IPTVX full,yes-movies-kids,yes Movies Kids | yes Movies Kids HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,yes-network-us,YES Network [US],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,yes-plus-cinema-il,Yes+ Cinema [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
+IPTVX full,yes-plus-dark-il,Yes+ Dark [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,yes-plus-diamonds-il,Yes+ Diamonds [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
+IPTVX full,yes-plus-love-il,Yes+ Love [IL],0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,yes-sport-1,Yes Sport 1 | Yes Sport 1 HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,yes-sport-2,Yes Sport 2 | Yes Sport 2 HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 IPTVX full,yes-sport-3,Yes Sport 3 | Yes Sport 3 HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -7667,6 +7672,7 @@ TV.TEAM full,ch2911,EroLuxe Solo,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,no
 TV.TEAM full,ch3650,FR: E!,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch539,Здоровое ТВ,1,92,92:Здоровое ТВ,1,92,92:Здоровое ТВ,92,92:Здоровое ТВ,1,92,92:Здоровое ТВ,0,,,92,92:Здоровое ТВ,accepted,92,Здоровое ТВ,not evaluated,
 TV.TEAM full,ch3777,TVPlay Зачарованные HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
+TV.TEAM full,ch4143,Stingray C Music,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch2084,UK: TNT Sport 8 (Event Only),0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch2999,ES: Iberalia HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch2963,ES: Amc HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -8072,7 +8078,7 @@ TV.TEAM full,ch3245,Kernel TV Гравити Фолз,0,,,0,,,,,0,,,0,,,,,unmatc
 TV.TEAM full,ch2165,UK: Sky One HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch3171,BOX Sport 10 Live 4K,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch3049,CineMan Kids 4K,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
-TV.TEAM full,ch095,UA: Еспресо TV HD,0,,,0,,,,,2,2711 | 2777,2711:Еспресо TV HD UA | 2777:Еспресо TV HD UA,2,2711 | 2777,2711:Еспресо TV HD UA | 2777:Еспресо TV HD UA,2711 | 2777,2711:Еспресо TV HD UA | 2777:Еспресо TV HD UA,verified: programme sequences match for all mapped candidates,2711 | 2777,Еспресо TV HD UA | Еспресо TV HD UA,verified_shared,"2711:anchor=__previous_source_playlist_2711,match=93/93,ratio=100% | 2777:anchor=__previous_source_playlist_2777,match=93/93,ratio=100%"
+TV.TEAM full,ch095,UA: Еспресо TV HD,0,,,0,,,,,2,2711 | 2777,2711:Еспресо TV HD UA | 2777:Еспресо TV HD UA,2,2711 | 2777,2711:Еспресо TV HD UA | 2777:Еспресо TV HD UA,2711 | 2777,2711:Еспресо TV HD UA | 2777:Еспресо TV HD UA,verified: programme sequences match for all mapped candidates,2711 | 2777,Еспресо TV HD UA | Еспресо TV HD UA,verified_shared,"2711:anchor=__previous_source_playlist_2711,match=78/93,ratio=84% | 2777:anchor=__previous_source_playlist_2777,match=78/93,ratio=84%"
 TV.TEAM full,ch3660,FR: M6 HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch2625,IL: YoYo,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch3667,FR: National Geographic HD,0,,,1,1855,1855:National Geographic HD,1855,1855:National Geographic HD,1,1855,1855:National Geographic HD,0,,,1855,1855:National Geographic HD,accepted,1855,National Geographic HD,not evaluated,
@@ -8936,7 +8942,7 @@ TV.TEAM full,ch2245,FIFA+ HD (USA),0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,
 TV.TEAM full,ch1242,MM Комедия Classic HD,1,764,764:MM Комедия Classic HD,1,764,764:MM Комедия Classic HD,764,764:MM Комедия Classic HD,1,764,764:MM Комедия Classic HD,0,,,764,764:MM Комедия Classic HD,accepted,764,MM Комедия Classic HD,not evaluated,
 TV.TEAM full,ch4153,TEAM Универ HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch3207,LV: Nickelodeon,0,,,1,1734,1734:Nickelodeon,1734,1734:Nickelodeon,1,1734,1734:Nickelodeon,0,,,1734,1734:Nickelodeon,accepted,1734,Nickelodeon,not evaluated,
-TV.TEAM full,ch369,ТНТ +2,2,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,2,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,2,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,0,,,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,review: shared XMLTV ID maps to same logical channel; programmes preserved,38 | 2123,ТНТ +2 | ТНТ +2,conflicting,"38:anchor=__previous_source_playlist_38,match=2/98,ratio=2% | 2123:anchor=__previous_source_playlist_2123,match=2/98,ratio=2%"
+TV.TEAM full,ch369,ТНТ +2,2,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,2,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,2,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,0,,,38 | 2123,38:ТНТ +2 | 2123:ТНТ +2,review: shared XMLTV ID maps to same logical channel; programmes preserved,38 | 2123,ТНТ +2 | ТНТ +2,conflicting,"38:anchor=__previous_source_playlist_38,match=2/97,ratio=2% | 2123:anchor=__previous_source_playlist_2123,match=2/97,ratio=2%"
 TV.TEAM full,ch2683,Oasis RUS Мульт,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch1701,PT: Sky News HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch2653,Oasis Comedy,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -9310,7 +9316,7 @@ TV.TEAM full,ch3727,PL: MyZen TV UHD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,
 TV.TEAM full,ch3878,KG: УТРК Спорт HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch2896,EroLuxe Blondes,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch3968,CZ: Golf Channel,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
-TV.TEAM full,ch550,Fashion TV HD,2,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,2,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,2,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,0,,,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,review: shared XMLTV ID maps to same logical channel; programmes preserved,2112 | 2877,Fashion TV HD | Fashion TV HD,conflicting,"2112:anchor=__previous_source_playlist_2112,match=666/863,ratio=77% | 2877:anchor=__previous_source_playlist_2877,match=666/863,ratio=77%"
+TV.TEAM full,ch550,Fashion TV HD,2,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,2,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,2,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,0,,,2112 | 2877,2112:Fashion TV HD | 2877:Fashion TV HD,review: shared XMLTV ID maps to same logical channel; programmes preserved,2112 | 2877,Fashion TV HD | Fashion TV HD,conflicting,"2112:anchor=__previous_source_playlist_2112,match=554/729,ratio=76% | 2877:anchor=__previous_source_playlist_2877,match=554/729,ratio=76%"
 TV.TEAM full,ch1421,TR: TV 4 HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch1975,Sky High Civil S HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 TV.TEAM full,ch1255,MM Роскино HD,1,777,777:MM Роскино HD,1,777,777:MM Роскино HD,777,777:MM Роскино HD,1,777,777:MM Роскино HD,0,,,777,777:MM Роскино HD,accepted,777,MM Роскино HD,not evaluated,
@@ -14398,8 +14404,8 @@ FOX TV,1:1377,WELT HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated
 FOX TV,1:1054,ZDF HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 FOX TV,1:1394,ZDF info HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 FOX TV,1:1296,ZDF NEO HD,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
-FOX TV,1:1185,Discovery Channel,1,1907,1907:Discovery Channel,1,1907,1907:Discovery Channel,1907,1907:Discovery Channel,1,1907,1907:Discovery Channel,0,,,1907,1907:Discovery Channel,review: shared XMLTV ID maps to same logical channel; programmes preserved,1906 | 1907,Discovery Channel HD | Discovery Channel,conflicting,"1906:anchor=1:1322,match=0/86,ratio=0% | 1907:anchor=__previous_source_playlist_1907,match=1/78,ratio=1%"
-FOX TV,1:1185,Discovery Channel HD,1,1906,1906:Discovery Channel HD,1,1906,1906:Discovery Channel HD,1906,1906:Discovery Channel HD,1,1906,1906:Discovery Channel HD,0,,,1906,1906:Discovery Channel HD,review: shared XMLTV ID maps to same logical channel; programmes preserved,1906 | 1907,Discovery Channel HD | Discovery Channel,conflicting,"1906:anchor=1:1322,match=0/86,ratio=0% | 1907:anchor=__previous_source_playlist_1907,match=1/78,ratio=1%"
+FOX TV,1:1185,Discovery Channel,1,1907,1907:Discovery Channel,1,1907,1907:Discovery Channel,1907,1907:Discovery Channel,1,1907,1907:Discovery Channel,0,,,1907,1907:Discovery Channel,review: shared XMLTV ID maps to same logical channel; programmes preserved,1906 | 1907,Discovery Channel HD | Discovery Channel,conflicting,"1906:anchor=1:1322,match=0/83,ratio=0% | 1907:anchor=__previous_source_playlist_1907,match=1/78,ratio=1%"
+FOX TV,1:1185,Discovery Channel HD,1,1906,1906:Discovery Channel HD,1,1906,1906:Discovery Channel HD,1906,1906:Discovery Channel HD,1,1906,1906:Discovery Channel HD,0,,,1906,1906:Discovery Channel HD,review: shared XMLTV ID maps to same logical channel; programmes preserved,1906 | 1907,Discovery Channel HD | Discovery Channel,conflicting,"1906:anchor=1:1322,match=0/83,ratio=0% | 1907:anchor=__previous_source_playlist_1907,match=1/78,ratio=1%"
 FOX TV,1:87,DocuBox,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 FOX TV,1:2034,English Club TV,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
 FOX TV,1:95,Euronews,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evaluated,
@@ -14661,8 +14667,8 @@ FOX TV,1:1589,Наше Мужское HD,1,432,432:Наше Мужское HD,1,
 FOX TV,1:401,Наше новое кино HD,1,1033,1033:Наше Новое Кино HD,1,1033,1033:Наше Новое Кино HD,1033,1033:Наше Новое Кино HD,1,1033,1033:Наше Новое Кино HD,0,,,1033,1033:Наше Новое Кино HD,accepted,1033,Наше Новое Кино HD,not evaluated,
 FOX TV,1:404,Ностальгия,1,81,81:Ностальгия,1,81,81:Ностальгия,81,81:Ностальгия,1,81,81:Ностальгия,0,,,81,81:Ностальгия,accepted,81,Ностальгия,not evaluated,
 FOX TV,1:407,НСТ,1,497,497:НСТ,1,497,497:НСТ,497,497:НСТ,1,497,497:НСТ,0,,,497,497:НСТ,accepted,497,НСТ,not evaluated,
-FOX TV,1:408,НТВ,1,19,19:НТВ,1,19,19:НТВ,19,19:НТВ,1,19,19:НТВ,0,,,19,19:НТВ,review: shared XMLTV ID maps to same logical channel; programmes preserved,16 | 19,НТВ HD | НТВ,conflicting,"16:anchor=__previous_source_playlist_16,match=14/77,ratio=18% | 19:anchor=__previous_source_playlist_19,match=14/77,ratio=18%"
-FOX TV,1:408,НТВ HD,1,16,16:НТВ HD,1,16,16:НТВ HD,16,16:НТВ HD,1,16,16:НТВ HD,0,,,16,16:НТВ HD,review: shared XMLTV ID maps to same logical channel; programmes preserved,16 | 19,НТВ HD | НТВ,conflicting,"16:anchor=__previous_source_playlist_16,match=14/77,ratio=18% | 19:anchor=__previous_source_playlist_19,match=14/77,ratio=18%"
+FOX TV,1:408,НТВ,1,19,19:НТВ,1,19,19:НТВ,19,19:НТВ,1,19,19:НТВ,0,,,19,19:НТВ,review: shared XMLTV ID maps to same logical channel; programmes preserved,16 | 19,НТВ HD | НТВ,conflicting,"16:anchor=__previous_source_playlist_16,match=34/77,ratio=44% | 19:anchor=__previous_source_playlist_19,match=34/77,ratio=44%"
+FOX TV,1:408,НТВ HD,1,16,16:НТВ HD,1,16,16:НТВ HD,16,16:НТВ HD,1,16,16:НТВ HD,0,,,16,16:НТВ HD,review: shared XMLTV ID maps to same logical channel; programmes preserved,16 | 19,НТВ HD | НТВ,conflicting,"16:anchor=__previous_source_playlist_16,match=34/77,ratio=44% | 19:anchor=__previous_source_playlist_19,match=34/77,ratio=44%"
 FOX TV,1:411,НТВ (+4),1,21,21:НТВ +4,1,21,21:НТВ +4,21,21:НТВ +4,1,21,21:НТВ +4,0,,,21,21:НТВ +4,accepted,21,НТВ +4,not evaluated,
 FOX TV,1:906,НТВ Право,1,1977,1977:НТВ Право,1,1977,1977:НТВ Право,1977,1977:НТВ Право,1,1977,1977:НТВ Право,0,,,1977,1977:НТВ Право,accepted,1977,НТВ Право,not evaluated,
 FOX TV,1:907,НТВ Сериал,1,496,496:НТВ Сериал,1,496,496:НТВ Сериал,496,496:НТВ Сериал,1,496,496:НТВ Сериал,0,,,496,496:НТВ Сериал,accepted,496,НТВ Сериал,not evaluated,
@@ -15082,8 +15088,8 @@ Satfor,1plus1-int,1+1 Int,0,,,0,,,,,0,,,0,,,,,unmatched or ambiguous,,,not evalu
 Satfor,1plus1marHD_ua,1+1 Марафон HD,0,,,0,,,,,1,2774,2774:1+1 Марафон HD UA,1,2774,2774:1+1 Марафон HD UA,2774,2774:1+1 Марафон HD UA,accepted,2774,1+1 Марафон HD UA,not evaluated,
 Satfor,1plus1-ukraina,1+1 Україна,0,,,0,,,,,1,2732,2732:1+1 Україна UA,1,2732,2732:1+1 Україна UA,2732,2732:1+1 Україна UA,accepted,2732,1+1 Україна UA,not evaluated,
 Satfor,1hd,1HD Music Television,1,1526,1526:1HD Music Television,1,1526,1526:1HD Music Television,1526,1526:1HD Music Television,1,1526,1526:1HD Music Television,0,,,1526,1526:1HD Music Television,accepted,1526,1HD Music Television,not evaluated,
-Satfor,2plus2,2+2,0,,,0,,,,,1,2744,2744:2+2 UA,1,2744,2744:2+2 UA,2744,2744:2+2 UA,verified: programme sequences match for all mapped candidates,2744 | 2795,2+2 UA | 2+2 HD UA,verified_shared,"2744:anchor=__previous_source_playlist_2744,match=31/31,ratio=100% | 2795:anchor=__previous_source_playlist_2795,match=31/31,ratio=100%"
-Satfor,2plus2,2+2 HD,0,,,0,,,,,1,2795,2795:2+2 HD UA,1,2795,2795:2+2 HD UA,2795,2795:2+2 HD UA,verified: programme sequences match for all mapped candidates,2744 | 2795,2+2 UA | 2+2 HD UA,verified_shared,"2744:anchor=__previous_source_playlist_2744,match=31/31,ratio=100% | 2795:anchor=__previous_source_playlist_2795,match=31/31,ratio=100%"
+Satfor,2plus2,2+2,0,,,0,,,,,1,2744,2744:2+2 UA,1,2744,2744:2+2 UA,2744,2744:2+2 UA,verified: programme sequences match for all mapped candidates,2744 | 2795,2+2 UA | 2+2 HD UA,verified_shared,"2744:anchor=__previous_source_playlist_2744,match=31/31,ratio=100% | 2795:anchor=__previous_source_playlist_2795,match=27/31,ratio=87%"
+Satfor,2plus2,2+2 HD,0,,,0,,,,,1,2795,2795:2+2 HD UA,1,2795,2795:2+2 HD UA,2795,2795:2+2 HD UA,verified: programme sequences match for all mapped candidates,2744 | 2795,2+2 UA | 2+2 HD UA,verified_shared,"2744:anchor=__previous_source_playlist_2744,match=31/31,ratio=100% | 2795:anchor=__previous_source_playlist_2795,match=27/31,ratio=87%"
 Satfor,24_ua,24 канал,0,,,0,,,,,1,2707,2707:24 Канал UA,1,2707,2707:24 Канал UA,2707,2707:24 Канал UA,review: shared XMLTV ID maps to same logical channel; programmes preserved,2707 | 2761,24 Канал UA | 24 Канал HD UA,insufficient,"2707:anchor=__previous_source_playlist_2707,match=95/95,ratio=100%"
 Satfor,24_ua,24 канал HD,0,,,0,,,,,1,2761,2761:24 Канал HD UA,1,2761,2761:24 Канал HD UA,2761,2761:24 Канал HD UA,review: shared XMLTV ID maps to same logical channel; programmes preserved,2707 | 2761,24 Канал UA | 24 Канал HD UA,insufficient,"2707:anchor=__previous_source_playlist_2707,match=95/95,ratio=100%"
 Satfor,2na2,2x2,1,485,485:2x2,1,485,485:2x2,485,485:2x2,1,485,485:2x2,0,,,485,485:2x2,accepted,485,2x2,not evaluated,
