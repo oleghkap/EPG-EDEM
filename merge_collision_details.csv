@@ -660,8 +660,11 @@ IPTVX full,Megogo live HD UA,2800,2026-11-08T23:00:00+03:00,megogo-live,megogo-l
 IPTVX full,Мир +4,52,2026-11-08T23:55:00+03:00,mir-pl4,mir-pl4,same ID,23,23,0,0
 IPTVX full,Playboy,2283,2026-11-08T23:53:00+03:00,playboy-tv,playboy-tv,same ID,49,49,0,0
 IPTVX full,СТБ HD,2767,2026-11-09T03:35:00+03:00,stb-ua,stb-ua,same ID,43,43,0,0
+TV.TEAM full,RAZ 3 HD,2859,2026-11-09T06:30:00+03:00,ch129,ch129,same ID,15,15,1308,1308
 TV.TEAM full,Бігуді UA,2784,2026-11-08T05:30:00+03:00,ch299,ch299,same ID,17,17,936,936
+TV.TEAM full,Бігуді UA,2784,2026-11-08T23:00:00+03:00,ch299,ch299,same ID,33,33,1896,1896
 TV.TEAM full,Перший Автомобільний HD UA,2799,2026-11-09T00:00:00+03:00,ch303,ch303,same ID,27,27,0,0
+TV.TEAM full,М2 HD UA,2788,2026-11-08T23:00:00+03:00,ch321,ch321,same ID,16,16,0,0
 TV.TEAM full,Comedy Central,508,2026-11-08T00:00:00+03:00,ch2393,ch1006,different IDs,25,22,131,361
 TV.TEAM full,Comedy Central,508,2026-11-08T03:15:00+03:00,ch2393,ch1006,different IDs,11,16,91,169
 TV.TEAM full,Comedy Central,508,2026-11-08T06:25:00+03:00,ch2393,ch1006,different IDs,31,33,111,184
@@ -679,22 +682,28 @@ TV.TEAM full,Comedy Central,508,2026-11-09T06:25:00+03:00,ch2393,ch1006,differen
 TV.TEAM full,Comedy Central,508,2026-11-09T07:15:00+03:00,ch2393,ch1006,different IDs,22,9,73,188
 TV.TEAM full,Comedy Central,508,2026-11-09T08:00:00+03:00,ch2393,ch1006,different IDs,11,12,117,19
 TV.TEAM full,Comedy Central,508,2026-11-09T13:00:00+03:00,ch2393,ch1006,different IDs,11,23,34,158
-TV.TEAM full,Comedy Central,508,2026-11-09T14:30:00+03:00,ch2393,ch1006,different IDs,26,26,150,141
 TV.TEAM full,Comedy Central,508,2026-11-09T15:00:00+03:00,ch2393,ch1006,different IDs,16,26,131,127
-TV.TEAM full,Comedy Central,508,2026-11-09T16:30:00+03:00,ch2393,ch1006,different IDs,23,7,64,347
 TV.TEAM full,Comedy Central,508,2026-11-09T18:00:00+03:00,ch2393,ch1006,different IDs,10,7,37,272
 TV.TEAM full,Comedy Central,508,2026-11-09T19:30:00+03:00,ch2393,ch1006,different IDs,22,7,69,243
 TV.TEAM full,Comedy Central,508,2026-11-09T21:00:00+03:00,ch2393,ch1006,different IDs,20,7,101,56
-TV.TEAM full,Comedy Central,508,2026-11-10T04:40:00+03:00,ch2393,ch1006,different IDs,7,23,162,189
+TV.TEAM full,Comedy Central,508,2026-11-10T00:00:00+03:00,ch2393,ch1006,different IDs,26,29,124,193
+TV.TEAM full,Comedy Central,508,2026-11-10T04:40:00+03:00,ch2393,ch1006,different IDs,14,23,161,189
 TV.TEAM full,Comedy Central,508,2026-11-10T06:10:00+03:00,ch2393,ch1006,different IDs,15,23,94,106
 TV.TEAM full,Comedy Central,508,2026-11-10T06:30:00+03:00,ch2393,ch1006,different IDs,11,25,98,190
+TV.TEAM full,Comedy Central,508,2026-11-10T08:00:00+03:00,ch2393,ch1006,different IDs,10,12,104,19
+TV.TEAM full,Comedy Central,508,2026-11-10T13:00:00+03:00,ch2393,ch1006,different IDs,28,23,50,202
+TV.TEAM full,Comedy Central,508,2026-11-10T14:30:00+03:00,ch2393,ch1006,different IDs,26,26,150,131
+TV.TEAM full,Comedy Central,508,2026-11-10T15:00:00+03:00,ch2393,ch1006,different IDs,20,26,124,146
+TV.TEAM full,Comedy Central,508,2026-11-10T16:30:00+03:00,ch2393,ch1006,different IDs,22,7,138,290
+TV.TEAM full,Comedy Central,508,2026-11-10T18:00:00+03:00,ch2393,ch1006,different IDs,14,7,50,337
+TV.TEAM full,Comedy Central,508,2026-11-10T19:30:00+03:00,ch2393,ch1006,different IDs,14,7,68,168
+TV.TEAM full,Comedy Central,508,2026-11-10T21:00:00+03:00,ch2393,ch1006,different IDs,10,7,140,109
+TV.TEAM full,Comedy Central,508,2026-11-10T23:00:00+03:00,ch2393,ch1006,different IDs,7,7,121,276
+TV.TEAM full,Перший HD UA,2793,2026-11-09T06:30:00+03:00,ch216,ch216,same ID,16,16,154,154
+TV.TEAM full,Перший HD UA,2780,2026-11-09T06:30:00+03:00,ch216,ch216,same ID,16,16,154,154
 TV.TEAM full,Апостроф TV HD UA,2791,2026-11-08T01:25:00+03:00,ch083,ch083,same ID,17,17,0,0
+TV.TEAM full,Апостроф TV HD UA,2791,2026-11-09T01:50:00+03:00,ch083,ch083,same ID,17,17,0,0
 ProgramTV,FON Music,1567,2026-11-09T23:30:00+03:00,680,680,same ID,9,9,0,0
-BCU Media,ТНТ Music HD,1685,2026-11-08T09:10:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,0
-BCU Media,ТНТ Music HD,1685,2026-11-08T10:00:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,13,13,83,0
-BCU Media,ТНТ Music HD,1685,2026-11-08T10:40:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,0
-BCU Media,ТНТ Music HD,1685,2026-11-08T11:00:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,9,9,121,0
-BCU Media,ТНТ Music HD,1685,2026-11-08T11:10:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,0
 BCU Media,ТНТ Music HD,1685,2026-11-08T13:00:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,9,9,133,0
 BCU Media,ТНТ Music HD,1685,2026-11-08T14:15:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,0
 BCU Media,ТНТ Music HD,1685,2026-11-08T14:40:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,0
@@ -724,14 +733,6 @@ BCU Media,ТНТ Music HD,1685,2026-11-09T17:00:00+03:00,ТНТ Music HD,ТНТ 
 BCU Media,ТНТ Music HD,1685,2026-11-09T17:20:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,0
 BCU Media,ТНТ Music HD,1685,2026-11-09T23:00:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,9,9,137,0
 BCU Media,ТНТ Music HD,1685,2026-11-09T23:30:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,0
-BCU Media,Museum TV HD,1842,2026-11-08T09:55:00+03:00,Museum TV HD,Museum TV HD,same ID,24,25,212,0
-BCU Media,Museum TV HD,1842,2026-11-08T10:15:00+03:00,Museum TV HD,Museum TV HD,same ID,20,39,195,0
-BCU Media,Museum TV HD,1842,2026-11-08T10:25:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,173,0
-BCU Media,Museum TV HD,1842,2026-11-08T10:30:00+03:00,Museum TV HD,Museum TV HD,same ID,24,44,213,0
-BCU Media,Museum TV HD,1842,2026-11-08T11:00:00+03:00,Museum TV HD,Museum TV HD,same ID,24,44,250,0
-BCU Media,Museum TV HD,1842,2026-11-08T11:30:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,204,0
-BCU Media,Museum TV HD,1842,2026-11-08T11:55:00+03:00,Museum TV HD,Museum TV HD,same ID,43,43,204,0
-BCU Media,Museum TV HD,1842,2026-11-08T12:25:00+03:00,Museum TV HD,Museum TV HD,same ID,49,50,288,0
 BCU Media,Museum TV HD,1842,2026-11-08T13:15:00+03:00,Museum TV HD,Museum TV HD,same ID,63,64,266,0
 BCU Media,Museum TV HD,1842,2026-11-08T14:15:00+03:00,Museum TV HD,Museum TV HD,same ID,62,81,239,0
 BCU Media,Museum TV HD,1842,2026-11-08T15:15:00+03:00,Museum TV HD,Museum TV HD,same ID,25,45,195,0
@@ -752,12 +753,43 @@ BCU Media,Museum TV HD,1842,2026-11-09T01:45:00+03:00,Museum TV HD,Museum TV HD,
 BCU Media,Museum TV HD,1842,2026-11-09T02:00:00+03:00,Museum TV HD,Museum TV HD,same ID,25,45,192,0
 BCU Media,Museum TV HD,1842,2026-11-09T02:20:00+03:00,Museum TV HD,Museum TV HD,same ID,24,44,189,0
 BCU Media,Museum TV HD,1842,2026-11-09T02:45:00+03:00,Museum TV HD,Museum TV HD,same ID,36,37,199,0
-BCU Media,Zоопарк,1944,2026-11-08T09:25:00+03:00,Zоопарк,Zоопарк,same ID,34,44,209,0
-BCU Media,Zоопарк,1944,2026-11-08T09:50:00+03:00,Zоопарк,Zоопарк,same ID,34,44,209,0
-BCU Media,Zоопарк,1944,2026-11-08T10:15:00+03:00,Zоопарк,Zоопарк,same ID,26,26,321,0
-BCU Media,Zоопарк,1944,2026-11-08T11:05:00+03:00,Zоопарк,Zоопарк,same ID,75,73,430,0
-BCU Media,Zоопарк,1944,2026-11-08T11:55:00+03:00,Zоопарк,Zоопарк,same ID,34,34,216,0
-BCU Media,Zоопарк,1944,2026-11-08T12:45:00+03:00,Zоопарк,Zоопарк,same ID,25,25,5,0
+BCU Media,Museum TV HD,1842,2026-11-09T03:00:00+03:00,Museum TV HD,Museum TV HD,same ID,63,83,243,0
+BCU Media,Museum TV HD,1842,2026-11-09T03:55:00+03:00,Museum TV HD,Museum TV HD,same ID,33,38,205,0
+BCU Media,Museum TV HD,1842,2026-11-09T04:45:00+03:00,Museum TV HD,Museum TV HD,same ID,51,56,231,0
+BCU Media,Museum TV HD,1842,2026-11-09T05:00:00+03:00,Museum TV HD,Museum TV HD,same ID,20,41,214,0
+BCU Media,Museum TV HD,1842,2026-11-09T06:00:00+03:00,Museum TV HD,Museum TV HD,same ID,20,41,239,0
+BCU Media,Museum TV HD,1842,2026-11-09T07:00:00+03:00,Museum TV HD,Museum TV HD,same ID,55,56,219,0
+BCU Media,Museum TV HD,1842,2026-11-09T09:00:00+03:00,Museum TV HD,Museum TV HD,same ID,51,52,250,0
+BCU Media,Museum TV HD,1842,2026-11-09T09:55:00+03:00,Museum TV HD,Museum TV HD,same ID,38,39,242,0
+BCU Media,Museum TV HD,1842,2026-11-09T10:15:00+03:00,Museum TV HD,Museum TV HD,same ID,25,45,182,0
+BCU Media,Museum TV HD,1842,2026-11-09T10:40:00+03:00,Museum TV HD,Museum TV HD,same ID,29,34,167,0
+BCU Media,Museum TV HD,1842,2026-11-09T11:05:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,206,0
+BCU Media,Museum TV HD,1842,2026-11-09T11:10:00+03:00,Museum TV HD,Museum TV HD,same ID,24,44,230,0
+BCU Media,Museum TV HD,1842,2026-11-09T11:40:00+03:00,Museum TV HD,Museum TV HD,same ID,77,82,185,0
+BCU Media,Museum TV HD,1842,2026-11-09T12:30:00+03:00,Museum TV HD,Museum TV HD,same ID,31,51,197,0
+BCU Media,Museum TV HD,1842,2026-11-09T13:25:00+03:00,Museum TV HD,Museum TV HD,same ID,30,49,232,0
+BCU Media,Museum TV HD,1842,2026-11-09T14:15:00+03:00,Museum TV HD,Museum TV HD,same ID,44,49,191,0
+BCU Media,Museum TV HD,1842,2026-11-09T14:35:00+03:00,Museum TV HD,Museum TV HD,same ID,25,45,220,0
+BCU Media,Museum TV HD,1842,2026-11-09T14:55:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,173,0
+BCU Media,Museum TV HD,1842,2026-11-09T15:00:00+03:00,Museum TV HD,Museum TV HD,same ID,62,81,250,0
+BCU Media,Museum TV HD,1842,2026-11-09T16:00:00+03:00,Museum TV HD,Museum TV HD,same ID,63,83,239,0
+BCU Media,Museum TV HD,1842,2026-11-09T17:00:00+03:00,Museum TV HD,Museum TV HD,same ID,63,83,243,0
+BCU Media,Museum TV HD,1842,2026-11-09T18:00:00+03:00,Museum TV HD,Museum TV HD,same ID,50,51,289,0
+BCU Media,Museum TV HD,1842,2026-11-09T18:50:00+03:00,Museum TV HD,Museum TV HD,same ID,32,33,197,0
+BCU Media,Museum TV HD,1842,2026-11-09T19:40:00+03:00,Museum TV HD,Museum TV HD,same ID,24,43,163,0
+BCU Media,Museum TV HD,1842,2026-11-09T19:50:00+03:00,Museum TV HD,Museum TV HD,same ID,76,81,246,0
+BCU Media,Museum TV HD,1842,2026-11-09T20:45:00+03:00,Museum TV HD,Museum TV HD,same ID,63,83,257,0
+BCU Media,Museum TV HD,1842,2026-11-09T21:45:00+03:00,Museum TV HD,Museum TV HD,same ID,39,44,273,0
+BCU Media,Museum TV HD,1842,2026-11-09T22:10:00+03:00,Museum TV HD,Museum TV HD,same ID,66,71,214,0
+BCU Media,Museum TV HD,1842,2026-11-09T22:45:00+03:00,Museum TV HD,Museum TV HD,same ID,50,51,225,0
+BCU Media,Museum TV HD,1842,2026-11-09T23:40:00+03:00,Museum TV HD,Museum TV HD,same ID,32,33,192,0
+BCU Media,Museum TV HD,1842,2026-11-10T00:25:00+03:00,Museum TV HD,Museum TV HD,same ID,52,53,254,0
+BCU Media,Museum TV HD,1842,2026-11-10T01:15:00+03:00,Museum TV HD,Museum TV HD,same ID,25,45,222,0
+BCU Media,Museum TV HD,1842,2026-11-10T01:40:00+03:00,Museum TV HD,Museum TV HD,same ID,25,45,192,0
+BCU Media,Museum TV HD,1842,2026-11-10T02:00:00+03:00,Museum TV HD,Museum TV HD,same ID,23,24,221,0
+BCU Media,Museum TV HD,1842,2026-11-10T02:30:00+03:00,Museum TV HD,Museum TV HD,same ID,53,58,286,0
+BCU Media,Museum TV HD,1842,2026-11-10T02:45:00+03:00,Museum TV HD,Museum TV HD,same ID,29,30,292,0
+BCU Media,Museum TV HD,1842,2026-11-10T03:00:00+03:00,Museum TV HD,Museum TV HD,same ID,62,81,239,0
 BCU Media,Zоопарк,1944,2026-11-08T13:35:00+03:00,Zоопарк,Zоопарк,same ID,26,26,199,0
 BCU Media,Zоопарк,1944,2026-11-08T14:25:00+03:00,Zоопарк,Zоопарк,same ID,28,28,286,0
 BCU Media,Zоопарк,1944,2026-11-08T15:15:00+03:00,Zоопарк,Zоопарк,same ID,34,44,228,0
@@ -807,11 +839,6 @@ BCU Media,Zоопарк,1944,2026-11-10T00:30:00+03:00,Zоопарк,Zоопар
 BCU Media,Zоопарк,1944,2026-11-10T01:20:00+03:00,Zоопарк,Zоопарк,same ID,58,56,378,0
 BCU Media,Zоопарк,1944,2026-11-10T02:15:00+03:00,Zоопарк,Zоопарк,same ID,35,25,382,0
 BCU Media,Zоопарк,1944,2026-11-10T03:00:00+03:00,Zоопарк,Zоопарк,same ID,37,27,377,0
-BCU Media,Рыболов HD,2063,2026-11-08T09:15:00+03:00,Рыболов HD,Рыболов HD,same ID,38,39,36,0
-BCU Media,Рыболов HD,2063,2026-11-08T09:45:00+03:00,Рыболов HD,Рыболов HD,same ID,38,39,44,0
-BCU Media,Рыболов HD,2063,2026-11-08T10:15:00+03:00,Рыболов HD,Рыболов HD,same ID,50,71,165,0
-BCU Media,Рыболов HD,2063,2026-11-08T11:20:00+03:00,Рыболов HD,Рыболов HD,same ID,38,58,123,0
-BCU Media,Рыболов HD,2063,2026-11-08T12:30:00+03:00,Рыболов HD,Рыболов HD,same ID,13,13,215,0
 BCU Media,Рыболов HD,2063,2026-11-08T12:55:00+03:00,Рыболов HD,Рыболов HD,same ID,29,48,73,0
 BCU Media,Рыболов HD,2063,2026-11-08T13:25:00+03:00,Рыболов HD,Рыболов HD,same ID,27,46,46,0
 BCU Media,Рыболов HD,2063,2026-11-08T13:55:00+03:00,Рыболов HD,Рыболов HD,same ID,25,26,229,0
@@ -841,11 +868,55 @@ BCU Media,Рыболов HD,2063,2026-11-09T01:22:00+03:00,Рыболов HD,Р�
 BCU Media,Рыболов HD,2063,2026-11-09T01:48:00+03:00,Рыболов HD,Рыболов HD,same ID,44,64,153,0
 BCU Media,Рыболов HD,2063,2026-11-09T02:14:00+03:00,Рыболов HD,Рыболов HD,same ID,45,65,153,0
 BCU Media,Рыболов HD,2063,2026-11-09T02:40:00+03:00,Рыболов HD,Рыболов HD,same ID,50,70,87,0
-BCU Media,ТНТ Music HD,1685,2026-11-08T09:10:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,144
-BCU Media,ТНТ Music HD,1685,2026-11-08T10:00:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,13,13,83,83
-BCU Media,ТНТ Music HD,1685,2026-11-08T10:40:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,144
-BCU Media,ТНТ Music HD,1685,2026-11-08T11:00:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,9,9,121,121
-BCU Media,ТНТ Music HD,1685,2026-11-08T11:10:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,144
+BCU Media,Рыболов HD,2063,2026-11-09T03:06:00+03:00,Рыболов HD,Рыболов HD,same ID,66,86,101,0
+BCU Media,Рыболов HD,2063,2026-11-09T03:32:00+03:00,Рыболов HD,Рыболов HD,same ID,56,76,113,0
+BCU Media,Рыболов HD,2063,2026-11-09T04:00:00+03:00,Рыболов HD,Рыболов HD,same ID,29,49,140,0
+BCU Media,Рыболов HD,2063,2026-11-09T04:26:00+03:00,Рыболов HD,Рыболов HD,same ID,33,53,140,0
+BCU Media,Рыболов HD,2063,2026-11-09T04:52:00+03:00,Рыболов HD,Рыболов HD,same ID,45,65,185,0
+BCU Media,Рыболов HD,2063,2026-11-09T05:18:00+03:00,Рыболов HD,Рыболов HD,same ID,51,72,116,0
+BCU Media,Рыболов HD,2063,2026-11-09T05:44:00+03:00,Рыболов HD,Рыболов HD,same ID,48,49,248,0
+BCU Media,Рыболов HD,2063,2026-11-09T06:10:00+03:00,Рыболов HD,Рыболов HD,same ID,28,29,229,0
+BCU Media,Рыболов HD,2063,2026-11-09T06:49:00+03:00,Рыболов HD,Рыболов HD,same ID,13,13,215,0
+BCU Media,Рыболов HD,2063,2026-11-09T07:17:00+03:00,Рыболов HD,Рыболов HD,same ID,79,99,125,0
+BCU Media,Рыболов HD,2063,2026-11-09T07:44:00+03:00,Рыболов HD,Рыболов HD,same ID,71,90,117,0
+BCU Media,Рыболов HD,2063,2026-11-09T08:14:00+03:00,Рыболов HD,Рыболов HD,same ID,41,42,117,0
+BCU Media,Рыболов HD,2063,2026-11-09T08:43:00+03:00,Рыболов HD,Рыболов HD,same ID,29,30,88,0
+BCU Media,Рыболов HD,2063,2026-11-09T09:14:00+03:00,Рыболов HD,Рыболов HD,same ID,37,38,38,0
+BCU Media,Рыболов HD,2063,2026-11-09T09:46:00+03:00,Рыболов HD,Рыболов HD,same ID,38,39,48,0
+BCU Media,Рыболов HD,2063,2026-11-09T10:16:00+03:00,Рыболов HD,Рыболов HD,same ID,35,54,93,0
+BCU Media,Рыболов HD,2063,2026-11-09T10:46:00+03:00,Рыболов HD,Рыболов HD,same ID,38,57,96,0
+BCU Media,Рыболов HD,2063,2026-11-09T11:16:00+03:00,Рыболов HD,Рыболов HD,same ID,35,54,93,0
+BCU Media,Рыболов HD,2063,2026-11-09T11:47:00+03:00,Рыболов HD,Рыболов HD,same ID,24,24,178,0
+BCU Media,Рыболов HD,2063,2026-11-09T12:20:00+03:00,Рыболов HD,Рыболов HD,same ID,36,37,58,0
+BCU Media,Рыболов HD,2063,2026-11-09T12:52:00+03:00,Рыболов HD,Рыболов HD,same ID,31,50,35,0
+BCU Media,Рыболов HD,2063,2026-11-09T13:23:00+03:00,Рыболов HD,Рыболов HD,same ID,29,48,179,0
+BCU Media,Рыболов HD,2063,2026-11-09T13:53:00+03:00,Рыболов HD,Рыболов HD,same ID,25,26,229,0
+BCU Media,Рыболов HD,2063,2026-11-09T14:23:00+03:00,Рыболов HD,Рыболов HD,same ID,25,26,229,0
+BCU Media,Рыболов HD,2063,2026-11-09T14:54:00+03:00,Рыболов HD,Рыболов HD,same ID,34,54,130,0
+BCU Media,Рыболов HD,2063,2026-11-09T15:25:00+03:00,Рыболов HD,Рыболов HD,same ID,38,58,124,0
+BCU Media,Рыболов HD,2063,2026-11-09T15:54:00+03:00,Рыболов HD,Рыболов HD,same ID,13,13,215,0
+BCU Media,Рыболов HD,2063,2026-11-09T16:25:00+03:00,Рыболов HD,Рыболов HD,same ID,63,82,216,0
+BCU Media,Рыболов HD,2063,2026-11-09T16:55:00+03:00,Рыболов HD,Рыболов HD,same ID,34,97,90,0
+BCU Media,Рыболов HD,2063,2026-11-09T17:29:00+03:00,Рыболов HD,Рыболов HD,same ID,33,96,89,0
+BCU Media,Рыболов HD,2063,2026-11-09T18:00:00+03:00,Рыболов HD,Рыболов HD,same ID,49,68,59,0
+BCU Media,Рыболов HD,2063,2026-11-09T18:29:00+03:00,Рыболов HD,Рыболов HD,same ID,45,65,158,0
+BCU Media,Рыболов HD,2063,2026-11-09T19:00:00+03:00,Рыболов HD,Рыболов HD,same ID,48,67,93,0
+BCU Media,Рыболов HD,2063,2026-11-09T19:32:00+03:00,Рыболов HD,Рыболов HD,same ID,49,70,215,0
+BCU Media,Рыболов HD,2063,2026-11-09T20:02:00+03:00,Рыболов HD,Рыболов HD,same ID,45,66,215,0
+BCU Media,Рыболов HD,2063,2026-11-09T20:32:00+03:00,Рыболов HD,Рыболов HD,same ID,39,60,215,0
+BCU Media,Рыболов HD,2063,2026-11-09T21:03:00+03:00,Рыболов HD,Рыболов HD,same ID,50,70,235,0
+BCU Media,Рыболов HD,2063,2026-11-09T21:32:00+03:00,Рыболов HD,Рыболов HD,same ID,72,91,235,0
+BCU Media,Рыболов HD,2063,2026-11-09T22:03:00+03:00,Рыболов HD,Рыболов HD,same ID,47,67,43,0
+BCU Media,Рыболов HD,2063,2026-11-09T22:32:00+03:00,Рыболов HD,Рыболов HD,same ID,80,100,194,0
+BCU Media,Рыболов HD,2063,2026-11-09T23:03:00+03:00,Рыболов HD,Рыболов HD,same ID,64,64,150,0
+BCU Media,Рыболов HD,2063,2026-11-09T23:32:00+03:00,Рыболов HD,Рыболов HD,same ID,73,73,179,0
+BCU Media,Рыболов HD,2063,2026-11-10T00:00:00+03:00,Рыболов HD,Рыболов HD,same ID,50,69,45,0
+BCU Media,Рыболов HD,2063,2026-11-10T00:27:00+03:00,Рыболов HD,Рыболов HD,same ID,74,94,73,0
+BCU Media,Рыболов HD,2063,2026-11-10T00:56:00+03:00,Рыболов HD,Рыболов HD,same ID,57,76,184,0
+BCU Media,Рыболов HD,2063,2026-11-10T01:22:00+03:00,Рыболов HD,Рыболов HD,same ID,76,96,74,0
+BCU Media,Рыболов HD,2063,2026-11-10T01:48:00+03:00,Рыболов HD,Рыболов HD,same ID,48,68,153,0
+BCU Media,Рыболов HD,2063,2026-11-10T02:14:00+03:00,Рыболов HD,Рыболов HD,same ID,62,82,153,0
+BCU Media,Рыболов HD,2063,2026-11-10T02:43:00+03:00,Рыболов HD,Рыболов HD,same ID,19,20,151,0
 BCU Media,ТНТ Music HD,1685,2026-11-08T13:00:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,9,9,133,133
 BCU Media,ТНТ Music HD,1685,2026-11-08T14:15:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,144
 BCU Media,ТНТ Music HD,1685,2026-11-08T14:40:00+03:00,ТНТ Music HD,ТНТ Music HD,same ID,10,10,144,144
@@ -904,14 +975,17 @@ BCU Media,M2 HD,1638,2026-11-08T19:00:00+03:00,M2 HD,M2 HD,same ID,28,28,0,0
 BCU Media,M2 HD,1638,2026-11-08T19:40:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
 BCU Media,M2 HD,1638,2026-11-08T22:15:00+03:00,M2 HD,M2 HD,same ID,10,10,0,0
 BCU Media,M2 HD,1638,2026-11-08T23:00:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
-BCU Media,Museum TV HD,1842,2026-11-08T09:55:00+03:00,Museum TV HD,Museum TV HD,same ID,24,24,212,212
-BCU Media,Museum TV HD,1842,2026-11-08T10:15:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,195,195
-BCU Media,Museum TV HD,1842,2026-11-08T10:25:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,173,173
-BCU Media,Museum TV HD,1842,2026-11-08T10:30:00+03:00,Museum TV HD,Museum TV HD,same ID,24,24,213,213
-BCU Media,Museum TV HD,1842,2026-11-08T11:00:00+03:00,Museum TV HD,Museum TV HD,same ID,24,24,250,250
-BCU Media,Museum TV HD,1842,2026-11-08T11:30:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,204,204
-BCU Media,Museum TV HD,1842,2026-11-08T11:55:00+03:00,Museum TV HD,Museum TV HD,same ID,43,43,204,204
-BCU Media,Museum TV HD,1842,2026-11-08T12:25:00+03:00,Museum TV HD,Museum TV HD,same ID,49,49,288,288
+BCU Media,M2 HD,1638,2026-11-09T07:00:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
+BCU Media,M2 HD,1638,2026-11-09T13:00:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
+BCU Media,M2 HD,1638,2026-11-09T20:00:00+03:00,M2 HD,M2 HD,same ID,28,28,0,0
+BCU Media,M2 HD,1638,2026-11-09T20:40:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
+BCU Media,M2 HD,1638,2026-11-10T08:00:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
+BCU Media,M2 HD,1638,2026-11-10T19:00:00+03:00,M2 HD,M2 HD,same ID,18,18,0,0
+BCU Media,M2 HD,1638,2026-11-10T19:30:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
+BCU Media,M2 HD,1638,2026-11-10T20:00:00+03:00,M2 HD,M2 HD,same ID,28,28,0,0
+BCU Media,M2 HD,1638,2026-11-10T20:40:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
+BCU Media,M2 HD,1638,2026-11-10T21:00:00+03:00,M2 HD,M2 HD,same ID,13,13,0,0
+BCU Media,M2 HD,1638,2026-11-10T22:00:00+03:00,M2 HD,M2 HD,same ID,17,17,0,0
 BCU Media,Museum TV HD,1842,2026-11-08T13:15:00+03:00,Museum TV HD,Museum TV HD,same ID,63,63,266,266
 BCU Media,Museum TV HD,1842,2026-11-08T14:15:00+03:00,Museum TV HD,Museum TV HD,same ID,62,62,239,239
 BCU Media,Museum TV HD,1842,2026-11-08T15:15:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,195,195
@@ -932,10 +1006,74 @@ BCU Media,Museum TV HD,1842,2026-11-09T01:45:00+03:00,Museum TV HD,Museum TV HD,
 BCU Media,Museum TV HD,1842,2026-11-09T02:00:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,192,192
 BCU Media,Museum TV HD,1842,2026-11-09T02:20:00+03:00,Museum TV HD,Museum TV HD,same ID,24,24,189,189
 BCU Media,Museum TV HD,1842,2026-11-09T02:45:00+03:00,Museum TV HD,Museum TV HD,same ID,36,36,199,199
-BCU Media,History CEE HD,1952,2026-11-08T09:25:00+03:00,History CEE HD,History CEE HD,same ID,38,38,797,797
-BCU Media,History CEE HD,1952,2026-11-08T10:05:00+03:00,History CEE HD,History CEE HD,same ID,57,57,753,753
-BCU Media,History CEE HD,1952,2026-11-08T10:50:00+03:00,History CEE HD,History CEE HD,same ID,46,46,175,175
-BCU Media,History CEE HD,1952,2026-11-08T12:15:00+03:00,History CEE HD,History CEE HD,same ID,46,46,401,401
+BCU Media,Museum TV HD,1842,2026-11-09T03:00:00+03:00,Museum TV HD,Museum TV HD,same ID,63,63,243,243
+BCU Media,Museum TV HD,1842,2026-11-09T03:55:00+03:00,Museum TV HD,Museum TV HD,same ID,33,33,205,205
+BCU Media,Museum TV HD,1842,2026-11-09T04:45:00+03:00,Museum TV HD,Museum TV HD,same ID,51,51,231,231
+BCU Media,Museum TV HD,1842,2026-11-09T05:00:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,214,214
+BCU Media,Museum TV HD,1842,2026-11-09T06:00:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,239,239
+BCU Media,Museum TV HD,1842,2026-11-09T07:00:00+03:00,Museum TV HD,Museum TV HD,same ID,55,55,219,219
+BCU Media,Museum TV HD,1842,2026-11-09T09:00:00+03:00,Museum TV HD,Museum TV HD,same ID,51,51,250,250
+BCU Media,Museum TV HD,1842,2026-11-09T09:55:00+03:00,Museum TV HD,Museum TV HD,same ID,38,38,242,242
+BCU Media,Museum TV HD,1842,2026-11-09T10:15:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,182,182
+BCU Media,Museum TV HD,1842,2026-11-09T10:40:00+03:00,Museum TV HD,Museum TV HD,same ID,29,29,167,167
+BCU Media,Museum TV HD,1842,2026-11-09T11:05:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,206,206
+BCU Media,Museum TV HD,1842,2026-11-09T11:10:00+03:00,Museum TV HD,Museum TV HD,same ID,24,24,230,230
+BCU Media,Museum TV HD,1842,2026-11-09T11:40:00+03:00,Museum TV HD,Museum TV HD,same ID,77,77,185,185
+BCU Media,Museum TV HD,1842,2026-11-09T12:30:00+03:00,Museum TV HD,Museum TV HD,same ID,31,31,197,197
+BCU Media,Museum TV HD,1842,2026-11-09T13:25:00+03:00,Museum TV HD,Museum TV HD,same ID,30,30,232,232
+BCU Media,Museum TV HD,1842,2026-11-09T14:15:00+03:00,Museum TV HD,Museum TV HD,same ID,44,44,191,191
+BCU Media,Museum TV HD,1842,2026-11-09T14:35:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,220,220
+BCU Media,Museum TV HD,1842,2026-11-09T14:55:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,173,173
+BCU Media,Museum TV HD,1842,2026-11-09T15:00:00+03:00,Museum TV HD,Museum TV HD,same ID,62,62,250,250
+BCU Media,Museum TV HD,1842,2026-11-09T16:00:00+03:00,Museum TV HD,Museum TV HD,same ID,63,63,239,239
+BCU Media,Museum TV HD,1842,2026-11-09T17:00:00+03:00,Museum TV HD,Museum TV HD,same ID,63,63,243,243
+BCU Media,Museum TV HD,1842,2026-11-09T18:00:00+03:00,Museum TV HD,Museum TV HD,same ID,50,50,289,289
+BCU Media,Museum TV HD,1842,2026-11-09T18:50:00+03:00,Museum TV HD,Museum TV HD,same ID,32,32,197,197
+BCU Media,Museum TV HD,1842,2026-11-09T19:40:00+03:00,Museum TV HD,Museum TV HD,same ID,24,24,163,163
+BCU Media,Museum TV HD,1842,2026-11-09T19:50:00+03:00,Museum TV HD,Museum TV HD,same ID,76,76,246,246
+BCU Media,Museum TV HD,1842,2026-11-09T20:45:00+03:00,Museum TV HD,Museum TV HD,same ID,63,63,257,257
+BCU Media,Museum TV HD,1842,2026-11-09T21:45:00+03:00,Museum TV HD,Museum TV HD,same ID,39,39,273,273
+BCU Media,Museum TV HD,1842,2026-11-09T22:10:00+03:00,Museum TV HD,Museum TV HD,same ID,66,66,214,214
+BCU Media,Museum TV HD,1842,2026-11-09T22:45:00+03:00,Museum TV HD,Museum TV HD,same ID,50,50,225,225
+BCU Media,Museum TV HD,1842,2026-11-09T23:40:00+03:00,Museum TV HD,Museum TV HD,same ID,32,32,192,192
+BCU Media,Museum TV HD,1842,2026-11-10T00:25:00+03:00,Museum TV HD,Museum TV HD,same ID,52,52,254,254
+BCU Media,Museum TV HD,1842,2026-11-10T01:15:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,222,222
+BCU Media,Museum TV HD,1842,2026-11-10T01:40:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,192,192
+BCU Media,Museum TV HD,1842,2026-11-10T02:00:00+03:00,Museum TV HD,Museum TV HD,same ID,23,23,221,221
+BCU Media,Museum TV HD,1842,2026-11-10T02:30:00+03:00,Museum TV HD,Museum TV HD,same ID,53,53,286,286
+BCU Media,Museum TV HD,1842,2026-11-10T02:45:00+03:00,Museum TV HD,Museum TV HD,same ID,29,29,292,292
+BCU Media,Museum TV HD,1842,2026-11-10T03:00:00+03:00,Museum TV HD,Museum TV HD,same ID,62,62,239,239
+BCU Media,Museum TV HD,1842,2026-11-10T03:55:00+03:00,Museum TV HD,Museum TV HD,same ID,34,34,191,191
+BCU Media,Museum TV HD,1842,2026-11-10T04:45:00+03:00,Museum TV HD,Museum TV HD,same ID,36,36,281,281
+BCU Media,Museum TV HD,1842,2026-11-10T05:00:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,185,185
+BCU Media,Museum TV HD,1842,2026-11-10T06:00:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,192,192
+BCU Media,Museum TV HD,1842,2026-11-10T07:00:00+03:00,Museum TV HD,Museum TV HD,same ID,55,55,219,219
+BCU Media,Museum TV HD,1842,2026-11-10T09:00:00+03:00,Museum TV HD,Museum TV HD,same ID,71,71,259,259
+BCU Media,Museum TV HD,1842,2026-11-10T09:55:00+03:00,Museum TV HD,Museum TV HD,same ID,26,26,277,277
+BCU Media,Museum TV HD,1842,2026-11-10T10:15:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,192,192
+BCU Media,Museum TV HD,1842,2026-11-10T10:40:00+03:00,Museum TV HD,Museum TV HD,same ID,31,31,291,291
+BCU Media,Museum TV HD,1842,2026-11-10T11:05:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,206,206
+BCU Media,Museum TV HD,1842,2026-11-10T11:10:00+03:00,Museum TV HD,Museum TV HD,same ID,24,24,230,230
+BCU Media,Museum TV HD,1842,2026-11-10T11:40:00+03:00,Museum TV HD,Museum TV HD,same ID,50,50,289,289
+BCU Media,Museum TV HD,1842,2026-11-10T12:30:00+03:00,Museum TV HD,Museum TV HD,same ID,37,37,219,219
+BCU Media,Museum TV HD,1842,2026-11-10T13:25:00+03:00,Museum TV HD,Museum TV HD,same ID,64,64,179,179
+BCU Media,Museum TV HD,1842,2026-11-10T14:15:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,192,192
+BCU Media,Museum TV HD,1842,2026-11-10T14:35:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,229,229
+BCU Media,Museum TV HD,1842,2026-11-10T14:55:00+03:00,Museum TV HD,Museum TV HD,same ID,20,20,173,173
+BCU Media,Museum TV HD,1842,2026-11-10T15:00:00+03:00,Museum TV HD,Museum TV HD,same ID,62,62,214,214
+BCU Media,Museum TV HD,1842,2026-11-10T16:00:00+03:00,Museum TV HD,Museum TV HD,same ID,32,32,209,209
+BCU Media,Museum TV HD,1842,2026-11-10T16:40:00+03:00,Museum TV HD,Museum TV HD,same ID,49,49,288,288
+BCU Media,Museum TV HD,1842,2026-11-10T17:30:00+03:00,Museum TV HD,Museum TV HD,same ID,38,38,253,253
+BCU Media,Museum TV HD,1842,2026-11-10T17:45:00+03:00,Museum TV HD,Museum TV HD,same ID,84,84,282,282
+BCU Media,Museum TV HD,1842,2026-11-10T18:00:00+03:00,Museum TV HD,Museum TV HD,same ID,74,74,207,207
+BCU Media,Museum TV HD,1842,2026-11-10T18:50:00+03:00,Museum TV HD,Museum TV HD,same ID,48,48,202,202
+BCU Media,Museum TV HD,1842,2026-11-10T19:40:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,182,182
+BCU Media,Museum TV HD,1842,2026-11-10T19:50:00+03:00,Museum TV HD,Museum TV HD,same ID,62,62,240,240
+BCU Media,Museum TV HD,1842,2026-11-10T20:45:00+03:00,Museum TV HD,Museum TV HD,same ID,63,63,263,263
+BCU Media,Museum TV HD,1842,2026-11-10T21:45:00+03:00,Museum TV HD,Museum TV HD,same ID,31,31,168,168
+BCU Media,Museum TV HD,1842,2026-11-10T22:10:00+03:00,Museum TV HD,Museum TV HD,same ID,55,55,224,224
+BCU Media,Museum TV HD,1842,2026-11-10T22:45:00+03:00,Museum TV HD,Museum TV HD,same ID,38,38,280,280
+BCU Media,Museum TV HD,1842,2026-11-10T23:40:00+03:00,Museum TV HD,Museum TV HD,same ID,25,25,244,244
 BCU Media,History CEE HD,1952,2026-11-08T13:00:00+03:00,History CEE HD,History CEE HD,same ID,57,57,759,759
 BCU Media,History CEE HD,1952,2026-11-08T13:45:00+03:00,History CEE HD,History CEE HD,same ID,38,38,174,174
 BCU Media,History CEE HD,1952,2026-11-08T14:30:00+03:00,History CEE HD,History CEE HD,same ID,27,27,480,480
@@ -1018,12 +1156,6 @@ BCU Media,History CEE HD,1952,2026-11-10T21:35:00+03:00,History CEE HD,History C
 BCU Media,History CEE HD,1952,2026-11-10T22:15:00+03:00,History CEE HD,History CEE HD,same ID,43,43,705,705
 BCU Media,History CEE HD,1952,2026-11-10T23:00:00+03:00,History CEE HD,History CEE HD,same ID,62,62,384,384
 BCU Media,History CEE HD,1952,2026-11-10T23:45:00+03:00,History CEE HD,History CEE HD,same ID,28,28,192,192
-BCU Media,Zоопарк,1944,2026-11-08T09:25:00+03:00,Zоопарк,Zоопарк,same ID,34,34,209,209
-BCU Media,Zоопарк,1944,2026-11-08T09:50:00+03:00,Zоопарк,Zоопарк,same ID,34,34,209,209
-BCU Media,Zоопарк,1944,2026-11-08T10:15:00+03:00,Zоопарк,Zоопарк,same ID,26,26,321,321
-BCU Media,Zоопарк,1944,2026-11-08T11:05:00+03:00,Zоопарк,Zоопарк,same ID,75,75,430,430
-BCU Media,Zоопарк,1944,2026-11-08T11:55:00+03:00,Zоопарк,Zоопарк,same ID,34,34,216,216
-BCU Media,Zоопарк,1944,2026-11-08T12:45:00+03:00,Zоопарк,Zоопарк,same ID,25,25,5,5
 BCU Media,Zоопарк,1944,2026-11-08T13:35:00+03:00,Zоопарк,Zоопарк,same ID,26,26,199,199
 BCU Media,Zоопарк,1944,2026-11-08T14:25:00+03:00,Zоопарк,Zоопарк,same ID,28,28,286,286
 BCU Media,Zоопарк,1944,2026-11-08T15:15:00+03:00,Zоопарк,Zоопарк,same ID,34,34,228,228
@@ -1097,9 +1229,6 @@ BCU Media,Zоопарк,1944,2026-11-10T20:40:00+03:00,Zоопарк,Zоопар
 BCU Media,Zоопарк,1944,2026-11-10T21:30:00+03:00,Zоопарк,Zоопарк,same ID,64,64,528,528
 BCU Media,Zоопарк,1944,2026-11-10T22:25:00+03:00,Zоопарк,Zоопарк,same ID,67,67,224,224
 BCU Media,Zоопарк,1944,2026-11-10T23:10:00+03:00,Zоопарк,Zоопарк,same ID,47,47,524,524
-BCU Media,Первый канал HD +4,6,2026-11-08T09:55:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,63,63,3393,3393
-BCU Media,Первый канал HD +4,6,2026-11-08T11:05:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,83,83,641,641
-BCU Media,Первый канал HD +4,6,2026-11-08T12:45:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,47,47,1538,1538
 BCU Media,Первый канал HD +4,6,2026-11-08T14:00:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,17,17,402,402
 BCU Media,Первый канал HD +4,6,2026-11-08T15:00:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,12,12,282,282
 BCU Media,Первый канал HD +4,6,2026-11-08T17:00:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,6,6,740,740
@@ -1154,11 +1283,6 @@ BCU Media,Первый канал HD +4,6,2026-11-10T18:45:00+03:00,Первый
 BCU Media,Первый канал HD +4,6,2026-11-10T19:45:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,12,12,398,398
 BCU Media,Первый канал HD +4,6,2026-11-10T23:00:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,8,8,402,402
 BCU Media,Первый канал HD +4,6,2026-11-10T23:05:00+03:00,Первый канал (+4) HD,Первый канал (+4) HD,same ID,12,12,398,398
-BCU Media,Рыболов HD,2063,2026-11-08T09:15:00+03:00,Рыболов HD,Рыболов HD,same ID,38,38,36,36
-BCU Media,Рыболов HD,2063,2026-11-08T09:45:00+03:00,Рыболов HD,Рыболов HD,same ID,38,38,44,44
-BCU Media,Рыболов HD,2063,2026-11-08T10:15:00+03:00,Рыболов HD,Рыболов HD,same ID,50,50,165,165
-BCU Media,Рыболов HD,2063,2026-11-08T11:20:00+03:00,Рыболов HD,Рыболов HD,same ID,38,38,123,123
-BCU Media,Рыболов HD,2063,2026-11-08T12:30:00+03:00,Рыболов HD,Рыболов HD,same ID,13,13,215,215
 BCU Media,Рыболов HD,2063,2026-11-08T12:55:00+03:00,Рыболов HD,Рыболов HD,same ID,29,29,73,73
 BCU Media,Рыболов HD,2063,2026-11-08T13:25:00+03:00,Рыболов HD,Рыболов HD,same ID,27,27,46,46
 BCU Media,Рыболов HD,2063,2026-11-08T13:55:00+03:00,Рыболов HD,Рыболов HD,same ID,25,25,229,229
@@ -1188,6 +1312,97 @@ BCU Media,Рыболов HD,2063,2026-11-09T01:22:00+03:00,Рыболов HD,Р�
 BCU Media,Рыболов HD,2063,2026-11-09T01:48:00+03:00,Рыболов HD,Рыболов HD,same ID,44,44,153,153
 BCU Media,Рыболов HD,2063,2026-11-09T02:14:00+03:00,Рыболов HD,Рыболов HD,same ID,45,45,153,153
 BCU Media,Рыболов HD,2063,2026-11-09T02:40:00+03:00,Рыболов HD,Рыболов HD,same ID,50,50,87,87
+BCU Media,Рыболов HD,2063,2026-11-09T03:06:00+03:00,Рыболов HD,Рыболов HD,same ID,66,66,101,101
+BCU Media,Рыболов HD,2063,2026-11-09T03:32:00+03:00,Рыболов HD,Рыболов HD,same ID,56,56,113,113
+BCU Media,Рыболов HD,2063,2026-11-09T04:00:00+03:00,Рыболов HD,Рыболов HD,same ID,29,29,140,140
+BCU Media,Рыболов HD,2063,2026-11-09T04:26:00+03:00,Рыболов HD,Рыболов HD,same ID,33,33,140,140
+BCU Media,Рыболов HD,2063,2026-11-09T04:52:00+03:00,Рыболов HD,Рыболов HD,same ID,45,45,185,185
+BCU Media,Рыболов HD,2063,2026-11-09T05:18:00+03:00,Рыболов HD,Рыболов HD,same ID,51,51,116,116
+BCU Media,Рыболов HD,2063,2026-11-09T05:44:00+03:00,Рыболов HD,Рыболов HD,same ID,48,48,248,248
+BCU Media,Рыболов HD,2063,2026-11-09T06:10:00+03:00,Рыболов HD,Рыболов HD,same ID,28,28,229,229
+BCU Media,Рыболов HD,2063,2026-11-09T06:49:00+03:00,Рыболов HD,Рыболов HD,same ID,13,13,215,215
+BCU Media,Рыболов HD,2063,2026-11-09T07:17:00+03:00,Рыболов HD,Рыболов HD,same ID,79,79,125,125
+BCU Media,Рыболов HD,2063,2026-11-09T07:44:00+03:00,Рыболов HD,Рыболов HD,same ID,71,71,117,117
+BCU Media,Рыболов HD,2063,2026-11-09T08:14:00+03:00,Рыболов HD,Рыболов HD,same ID,41,41,117,117
+BCU Media,Рыболов HD,2063,2026-11-09T08:43:00+03:00,Рыболов HD,Рыболов HD,same ID,29,29,88,88
+BCU Media,Рыболов HD,2063,2026-11-09T09:14:00+03:00,Рыболов HD,Рыболов HD,same ID,37,37,38,38
+BCU Media,Рыболов HD,2063,2026-11-09T09:46:00+03:00,Рыболов HD,Рыболов HD,same ID,38,38,48,48
+BCU Media,Рыболов HD,2063,2026-11-09T10:16:00+03:00,Рыболов HD,Рыболов HD,same ID,35,35,93,93
+BCU Media,Рыболов HD,2063,2026-11-09T10:46:00+03:00,Рыболов HD,Рыболов HD,same ID,38,38,96,96
+BCU Media,Рыболов HD,2063,2026-11-09T11:16:00+03:00,Рыболов HD,Рыболов HD,same ID,35,35,93,93
+BCU Media,Рыболов HD,2063,2026-11-09T11:47:00+03:00,Рыболов HD,Рыболов HD,same ID,24,24,178,178
+BCU Media,Рыболов HD,2063,2026-11-09T12:20:00+03:00,Рыболов HD,Рыболов HD,same ID,36,36,58,58
+BCU Media,Рыболов HD,2063,2026-11-09T12:52:00+03:00,Рыболов HD,Рыболов HD,same ID,31,31,35,35
+BCU Media,Рыболов HD,2063,2026-11-09T13:23:00+03:00,Рыболов HD,Рыболов HD,same ID,29,29,179,179
+BCU Media,Рыболов HD,2063,2026-11-09T13:53:00+03:00,Рыболов HD,Рыболов HD,same ID,25,25,229,229
+BCU Media,Рыболов HD,2063,2026-11-09T14:23:00+03:00,Рыболов HD,Рыболов HD,same ID,25,25,229,229
+BCU Media,Рыболов HD,2063,2026-11-09T14:54:00+03:00,Рыболов HD,Рыболов HD,same ID,34,34,130,130
+BCU Media,Рыболов HD,2063,2026-11-09T15:25:00+03:00,Рыболов HD,Рыболов HD,same ID,38,38,124,124
+BCU Media,Рыболов HD,2063,2026-11-09T15:54:00+03:00,Рыболов HD,Рыболов HD,same ID,13,13,215,215
+BCU Media,Рыболов HD,2063,2026-11-09T16:25:00+03:00,Рыболов HD,Рыболов HD,same ID,63,63,216,216
+BCU Media,Рыболов HD,2063,2026-11-09T16:55:00+03:00,Рыболов HD,Рыболов HD,same ID,34,34,90,90
+BCU Media,Рыболов HD,2063,2026-11-09T17:29:00+03:00,Рыболов HD,Рыболов HD,same ID,33,33,89,89
+BCU Media,Рыболов HD,2063,2026-11-09T18:00:00+03:00,Рыболов HD,Рыболов HD,same ID,49,49,59,59
+BCU Media,Рыболов HD,2063,2026-11-09T18:29:00+03:00,Рыболов HD,Рыболов HD,same ID,45,45,158,158
+BCU Media,Рыболов HD,2063,2026-11-09T19:00:00+03:00,Рыболов HD,Рыболов HD,same ID,48,48,93,93
+BCU Media,Рыболов HD,2063,2026-11-09T19:32:00+03:00,Рыболов HD,Рыболов HD,same ID,49,49,215,215
+BCU Media,Рыболов HD,2063,2026-11-09T20:02:00+03:00,Рыболов HD,Рыболов HD,same ID,45,45,215,215
+BCU Media,Рыболов HD,2063,2026-11-09T20:32:00+03:00,Рыболов HD,Рыболов HD,same ID,39,39,215,215
+BCU Media,Рыболов HD,2063,2026-11-09T21:03:00+03:00,Рыболов HD,Рыболов HD,same ID,50,50,235,235
+BCU Media,Рыболов HD,2063,2026-11-09T21:32:00+03:00,Рыболов HD,Рыболов HD,same ID,72,72,235,235
+BCU Media,Рыболов HD,2063,2026-11-09T22:03:00+03:00,Рыболов HD,Рыболов HD,same ID,47,47,43,43
+BCU Media,Рыболов HD,2063,2026-11-09T22:32:00+03:00,Рыболов HD,Рыболов HD,same ID,80,80,194,194
+BCU Media,Рыболов HD,2063,2026-11-09T23:03:00+03:00,Рыболов HD,Рыболов HD,same ID,64,64,150,150
+BCU Media,Рыболов HD,2063,2026-11-09T23:32:00+03:00,Рыболов HD,Рыболов HD,same ID,73,73,179,179
+BCU Media,Рыболов HD,2063,2026-11-10T00:00:00+03:00,Рыболов HD,Рыболов HD,same ID,50,50,45,45
+BCU Media,Рыболов HD,2063,2026-11-10T00:27:00+03:00,Рыболов HD,Рыболов HD,same ID,74,74,73,73
+BCU Media,Рыболов HD,2063,2026-11-10T00:56:00+03:00,Рыболов HD,Рыболов HD,same ID,57,57,184,184
+BCU Media,Рыболов HD,2063,2026-11-10T01:22:00+03:00,Рыболов HD,Рыболов HD,same ID,76,76,74,74
+BCU Media,Рыболов HD,2063,2026-11-10T01:48:00+03:00,Рыболов HD,Рыболов HD,same ID,48,48,153,153
+BCU Media,Рыболов HD,2063,2026-11-10T02:14:00+03:00,Рыболов HD,Рыболов HD,same ID,62,62,153,153
+BCU Media,Рыболов HD,2063,2026-11-10T02:43:00+03:00,Рыболов HD,Рыболов HD,same ID,19,19,151,151
+BCU Media,Рыболов HD,2063,2026-11-10T03:09:00+03:00,Рыболов HD,Рыболов HD,same ID,23,23,67,67
+BCU Media,Рыболов HD,2063,2026-11-10T03:35:00+03:00,Рыболов HD,Рыболов HD,same ID,35,35,124,124
+BCU Media,Рыболов HD,2063,2026-11-10T04:01:00+03:00,Рыболов HD,Рыболов HD,same ID,41,41,140,140
+BCU Media,Рыболов HD,2063,2026-11-10T04:27:00+03:00,Рыболов HD,Рыболов HD,same ID,32,32,140,140
+BCU Media,Рыболов HD,2063,2026-11-10T04:53:00+03:00,Рыболов HD,Рыболов HD,same ID,62,62,132,132
+BCU Media,Рыболов HD,2063,2026-11-10T05:19:00+03:00,Рыболов HD,Рыболов HD,same ID,66,66,44,44
+BCU Media,Рыболов HD,2063,2026-11-10T05:45:00+03:00,Рыболов HD,Рыболов HD,same ID,44,44,245,245
+BCU Media,Рыболов HD,2063,2026-11-10T06:10:00+03:00,Рыболов HD,Рыболов HD,same ID,25,25,225,225
+BCU Media,Рыболов HD,2063,2026-11-10T06:48:00+03:00,Рыболов HD,Рыболов HD,same ID,32,32,94,94
+BCU Media,Рыболов HD,2063,2026-11-10T07:16:00+03:00,Рыболов HD,Рыболов HD,same ID,33,33,97,97
+BCU Media,Рыболов HD,2063,2026-11-10T07:45:00+03:00,Рыболов HD,Рыболов HD,same ID,13,13,215,215
+BCU Media,Рыболов HD,2063,2026-11-10T08:13:00+03:00,Рыболов HD,Рыболов HD,same ID,31,31,133,133
+BCU Media,Рыболов HD,2063,2026-11-10T08:42:00+03:00,Рыболов HD,Рыболов HD,same ID,37,37,171,171
+BCU Media,Рыболов HD,2063,2026-11-10T09:13:00+03:00,Рыболов HD,Рыболов HD,same ID,47,47,46,46
+BCU Media,Рыболов HD,2063,2026-11-10T09:45:00+03:00,Рыболов HD,Рыболов HD,same ID,47,47,46,46
+BCU Media,Рыболов HD,2063,2026-11-10T10:15:00+03:00,Рыболов HD,Рыболов HD,same ID,21,21,206,206
+BCU Media,Рыболов HD,2063,2026-11-10T10:45:00+03:00,Рыболов HD,Рыболов HD,same ID,21,21,206,206
+BCU Media,Рыболов HD,2063,2026-11-10T11:15:00+03:00,Рыболов HD,Рыболов HD,same ID,21,21,206,206
+BCU Media,Рыболов HD,2063,2026-11-10T11:46:00+03:00,Рыболов HD,Рыболов HD,same ID,24,24,178,178
+BCU Media,Рыболов HD,2063,2026-11-10T12:19:00+03:00,Рыболов HD,Рыболов HD,same ID,24,24,178,178
+BCU Media,Рыболов HD,2063,2026-11-10T12:51:00+03:00,Рыболов HD,Рыболов HD,same ID,31,31,98,98
+BCU Media,Рыболов HD,2063,2026-11-10T13:22:00+03:00,Рыболов HD,Рыболов HD,same ID,28,28,71,71
+BCU Media,Рыболов HD,2063,2026-11-10T13:52:00+03:00,Рыболов HD,Рыболов HD,same ID,25,25,229,229
+BCU Media,Рыболов HD,2063,2026-11-10T14:19:00+03:00,Рыболов HD,Рыболов HD,same ID,25,25,229,229
+BCU Media,Рыболов HD,2063,2026-11-10T14:54:00+03:00,Рыболов HD,Рыболов HD,same ID,44,44,127,127
+BCU Media,Рыболов HD,2063,2026-11-10T15:28:00+03:00,Рыболов HD,Рыболов HD,same ID,34,34,197,197
+BCU Media,Рыболов HD,2063,2026-11-10T15:57:00+03:00,Рыболов HD,Рыболов HD,same ID,57,57,216,216
+BCU Media,Рыболов HD,2063,2026-11-10T16:28:00+03:00,Рыболов HD,Рыболов HD,same ID,46,46,216,216
+BCU Media,Рыболов HD,2063,2026-11-10T16:57:00+03:00,Рыболов HD,Рыболов HD,same ID,47,47,104,104
+BCU Media,Рыболов HD,2063,2026-11-10T17:29:00+03:00,Рыболов HD,Рыболов HD,same ID,37,37,222,222
+BCU Media,Рыболов HD,2063,2026-11-10T17:59:00+03:00,Рыболов HD,Рыболов HD,same ID,43,43,61,61
+BCU Media,Рыболов HD,2063,2026-11-10T18:30:00+03:00,Рыболов HD,Рыболов HD,same ID,45,45,58,58
+BCU Media,Рыболов HD,2063,2026-11-10T18:59:00+03:00,Рыболов HD,Рыболов HD,same ID,13,13,215,215
+BCU Media,Рыболов HD,2063,2026-11-10T19:32:00+03:00,Рыболов HD,Рыболов HD,same ID,25,25,215,215
+BCU Media,Рыболов HD,2063,2026-11-10T20:02:00+03:00,Рыболов HD,Рыболов HD,same ID,28,28,215,215
+BCU Media,Рыболов HD,2063,2026-11-10T20:31:00+03:00,Рыболов HD,Рыболов HD,same ID,29,29,79,79
+BCU Media,Рыболов HD,2063,2026-11-10T21:03:00+03:00,Рыболов HD,Рыболов HD,same ID,60,60,235,235
+BCU Media,Рыболов HD,2063,2026-11-10T21:32:00+03:00,Рыболов HD,Рыболов HD,same ID,53,53,235,235
+BCU Media,Рыболов HD,2063,2026-11-10T22:03:00+03:00,Рыболов HD,Рыболов HD,same ID,41,41,82,82
+BCU Media,Рыболов HD,2063,2026-11-10T22:32:00+03:00,Рыболов HD,Рыболов HD,same ID,34,34,71,71
+BCU Media,Рыболов HD,2063,2026-11-10T23:03:00+03:00,Рыболов HD,Рыболов HD,same ID,65,65,231,231
+BCU Media,Рыболов HD,2063,2026-11-10T23:32:00+03:00,Рыболов HD,Рыболов HD,same ID,69,69,231,231
 M3U Edit ALL,Outdoor Channel,1985,2026-11-08T08:00:00+03:00,Outdoor.Channel.ae,OutdoorChannel.au,different IDs,42,15,24,271
 M3U Edit ALL,Outdoor Channel,1985,2026-11-08T22:00:00+03:00,Outdoor.Channel.ae,OutdoorChannel.au,different IDs,42,15,24,271
 M3U Edit ALL,Outdoor Channel,1985,2026-11-09T14:00:00+03:00,Outdoor.Channel.ae,OutdoorChannel.au,different IDs,48,15,24,271
