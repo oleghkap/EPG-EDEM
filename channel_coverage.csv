@@ -1,14 +1,14 @@
 ﻿channel,group,programme_count,sources,first_programme,last_programme,m3u_logo_present,epg_logo_present,epg_logo_source,logo_source_comparison,m3u_logo_sha256,epg_logo_sha256,m3u_logo_status,m3u_logo_dimensions,m3u_logo_shape,m3u_logo_transparency,m3u_logo_black_background,epg_logo_status,epg_logo_dimensions,epg_logo_shape,epg_logo_transparency,epg_logo_black_background
 ОТР HD,Общие,96,EPG.ONE epg2,2026-11-07 22:35,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,cfd87454a320e8a7,,,,,,ok,220x132,landscape,yes,no
-Первый канал FHD,Общие,78,TopIPTV,2026-11-07 23:55,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
+Первый канал FHD,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Первый канал HD,Общие,80,IPTVX full,2026-11-07 23:55,2026-11-10 23:00,False,True,IPTVX full,EPG only,,f7fece9e16b62ff7,,,,,,ok,200x200,square,yes,no
 Первый канал,Общие,80,IPTVX full,2026-11-07 23:55,2026-11-10 23:00,False,True,IPTVX full,EPG only,,f7fece9e16b62ff7,,,,,,ok,200x200,square,yes,no
 Первый канал +2,Общие,72,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 21:50,False,True,EPG.ONE epg2,EPG only,,73a3f916bafcad94,,,,,,ok,220x132,landscape,yes,no
 Первый канал +4,Общие,69,IPTVX full,2026-11-07 22:40,2026-11-10 23:05,False,True,IPTVX full,EPG only,,74ab127020d0c547,,,,,,ok,200x200,square,yes,indeterminate
-Первый канал HD +4,Общие,60,BCU Media,2026-11-08 08:00,2026-11-10 23:05,False,True,BCU Media,EPG only,,d84d275943c0cd22,,,,,,ok,100x100,square,yes,no
+Первый канал HD +4,Общие,57,BCU Media,2026-11-08 09:55,2026-11-10 23:05,False,True,BCU Media,EPG only,,d84d275943c0cd22,,,,,,ok,100x100,square,yes,no
 Первый канал +6,Общие,84,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,52b46639cfc850ba,,,,,,ok,220x132,landscape,yes,indeterminate
 Первый канал +8,Общие,81,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,8a1d4851d96145fb,,,,,,ok,220x132,landscape,yes,no
-Россия 1 FHD,Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
+Россия 1 FHD,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Россия 1 HD,Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
 Россия 1,Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
 Россия 1 +2,Общие,56,EPG.ONE epg2,2026-11-07 22:40,2026-11-10 21:40,False,True,EPG.ONE epg2,EPG only,,f85b3e6aeed13874,,,,,,ok,220x132,landscape,yes,no
@@ -34,8 +34,8 @@
 Пятый канал +7,Общие,95,IPTVX full,2026-11-07 23:55,2026-11-10 23:40,False,True,IPTVX full,EPG only,,93c6bb1f58a8360d,,,,,,ok,200x200,square,yes,indeterminate
 Пятый канал +8,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Мир HD,Общие,78,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,2f663c31a5bfb118,,,,,,ok,220x132,landscape,yes,no
-ТНТ FHD,Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
-ТНТ HD,Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
+ТНТ FHD,Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,a6b6541f8728e69f,,,,,,ok,220x132,landscape,yes,no
+ТНТ HD,Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,a6b6541f8728e69f,,,,,,ok,220x132,landscape,yes,no
 ТНТ,Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
 ТНТ +2,Общие,97,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 22:55,False,True,EPG.ONE epg2,EPG only,,72fc79816828ff43,,,,,,ok,220x132,landscape,yes,no
 ТНТ +4,Общие,98,IPTVX full,2026-11-07 23:40,2026-11-10 23:35,False,True,IPTVX full,EPG only,,d1c25bb566f56476,,,,,,ok,200x200,square,yes,indeterminate
@@ -106,16 +106,16 @@ RTVi,Общие,82,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 22:00,False,True,EPG
 GNC,Общие,123,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,facee703529eddb4,,,,,,ok,220x132,landscape,yes,no
 Вместе-РФ,Общие,225,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,538cecf1ee46fe94,,,,,,ok,220x132,landscape,yes,no
 Россия К,Общие,84,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,daecbbd279475f50,,,,,,ok,220x132,landscape,yes,no
-E TV HD,Общие,101,M3U Edit ALL,2026-11-07 23:05,2026-11-10 23:35,False,True,M3U Edit ALL,EPG only,,fe0fa92cf90cce19,,,,,,ok,160x90,landscape,yes,indeterminate
-РЕН ТВ HD orig,Общие,63,FOX TV,2026-11-07 23:00,2026-11-10 23:25,False,False,,no logo,,,,,,,,,,,,
+E TV HD,Общие,101,M3U Edit ALL,2026-11-07 23:05,2026-11-10 23:35,False,True,M3U Edit ALL,EPG only,,72772d94079f6029,,,,,,ok,320x320,square,yes,indeterminate
+РЕН ТВ HD orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Gametoon,Общие,99,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,5175fc336d1855ae,,,,,,ok,220x132,landscape,yes,no
-НТВ HD orig,Общие,77,IPTVX full,2026-11-07 21:20,2026-11-10 23:15,False,True,IPTVX full,EPG only,,ad377b48b61b7b36,,,,,,ok,200x200,square,yes,indeterminate
+НТВ HD orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Ратник,Общие,108,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:25,False,True,EPG.ONE epg2,EPG only,,e37a11d684021bf3,,,,,,ok,220x132,landscape,yes,no
 RT Док HD orig,Общие,144,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,75e32c42467084e1,,,,,,ok,220x132,landscape,yes,no
 360 HD orig,Общие,149,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,e981bdfabd4912e5,,,,,,ok,220x132,landscape,yes,no
 ТВ Центр orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Пятый канал orig,Общие,72,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,True,BCU Media,EPG only,,00c0062ade975e9a,,,,,,ok,256x254,square,yes,no
-Звезда orig,Общие,98,IPTVX full,2026-11-07 22:50,2026-11-10 23:05,False,True,IPTVX full,EPG only,,a79710a3e1984c04,,,,,,ok,200x200,square,yes,indeterminate
+Пятый канал orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Звезда orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Звезда HD,Общие,98,IPTVX full,2026-11-07 22:50,2026-11-10 23:05,False,True,IPTVX full,EPG only,,a79710a3e1984c04,,,,,,ok,200x200,square,yes,indeterminate
 СТС Love orig,Общие,116,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,5c4019d8bc4c0537,,,,,,ok,220x132,landscape,yes,no
 ОТР orig,Общие,96,EPG.ONE epg2,2026-11-07 22:35,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,cfd87454a320e8a7,,,,,,ok,220x132,landscape,yes,no
@@ -123,7 +123,7 @@ RT Док HD orig,Общие,144,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,
 RTVi orig,Общие,82,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,95dcc7d8d44ebba0,,,,,,ok,220x132,landscape,yes,no
 Суббота! orig,Общие,128,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,a419e0e763986dfa,,,,,,ok,220x132,landscape,yes,indeterminate
 Суббота! HD,Общие,128,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,a419e0e763986dfa,,,,,,ok,220x132,landscape,yes,indeterminate
-Домашний orig,Общие,66,IPTVX full,2026-11-07 23:15,2026-11-10 04:35,False,True,IPTVX full,EPG only,,83174abb9f586b5f,,,,,,ok,200x200,square,yes,indeterminate
+Домашний orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Домашний HD,Общие,66,IPTVX full,2026-11-07 23:15,2026-11-10 04:35,False,True,IPTVX full,EPG only,,83174abb9f586b5f,,,,,,ok,200x200,square,yes,indeterminate
 Ностальгия orig,Общие,95,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,859182aa04c74717,,,,,,ok,220x132,landscape,yes,no
 Ю ТВ orig,Общие,72,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,62617a219e2bb23a,,,,,,ok,220x132,landscape,yes,indeterminate
@@ -141,38 +141,38 @@ RTVi orig,Общие,82,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 22:00,False,Tru
 ЛДПР ТВ orig,Общие,165,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,dd097dcabf4ca392,,,,,,ok,220x132,landscape,yes,no
 Хузур ТВ orig,Общие,144,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,8bb2ce77728e28f9,,,,,,ok,220x132,landscape,yes,indeterminate
 Вместе-РФ orig,Общие,225,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,538cecf1ee46fe94,,,,,,ok,220x132,landscape,yes,no
-Первый канал orig,Общие,78,TopIPTV,2026-11-07 23:55,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
-Россия 1 orig,Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-Россия 1 HD 50,Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-НТВ orig,Общие,77,IPTVX full,2026-11-07 21:20,2026-11-10 23:15,False,True,IPTVX full,EPG only,,ad377b48b61b7b36,,,,,,ok,200x200,square,yes,indeterminate
+Первый канал orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 HD 50,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+НТВ orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТНТ orig,Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
-РЕН ТВ orig,Общие,63,FOX TV,2026-11-07 23:00,2026-11-10 23:25,False,False,,no logo,,,,,,,,,,,,
+РЕН ТВ orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ-3 orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Пятница! orig,Общие,60,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,11344b6312237b4a,,,,,,ok,200x200,square,yes,indeterminate
+Пятница! orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТНТ4 orig,Общие,127,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,1e91c9b3db3fbdc1,,,,,,ok,220x132,landscape,yes,no
 360 orig,Общие,149,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,e981bdfabd4912e5,,,,,,ok,220x132,landscape,yes,no
 Три ангела orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Мир orig,Общие,78,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,2f663c31a5bfb118,,,,,,ok,220x132,landscape,yes,no
 Загородный orig,Общие,131,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,7a3394c7a02cd7fa,,,,,,ok,220x132,landscape,yes,no
 ТНТ HD orig,Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
-Россия 1 HD orig,Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-Первый канал HD orig,Общие,78,TopIPTV,2026-11-07 23:55,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
+Россия 1 HD orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Первый канал HD orig,Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Звезда Плюс,Общие,106,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,fbd1b8314e4604ef,,,,,,ok,220x132,landscape,yes,no
 RT Док HD,Общие,144,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,75e32c42467084e1,,,,,,ok,220x132,landscape,yes,no
 MS Crime HD,Общие,118,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:42,False,True,EPG.ONE epg2,EPG only,,3453ba2f808febf6,,,,,,ok,220x132,landscape,yes,no
 ТВ Центр International,Общие,50,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,23051ab841a81774,,,,,,ok,220x132,landscape,yes,no
 ТНТ International,Общие,61,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,84433cf7005df3a6,,,,,,ok,220x132,landscape,yes,no
 Россия 1 +1 (Приволжье),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Первый канал +4 (Алтай),Общие,60,BCU Media,2026-11-08 08:00,2026-11-10 23:05,False,True,BCU Media,EPG only,,d84d275943c0cd22,,,,,,ok,100x100,square,yes,no
-Россия 1 +4 (Алтай),Общие,30,BCU Media,2026-11-08 07:55,2026-11-09 23:00,False,True,BCU Media,EPG only,,26e3614ee239a5bc,,,,,,ok,256x342,portrait,yes,no
-НТВ +4 (Алтай),Общие,61,BCU Media,2026-11-08 08:00,2026-11-10 23:40,False,True,BCU Media,EPG only,,632509f510f9a159,,,,,,ok,85x85,square,yes,no
+Первый канал +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+НТВ +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Пятый канал +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-СТС +4 (Алтай),Общие,54,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,8032a66b17705c1f,,,,,,ok,220x132,landscape,yes,no
+СТС +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Домашний +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ-3 +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Пятница! +4 (Алтай),Общие,52,BCU Media,2026-11-08 08:20,2026-11-10 22:30,False,True,BCU Media,EPG only,,d6cd62c65e99a3d9,,,,,,ok,256x109,landscape,yes,no
-Звезда +4 (Алтай),Общие,42,BCU Media,2026-11-08 08:00,2026-11-10 22:35,False,True,BCU Media,EPG only,,14a5ee4469b60e41,,,,,,ok,132x132,square,yes,no
-ТНТ +4 (Алтай),Общие,87,BCU Media,2026-11-08 08:00,2026-11-10 23:35,False,True,BCU Media,EPG only,,abd6bf54b9f7a37f,,,,,,ok,220x132,landscape,yes,no
+Пятница! +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Звезда +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+ТНТ +4 (Алтай),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Первый канал +2 (Уфа),Общие,72,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 21:50,False,True,EPG.ONE epg2,EPG only,,73a3f916bafcad94,,,,,,ok,220x132,landscape,yes,no
 Россия 1 +2 (Уфа),Общие,56,EPG.ONE epg2,2026-11-07 22:40,2026-11-10 21:40,False,True,EPG.ONE epg2,EPG only,,f85b3e6aeed13874,,,,,,ok,220x132,landscape,yes,no
 СТС +2 (Уфа),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -182,22 +182,22 @@ MS Crime HD,Общие,118,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:42,False,
 Пятница! +2 (Уфа),Общие,59,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,a93e706dced224cd,,,,,,ok,220x132,landscape,yes,no
 РЕН ТВ +2 (Уфа),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТНТ4 +2 (Уфа),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Россия 1 +0 (Липецк),Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-НТВ +0 (Липецк),Общие,77,IPTVX full,2026-11-07 21:20,2026-11-10 23:15,False,True,IPTVX full,EPG only,,ad377b48b61b7b36,,,,,,ok,200x200,square,yes,indeterminate
+Россия 1 +0 (Липецк),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+НТВ +0 (Липецк),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Пятый канал +2 (Уфа),Общие,95,EPG.ONE epg2,2026-11-07 23:05,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,ed4f30b301eed714,,,,,,ok,220x132,landscape,yes,no
 Домашний +2 (Уфа),Общие,91,EPG.ONE epg2,2026-11-07 23:37,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,4267b8443a8da31e,,,,,,ok,220x132,landscape,yes,no
-Пятый канал +0 (Липецк),Общие,72,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,True,BCU Media,EPG only,,00c0062ade975e9a,,,,,,ok,256x254,square,yes,no
+Пятый канал +0 (Липецк),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ-3 +2 (Уфа),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ Центр +2 (Уфа),Общие,100,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,d22c982cec87b0dd,,,,,,ok,220x132,landscape,yes,no
-Домашний +0 (Невинномысск),Общие,66,IPTVX full,2026-11-07 23:15,2026-11-10 04:35,False,True,IPTVX full,EPG only,,83174abb9f586b5f,,,,,,ok,200x200,square,yes,indeterminate
-НТВ +0 (Невинномысск),Общие,77,IPTVX full,2026-11-07 21:20,2026-11-10 23:15,False,True,IPTVX full,EPG only,,ad377b48b61b7b36,,,,,,ok,200x200,square,yes,indeterminate
-Первый канал +0 (Невинномысск),Общие,78,TopIPTV,2026-11-07 23:55,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
-Россия 1 +0 (Невинномысск),Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-Пятница! +0 (Невинномысск),Общие,60,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,11344b6312237b4a,,,,,,ok,200x200,square,yes,indeterminate
-Пятый канал +0 (Невинномысск),Общие,72,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,True,BCU Media,EPG only,,00c0062ade975e9a,,,,,,ok,256x254,square,yes,no
-РЕН ТВ +0 (Невинномысск),Общие,63,FOX TV,2026-11-07 23:00,2026-11-10 23:25,False,False,,no logo,,,,,,,,,,,,
+Домашний +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+НТВ +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Первый канал +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Пятница! +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Пятый канал +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+РЕН ТВ +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Россия К +0 (Невинномысск),Общие,84,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,daecbbd279475f50,,,,,,ok,220x132,landscape,yes,no
-СТС +0 (Невинномысск),Общие,53,IPTVX full,2026-11-08 00:00,2026-11-10 23:05,False,True,IPTVX full,EPG only,,be36ae78ab5224a5,,,,,,ok,200x200,square,yes,indeterminate
+СТС +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ-3 +0 (Невинномысск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТНТ +0 (Невинномысск),Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
 Первый канал +7 (Владивосток),Общие,82,EPG.ONE epg2,2026-11-07 23:55,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,957622a00b4ff0d1,,,,,,ok,220x132,landscape,yes,no
@@ -221,16 +221,16 @@ MS Crime HD,Общие,118,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:42,False,
 ТНТ +5 (Иркутск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 БСТ 24 (Братск),Общие,80,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,1427054eda0eea20,,,,,,ok,220x132,landscape,yes,no
 Россия 1 +5 (Братск),Общие,58,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,9cb59f484bd33299,,,,,,ok,220x132,landscape,yes,no
-ТНТ +4 (Канск),Общие,87,BCU Media,2026-11-08 08:00,2026-11-10 23:35,False,True,BCU Media,EPG only,,abd6bf54b9f7a37f,,,,,,ok,220x132,landscape,yes,no
-7 канал (Абакан),Общие,74,Satfor,2026-11-07 23:40,2026-11-10 23:50,False,False,,no logo,,,,,,,,,,,,
-Россия 1 +4 (Абакан),Общие,30,BCU Media,2026-11-08 07:55,2026-11-09 23:00,False,True,BCU Media,EPG only,,26e3614ee239a5bc,,,,,,ok,256x342,portrait,yes,no
+ТНТ +4 (Канск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+7 канал (Абакан),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +4 (Абакан),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 БСТ +2 (Нефтекамск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 БСТ +2 (Белорецк),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 БТК HD (Белорецк),Общие,0,,,,False,True,EPG.ONE epg2,EPG only,,3646811a81648fc0,,,,,,ok,220x132,landscape,yes,no
 ТВ Центр +0 (Липецк),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Пятница! +0 (Липецк),Общие,60,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,11344b6312237b4a,,,,,,ok,200x200,square,yes,indeterminate
+Пятница! +0 (Липецк),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТНТ +0 (Липецк),Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
-Первый канал +0 (Липецк),Общие,78,TopIPTV,2026-11-07 23:55,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
+Первый канал +0 (Липецк),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 СТС +4 (Кузбасс),Общие,54,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,7aac940d12b2b784,,,,,,ok,220x132,landscape,yes,no
 Россия 1 +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Домашний +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -239,29 +239,29 @@ MS Crime HD,Общие,118,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:42,False,
 Мир +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТНТ +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 НТВ +2 (Нефтекамск),Общие,78,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:10,False,True,EPG.ONE epg2,EPG only,,c1fe00ae149708d1,,,,,,ok,220x132,landscape,yes,yes
-Первый канал +4 (Томск),Общие,60,BCU Media,2026-11-08 08:00,2026-11-10 23:05,False,True,BCU Media,EPG only,,d84d275943c0cd22,,,,,,ok,100x100,square,yes,no
-Россия 1 +4 (Томск),Общие,30,BCU Media,2026-11-08 07:55,2026-11-09 23:00,False,True,BCU Media,EPG only,,26e3614ee239a5bc,,,,,,ok,256x342,portrait,yes,no
-НТВ +4 (Томск),Общие,61,BCU Media,2026-11-08 08:00,2026-11-10 23:40,False,True,BCU Media,EPG only,,632509f510f9a159,,,,,,ok,85x85,square,yes,no
+Первый канал +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+НТВ +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Пятый канал +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ Центр +4 (Томск),Общие,101,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,21a044723d062175,,,,,,ok,220x132,landscape,yes,no
 РЕН ТВ +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 СТС +4 (Томск),Общие,54,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,7aac940d12b2b784,,,,,,ok,220x132,landscape,yes,no
 Домашний +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ-3 +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Пятница! +4 (Томск),Общие,52,BCU Media,2026-11-08 08:20,2026-11-10 22:30,False,True,BCU Media,EPG only,,d6cd62c65e99a3d9,,,,,,ok,256x109,landscape,yes,no
-ТНТ +4 (Томск),Общие,87,BCU Media,2026-11-08 08:00,2026-11-10 23:35,False,True,BCU Media,EPG only,,abd6bf54b9f7a37f,,,,,,ok,220x132,landscape,yes,no
-Звезда +4 (Томск),Общие,42,BCU Media,2026-11-08 08:00,2026-11-10 22:35,False,True,BCU Media,EPG only,,14a5ee4469b60e41,,,,,,ok,132x132,square,yes,no
-Россия 1 +0 (Алания),Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-Первый канал +0 (Белгород),Общие,78,TopIPTV,2026-11-07 23:55,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
-Россия 1 +0 (Белгород),Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-НТВ +0 (Белгород),Общие,77,IPTVX full,2026-11-07 21:20,2026-11-10 23:15,False,True,IPTVX full,EPG only,,ad377b48b61b7b36,,,,,,ok,200x200,square,yes,indeterminate
-Пятый канал +0 (Белгород),Общие,72,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,True,BCU Media,EPG only,,00c0062ade975e9a,,,,,,ok,256x254,square,yes,no
-Россия 1 +4 (Иркутск),Общие,30,BCU Media,2026-11-08 07:55,2026-11-09 23:00,False,True,BCU Media,EPG only,,26e3614ee239a5bc,,,,,,ok,256x342,portrait,yes,no
-Россия 1 +4 (Орион),Общие,30,BCU Media,2026-11-08 07:55,2026-11-09 23:00,False,True,BCU Media,EPG only,,26e3614ee239a5bc,,,,,,ok,256x342,portrait,yes,no
+Пятница! +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+ТНТ +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Звезда +4 (Томск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +0 (Алания),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Первый канал +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+НТВ +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Пятый канал +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +4 (Иркутск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +4 (Орион),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 СТС Прима +4 (Орион),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВК +4 (Орион),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ-3 +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Пятница! +0 (Белгород),Общие,60,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,11344b6312237b4a,,,,,,ok,200x200,square,yes,indeterminate
+Пятница! +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТНТ +0 (Белгород),Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
 Первый канал +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 НТВ +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -271,33 +271,33 @@ MS Crime HD,Общие,118,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:42,False,
 РЕН ТВ +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 СТС +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Пятница! +3 (Омск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Первый канал +0 (Элиста),Общие,78,TopIPTV,2026-11-07 23:55,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
+Первый канал +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Россия К +2 (Пермь),Общие,85,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,8e39181b55a03062,,,,,,ok,220x132,landscape,yes,no
-Россия 1 +0 (Элиста),Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-НТВ +0 (Элиста),Общие,77,IPTVX full,2026-11-07 21:20,2026-11-10 23:15,False,True,IPTVX full,EPG only,,ad377b48b61b7b36,,,,,,ok,200x200,square,yes,indeterminate
-Пятый канал +0 (Элиста),Общие,72,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,True,BCU Media,EPG only,,00c0062ade975e9a,,,,,,ok,256x254,square,yes,no
+Россия 1 +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+НТВ +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Пятый канал +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Россия К +0 (Элиста),Общие,84,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,daecbbd279475f50,,,,,,ok,220x132,landscape,yes,no
 ТВ Центр +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-РЕН ТВ +0 (Элиста),Общие,63,FOX TV,2026-11-07 23:00,2026-11-10 23:25,False,False,,no logo,,,,,,,,,,,,
-СТС +0 (Элиста),Общие,53,IPTVX full,2026-11-08 00:00,2026-11-10 23:05,False,True,IPTVX full,EPG only,,be36ae78ab5224a5,,,,,,ok,200x200,square,yes,indeterminate
+РЕН ТВ +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+СТС +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВ-3 +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
-Звезда +0 (Элиста),Общие,98,IPTVX full,2026-11-07 22:50,2026-11-10 23:05,False,True,IPTVX full,EPG only,,a79710a3e1984c04,,,,,,ok,200x200,square,yes,indeterminate
+Звезда +0 (Элиста),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Мир +0 (Элиста),Общие,78,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,2f663c31a5bfb118,,,,,,ok,220x132,landscape,yes,no
 ТНТ +0 (Элиста),Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
 ТНТ +2 (Белорецк),Общие,97,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 22:55,False,True,EPG.ONE epg2,EPG only,,72fc79816828ff43,,,,,,ok,220x132,landscape,yes,no
-Первый канал +0 (Тамбов),Общие,78,TopIPTV,2026-11-07 23:55,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
-Россия 1 +0 (Тамбов),Общие,56,IPTVX full,2026-11-07 21:00,2026-11-10 23:40,False,True,IPTVX full,EPG only,,5b5cfbf6ba8df36d,,,,,,ok,200x200,square,yes,indeterminate
-НТВ +0 (Тамбов),Общие,77,IPTVX full,2026-11-07 21:20,2026-11-10 23:15,False,True,IPTVX full,EPG only,,ad377b48b61b7b36,,,,,,ok,200x200,square,yes,indeterminate
-Пятый канал +0 (Тамбов),Общие,72,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,True,BCU Media,EPG only,,00c0062ade975e9a,,,,,,ok,256x254,square,yes,no
-РЕН ТВ +0 (Тамбов),Общие,63,FOX TV,2026-11-07 23:00,2026-11-10 23:25,False,False,,no logo,,,,,,,,,,,,
-СТС +0 (Тамбов),Общие,53,IPTVX full,2026-11-08 00:00,2026-11-10 23:05,False,True,IPTVX full,EPG only,,be36ae78ab5224a5,,,,,,ok,200x200,square,yes,indeterminate
-Домашний +0 (Тамбов),Общие,66,IPTVX full,2026-11-07 23:15,2026-11-10 04:35,False,True,IPTVX full,EPG only,,83174abb9f586b5f,,,,,,ok,200x200,square,yes,indeterminate
-Пятница! +0 (Тамбов),Общие,60,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,11344b6312237b4a,,,,,,ok,200x200,square,yes,indeterminate
+Первый канал +0 (Тамбов),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Россия 1 +0 (Тамбов),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+НТВ +0 (Тамбов),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Пятый канал +0 (Тамбов),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+РЕН ТВ +0 (Тамбов),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+СТС +0 (Тамбов),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Домашний +0 (Тамбов),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+Пятница! +0 (Тамбов),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТНТ +0 (Тамбов),Общие,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
 ОТВ (Владивосток),Общие,260,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,ddaf3f849c11e38a,,,,,,ok,220x132,landscape,yes,no
-Домашний +0 (Белгород),Общие,66,IPTVX full,2026-11-07 23:15,2026-11-10 04:35,False,True,IPTVX full,EPG only,,83174abb9f586b5f,,,,,,ok,200x200,square,yes,indeterminate
-СТС +0 (Белгород),Общие,53,IPTVX full,2026-11-08 00:00,2026-11-10 23:05,False,True,IPTVX full,EPG only,,be36ae78ab5224a5,,,,,,ok,200x200,square,yes,indeterminate
-РЕН ТВ +0 (Белгород),Общие,63,FOX TV,2026-11-07 23:00,2026-11-10 23:25,False,False,,no logo,,,,,,,,,,,,
+Домашний +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+СТС +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
+РЕН ТВ +0 (Белгород),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Первый канал +2 (Нефтекамск),Общие,72,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 21:50,False,True,EPG.ONE epg2,EPG only,,73a3f916bafcad94,,,,,,ok,220x132,landscape,yes,no
 СТС +2 (Нефтекамск),Общие,0,,,,False,False,,no logo,,,,,,,,,,,,
 Пятница! +2 (Нефтекамск),Общие,59,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,a93e706dced224cd,,,,,,ok,220x132,landscape,yes,no
@@ -421,7 +421,7 @@ Amedia Hit HD,Кино,102,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:20,False,
 Ultra HD Cinema 4K,Кино,45,EPG.ONE epg2,2026-11-07 22:45,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,d5588adca0cfd580,,,,,,ok,220x132,landscape,yes,no
 Comedy Central DE,Кино,178,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:49,False,True,EPG.ONE epg2,EPG only,,8731b733492ebac8,,,,,,ok,220x132,landscape,yes,no
 Кино UHD 4K,Кино,71,EPG.ONE epg2,2026-11-07 23:56,2026-11-10 23:21,False,True,EPG.ONE epg2,EPG only,,5678d6d6846cd2f5,,,,,,ok,220x132,landscape,yes,no
-Сериал UHD 4K,Кино,77,IPTVX full,2026-11-07 23:20,2026-11-09 23:18,False,True,IPTVX full,EPG only,,1e1537b8db3fa87d,,,,,,ok,200x200,square,yes,indeterminate
+Сериал UHD 4K,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 Остросюжетное HD,Кино,47,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,4342865ced738967,,,,,,ok,220x132,landscape,yes,no
 Премиальное FHD,Кино,78,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,279b4e06bd1f4aa5,,,,,,ok,220x132,landscape,yes,no
 Дом Кино Премиум HD,Кино,35,EPG.ONE epg2,2026-11-07 13:30,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,c437c1b22f6c5cde,,,,,,ok,220x132,landscape,yes,no
@@ -446,7 +446,7 @@ Viju+ Serial HD,Кино,65,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 04:15,False
 Дорама HD,Кино,59,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,d886658624864c87,,,,,,ok,220x132,landscape,yes,no
 Кино ТВ HD,Кино,41,EPG.ONE epg2,2026-11-07 22:30,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,aacc1266d72e3c88,,,,,,ok,220x132,landscape,yes,no
 Amedia Premium HD,Кино,89,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,1538abf9de7dfdc8,,,,,,ok,220x132,landscape,yes,no
-Hollywood HD,Кино,47,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:25,False,True,EPG.ONE epg2,EPG only,,53a2e9a65c09839c,,,,,,ok,220x132,landscape,yes,no
+Hollywood HD,Кино,45,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:25,False,True,EPG.ONE epg2,EPG only,,f7a2695a0f192794,,,,,,ok,220x132,landscape,yes,no
 Bollywood HD,Кино,35,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,09ef15901f626fd9,,,,,,ok,220x132,landscape,yes,no
 Viju+ Premiere HD,Кино,43,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 22:35,False,True,EPG.ONE epg2,EPG only,,2b2d9d056ef51475,,,,,,ok,220x132,landscape,yes,no
 Viju+ Premiere HD orig,Кино,43,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 22:35,False,True,EPG.ONE epg2,EPG only,,2b2d9d056ef51475,,,,,,ok,220x132,landscape,yes,no
@@ -482,7 +482,7 @@ Amedia Premium,Кино,89,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 22:50,False,
 Amedia Hit,Кино,102,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,baab88daa9c460fe,,,,,,ok,220x132,landscape,yes,no
 Viju TV1000,Кино,36,EPG.ONE epg2,2026-11-07 22:10,2026-11-10 03:40,False,True,EPG.ONE epg2,EPG only,,2797e712f09f203c,,,,,,ok,220x132,landscape,yes,no
 Мужское Кино,Кино,39,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,5435391ccb49a4d8,,,,,,ok,220x132,landscape,yes,no
-Hollywood,Кино,47,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:25,False,True,EPG.ONE epg2,EPG only,,53a2e9a65c09839c,,,,,,ok,220x132,landscape,yes,no
+Hollywood,Кино,46,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,53a2e9a65c09839c,,,,,,ok,220x132,landscape,yes,no
 .red,Кино,68,EPG.ONE epg2,2026-11-07 22:35,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,bba721eb37e6f4e4,,,,,,ok,220x132,landscape,yes,no
 2x2,Кино,59,EPG.ONE epg2,2026-11-07 23:05,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,f042eae21daeab1b,,,,,,ok,220x132,landscape,yes,yes
 .black,Кино,62,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,5ffe7dbb4ba42bda,,,,,,ok,220x132,landscape,yes,no
@@ -506,8 +506,8 @@ FILMBOX+ One,Кино,49,IPTVX full,2026-11-07 23:35,2026-11-10 23:35,False,True
 Феникс плюс Кино,Кино,72,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,fe879b65587bd5e1,,,,,,ok,220x132,landscape,yes,no
 .red HD,Кино,68,EPG.ONE epg2,2026-11-07 22:35,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,bba721eb37e6f4e4,,,,,,ok,220x132,landscape,yes,no
 Киноман,Кино,44,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,7565e059f73b47ff,,,,,,ok,220x132,landscape,yes,no
-Cinema,Кино,40,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,d5588adca0cfd580,,,,,,ok,220x132,landscape,yes,no
-Comedy Central,Кино,116,EPG.ONE epg2,2026-11-07 22:36,2026-11-10 23:24,False,True,EPG.ONE epg2,EPG only,,a0489e75b843dff4,,,,,,ok,220x132,landscape,yes,no
+Cinema,Кино,40,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,711a49232958464f,,,,,,ok,220x132,landscape,yes,no
+Comedy Central,Кино,135,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:40,False,True,EPG.ONE epg2,EPG only,,3ad17812ebbd3abf,,,,,,ok,220x132,landscape,yes,no
 Зал 1,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 Зал 2,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 Зал 3,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -529,7 +529,7 @@ Viju TV1000 Русское HD,Кино,38,EPG.ONE epg2,2026-11-07 23:35,2026-11-
 Trash HD,Кино,45,EPG.ONE epg2,2026-11-07 22:41,2026-11-10 22:27,False,True,EPG.ONE epg2,EPG only,,628872e537866b1d,,,,,,ok,220x132,landscape,yes,no
 Шокирующее HD orig,Кино,46,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,3d31f6d907750e10,,,,,,ok,220x132,landscape,yes,no
 Комедийное HD orig,Кино,46,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,aa6f1f5def129f48,,,,,,ok,220x132,landscape,yes,no
-Hollywood HD orig,Кино,47,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:25,False,True,EPG.ONE epg2,EPG only,,53a2e9a65c09839c,,,,,,ok,220x132,landscape,yes,no
+Hollywood HD orig,Кино,45,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:25,False,True,EPG.ONE epg2,EPG only,,f7a2695a0f192794,,,,,,ok,220x132,landscape,yes,no
 FX HD orig,Кино,107,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,ef9ec0c1f9a8bf94,,,,,,ok,220x132,landscape,yes,no
 Кинопремьера HD orig,Кино,43,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,7a8d5834e1304592,,,,,,ok,220x132,landscape,yes,no
 Amedia Premium HD orig,Кино,89,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,1538abf9de7dfdc8,,,,,,ok,220x132,landscape,yes,no
@@ -597,7 +597,7 @@ Viju TV1000 Action orig,Кино,43,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 22:
 Amedia Premium orig,Кино,89,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,1538abf9de7dfdc8,,,,,,ok,220x132,landscape,yes,no
 Amedia Hit orig,Кино,102,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,baab88daa9c460fe,,,,,,ok,220x132,landscape,yes,no
 Viju TV1000 orig,Кино,36,EPG.ONE epg2,2026-11-07 22:10,2026-11-10 03:40,False,True,EPG.ONE epg2,EPG only,,2797e712f09f203c,,,,,,ok,220x132,landscape,yes,no
-Hollywood orig,Кино,47,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:25,False,True,EPG.ONE epg2,EPG only,,53a2e9a65c09839c,,,,,,ok,220x132,landscape,yes,no
+Hollywood orig,Кино,46,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,53a2e9a65c09839c,,,,,,ok,220x132,landscape,yes,no
 .red orig,Кино,68,EPG.ONE epg2,2026-11-07 22:35,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,bba721eb37e6f4e4,,,,,,ok,220x132,landscape,yes,no
 Киносвидание orig,Кино,43,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,27886388160c838a,,,,,,ok,220x132,landscape,yes,no
 Дорама orig,Кино,59,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,d886658624864c87,,,,,,ok,220x132,landscape,yes,no
@@ -646,7 +646,7 @@ VF Боевик,Кино,26,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:46,False
 Flix Snip,Кино,327,FOX TV,2026-11-08 06:27,2026-11-10 23:48,False,False,,no logo,,,,,,,,,,,,
 Backus TV Dark HD,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 Shot TV,Кино,209,EPG.ONE epg2,2026-11-07 23:54,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,6a93942c5179113a,,,,,,ok,220x132,landscape,yes,no
-CineMan,Кино,43,EPG.ONE epg2,2026-11-07 22:35,2026-11-10 22:27,False,True,EPG.ONE epg2,EPG only,,dd4288de6cb952c9,,,,,,ok,220x132,landscape,yes,no
+CineMan,Кино,43,EPG.ONE epg2,2026-11-07 22:36,2026-11-10 22:27,False,True,EPG.ONE epg2,EPG only,,3df7237e9dd05e4f,,,,,,ok,220x132,landscape,yes,no
 CineMan Top,Кино,37,EPG.ONE epg2,2026-11-07 22:12,2026-11-10 23:37,False,True,EPG.ONE epg2,EPG only,,25964892618e7a79,,,,,,ok,220x132,landscape,yes,yes
 CineMan Action,Кино,39,EPG.ONE epg2,2026-11-07 22:16,2026-11-10 22:23,False,True,EPG.ONE epg2,EPG only,,860ef5426100f2e2,,,,,,ok,220x132,landscape,yes,no
 CineMan Thriller,Кино,40,EPG.ONE epg2,2026-11-07 23:47,2026-11-10 23:59,False,True,EPG.ONE epg2,EPG only,,2264855172c1f8d1,,,,,,ok,220x132,landscape,yes,yes
@@ -696,7 +696,7 @@ BCU Survival HD,Кино,44,EPG.ONE epg2,2026-11-07 23:47,2026-11-10 22:43,False
 BCU Survival OLD,Кино,44,EPG.ONE epg2,2026-11-07 23:47,2026-11-10 22:43,False,True,EPG.ONE epg2,EPG only,,46750a0cd4075d7b,,,,,,ok,220x132,landscape,yes,no
 BCU Cosmo HD,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 BCU TruMotion HD,Кино,38,EPG.ONE epg2,2026-11-07 22:20,2026-11-10 23:10,False,True,EPG.ONE epg2,EPG only,,163e0e879db0fa3d,,,,,,ok,220x132,landscape,yes,no
-BCU Romantic OLD,Кино,35,BCU Media,2026-11-08 08:30,2026-11-10 22:38,False,True,BCU Media,EPG only,,19bc5c2cb3b8d5f2,,,,,,ok,220x132,landscape,yes,no
+BCU Romantic OLD,Кино,34,BCU Media,2026-11-08 10:18,2026-11-10 22:38,False,True,BCU Media,EPG only,,19bc5c2cb3b8d5f2,,,,,,ok,220x132,landscape,yes,no
 Backus TV Original HD,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 Best Films HD,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 Lost HD,Кино,24,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,f0aaf08540ac429a,,,,,,ok,220x132,landscape,yes,no
@@ -713,7 +713,7 @@ The X-Files,Кино,24,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 21:00,False,Tru
 Фантастика HD,Кино,24,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,f603d29602ef8cce,,,,,,ok,220x132,landscape,yes,no
 Юнит HD,Кино,24,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,2d7f1e4b11c5bcd6,,,,,,ok,220x132,landscape,yes,no
 Premiere HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,dd911eb573cb831c,,,,,,ok,220x132,landscape,yes,no
-Premium HD,Кино,75,TV.TEAM full,2026-11-07 23:00,2026-11-10 07:00,False,True,EPG.ONE epg2,EPG only,,c26057f19d7143fe,,,,,,ok,220x132,landscape,yes,no
+Premium HD,Кино,36,M3U Edit ALL,2026-11-07 23:00,2026-11-09 01:00,False,True,EPG.ONE epg2,EPG only,,c26057f19d7143fe,,,,,,ok,220x132,landscape,yes,no
 РуКино HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,e1d6c7904f2dbeb9,,,,,,ok,220x132,landscape,yes,no
 Victory HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,5004930014f84ae7,,,,,,ok,220x132,landscape,yes,no
 Paradox HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,703d033429ec397b,,,,,,ok,220x132,landscape,yes,no
@@ -721,10 +721,10 @@ Thriller HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,ef1608bdef299c40,,,,
 Paradise HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,5847dd68455bc95e,,,,,,ok,220x132,landscape,yes,no
 Serial HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,069cb848fc22c242,,,,,,ok,220x132,landscape,yes,no
 USSR,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,159d5ac2fa28307c,,,,,,ok,220x132,landscape,yes,no
-VHS HD,Кино,26,ProgramTV,2026-11-09 04:05,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,8838665323463c04,,,,,,ok,220x132,landscape,yes,no
+VHS HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,8838665323463c04,,,,,,ok,220x132,landscape,yes,no
 VB VHS Classic,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 VF Кино 4K,Кино,14,EPG.ONE epg2,2026-11-07 22:36,2026-11-08 22:51,False,True,EPG.ONE epg2,EPG only,,1ccf75d60e8b2515,,,,,,ok,220x132,landscape,yes,no
-VF Сериал 4K,Кино,31,EPG.ONE epg2,2026-11-07 23:55,2026-11-08 23:41,False,True,EPG.ONE epg2,EPG only,,e68830680b68a313,,,,,,ok,220x132,landscape,yes,no
+VF Сериал 4K,Кино,31,EPG.ONE epg2,2026-11-07 23:55,2026-11-08 23:41,False,True,EPG.ONE epg2,EPG only,,bf5127fa35456f67,,,,,,ok,220x132,landscape,yes,no
 VF TOP Series,Кино,79,EPG.ONE epg2,2026-11-07 23:02,2026-11-10 23:17,False,True,EPG.ONE epg2,EPG only,,8f191d11bcacb899,,,,,,ok,220x132,landscape,yes,no
 VF Art house,Кино,36,EPG.ONE epg2,2026-11-07 23:41,2026-11-10 23:32,False,True,EPG.ONE epg2,EPG only,,c9bc6a3de2599227,,,,,,ok,220x132,landscape,yes,no
 VF Detective,Кино,37,EPG.ONE epg2,2026-11-07 23:41,2026-11-10 21:37,False,True,EPG.ONE epg2,EPG only,,9cc1ff79a7199eeb,,,,,,ok,220x132,landscape,yes,no
@@ -850,7 +850,7 @@ Z!Horror HD,Кино,0,,,,False,True,EPG.ONE epg2,EPG only,,a7f71b4340546cfc,,,,
 Z!Serial HD,Кино,96,EPG.ONE epg2,2026-11-07 23:13,2026-11-10 23:27,False,True,EPG.ONE epg2,EPG only,,68dc3b58a9993acc,,,,,,ok,220x132,landscape,yes,no
 Z!Sitcom HD,Кино,203,EPG.ONE epg2,2026-11-07 23:58,2026-11-10 23:46,False,True,EPG.ONE epg2,EPG only,,033f7c0e8a9a5116,,,,,,ok,220x132,landscape,yes,no
 Z! Smile HD,Кино,194,EPG.ONE epg2,2026-11-07 23:47,2026-11-10 23:52,False,True,EPG.ONE epg2,EPG only,,ea0d19efba4d0193,,,,,,ok,220x132,landscape,yes,no
-Akudji TV HD,Кино,21,BCU Media,2026-11-08 09:00,2026-11-10 21:00,False,True,BCU Media,EPG only,,8bc73c094f12e586,,,,,,ok,256x44,landscape,yes,yes
+Akudji TV HD,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 Yosso TV Grand,Кино,36,EPG.ONE epg2,2026-11-07 22:42,2026-11-10 22:31,False,True,EPG.ONE epg2,EPG only,,56c969a17901b6c7,,,,,,ok,220x132,landscape,yes,no
 Yosso TV VHS,Кино,42,EPG.ONE epg2,2026-11-07 23:51,2026-11-10 21:56,False,True,EPG.ONE epg2,EPG only,,92bde5eab3e99aa9,,,,,,ok,220x132,landscape,yes,no
 Yosso TV Русские Фильмы,Кино,38,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 22:48,False,True,EPG.ONE epg2,EPG only,,c4f4785e1737c0b2,,,,,,ok,220x132,landscape,yes,no
@@ -866,7 +866,7 @@ Yosso TV Oblivion,Кино,42,EPG.ONE epg2,2026-11-07 23:47,2026-11-10 23:16,Fal
 Yosso TV Adventure,Кино,37,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 21:54,False,True,EPG.ONE epg2,EPG only,,c27c005b325d4761,,,,,,ok,220x132,landscape,yes,no
 Yosso TV 4K,Кино,35,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:06,False,True,EPG.ONE epg2,EPG only,,f1343c4fba06cd58,,,,,,ok,220x132,landscape,yes,no
 Yosso TV Мелодрама,Кино,29,EPG.ONE epg2,2026-11-07 23:16,2026-11-10 23:02,False,True,EPG.ONE epg2,EPG only,,d6dd9fa7bae10616,,,,,,ok,220x132,landscape,yes,no
-Yosso TV Советские Фильмы 4K,Кино,44,EPG.ONE epg2,2026-11-07 23:17,2026-11-10 22:55,False,True,EPG.ONE epg2,EPG only,,04fabd0622843363,,,,,,ok,220x132,landscape,yes,no
+Yosso TV Советские Фильмы 4K,Кино,44,EPG.ONE epg2,2026-11-07 23:17,2026-11-10 22:55,False,True,EPG.ONE epg2,EPG only,,c2f083f8874d11db,,,,,,ok,220x132,landscape,yes,no
 Yosso TV Netflix,Кино,37,EPG.ONE epg2,2026-11-07 21:21,2026-11-10 22:16,False,True,EPG.ONE epg2,EPG only,,3639a42377c9b1b2,,,,,,ok,220x132,landscape,yes,no
 Yosso TV Disney,Кино,144,EPG.ONE epg2,2026-11-07 23:16,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,271a8f15e946f6de,,,,,,ok,220x132,landscape,yes,no
 Yosso TV Best 60 FPS,Кино,40,EPG.ONE epg2,2026-11-07 21:43,2026-11-10 23:17,False,True,EPG.ONE epg2,EPG only,,75b76618f780dcda,,,,,,ok,220x132,landscape,yes,no
@@ -1033,7 +1033,7 @@ Prokop TV Вторая Мировая,Кино,0,,,,False,False,,no logo,,,,,,,,
 Prokop TV Сказки СССР,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 Киносерия HD,Кино,77,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,fc3a4c25460287a1,,,,,,ok,220x132,landscape,yes,no
 Наше Новое Кино HD,Кино,37,EPG.ONE epg2,2026-11-07 23:05,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,b619945f99c32480,,,,,,ok,220x132,landscape,yes,no
-Cinema HD,Кино,40,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,d5588adca0cfd580,,,,,,ok,220x132,landscape,yes,no
+Cinema HD,Кино,40,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,711a49232958464f,,,,,,ok,220x132,landscape,yes,no
 BOX Franchise HD,Кино,37,EPG.ONE epg2,2026-11-07 23:23,2026-11-10 21:55,False,True,EPG.ONE epg2,EPG only,,9592a9768657bab9,,,,,,ok,220x132,landscape,yes,no
 BOX Hybrid HD,Кино,45,EPG.ONE epg2,2026-11-07 22:34,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,80904e8228ceed89,,,,,,ok,220x132,landscape,yes,no
 BOX Anime HD,Кино,44,EPG.ONE epg2,2026-11-07 22:50,2026-11-10 23:34,False,True,EPG.ONE epg2,EPG only,,263b3d24f5ca47d4,,,,,,ok,220x132,landscape,yes,no
@@ -1101,7 +1101,7 @@ VeleS Movie Hits,Кино,36,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 23:21,Fals
 Kinoshka Ukraine HD,Кино,0,,,,False,False,,no logo,,,,,,,,,,,,
 BOX Apocalypse HD,Кино,44,EPG.ONE epg2,2026-11-07 23:13,2026-11-10 23:46,False,True,EPG.ONE epg2,EPG only,,d794917f3013d315,,,,,,ok,220x132,landscape,yes,no
 BOX Remast+ 4K,Кино,353,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:53,False,True,EPG.ONE epg2,EPG only,,394d5073ecdcfef8,,,,,,ok,220x132,landscape,yes,no
-BOX Serial 4K,Кино,80,EPG.ONE epg2,2026-11-07 23:46,2026-11-10 23:47,False,True,EPG.ONE epg2,EPG only,,a79ee3f90f34f81b,,,,,,ok,220x132,landscape,yes,no
+BOX Serial 4K,Кино,80,EPG.ONE epg2,2026-11-07 23:46,2026-11-10 23:47,False,True,EPG.ONE epg2,EPG only,,c69295025cb56f5d,,,,,,ok,220x132,landscape,yes,no
 BCU Russia 90s HD,Кино,290,EPG.ONE epg2,2026-11-07 23:24,2026-11-10 23:37,False,True,EPG.ONE epg2,EPG only,,6fbf91c0336f9b78,,,,,,ok,220x132,landscape,yes,no
 Liberty Мульт UKR FHD,Кино,74,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:31,False,True,EPG.ONE epg2,EPG only,,328fe9c0bdfdecbe,,,,,,ok,220x132,landscape,yes,no
 Liberty Кино UKR FHD,Кино,35,EPG.ONE epg2,2026-11-07 22:31,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,3b509413b0708ff0,,,,,,ok,220x132,landscape,yes,no
@@ -1166,7 +1166,7 @@ Discovery+ Event 23,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Discovery+ Event 24,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Discovery+ Event 25,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Discovery+ Event 26,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
-Megogo Гонг HD,Спорт,72,IPTVX full,2026-11-07 23:35,2026-11-10 23:10,False,True,IPTVX full,EPG only,,3ce2cd15891ef879,,,,,,ok,200x200,square,yes,indeterminate
+Megogo Гонг HD,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Megogo Футбол 3 HD,Спорт,57,IPTVX full,2026-11-07 23:25,2026-11-10 22:45,False,True,IPTVX full,EPG only,,f6839b3b6e30c0de,,,,,,ok,200x200,square,yes,indeterminate
 Megogo Футбол 2 HD,Спорт,58,IPTVX full,2026-11-07 22:40,2026-11-10 22:45,False,True,IPTVX full,EPG only,,e40a9b054fc86bc0,,,,,,ok,200x200,square,yes,indeterminate
 Megogo Футбол 1 HD,Спорт,55,IPTVX full,2026-11-07 22:55,2026-11-10 22:45,False,True,IPTVX full,EPG only,,253e32dcdf875894,,,,,,ok,200x200,square,yes,indeterminate
@@ -1211,14 +1211,14 @@ Cosmote Sport 6 GR,Спорт,41,IPTVX full,2026-11-07 22:30,2026-11-10 22:00,Fa
 Cosmote Sport 7 GR,Спорт,41,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,aaab4365e5d53c55,,,,,,ok,220x132,landscape,yes,no
 Cosmote Sport 8 GR,Спорт,38,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4fd91bdfff8e8651,,,,,,ok,220x132,landscape,yes,no
 Cosmote Sport 9 GR,Спорт,39,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,60108b96ef49d1eb,,,,,,ok,220x132,landscape,yes,no
-Cosmote Sport Highlights GR,Спорт,18,M3U Edit ALL,2026-11-08 01:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,d0f75f089c219827,,,,,,ok,220x132,landscape,yes,no
+Cosmote Sport Highlights GR,Спорт,0,,,,False,True,EPG.ONE epg2,EPG only,,d0f75f089c219827,,,,,,ok,220x132,landscape,yes,no
 BOX SR Sport 4K HDR,Спорт,14,IPTVX full,2026-11-07 22:53,2026-11-08 22:47,False,True,EPG.ONE epg2,EPG only,,7bbd867ab8ee914d,,,,,,ok,220x132,landscape,yes,no
 Sport Live DK,Спорт,44,M3U Edit ALL,2026-11-08 04:00,2026-11-10 23:30,False,True,M3U Edit ALL,EPG only,,4714f6874db7bc38,,,,,,ok,140x50,landscape,yes,no
 Sport TV+ HD PT,Спорт,38,EPG.ONE epg2,2026-11-07 23:20,2026-11-09 02:30,False,True,EPG.ONE epg2,EPG only,,dd0ad9cd5faf6687,,,,,,ok,220x132,landscape,yes,no
 SuperSport Rugby ZA,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Canal 11 PT,Спорт,25,EPG.ONE epg2,2026-11-07 10:00,2026-11-10 10:00,False,True,EPG.ONE epg2,EPG only,,09aac45bf886be01,,,,,,ok,220x132,landscape,yes,yes
 M4 Sport HU,Спорт,45,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 00:15,False,True,EPG.ONE epg2,EPG only,,b724ac6638c89ecd,,,,,,ok,220x132,landscape,yes,no
-Match 4 HU,Спорт,28,BCU Media,2026-11-08 08:00,2026-11-10 01:00,False,True,BCU Media,EPG only,,1abbfec0c7fa851b,,,,,,ok,220x132,landscape,yes,no
+Match 4 HU,Спорт,42,M3U Edit ALL,2026-11-08 08:00,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
 Sport Extra RO,Спорт,85,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,fa7899da663a42f0,,,,,,ok,220x132,landscape,yes,no
 LFC TV UK,Спорт,91,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,9568c88debdc4725,,,,,,ok,220x132,landscape,yes,no
 Arena Esport RS,Спорт,28,EPG.ONE epg2,2026-11-07 21:30,2026-11-09 09:00,False,True,EPG.ONE epg2,EPG only,,124e94d40ecd5638,,,,,,ok,220x132,landscape,yes,no
@@ -1311,11 +1311,11 @@ Setanta Eurasia HD,Спорт,38,EPG.ONE epg2,2026-11-07 23:05,2026-11-10 22:00,
 Setanta Sports 1 Baltic HD,Спорт,36,EPG.ONE epg2,2026-11-08 05:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,047a2ab97f371558,,,,,,ok,220x132,landscape,yes,yes
 Setanta Eurasia Plus HD,Спорт,34,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,7de09fda59ae87a6,,,,,,ok,220x132,landscape,yes,yes
 Setanta Qazaqstan HD,Спорт,45,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,d26380e56d429b36,,,,,,ok,220x132,landscape,yes,yes
-Setanta Ukraine HD,Спорт,31,IPTVX full,2026-11-07 23:00,2026-11-10 20:00,False,True,IPTVX full,EPG only,,ea3224eddd7b231a,,,,,,ok,200x200,square,yes,indeterminate
+Setanta Ukraine HD,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Setanta Ukraine Plus HD,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Viju+ Sport HD,Спорт,31,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 02:55,False,True,EPG.ONE epg2,EPG only,,d1473007e34c6b9d,,,,,,ok,220x132,landscape,yes,no
 Viju+ Sport HD orig,Спорт,31,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 02:55,False,True,EPG.ONE epg2,EPG only,,d1473007e34c6b9d,,,,,,ok,220x132,landscape,yes,no
-TV4 Fotboll SE,Спорт,6,BCU Media,2026-11-08 08:30,2026-11-09 01:30,False,True,IPTVX full,EPG only,,258d2a048ede3d05,,,,,,ok,200x200,square,yes,indeterminate
+TV4 Fotboll SE,Спорт,0,,,,False,True,IPTVX full,EPG only,,258d2a048ede3d05,,,,,,ok,200x200,square,yes,indeterminate
 Удар HD orig,Спорт,32,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,52dc5c17d9328e7c,,,,,,ok,220x132,landscape,yes,no
 Удар,Спорт,32,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,52dc5c17d9328e7c,,,,,,ok,220x132,landscape,yes,no
 XSPORT HD,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -1402,7 +1402,7 @@ Q Sport.KG HD,Спорт,15,EPG.ONE epg2,2026-11-07 22:45,2026-11-08 20:45,False
 МАТЧ! +3 (Омск),Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 МАТЧ! +0 (Элиста),Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Red Bull TV,Спорт,119,M3U Edit ALL,2026-11-08 00:00,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,289d29caf059ab57,,,,,,ok,220x132,landscape,yes,no
-Red Bull TV HD,Спорт,0,,,,False,True,EPG.ONE epg2,EPG only,,289d29caf059ab57,,,,,,ok,220x132,landscape,yes,no
+Red Bull TV HD,Спорт,119,M3U Edit ALL,2026-11-08 00:00,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,289d29caf059ab57,,,,,,ok,220x132,landscape,yes,no
 Auto Motor Sport HD DE,Спорт,136,TV.TEAM full,2026-11-08 00:00,2026-11-10 06:40,False,False,,no logo,,,,,,,,,,,,
 Sportdigital Fussball HD DE,Спорт,35,TV.TEAM full,2026-11-07 23:25,2026-11-10 07:10,False,True,EPG.ONE epg2,EPG only,,e5c0dc1305e54877,,,,,,ok,220x132,landscape,yes,no
 TNT Sports BR,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -1430,8 +1430,8 @@ Sky Cinema Adventure IT,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Sky Sport Football HD IT,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Sky Sport Golf HD IT,Спорт,45,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,f5b695921e1fd792,,,,,,ok,220x132,landscape,yes,no
 Sky Sport MotoGP HD IT,Спорт,103,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,ff7bec52f7041adb,,,,,,ok,220x132,landscape,yes,no
-Sky Sport Basket,Спорт,42,TV.TEAM full,2026-11-07 23:00,2026-11-10 06:00,False,False,,no logo,,,,,,,,,,,,
-Sky Sport Tennis HD IT,Спорт,33,TV.TEAM full,2026-11-08 00:00,2026-11-10 04:30,False,True,M3U Edit ALL,EPG only,,4f3ac1944121f513,,,,,,ok,1020x150,landscape,yes,no
+Sky Sport Basket,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
+Sky Sport Tennis HD IT,Спорт,33,TV.TEAM full,2026-11-08 00:00,2026-11-10 04:30,False,False,,no logo,,,,,,,,,,,,
 FanDuel Sports Network South,Спорт,72,M3U Edit ALL,2026-11-08 00:00,2026-11-10 23:00,False,True,M3U Edit ALL,EPG only,,3de78ec8ccda2fd0,,,,,,ok,240x135,landscape,yes,no
 FOX SPORTS ARIZONA HD,Спорт,67,EPG.ONE epg2,2026-11-07 22:50,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,7ce932d0551d9a40,,,,,,ok,220x132,landscape,yes,indeterminate
 FanDuel Sports Network Florida,Спорт,78,M3U Edit ALL,2026-11-08 00:00,2026-11-10 22:00,False,True,M3U Edit ALL,EPG only,,12ae3aaf8a48f90e,,,,,,ok,240x135,landscape,yes,no
@@ -1448,7 +1448,7 @@ FanDuel Sports Network Midwest,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 Espn News HD USA,Спорт,0,,,,False,False,,no logo,,,,,,,,,,,,
 ESPN 2 HD USA,Спорт,54,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,350c7b43593ec973,,,,,,ok,220x132,landscape,yes,no
 ESPN USA,Спорт,53,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,ceb6ccddc7686776,,,,,,ok,220x132,landscape,yes,no
-DAZN 1 PT,Спорт,67,EPG.ONE epg2,2026-11-07 22:50,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,f35e63c4329079d1,,,,,,ok,220x132,landscape,yes,no
+DAZN 1 PT,Спорт,55,EPG.ONE epg2,2026-11-07 22:50,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,f35e63c4329079d1,,,,,,ok,220x132,landscape,yes,no
 Benfica TV HD PT,Спорт,72,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:59,False,True,EPG.ONE epg2,EPG only,,0e455b129fc1ddef,,,,,,ok,220x132,landscape,yes,no
 Sport TV 1 HD PT,Спорт,42,TV.TEAM full,2026-11-07 23:20,2026-11-10 07:00,False,True,EPG.ONE epg2,EPG only,,81ee84ca36aad56b,,,,,,ok,220x132,landscape,yes,no
 Viasat Sport Ultra HD DK,Спорт,0,,,,False,True,EPG.ONE epg2,EPG only,,1ba7394b787e5c96,,,,,,ok,220x132,landscape,yes,no
@@ -1468,7 +1468,7 @@ KHL Prime HD,Спорт,58,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 22:20,False,
 BOX Be On Edge Live 1 HD,Спорт,9,EPG.ONE epg2,2026-11-07 23:10,2026-11-08 23:00,False,True,EPG.ONE epg2,EPG only,,174139b0807b16cb,,,,,,ok,220x132,landscape,yes,no
 BOX Be On Edge Live 2 HD,Спорт,7,EPG.ONE epg2,2026-11-08 00:00,2026-11-09 04:00,False,True,EPG.ONE epg2,EPG only,,ff1e597a3a11b9a0,,,,,,ok,220x132,landscape,yes,no
 BOX Be On Edge HD,Спорт,37,EPG.ONE epg2,2026-11-07 23:03,2026-11-10 21:28,False,True,EPG.ONE epg2,EPG only,,92ec379e14893ec9,,,,,,ok,220x132,landscape,yes,no
-S Sport 2 HD TR,Спорт,35,TV.TEAM full,2026-11-07 22:45,2026-11-10 05:00,False,True,M3U Edit ALL,EPG only,,794c9ac11efa4b8a,,,,,,ok,496x280,landscape,yes,indeterminate
+S Sport 2 HD TR,Спорт,35,TV.TEAM full,2026-11-07 22:45,2026-11-10 05:00,False,False,,no logo,,,,,,,,,,,,
 Spor Smart HD TR,Спорт,14,EPG.ONE epg2,2026-11-07 23:00,2026-11-09 03:00,False,True,EPG.ONE epg2,EPG only,,59a128b40bbd927d,,,,,,ok,220x132,landscape,yes,no
 Q Arena HD KZ,Спорт,38,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,a2d8d2f4eeb559bf,,,,,,ok,220x132,landscape,yes,no
 Q League HD KZ,Спорт,16,EPG.ONE epg2,2026-11-07 22:45,2026-11-08 20:45,False,True,EPG.ONE epg2,EPG only,,403787ca876060df,,,,,,ok,220x132,landscape,yes,no
@@ -1522,8 +1522,8 @@ Setanta Sports+ UA,Спорт,31,FOX TV,2026-11-07 22:30,2026-11-10 20:00,False,
 Setanta Sports+ HD UA,Спорт,16,TopIPTV,2026-11-07 23:00,2026-11-09 08:00,False,False,,no logo,,,,,,,,,,,,
 Bridge Фрэш HD,Музыка,75,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,eb4c9e8bc3e2dcf8,,,,,,ok,220x132,landscape,yes,no
 VF Michael Jackson,Музыка,268,EPG.ONE epg2,2026-11-07 21:56,2026-11-10 09:38,False,True,EPG.ONE epg2,EPG only,,dd72b0649d039b5b,,,,,,ok,220x132,landscape,yes,no
-MTV 80s,Музыка,18,TV.TEAM full,2026-11-07 21:08,2026-11-10 03:37,False,True,ProgramTV,EPG only,,be2a9536195d1a13,,,,,,ok,160x120,landscape,no,no
-MTV 00s,Музыка,21,TV.TEAM full,2026-11-07 22:00,2026-11-10 07:00,False,True,ProgramTV,EPG only,,62245e19dc7c2328,,,,,,ok,160x120,landscape,no,no
+MTV 80s,Музыка,15,M3U Edit ALL,2026-11-08 14:00,2026-11-10 23:00,False,True,ProgramTV,EPG only,,be2a9536195d1a13,,,,,,ok,160x120,landscape,no,no
+MTV 00s,Музыка,20,TV.TEAM full,2026-11-07 22:00,2026-11-10 07:00,False,True,ProgramTV,EPG only,,62245e19dc7c2328,,,,,,ok,160x120,landscape,no,no
 MTV 90s UK,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 1HD Music Television,Музыка,53,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,79c2f654afe4929d,,,,,,ok,220x132,landscape,yes,no
 Sochi Music HD,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -1560,16 +1560,16 @@ Bridge Русский Хит,Музыка,16,EPG.ONE epg2,2026-11-08 00:00,2026-
 Bridge Rock,Музыка,51,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,7a99179fd26ab929,,,,,,ok,220x132,landscape,yes,no
 Europa Plus TV,Музыка,68,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,17d2df53c8ce85c4,,,,,,ok,220x132,landscape,yes,no
 МУЗ-ТВ,Музыка,78,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,9436bf0275919ba8,,,,,,ok,200x200,square,yes,yes
-MTV Classic,Музыка,25,TV.TEAM full,2026-11-07 22:26,2026-11-10 04:51,False,True,M3U Edit ALL,EPG only,,3c2eb2973f6aa1f1,,,,,,ok,360x270,landscape,yes,indeterminate
-MTV Hits,Музыка,49,TV.TEAM full,2026-11-07 23:00,2026-11-10 05:44,False,True,M3U Edit ALL,EPG only,,abd8d8aaf422bf4c,,,,,,invalid_image,,,,
+MTV Classic,Музыка,72,M3U Edit ALL,2026-11-08 00:00,2026-11-10 23:00,False,True,M3U Edit ALL,EPG only,,3c2eb2973f6aa1f1,,,,,,ok,360x270,landscape,yes,indeterminate
+MTV Hits,Музыка,26,FOX TV,2026-11-08 05:50,2026-11-09 09:50,False,True,M3U Edit ALL,EPG only,,abd8d8aaf422bf4c,,,,,,invalid_image,,,,
 Музыка Первого,Музыка,61,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 21:05,False,True,EPG.ONE epg2,EPG only,,5c48beab244bb29b,,,,,,ok,220x132,landscape,yes,no
 Mezzo Live HD,Музыка,53,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b64ca9caadb6979,,,,,,ok,220x132,landscape,yes,no
-MTV Club,Музыка,45,TV.TEAM full,2026-11-07 23:00,2026-11-10 05:09,False,True,M3U Edit ALL,EPG only,,5ee922ea0b1ec8e3,,,,,,invalid_image,,,,
+MTV Club,Музыка,24,FOX TV,2026-11-08 05:04,2026-11-09 09:53,False,True,M3U Edit ALL,EPG only,,5ee922ea0b1ec8e3,,,,,,invalid_image,,,,
 Mezzo,Музыка,50,EPG.ONE epg2,2026-11-07 22:30,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,34e36ca013fe3ad7,,,,,,ok,220x132,landscape,yes,no
-FON Music,Музыка,42,TV.TEAM full,2026-11-08 00:00,2026-11-10 06:05,False,True,ProgramTV,EPG only,,1c31dda07cb1e09e,,,,,,unsupported_url_scheme,,,,
+FON Music,Музыка,37,ProgramTV,2026-11-09 01:05,2026-11-10 23:30,False,True,ProgramTV,EPG only,,1c31dda07cb1e09e,,,,,,unsupported_url_scheme,,,,
 о2тв HD,Музыка,36,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,a7652f459d3faa49,,,,,,ok,220x132,landscape,yes,no
 Vostok TV,Музыка,25,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,cbcb2a8784b51efb,,,,,,ok,220x132,landscape,yes,no
-MTV 90s,Музыка,24,TV.TEAM full,2026-11-07 21:22,2026-11-10 06:33,False,True,ProgramTV,EPG only,,9d082fef1a8fcf37,,,,,,ok,160x120,landscape,no,no
+MTV 90s,Музыка,0,,,,False,True,ProgramTV,EPG only,,9d082fef1a8fcf37,,,,,,ok,160x120,landscape,no,no
 MCM Top Russia,Музыка,13,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,5ac1f9ee2a68330e,,,,,,ok,220x132,landscape,yes,indeterminate
 Clubbing TV HD,Музыка,159,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,36d9fd98a56eba40,,,,,,ok,200x200,square,yes,no
 RU TV,Музыка,40,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,7197347cf91bd9a1,,,,,,ok,220x132,landscape,yes,no
@@ -1600,7 +1600,7 @@ Mezzo orig,Музыка,50,EPG.ONE epg2,2026-11-07 22:30,2026-11-10 22:30,False,
 Bridge Русский Хит orig,Музыка,16,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 15:35,False,True,EPG.ONE epg2,EPG only,,2dda431914a9b843,,,,,,ok,220x132,landscape,yes,no
 MCM Top Russia orig,Музыка,13,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,5ac1f9ee2a68330e,,,,,,ok,220x132,landscape,yes,indeterminate
 Жара orig,Музыка,65,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:20,False,True,EPG.ONE epg2,EPG only,,14a73fb6cc3ca818,,,,,,ok,220x132,landscape,yes,no
-FON Music orig,Музыка,42,TV.TEAM full,2026-11-08 00:00,2026-11-10 06:05,False,True,BCU Media,EPG only,,1c17f0c46dce05df,,,,,,ok,256x153,landscape,yes,no
+FON Music orig,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 Курай ТВ orig,Музыка,63,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,8de26bdb264049d4,,,,,,ok,220x132,landscape,yes,no
 Bridge TV orig,Музыка,31,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,0d84e8dc5849f4fd,,,,,,ok,220x132,landscape,yes,no
 о2тв HD orig,Музыка,36,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,a7652f459d3faa49,,,,,,ok,220x132,landscape,yes,no
@@ -1610,9 +1610,9 @@ Europa Plus TV orig,Музыка,68,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:
 Bridge Classic orig,Музыка,15,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,a2557463d63ba123,,,,,,ok,220x132,landscape,yes,no
 NRG 91,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,9455c7612719e72c,,,,,,ok,220x132,landscape,yes,indeterminate
 Bridge Шлягер,Музыка,24,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,cc9c51cbd48d843a,,,,,,ok,220x132,landscape,yes,no
-VIVA TV Russia HD,Музыка,32,IPTVX full,2026-11-08 00:00,2026-11-09 22:00,False,True,IPTVX full,EPG only,,53ab0cf99094a8fe,,,,,,ok,200x200,square,yes,indeterminate
+VIVA TV Russia HD,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 KroneHit TV HD AT,Музыка,109,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,93f0111263287916,,,,,,ok,220x132,landscape,yes,no
-MIXM TV HD,Музыка,33,IPTVX full,2026-11-08 00:00,2026-11-10 22:00,False,True,IPTVX full,EPG only,,32ec8e35801a1f1a,,,,,,ok,200x200,square,yes,indeterminate
+MIXM TV HD,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 4Fun TV PL,Музыка,50,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,db544543b42ae180,,,,,,ok,220x132,landscape,yes,no
 Deejay TV,Музыка,32,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,63a379ca03881c6e,,,,,,ok,220x132,landscape,yes,no
 Девятая Волна HD,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -1631,8 +1631,8 @@ Music Box Gold,Музыка,135,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,F
 VB Dance Hits of 90s,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 VB Русская Попса 80х-90х,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 VB Russian Dance Hits of 90s,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
-Новое Радио HD,Музыка,27,ProgramTV,2026-11-08 20:30,2026-11-10 20:30,False,True,ProgramTV,EPG only,,ef662b3fe6969c3f,,,,,,ok,160x120,landscape,no,no
-Retro Music TV HD CZ,Музыка,45,EPG.ONE epg2,2026-11-07 21:59,2026-11-10 21:59,False,True,EPG.ONE epg2,EPG only,,f185c124ec0b7290,,,,,,ok,220x132,landscape,yes,no
+Новое Радио HD,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
+Retro Music TV HD CZ,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 SKY HIGH CONCERT HD,Музыка,29,IPTVX full,2026-11-07 22:18,2026-11-09 23:17,False,True,IPTVX full,EPG only,,8a84de0bce22daae,,,,,,ok,200x200,square,yes,indeterminate
 SKY HIGH DANCE HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,85275743bc2c29a4,,,,,,ok,220x132,landscape,yes,no
 SKY HIGH CLASSIC HD,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -1667,14 +1667,14 @@ Tviksel Музыка Кино International,Музыка,0,,,,False,True,EPG.ONE
 Tviksel Балет Опера HD,Музыка,35,EPG.ONE epg2,2026-11-07 22:37,2026-11-10 22:24,False,True,EPG.ONE epg2,EPG only,,47dab4928b73a16a,,,,,,ok,220x132,landscape,yes,no
 FRESH Pop Hits HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,6f47446d25d2d499,,,,,,ok,220x132,landscape,yes,no
 FRESH Russian Pop HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,32ac8271bbab183c,,,,,,ok,220x132,landscape,yes,indeterminate
-FRESH Sad Music HD,Музыка,24,Satfor,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,e93555be153c2053,,,,,,ok,220x132,landscape,yes,indeterminate
+FRESH Sad Music HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,e93555be153c2053,,,,,,ok,220x132,landscape,yes,indeterminate
 FRESH Dance HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,4ebf1346dad171aa,,,,,,ok,220x132,landscape,yes,indeterminate
 FRESH Rock Hits HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,3b43b2bda4746ac5,,,,,,ok,220x132,landscape,yes,indeterminate
-FRESH Rock Covers HD,Музыка,24,Satfor,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,e8732a502488780f,,,,,,ok,220x132,landscape,yes,no
+FRESH Rock Covers HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,e8732a502488780f,,,,,,ok,220x132,landscape,yes,no
 FRESH Russian Rap HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,f2794d5606567079,,,,,,ok,220x132,landscape,yes,no
-FRESH Concerts HD,Музыка,24,Satfor,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,f1ea60af95264a8c,,,,,,ok,220x132,landscape,yes,no
+FRESH Concerts HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,f1ea60af95264a8c,,,,,,ok,220x132,landscape,yes,no
 FRESH Retro HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,428e2a711dd20385,,,,,,ok,220x132,landscape,yes,yes
-FRESH Lyrics HD,Музыка,24,Satfor,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,62756c23f042a0b2,,,,,,ok,220x132,landscape,yes,no
+FRESH Lyrics HD,Музыка,0,,,,False,True,EPG.ONE epg2,EPG only,,62756c23f042a0b2,,,,,,ok,220x132,landscape,yes,no
 MTV Classic USA,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 Box Hits HD,Музыка,19,M3U Edit ALL,2026-11-07 23:55,2026-11-09 06:45,False,True,M3U Edit ALL,EPG only,,1725104f6b9878ec,,,,,,ok,405x240,landscape,yes,indeterminate
 MTV Music UK,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -1682,9 +1682,9 @@ Now 70s UK,Музыка,40,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,
 Now 70s HD UK,Музыка,40,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,5f3cb47dfa8083c0,,,,,,ok,220x132,landscape,yes,no
 Now 80s UK,Музыка,54,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,f92d64854e5a8fd1,,,,,,ok,220x132,landscape,yes,no
 Now Rock UK,Музыка,42,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,4d7f50f03f91b5cd,,,,,,ok,220x132,landscape,yes,no
-MTV Base UK,Музыка,47,TV.TEAM full,2026-11-07 23:54,2026-11-10 06:40,False,False,,no logo,,,,,,,,,,,,
+MTV Base UK,Музыка,0,,,,False,False,,no logo,,,,,,,,,,,,
 NRJ HITS HD,Музыка,10,EPG.ONE epg2,2026-11-08 00:00,2026-11-09 05:00,False,True,EPG.ONE epg2,EPG only,,fe90f95e03da016d,,,,,,ok,220x132,landscape,yes,no
-ТНТ Music HD,Музыка,62,BCU Media,2026-11-08 08:00,2026-11-10 23:30,False,True,BCU Media,EPG only,,1c17f0c46dce05df,,,,,,ok,256x153,landscape,yes,no
+ТНТ Music HD,Музыка,59,BCU Media,2026-11-08 09:10,2026-11-10 23:30,False,True,BCU Media,EPG only,,1c17f0c46dce05df,,,,,,ok,256x153,landscape,yes,no
 Bridge Rock HD,Музыка,51,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,7a99179fd26ab929,,,,,,ok,220x132,landscape,yes,no
 Bridge Русский Хит HD,Музыка,16,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 15:35,False,True,EPG.ONE epg2,EPG only,,2dda431914a9b843,,,,,,ok,220x132,landscape,yes,no
 Bridge Hits HD,Музыка,15,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 14:30,False,True,EPG.ONE epg2,EPG only,,d91e95c55f37464e,,,,,,ok,220x132,landscape,yes,no
@@ -1730,7 +1730,7 @@ VF Ералаш,Детские,466,EPG.ONE epg2,2026-11-07 23:58,2026-11-10 23:5
 ТипТоп HD,Детские,50,EPG.ONE epg2,2026-11-07 22:35,2026-11-10 22:14,False,True,EPG.ONE epg2,EPG only,,536cdb1ec38f7678,,,,,,ok,220x132,landscape,yes,no
 Nickelodeon HD,Детские,212,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:59,False,True,EPG.ONE epg2,EPG only,,6e6f96546ff6e58f,,,,,,ok,220x132,landscape,yes,no
 Tiji TV,Детские,464,EPG.ONE epg2,2026-11-07 23:46,2026-11-10 23:46,False,True,EPG.ONE epg2,EPG only,,a8c5341d56f5c405,,,,,,ok,220x132,landscape,yes,no
-Nick Jr,Детские,271,EPG.ONE epg2,2026-11-07 23:41,2026-11-10 23:42,False,True,EPG.ONE epg2,EPG only,,08630ead0f117d2d,,,,,,ok,220x132,landscape,yes,no
+Nick Jr,Детские,242,EPG.ONE epg2,2026-11-07 23:41,2026-11-10 23:42,False,True,EPG.ONE epg2,EPG only,,08630ead0f117d2d,,,,,,ok,220x132,landscape,yes,no
 СТС Kids HD,Детские,351,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:59,False,True,EPG.ONE epg2,EPG only,,5db74c58e08fa49d,,,,,,ok,220x132,landscape,yes,no
 Gulli,Детские,365,EPG.ONE epg2,2026-11-07 23:52,2026-11-10 23:52,False,True,EPG.ONE epg2,EPG only,,c884ec9383edd009,,,,,,ok,220x132,landscape,yes,no
 Nickelodeon,Детские,208,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,6e6f96546ff6e58f,,,,,,ok,220x132,landscape,yes,no
@@ -1751,7 +1751,7 @@ Baby TV,Детские,343,EPG.ONE epg2,2026-11-07 23:58,2026-11-10 23:57,False,
 Da Vinci orig,Детские,327,EPG.ONE epg2,2026-11-07 23:54,2026-11-10 23:39,False,True,EPG.ONE epg2,EPG only,,e13fffbc17cdc475,,,,,,ok,220x132,landscape,yes,no
 Da Vinci Kids UA,Детские,315,EPG.ONE epg2,2026-11-07 23:49,2026-11-10 23:39,False,True,EPG.ONE epg2,EPG only,,9ab4e0a3f3f7c87d,,,,,,ok,220x132,landscape,yes,no
 СуперГерои,Детские,322,EPG.ONE epg2,2026-11-07 23:59,2026-11-10 23:38,False,True,EPG.ONE epg2,EPG only,,38c9911cad2b1b95,,,,,,ok,220x132,landscape,yes,yes
-NickToons HD,Детские,225,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,72adfd8cd236cb3d,,,,,,ok,220x132,landscape,yes,no
+NickToons HD,Детские,225,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,7a18f2bd02653a68,,,,,,ok,220x132,landscape,yes,no
 Радость моя,Детские,228,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,61c7ee02b1a18c9a,,,,,,ok,220x132,landscape,yes,no
 Рыжий,Детские,108,EPG.ONE epg2,2026-11-07 23:41,2026-11-10 23:59,False,True,EPG.ONE epg2,EPG only,,96c157cdd89f8037,,,,,,ok,220x132,landscape,yes,no
 Капитан Фантастика HD,Детские,150,EPG.ONE epg2,2026-11-07 18:55,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,905c12fd4a9bda7f,,,,,,ok,220x132,landscape,yes,no
@@ -1790,7 +1790,7 @@ CineMan Cartoons 90,Детские,191,EPG.ONE epg2,2026-11-07 23:44,2026-11-10 
 CineMan Cartoons Short,Детские,592,EPG.ONE epg2,2026-11-07 23:57,2026-11-10 23:57,False,True,EPG.ONE epg2,EPG only,,77cc6f57cc9b2680,,,,,,ok,220x132,landscape,yes,no
 CineMan Cartoons Big,Детские,51,EPG.ONE epg2,2026-11-07 23:33,2026-11-10 22:58,False,True,EPG.ONE epg2,EPG only,,28e553eb40532fb4,,,,,,ok,220x132,landscape,yes,no
 BCU Multserial HD,Детские,68,EPG.ONE epg2,2026-11-07 23:49,2026-11-08 23:52,False,True,EPG.ONE epg2,EPG only,,a3e30264363009d8,,,,,,ok,220x132,landscape,yes,no
-BCU Kids HD,Детские,50,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 23:11,False,True,EPG.ONE epg2,EPG only,,634e240f9606a343,,,,,,ok,220x132,landscape,yes,no
+BCU Kids HD,Детские,50,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 23:11,False,True,EPG.ONE epg2,EPG only,,7efafdc9f17d0ed8,,,,,,ok,220x132,landscape,yes,no
 BCU Kids+ HD,Детские,44,EPG.ONE epg2,2026-11-07 23:57,2026-11-10 23:08,False,True,EPG.ONE epg2,EPG only,,38df4f7c2e00e125,,,,,,ok,220x132,landscape,yes,no
 BCU Kids 4K,Детские,50,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,634e240f9606a343,,,,,,ok,220x132,landscape,yes,no
 Весёлая Карусель HD,Детские,24,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 21:00,False,True,EPG.ONE epg2,EPG only,,3a688188c817d2ad,,,,,,ok,220x132,landscape,yes,no
@@ -1841,7 +1841,7 @@ The Explorers,Познавательные,355,EPG.ONE epg2,2026-11-08 00:00,202
 Доктор HD,Познавательные,93,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 22:30,False,True,EPG.ONE epg2,EPG only,,fb2da856412a29db,,,,,,ok,220x132,landscape,yes,no
 TravelXP CEE 4K,Познавательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 TravelXP CEE HD,Познавательные,144,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,1d7e7737593b347c,,,,,,ok,220x132,landscape,yes,no
-Museum TV HD,Познавательные,100,IPTVX full,2026-11-07 23:30,2026-11-10 23:40,False,True,IPTVX full,EPG only,,8bc43c931b24e370,,,,,,ok,200x200,square,yes,indeterminate
+Museum TV HD,Познавательные,64,BCU Media,2026-11-08 09:55,2026-11-10 03:00,False,True,BCU Media,EPG only,,22a25fbb1bcb4435,,,,,,ok,138x132,square,yes,no
 Авто 24 HD,Познавательные,207,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,80d85e1155f78f09,,,,,,ok,220x132,landscape,yes,no
 Точка Отрыва HD,Познавательные,126,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,e2209376975f9532,,,,,,ok,220x132,landscape,yes,no
 Мужской HD,Познавательные,140,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,c8a9d01fe5984dca,,,,,,ok,220x132,landscape,yes,no
@@ -1851,7 +1851,7 @@ Curiosity Stream HD orig,Познавательные,155,EPG.ONE epg2,2026-11-0
 National Geographic,Познавательные,101,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,c02e19841e2d857b,,,,,,ok,220x132,landscape,yes,no
 Museum TV 4K,Познавательные,110,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,7639af779b422422,,,,,,ok,220x132,landscape,yes,no
 Поехали! HD,Познавательные,95,EPG.ONE epg2,2026-11-07 23:55,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,fc8ea80fb418fedc,,,,,,ok,220x132,landscape,yes,no
-TravelXP 4K,Познавательные,144,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,c75c41b8ce6a53e2,,,,,,ok,220x132,landscape,yes,no
+TravelXP 4K,Познавательные,146,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,906e9ddeae385838,,,,,,ok,220x132,landscape,yes,no
 Big Planet,Познавательные,114,EPG.ONE epg2,2026-11-07 23:15,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,2ad017318749f2c4,,,,,,ok,220x132,landscape,yes,no
 Криминальное HD,Познавательные,39,EPG.ONE epg2,2026-11-08 00:00,2026-11-08 23:55,False,True,EPG.ONE epg2,EPG only,,5597881ad6fa0226,,,,,,ok,220x132,landscape,yes,no
 National Geographic HD,Познавательные,101,EPG.ONE epg2,2026-11-07 23:48,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,2b32e6f9b7d1f81b,,,,,,ok,220x132,landscape,yes,no
@@ -1943,15 +1943,15 @@ Viju Explore,Познавательные,66,EPG.ONE epg2,2026-11-07 22:50,2026-
 Galaxy HD,Познавательные,106,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,68e7ecdad0ff3ea8,,,,,,ok,220x132,landscape,yes,no
 Океан,Познавательные,110,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,1844f5181fa00ac7,,,,,,ok,220x132,landscape,yes,no
 Бобёр,Познавательные,44,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,4936295d96804529,,,,,,ok,220x132,landscape,yes,no
-Zоопарк,Познавательные,81,BCU Media,2026-11-08 08:10,2026-11-10 23:10,False,True,BCU Media,EPG only,,1c8c2c16098cd293,,,,,,ok,233x132,landscape,yes,indeterminate
+Zоопарк,Познавательные,79,BCU Media,2026-11-08 09:25,2026-11-10 23:10,False,True,BCU Media,EPG only,,1c8c2c16098cd293,,,,,,ok,233x132,landscape,yes,indeterminate
 E TV,Познавательные,30,M3U Edit ALL,2026-11-08 08:00,2026-11-10 22:00,False,True,M3U Edit ALL,EPG only,,fe0fa92cf90cce19,,,,,,ok,160x90,landscape,yes,indeterminate
 Телекафе,Познавательные,28,EPG.ONE epg2,2026-11-07 11:30,2026-11-10 09:40,False,True,EPG.ONE epg2,EPG only,,dc35acf487d1b49f,,,,,,ok,220x132,landscape,yes,no
 Усадьба,Познавательные,143,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,479293cf5f7de355,,,,,,ok,220x132,landscape,yes,no
-English Class,Познавательные,417,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:52,False,True,EPG.ONE epg2,EPG only,,5bc38324c402b3f8,,,,,,ok,220x132,landscape,yes,yes
+English Class,Познавательные,417,IPTVX full,2026-11-08 00:00,2026-11-10 23:52,False,True,IPTVX full,EPG only,,bb1299cb4143650c,,,,,,ok,200x200,square,yes,indeterminate
 English Class HD,Познавательные,417,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:52,False,True,EPG.ONE epg2,EPG only,,5bc38324c402b3f8,,,,,,ok,220x132,landscape,yes,yes
 History 2,Познавательные,98,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,e230e8475655c45c,,,,,,ok,220x132,landscape,yes,no
 Travel Channel,Познавательные,73,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,a8aedc8d7a577809,,,,,,ok,220x132,landscape,yes,no
-History CEE HD,Познавательные,88,BCU Media,2026-11-08 08:00,2026-11-10 23:45,False,True,BCU Media,EPG only,,e608805476eb8979,,,,,,ok,200x200,square,yes,yes
+History CEE HD,Познавательные,86,BCU Media,2026-11-08 09:25,2026-11-10 23:45,False,True,BCU Media,EPG only,,e608805476eb8979,,,,,,ok,200x200,square,yes,yes
 RTG TV,Познавательные,170,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,229941312b581bd5,,,,,,ok,220x132,landscape,yes,no
 Дикий,Познавательные,114,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,aa24b938a6ea4812,,,,,,ok,220x132,landscape,yes,indeterminate
 Travel+Adventure,Познавательные,109,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,8b4be7da9c57c2f3,,,,,,ok,220x132,landscape,yes,no
@@ -2032,16 +2032,16 @@ RTG TV orig,Познавательные,170,EPG.ONE epg2,2026-11-08 00:00,2026-
 ЕГЭ ТВ orig,Познавательные,244,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,7e7c27815073c7f1,,,,,,ok,220x132,landscape,yes,no
 Моя Стихия HD,Познавательные,124,EPG.ONE epg2,2026-11-07 23:55,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,424796a8cea86e5c,,,,,,ok,220x132,landscape,yes,no
 FoodTime HD 50,Познавательные,148,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:36,False,True,EPG.ONE epg2,EPG only,,e26d5541f5df0793,,,,,,ok,220x132,landscape,yes,no
-SKY HIGH NATURE 4K,Познавательные,27,FOX TV,2026-11-08 05:03,2026-11-09 09:50,False,False,,no logo,,,,,,,,,,,,
+SKY HIGH NATURE 4K,Познавательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 SKY HIGH NATURE 4K HDR,Познавательные,88,IPTVX full,2026-11-07 23:55,2026-11-10 23:34,False,True,IPTVX full,EPG only,,30ff85af42ba3998,,,,,,ok,200x200,square,yes,indeterminate
 SKY HIGH DOC HD,Познавательные,83,IPTVX full,2026-11-07 23:41,2026-11-10 23:28,False,True,EPG.ONE epg2,EPG only,,b36640c69ec24ad5,,,,,,ok,220x132,landscape,yes,no
-SKY HIGH DOC UHD,Познавательные,75,FOX TV,2026-11-08 06:17,2026-11-10 23:28,False,False,,no logo,,,,,,,,,,,,
+SKY HIGH DOC UHD,Познавательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 SKY HIGH NATURE FHD,Познавательные,68,IPTVX full,2026-11-07 23:30,2026-11-10 23:55,False,True,IPTVX full,EPG only,,f3f83bb5d71f2a5f,,,,,,ok,200x200,square,yes,indeterminate
 Liberty BBC FHD,Познавательные,85,EPG.ONE epg2,2026-11-07 23:09,2026-11-10 23:12,False,True,EPG.ONE epg2,EPG only,,070b33c54df4bca5,,,,,,ok,220x132,landscape,yes,no
 Liberty Планета360 FHD,Познавательные,58,EPG.ONE epg2,2026-11-07 23:10,2026-11-10 22:15,False,True,EPG.ONE epg2,EPG only,,d6cd893f79c8955c,,,,,,ok,220x132,landscape,yes,no
 Liberty Наука FHD,Познавательные,46,EPG.ONE epg2,2026-11-07 22:57,2026-11-10 20:23,False,True,EPG.ONE epg2,EPG only,,2e6a086f8f286f27,,,,,,ok,220x132,landscape,yes,no
 Univer TV HD,Познавательные,50,EPG.ONE epg2,2026-11-08 00:00,2026-11-09 06:15,False,True,EPG.ONE epg2,EPG only,,ee84cb8ccf00b39d,,,,,,ok,220x132,landscape,yes,no
-Глазами Туриста 4K,Познавательные,132,EPG.ONE epg2,2026-11-07 23:42,2026-11-10 23:36,False,True,EPG.ONE epg2,EPG only,,5d3d73a74f7b5de2,,,,,,ok,220x132,landscape,yes,no
+Глазами Туриста 4K,Познавательные,51,EPG.ONE epg2,2026-11-07 23:42,2026-11-09 04:26,False,True,EPG.ONE epg2,EPG only,,5d3d73a74f7b5de2,,,,,,ok,220x132,landscape,yes,no
 Наша Сибирь 4K (HEVC),Познавательные,517,EPG.ONE epg2,2026-11-07 23:59,2026-11-10 23:54,False,True,EPG.ONE epg2,EPG only,,6ac0579251e5b096,,,,,,ok,220x132,landscape,yes,no
 Первый космический HD,Познавательные,36,EPG.ONE epg2,2026-11-08 00:00,2026-11-08 22:20,False,True,EPG.ONE epg2,EPG only,,e54bccd9100e8960,,,,,,ok,220x132,landscape,yes,no
 Первый космический HD orig,Познавательные,36,EPG.ONE epg2,2026-11-08 00:00,2026-11-08 22:20,False,True,EPG.ONE epg2,EPG only,,e54bccd9100e8960,,,,,,ok,220x132,landscape,yes,no
@@ -2056,13 +2056,13 @@ VF Рыбалка,Познавательные,198,EPG.ONE epg2,2026-11-07 23:36
 VF Стройка,Познавательные,398,EPG.ONE epg2,2026-11-07 23:23,2026-11-10 04:58,False,True,EPG.ONE epg2,EPG only,,3fcc6cb429319b3e,,,,,,ok,220x132,landscape,yes,no
 Твтур TV,Познавательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Дайвинг TV HD,Познавательные,0,,,,False,False,,no logo,,,,,,,,,,,,
-Вкусное TV HD,Познавательные,0,,,,False,True,IPTVX full,EPG only,,0c5ad4d4e2f6aa6a,,,,,,ok,200x200,square,yes,indeterminate
+Вкусное TV HD,Познавательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Z!Travel HD,Познавательные,123,EPG.ONE epg2,2026-11-07 23:56,2026-11-10 23:29,False,True,EPG.ONE epg2,EPG only,,7211882d3736e774,,,,,,ok,220x132,landscape,yes,no
 MM Микромир HD,Познавательные,111,EPG.ONE epg2,2026-11-07 23:59,2026-11-10 23:31,False,True,EPG.ONE epg2,EPG only,,62808b10b136c920,,,,,,ok,220x132,landscape,yes,indeterminate
 MM Макромир HD,Познавательные,96,EPG.ONE epg2,2026-11-07 23:41,2026-11-10 23:32,False,True,EPG.ONE epg2,EPG only,,dc376159b63de72b,,,,,,ok,220x132,landscape,yes,indeterminate
 MM Мегамир HD,Познавательные,98,EPG.ONE epg2,2026-11-07 23:28,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,37d03333d23e7699,,,,,,ok,220x132,landscape,yes,indeterminate
 MM Translation HD,Познавательные,41,EPG.ONE epg2,2026-11-07 23:57,2026-11-10 23:12,False,True,EPG.ONE epg2,EPG only,,9e4f7a55cf5ca710,,,,,,ok,220x132,landscape,yes,indeterminate
-Рыболов HD,Познавательные,47,TV.TEAM full,2026-11-08 00:00,2026-11-08 23:35,False,True,ProgramTV,EPG only,,75b1a501769bbaab,,,,,,ok,160x120,landscape,no,no
+Рыболов HD,Познавательные,82,BCU Media,2026-11-08 09:15,2026-11-10 02:43,False,True,BCU Media,EPG only,,5500d8c5a4815153,,,,,,ok,132x132,square,yes,no
 ЖИВИ! HD,Познавательные,137,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,7465c29ac21e2f89,,,,,,ok,220x132,landscape,yes,indeterminate
 ТОЧКА.РФ HD,Познавательные,105,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,249c413edcb1fba9,,,,,,ok,220x132,landscape,yes,no
 MM Experiment HD,Познавательные,94,EPG.ONE epg2,2026-11-07 23:33,2026-11-10 23:31,False,True,EPG.ONE epg2,EPG only,,82a94902b124a002,,,,,,ok,220x132,landscape,yes,indeterminate
@@ -2092,12 +2092,12 @@ Zooпарк HD,Развлекательные,93,IPTVX full,2026-11-08 00:00,202
 VF Орел и решка,Развлекательные,100,EPG.ONE epg2,2026-11-07 23:23,2026-11-10 23:27,False,True,EPG.ONE epg2,EPG only,,acc6aef1a6108b71,,,,,,ok,220x132,landscape,yes,no
 Lietuva 4K,Развлекательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Лапки Live HD,Развлекательные,124,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,d90d6da675f1d6e9,,,,,,ok,220x132,landscape,yes,no
-Fashion TV UHD,Развлекательные,863,IPTVX full,2026-11-08 00:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,24aa5542f12c2b18,,,,,,ok,220x132,landscape,yes,no
+Fashion TV UHD,Развлекательные,195,M3U Edit ALL,2026-11-08 04:00,2026-11-10 23:55,False,True,M3U Edit ALL,EPG only,,cd3954ea1e50ab18,,,,,,invalid_image,,,,
 MyZen TV HD,Развлекательные,96,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,1543e1692d13af92,,,,,,ok,220x132,landscape,yes,no
 НТВ Стиль жизни HD,Развлекательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Кухня HD,Развлекательные,169,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,17c88f6eead5dee2,,,,,,ok,220x132,landscape,yes,no
 FashionBox HD,Развлекательные,88,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,bf31ca5e377541a1,,,,,,ok,220x132,landscape,yes,no
-Танцуй! HD,Развлекательные,21,BCU Media,2026-11-08 09:00,2026-11-10 21:00,False,True,BCU Media,EPG only,,5f6b220dac278de1,,,,,,ok,100x62,landscape,yes,no
+Танцуй! HD,Развлекательные,20,BCU Media,2026-11-08 12:00,2026-11-10 21:00,False,True,BCU Media,EPG only,,5f6b220dac278de1,,,,,,ok,100x62,landscape,yes,no
 Ключ HD,Развлекательные,61,EPG.ONE epg2,2026-11-07 23:05,2026-11-10 04:30,False,True,EPG.ONE epg2,EPG only,,b9c7b8588cc9dcb4,,,,,,ok,220x132,landscape,yes,no
 Silk Way,Развлекательные,197,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,e9a587df333a393a,,,,,,ok,220x132,landscape,yes,yes
 VF Концерты,Развлекательные,37,EPG.ONE epg2,2026-11-07 21:56,2026-11-10 07:06,False,True,EPG.ONE epg2,EPG only,,4774a5653ab03a2d,,,,,,ok,220x132,landscape,yes,yes
@@ -2110,7 +2110,7 @@ Gags Network,Развлекательные,208,EPG.ONE epg2,2026-11-07 23:42,20
 MyZen TV 4K,Развлекательные,96,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,45820a0ea44d2a6b,,,,,,ok,220x132,landscape,yes,no
 ТОЧКА.РФ,Развлекательные,105,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,249c413edcb1fba9,,,,,,ok,220x132,landscape,yes,no
 DTX HD PL,Развлекательные,80,EPG.ONE epg2,2026-11-07 23:10,2026-11-10 23:10,False,True,EPG.ONE epg2,EPG only,,986f2c2328ffb79a,,,,,,ok,220x132,landscape,yes,yes
-Fashion TV FHD,Развлекательные,863,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,24aa5542f12c2b18,,,,,,ok,220x132,landscape,yes,no
+Fashion TV FHD,Развлекательные,863,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,61ccc0bc58103c09,,,,,,ok,220x132,landscape,yes,no
 Fashion TV HD,Развлекательные,719,EPG.ONE epg2,2026-11-08 00:05,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,416d9f9045385806,,,,,,ok,220x132,landscape,yes,no
 Fashion & Lifestyle HD,Развлекательные,255,EPG.ONE epg2,2026-11-07 23:27,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,60aef517c1b9b382,,,,,,ok,220x132,landscape,yes,no
 Арсенал HD,Развлекательные,93,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,3d66aca81fb73c84,,,,,,ok,220x132,landscape,yes,no
@@ -2121,11 +2121,11 @@ Luxury,Развлекательные,55,EPG.ONE epg2,2026-11-08 00:00,2026-11-1
 Продвижение,Развлекательные,91,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,1b85d0032b125919,,,,,,ok,220x132,landscape,yes,no
 Девятая Волна,Развлекательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 СТС HD,Развлекательные,53,IPTVX full,2026-11-08 00:00,2026-11-10 23:05,False,True,IPTVX full,EPG only,,be36ae78ab5224a5,,,,,,ok,200x200,square,yes,indeterminate
-ТНТ HD 50,Развлекательные,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4b6460f7f28969e4,,,,,,ok,220x132,landscape,yes,no
+ТНТ HD 50,Развлекательные,96,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,a6b6541f8728e69f,,,,,,ok,220x132,landscape,yes,no
 ТНТ +2,Развлекательные,97,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 22:55,False,True,EPG.ONE epg2,EPG only,,72fc79816828ff43,,,,,,ok,220x132,landscape,yes,no
 ТНТ4 HD,Развлекательные,127,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,1e91c9b3db3fbdc1,,,,,,ok,220x132,landscape,yes,no
 Зал Суда HD,Развлекательные,100,EPG.ONE epg2,2026-11-07 23:55,2026-11-10 23:53,False,True,EPG.ONE epg2,EPG only,,6ceb0f040b9196d0,,,,,,ok,220x132,landscape,yes,no
-СТС HD orig,Развлекательные,53,IPTVX full,2026-11-08 00:00,2026-11-10 23:05,False,True,IPTVX full,EPG only,,be36ae78ab5224a5,,,,,,ok,200x200,square,yes,indeterminate
+СТС HD orig,Развлекательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 СТС International,Развлекательные,157,EPG.ONE epg2,2026-11-07 23:38,2026-11-10 23:47,False,True,EPG.ONE epg2,EPG only,,b7e7c21851bcff62,,,,,,ok,220x132,landscape,yes,no
 ТОЧКА.РФ orig,Развлекательные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Luxury HD orig,Развлекательные,125,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,449362b21f1a63c4,,,,,,ok,220x132,landscape,yes,no
@@ -2167,7 +2167,7 @@ Kinoshka Christmas HD,Развлекательные,0,,,,False,False,,no logo,,
 ТНР 24 (Нижневартовск),Региональные,64,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,508d744a611c3a36,,,,,,ok,220x132,landscape,yes,no
 Мегаполис HD,Региональные,249,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,cc0bc48e473c05ee,,,,,,ok,220x132,landscape,yes,yes
 Югра Тревел HD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
-Саров 24 HD,Региональные,89,IPTVX full,2026-11-07 23:35,2026-11-10 23:50,False,True,IPTVX full,EPG only,,238294f8b15e19d0,,,,,,ok,200x200,square,yes,indeterminate
+Саров 24 HD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Санкт-Петербург,Региональные,113,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 22:55,False,True,EPG.ONE epg2,EPG only,,453ab0a6d8abee8b,,,,,,ok,220x132,landscape,yes,no
 ТНВ-Планета,Региональные,81,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:10,False,True,EPG.ONE epg2,EPG only,,ea155a3c841baa53,,,,,,ok,220x132,landscape,yes,no
 КРЫМ 24,Региональные,168,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 04:15,False,True,EPG.ONE epg2,EPG only,,8a4a1c80fff32e31,,,,,,ok,220x132,landscape,yes,no
@@ -2194,7 +2194,7 @@ Kinoshka Christmas HD,Развлекательные,0,,,,False,False,,no logo,,
 Томское Время,Региональные,102,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,7e33028600342b9b,,,,,,ok,220x132,landscape,yes,no
 Вся Уфа,Региональные,118,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,90a23ecdc79882d3,,,,,,ok,220x132,landscape,yes,no
 Матур ТВ,Региональные,18,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 04:00,False,True,EPG.ONE epg2,EPG only,,48fae4ba9974d972,,,,,,ok,220x132,landscape,yes,no
-26 регион HD,Региональные,162,IPTVX full,2026-11-08 00:00,2026-11-10 23:45,False,True,IPTVX full,EPG only,,b1fe9ae8d795acda,,,,,,ok,200x200,square,yes,indeterminate
+26 регион HD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 АТВ Ставрополь,Региональные,118,EPG.ONE epg2,2026-11-07 19:00,2026-11-10 19:00,False,True,EPG.ONE epg2,EPG only,,4a56a6c000b32591,,,,,,ok,220x132,landscape,yes,indeterminate
 Твой канский (Канск-Орион),Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 РТС (Абакан-Орион),Региональные,29,EPG.ONE epg2,2026-11-07 23:25,2026-11-08 18:20,False,True,EPG.ONE epg2,EPG only,,663c4028916dd66a,,,,,,ok,220x132,landscape,yes,indeterminate
@@ -2216,7 +2216,7 @@ Kinoshka Christmas HD,Развлекательные,0,,,,False,False,,no logo,,
 Продвижение (Липецк),Региональные,91,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,1b85d0032b125919,,,,,,ok,220x132,landscape,yes,no
 12 канал ОМСК HD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Sochi Live HD,Региональные,0,,,,False,True,EPG.ONE epg2,EPG only,,9578b0c72ad64909,,,,,,ok,220x132,landscape,yes,no
-Сварожичи HD,Региональные,19,IPTVX full,2026-11-07 21:00,2026-11-10 21:00,False,True,IPTVX full,EPG only,,5db899128a57129f,,,,,,ok,200x200,square,yes,indeterminate
+Сварожичи HD,Региональные,15,TV.TEAM full,2026-11-07 21:00,2026-11-10 06:00,False,False,,no logo,,,,,,,,,,,,
 Евразия (Орск),Региональные,163,IPTVX full,2026-11-07 23:25,2026-11-10 23:25,False,True,IPTVX full,EPG only,,84c38be768862e06,,,,,,ok,200x200,square,yes,indeterminate
 Первый Псковский,Региональные,79,IPTVX full,2026-11-07 22:05,2026-11-10 22:30,False,True,IPTVX full,EPG only,,dd4be8d932688f32,,,,,,ok,200x200,square,yes,indeterminate
 ТВ Центр HD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -2226,9 +2226,9 @@ Sochi Live HD,Региональные,0,,,,False,True,EPG.ONE epg2,EPG only,,95
 Миллет HD,Региональные,27,IPTVX full,2026-11-07 22:25,2026-11-08 22:25,False,True,EPG.ONE epg2,EPG only,,ded60d08850abe4c,,,,,,ok,220x132,landscape,yes,yes
 Панорама ТВ FHD Тверь,Региональные,53,EPG.ONE epg2,2026-11-08 00:00,2026-11-09 04:50,False,True,EPG.ONE epg2,EPG only,,939954fd9df70109,,,,,,ok,220x132,landscape,yes,no
 Обком ТВ,Региональные,82,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,3a95723d22d72ca0,,,,,,ok,220x132,landscape,yes,no
-НТС FHD Иркутск,Региональные,83,IPTVX full,2026-11-07 23:25,2026-11-10 23:20,False,True,IPTVX full,EPG only,,c3b2a9bbe995bec6,,,,,,ok,200x200,square,yes,yes
+НТС FHD Иркутск,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 ННТВ Нижний Новгород,Региональные,25,EPG.ONE epg2,2026-11-07 23:15,2026-11-08 23:15,False,True,EPG.ONE epg2,EPG only,,4c7d127df763b818,,,,,,ok,220x132,landscape,yes,no
-Камчатка 1 FHD,Региональные,135,IPTVX full,2026-11-08 05:22,2026-11-10 19:10,False,True,IPTVX full,EPG only,,631af8feab1b3afc,,,,,,ok,200x200,square,yes,indeterminate
+Камчатка 1 FHD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 К16 Саров,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Губерния Самара,Региональные,192,IPTVX full,2026-11-07 23:50,2026-11-10 23:50,False,True,IPTVX full,EPG only,,68969bc0c1560300,,,,,,ok,200x200,square,yes,indeterminate
 Губерния Хабаровск,Региональные,102,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,17aa39835c77d057,,,,,,ok,220x132,landscape,yes,no
@@ -2262,7 +2262,7 @@ Sochi Live HD,Региональные,0,,,,False,True,EPG.ONE epg2,EPG only,,95
 Саратов 24 HD,Региональные,81,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,70b2d008b8a83e95,,,,,,ok,220x132,landscape,yes,yes
 Самара 24 FHD,Региональные,177,EPG.ONE epg2,2026-11-07 23:52,2026-11-10 23:54,False,True,EPG.ONE epg2,EPG only,,f215ce0a8fefa588,,,,,,ok,220x132,landscape,yes,indeterminate
 Ники ТВ HD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
-Нижний Новгород 24 FHD,Региональные,32,IPTVX full,2026-11-08 00:00,2026-11-08 23:30,False,True,IPTVX full,EPG only,,c5c887e3a63994de,,,,,,ok,200x200,square,yes,indeterminate
+Нижний Новгород 24 FHD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 НВК Саха FHD,Региональные,97,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:45,False,True,EPG.ONE epg2,EPG only,,81ba78614020d2f7,,,,,,ok,220x132,landscape,yes,no
 Мир Белогорья HD,Региональные,109,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,fb5a20c47c34b242,,,,,,ok,220x132,landscape,yes,no
 Кузбасс Первый HD,Региональные,69,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 04:30,False,True,EPG.ONE epg2,EPG only,,47dd98e538ece6e7,,,,,,ok,220x132,landscape,yes,no
@@ -2271,7 +2271,7 @@ Sochi Live HD,Региональные,0,,,,False,True,EPG.ONE epg2,EPG only,,95
 Башкортостан 24,Региональные,180,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,c17d216255b3618e,,,,,,ok,220x132,landscape,yes,no
 Арис 24 HD,Региональные,60,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,bb8ccd4b278ae77c,,,,,,ok,220x132,landscape,yes,indeterminate
 РГВК Дагестан FHD,Региональные,102,EPG.ONE epg2,2026-11-07 22:55,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,a13122534cc8fa56,,,,,,ok,220x132,landscape,yes,indeterminate
-ЯПервый FHD,Региональные,112,IPTVX full,2026-11-07 22:40,2026-11-10 23:50,False,True,IPTVX full,EPG only,,ed5b536dabb468b8,,,,,,ok,200x200,square,yes,indeterminate
+ЯПервый FHD,Региональные,0,,,,False,False,,no logo,,,,,,,,,,,,
 Shopping Live,Телемагазины,72,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,ce249cbadc510886,,,,,,ok,220x132,landscape,yes,no
 Digital Media (JWL),Телемагазины,0,,,,False,False,,no logo,,,,,,,,,,,,
 Women`s Magazine HD,Телемагазины,42,EPG.ONE epg2,2026-11-08 00:00,2026-11-08 23:55,False,True,EPG.ONE epg2,EPG only,,d498d7cac6a702ac,,,,,,ok,220x132,landscape,yes,no
@@ -2314,7 +2314,7 @@ Blacked HD,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,7b4ee7f4e1b93
 Blonde Adult TV,Взрослые,0,,,,False,False,,no logo,,,,,,,,,,,,
 Blowjob Red TV,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,7b039ef03e8a2f2f,,,,,,ok,220x132,landscape,yes,no
 Brazzers eXXtra,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,2d0e9e9054debb9a,,,,,,ok,220x132,landscape,yes,no
-Brazzers HD,Взрослые,61,Satfor,2026-11-08 00:00,2026-11-10 23:06,False,True,EPG.ONE epg2,EPG only,,3a494050dfd6b201,,,,,,ok,220x132,landscape,yes,indeterminate
+Brazzers HD,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,3a494050dfd6b201,,,,,,ok,220x132,landscape,yes,indeterminate
 Brunette Adult TV,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,68e12135e8159c93,,,,,,ok,220x132,landscape,yes,no
 Cherry Pimps,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,763bf19265a33455,,,,,,ok,220x132,landscape,yes,indeterminate
 Club 17,Взрослые,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -2377,7 +2377,7 @@ SexArt,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,6602bb2d6c24cb0b,
 SINematica,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,24cc1f162f59ab92,,,,,,ok,220x132,landscape,yes,no
 Teen Red TV,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,d7ddcfe440b6f1bd,,,,,,ok,220x132,landscape,yes,no
 Threesome Red TV,Взрослые,0,,,,False,False,,no logo,,,,,,,,,,,,
-Tiny4K,Взрослые,24,IPTVX full,2026-11-08 00:00,2026-11-09 22:00,False,True,EPG.ONE epg2,EPG only,,6806158675c8e046,,,,,,ok,220x132,landscape,yes,no
+Tiny4K,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,6806158675c8e046,,,,,,ok,220x132,landscape,yes,no
 Trans Angels,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,b5dcbb265c4eb9d1,,,,,,ok,220x132,landscape,yes,indeterminate
 True Amateurs,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,651e042c0ff21827,,,,,,ok,220x132,landscape,yes,no
 Tushy HD,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,7e4e4d223fa1ae32,,,,,,ok,220x132,landscape,yes,no
@@ -2429,7 +2429,7 @@ Erotica X,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,548de993b0741b
 Erotic Spice,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,dd9dfeb77dd2f976,,,,,,ok,220x132,landscape,yes,indeterminate
 DP Fanatics,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,1a23de100c2d29df,,,,,,ok,220x132,landscape,yes,indeterminate
 PURE BABES,Взрослые,242,M3U Edit ALL,2026-11-07 23:46,2026-11-10 23:42,False,True,M3U Edit ALL,EPG only,,b3adafedd558dcb7,,,,,,invalid_image,,,,
-Brazzers TV Europe HD,Взрослые,185,IPTVX full,2026-11-07 23:53,2026-11-10 23:40,False,True,IPTVX full,EPG only,,b68ec8fdd62ff130,,,,,,ok,200x200,square,yes,no
+Brazzers TV Europe HD,Взрослые,0,,,,False,False,,no logo,,,,,,,,,,,,
 XY Plus 1,Взрослые,0,,,,False,False,,no logo,,,,,,,,,,,,
 XY Plus 2,Взрослые,0,,,,False,False,,no logo,,,,,,,,,,,,
 XY Plus 6,Взрослые,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -2528,57 +2528,57 @@ PlayBoyz TV HD,Взрослые,0,,,,False,True,EPG.ONE epg2,EPG only,,992cb1585
 СТВ,Беларусь,79,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,a9b6a401fecf7425,,,,,,ok,220x132,landscape,yes,no
 СТВ HD,Беларусь,79,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,a9b6a401fecf7425,,,,,,ok,220x132,landscape,yes,no
 ОНТ,Беларусь,73,IPTVX full,2026-11-07 23:45,2026-11-10 22:50,False,True,IPTVX full,EPG only,,29eac9b5fdb5bbda,,,,,,ok,200x200,square,yes,indeterminate
-ОНТ HD BY,Беларусь,49,TV.TEAM full,2026-11-07 23:45,2026-11-10 07:15,False,False,,no logo,,,,,,,,,,,,
+ОНТ HD BY,Беларусь,49,TV.TEAM full,2026-11-07 23:45,2026-11-10 07:15,False,True,BCU Media,EPG only,,3d329f92640f167e,,,,,,ok,220x132,landscape,yes,no
 8 Канал HD,Беларусь,81,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,e213eacbec5beef8,,,,,,ok,220x132,landscape,yes,no
 Беларусь 5 BY,Беларусь,48,EPG.ONE epg2,2026-11-07 22:50,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,8b82e845ead09caa,,,,,,ok,220x132,landscape,yes,no
-ОНТ BY,Беларусь,49,TV.TEAM full,2026-11-07 23:45,2026-11-10 07:15,False,False,,no logo,,,,,,,,,,,,
+ОНТ BY,Беларусь,0,,,,False,False,,no logo,,,,,,,,,,,,
 Союзный,Беларусь,96,EPG.ONE epg2,2026-11-07 23:55,2026-11-10 04:45,False,True,EPG.ONE epg2,EPG only,,c831d21a3dd22588,,,,,,ok,220x132,landscape,yes,no
 Белсат HD,Беларусь,125,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,07c649f4ed1d33f7,,,,,,ok,220x132,landscape,yes,no
 Food Network,США,102,EPG.ONE epg2,2026-11-07 23:30,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,4615ab89f0d75f16,,,,,,ok,220x132,landscape,yes,no
-TENNIS HD US,США,72,M3U Edit ALL,2026-11-08 00:00,2026-11-10 23:00,False,True,M3U Edit ALL,EPG only,,5ac8c30d5087ab8d,,,,,,ok,626x626,square,no,no
+TENNIS HD US,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 CINEMAXX MORE MAXX US,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 CINEMAX THRILLERMAX HD US,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 CINEMAX OUTER MAX US,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 CINEMAX MOVIEMAX US,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 NHL Network US,США,84,IPTVX full,2026-11-07 22:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,220435a823a1fb83,,,,,,ok,220x132,landscape,yes,no
-NBA TV HD US,США,59,IPTVX full,2026-11-08 00:00,2026-11-09 18:30,False,True,EPG.ONE epg2,EPG only,,6e712cad70804be3,,,,,,ok,220x132,landscape,yes,no
+NBA TV HD US,США,67,TV.TEAM full,2026-11-08 00:00,2026-11-10 06:00,False,True,EPG.ONE epg2,EPG only,,6e712cad70804be3,,,,,,ok,220x132,landscape,yes,no
 Ion Television,США,0,,,,False,True,EPG.ONE epg2,EPG only,,69158b50bf848673,,,,,,ok,220x132,landscape,yes,no
 NYCTV Life,США,0,,,,False,True,EPG.ONE epg2,EPG only,,1a5a204478c5af1b,,,,,,ok,220x132,landscape,yes,no
-CBS New York,США,66,TV.TEAM full,2026-11-07 23:30,2026-11-10 07:35,False,True,EPG.ONE epg2,EPG only,,d64ccbb8cf901ef3,,,,,,ok,220x132,landscape,yes,no
+CBS New York,США,0,,,,False,True,EPG.ONE epg2,EPG only,,d64ccbb8cf901ef3,,,,,,ok,220x132,landscape,yes,no
 Hallmark Movies & Mysteries HD,США,0,,,,False,True,EPG.ONE epg2,EPG only,,84d34785786007eb,,,,,,ok,220x132,landscape,yes,no
 Telemundo,США,74,M3U Edit ALL,2026-11-07 23:20,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,391835d818976e85,,,,,,ok,220x132,landscape,yes,no
 NBC,США,0,,,,False,True,EPG.ONE epg2,EPG only,,2188fb96c3174713,,,,,,ok,220x132,landscape,yes,no
-Disney XD,США,110,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,True,EPG.ONE epg2,EPG only,,38528a4a9285993c,,,,,,ok,220x132,landscape,yes,no
-AMC US,США,23,TV.TEAM full,2026-11-07 21:45,2026-11-10 05:00,False,True,EPG.ONE epg2,EPG only,,0bbe944a70040b2a,,,,,,ok,220x132,landscape,yes,no
+Disney XD,США,58,FOX TV,2026-11-08 06:30,2026-11-09 05:45,False,True,EPG.ONE epg2,EPG only,,38528a4a9285993c,,,,,,ok,220x132,landscape,yes,no
+AMC US,США,0,,,,False,True,EPG.ONE epg2,EPG only,,0bbe944a70040b2a,,,,,,ok,220x132,landscape,yes,no
 HGTV HD US,США,114,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,b7193487d806aeb8,,,,,,ok,220x132,landscape,yes,no
 tru TV,США,0,,,,False,True,EPG.ONE epg2,EPG only,,69ee9e3afa40dfac,,,,,,ok,220x132,landscape,yes,no
 RACER Network HD,США,76,M3U Edit ALL,2026-11-08 00:00,2026-11-10 23:30,False,True,M3U Edit ALL,EPG only,,bdb7646e49e0a906,,,,,,ok,360x270,landscape,yes,yes
 ABC HD,США,0,,,,False,True,EPG.ONE epg2,EPG only,,cca460d0525ce229,,,,,,ok,220x132,landscape,yes,no
 Fox 5 WNYW,США,0,,,,False,True,EPG.ONE epg2,EPG only,,92a55153e847026e,,,,,,ok,220x132,landscape,yes,no
 My9NJ,США,0,,,,False,True,EPG.ONE epg2,EPG only,,b7ef2e632cf3cf58,,,,,,ok,220x132,landscape,yes,no
-MOTORTREND,США,62,TV.TEAM full,2026-11-07 23:25,2026-11-10 07:35,False,True,EPG.ONE epg2,EPG only,,d3abbc5c5812e54a,,,,,,ok,220x132,landscape,yes,no
+MOTORTREND,США,0,,,,False,True,EPG.ONE epg2,EPG only,,d3abbc5c5812e54a,,,,,,ok,220x132,landscape,yes,no
 BBC America,США,50,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,78338f0d220d3858,,,,,,ok,220x132,landscape,yes,no
 WPIX-TV,США,0,,,,False,True,EPG.ONE epg2,EPG only,,a889f45ca8ffd6b3,,,,,,ok,220x132,landscape,yes,no
 THIRTEEN,США,0,,,,False,True,EPG.ONE epg2,EPG only,,0da9030ccc340950,,,,,,ok,220x132,landscape,yes,no
 WLIW21,США,0,,,,False,True,EPG.ONE epg2,EPG only,,85a4a9a99368c069,,,,,,ok,220x132,landscape,yes,no
 NJTV,США,0,,,,False,True,EPG.ONE epg2,EPG only,,b768a01e014d3dfc,,,,,,ok,220x132,landscape,yes,no
-MeTV,США,84,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,True,EPG.ONE epg2,EPG only,,0568c2baf0c7bb95,,,,,,ok,220x132,landscape,yes,no
+MeTV,США,0,,,,False,True,EPG.ONE epg2,EPG only,,0568c2baf0c7bb95,,,,,,ok,220x132,landscape,yes,no
 WMBC Digital Television,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 Univision,США,0,,,,False,True,EPG.ONE epg2,EPG only,,15bd68d5091cd98d,,,,,,ok,220x132,landscape,yes,no
 UniMÁS,США,0,,,,False,True,EPG.ONE epg2,EPG only,,674b16567d6260d1,,,,,,ok,220x132,landscape,yes,no
 USA,США,0,,,,False,False,,no logo,,,,,,,,,,,,
-TNT,США,38,TV.TEAM full,2026-11-07 21:00,2026-11-10 06:30,False,True,EPG.ONE epg2,EPG only,,22b5f936563f778f,,,,,,ok,220x132,landscape,yes,no
-TBS,США,79,TV.TEAM full,2026-11-07 23:30,2026-11-10 07:30,False,False,,no logo,,,,,,,,,,,,
-TLC US,США,53,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:00,False,False,,no logo,,,,,,,,,,,,
+TNT,США,68,FOX TV,2026-11-08 05:50,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,22b5f936563f778f,,,,,,ok,220x132,landscape,yes,no
+TBS,США,92,M3U Edit ALL,2026-11-08 00:00,2026-11-10 23:40,False,False,,no logo,,,,,,,,,,,,
+TLC US,США,93,TopIPTV,2026-11-07 23:50,2026-11-10 23:50,False,True,ProgramTV,EPG only,,0901f0a87e4036b2,,,,,,ok,160x120,landscape,no,no
 FXM en,США,0,,,,False,True,EPG.ONE epg2,EPG only,,df5e032a0afbb14e,,,,,,ok,220x132,landscape,yes,no
 A&E,США,137,M3U Edit ALL,2026-11-07 23:10,2026-11-10 23:50,False,True,M3U Edit ALL,EPG only,,61721b7d2544e094,,,,,,ok,584x585,square,yes,indeterminate
 CNBC,США,125,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,15726579b9eccc51,,,,,,ok,220x132,landscape,yes,no
-FOX SPORTS 1 US,США,32,TV.TEAM full,2026-11-07 23:30,2026-11-10 07:30,False,True,EPG.ONE epg2,EPG only,,4d7cec739f82dd35,,,,,,ok,220x132,landscape,yes,no
-FOX SPORTS 2 US,США,40,TV.TEAM full,2026-11-07 20:30,2026-11-10 07:30,False,False,,no logo,,,,,,,,,,,,
+FOX SPORTS 1 US,США,0,,,,False,True,EPG.ONE epg2,EPG only,,4d7cec739f82dd35,,,,,,ok,220x132,landscape,yes,no
+FOX SPORTS 2 US,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 CBS SPORTS NETWORK US,США,58,IPTVX full,2026-11-07 21:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,52644bcfdff2e862,,,,,,ok,220x132,landscape,yes,no
 MSG US,США,77,IPTVX full,2026-11-07 23:30,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,6fdfe284cc2ea8b9,,,,,,ok,220x132,landscape,yes,indeterminate
 MSG 2 US,США,0,,,,False,True,EPG.ONE epg2,EPG only,,7939e72248e91ef4,,,,,,ok,220x132,landscape,yes,indeterminate
-NBC SPORTS NETWORK US,США,44,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:34,False,True,EPG.ONE epg2,EPG only,,55e6509423fd3c9a,,,,,,ok,220x132,landscape,yes,no
+NBC SPORTS NETWORK US,США,0,,,,False,True,EPG.ONE epg2,EPG only,,55e6509423fd3c9a,,,,,,ok,220x132,landscape,yes,no
 NHL Network HD US,США,62,TV.TEAM full,2026-11-08 00:00,2026-11-10 06:00,False,True,EPG.ONE epg2,EPG only,,220435a823a1fb83,,,,,,ok,220x132,landscape,yes,no
 AT&T SPORTSNET HD,США,0,,,,False,True,EPG.ONE epg2,EPG only,,51ca2d49ed08d664,,,,,,ok,220x132,landscape,yes,no
 SPECTRUM SPORTSNET,США,0,,,,False,True,EPG.ONE epg2,EPG only,,bbd35992aed6b9ea,,,,,,ok,220x132,landscape,yes,no
@@ -2677,14 +2677,14 @@ FanDuel Sports Network West Plus,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 [Spectrum] Science Channel HD,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 FanDuel Sports Network Wisconsin,США,72,M3U Edit ALL,2026-11-07 23:00,2026-11-10 22:00,False,True,M3U Edit ALL,EPG only,,acc1a52546690490,,,,,,ok,240x135,landscape,yes,no
 FanDuel Sports Network Wisconsin Plus,США,0,,,,False,False,,no logo,,,,,,,,,,,,
-beIN Sports,США,47,IPTVX full,2026-11-07 23:30,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,ccb67174165a0d6c,,,,,,ok,220x132,landscape,yes,no
-beIN Sports 2,США,38,IPTVX full,2026-11-07 22:30,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,6a0d6276c4d128b5,,,,,,ok,220x132,landscape,yes,no
-beIN Sports 3,США,38,IPTVX full,2026-11-07 22:45,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,6fa8eec8cc190a52,,,,,,ok,220x132,landscape,yes,no
-beIN Sports 4,США,47,IPTVX full,2026-11-08 00:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,f157272050c5236d,,,,,,ok,220x132,landscape,yes,no
+beIN Sports,США,41,IPTVX full,2026-11-07 23:30,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,ccb67174165a0d6c,,,,,,ok,220x132,landscape,yes,no
+beIN Sports 2,США,38,IPTVX full,2026-11-07 22:30,2026-11-10 22:50,False,True,IPTVX full,EPG only,,1aa8002b41cb9aa8,,,,,,ok,200x200,square,yes,indeterminate
+beIN Sports 3,США,38,IPTVX full,2026-11-07 22:45,2026-11-10 23:00,False,True,IPTVX full,EPG only,,17e912e3e25ede88,,,,,,ok,200x200,square,yes,indeterminate
+beIN Sports 4,США,47,IPTVX full,2026-11-08 00:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,312ae125a47206c4,,,,,,ok,220x132,landscape,yes,no
 beIN Sports 5,США,38,IPTVX full,2026-11-07 20:50,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,fa19cf4975a4a893,,,,,,ok,220x132,landscape,yes,no
 beIN Sports 6,США,39,IPTVX full,2026-11-07 21:30,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,b6e07d166e61673f,,,,,,ok,220x132,landscape,yes,no
 beIN Sports 7,США,39,IPTVX full,2026-11-08 00:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,113369ae4866d597,,,,,,ok,220x132,landscape,yes,no
-beIN Sports USA,США,82,BCU Media,2026-11-08 09:00,2026-11-10 23:00,False,True,BCU Media,EPG only,,e78748dc53c6d671,,,,,,ok,240x135,landscape,yes,no
+beIN Sports USA,США,0,,,,False,False,,no logo,,,,,,,,,,,,
 Monumental Sports Network,США,0,,,,False,True,EPG.ONE epg2,EPG only,,3926797b3a4f9083,,,,,,ok,220x132,landscape,yes,no
 [Spectrum] Smithsonian Channel HD,США,0,,,,False,True,EPG.ONE epg2,EPG only,,787555c8526311ac,,,,,,ok,220x132,landscape,yes,no
 [Spectrum] TBS HD,США,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -2703,8 +2703,8 @@ Monumental Sports Network,США,0,,,,False,True,EPG.ONE epg2,EPG only,,3926797b
 ICTV 2 HD UA,Украина,1,EPG.ONE epg2,2026-11-07 05:05,2026-11-07 05:05,False,True,EPG.ONE epg2,EPG only,,2d6165fe52560e5b,,,,,,ok,220x132,landscape,yes,no
 НТН HD UA,Украина,17,EPG.ONE epg2,2026-11-07 23:45,2026-11-09 05:25,False,True,EPG.ONE epg2,EPG only,,dd125c3017159702,,,,,,ok,220x132,landscape,yes,no
 Сфера ТВ HD UA,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,c63a46251b4fe6d2,,,,,,ok,220x132,landscape,yes,yes
-Наше Улюблене Кіно HD UA,Украина,52,IPTVX full,2026-11-07 23:49,2026-11-10 23:04,False,True,IPTVX full,EPG only,,ed866acad18f3ce6,,,,,,ok,200x200,square,yes,indeterminate
-5 Канал UA,Украина,45,TV.TEAM full,2026-11-08 00:00,2026-11-09 04:45,False,False,,no logo,,,,,,,,,,,,
+Наше Улюблене Кіно HD UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
+5 Канал UA,Украина,105,Satfor,2026-11-08 00:00,2026-11-10 23:45,False,False,,no logo,,,,,,,,,,,,
 FilmBox orig UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 24 Канал UA,Украина,95,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,4a830be3dd19075e,,,,,,ok,200x200,square,yes,yes
 Надiя ТВ UA,Украина,168,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,4c38009938e65936,,,,,,ok,220x132,landscape,yes,no
@@ -2717,7 +2717,7 @@ EU Music HD UA,Украина,9,EPG.ONE epg2,2026-11-07 22:00,2026-11-09 06:00,F
 К2 HD UA,Украина,96,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,b7e50f7921ff4dff,,,,,,ok,220x132,landscape,yes,no
 К1 UA,Украина,106,IPTVX full,2026-11-07 23:30,2026-11-10 23:40,False,True,IPTVX full,EPG only,,3ba3ed9ee002fc75,,,,,,ok,200x200,square,yes,indeterminate
 К1 HD UA,Украина,106,IPTVX full,2026-11-07 23:30,2026-11-10 23:40,False,True,IPTVX full,EPG only,,3ba3ed9ee002fc75,,,,,,ok,200x200,square,yes,indeterminate
-Kvartal TV UA,Украина,63,FOX TV,2026-11-08 00:00,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
+Kvartal TV UA,Украина,63,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,f72e978a58f5c8c0,,,,,,ok,200x200,square,yes,indeterminate
 Enter,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Enter,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Новий Канал UA,Украина,57,EPG.ONE epg2,2026-11-07 21:45,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,b12facc715c0bf97,,,,,,ok,220x132,landscape,yes,no
@@ -2731,21 +2731,21 @@ Enter,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Рада,Украина,39,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 06:00,False,True,EPG.ONE epg2,EPG only,,a0e4749f359d2269,,,,,,ok,220x132,landscape,yes,no
 Первый городской,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 СК1,Украина,5,EPG.ONE epg2,2026-11-07 22:00,2026-11-09 06:00,False,True,EPG.ONE epg2,EPG only,,d45ff0fd9818eb58,,,,,,ok,220x132,landscape,yes,no
-1+1 Україна UA,Украина,36,TV.TEAM full,2026-11-08 00:00,2026-11-10 07:30,False,False,,no logo,,,,,,,,,,,,
+1+1 Україна UA,Украина,50,FOX TV,2026-11-08 06:00,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
 Bolt UA,Украина,86,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,7f480c319a9acdcc,,,,,,ok,220x132,landscape,yes,yes
 Star Cinema HD UA,Украина,32,EPG.ONE epg2,2026-11-07 21:50,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,378fafdc8a8603a3,,,,,,ok,220x132,landscape,yes,no
 Чернiвецький Промiнь,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,6cd7119f34dc371d,,,,,,ok,220x132,landscape,yes,indeterminate
 Перший UA,Украина,44,IPTVX full,2026-11-07 22:30,2026-11-10 06:30,False,True,IPTVX full,EPG only,,189c4d4d1490b3a7,,,,,,ok,200x200,square,yes,indeterminate
 Суспільне Крим HD UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Obozrevatel TV HD UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
-5 Канал HD UA,Украина,45,TV.TEAM full,2026-11-08 00:00,2026-11-09 04:45,False,False,,no logo,,,,,,,,,,,,
+5 Канал HD UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Свiтло UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Інтер HD UA,Украина,80,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,6bd9a288afd4a85d,,,,,,ok,220x132,landscape,yes,no
 Телеканал Рибалка,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 1+1 Марафон UA,Украина,74,IPTVX full,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,f391485a45bd19fb,,,,,,ok,220x132,landscape,yes,no
 2+2 UA,Украина,31,IPTVX full,2026-11-07 23:50,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,4a1d0029b06356d2,,,,,,ok,220x132,landscape,yes,no
 Бiгудi UA,Украина,51,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,2e0c8dd0be5db4fb,,,,,,ok,200x200,square,yes,no
-NTA UA,Украина,139,TV.TEAM full,2026-11-07 23:45,2026-11-10 07:45,False,False,,no logo,,,,,,,,,,,,
+NTA UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТВА,Украина,95,IPTVX full,2026-11-07 23:10,2026-11-10 23:20,False,True,IPTVX full,EPG only,,c183fb978b0d8b3e,,,,,,ok,200x200,square,yes,indeterminate
 Zoom UA,Украина,87,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,ff68c25b841c5e67,,,,,,ok,220x132,landscape,yes,no
 Zoom HD UA,Украина,87,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,ff68c25b841c5e67,,,,,,ok,220x132,landscape,yes,no
@@ -2754,18 +2754,18 @@ Eco TV HD UA,Украина,73,IPTVX full,2026-11-07 23:30,2026-11-10 23:30,Fals
 ТЕТ,Украина,68,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,a04378f5d7a4a0ce,,,,,,ok,220x132,landscape,yes,no
 Сонце,Украина,9,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 16:00,False,True,EPG.ONE epg2,EPG only,,375bf410fb60b631,,,,,,ok,220x132,landscape,yes,no
 Прямий HD,Украина,56,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,1937190533a9dd82,,,,,,ok,220x132,landscape,yes,no
-УНІАН,Украина,31,TopIPTV,2026-11-07 22:15,2026-11-10 22:15,False,False,,no logo,,,,,,,,,,,,
-7 Канал UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
+УНІАН,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
+7 Канал UA,Украина,74,Satfor,2026-11-07 23:40,2026-11-10 23:50,False,False,,no logo,,,,,,,,,,,,
 ТРК Круг,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 ТРК Київ,Украина,23,IPTVX full,2026-11-08 00:00,2026-11-10 23:10,False,True,IPTVX full,EPG only,,52f2ad5088149790,,,,,,ok,200x200,square,yes,indeterminate
 8 Канал UA HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 TVA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
-24 Канал HD UA,Украина,95,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,4a830be3dd19075e,,,,,,ok,200x200,square,yes,yes
+24 Канал HD UA,Украина,95,Satfor,2026-11-08 00:00,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
 4 Канал HD UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 UA:Тернопіль,Украина,27,IPTVX full,2026-11-07 23:20,2026-11-09 05:45,False,True,IPTVX full,EPG only,,bd40dd13c475f5b4,,,,,,ok,200x200,square,yes,indeterminate
 ICTV UA,Украина,58,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 05:00,False,True,EPG.ONE epg2,EPG only,,e81de3af8a214a97,,,,,,ok,220x132,landscape,yes,no
 ICTV HD UA,Украина,58,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 05:00,False,True,EPG.ONE epg2,EPG only,,e81de3af8a214a97,,,,,,ok,220x132,landscape,yes,no
-СТБ UA,Украина,28,TV.TEAM full,2026-11-07 20:00,2026-11-09 06:15,False,False,,no logo,,,,,,,,,,,,
+СТБ UA,Украина,87,TopIPTV,2026-11-07 20:00,2026-11-10 23:45,False,False,,no logo,,,,,,,,,,,,
 СТБ HD,Украина,83,IPTVX full,2026-11-07 20:00,2026-11-10 23:45,False,True,IPTVX full,EPG only,,ba1790b5a7101c9a,,,,,,ok,200x200,square,yes,indeterminate
 Інтер UA,Украина,80,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,6bd9a288afd4a85d,,,,,,ok,220x132,landscape,yes,no
 XSPORT UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -2779,32 +2779,32 @@ Sport 2 UA,Украина,42,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 22:20,Fals
 Еспресо TV HD UA,Украина,93,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,dc8fa4e697d84e8d,,,,,,ok,220x132,landscape,yes,no
 Болт HD UA,Украина,69,TV.TEAM full,2026-11-07 23:50,2026-11-10 07:30,False,False,,no logo,,,,,,,,,,,,
 Пiксель TV UA,Украина,384,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,d10dab01624b8e37,,,,,,ok,220x132,landscape,yes,no
-Перший HD UA,Украина,44,IPTVX full,2026-11-07 22:30,2026-11-10 06:30,False,True,IPTVX full,EPG only,,189c4d4d1490b3a7,,,,,,ok,200x200,square,yes,indeterminate
+Перший HD UA,Украина,43,TV.TEAM full,2026-11-07 22:30,2026-11-09 06:30,False,False,,no logo,,,,,,,,,,,,
 Star Cinema Россия HD,Украина,82,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,2a3dfbaa90824d21,,,,,,ok,220x132,landscape,yes,no
 Star Family Россия HD,Украина,83,EPG.ONE epg2,2026-11-07 23:25,2026-11-10 23:25,False,True,EPG.ONE epg2,EPG only,,6e23f8fef661293f,,,,,,ok,220x132,landscape,yes,no
-8 Канал UA,Украина,18,TV.TEAM full,2026-11-07 22:00,2026-11-10 07:00,False,False,,no logo,,,,,,,,,,,,
+8 Канал UA,Украина,55,IPTVX full,2026-11-07 21:00,2026-11-10 22:00,False,True,IPTVX full,EPG only,,7b502d449e74db3a,,,,,,ok,200x200,square,yes,yes
 Бігуді UA,Украина,16,TV.TEAM full,2026-11-07 23:00,2026-11-09 05:30,False,False,,no logo,,,,,,,,,,,,
 NIKI Kids HD UA,Украина,413,EPG.ONE epg2,2026-11-07 23:51,2026-11-10 23:51,False,True,EPG.ONE epg2,EPG only,,44c3547f2ba9da7e,,,,,,ok,220x132,landscape,yes,no
 NIKI Junior HD UA,Украина,417,EPG.ONE epg2,2026-11-07 23:58,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,bdbf7bd4184da988,,,,,,ok,220x132,landscape,yes,no
-М1 HD UA,Украина,24,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,2d767dc5c76b5d0f,,,,,,ok,200x200,square,yes,yes
-М2 HD UA,Украина,17,IPTVX full,2026-11-07 22:00,2026-11-10 22:00,False,True,IPTVX full,EPG only,,4d2dcbd310641028,,,,,,ok,200x200,square,yes,indeterminate
+М1 HD UA,Украина,24,TopIPTV,2026-11-08 00:00,2026-11-10 23:00,False,False,,no logo,,,,,,,,,,,,
+М2 HD UA,Украина,6,TV.TEAM full,2026-11-07 22:00,2026-11-08 23:00,False,False,,no logo,,,,,,,,,,,,
 ICTV UA,Украина,58,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 05:00,False,True,EPG.ONE epg2,EPG only,,e81de3af8a214a97,,,,,,ok,220x132,landscape,yes,no
 Новий Канал UA,Украина,57,EPG.ONE epg2,2026-11-07 21:45,2026-11-10 23:05,False,True,EPG.ONE epg2,EPG only,,b12facc715c0bf97,,,,,,ok,220x132,landscape,yes,no
-Апостроф TV HD UA,Украина,41,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,e3021987e4db63b8,,,,,,ok,220x132,landscape,yes,no
+Апостроф TV HD UA,Украина,21,TV.TEAM full,2026-11-08 00:00,2026-11-09 01:50,False,True,EPG.ONE epg2,EPG only,,e3021987e4db63b8,,,,,,ok,220x132,landscape,yes,no
 Оце HD UA,Украина,78,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,52e82fc9015aa9cb,,,,,,ok,220x132,landscape,yes,no
-Перший HD UA,Украина,44,IPTVX full,2026-11-07 22:30,2026-11-10 06:30,False,True,IPTVX full,EPG only,,189c4d4d1490b3a7,,,,,,ok,200x200,square,yes,indeterminate
+Перший HD UA,Украина,43,TV.TEAM full,2026-11-07 22:30,2026-11-09 06:30,False,False,,no logo,,,,,,,,,,,,
 ТЕТ HD,Украина,68,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:30,False,True,EPG.ONE epg2,EPG only,,a04378f5d7a4a0ce,,,,,,ok,220x132,landscape,yes,no
 2+2 HD UA,Украина,25,TV.TEAM full,2026-11-07 23:50,2026-11-10 07:20,False,True,EPG.ONE epg2,EPG only,,4a1d0029b06356d2,,,,,,ok,220x132,landscape,yes,no
 ПлюсПлюс HD,Украина,109,EPG.ONE epg2,2026-11-07 22:50,2026-11-10 22:50,False,True,EPG.ONE epg2,EPG only,,a8c32a9f08913729,,,,,,ok,220x132,landscape,yes,no
 Оце UA,Украина,78,EPG.ONE epg2,2026-11-07 23:35,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,52e82fc9015aa9cb,,,,,,ok,220x132,landscape,yes,no
 Еспресо TV HD orig UA,Украина,93,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,dc8fa4e697d84e8d,,,,,,ok,220x132,landscape,yes,no
-Перший Автомобільний HD UA,Украина,31,IPTVX full,2026-11-07 22:00,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,4ad79ca6331e1541,,,,,,ok,220x132,landscape,yes,no
+Перший Автомобільний HD UA,Украина,22,TV.TEAM full,2026-11-07 22:00,2026-11-10 00:00,False,True,EPG.ONE epg2,EPG only,,4ad79ca6331e1541,,,,,,ok,220x132,landscape,yes,no
 Megogo live HD UA,Украина,38,IPTVX full,2026-11-08 00:00,2026-11-10 23:05,False,True,IPTVX full,EPG only,,0ef55b2f1758c796,,,,,,ok,200x200,square,yes,indeterminate
 Терра UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 XSPORT+ HD UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Star Cinema UA,Украина,32,EPG.ONE epg2,2026-11-07 21:50,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,378fafdc8a8603a3,,,,,,ok,220x132,landscape,yes,no
-FilmBox ArtHouse HD UA,Украина,58,TopIPTV,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,896fef0dc59f46e8,,,,,,ok,220x132,landscape,yes,no
-FilmBox UA,Украина,49,TopIPTV,2026-11-07 23:35,2026-11-10 23:35,False,True,ProgramTV,EPG only,,5ab573546e705c23,,,,,,ok,160x120,landscape,no,no
+FilmBox ArtHouse HD UA,Украина,56,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,896fef0dc59f46e8,,,,,,ok,220x132,landscape,yes,no
+FilmBox UA,Украина,49,TopIPTV,2026-11-07 23:35,2026-11-10 23:35,False,True,BCU Media,EPG only,,88bb9c8d1182d874,,,,,,ok,220x132,landscape,yes,no
 Караван TV UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 ПРАВДАТУТ HD UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Enter-фільм HD UA,Украина,22,TV.TEAM full,2026-11-08 00:00,2026-11-09 06:30,False,False,,no logo,,,,,,,,,,,,
@@ -2817,21 +2817,21 @@ EU Music UA,Украина,9,EPG.ONE epg2,2026-11-07 22:00,2026-11-09 06:00,Fals
 Українське радіо 3,Украина,29,IPTVX full,2026-11-08 00:00,2026-11-09 06:00,False,True,EPG.ONE epg2,EPG only,,c3c4cb412a4d7380,,,,,,ok,220x132,landscape,yes,no
 Уніaн HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Фауна,Украина,139,IPTVX full,2026-11-07 23:41,2026-11-10 23:56,False,True,EPG.ONE epg2,EPG only,,b3305c5214cc6870,,,,,,ok,220x132,landscape,yes,no
-Масон ТВ HD,Украина,55,IPTVX full,2026-11-07 23:39,2026-11-09 06:46,False,True,IPTVX full,EPG only,,183ec7c90e98a944,,,,,,ok,200x200,square,yes,indeterminate
+Масон ТВ HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Ми Україна HD,Украина,80,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:15,False,True,EPG.ONE epg2,EPG only,,a3c9fc38832a1320,,,,,,ok,220x132,landscape,yes,no
-НТА HD,Украина,178,IPTVX full,2026-11-07 23:45,2026-11-10 23:45,False,True,IPTVX full,EPG only,,6c7109be1d17b331,,,,,,ok,200x200,square,yes,indeterminate
+НТА HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Наука,Украина,117,EPG.ONE epg2,2026-11-07 23:20,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,d5f80dbd3c9e171d,,,,,,ok,220x132,landscape,yes,no
 Обозреватель HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Перший Міський Кривий Ріг HD,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,9c002501553f2900,,,,,,ok,220x132,landscape,yes,no
-Перший Міський Одеса HD,Украина,5,TV.TEAM full,2026-11-07 19:00,2026-11-09 03:25,False,True,EPG.ONE epg2,EPG only,,097557fc01193f69,,,,,,ok,220x132,landscape,yes,no
+Перший Міський Одеса HD,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,097557fc01193f69,,,,,,ok,220x132,landscape,yes,no
 Рада HD,Украина,39,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 06:00,False,True,EPG.ONE epg2,EPG only,,a0e4749f359d2269,,,,,,ok,220x132,landscape,yes,no
 Радіо TVA,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,6c630f32be42764e,,,,,,ok,220x132,landscape,yes,no
 Радіо Закарпаття FM,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,a0176638f1d1f02e,,,,,,ok,220x132,landscape,yes,no
 Радіо Промінь,Украина,37,IPTVX full,2026-11-07 22:21,2026-11-08 22:00,False,True,EPG.ONE epg2,EPG only,,a2288a760a9d828a,,,,,,ok,220x132,landscape,yes,no
-Рибалка HD,Украина,139,IPTVX full,2026-11-07 23:50,2026-11-10 23:50,False,True,IPTVX full,EPG only,,913ba4a9d0209093,,,,,,ok,200x200,square,yes,indeterminate
-Світло HD,Украина,106,IPTVX full,2026-11-07 23:40,2026-11-10 23:25,False,True,IPTVX full,EPG only,,c1275dfdac0304cb,,,,,,ok,200x200,square,yes,indeterminate
+Рибалка HD,Украина,137,Satfor,2026-11-07 23:50,2026-11-10 23:50,False,False,,no logo,,,,,,,,,,,,
+Світло HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Суспільне Київ HD,Украина,27,EPG.ONE epg2,2026-11-07 23:20,2026-11-09 05:45,False,True,EPG.ONE epg2,EPG only,,c90be260225acd22,,,,,,ok,220x132,landscape,yes,no
-Суспільне Крим HD,Украина,44,IPTVX full,2026-11-07 22:30,2026-11-10 06:30,False,True,IPTVX full,EPG only,,a17f2a728bec4d72,,,,,,ok,200x200,square,yes,indeterminate
+Суспільне Крим HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Суспільне Культура HD,Украина,72,EPG.ONE epg2,2026-11-07 21:35,2026-11-10 22:00,False,True,EPG.ONE epg2,EPG only,,fd3ed37bd0db227e,,,,,,ok,220x132,landscape,yes,no
 Суспільне Новини,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Суспільне Новини HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
@@ -2844,10 +2844,10 @@ Tak TV HD UA,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 Utravel HD,Украина,209,EPG.ONE epg2,2026-11-07 23:40,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,43013335d704bc5f,,,,,,ok,220x132,landscape,yes,no
 Viasat Kino Action HD,Украина,42,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,f84ebbae8d518a42,,,,,,ok,220x132,landscape,yes,no
 Viasat Kino Comedy HD,Украина,38,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,2ee6134530b9dbeb,,,,,,ok,220x132,landscape,yes,no
-Viasat Kino HD,Украина,37,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,f14f8fd0b91c8959,,,,,,ok,220x132,landscape,yes,no
+Viasat Kino HD,Украина,37,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,729fbd8c9d104f22,,,,,,ok,220x132,landscape,yes,no
 Viasat Nature CEE HD,Украина,29,EPG.ONE epg2,2026-11-07 23:50,2026-11-09 06:00,False,True,EPG.ONE epg2,EPG only,,039cc56838e0e949,,,,,,ok,220x132,landscape,yes,no
 Viasat Kino World,Украина,43,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 23:50,False,True,EPG.ONE epg2,EPG only,,5644c9515d1babe3,,,,,,ok,220x132,landscape,yes,no
-Ісландія HD,Украина,18,IPTVX full,2026-11-07 23:48,2026-11-09 00:50,False,True,EPG.ONE epg2,EPG only,,66c528c2131250ee,,,,,,ok,220x132,landscape,yes,indeterminate
+Ісландія HD,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,66c528c2131250ee,,,,,,ok,220x132,landscape,yes,indeterminate
 Аверс,Украина,182,EPG.ONE epg2,2026-11-07 23:45,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,631d7b2b8a2c3918,,,,,,ok,220x132,landscape,yes,no
 Армія ТБ HD,Украина,11,EPG.ONE epg2,2026-11-07 06:48,2026-11-09 06:23,False,True,EPG.ONE epg2,EPG only,,fb102de8d9b4f351,,,,,,ok,220x132,landscape,yes,no
 Галичина HD,Украина,126,EPG.ONE epg2,2026-11-07 22:30,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,ab51cab7c025545d,,,,,,ok,220x132,landscape,yes,no
@@ -2858,16 +2858,16 @@ Viasat Kino World,Украина,43,EPG.ONE epg2,2026-11-07 22:00,2026-11-10 23:
 ЕТНО Канал HD,Украина,72,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,37c63652834f0c3a,,,,,,ok,200x200,square,yes,indeterminate
 Закон ТВ HD,Украина,41,IPTVX full,2026-11-07 23:34,2026-11-09 06:58,False,True,IPTVX full,EPG only,,eb105c570d4764a0,,,,,,ok,200x200,square,yes,indeterminate
 Канал 24 HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
-RAZ 3 HD,Украина,63,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,f72e978a58f5c8c0,,,,,,ok,200x200,square,yes,indeterminate
-Київ HD,Украина,23,Satfor,2026-11-08 00:00,2026-11-10 23:10,False,False,,no logo,,,,,,,,,,,,
+RAZ 3 HD,Украина,30,TV.TEAM full,2026-11-08 00:00,2026-11-09 06:30,False,False,,no logo,,,,,,,,,,,,
+Київ HD,Украина,0,,,,False,False,,no logo,,,,,,,,,,,,
 1+1 Україна HD,Украина,46,IPTVX full,2026-11-08 00:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,a937e1c7301da3ba,,,,,,ok,200x200,square,yes,indeterminate
 11 Канал Дніпро,Украина,138,EPG.ONE epg2,2026-11-08 00:00,2026-11-10 23:20,False,True,EPG.ONE epg2,EPG only,,3eeb9080798d967e,,,,,,ok,220x132,landscape,yes,yes
 36.6,Украина,6,EPG.ONE epg2,2026-11-08 05:20,2026-11-10 05:45,False,True,EPG.ONE epg2,EPG only,,df44923b268afb11,,,,,,ok,220x132,landscape,yes,no
 4Ever Cinema HD,Украина,15,EPG.ONE epg2,2026-11-07 23:13,2026-11-08 22:26,False,True,EPG.ONE epg2,EPG only,,603fe71127c8ff16,,,,,,ok,220x132,landscape,yes,indeterminate
-5 Канал HD,Украина,110,IPTVX full,2026-11-08 00:00,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,ee9d586c6069672e,,,,,,ok,220x132,landscape,yes,indeterminate
+5 Канал HD,Украина,110,IPTVX full,2026-11-08 00:00,2026-11-10 23:45,False,True,IPTVX full,EPG only,,bb8e07e8cb1a2eda,,,,,,ok,200x200,square,yes,yes
 6 Соток,Украина,182,EPG.ONE epg2,2026-11-07 23:51,2026-11-10 23:51,False,True,EPG.ONE epg2,EPG only,,615aee9fe086cfd9,,,,,,ok,220x132,landscape,yes,no
 AMC,Украина,59,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,cf1755f482df9e25,,,,,,ok,220x132,landscape,yes,no
-Bolt HD UA,Украина,86,EPG.ONE epg2,2026-11-07 23:50,2026-11-10 23:35,False,True,EPG.ONE epg2,EPG only,,7f480c319a9acdcc,,,,,,ok,220x132,landscape,yes,yes
+Bolt HD UA,Украина,90,IPTVX full,2026-11-07 23:25,2026-11-10 23:40,False,True,IPTVX full,EPG only,,c912eaa7f6fa96ab,,,,,,ok,200x200,square,yes,indeterminate
 Cine+ HD,Украина,37,IPTVX full,2026-11-07 23:00,2026-11-10 23:40,False,True,EPG.ONE epg2,EPG only,,5223e42a9955a2f8,,,,,,ok,220x132,landscape,yes,indeterminate
 Cine+ Hit HD,Украина,39,IPTVX full,2026-11-07 23:45,2026-11-10 21:40,False,True,EPG.ONE epg2,EPG only,,e7246e2f1d898642,,,,,,ok,220x132,landscape,yes,no
 Cine+ Kids HD,Украина,54,IPTVX full,2026-11-07 23:25,2026-11-10 23:45,False,True,EPG.ONE epg2,EPG only,,bd16691df34fa415,,,,,,ok,220x132,landscape,yes,no
@@ -2878,11 +2878,11 @@ Divi Sport HD,Украина,35,EPG.ONE epg2,2026-11-07 18:30,2026-11-10 21:30,F
 Equalympic HD,Украина,40,EPG.ONE epg2,2026-11-07 23:00,2026-11-10 23:00,False,True,EPG.ONE epg2,EPG only,,1819f818f52699f6,,,,,,ok,220x132,landscape,yes,no
 Fashion TV HD,Украина,719,EPG.ONE epg2,2026-11-08 00:05,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,416d9f9045385806,,,,,,ok,220x132,landscape,yes,no
 Film UA Drama,Украина,85,IPTVX full,2026-11-07 23:55,2026-11-10 23:55,False,True,EPG.ONE epg2,EPG only,,7fa087d40f93cc49,,,,,,ok,220x132,landscape,yes,no
-FILMBOX+ Festival HD,Украина,56,IPTVX full,2026-11-07 23:00,2026-11-10 23:00,False,True,IPTVX full,EPG only,,1cbac38f4ac6d518,,,,,,ok,200x200,square,yes,indeterminate
+FILMBOX+ Festival HD,Украина,43,TV.TEAM full,2026-11-07 23:00,2026-11-10 06:25,False,False,,no logo,,,,,,,,,,,,
 FilmUA Live HD,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,54af1a466004ff64,,,,,,ok,220x132,landscape,yes,no
-FlixSnip HD,Украина,361,IPTVX full,2026-11-07 23:48,2026-11-10 23:48,False,True,IPTVX full,EPG only,,71ee06cf270d4763,,,,,,ok,200x200,square,yes,indeterminate
+FlixSnip HD,Украина,284,TV.TEAM full,2026-11-07 23:48,2026-11-10 07:47,False,True,BCU Media,EPG only,,c8bb3546f7eef27f,,,,,,ok,220x62,landscape,yes,no
 FREEДОМ UATV,Украина,0,,,,False,True,EPG.ONE epg2,EPG only,,fc7bd839842155d4,,,,,,ok,220x132,landscape,yes,no
-K1,Украина,43,TV.TEAM full,2026-11-07 23:30,2026-11-09 06:35,False,True,M3U Edit ALL,EPG only,,9db462b31686307b,,,,,,invalid_image,,,,
+K1,Украина,101,Satfor,2026-11-07 23:30,2026-11-10 23:40,False,True,M3U Edit ALL,EPG only,,9db462b31686307b,,,,,,invalid_image,,,,
 Kino Action HD,Украина,41,IPTVX full,2026-11-07 22:39,2026-11-10 22:24,False,True,EPG.ONE epg2,EPG only,,899c351391f4ec4f,,,,,,ok,220x132,landscape,yes,no
 Kino Comedy HD,Украина,28,IPTVX full,2026-11-08 10:05,2026-11-10 06:15,False,True,EPG.ONE epg2,EPG only,,67d7578f9d7c95aa,,,,,,ok,220x132,landscape,yes,no
 Kino Premiere HD,Украина,33,IPTVX full,2026-11-07 23:57,2026-11-10 12:07,False,True,EPG.ONE epg2,EPG only,,28871f90bf193154,,,,,,ok,220x132,landscape,yes,no

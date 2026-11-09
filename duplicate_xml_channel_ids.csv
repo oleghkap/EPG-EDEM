@@ -13,24 +13,24 @@ BCU Media,Stingray iConcerts HD,2,Stingray iConcerts HD,,
 BCU Media,FunBox 4K,2,FunBox 4K,,
 BCU Media,Redlight HD (18+),2,Redlight HD (18+),,
 FOX TV,1:38,2,Animal Planet | Animal Planet  HD,Animal Planet HD | Animal Planet,1912 | 1913
-FOX TV,1:1185,2,Discovery Channel | Discovery Channel HD,Discovery Channel HD | Discovery Channel | Discovery Channel HD orig,1906 | 1907 | 1994
+FOX TV,1:1185,2,Discovery Channel | Discovery Channel HD,Discovery Channel HD | Discovery Channel,1906 | 1907
 FOX TV,1:121,2,Galaxy TV | Galaxy TV HD,,
 FOX TV,1:1216,2,Cinemax | Cinemax 2,,
-FOX TV,1:307,2,Домашний | Домашний HD,Домашний | Домашний orig | Домашний HD | Домашний +0 (Невинномысск) | Домашний +0 (Тамбов) | Домашний +0 (Белгород),76 | 124 | 125 | 190 | 292 | 296
-FOX TV,1:408,2,НТВ | НТВ HD,НТВ HD | НТВ | НТВ HD orig | НТВ orig | НТВ +0 (Липецк) | НТВ +0 (Невинномысск) | НТВ +0 (Белгород) | НТВ +0 (Элиста) | НТВ +0 (Тамбов),16 | 19 | 110 | 145 | 184 | 191 | 255 | 275 | 288
-FOX TV,1:487,2,Рен ТВ | Рен ТВ HD,РЕН ТВ HD | РЕН ТВ | РЕН ТВ HD orig | РЕН ТВ orig | РЕН ТВ +0 (Невинномысск) | РЕН ТВ +0 (Элиста) | РЕН ТВ +0 (Тамбов) | РЕН ТВ +0 (Белгород),45 | 46 | 108 | 147 | 196 | 279 | 290 | 298
+FOX TV,1:307,2,Домашний | Домашний HD,Домашний | Домашний HD,76 | 125
+FOX TV,1:408,2,НТВ | НТВ HD,НТВ HD | НТВ,16 | 19
+FOX TV,1:487,2,Рен ТВ | Рен ТВ HD,РЕН ТВ HD | РЕН ТВ,45 | 46
 FOX TV,1:512,2,HD REX | Russian Extreme Ultra HD,,
-FOX TV,1:534,2,СТС | СТС HD,СТС | СТС +0 (Невинномысск) | СТС +0 (Элиста) | СТС +0 (Тамбов) | СТС +0 (Белгород) | СТС HD | СТС HD orig,41 | 198 | 280 | 291 | 297 | 2121 | 2126
+FOX TV,1:534,2,СТС | СТС HD,СТС | СТС HD,41 | 2121
 FOX TV,1:552,2,ТВ3 | ТВ3 HD,,
-FOX TV,1:951,2,ТНТ | ТНТ HD,ТНТ FHD | ТНТ HD | ТНТ | ТНТ orig | ТНТ HD orig | ТНТ +0 (Невинномысск) | ТНТ +0 (Липецк) | ТНТ +0 (Белгород) | ТНТ +0 (Элиста) | ТНТ +0 (Тамбов) | ТНТ HD 50,35 | 36 | 37 | 146 | 155 | 200 | 230 | 263 | 284 | 294 | 2122
-FOX TV,1:577,2,ТНТ4 | ТНТ4 HD,ТНТ4 | ТНТ4 orig | ТНТ4 HD | ТНТ4 +0 (Тамбов),83 | 150 | 2124 | 2142
+FOX TV,1:951,2,ТНТ | ТНТ HD,ТНТ HD | ТНТ,36 | 37
+FOX TV,1:577,2,ТНТ4 | ТНТ4 HD,ТНТ4 | ТНТ4 HD,83 | 2124
 FOX TV,7:4011,2,Yam Tihoni 2 IL | Yam Tihoni IL,,
 Satfor,2plus2,2,2+2 | 2+2 HD,2+2 UA | 2+2 HD UA,2744 | 2795
 Satfor,24_ua,2,24 канал | 24 канал HD,24 Канал UA | 24 Канал HD UA,2707 | 2761
 Satfor,amedia1,2,Amedia 1 | Amedia 1 HD,Amedia 1,478
-Satfor,amedia2,2,Amedia 2 | Amedia 2 HD,Amedia 2 HD | Amedia 2 | Amedia 2 orig,459 | 467 | 560
-Satfor,amedia-hit,2,Amedia Hit | Amedia Hit HD,Amedia Hit HD | Amedia Hit | Amedia Hit HD orig | Amedia Hit orig,418 | 480 | 545 | 596
-Satfor,amedia-premium,2,Amedia Premium | Amedia Premium HD,Amedia Premium HD | Amedia Premium | Amedia Premium HD orig | Amedia Premium orig,446 | 479 | 533 | 595
+Satfor,amedia2,2,Amedia 2 | Amedia 2 HD,Amedia 2 HD | Amedia 2,459 | 467
+Satfor,amedia-hit,2,Amedia Hit | Amedia Hit HD,Amedia Hit HD | Amedia Hit,418 | 480
+Satfor,amedia-premium,2,Amedia Premium | Amedia Premium HD,Amedia Premium HD | Amedia Premium,446 | 479
 Satfor,bcu_action,2,BCU Action HD | BCU Action HDR,BCU Action HD,667
 Satfor,bcu_fantastic,2,BCU Fantastic HD | BCU Fantastic HDR,BCU Fantastic HD,672
 Satfor,bcu_kinop1,2,BCU Premiere 1 HDR | BCU Кинозал PREMIERE 1 HD,BCU Кинозал Premiere 1 HD,663
@@ -39,14 +39,14 @@ Satfor,bcu_prem_hdr_3,2,BCU Premiere 3 HDR | BCU Кинозал PREMIERE 3 HD,BC
 Satfor,bcu_premiere,2,BCU Premiere HD | BCU Premiere HDR,BCU Premiere HD,677
 Satfor,static-2,17,CineMan ExExEx | CineMan ExExEx 2 | EroXXX | Erox HD | Evil Angel | KinoXXX | MÖDO Honey Twins | OLERO Fake Hostel | Pornbox 1 | Pornbox 2 | Sexy 1 | Sexy 2 | Sexy 3 | Sexy 4 | Tushy | Z!Adult TV | Эротические клипы для взрослых,,
 Satfor,enter-film,2,Enter-фільм | Enter-фільм HD,Enter-фільм HD UA,2808
-Satfor,fanhd,2,FAN | FAN HD,FAN HD | FAN | FAN orig,417 | 494 | 576
-Satfor,static-13,2,Fresh Concerts | Концерты популярных исполнителей,FRESH Concerts HD,1673
+Satfor,fanhd,2,FAN | FAN HD,FAN HD | FAN,417 | 494
+Satfor,static-13,2,Fresh Concerts | Концерты популярных исполнителей,,
 Satfor,static-1,10,Fresh Dance | Fresh PopHits | Fresh Retro | Fresh RussianPop | Liberty МиксМузыка | MM World Hits HD | MÖDO Top Music | SKY HIGH Music HD Ai | Z!Musiс HD | Музыкальные клипы нон-стоп,MM World Hits HD,751
-Satfor,static-15,2,Fresh Lyrics | Лирическая музыка,FRESH Lyrics HD,1675
-Satfor,static-12,2,Fresh Rock Covers | Музыкальные клипы с хитами рока и металла.,FRESH Rock Covers HD,1671
+Satfor,static-15,2,Fresh Lyrics | Лирическая музыка,,
+Satfor,static-12,2,Fresh Rock Covers | Музыкальные клипы с хитами рока и металла.,,
 Satfor,static-8,4,Fresh RockHits | MM Rock HD | Z!Rock HD | Клипы в стиле Rock,,
 Satfor,static-22,2,Fresh RussianRap | Музыкальные клипы российского рэпа,,
-Satfor,static-14,2,Fresh Sad Music | Спокойная музыка для релакса,FRESH Sad Music HD,1668
+Satfor,static-14,2,Fresh Sad Music | Спокойная музыка для релакса,,
 Satfor,1TV Sport,2,GE: 1 TV | GE: 1TV Sport,,
 Satfor,static-55,2,GL Naked&Funny | Голые и смешные,,
 Satfor,ictv-ua,2,ICTV | ICTV HD,ICTV UA | ICTV HD UA | ICTV UA,2764 | 2765 | 2789
@@ -60,12 +60,12 @@ Satfor,ltv1,2,LAT: LTV1 | LIT: TV1,,
 Satfor,ltv7,2,LAT: LTV7 | LIT: TV7,,
 Satfor,nick-jr-baltic,2,LAT: Nick Jr | LIT: Nick Jr,,
 Satfor,nickelodeon-baltic,2,LAT: Nickelodeon | LIT: Nickelodeon,,
-Satfor,star-cinema,2,LAT: Star Cinema | Star Cinema HD,,
+Satfor,star-cinema,2,LAT: Star Cinema | Star Cinema HD,Star Cinema HD UA,2734
 Satfor,star-family,2,LAT: Star Family | Star Family HD,,
 Satfor,history-viasat-en,2,LAT: Viasat History | Viasat History CEE,,
 Satfor,balticum-tv,2,LIT: Balticum | LIT: Balticum TV,,
 Satfor,LIBERTYKINOMIKS4K,2,Liberty Кино UKR 4K | Liberty Кино-микс 4K,Liberty Кино Микс 4K,915
-Satfor,static-56,2,Liberty Эротика,Liberty Эротика FHD,2505
+Satfor,static-56,2,Liberty Эротика,,
 Satfor,static-28,2,MM Disney HD | Лучшие мультфильмы Disney,,
 Satfor,static-48,2,MÖDO Music 2021 | Музыкальные клипы 2021,,
 Satfor,static-49,2,MÖDO Music 2022 | Музыкальные клипы 2022,,
@@ -74,65 +74,65 @@ Satfor,static-53,2,MÖDO Music 2024 | Музыкальные клипы 2024,,
 Satfor,static-47,4,MÖDO Music RU-UA 2021 | MÖDO Music RU-UA 2022 | MÖDO Music RU-UA 2023 | Музыкальные клипы RU и UA,,
 Satfor,static-54,2,MÖDO Music RU-UA 2024 | Музыкальные клипы RU и UA 2024,,
 Satfor,static-52,2,"MÖDO Камин | Канал ""Камин""",,
-Satfor,nat-geo-wild,2,Nat Geo Wild | Nat Geo Wild HD,Nat Geo Wild FHD | Nat Geo Wild | Nat Geo Wild HD | Nat Geo Wild orig,1909 | 1910 | 1963 | 2014
-Satfor,national-geographic,2,National Geographic | National Geographic HD,National Geographic orig | National Geographic | National Geographic HD | National Geographic HD orig,1833 | 1849 | 1855 | 1856
-Satfor,sony-tv,2,Red | Red HD,.red | .red HD | .red HD orig | .red orig,484 | 505 | 535 | 599
+Satfor,nat-geo-wild,2,Nat Geo Wild | Nat Geo Wild HD,Nat Geo Wild | Nat Geo Wild HD,1910 | 1963
+Satfor,national-geographic,2,National Geographic | National Geographic HD,National Geographic | National Geographic HD,1849 | 1855
+Satfor,sony-tv,2,Red | Red HD,.red | .red HD,484 | 505
 Satfor,russky-ekstrim,2,Rex | Rex HD,,
 Satfor,static-4,2,SKY HIGH Lo-Fi HD | Музыка для наслаждения,SKY HIGH LO FI HD,905
 Satfor,tet-ua,2,TET | TET HD,,
 Satfor,terra-ru,2,Terra | Terra HD,TERRA HD | TERRA,1899 | 1900
-Satfor,travel-adventure,2,Travel+Adventure | Travel+Adventure HD,Travel+Adventure orig | Travel+Adventure | Travel+Adventure HD orig,1869 | 1955 | 1996
-Satfor,sky-sports-f1,2,UK: Sky Sports F1 | UK: Sky Sports F1 4K,Sky Sports F1 UHD UK,1183
+Satfor,travel-adventure,2,Travel+Adventure | Travel+Adventure HD,Travel+Adventure,1955
+Satfor,sky-sports-f1,2,UK: Sky Sports F1 | UK: Sky Sports F1 4K,,
 Satfor,Z_Smile,2,Z!Smile HD,Z! Smile HD,850
-Satfor,viasat-explore,2,viju Explore | viju Explore HD,Viju Explore | Viju Explore HD | Viju Explore HD orig | Viju Explore orig,1939 | 1991 | 2013 | 2022
-Satfor,viasat-history,2,viju History | viju History HD,Viju History HD | Viju History | Viju History HD orig,1904 | 1938 | 2006
-Satfor,viasat-nature,2,viju Nature | viju Nature HD,Viju Nature orig | Viju Nature | Viju Nature HD,1863 | 1937 | 2047
-Satfor,tv1000,2,viju TV1000 | viju TV1000 HD,Viju TV1000 | Viju TV1000 HD | Viju TV1000 HD orig | Viju TV1000 orig,481 | 523 | 541 | 597
-Satfor,tv1000-action,2,viju TV1000 Action | viju TV1000 Action HD,Viju TV1000 Action | Viju TV1000 Action HD | Viju TV1000 Action HD orig | Viju TV1000 Action orig,465 | 522 | 540 | 592
-Satfor,tv1000-russkoe-kino,2,viju TV1000 Русское | viju TV1000 Русское HD,Viju TV1000 Русское | Viju TV1000 Русское HD | Viju TV1000 Русское HD orig | Viju TV1000 Русское orig,460 | 524 | 542 | 590
-Satfor,viasat-sport,2,viju+ Sport | viju+ Sport HD,Viju+ Sport HD | Viju+ Sport HD orig | Viju+ Sport | Viju+ Sport orig,1314 | 1315 | 1328 | 1356
-Satfor,avto24,2,Авто 24 | Авто 24 HD,Авто 24 HD | Авто 24 orig | Авто 24,1843 | 1874 | 1989
-Satfor,static-44,2,Актуальные события и новости из стран Азии и Росси | Большая Азия,Большая Азия HD | Большая Азия HD orig,1923 | 2015
-Satfor,detsky,2,Детский HD | Детский мир,,
-Satfor,domashny,2,Домашний | Домашний HD,Домашний | Домашний orig | Домашний HD | Домашний +0 (Невинномысск) | Домашний +0 (Тамбов) | Домашний +0 (Белгород),76 | 124 | 125 | 190 | 292 | 296
+Satfor,viasat-explore,2,viju Explore | viju Explore HD,Viju Explore | Viju Explore HD,1939 | 1991
+Satfor,viasat-history,2,viju History | viju History HD,Viju History HD | Viju History,1904 | 1938
+Satfor,viasat-nature,2,viju Nature | viju Nature HD,Viju Nature | Viju Nature HD,1937 | 2047
+Satfor,tv1000,2,viju TV1000 | viju TV1000 HD,Viju TV1000 | Viju TV1000 HD,481 | 523
+Satfor,tv1000-action,2,viju TV1000 Action | viju TV1000 Action HD,Viju TV1000 Action | Viju TV1000 Action HD,465 | 522
+Satfor,tv1000-russkoe-kino,2,viju TV1000 Русское | viju TV1000 Русское HD,Viju TV1000 Русское | Viju TV1000 Русское HD,460 | 524
+Satfor,viasat-sport,2,viju+ Sport | viju+ Sport HD,Viju+ Sport HD | Viju+ Sport,1314 | 1328
+Satfor,avto24,2,Авто 24 | Авто 24 HD,Авто 24 HD | Авто 24,1843 | 1989
+Satfor,static-44,2,Актуальные события и новости из стран Азии и Росси | Большая Азия,,
+Satfor,detsky,2,Детский HD | Детский мир,Детский HD,1774
+Satfor,domashny,2,Домашний | Домашний HD,Домашний | Домашний HD,76 | 125
 Satfor,evrokino,2,Еврокино | Еврокино HD,Еврокино,474
-Satfor,zhara,2,Жара | Жара HD,Жара HD | Жара | Жара orig,1552 | 1553 | 1600
+Satfor,zhara,2,Жара | Жара HD,Жара HD | Жара,1552 | 1553
 Satfor,zvezda,2,Звeзда | Звезда HD,Звезда HD,117
 Satfor,illuzion-plus,2,Иллюзион+ | Иллюзион+ HD,Иллюзион+,503
-Satfor,kino-tv,2,Кино ТВ | Кино ТВ HD,Кино ТВ HD | Кино ТВ | Кино ТВ HD orig | Кино ТВ orig,445 | 492 | 539 | 604
-Satfor,kinomiks,2,Киномикс | Киномикс HD,Киномикс | Киномикс orig | Киномикс HD,462 | 557 | 611
-Satfor,kinosemiya,2,Киносемья | Киносемья HD,Киносемья | Киносемья HD orig | Киносемья HD,463 | 591 | 607
-Satfor,kinoseria,2,Киносерия | Киносерия HD,Киносерия | Киносерия orig | Киносерия HD,472 | 563 | 1032
-Satfor,kinoxit,2,Кинохит | Кинохит HD,Кинохит | Кинохит orig | Кинохит HD,466 | 559 | 612
+Satfor,kino-tv,2,Кино ТВ | Кино ТВ HD,Кино ТВ HD | Кино ТВ,445 | 492
+Satfor,kinomiks,2,Киномикс | Киномикс HD,Киномикс | Киномикс HD,462 | 611
+Satfor,kinosemiya,2,Киносемья | Киносемья HD,Киносемья | Киносемья HD,463 | 607
+Satfor,kinoseria,2,Киносерия | Киносерия HD,Киносерия | Киносерия HD,472 | 1032
+Satfor,kinoxit,2,Кинохит | Кинохит HD,Кинохит | Кинохит HD,466 | 612
 Satfor,match-tv,3,Матч ТВ | Матч! HD | Матч! HD 50fps,Матч ТВ,1268
-Satfor,match-arena,2,Матч! Арена | Матч! Арена HD,Матч! Арена | Матч! Арена HD | Матч! Арена HD orig,1289 | 1290 | 1291
-Satfor,match-boets,2,Матч! Боец | Матч! Боец HD,Матч! Боец | Матч! Боец orig | Матч! Боец HD,1294 | 1348 | 1459
-Satfor,match-igra,3,Матч! Игра | Матч! Игра HD | Матч! Игра HD 50fps,Матч! Игра HD 50 orig | Матч! Игра HD orig | Матч! Игра | Матч! Игра HD | Матч! Игра FHD | Матч! Игра HD 50,1239 | 1240 | 1286 | 1287 | 1288 | 1359
-Satfor,match-premier,3,Матч! Премьер | Матч! Премьер HD | Матч! Премьер HD 50fps,Матч! Премьер | Матч! Премьер HD | Матч! Премьер FHD | Матч! Премьер orig | Матч! Премьер HD 50,1271 | 1272 | 1273 | 1354 | 1363
-Satfor,match-nash-sport,2,Матч! Страна | Матч! Страна HD,Матч! Страна | Матч! Страна orig | Матч! Страна HD,1292 | 1347 | 1458
-Satfor,match-football1,3,Матч! Футбол 1 | Матч! Футбол 1 HD | Матч! Футбол 1 HD 50fps,Матч! Футбол 1 | Матч! Футбол 1 HD | Матч! Футбол 1 HD 50 orig | Матч! Футбол 1 FHD | Матч! Футбол 1 HD 50,1274 | 1275 | 1276 | 1277 | 1360
-Satfor,match-football2,3,Матч! Футбол 2 | Матч! Футбол 2 HD | Матч! Футбол 2 HD 50fps,Матч! Футбол 2 | Матч! Футбол 2 HD | Матч! Футбол 2 FHD | Матч! Футбол 2 HD orig | Матч! Футбол 2 HD 50,1278 | 1279 | 1280 | 1281 | 1364
-Satfor,match-football3,3,Матч! Футбол 3 | Матч! Футбол 3 HD | Матч! Футбол 3 HD 50fps,Матч! Футбол 3 | Матч! Футбол 3 HD | Матч! Футбол 3 HD 50 orig | Матч! Футбол 3 FHD | Матч! Футбол 3 HD 50,1282 | 1283 | 1284 | 1285 | 1361
-Satfor,mir,2,Мир | Мир HD,Мир HD | Мир | Мир orig | Мир +0 (Элиста),34 | 50 | 153 | 283
-Satfor,mosfilm,2,Мосфильм. Золотая коллекция | Мосфильм. Золотая коллекция HD,Мосфильм. Золотая коллекция | Мосфильм. Золотая коллекция orig | Мосфильм. Золотая коллекция HD,526 | 586 | 615
-Satfor,moya-planeta,2,Моя планета | Моя планета HD,Моя Планета orig | Моя Планета HD | Моя Планета | Моя Планета HD orig,1868 | 1920 | 1984 | 2004
-Satfor,muzhskoe-kino,2,Мужское кино | Мужское кино HD,Мужское Кино | Мужское Кино HD orig | Мужское Кино HD,482 | 569 | 643
-Satfor,mult,2,Мульт | Мульт HD,Мульт | Мульт HD | Мульт HD orig | Мульт orig,1740 | 1759 | 1761 | 1771
+Satfor,match-arena,2,Матч! Арена | Матч! Арена HD,Матч! Арена | Матч! Арена HD,1289 | 1290
+Satfor,match-boets,2,Матч! Боец | Матч! Боец HD,Матч! Боец | Матч! Боец HD,1294 | 1459
+Satfor,match-igra,3,Матч! Игра | Матч! Игра HD | Матч! Игра HD 50fps,Матч! Игра | Матч! Игра HD,1286 | 1287
+Satfor,match-premier,3,Матч! Премьер | Матч! Премьер HD | Матч! Премьер HD 50fps,Матч! Премьер | Матч! Премьер HD,1271 | 1272
+Satfor,match-nash-sport,2,Матч! Страна | Матч! Страна HD,Матч! Страна | Матч! Страна HD,1292 | 1458
+Satfor,match-football1,3,Матч! Футбол 1 | Матч! Футбол 1 HD | Матч! Футбол 1 HD 50fps,Матч! Футбол 1 | Матч! Футбол 1 HD,1274 | 1275
+Satfor,match-football2,3,Матч! Футбол 2 | Матч! Футбол 2 HD | Матч! Футбол 2 HD 50fps,Матч! Футбол 2 | Матч! Футбол 2 HD,1278 | 1279
+Satfor,match-football3,3,Матч! Футбол 3 | Матч! Футбол 3 HD | Матч! Футбол 3 HD 50fps,Матч! Футбол 3 | Матч! Футбол 3 HD,1282 | 1283
+Satfor,mir,2,Мир | Мир HD,Мир HD | Мир,34 | 50
+Satfor,mosfilm,2,Мосфильм. Золотая коллекция | Мосфильм. Золотая коллекция HD,Мосфильм. Золотая коллекция | Мосфильм. Золотая коллекция HD,526 | 615
+Satfor,moya-planeta,2,Моя планета | Моя планета HD,Моя Планета HD | Моя Планета,1920 | 1984
+Satfor,muzhskoe-kino,2,Мужское кино | Мужское кино HD,Мужское Кино | Мужское Кино HD,482 | 643
+Satfor,mult,2,Мульт | Мульт HD,Мульт | Мульт HD,1740 | 1759
 Satfor,ntv,3,НTВ | НТВ HD | НТВ HD HQ,НТВ HD,16
-Satfor,ntv-xit,2,НТВ Хит | НТВ Хит HD,НТВ Хит HD | НТВ Хит | НТВ Хит orig,17 | 495 | 577
+Satfor,ntv-xit,2,НТВ Хит | НТВ Хит HD,НТВ Хит HD | НТВ Хит,17 | 495
 Satfor,novy-kanal-ua,2,Новий канал | Новий канал HD,,
 Satfor,pervy,3,Пеpвый HD 50fps | Первый HD | Первый канaл,,
-Satfor,pervy-pl4,2,Первый канал (+4) | Первый канал HD (+4),Первый канал +4 | Первый канал HD +4 | Первый канал +4 (Алтай) | Первый канал +4 (Томск),5 | 6 | 164 | 240
-Satfor,piatnicahd,2,Пятница | Пятница HD,Пятница! HD | Пятница! | Пятница! orig | Пятница! +0 (Невинномысск) | Пятница! +0 (Липецк) | Пятница! +0 (Белгород) | Пятница! +0 (Тамбов),69 | 70 | 149 | 194 | 229 | 262 | 293
+Satfor,pervy-pl4,2,Первый канал (+4) | Первый канал HD (+4),Первый канал +4 | Первый канал HD +4,5 | 6
+Satfor,piatnicahd,2,Пятница | Пятница HD,Пятница! HD | Пятница!,69 | 70
 Satfor,rentv,2,Рeн ТВ | Рен ТВ HD,РЕН ТВ HD,45
 Satfor,rbk,2,РБK | РБК 50fps,,
 Satfor,rossia1,3,Роcсия 1 HD 50fps | Росcия 1 | Россия 1 HD,Россия 1 HD,10
-Satfor,russky-illuzion,2,Русский иллюзион | Русский иллюзион HD,Русский Иллюзион HD | Русский Иллюзион | Русский Иллюзион HD orig | Русский Иллюзион orig,443 | 473 | 548 | 564
-Satfor,russky-roman,2,Русский роман | Русский роман HD,Русский роман HD | Русский роман | Русский роман HD orig | Русский роман orig,442 | 488 | 536 | 602
-Satfor,sts,2,СТС | СТС HD,СТС | СТС +0 (Невинномысск) | СТС +0 (Элиста) | СТС +0 (Тамбов) | СТС +0 (Белгород) | СТС HD | СТС HD orig,41 | 198 | 280 | 291 | 297 | 2121 | 2126
+Satfor,russky-illuzion,2,Русский иллюзион | Русский иллюзион HD,Русский Иллюзион HD | Русский Иллюзион,443 | 473
+Satfor,russky-roman,2,Русский роман | Русский роман HD,Русский роман HD | Русский роман,442 | 488
+Satfor,sts,2,СТС | СТС HD,СТС | СТС HD,41 | 2121
 Satfor,tvcentr,2,ТВЦ | ТВЦ HD,,
-Satfor,tnt,3,ТНТ | ТНТ HD | ТНТ HD 50fps,ТНТ FHD | ТНТ HD | ТНТ | ТНТ orig | ТНТ HD orig | ТНТ +0 (Невинномысск) | ТНТ +0 (Липецк) | ТНТ +0 (Белгород) | ТНТ +0 (Элиста) | ТНТ +0 (Тамбов) | ТНТ HD 50,35 | 36 | 37 | 146 | 155 | 200 | 230 | 263 | 284 | 294 | 2122
-Satfor,tnt4,2,ТНТ4 | ТНТ4 HD,ТНТ4 | ТНТ4 orig | ТНТ4 HD | ТНТ4 +0 (Тамбов),83 | 150 | 2124 | 2142
+Satfor,tnt,3,ТНТ | ТНТ HD | ТНТ HD 50fps,ТНТ HD | ТНТ,36 | 37
+Satfor,tnt4,2,ТНТ4 | ТНТ4 HD,ТНТ4 | ТНТ4 HD,83 | 2124
 Satfor,galaxy-tv,2,Тайны Галактики (Galaxy) HD | Тайны галактики (Galaxy),,
 M3U Edit ALL,Newsmax.us,2,Newsmax,,
 M3U Edit ALL,ESPN.br,2,ESPN,,

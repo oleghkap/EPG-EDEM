@@ -1,34 +1,24 @@
 ﻿source,playlist_index,playlist_channel,xml_channel_id_count,xml_channel_ids
 EPG.ONE epg2,1924,DocuBox HD,2,2186 | 3791
-EPG.ONE epg2,530,Hollywood HD orig,2,608 | 934
-EPG.ONE epg2,483,Hollywood,2,608 | 934
-EPG.ONE epg2,598,Hollywood orig,2,608 | 934
-EPG.ONE epg2,447,Hollywood HD,2,608 | 934
 EPG.ONE epg2,1729,Nickelodeon HD,3,11358 | 3903 | 423
 EPG.ONE epg2,1734,Nickelodeon,4,3714 | 3903 | 423 | 4857
 EPG.ONE epg2,1188,Sport 3 HD,2,2719 | 9297
 EPG.ONE epg2,1748,Baby TV,4,11355 | 2436 | 2701 | 3900
-EPG.ONE epg2,508,Comedy Central,2,3767 | 5682
 EPG.ONE epg2,1181,Eurosport 1 HD,9,11404 | 11437 | 11842 | 2052 | 3734 | 3885 | 4902 | 5883 | 9378
 EPG.ONE epg2,1182,Eurosport 2 HD,9,11406 | 11438 | 11841 | 3554 | 4313 | 4903 | 6544 | 8052 | 9379
-EPG.ONE epg2,1548,MTV HD,6,1021 | 11348 | 3773 | 4473 | 4806 | 8081
-EPG.ONE epg2,1731,Nick Jr,6,11359 | 2678 | 3784 | 4478 | 4856 | 917
-EPG.ONE epg2,2042,Глазами Туриста 4K,2,2508 | 5979
-EPG.ONE epg2,647,CineMan,2,2394 | 4682
+EPG.ONE epg2,1548,MTV HD,4,1021 | 11348 | 4473 | 8081
+EPG.ONE epg2,1731,Nick Jr,5,2678 | 3784 | 4478 | 4856 | 917
 EPG.ONE epg2,1912,Animal Planet HD,4,365 | 3731 | 3913 | 4476
 EPG.ONE epg2,1737,Cartoon Network,5,2620 | 3650 | 3708 | 601 | 7852
 EPG.ONE epg2,1741,Cartoonito,4,3716 | 3905 | 7780 | 929
-EPG.ONE epg2,2112,Fashion TV HD,3,2491 | 3793 | 8053
-EPG.ONE epg2,2877,Fashion TV HD,3,2491 | 3793 | 8053
+EPG.ONE epg2,2112,Fashion TV HD,2,2491 | 8053
+EPG.ONE epg2,2877,Fashion TV HD,2,2491 | 8053
 EPG.ONE epg2,1992,HGTV HD,2,3305 | 8060
 EPG.ONE epg2,1963,Nat Geo Wild HD,5,223 | 3763 | 4311 | 4475 | 4892
 EPG.ONE epg2,1909,Nat Geo Wild FHD,3,223 | 4311 | 4475
 EPG.ONE epg2,1855,National Geographic HD,5,102 | 2677 | 3760 | 3922 | 4474
 EPG.ONE epg2,1901,TLC HD,6,3666 | 3711 | 3968 | 425 | 4864 | 8162
-EPG.ONE epg2,1903,History HD,7,1394 | 3596 | 3662 | 3748 | 4014 | 4889 | 7863
-EPG.ONE epg2,1852,TravelXP 4K,2,7617 | 8164
-EPG.ONE epg2,2679,beIN Sports 2,2,2885 | 3874
-EPG.ONE epg2,2680,beIN Sports 3,2,2886 | 3876
+EPG.ONE epg2,1903,History HD,6,1394 | 3596 | 3748 | 4014 | 4889 | 7863
 EPG.ONE epg2,1910,Nat Geo Wild,4,223 | 3763 | 4311 | 4892
 EPG.ONE epg2,1906,Discovery Channel HD,6,2689 | 3078 | 3132 | 325 | 3595 | 3916
 EPG.ONE epg2,2535,Food Network,4,2057 | 2708 | 2741 | 3788
@@ -37,313 +27,90 @@ EPG.ONE epg2,2874,Da Vinci HD,2,3912 | 410
 EPG.ONE epg2,370,FX HD,3,1031 | 3092 | 3578
 EPG.ONE epg2,2549,Disney XD,2,2375 | 3645
 EPG.ONE epg2,2867,AMC,4,3652 | 3691 | 8288 | 9646
-EPG.ONE epg2,2845,Viasat Kino HD,2,3686 | 8881
 EPG.ONE epg2,1902,Travel Channel HD,2,3696 | 613
 EPG.ONE epg2,1965,Investigation Discovery,3,2507 | 3699 | 4851
 EPG.ONE epg2,1907,Discovery Channel,3,325 | 3710 | 3916
 EPG.ONE epg2,1566,Mezzo,2,3753 | 575
 EPG.ONE epg2,2568,TNT,2,2343 | 3775
 EPG.ONE epg2,1247,FightBox HD,2,11442 | 3792
-EPG.ONE epg2,2111,Fashion TV FHD,2,2491 | 3793
-EPG.ONE epg2,1449,DAZN 1 PT,2,2915 | 6501
 EPG.ONE epg2,1905,History 2 HD,2,2356 | 4888
 EPG.ONE epg2,2542,NBA TV HD US,2,3894 | 4587
-EPG.ONE epg2,1752,NickToons HD,2,2994 | 4858
 EPG.ONE epg2,1913,Animal Planet,2,365 | 3913
-EPG.ONE epg2,2681,beIN Sports 4,2,3878 | 9216
-IPTVX full,2678,beIN Sports,2,bein-sports-4k | bein-sports-fta
-IPTVX full,429,Блокбастер HD,2,blokbaster | blokbaster-hd
 IPTVX full,2286,Blue Hustler,2,blue-hustler | blue-hustler-ua
-IPTVX full,419,Ultra HD Cinema 4K,2,cinema-ru | ultra-hd-cinema
-IPTVX full,507,Cinema,2,cinema-ru | ultra-hd-cinema
-IPTVX full,1449,DAZN 1 PT,2,daznbar1 | eleven-sport1-pt
-IPTVX full,437,Душевное HD,2,dushevnoe | dushevnoe-hd
 IPTVX full,370,FX HD,2,fox | fx-tr
-IPTVX full,430,Хит HD,2,khit | khit-hd
-IPTVX full,431,Кинопоказ HD,2,kinopokaz | kinopokaz-hd
-IPTVX full,436,Комедийное HD,2,komedijnoe | komedijnoe-hd
-IPTVX full,379,Лавстори HD,2,lavstori | lavstori-hd
-IPTVX full,924,Liberty Кино UKR 4K,2,liberty-kinoukr | liberty-kinoukr4k
-IPTVX full,1808,Liberty Мульт UKR 4K,2,liberty-multukr | liberty-multukr4k
 IPTVX full,50,Мир,2,mir | mir-kz
-IPTVX full,428,Наш Кинопоказ HD,2,nash-kinopokaz | nash-kinopokaz-hd
-IPTVX full,439,Любимое HD,2,nashe-lubimoe | nashe-lubimoe-hd
-IPTVX full,438,Наше HD,3,nashe-music-hd | nashehd | nashesd
-IPTVX full,432,Наше Мужское HD,2,nashe-muzhskoe | nashe-muzhskoe-hd
-IPTVX full,423,Остросюжетное HD,2,ostrosiuzhetnoe | ostrosiuzhetnoe-hd
-IPTVX full,606,Премиальное HD,2,premialnoe | premialnoe-hd
-IPTVX full,435,Романтичное HD,2,romantichnoe | romantichnoe-hd
-IPTVX full,521,Шокирующее HD,2,shokiruyushchee | shokiruyushchee-hd
-IPTVX full,1183,Sky Sports F1 UHD UK,2,sky-sports-f1 | sky-sports-f1-uhd-uk
-IPTVX full,380,Советская киноклассика HD,2,sov-kinklass | sov-kinklass-hd
+IPTVX full,438,Наше HD,2,nashe-music-hd | nashehd
+IPTVX full,2803,Star Cinema UA,2,star-cinema | star-cinema-ua
 IPTVX full,1901,TLC HD,3,tlc | tlc-blk | tlc-tr
 IPTVX full,37,ТНТ,2,tnt | tnt-kz
-TV.TEAM full,1901,TLC HD,10,ch1020 | ch1411 | ch160 | ch2632 | ch3212 | ch3688 | ch4020 | ch4212 | ch435 | ch941
+TV.TEAM full,1901,TLC HD,11,ch1020 | ch1411 | ch160 | ch2632 | ch2856 | ch3212 | ch3688 | ch4020 | ch4212 | ch435 | ch941
+TV.TEAM full,1992,HGTV HD,5,ch2198 | ch2361 | ch4215 | ch723 | ch969
 TV.TEAM full,1182,Eurosport 2 HD,9,ch071 | ch1831 | ch2103 | ch2249 | ch2482 | ch2497 | ch287 | ch2993 | ch892
 TV.TEAM full,1906,Discovery Channel HD,7,ch1120 | ch123 | ch1373 | ch164 | ch2983 | ch3351 | ch3647
-TV.TEAM full,1737,Cartoon Network,10,ch081 | ch162 | ch1818 | ch2182 | ch2280 | ch2394 | ch2479 | ch2524 | ch3636 | ch3935
-TV.TEAM full,2867,AMC,6,ch1809 | ch2141 | ch2963 | ch3937 | ch4136 | ch623
+TV.TEAM full,1737,Cartoon Network,6,ch081 | ch162 | ch1818 | ch2182 | ch2479 | ch3935
 TV.TEAM full,1903,History HD,7,ch1143 | ch171 | ch2199 | ch2398 | ch3972 | ch432 | ch909
-TV.TEAM full,1992,HGTV HD,5,ch2361 | ch4215 | ch723 | ch908 | ch969
-TV.TEAM full,1275,Матч! Футбол 1 HD,2,ch2123 | ch695
-TV.TEAM full,1277,Матч! Футбол 1 FHD,2,ch061 | ch2123
 TV.TEAM full,1902,Travel Channel HD,3,ch1136 | ch4021 | ch445
 TV.TEAM full,1963,Nat Geo Wild HD,6,ch047 | ch1138 | ch1462 | ch176 | ch3006 | ch918
-TV.TEAM full,1280,Матч! Футбол 2 FHD,2,ch062 | ch2124
-TV.TEAM full,1279,Матч! Футбол 2 HD,2,ch2124 | ch696
 TV.TEAM full,1729,Nickelodeon HD,5,ch1937 | ch2530 | ch3009 | ch3669 | ch479
 TV.TEAM full,1912,Animal Planet HD,5,ch124 | ch2624 | ch2932 | ch3073 | ch858
-TV.TEAM full,2535,Food Network,5,ch1363 | ch2357 | ch3967 | ch455 | ch901
-TV.TEAM full,1731,Nick Jr,10,ch1853 | ch223 | ch2277 | ch2402 | ch2637 | ch3008 | ch3190 | ch3206 | ch379 | ch3983
-TV.TEAM full,2679,beIN Sports 2,3,ch1425 | ch228 | ch3623
+TV.TEAM full,1731,Nick Jr,6,ch1853 | ch223 | ch2402 | ch3190 | ch379 | ch3983
 TV.TEAM full,370,FX HD,5,ch103 | ch1468 | ch2193 | ch3343 | ch903
 TV.TEAM full,447,Hollywood HD,3,ch2998 | ch3793 | ch525
 TV.TEAM full,1855,National Geographic HD,6,ch125 | ch1346 | ch3424 | ch3667 | ch3980 | ch4118
-TV.TEAM full,1748,Baby TV,4,ch1118 | ch2473 | ch2971 | ch489
-TV.TEAM full,1287,Матч! Игра HD,2,ch3303 | ch3304
-TV.TEAM full,1327,Extreme Sports,2,ch476 | ch893
+TV.TEAM full,1748,Baby TV,3,ch1118 | ch2473 | ch489
+TV.TEAM full,2530,8 Канал HD,2,ch419 | ch611
 TV.TEAM full,1734,Nickelodeon,5,ch1854 | ch2401 | ch3191 | ch3207 | ch3982
-TV.TEAM full,2879,FILMBOX+ Festival HD,2,ch684 | ch897
-TV.TEAM full,1752,NickToons HD,6,ch2128 | ch2156 | ch2278 | ch2484 | ch3984 | ch666
-TV.TEAM full,1741,Cartoonito,8,ch1349 | ch161 | ch1816 | ch2351 | ch2529 | ch3637 | ch3936 | ch486
-TV.TEAM full,2681,beIN Sports 4,2,ch1448 | ch230
+TV.TEAM full,1741,Cartoonito,6,ch1349 | ch161 | ch1816 | ch2351 | ch3936 | ch486
 TV.TEAM full,1245,Setanta Sports 2 HD KZ,2,ch2035 | ch477
-TV.TEAM full,2680,beIN Sports 3,3,ch1426 | ch229 | ch3624
 TV.TEAM full,1244,Setanta Sports 1 HD KZ,2,ch1993 | ch2034
 TV.TEAM full,1181,Eurosport 1 HD,9,ch039 | ch1832 | ch2435 | ch2481 | ch2496 | ch286 | ch2992 | ch3653 | ch891
 TV.TEAM full,1548,MTV HD,5,ch238 | ch2400 | ch2618 | ch3432 | ch3664
 TV.TEAM full,2845,Viasat Kino HD,2,ch3081 | ch3218
-TV.TEAM full,1288,Матч! Игра FHD,2,ch056 | ch3304
-TV.TEAM full,1272,Матч! Премьер HD,2,ch2005 | ch698
-TV.TEAM full,1273,Матч! Премьер FHD,2,ch135 | ch2005
 TV.TEAM full,647,CineMan,2,ch1030 | ch1478
 TV.TEAM full,2874,Da Vinci HD,2,ch2176 | ch2480
+TV.TEAM full,2867,AMC,2,ch1809 | ch3937
 TV.TEAM full,88,360 HD,2,ch1353 | ch516
-TV.TEAM full,1283,Матч! Футбол 3 HD,2,ch2125 | ch697
-TV.TEAM full,1285,Матч! Футбол 3 FHD,2,ch063 | ch2125
-TV.TEAM full,315,Россия 24,2,ch007 | ch2589
 TV.TEAM full,1852,TravelXP 4K,2,ch3726 | ch613
-TV.TEAM full,1524,MTV 00s,2,ch2619 | ch3918
 TV.TEAM full,1641,Trace Urban HD,3,ch3690 | ch402 | ch4146
-TV.TEAM full,448,Bollywood HD,2,ch2616 | ch326
 TV.TEAM full,1929,Investigation Discovery HD,3,ch2464 | ch434 | ch876
-TV.TEAM full,508,Comedy Central,5,ch1006 | ch2393 | ch2461 | ch2977 | ch3645
 TV.TEAM full,2843,Viasat Kino Action HD,2,ch3079 | ch3216
 TV.TEAM full,2844,Viasat Kino Comedy HD,2,ch3080 | ch3217
-TV.TEAM full,2682,beIN Sports 5,2,ch1461 | ch231
-TV.TEAM full,1290,Матч! Арена HD,2,ch055 | ch2014
+TV.TEAM full,508,Comedy Central,2,ch1006 | ch2393
+TV.TEAM full,1752,NickToons HD,2,ch2156 | ch2278
 TV.TEAM full,1913,Animal Planet,2,ch1810 | ch3938
-ProgramTV,1955,Travel+Adventure,2,1035 | 996
-ProgramTV,2112,Fashion TV HD,2,121 | 661
-ProgramTV,2093,Fashion TV UHD,2,121 | 661
-ProgramTV,2877,Fashion TV HD,2,121 | 661
-ProgramTV,2111,Fashion TV FHD,2,121 | 661
-ProgramTV,507,Cinema,2,1844 | 37
-TopIPTV,1182,Eurosport 2 HD,2,Eurosport 2 | Eurosport 2 HD
-TopIPTV,370,FX HD,2,FX | FX HD
-TopIPTV,1244,Setanta Sports 1 HD KZ,2,Setanta Sports 1 | Setanta Sports 1 HD
-TopIPTV,539,Кино ТВ HD orig,2,Кино ТВ | Кино ТВ HD
-TopIPTV,492,Кино ТВ,2,Кино ТВ | Кино ТВ HD
-TopIPTV,445,Кино ТВ HD,2,Кино ТВ | Кино ТВ HD
-TopIPTV,604,Кино ТВ orig,2,Кино ТВ | Кино ТВ HD
-TopIPTV,1363,Матч! Премьер HD 50,2,Матч! Премьер | Матч! Премьер HD
-TopIPTV,1271,Матч! Премьер,2,Матч! Премьер | Матч! Премьер HD
-TopIPTV,1272,Матч! Премьер HD,2,Матч! Премьер | Матч! Премьер HD
-TopIPTV,1273,Матч! Премьер FHD,2,Матч! Премьер | Матч! Премьер HD
-TopIPTV,1354,Матч! Премьер orig,2,Матч! Премьер | Матч! Премьер HD
-TopIPTV,526,Мосфильм. Золотая коллекция,2,Мосфильм HD Золотая коллекция | Мосфильм. Золотая коллекция
-TopIPTV,16,НТВ HD,2,НТВ HD | НТВ SD
-TopIPTV,457,Победа HD,2,Победа | Победа HD
-TopIPTV,458,Победа,2,Победа | Победа HD
-TopIPTV,589,Победа orig,2,Победа | Победа HD
-TopIPTV,29,Пятый канал,2,Пятый Канал | Пятый Канал HD
-TopIPTV,36,ТНТ HD,2,ТНТ HD | ТНТ SD
-TopIPTV,2767,СТБ HD,2,СТБ | СТБ HD
-TopIPTV,2290,Hustler HD,2,Hustler | Hustler HD
-BCU Media,0,ОТР HD,2,ОТР | ОТР HD
-BCU Media,54,ОТР,2,ОТР | ОТР HD
-BCU Media,119,ОТР orig,2,ОТР | ОТР HD
-BCU Media,29,Пятый канал,2,Пятый канал | Пятый канал HD
-BCU Media,323,РБК orig,2,РБК | РБК HD
-BCU Media,307,РБК HD 50,2,РБК | РБК HD
-BCU Media,310,РБК HD,2,РБК | РБК HD
-BCU Media,313,РБК FHD,2,РБК | РБК HD
-BCU Media,314,РБК,2,РБК | РБК HD
-BCU Media,193,Россия 1 +0 (Невинномысск),2,Россия 1 | Россия 1 HD
-BCU Media,9,Россия 1 FHD,2,Россия 1 | Россия 1 HD
-BCU Media,10,Россия 1 HD,2,Россия 1 | Россия 1 HD
-BCU Media,11,Россия 1,2,Россия 1 | Россия 1 HD
-BCU Media,143,Россия 1 orig,2,Россия 1 | Россия 1 HD
-BCU Media,144,Россия 1 HD 50,2,Россия 1 | Россия 1 HD
-BCU Media,156,Россия 1 HD orig,2,Россия 1 | Россия 1 HD
-BCU Media,274,Россия 1 +0 (Элиста),2,Россия 1 | Россия 1 HD
-BCU Media,183,Россия 1 +0 (Липецк),2,Россия 1 | Россия 1 HD
-BCU Media,252,Россия 1 +0 (Алания),2,Россия 1 | Россия 1 HD
-BCU Media,254,Россия 1 +0 (Белгород),2,Россия 1 | Россия 1 HD
-BCU Media,287,Россия 1 +0 (Тамбов),2,Россия 1 | Россия 1 HD
-BCU Media,315,Россия 24,2,Россия 24 | Россия 24 HD
-BCU Media,197,Россия К +0 (Невинномысск),2,Россия К | Россия К HD
-BCU Media,106,Россия К,2,Россия К | Россия К HD
-BCU Media,277,Россия К +0 (Элиста),2,Россия К | Россия К HD
-BCU Media,74,RTVi,2,RTVI | RTVI HD
-BCU Media,320,Известия,2,Известия | Известия HD
-BCU Media,317,Мир 24 HD,2,МИР 24 | МИР 24 HD
-BCU Media,331,Мир 24 orig,2,МИР 24 | МИР 24 HD
-BCU Media,325,Мир 24 HD orig,2,МИР 24 | МИР 24 HD
-BCU Media,318,Мир 24,2,МИР 24 | МИР 24 HD
-BCU Media,330,Москва 24 orig,2,Москва 24 | Москва 24 HD
-BCU Media,316,Москва 24,2,Москва 24 | Москва 24 HD
-BCU Media,1834,РЖД ТВ,2,РЖД ТВ | РЖД ТВ HD
-BCU Media,2169,Санкт-Петербург,2,Санкт-Петербург | Санкт-Петербург HD
 BCU Media,387,.black HD,2,.Black HD | Black HD
-BCU Media,2867,AMC,2,AMC | AMC HD
-BCU Media,507,Cinema,5,Cinema | Cinema 4K | Cinema HD 4K | Cinema UHD | Cinema UHD HD
-BCU Media,1034,Cinema HD,5,Cinema 4K | Cinema HD | Cinema HD 4K | Cinema UHD | Cinema UHD HD
-BCU Media,419,Ultra HD Cinema 4K,4,Cinema 4K | Cinema HD 4K | Cinema UHD | Cinema UHD HD
-BCU Media,1070,DetectiveJam HD,2,DetectiveJam | DetectiveJam HD
-BCU Media,2804,FilmBox ArtHouse HD UA,2,FilmBox Arthouse | FilmBox Arthouse HD
-BCU Media,2881,FlixSnip HD,2,FlixSnip | FlixSnip HD
-BCU Media,370,FX HD,2,FX | FX HD
-BCU Media,613,KinoJam 1 HD,2,KinoJam 1 | KinoJam 1 HD
-BCU Media,614,KinoJam 2 HD,2,KinoJam 2 | KinoJam 2 HD
-BCU Media,390,Shot TV HD,2,Shot TV | Shot TV HD
-BCU Media,396,Shot TV orig,2,Shot TV | Shot TV HD
-BCU Media,646,Shot TV,2,Shot TV | Shot TV HD
-BCU Media,983,START Air HD,2,START Air | START Air HD
-BCU Media,1464,START World HD,2,START World | START World HD
-BCU Media,2845,Viasat Kino HD,2,Viasat Kino | Viasat Kino HD
-BCU Media,2843,Viasat Kino Action HD,2,Viasat Kino Action | Viasat Kino Action HD
-BCU Media,2844,Viasat Kino Comedy HD,2,Viasat Kino Comedy | Viasat Kino Comedy HD
-BCU Media,451,Viju+ Comedy HD,2,Viju+ Comedy | Viju+ Comedy HD
-BCU Media,452,Viju+ Comedy HD orig,2,Viju+ Comedy | Viju+ Comedy HD
-BCU Media,453,Viju+ Megahit HD,2,Viju+ Megahit | Viju+ Megahit HD
-BCU Media,454,Viju+ Megahit HD orig,2,Viju+ Megahit | Viju+ Megahit HD
-BCU Media,449,Viju+ Premiere HD,2,Viju+ Premiere | Viju+ Premiere HD
-BCU Media,450,Viju+ Premiere HD orig,2,Viju+ Premiere | Viju+ Premiere HD
-BCU Media,434,Viju+ Serial HD,2,Viju+ Serial | Viju+ Serial HD
-BCU Media,429,Блокбастер HD,2,Блокбастер | Блокбастер HD
-BCU Media,456,День Победы HD,2,День Победы | День Победы HD
-BCU Media,477,Дом Кино,2,Дом кино | Дом кино HD
-BCU Media,425,Дом Кино Премиум HD,2,Дом кино Премиум | Дом кино Премиум HD
-BCU Media,426,Дом Кино Премиум HD orig,2,Дом кино Премиум | Дом кино Премиум HD
-BCU Media,474,Еврокино,2,Еврокино | Еврокино HD
-BCU Media,546,Еврокино HD orig,2,Еврокино | Еврокино HD
-BCU Media,565,Еврокино orig,2,Еврокино | Еврокино HD
-BCU Media,547,Иллюзион+ HD orig,2,Иллюзион+ | Иллюзион+ HD
-BCU Media,603,Иллюзион+ orig,2,Иллюзион+ | Иллюзион+ HD
-BCU Media,503,Иллюзион+,2,Иллюзион+ | Иллюзион+ HD
-BCU Media,433,Камеди HD,2,Камеди | Камеди HD
-BCU Media,421,Кино UHD 4K,2,Кино 4K | Кино UHD
-BCU Media,539,Кино ТВ HD orig,2,Кино ТВ | Кино ТВ HD
-BCU Media,492,Кино ТВ,2,Кино ТВ | Кино ТВ HD
-BCU Media,445,Кино ТВ HD,2,Кино ТВ | Кино ТВ HD
-BCU Media,604,Кино ТВ orig,2,Кино ТВ | Кино ТВ HD
-BCU Media,506,Киноман,2,Киноман | Киноман HD
-BCU Media,591,Киносемья HD orig,2,Киносемья | Киносемья HD
-BCU Media,607,Киносемья HD,2,Киносемья | Киносемья HD
-BCU Media,463,Киносемья,2,Киносемья | Киносемья HD
-BCU Media,441,Киноужас HD,2,Киноужас | Киноужас HD
-BCU Media,466,Кинохит,2,Кинохит | Кинохит HD
-BCU Media,612,Кинохит HD,2,Кинохит | Кинохит HD
-BCU Media,559,Кинохит orig,2,Кинохит | Кинохит HD
-BCU Media,569,Мужское Кино HD orig,2,Мужское кино | Мужское кино HD
-BCU Media,482,Мужское Кино,2,Мужское кино | Мужское кино HD
-BCU Media,643,Мужское Кино HD,2,Мужское кино | Мужское кино HD
-BCU Media,428,Наш Кинопоказ HD,2,Наш кинопоказ | Наш кинопоказ HD
-BCU Media,432,Наше Мужское HD,2,Наше мужское | Наше мужское HD
 BCU Media,468,Наше Новое Кино,2,Наше Новое Кино | Наше новое кино
-BCU Media,427,Про Любовь HD,2,Про любовь | Про любовь HD
-BCU Media,362,Советское кино,2,Советское кино | Советское кино HD
-BCU Media,430,Хит HD,2,Хит | Хит HD
-BCU Media,1244,Setanta Sports 1 HD KZ,2,Setanta Sports 1 | Setanta Sports 1 HD
-BCU Media,1960,365 дней ТВ,2,365 Дней ТВ | 365 Дней ТВ HD
-BCU Media,1953,RTG TV,2,RTG TV | RTG TV HD
-BCU Media,1838,The Explorers,2,The Explorers | The Explorers HD
-BCU Media,2000,Viju+ Planet HD,2,Viju+ Planet | Viju+ Planet HD
-BCU Media,1943,Бобёр,2,Бобёр | Бобёр HD
-BCU Media,1923,Большая Азия HD,2,Большая Азия | Большая Азия HD
-BCU Media,1933,Время,2,Время | Время HD
-BCU Media,1927,Диалоги о рыбалке HD,2,Диалоги о рыбалке | Диалоги о рыбалке HD
-BCU Media,1847,Еда,2,Еда | Еда HD
-BCU Media,97,Загородный,2,Загородный | Загородный HD
-BCU Media,92,Здоровое ТВ,2,Здоровое ТВ | Здоровое ТВ HD
-BCU Media,1967,Зоо ТВ,2,Зоо ТВ | Зоо ТВ HD
-BCU Media,1958,Охота и рыбалка,2,Охота и рыбалка | Охота и рыбалка HD
-BCU Media,2063,Рыболов HD,2,Рыболов | Рыболов HD
-BCU Media,1961,Телепутешествия,2,Телепутешествия | Телепутешествия HD
-BCU Media,321,Центральное телевидение,2,Центральное телевидение | Центральное телевидение HD
-BCU Media,485,2x2,2,2x2 | 2x2 HD
-BCU Media,2116,Театр,2,Театр | Театр HD
-BCU Media,1946,Телекафе,2,Телекафе | Телекафе HD
-BCU Media,1712,Cartoon Classics,2,Cartoon Classics | Cartoon Classics HD
-BCU Media,1737,Cartoon Network,2,Cartoon Network | Cartoon Network HD
-BCU Media,1741,Cartoonito,2,Cartoonito | Cartoonito HD
-BCU Media,1071,FamilyJam HD,2,FamilyJam | FamilyJam HD
-BCU Media,1716,Kids TV HD,2,Kids TV | Kids TV HD
-BCU Media,1720,Лёва HD,2,Лёва | Лёва HD
-BCU Media,1721,Мультиландия HD,2,Мультиландия | Мультиландия HD
-BCU Media,1758,Мультиландия,2,Мультиландия | Мультиландия HD
-BCU Media,1782,Мультиландия orig,2,Мультиландия | Мультиландия HD
-BCU Media,1754,Рыжий,2,Рыжий | Рыжий HD
-BCU Media,1778,Рыжий orig,2,Рыжий | Рыжий HD
-BCU Media,1732,СТС Kids HD,2,СТС Kids | СТС Kids HD
-BCU Media,1728,ТипТоп HD,2,ТипТоп | ТипТоп HD
-BCU Media,1554,Bridge TV,2,Bridge TV | Bridge TV HD
-BCU Media,1603,Bridge TV orig,2,Bridge TV | Bridge TV HD
-BCU Media,1566,Mezzo,2,Mezzo | Mezzo HD
-BCU Media,1563,Музыка Первого,2,Музыка первого | Музыка первого HD
-BCU Media,1685,ТНТ Music HD,2,ТНТ Music | ТНТ Music HD
-BCU Media,59,Звезда +2,2,Звезда (+2) | Звезда (+2) HD
-BCU Media,60,Звезда +4,2,Звезда (+4) | Звезда (+4) HD
-BCU Media,61,Звезда +7,2,Звезда (+7) | Звезда (+7) HD
-BCU Media,5,Первый канал +4,2,Первый канал (+4) | Первый канал (+4) HD
-FOX TV,1737,Cartoon Network,3,12:ch162 | 1:57 | 5:ch2182
 FOX TV,1741,Cartoonito,3,12:ch161 | 1:52 | 9:CARTOONITO
 FOX TV,1181,Eurosport 1 HD,3,12:ch2496 | 12:ch286 | 1:101
-FOX TV,1548,MTV HD,2,12:ch2618 | 7:1021
 FOX TV,1731,Nick Jr,4,12:ch3190 | 12:ch3206 | 1:1554 | 1:174
 FOX TV,1907,Discovery Channel,3,12:ch3196 | 1:1185 | 9:Discovery Channel
-FOX TV,394,FilmZone HD LV,2,12:ch3200 | 1:2060
 FOX TV,1734,Nickelodeon,2,12:ch3207 | 8:Nickelodeon LT
-FOX TV,1752,NickToons HD,3,12:ch2128 | 8:Nicktoons DE | 8:Nicktoons LT
-FOX TV,1901,TLC HD,5,12:ch3212 | 1:1311 | 1:1943 | 5:ch2632 | 9:TLC
 FOX TV,1913,Animal Planet,3,1:38 | 5:ch2624 | 9:Animal Planet
-FOX TV,1784,Cartoon Network orig,2,1:57 | 5:ch2182
 FOX TV,1906,Discovery Channel HD,3,1:1185 | 1:1322 | 7:2689
-FOX TV,1903,History HD,3,1:129 | 1:1326 | 7:4014
-FOX TV,1182,Eurosport 2 HD,4,1:98 | 2:eurosport2-pl | 7:4903 | 8:Eurosport 2 DE
-FOX TV,1992,HGTV HD,2,1:2156 | 9:HGTV
+FOX TV,1903,History HD,2,1:129 | 1:1326
+FOX TV,1901,TLC HD,2,1:1311 | 1:1943
+FOX TV,1182,Eurosport 2 HD,3,1:98 | 7:4903 | 8:Eurosport 2 DE
 FOX TV,1748,Baby TV,2,1:1549 | 2:baby-tv
 FOX TV,1963,Nat Geo Wild HD,2,1:1205 | 8:Nat Geo Wild HD DE
 FOX TV,1910,Nat Geo Wild,2,1:2020 | 9:National Geographic Wild
 FOX TV,1849,National Geographic,2,1:1206 | 7:2677
-FOX TV,1361,Матч! Футбол 3 HD 50,2,1:428 | 1:429
-FOX TV,1282,Матч! Футбол 3,2,1:428 | 1:429
-FOX TV,1283,Матч! Футбол 3 HD,2,1:428 | 1:429
-FOX TV,1284,Матч! Футбол 3 HD 50 orig,2,1:428 | 1:429
-FOX TV,1285,Матч! Футбол 3 FHD,2,1:428 | 1:429
-FOX TV,2535,Food Network,2,7:2708 | 9:Food Network
-Satfor,2865,5 Канал HD,2,5kanal-karaganda | 5kanal-ua
+Satfor,2705,5 Канал UA,2,5kanal-karaganda | 5kanal-ua
 Satfor,647,CineMan,2,cineman | cineman_am
-Satfor,1793,BCU Kids 4K,2,bcu_kids4k | bcu_multzal
-Satfor,1102,BOX Serial 4K,2,box_serial | box_serial_4k
 Satfor,1737,Cartoon Network,2,cartoon_network | cartoonnetwork_tr
 Satfor,1907,Discovery Channel,2,disc_ua | discovery-channel
-Satfor,1306,Eurosport 1,3,eurosport-4k | eurosport1 | eurosport1-pl
+Satfor,1306,Eurosport 1,2,eurosport1 | eurosport1-pl
 Satfor,1564,Mezzo Live HD,2,mezzo | mezzo_fr
 Satfor,1905,History 2 HD,2,h2 | history_2_ua
 Satfor,1903,History HD,3,history-ru | history_pl | history_ua
-Satfor,788,MM Синематограф HD,2,sinematograf-mm | ues-krejven-hd-minimax
 Satfor,1734,Nickelodeon,2,nick | nickelodeon_pl
 Satfor,1691,Plan B HD,2,plan-b | planb_kz
 Satfor,2778,Болт HD UA,2,bolt-ru | bolt_ua
 Satfor,2821,Наука,2,nauka-20 | nauka_ua
-M3U Edit ALL,329,CGTN orig,8,CGTN.ae | CGTN.au | CGTN.ch | CGTN.hk | CGTN.id | CGTN.mt | CGTN.pt | CGTN.sg
 M3U Edit ALL,324,CGTN,18,CGTN.ae | CGTN.au | CGTN.ch | CGTN.distro | CGTN.gr | CGTN.hk | CGTN.hr | CGTN.id | CGTN.kr | CGTN.mt | CGTN.ph | CGTN.pt | CGTN.ro | CGTN.rs | CGTN.sa | CGTN.sg | CGTN.th | CGTN.tr
 M3U Edit ALL,1985,Outdoor Channel,6,OUTDOOR.CHANNEL.ph | Outdoor.Channel.ae | Outdoor.Channel.cz | Outdoor.Channel.hk | Outdoor.Channel.id | OutdoorChannel.au
 M3U Edit ALL,2444,Dorcel XXX,4,Dorcel.XXX.al | Dorcel.XXX.be | Dorcel.XXX.cz | Dorcel.XXX.pl
 M3U Edit ALL,1418,TRT SPOR,4,TRT.SPOR.tr | TRT.Spor.al | TRT.Spor.ch | TRT.Spor.tr
-M3U Edit ALL,2867,AMC,14,AMC..uy | AMC.HD.us2 | AMC.amcchannels.es | AMC.bg | AMC.br | AMC.co | AMC.cz | AMC.es | AMC.hu | AMC.lt | AMC.lv | AMC.pl | AMC.ro | AMC.rs
+M3U Edit ALL,2867,AMC,13,AMC..uy | AMC.amcchannels.es | AMC.bg | AMC.br | AMC.co | AMC.cz | AMC.es | AMC.hu | AMC.lt | AMC.lv | AMC.pl | AMC.ro | AMC.rs
 M3U Edit ALL,1913,Animal Planet,25,ANIMAL.PLANET..uy | ANIMAL.PLANET.at | ANIMAL.PLANET.in | ANIMAL.PLANET.ph | Animal.Planet.bg | Animal.Planet.br | Animal.Planet.co | Animal.Planet.cy | Animal.Planet.cz | Animal.Planet.de | Animal.Planet.dk | Animal.Planet.fi | Animal.Planet.gr | Animal.Planet.hk | Animal.Planet.id | Animal.Planet.kr | Animal.Planet.lt | Animal.Planet.lu | Animal.Planet.nl | Animal.Planet.nz | Animal.Planet.ro | Animal.Planet.sa | Animal.Planet.uk | AnimalPlanet.au | animal.planet.il
 M3U Edit ALL,1737,Cartoon Network,32,CARTOON.NETWORK..uy | CARTOON.NETWORK.at | CARTOON.NETWORK.be | CARTOON.NETWORK.in | CARTOON.NETWORK.ph | CARTOON.NETWORK.tr | Cartoon.Network.bg | Cartoon.Network.br | Cartoon.Network.co | Cartoon.Network.cz | Cartoon.Network.de | Cartoon.Network.dk | Cartoon.Network.fi | Cartoon.Network.fr | Cartoon.Network.hk | Cartoon.Network.hr | Cartoon.Network.hu | Cartoon.Network.id | Cartoon.Network.ie | Cartoon.Network.it | Cartoon.Network.lt | Cartoon.Network.lu | Cartoon.Network.mt | Cartoon.Network.ng | Cartoon.Network.nl | Cartoon.Network.nz | Cartoon.Network.pl | Cartoon.Network.ro | Cartoon.Network.rs | Cartoon.Network.sa | Cartoon.Network.th | CartoonNetwork.au
 M3U Edit ALL,1741,Cartoonito,25,CARTOONITO..uy | CARTOONITO.at | CARTOONITO.co | CARTOONITO.tr | CARTOONITO.uy | Cartoonito.cz | Cartoonito.de | Cartoonito.dk | Cartoonito.fr | Cartoonito.hr | Cartoonito.hu | Cartoonito.id | Cartoonito.ie | Cartoonito.it | Cartoonito.lu | Cartoonito.lv | Cartoonito.mt | Cartoonito.ng | Cartoonito.nl | Cartoonito.pt | Cartoonito.ro | Cartoonito.rs | Cartoonito.th | Cartoonito.uk | Cartoonito.za
@@ -358,7 +125,7 @@ M3U Edit ALL,2679,beIN Sports 2,6,beIN.SPORTS.2.fr | beIN.SPORTS.2.hk | beIN.SPO
 M3U Edit ALL,2680,beIN Sports 3,6,beIN.SPORTS.3.fr | beIN.SPORTS.3.hk | beIN.SPORTS.3.my | beIN.SPORTS.3.tr | beIN.Sports.3.id | beINSports3.au
 M3U Edit ALL,2535,Food Network,18,FOOD.NETWORK..uy | FOOD.NETWORK.ph | Food.Network.be | Food.Network.ca2 | Food.Network.co | Food.Network.cz | Food.Network.fi | Food.Network.hk | Food.Network.hu | Food.Network.ie | Food.Network.it | Food.Network.lt | Food.Network.ng | Food.Network.pl | Food.Network.ro | Food.Network.th | Food.Network.uk | FoodNetwork.au
 M3U Edit ALL,1951,Travel Channel,10,TRAVEL.CHANNEL.ph | Travel.Channel.bg | Travel.Channel.cz | Travel.Channel.dk | Travel.Channel.fi | Travel.Channel.gr | Travel.Channel.lt | Travel.Channel.pl | Travel.Channel.za | TravelChannel.au
-M3U Edit ALL,2291,Dorcel TV HD,4,Dorcel.TV.HD.be | Dorcel.TV.HD.pl | Dorcel.TV.HD.sk | Dorcel.TV.hr
+M3U Edit ALL,2291,Dorcel TV HD,3,Dorcel.TV.HD.be | Dorcel.TV.HD.pl | Dorcel.TV.HD.sk
 M3U Edit ALL,1748,Baby TV,15,BABY.TV..uy | BABY.TV.co | BABY.TV.ph | BABY.TV.tr | Baby.TV.be | Baby.TV.br | Baby.TV.cy | Baby.TV.cz | Baby.TV.gr | Baby.TV.hr | Baby.TV.hu | Baby.TV.mt | Baby.TV.pl | Baby.TV.pt | Baby.TV.rs
 M3U Edit ALL,1734,Nickelodeon,30,NICKELODEON..uy | NICKELODEON.be | NICKELODEON.gr | NICKELODEON.ph | NICKELODEON.tr | Nickelodeon.be | Nickelodeon.bg | Nickelodeon.br | Nickelodeon.ch | Nickelodeon.cz | Nickelodeon.dk | Nickelodeon.es | Nickelodeon.fr | Nickelodeon.hk | Nickelodeon.hr | Nickelodeon.hu | Nickelodeon.id | Nickelodeon.it | Nickelodeon.lt | Nickelodeon.lv | Nickelodeon.ng | Nickelodeon.nl | Nickelodeon.nz | Nickelodeon.pl | Nickelodeon.pt | Nickelodeon.ro | Nickelodeon.rs | Nickelodeon.sk | Nickelodeon.th | Nickelodeon.za
 M3U Edit ALL,1729,Nickelodeon HD,10,NICKELODEON.HD.uy | Nickelodeon.HD.be | Nickelodeon.HD.gr | Nickelodeon.HD.ie | Nickelodeon.HD.mt | Nickelodeon.HD.my | Nickelodeon.HD.ro | Nickelodeon.HD.rs | Nickelodeon.HD.sa | Nickelodeon.HD.us2
@@ -377,9 +144,8 @@ M3U Edit ALL,2443,Dorcel TV,6,DORCEL.TV.ca2 | Dorcel.TV.cz | Dorcel.TV.hr | Dorc
 M3U Edit ALL,370,FX HD,5,FX.HD..uy | FX.HD.ca2 | FX.HD.lv | FX.HD.tr | FX.HD.us2
 M3U Edit ALL,89,360,2,360.ch | 360.tr
 M3U Edit ALL,74,RTVi,2,RTVi.ch | RTVi.cz
-M3U Edit ALL,1850,Museum TV 4K,2,MUSEUM.TV.fr | Museum.TV.4K.ch
 M3U Edit ALL,1615,Deejay TV,3,Deejay.TV.ch | Deejay.TV.cz | Deejay.TV.it
-M3U Edit ALL,1897,Love Nature 4K,6,Love.Nature.4K.ch | Love.Nature.4K.hk | Love.Nature.4K.my | Love.Nature.4K.pl | Love.Nature.4K.rs | plex.tv.Love.Nature.plex
+M3U Edit ALL,1897,Love Nature 4K,5,Love.Nature.4K.ch | Love.Nature.4K.hk | Love.Nature.4K.my | Love.Nature.4K.pl | Love.Nature.4K.rs
 M3U Edit ALL,1524,MTV 00s,11,MTV.'00s.lt | MTV.00S.co | MTV.00s.es | MTV.00s.gr | MTV.00s.hr | MTV.00s.lv | MTV.00s.mt | MTV.00s.pl | MTV.00s.ro | MTV.00s.sa | MTV.00s.sk
 M3U Edit ALL,2547,Telemundo,3,TELEMUNDO..uy | TeleMundo.ng | Telemundo.co
 M3U Edit ALL,1963,Nat Geo Wild HD,7,NAT.GEO.WILD.HD.in | NAT.GEO.WILD.HD.ph | Nat.Geo.Wild.HD.cy | Nat.Geo.Wild.HD.gr | Nat.Geo.Wild.HD.ie | Nat.Geo.Wild.HD.lv | Nat.Geo.Wild.HD.mt
@@ -401,7 +167,7 @@ M3U Edit ALL,1852,TravelXP 4K,4,Travelxp.4K.cz | Travelxp.4K.pl | Travelxp.4K.rs
 M3U Edit ALL,2282,Eroxxx HD,5,Eroxxx.HD.cz | Eroxxx.HD.hu | Eroxxx.HD.pl | Eroxxx.HD.ro | Eroxxx.HD.sk
 M3U Edit ALL,2878,Film UA Drama,3,Film.UA.Drama.lt | Film.UA.Drama.pl | Film.Ua.Drama.cz
 M3U Edit ALL,2329,Dusk,2,DUSK.lu | Dusk!.cz
-M3U Edit ALL,461,.sci-fi,4,SCI.FI.HD.pl | SCI.FI.pl | Sci.Fi.cz | Sci.Fi.rs
+M3U Edit ALL,461,.sci-fi,3,SCI.FI.pl | Sci.Fi.cz | Sci.Fi.rs
 M3U Edit ALL,1736,Jim Jam,5,Jim.Jam.cz | Jim.Jam.lv | Jim.Jam.ng | Jim.Jam.sk | Jim.Jam.za
 M3U Edit ALL,2413,Erox HD,4,Erox.HD.cz | Erox.HD.pl | Erox.HD.ro | Erox.HD.sk
 M3U Edit ALL,1564,Mezzo Live HD,7,MEZZO.LIVE.HD.gr | MEZZO.LIVE.HD.ph | Mezzo.Live.HD.cz | Mezzo.Live.HD.fr | Mezzo.Live.HD.pl | Mezzo.Live.HD.pt | Mezzo.Live.HD.ro
@@ -431,17 +197,12 @@ M3U Edit ALL,1906,Discovery Channel HD,10,DISCOVERY.CHANNEL.HD.ph | DISCOVERY.CH
 M3U Edit ALL,1548,MTV HD,5,MTV.HD..uy | MTV.HD.in | MTV.HD.it | MTV.HD.jp | MTV.HD.uk
 M3U Edit ALL,2283,Playboy,2,PLAYBOY..uy | Playboy.lt
 M3U Edit ALL,2847,Viasat Kino World,2,Viasat.Kino.World.lt | Viasat.Kino.World.lv
-M3U Edit ALL,2093,Fashion TV UHD,6,FASHION.TV.HD.ph | Fashion.TV.HD.nl | Fashion.TV.HD.ph | Fashion.TV.HD.pl | Fashion.TV.HD.ro | Fashion.TV.UHD.lu
 M3U Edit ALL,2402,X-MO,2,X-MO.lu | X-MO.nl
 M3U Edit ALL,88,360 HD,2,360.HD.lv | 360.HD.tr
-M3U Edit ALL,1641,Trace Urban HD,6,TRACE.URBAN.HD.tr | TRACE.URBAN.HD.za | TRACE.Urban.HD.mt | Trace.Urban.HD.pt | Trace.Urban.HD.ro | plex.tv.TRACE.Urban.plex
+M3U Edit ALL,1641,Trace Urban HD,5,TRACE.URBAN.HD.tr | TRACE.URBAN.HD.za | TRACE.Urban.HD.mt | Trace.Urban.HD.pt | Trace.Urban.HD.ro
 M3U Edit ALL,2112,Fashion TV HD,5,FASHION.TV.HD.ph | Fashion.TV.HD.nl | Fashion.TV.HD.ph | Fashion.TV.HD.pl | Fashion.TV.HD.ro
 M3U Edit ALL,2877,Fashion TV HD,5,FASHION.TV.HD.ph | Fashion.TV.HD.nl | Fashion.TV.HD.ph | Fashion.TV.HD.pl | Fashion.TV.HD.ro
-M3U Edit ALL,2111,Fashion TV FHD,5,FASHION.TV.HD.ph | Fashion.TV.HD.nl | Fashion.TV.HD.ph | Fashion.TV.HD.pl | Fashion.TV.HD.ro
-M3U Edit ALL,2110,DTX HD PL,2,DTX.HD.pl | DTX.pl
 M3U Edit ALL,1752,NickToons HD,2,NickToons.HD.sa | Nicktoons.HD.pl
-M3U Edit ALL,1474,Eleven Sports 1 4K PL,2,Eleven.Sports.1.4K.pl | Eleven.Sports.1.pl
 M3U Edit ALL,1247,FightBox HD,4,FIGHTBOX.HD.tr | FightBox.HD.pl | Fightbox.HD.ro | Fightbox.HD.sk
 M3U Edit ALL,1266,Trace Sport Stars HD,2,TRACE.SPORT.STARS.HD.tr | TRACE.Sport.Stars.HD.ro
-M3U Edit ALL,1220,Sport Extra RO,2,Sport.Extra.(HD).ro | Sport.Extra.ro
 M3U Edit ALL,1905,History 2 HD,2,HISTORY.2.HD.uy | History.2.HD.rs
