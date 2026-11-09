@@ -1000,6 +1000,10 @@ def process_source(
     mapping_sequence_resolved_ids = set()
     mapping_sequence_conflict_review_ids = set()
     source_programmes = {}
+    # Логотипы сначала связываем с XMLTV ID, а после разрешения
+    # неоднозначностей распространяем на логические варианты канала.
+    source_channel_icons_by_id = {}
+    source_channel_icon_sources_by_id = {}
     source_channel_icons = {}
     source_channel_icon_sources = {}
     # Разные передачи с разным временем начала сохраняются даже при
@@ -1125,11 +1129,9 @@ def process_source(
                             ),
                             "",
                         )
-                        if icon_src:
-                            for playlist_index in matched_indexes:
-                                if playlist_index not in source_channel_icons:
-                                    source_channel_icons[playlist_index] = icon_src
-                                    source_channel_icon_sources[playlist_index] = source_name
+                        if icon_src and channel_id not in source_channel_icons_by_id:
+                            source_channel_icons_by_id[channel_id] = icon_src
+                            source_channel_icon_sources_by_id[channel_id] = source_name
 
                         if method == "tvg-id":
                             stats["matched_by_tvg_id"] += 1
@@ -1637,21 +1639,29 @@ def process_source(
                     "xml_channel_ids": " | ".join(sorted(channel_ids)),
                 })
 
+        # Разделяем охват каналов и назначение передач:
+        # mapped содержит только подтверждённые соответствия для EPG.
+        # Для включения каналов и переноса логотипов расширяем соответствие
+        # на варианты того же логического канала (HD/FHD/SD/Orig).
+        # canonical_mapping_name сохраняет +N и страну, поэтому разные
+        # временные и региональные версии не смешиваются.
         all_matched_indexes = set()
-        for matched_set in mapped.values():
-            all_matched_indexes.update(matched_set)
+        for channel_id, matched_set in mapped.items():
+            if not matched_set:
+                continue
+            display_names = source_channel_display_names.get(channel_id, set())
+            channel_indexes = expand_logical_channel_variants(
+                matched_set, display_names, indexes
+            )
+            all_matched_indexes.update(channel_indexes)
 
-        # Логотипы собирались во время чтения объявлений XMLTV, до окончательного
-        # разрешения неоднозначных ID. Отбрасываем кандидаты каналов, которые
-        # после финализации сопоставления не вошли в matched-набор источника.
-        source_channel_icons = {
-            index: icon for index, icon in source_channel_icons.items()
-            if index in all_matched_indexes
-        }
-        source_channel_icon_sources = {
-            index: source for index, source in source_channel_icon_sources.items()
-            if index in all_matched_indexes
-        }
+            icon_src = source_channel_icons_by_id.get(channel_id, "")
+            icon_source = source_channel_icon_sources_by_id.get(channel_id, source_name)
+            if icon_src:
+                for playlist_index in channel_indexes:
+                    if playlist_index not in source_channel_icons:
+                        source_channel_icons[playlist_index] = icon_src
+                        source_channel_icon_sources[playlist_index] = icon_source
 
         # Помечаем в диагностике только XMLTV-каналы, у которых
         # действительно есть передачи в проверяемом периоде.
