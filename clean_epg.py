@@ -1689,6 +1689,7 @@ def parse_m3u_channels(path):
 
     channels = []
     current_group = ""
+    pending_channel_index = None
     attribute_re = re.compile(r'([\w-]+)\s*=\s*"([^"]*)"')
 
     for line_number, raw_line in enumerate(lines, start=1):
@@ -1696,25 +1697,40 @@ def parse_m3u_channels(path):
         if not line:
             continue
         if line.startswith("#EXTGRP:"):
-            current_group = line.partition(":")[2].strip()
+            group = line.partition(":")[2].strip()
+            if pending_channel_index is not None:
+                # Some IPTV playlists place EXTGRP after EXTINF, before the URL.
+                if not channels[pending_channel_index]["group_from_attribute"]:
+                    channels[pending_channel_index]["group"] = group
+                pending_channel_index = None
+            current_group = group
             continue
-        if not line.startswith("#EXTINF:"):
+        if line.startswith("#EXTINF:"):
+            separator = find_m3u_title_separator(line)
+            if separator < 0:
+                raise RuntimeError(f"invalid #EXTINF record at playlist line {line_number}")
+
+            metadata = line[len("#EXTINF:"):separator]
+            title = line[separator + 1:].strip()
+            if not title:
+                raise RuntimeError(f"empty channel title at playlist line {line_number}")
+
+            attributes = {key.casefold(): value.strip() for key, value in attribute_re.findall(metadata)}
+            group_title = attributes.get("group-title", "")
+            group = group_title or current_group
+            title = title.replace("|", "｜")
+            group = group.replace("|", "｜")
+            channels.append({
+                "title": title,
+                "group": group,
+                "group_from_attribute": bool(group_title),
+            })
+            pending_channel_index = len(channels) - 1
             continue
 
-        separator = find_m3u_title_separator(line)
-        if separator < 0:
-            raise RuntimeError(f"invalid #EXTINF record at playlist line {line_number}")
-
-        metadata = line[len("#EXTINF:"):separator]
-        title = line[separator + 1:].strip()
-        if not title:
-            raise RuntimeError(f"empty channel title at playlist line {line_number}")
-
-        attributes = {key.casefold(): value.strip() for key, value in attribute_re.findall(metadata)}
-        group = attributes.get("group-title") or current_group or "Без категории"
-        title = title.replace("|", "｜")
-        group = group.replace("|", "｜")
-        channels.append({"title": title, "group": group})
+        if not line.startswith("#"):
+            # Stream URL reached: subsequent EXTGRP markers belong to the next entry.
+            pending_channel_index = None
 
     if not channels:
         raise RuntimeError("playlist contains no #EXTINF channel records")
