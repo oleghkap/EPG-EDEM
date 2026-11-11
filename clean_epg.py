@@ -1660,6 +1660,111 @@ def apply_base_schedule_fallback(channels, included_channel_indexes, global_prog
     }
 
 
+def find_m3u_title_separator(value):
+    """Find the first comma outside quoted EXTINF attributes."""
+    quote = None
+    for index, char in enumerate(value):
+        if quote:
+            if char == quote:
+                quote = None
+        elif char in ('"', "'"):
+            quote = char
+        elif char == ",":
+            return index
+    return -1
+
+
+def parse_m3u_channels(path):
+    """Parse channel titles and groups from an M3U playlist (names only)."""
+    raw = Path(path).read_bytes()
+    try:
+        content = raw.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        content = raw.decode("cp1251")
+
+    lines = content.splitlines()
+    first_content = next((line.strip() for line in lines if line.strip()), "")
+    if first_content != "#EXTM3U":
+        raise RuntimeError("playlist is not a valid M3U file (missing #EXTM3U header)")
+
+    channels = []
+    current_group = ""
+    attribute_re = re.compile(r'([\w-]+)\s*=\s*"([^"]*)"')
+
+    for line_number, raw_line in enumerate(lines, start=1):
+        line = raw_line.strip()
+        if not line:
+            continue
+        if line.startswith("#EXTGRP:"):
+            current_group = line.partition(":")[2].strip()
+            continue
+        if not line.startswith("#EXTINF:"):
+            continue
+
+        separator = find_m3u_title_separator(line)
+        if separator < 0:
+            raise RuntimeError(f"invalid #EXTINF record at playlist line {line_number}")
+
+        metadata = line[len("#EXTINF:"):separator]
+        title = line[separator + 1:].strip()
+        if not title:
+            raise RuntimeError(f"empty channel title at playlist line {line_number}")
+
+        attributes = {key.casefold(): value.strip() for key, value in attribute_re.findall(metadata)}
+        group = attributes.get("group-title") or current_group or "Без категории"
+        title = title.replace("|", "｜")
+        group = group.replace("|", "｜")
+        channels.append({"title": title, "group": group})
+
+    if not channels:
+        raise RuntimeError("playlist contains no #EXTINF channel records")
+    return channels
+
+
+def render_reference_channels(channels):
+    """Render the canonical channels_test.txt table."""
+    lines = [
+        "№    | CHANNEL                                 | GRP            ",
+        "-----+-----------------------------------------+----------------",
+    ]
+    for number, channel in enumerate(channels, start=1):
+        title = channel["title"].strip()
+        group = channel["group"].strip() or "Без категории"
+        if not title:
+            raise RuntimeError(f"empty playlist channel title at record {number}")
+        lines.append(f"{number:<5}| {title:<39} | {group:<14}")
+    return "\n".join(lines) + "\n"
+
+
+def sync_reference_channels():
+    """Refresh channels_test.txt from the configured private M3U URL."""
+    playlist_url = os.environ.get("PLAYLIST_URL", "").strip()
+    if not playlist_url:
+        raise RuntimeError("PLAYLIST_URL is not configured; refusing to use a stale channels_test.txt")
+
+    path = OUTPUT_DIR / "channels_test.txt"
+    with tempfile.TemporaryDirectory() as temp_dir:
+        downloaded = Path(temp_dir) / "playlist.m3u"
+        size = download_to_file(playlist_url, downloaded, MAX_PLAYLIST_SIZE)
+        channels = parse_m3u_channels(downloaded)
+
+    updated_content = render_reference_channels(channels)
+    previous_content = path.read_text(encoding="utf-8-sig") if path.exists() else None
+    if previous_content == updated_content:
+        log(f"Плейлист: {len(channels)} каналов; channels_test.txt уже актуален.")
+        return len(channels), False
+
+    temporary_path = path.with_name(path.name + ".pending")
+    try:
+        temporary_path.write_text(updated_content, encoding="utf-8")
+        os.replace(temporary_path, path)
+    finally:
+        temporary_path.unlink(missing_ok=True)
+
+    log(f"Плейлист: {len(channels)} каналов; channels_test.txt обновлён ({size / 1024:.1f} KiB).")
+    return len(channels), True
+
+
 def load_reference_channels():
     """
     Читает канонический список каналов из channels_test.txt.
@@ -1901,6 +2006,7 @@ def main():
     log(f"Период по Москве: {period_start:%Y-%m-%d %H:%M} — {period_end:%Y-%m-%d %H:%M}")
     log("Дней: 3 (вчера, сегодня, завтра)")
 
+    sync_reference_channels()
     channels = load_reference_channels()
     indexes = build_playlist_indexes(channels)
     global_programmes = {}
