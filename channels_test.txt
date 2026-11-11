@@ -1,6 +1,6 @@
 №    | CHANNEL                                 | GRP            
 -----+-----------------------------------------+----------------
-1    | ОТР HD                                  | Без категории 
+1    | ОТР HD                                  | Общие         
 2    | Первый канал FHD                        | Общие         
 3    | Первый канал HD                         | Общие         
 4    | Первый канал                            | Общие         
@@ -307,7 +307,7 @@
 305  | Первый канал +2 (Белорецк)              | Общие         
 306  | Первый российский национальный канал HD | Общие         
 307  | Дождь HD                                | Общие         
-308  | РБК HD 50                               | Общие         
+308  | РБК HD 50                               | Новостные     
 309  | Экоспаскоми (Коми)                      | Новостные     
 310  | Крик ТВ                                 | Новостные     
 311  | РБК HD                                  | Новостные     
@@ -360,7 +360,7 @@
 358  | BBC Entertainment UK                    | Новостные     
 359  | BBC First UK                            | Новостные     
 360  | BBC Scotland UK                         | Новостные     
-361  | VF Сериалы Турции                       | Новостные     
+361  | VF Сериалы Турции                       | Кино          
 362  | VF Вестерн                              | Кино          
 363  | Советское кино                          | Кино          
 364  | Viasat Kino World orig                  | Кино          
@@ -1138,7 +1138,7 @@
 1136 | Страх 2.0 HD                            | Кино          
 1137 | Фантастика 2.0 HD                       | Кино          
 1138 | KLI Новинки HD                          | Кино          
-1139 | Megogo Спорт HD                         | Кино          
+1139 | Megogo Спорт HD                         | Спорт         
 1140 | Окко Event 15                           | Спорт         
 1141 | Sky Sports Tennis HD 50 UK              | Спорт         
 1142 | Discovery+ Event 1                      | Спорт         
@@ -1521,7 +1521,7 @@
 1519 | Setanta Sports HD UA                    | Спорт         
 1520 | Setanta Sports+ UA                      | Спорт         
 1521 | Setanta Sports+ HD UA                   | Спорт         
-1522 | Bridge Фрэш HD                          | Спорт         
+1522 | Bridge Фрэш HD                          | Музыка        
 1523 | VF Michael Jackson                      | Музыка        
 1524 | MTV 80s                                 | Музыка        
 1525 | MTV 00s                                 | Музыка        
@@ -1712,7 +1712,7 @@
 1710 | BOX Metall HD                           | Музыка        
 1711 | Liberty Мюзикл 4K                       | Музыка        
 1712 | Prokop TV Hip Hop                       | Музыка        
-1713 | Cartoon Classics                        | Музыка        
+1713 | Cartoon Classics                        | Детские       
 1714 | Тооку                                   | Детские       
 1715 | Карусель HD                             | Детские       
 1716 | КиноМульт                               | Детские       
@@ -1829,7 +1829,7 @@
 1827 | Prokop TV Масяня                        | Детские       
 1828 | Prokop TV Мульт HD UA                   | Детские       
 1829 | Том и Джерри (Russian)                  | Детские       
-1830 | Настоящее время HD                      | Детские       
+1830 | Настоящее время HD                      | Познавательные
 1831 | BOX History 4K                          | Познавательные
 1832 | BOX Kosmo 4K                            | Познавательные
 1833 | Моя Стихия                              | Познавательные
@@ -2082,7 +2082,7 @@
 2080 | Z!Military HD                           | Познавательные
 2081 | Z!Biography HD                          | Познавательные
 2082 | Z!Science HD                            | Познавательные
-2083 | Epic HD                                 | Познавательные
+2083 | Epic HD                                 | Развлекательные
 2084 | VF Маски Шоу                            | Развлекательные
 2085 | VF Каламбур                             | Развлекательные
 2086 | BOX Lo-Fi HD                            | Развлекательные
@@ -2159,7 +2159,7 @@
 2157 | Dosug TV ER                             | Развлекательные
 2158 | Citrus Holiday                          | Развлекательные
 2159 | Kinoshka Christmas HD                   | Развлекательные
-2160 | Ямал регион HD                          | Развлекательные
+2160 | Ямал регион HD                          | Региональные  
 2161 | Среда HD                                | Региональные  
 2162 | Якутия 24                               | Региональные  
 2163 | Сургут 1 FHD                            | Региональные  
@@ -2273,12 +2273,12 @@
 2271 | Арис 24 HD                              | Региональные  
 2272 | РГВК Дагестан FHD                       | Региональные  
 2273 | ЯПервый FHD                             | Региональные  
-2274 | Shopping Live                           | Региональные  
+2274 | Shopping Live                           | Телемагазины  
 2275 | Digital Media (JWL)                     | Телемагазины  
 2276 | Women`s Magazine HD                     | Телемагазины  
 2277 | Leomax 24                               | Телемагазины  
 2278 | Nano orig                               | Телемагазины  
-2279 | VF Граиндхаус                           | Телемагазины  
+2279 | VF Граиндхаус                           | Взрослые      
 2280 | Extasy 4K                               | Взрослые      
 2281 | Русская Ночь orig                       | Взрослые      
 2282 | Exxxotica HD orig                       | Взрослые      
@@ -2517,375 +2517,375 @@
 2515 | Adult TV (18+)                          | Взрослые      
 2516 | PlayBoyz TV HD                          | Взрослые      
 2517 | Ню Арт HD (18+)                         | Взрослые      
-2518 | Беларусь 24 HD                          | Взрослые      
-2519 | Беларусь 24                             | Беларусь ｜ Беларускія
-2520 | Беларусь 1                              | Беларусь ｜ Беларускія
-2521 | Беларусь 2                              | Беларусь ｜ Беларускія
-2522 | Беларусь 3                              | Беларусь ｜ Беларускія
-2523 | Беларусь 1 HD                           | Беларусь ｜ Беларускія
-2524 | Беларусь 2 HD                           | Беларусь ｜ Беларускія
-2525 | Беларусь 3 HD                           | Беларусь ｜ Беларускія
-2526 | Беларусь 5 HD BY                        | Беларусь ｜ Беларускія
-2527 | СТВ                                     | Беларусь ｜ Беларускія
-2528 | СТВ HD                                  | Беларусь ｜ Беларускія
-2529 | ОНТ                                     | Беларусь ｜ Беларускія
-2530 | ОНТ HD BY                               | Беларусь ｜ Беларускія
-2531 | 8 Канал HD                              | Беларусь ｜ Беларускія
-2532 | Беларусь 5 BY                           | Беларусь ｜ Беларускія
-2533 | ОНТ BY                                  | Беларусь ｜ Беларускія
-2534 | Союзный                                 | Беларусь ｜ Беларускія
-2535 | Белсат HD                               | Беларусь ｜ Беларускія
-2536 | Food Network                            | Беларусь ｜ Беларускія
-2537 | TENNIS HD US                            | США ｜ USA     
-2538 | CINEMAXX MORE MAXX US                   | США ｜ USA     
-2539 | CINEMAX THRILLERMAX HD US               | США ｜ USA     
-2540 | CINEMAX OUTER MAX US                    | США ｜ USA     
-2541 | CINEMAX MOVIEMAX US                     | США ｜ USA     
-2542 | NHL Network US                          | США ｜ USA     
-2543 | NBA TV HD US                            | США ｜ USA     
-2544 | Ion Television                          | США ｜ USA     
-2545 | NYCTV Life                              | США ｜ USA     
-2546 | CBS New York                            | США ｜ USA     
-2547 | Hallmark Movies & Mysteries HD          | США ｜ USA     
-2548 | Telemundo                               | США ｜ USA     
-2549 | NBC                                     | США ｜ USA     
-2550 | Disney XD                               | США ｜ USA     
-2551 | AMC US                                  | США ｜ USA     
-2552 | HGTV HD US                              | США ｜ USA     
-2553 | tru TV                                  | США ｜ USA     
-2554 | RACER Network HD                        | США ｜ USA     
-2555 | ABC HD                                  | США ｜ USA     
-2556 | Fox 5 WNYW                              | США ｜ USA     
-2557 | My9NJ                                   | США ｜ USA     
-2558 | MOTORTREND                              | США ｜ USA     
-2559 | BBC America                             | США ｜ USA     
-2560 | WPIX-TV                                 | США ｜ USA     
-2561 | THIRTEEN                                | США ｜ USA     
-2562 | WLIW21                                  | США ｜ USA     
-2563 | NJTV                                    | США ｜ USA     
-2564 | MeTV                                    | США ｜ USA     
-2565 | WMBC Digital Television                 | США ｜ USA     
-2566 | Univision                               | США ｜ USA     
-2567 | UniMÁS                                  | США ｜ USA     
-2568 | USA                                     | США ｜ USA     
-2569 | TNT                                     | США ｜ USA     
-2570 | TBS                                     | США ｜ USA     
-2571 | TLC US                                  | США ｜ USA     
-2572 | FXM en                                  | США ｜ USA     
-2573 | A&E                                     | США ｜ USA     
-2574 | CNBC                                    | США ｜ USA     
-2575 | FOX SPORTS 1 US                         | США ｜ USA     
-2576 | FOX SPORTS 2 US                         | США ｜ USA     
-2577 | CBS SPORTS NETWORK US                   | США ｜ USA     
-2578 | MSG US                                  | США ｜ USA     
-2579 | MSG 2 US                                | США ｜ USA     
-2580 | NBC SPORTS NETWORK US                   | США ｜ USA     
-2581 | NHL Network HD US                       | США ｜ USA     
-2582 | AT&T SPORTSNET HD                       | США ｜ USA     
-2583 | SPECTRUM SPORTSNET                      | США ｜ USA     
-2584 | NESN HD                                 | США ｜ USA     
-2585 | [Spectrum] A&E HD                       | США ｜ USA     
-2586 | [Spectrum] American Heroes Channel HD   | США ｜ USA     
-2587 | [Spectrum] AXS TV HD                    | США ｜ USA     
-2588 | [Spectrum] BabyFirst TV HD              | США ｜ USA     
-2589 | [Spectrum] BBC World News HD            | США ｜ USA     
-2590 | [Spectrum] beIN SPORTS Espanol HD       | США ｜ USA     
-2591 | [Spectrum] beIN SPORTS HD               | США ｜ USA     
-2592 | [Spectrum] BET Her HD                   | США ｜ USA     
-2593 | [Spectrum] Bravo HD                     | США ｜ USA     
-2594 | [Spectrum] C-SPAN 2 HD                  | США ｜ USA     
-2595 | [Spectrum] C-SPAN 3 HD                  | США ｜ USA     
-2596 | [Spectrum] C-SPAN HD                    | США ｜ USA     
-2597 | [Spectrum] Cars.TV HD                   | США ｜ USA     
-2598 | [Spectrum] Cheddar News HD              | США ｜ USA     
-2599 | [Spectrum] Comedy Central HD            | США ｜ USA     
-2600 | [Spectrum] Cooking Channel HD           | США ｜ USA     
-2601 | [Spectrum] Crime & Investigation HD     | США ｜ USA     
-2602 | [Spectrum] Destination America HD       | США ｜ USA     
-2603 | [Spectrum] Discovery Channel HD         | США ｜ USA     
-2604 | [Spectrum] Discovery Family HD          | США ｜ USA     
-2605 | [Spectrum] Discovery Life HD            | США ｜ USA     
-2606 | [Spectrum] E! HD                        | США ｜ USA     
-2607 | [Spectrum] ESPN Deportes HD             | США ｜ USA     
-2608 | [Spectrum] ESPNews HD                   | США ｜ USA     
-2609 | [Spectrum] ESPNU HD                     | США ｜ USA     
-2610 | [Spectrum] Flix HD                      | США ｜ USA     
-2611 | [Spectrum] FOX Deportes HD              | США ｜ USA     
-2612 | [Spectrum] Fox News Channel HD          | США ｜ USA     
-2613 | [Spectrum] Fox Sports 2 HD              | США ｜ USA     
-2614 | [Spectrum] Fuse HD                      | США ｜ USA     
-2615 | [Spectrum] FX HD                        | США ｜ USA     
-2616 | [Spectrum] FYI HD                       | США ｜ USA     
-2617 | [Spectrum] Golf Channel HD              | США ｜ USA     
-2618 | [Spectrum] GSN HD                       | США ｜ USA     
-2619 | [Spectrum] HDNet Movies HD              | США ｜ USA     
-2620 | [Spectrum] History HD                   | США ｜ USA     
-2621 | [Spectrum] HSN HD                       | США ｜ USA     
-2622 | [Spectrum] HSN2 HD                      | США ｜ USA     
-2623 | [Spectrum] i24 News HD                  | США ｜ USA     
-2624 | [Spectrum] Jewelry TV HD                | США ｜ USA     
-2625 | [Spectrum] Justice Central HD           | США ｜ USA     
-2626 | [Spectrum] Lifetime HD                  | США ｜ USA     
-2627 | [Spectrum] LMN HD                       | США ｜ USA     
-2628 | [Spectrum] Logo HD East                 | США ｜ USA     
-2629 | [Spectrum] Movieplex HD                 | США ｜ USA     
-2630 | [Spectrum] SPECTRUM NEWS - NY1          | США ｜ USA     
-2631 | Bally Sports Arizona Alternate          | США ｜ USA     
-2632 | Bally Sports Arizona Plus               | США ｜ USA     
-2633 | [Spectrum] MTV2 HD                      | США ｜ USA     
-2634 | FanDuel Sports Network Detroit          | США ｜ USA     
-2635 | FanDuel Sports Network Detroit Plus     | США ｜ USA     
-2636 | FanDuel Sports Network Florida          | США ｜ USA     
-2637 | FanDuel Sports Network Florida Plus     | США ｜ USA     
-2638 | Bally Sports Great Lakes                | США ｜ USA     
-2639 | FanDuel Sports Network Oklahoma         | США ｜ USA     
-2640 | [Spectrum] Newsmax TV HD                | США ｜ USA     
-2641 | FanDuel Sports Network Midwest          | США ｜ USA     
-2642 | [Spectrum] NFL Network HD               | США ｜ USA     
-2643 | [Spectrum] NFL Redzone HD               | США ｜ USA     
-2644 | Bally Sports Midwest Alternate          | США ｜ USA     
-2645 | [Spectrum] Nick Jr HD                   | США ｜ USA     
-2646 | Bally Sports New Orleans                | США ｜ USA     
-2647 | [Spectrum] Nicktoons  HD                | США ｜ USA     
-2648 | FanDuel Sports Network North            | США ｜ USA     
-2649 | [Spectrum] Outdoor Channel HD           | США ｜ USA     
-2650 | FanDuel Sports Network Ohio             | США ｜ USA     
-2651 | [Spectrum] Ovation TV HD                | США ｜ USA     
-2652 | [Spectrum] OWN HD                       | США ｜ USA     
-2653 | FanDuel Sports Network Ohio Cincinnati  | США ｜ USA     
-2654 | [Spectrum] PAC-12 Arizona HD            | США ｜ USA     
-2655 | [Spectrum] PAC-12 Bay Area HD           | США ｜ USA     
-2656 | [Spectrum] PAC-12 Los Angeles HD        | США ｜ USA     
-2657 | [Spectrum] PAC-12 Mountain HD           | США ｜ USA     
-2658 | [Spectrum] PAC-12 Oregon HD             | США ｜ USA     
-2659 | [Spectrum] PAC-12 Washington HD         | США ｜ USA     
-2660 | [Spectrum] Paramount Network HD         | США ｜ USA     
-2661 | FanDuel Sports Network Ohio Cleveland   | США ｜ USA     
-2662 | Bally Sports San Diego                  | США ｜ USA     
-2663 | Bally Sports San Diego Plus             | США ｜ USA     
-2664 | [Spectrum] Pets.TV HD                   | США ｜ USA     
-2665 | FanDuel Sports Network SoCal Plus       | США ｜ USA     
-2666 | FanDuel Sports Network Southeast        | США ｜ USA     
-2667 | Bally Sports Southwest Alternate        | США ｜ USA     
-2668 | [Spectrum] QVC HD                       | США ｜ USA     
-2669 | [Spectrum] QVC2 HD                      | США ｜ USA     
-2670 | FanDuel Sports Network Southeast Plus   | США ｜ USA     
-2671 | [Spectrum] Recipe.TV HD                 | США ｜ USA     
-2672 | FanDuel Sports Network Sun              | США ｜ USA     
-2673 | [Spectrum] RetroPlex HD                 | США ｜ USA     
-2674 | FanDuel Sports Network West             | США ｜ USA     
-2675 | FanDuel Sports Network West Plus        | США ｜ USA     
-2676 | [Spectrum] Science Channel HD           | США ｜ USA     
-2677 | FanDuel Sports Network Wisconsin        | США ｜ USA     
-2678 | FanDuel Sports Network Wisconsin Plus   | США ｜ USA     
-2679 | beIN Sports                             | США ｜ USA     
-2680 | beIN Sports 2                           | США ｜ USA     
-2681 | beIN Sports 3                           | США ｜ USA     
-2682 | beIN Sports 4                           | США ｜ USA     
-2683 | beIN Sports 5                           | США ｜ USA     
-2684 | beIN Sports 6                           | США ｜ USA     
-2685 | beIN Sports 7                           | США ｜ USA     
-2686 | beIN Sports USA                         | США ｜ USA     
-2687 | Monumental Sports Network               | США ｜ USA     
-2688 | [Spectrum] Smithsonian Channel HD       | США ｜ USA     
-2689 | [Spectrum] TBS HD                       | США ｜ USA     
-2690 | [Spectrum] TCM HD                       | США ｜ USA     
-2691 | [Spectrum] TeenNick HD                  | США ｜ USA     
-2692 | [Spectrum] Tennis Channel HD            | США ｜ USA     
-2693 | [Spectrum] TLC HD                       | США ｜ USA     
-2694 | [Spectrum] TUDN HD                      | США ｜ USA     
-2695 | [Spectrum] TVG Network HD               | США ｜ USA     
-2696 | [Spectrum] Universal Kids HD            | США ｜ USA     
-2697 | [Spectrum] Universo HD East             | США ｜ USA     
-2698 | [Spectrum] Up TV HD                     | США ｜ USA     
-2699 | [Spectrum] USA HD                       | США ｜ USA     
-2700 | [Spectrum] Vice HD East                 | США ｜ USA     
-2701 | [Spectrum] Willow Cricket HD            | США ｜ USA     
-2702 | ICTV 2 HD UA                            | США ｜ USA     
-2703 | НТН HD UA                               | Украина ｜ Українські
-2704 | Сфера ТВ HD UA                          | Украина ｜ Українські
-2705 | Наше Улюблене Кіно HD UA                | Украина ｜ Українські
-2706 | 5 Канал UA                              | Украина ｜ Українські
-2707 | FilmBox orig UA                         | Украина ｜ Українські
-2708 | 24 Канал UA                             | Украина ｜ Українські
-2709 | Надiя ТВ UA                             | Украина ｜ Українські
-2710 | UA:Київ                                 | Украина ｜ Українські
-2711 | EU Music HD UA                          | Украина ｜ Українські
-2712 | Еспресо TV HD UA                        | Украина ｜ Українські
-2713 | Мега UA                                 | Украина ｜ Українські
-2714 | Мега HD UA                              | Украина ｜ Українські
-2715 | К2 UA                                   | Украина ｜ Українські
-2716 | К2 HD UA                                | Украина ｜ Українські
-2717 | К1 UA                                   | Украина ｜ Українські
-2718 | К1 HD UA                                | Украина ｜ Українські
-2719 | Kvartal TV UA                           | Украина ｜ Українські
-2720 | Enter                                   | Украина ｜ Українські
-2721 | Enter                                   | Украина ｜ Українські
-2722 | Новий Канал UA                          | Украина ｜ Українські
-2723 | Новий Канал HD UA                       | Украина ｜ Українські
-2724 | НТН UA                                  | Украина ｜ Українські
-2725 | Інтер UA                                | Украина ｜ Українські
-2726 | Пiксель TV UA                           | Украина ｜ Українські
-2727 | 4ever Music HD UA                       | Украина ｜ Українські
-2728 | Правда Тут                              | Украина ｜ Українські
-2729 | Тернопіль 1                             | Украина ｜ Українські
-2730 | Рада                                    | Украина ｜ Українські
-2731 | Первый городской                        | Украина ｜ Українські
-2732 | СК1                                     | Украина ｜ Українські
-2733 | 1+1 Україна UA                          | Украина ｜ Українські
-2734 | Bolt UA                                 | Украина ｜ Українські
-2735 | Star Cinema HD UA                       | Украина ｜ Українські
-2736 | Чернiвецький Промiнь                    | Украина ｜ Українські
-2737 | Перший UA                               | Украина ｜ Українські
-2738 | Суспільне Крим HD UA                    | Украина ｜ Українські
-2739 | Obozrevatel TV HD UA                    | Украина ｜ Українські
-2740 | 5 Канал HD UA                           | Украина ｜ Українські
-2741 | Свiтло UA                               | Украина ｜ Українські
-2742 | Інтер HD UA                             | Украина ｜ Українські
-2743 | Телеканал Рибалка                       | Украина ｜ Українські
-2744 | 1+1 Марафон UA                          | Украина ｜ Українські
-2745 | 2+2 UA                                  | Украина ｜ Українські
-2746 | Бiгудi UA                               | Украина ｜ Українські
-2747 | NTA UA                                  | Украина ｜ Українські
-2748 | ТВА                                     | Украина ｜ Українські
-2749 | Zoom UA                                 | Украина ｜ Українські
-2750 | Zoom HD UA                              | Украина ｜ Українські
-2751 | ПлюсПлюс                                | Украина ｜ Українські
-2752 | Eco TV HD UA                            | Украина ｜ Українські
-2753 | ТЕТ                                     | Украина ｜ Українські
-2754 | Сонце                                   | Украина ｜ Українські
-2755 | Прямий HD                               | Украина ｜ Українські
-2756 | УНІАН                                   | Украина ｜ Українські
-2757 | 7 Канал UA                              | Украина ｜ Українські
-2758 | ТРК Круг                                | Украина ｜ Українські
-2759 | ТРК Київ                                | Украина ｜ Українські
-2760 | 8 Канал UA HD                           | Украина ｜ Українські
-2761 | TVA                                     | Украина ｜ Українські
-2762 | 24 Канал HD UA                          | Украина ｜ Українські
-2763 | 4 Канал HD UA                           | Украина ｜ Українські
-2764 | UA:Тернопіль                            | Украина ｜ Українські
-2765 | ICTV UA                                 | Украина ｜ Українські
-2766 | ICTV HD UA                              | Украина ｜ Українські
-2767 | СТБ UA                                  | Украина ｜ Українські
-2768 | СТБ HD                                  | Украина ｜ Українські
-2769 | Інтер UA                                | Украина ｜ Українські
-2770 | XSPORT UA                               | Украина ｜ Українські
-2771 | Еспресо TV UA                           | Украина ｜ Українські
-2772 | Пiксель TV UA                           | Украина ｜ Українські
-2773 | Sport 1 UA                              | Украина ｜ Українські
-2774 | Sport 2 UA                              | Украина ｜ Українські
-2775 | 1+1 Марафон HD UA                       | Украина ｜ Українські
-2776 | ТРК Украина HD UA                       | Украина ｜ Українські
-2777 | Перший Т2 UA                            | Украина ｜ Українські
-2778 | Еспресо TV HD UA                        | Украина ｜ Українські
-2779 | Болт HD UA                              | Украина ｜ Українські
-2780 | Пiксель TV UA                           | Украина ｜ Українські
-2781 | Перший HD UA                            | Украина ｜ Українські
-2782 | Star Cinema Россия HD                   | Украина ｜ Українські
-2783 | Star Family Россия HD                   | Украина ｜ Українські
-2784 | 8 Канал UA                              | Украина ｜ Українські
-2785 | Бігуді UA                               | Украина ｜ Українські
-2786 | NIKI Kids HD UA                         | Украина ｜ Українські
-2787 | NIKI Junior HD UA                       | Украина ｜ Українські
-2788 | М1 HD UA                                | Украина ｜ Українські
-2789 | М2 HD UA                                | Украина ｜ Українські
-2790 | ICTV UA                                 | Украина ｜ Українські
-2791 | Новий Канал UA                          | Украина ｜ Українські
-2792 | Апостроф TV HD UA                       | Украина ｜ Українські
-2793 | Оце HD UA                               | Украина ｜ Українські
-2794 | Перший HD UA                            | Украина ｜ Українські
-2795 | ТЕТ HD                                  | Украина ｜ Українські
-2796 | 2+2 HD UA                               | Украина ｜ Українські
-2797 | ПлюсПлюс HD                             | Украина ｜ Українські
-2798 | Оце UA                                  | Украина ｜ Українські
-2799 | Еспресо TV HD orig UA                   | Украина ｜ Українські
-2800 | Перший Автомобільний HD UA              | Украина ｜ Українські
-2801 | Megogo live HD UA                       | Украина ｜ Українські
-2802 | Терра UA                                | Украина ｜ Українські
-2803 | XSPORT+ HD UA                           | Украина ｜ Українські
-2804 | Star Cinema UA                          | Украина ｜ Українські
-2805 | FilmBox ArtHouse HD UA                  | Украина ｜ Українські
-2806 | FilmBox UA                              | Украина ｜ Українські
-2807 | Караван TV UA                           | Украина ｜ Українські
-2808 | ПРАВДАТУТ HD UA                         | Украина ｜ Українські
-2809 | Enter-фільм HD UA                       | Украина ｜ Українські
-2810 | ПЕРШИЙ ДІЛОВИЙ UA                       | Украина ｜ Українські
-2811 | Eco TV UA                               | Украина ｜ Українські
-2812 | EU Music HD UA                          | Украина ｜ Українські
-2813 | EU Music UA                             | Украина ｜ Українські
-2814 | 4ever Music UA                          | Украина ｜ Українські
-2815 | Українське радіо 1                      | Украина ｜ Українські
-2816 | Українське радіо 3                      | Украина ｜ Українські
-2817 | Уніaн HD                                | Украина ｜ Українські
-2818 | Фауна                                   | Украина ｜ Українські
-2819 | Масон ТВ HD                             | Украина ｜ Українські
-2820 | Ми Україна HD                           | Украина ｜ Українські
-2821 | НТА HD                                  | Украина ｜ Українські
-2822 | Наука                                   | Украина ｜ Українські
-2823 | Обозреватель HD                         | Украина ｜ Українські
-2824 | Перший Міський Кривий Ріг HD            | Украина ｜ Українські
-2825 | Перший Міський Одеса HD                 | Украина ｜ Українські
-2826 | Рада HD                                 | Украина ｜ Українські
-2827 | Радіо TVA                               | Украина ｜ Українські
-2828 | Радіо Закарпаття FM                     | Украина ｜ Українські
-2829 | Радіо Промінь                           | Украина ｜ Українські
-2830 | Рибалка HD                              | Украина ｜ Українські
-2831 | Світло HD                               | Украина ｜ Українські
-2832 | Суспільне Київ HD                       | Украина ｜ Українські
-2833 | Суспільне Крим HD                       | Украина ｜ Українські
-2834 | Суспільне Культура HD                   | Украина ｜ Українські
-2835 | Суспільне Новини                        | Украина ｜ Українські
-2836 | Суспільне Новини HD                     | Украина ｜ Українські
-2837 | Суспільне Спорт                         | Украина ｜ Українські
-2838 | Суспільне Спорт HD                      | Украина ｜ Українські
-2839 | ТРК Перший Західний HD                  | Украина ｜ Українські
-2840 | Тера                                    | Украина ｜ Українські
-2841 | TVA Чернівці                            | Украина ｜ Українські
-2842 | Tak TV HD UA                            | Украина ｜ Українські
-2843 | Utravel HD                              | Украина ｜ Українські
-2844 | Viasat Kino Action HD                   | Украина ｜ Українські
-2845 | Viasat Kino Comedy HD                   | Украина ｜ Українські
-2846 | Viasat Kino HD                          | Украина ｜ Українські
-2847 | Viasat Nature CEE HD                    | Украина ｜ Українські
-2848 | Viasat Kino World                       | Украина ｜ Українські
-2849 | Ісландія HD                             | Украина ｜ Українські
-2850 | Аверс                                   | Украина ｜ Українські
-2851 | Армія ТБ HD                             | Украина ｜ Українські
-2852 | Галичина HD                             | Украина ｜ Українські
-2853 | Голос Америки VOA HD                    | Украина ｜ Українські
-2854 | Готуємо разом HD                        | Украина ｜ Українські
-2855 | Дача                                    | Украина ｜ Українські
-2856 | Дім HD                                  | Украина ｜ Українські
-2857 | ЕТНО Канал HD                           | Украина ｜ Українські
-2858 | Закон ТВ HD                             | Украина ｜ Українські
-2859 | Канал 24 HD                             | Украина ｜ Українські
-2860 | RAZ 3 HD                                | Украина ｜ Українські
-2861 | Київ HD                                 | Украина ｜ Українські
-2862 | 1+1 Україна HD                          | Украина ｜ Українські
-2863 | 11 Канал Дніпро                         | Украина ｜ Українські
-2864 | 36.6                                    | Украина ｜ Українські
-2865 | 4Ever Cinema HD                         | Украина ｜ Українські
-2866 | 5 Канал HD                              | Украина ｜ Українські
-2867 | 6 Соток                                 | Украина ｜ Українські
-2868 | AMC                                     | Украина ｜ Українські
-2869 | Bolt HD UA                              | Украина ｜ Українські
-2870 | Cine+ HD                                | Украина ｜ Українські
-2871 | Cine+ Hit HD                            | Украина ｜ Українські
-2872 | Cine+ Kids HD                           | Украина ｜ Українські
-2873 | Cine+ Legend HD                         | Украина ｜ Українські
-2874 | D1                                      | Украина ｜ Українські
-2875 | Da Vinci HD                             | Украина ｜ Українські
-2876 | Divi Sport HD                           | Украина ｜ Українські
-2877 | Equalympic HD                           | Украина ｜ Українські
-2878 | Fashion TV HD                           | Украина ｜ Українські
-2879 | Film UA Drama                           | Украина ｜ Українські
-2880 | FILMBOX+ Festival HD                    | Украина ｜ Українські
-2881 | FilmUA Live HD                          | Украина ｜ Українські
-2882 | FlixSnip HD                             | Украина ｜ Українські
-2883 | FREEДОМ UATV                            | Украина ｜ Українські
-2884 | K1                                      | Украина ｜ Українські
-2885 | Kino Action HD                          | Украина ｜ Українські
-2886 | Kino Comedy HD                          | Украина ｜ Українські
-2887 | Kino Premiere HD                        | Украина ｜ Українські
-2888 | Kinosweet HD                            | Украина ｜ Українські
-2889 | Kinowood HD                             | Украина ｜ Українські
+2518 | Беларусь 24 HD                          | Беларусь | Беларускія
+2519 | Беларусь 24                             | Беларусь | Беларускія
+2520 | Беларусь 1                              | Беларусь | Беларускія
+2521 | Беларусь 2                              | Беларусь | Беларускія
+2522 | Беларусь 3                              | Беларусь | Беларускія
+2523 | Беларусь 1 HD                           | Беларусь | Беларускія
+2524 | Беларусь 2 HD                           | Беларусь | Беларускія
+2525 | Беларусь 3 HD                           | Беларусь | Беларускія
+2526 | Беларусь 5 HD BY                        | Беларусь | Беларускія
+2527 | СТВ                                     | Беларусь | Беларускія
+2528 | СТВ HD                                  | Беларусь | Беларускія
+2529 | ОНТ                                     | Беларусь | Беларускія
+2530 | ОНТ HD BY                               | Беларусь | Беларускія
+2531 | 8 Канал HD                              | Беларусь | Беларускія
+2532 | Беларусь 5 BY                           | Беларусь | Беларускія
+2533 | ОНТ BY                                  | Беларусь | Беларускія
+2534 | Союзный                                 | Беларусь | Беларускія
+2535 | Белсат HD                               | Беларусь | Беларускія
+2536 | Food Network                            | США | USA     
+2537 | TENNIS HD US                            | США | USA     
+2538 | CINEMAXX MORE MAXX US                   | США | USA     
+2539 | CINEMAX THRILLERMAX HD US               | США | USA     
+2540 | CINEMAX OUTER MAX US                    | США | USA     
+2541 | CINEMAX MOVIEMAX US                     | США | USA     
+2542 | NHL Network US                          | США | USA     
+2543 | NBA TV HD US                            | США | USA     
+2544 | Ion Television                          | США | USA     
+2545 | NYCTV Life                              | США | USA     
+2546 | CBS New York                            | США | USA     
+2547 | Hallmark Movies & Mysteries HD          | США | USA     
+2548 | Telemundo                               | США | USA     
+2549 | NBC                                     | США | USA     
+2550 | Disney XD                               | США | USA     
+2551 | AMC US                                  | США | USA     
+2552 | HGTV HD US                              | США | USA     
+2553 | tru TV                                  | США | USA     
+2554 | RACER Network HD                        | США | USA     
+2555 | ABC HD                                  | США | USA     
+2556 | Fox 5 WNYW                              | США | USA     
+2557 | My9NJ                                   | США | USA     
+2558 | MOTORTREND                              | США | USA     
+2559 | BBC America                             | США | USA     
+2560 | WPIX-TV                                 | США | USA     
+2561 | THIRTEEN                                | США | USA     
+2562 | WLIW21                                  | США | USA     
+2563 | NJTV                                    | США | USA     
+2564 | MeTV                                    | США | USA     
+2565 | WMBC Digital Television                 | США | USA     
+2566 | Univision                               | США | USA     
+2567 | UniMÁS                                  | США | USA     
+2568 | USA                                     | США | USA     
+2569 | TNT                                     | США | USA     
+2570 | TBS                                     | США | USA     
+2571 | TLC US                                  | США | USA     
+2572 | FXM en                                  | США | USA     
+2573 | A&E                                     | США | USA     
+2574 | CNBC                                    | США | USA     
+2575 | FOX SPORTS 1 US                         | США | USA     
+2576 | FOX SPORTS 2 US                         | США | USA     
+2577 | CBS SPORTS NETWORK US                   | США | USA     
+2578 | MSG US                                  | США | USA     
+2579 | MSG 2 US                                | США | USA     
+2580 | NBC SPORTS NETWORK US                   | США | USA     
+2581 | NHL Network HD US                       | США | USA     
+2582 | AT&T SPORTSNET HD                       | США | USA     
+2583 | SPECTRUM SPORTSNET                      | США | USA     
+2584 | NESN HD                                 | США | USA     
+2585 | [Spectrum] A&E HD                       | США | USA     
+2586 | [Spectrum] American Heroes Channel HD   | США | USA     
+2587 | [Spectrum] AXS TV HD                    | США | USA     
+2588 | [Spectrum] BabyFirst TV HD              | США | USA     
+2589 | [Spectrum] BBC World News HD            | США | USA     
+2590 | [Spectrum] beIN SPORTS Espanol HD       | США | USA     
+2591 | [Spectrum] beIN SPORTS HD               | США | USA     
+2592 | [Spectrum] BET Her HD                   | США | USA     
+2593 | [Spectrum] Bravo HD                     | США | USA     
+2594 | [Spectrum] C-SPAN 2 HD                  | США | USA     
+2595 | [Spectrum] C-SPAN 3 HD                  | США | USA     
+2596 | [Spectrum] C-SPAN HD                    | США | USA     
+2597 | [Spectrum] Cars.TV HD                   | США | USA     
+2598 | [Spectrum] Cheddar News HD              | США | USA     
+2599 | [Spectrum] Comedy Central HD            | США | USA     
+2600 | [Spectrum] Cooking Channel HD           | США | USA     
+2601 | [Spectrum] Crime & Investigation HD     | США | USA     
+2602 | [Spectrum] Destination America HD       | США | USA     
+2603 | [Spectrum] Discovery Channel HD         | США | USA     
+2604 | [Spectrum] Discovery Family HD          | США | USA     
+2605 | [Spectrum] Discovery Life HD            | США | USA     
+2606 | [Spectrum] E! HD                        | США | USA     
+2607 | [Spectrum] ESPN Deportes HD             | США | USA     
+2608 | [Spectrum] ESPNews HD                   | США | USA     
+2609 | [Spectrum] ESPNU HD                     | США | USA     
+2610 | [Spectrum] Flix HD                      | США | USA     
+2611 | [Spectrum] FOX Deportes HD              | США | USA     
+2612 | [Spectrum] Fox News Channel HD          | США | USA     
+2613 | [Spectrum] Fox Sports 2 HD              | США | USA     
+2614 | [Spectrum] Fuse HD                      | США | USA     
+2615 | [Spectrum] FX HD                        | США | USA     
+2616 | [Spectrum] FYI HD                       | США | USA     
+2617 | [Spectrum] Golf Channel HD              | США | USA     
+2618 | [Spectrum] GSN HD                       | США | USA     
+2619 | [Spectrum] HDNet Movies HD              | США | USA     
+2620 | [Spectrum] History HD                   | США | USA     
+2621 | [Spectrum] HSN HD                       | США | USA     
+2622 | [Spectrum] HSN2 HD                      | США | USA     
+2623 | [Spectrum] i24 News HD                  | США | USA     
+2624 | [Spectrum] Jewelry TV HD                | США | USA     
+2625 | [Spectrum] Justice Central HD           | США | USA     
+2626 | [Spectrum] Lifetime HD                  | США | USA     
+2627 | [Spectrum] LMN HD                       | США | USA     
+2628 | [Spectrum] Logo HD East                 | США | USA     
+2629 | [Spectrum] Movieplex HD                 | США | USA     
+2630 | [Spectrum] SPECTRUM NEWS - NY1          | США | USA     
+2631 | Bally Sports Arizona Alternate          | США | USA     
+2632 | Bally Sports Arizona Plus               | США | USA     
+2633 | [Spectrum] MTV2 HD                      | США | USA     
+2634 | FanDuel Sports Network Detroit          | США | USA     
+2635 | FanDuel Sports Network Detroit Plus     | США | USA     
+2636 | FanDuel Sports Network Florida          | США | USA     
+2637 | FanDuel Sports Network Florida Plus     | США | USA     
+2638 | Bally Sports Great Lakes                | США | USA     
+2639 | FanDuel Sports Network Oklahoma         | США | USA     
+2640 | [Spectrum] Newsmax TV HD                | США | USA     
+2641 | FanDuel Sports Network Midwest          | США | USA     
+2642 | [Spectrum] NFL Network HD               | США | USA     
+2643 | [Spectrum] NFL Redzone HD               | США | USA     
+2644 | Bally Sports Midwest Alternate          | США | USA     
+2645 | [Spectrum] Nick Jr HD                   | США | USA     
+2646 | Bally Sports New Orleans                | США | USA     
+2647 | [Spectrum] Nicktoons  HD                | США | USA     
+2648 | FanDuel Sports Network North            | США | USA     
+2649 | [Spectrum] Outdoor Channel HD           | США | USA     
+2650 | FanDuel Sports Network Ohio             | США | USA     
+2651 | [Spectrum] Ovation TV HD                | США | USA     
+2652 | [Spectrum] OWN HD                       | США | USA     
+2653 | FanDuel Sports Network Ohio Cincinnati  | США | USA     
+2654 | [Spectrum] PAC-12 Arizona HD            | США | USA     
+2655 | [Spectrum] PAC-12 Bay Area HD           | США | USA     
+2656 | [Spectrum] PAC-12 Los Angeles HD        | США | USA     
+2657 | [Spectrum] PAC-12 Mountain HD           | США | USA     
+2658 | [Spectrum] PAC-12 Oregon HD             | США | USA     
+2659 | [Spectrum] PAC-12 Washington HD         | США | USA     
+2660 | [Spectrum] Paramount Network HD         | США | USA     
+2661 | FanDuel Sports Network Ohio Cleveland   | США | USA     
+2662 | Bally Sports San Diego                  | США | USA     
+2663 | Bally Sports San Diego Plus             | США | USA     
+2664 | [Spectrum] Pets.TV HD                   | США | USA     
+2665 | FanDuel Sports Network SoCal Plus       | США | USA     
+2666 | FanDuel Sports Network Southeast        | США | USA     
+2667 | Bally Sports Southwest Alternate        | США | USA     
+2668 | [Spectrum] QVC HD                       | США | USA     
+2669 | [Spectrum] QVC2 HD                      | США | USA     
+2670 | FanDuel Sports Network Southeast Plus   | США | USA     
+2671 | [Spectrum] Recipe.TV HD                 | США | USA     
+2672 | FanDuel Sports Network Sun              | США | USA     
+2673 | [Spectrum] RetroPlex HD                 | США | USA     
+2674 | FanDuel Sports Network West             | США | USA     
+2675 | FanDuel Sports Network West Plus        | США | USA     
+2676 | [Spectrum] Science Channel HD           | США | USA     
+2677 | FanDuel Sports Network Wisconsin        | США | USA     
+2678 | FanDuel Sports Network Wisconsin Plus   | США | USA     
+2679 | beIN Sports                             | США | USA     
+2680 | beIN Sports 2                           | США | USA     
+2681 | beIN Sports 3                           | США | USA     
+2682 | beIN Sports 4                           | США | USA     
+2683 | beIN Sports 5                           | США | USA     
+2684 | beIN Sports 6                           | США | USA     
+2685 | beIN Sports 7                           | США | USA     
+2686 | beIN Sports USA                         | США | USA     
+2687 | Monumental Sports Network               | США | USA     
+2688 | [Spectrum] Smithsonian Channel HD       | США | USA     
+2689 | [Spectrum] TBS HD                       | США | USA     
+2690 | [Spectrum] TCM HD                       | США | USA     
+2691 | [Spectrum] TeenNick HD                  | США | USA     
+2692 | [Spectrum] Tennis Channel HD            | США | USA     
+2693 | [Spectrum] TLC HD                       | США | USA     
+2694 | [Spectrum] TUDN HD                      | США | USA     
+2695 | [Spectrum] TVG Network HD               | США | USA     
+2696 | [Spectrum] Universal Kids HD            | США | USA     
+2697 | [Spectrum] Universo HD East             | США | USA     
+2698 | [Spectrum] Up TV HD                     | США | USA     
+2699 | [Spectrum] USA HD                       | США | USA     
+2700 | [Spectrum] Vice HD East                 | США | USA     
+2701 | [Spectrum] Willow Cricket HD            | США | USA     
+2702 | ICTV 2 HD UA                            | Украина | Українські
+2703 | НТН HD UA                               | Украина | Українські
+2704 | Сфера ТВ HD UA                          | Украина | Українські
+2705 | Наше Улюблене Кіно HD UA                | Украина | Українські
+2706 | 5 Канал UA                              | Украина | Українські
+2707 | FilmBox orig UA                         | Украина | Українські
+2708 | 24 Канал UA                             | Украина | Українські
+2709 | Надiя ТВ UA                             | Украина | Українські
+2710 | UA:Київ                                 | Украина | Українські
+2711 | EU Music HD UA                          | Украина | Українські
+2712 | Еспресо TV HD UA                        | Украина | Українські
+2713 | Мега UA                                 | Украина | Українські
+2714 | Мега HD UA                              | Украина | Українські
+2715 | К2 UA                                   | Украина | Українські
+2716 | К2 HD UA                                | Украина | Українські
+2717 | К1 UA                                   | Украина | Українські
+2718 | К1 HD UA                                | Украина | Українські
+2719 | Kvartal TV UA                           | Украина | Українські
+2720 | Enter                                   | Украина | Українські
+2721 | Enter                                   | Украина | Українські
+2722 | Новий Канал UA                          | Украина | Українські
+2723 | Новий Канал HD UA                       | Украина | Українські
+2724 | НТН UA                                  | Украина | Українські
+2725 | Інтер UA                                | Украина | Українські
+2726 | Пiксель TV UA                           | Украина | Українські
+2727 | 4ever Music HD UA                       | Украина | Українські
+2728 | Правда Тут                              | Украина | Українські
+2729 | Тернопіль 1                             | Украина | Українські
+2730 | Рада                                    | Украина | Українські
+2731 | Первый городской                        | Украина | Українські
+2732 | СК1                                     | Украина | Українські
+2733 | 1+1 Україна UA                          | Украина | Українські
+2734 | Bolt UA                                 | Украина | Українські
+2735 | Star Cinema HD UA                       | Украина | Українські
+2736 | Чернiвецький Промiнь                    | Украина | Українські
+2737 | Перший UA                               | Украина | Українські
+2738 | Суспільне Крим HD UA                    | Украина | Українські
+2739 | Obozrevatel TV HD UA                    | Украина | Українські
+2740 | 5 Канал HD UA                           | Украина | Українські
+2741 | Свiтло UA                               | Украина | Українські
+2742 | Інтер HD UA                             | Украина | Українські
+2743 | Телеканал Рибалка                       | Украина | Українські
+2744 | 1+1 Марафон UA                          | Украина | Українські
+2745 | 2+2 UA                                  | Украина | Українські
+2746 | Бiгудi UA                               | Украина | Українські
+2747 | NTA UA                                  | Украина | Українські
+2748 | ТВА                                     | Украина | Українські
+2749 | Zoom UA                                 | Украина | Українські
+2750 | Zoom HD UA                              | Украина | Українські
+2751 | ПлюсПлюс                                | Украина | Українські
+2752 | Eco TV HD UA                            | Украина | Українські
+2753 | ТЕТ                                     | Украина | Українські
+2754 | Сонце                                   | Украина | Українські
+2755 | Прямий HD                               | Украина | Українські
+2756 | УНІАН                                   | Украина | Українські
+2757 | 7 Канал UA                              | Украина | Українські
+2758 | ТРК Круг                                | Украина | Українські
+2759 | ТРК Київ                                | Украина | Українські
+2760 | 8 Канал UA HD                           | Украина | Українські
+2761 | TVA                                     | Украина | Українські
+2762 | 24 Канал HD UA                          | Украина | Українські
+2763 | 4 Канал HD UA                           | Украина | Українські
+2764 | UA:Тернопіль                            | Украина | Українські
+2765 | ICTV UA                                 | Украина | Українські
+2766 | ICTV HD UA                              | Украина | Українські
+2767 | СТБ UA                                  | Украина | Українські
+2768 | СТБ HD                                  | Украина | Українські
+2769 | Інтер UA                                | Украина | Українські
+2770 | XSPORT UA                               | Украина | Українські
+2771 | Еспресо TV UA                           | Украина | Українські
+2772 | Пiксель TV UA                           | Украина | Українські
+2773 | Sport 1 UA                              | Украина | Українські
+2774 | Sport 2 UA                              | Украина | Українські
+2775 | 1+1 Марафон HD UA                       | Украина | Українські
+2776 | ТРК Украина HD UA                       | Украина | Українські
+2777 | Перший Т2 UA                            | Украина | Українські
+2778 | Еспресо TV HD UA                        | Украина | Українські
+2779 | Болт HD UA                              | Украина | Українські
+2780 | Пiксель TV UA                           | Украина | Українські
+2781 | Перший HD UA                            | Украина | Українські
+2782 | Star Cinema Россия HD                   | Украина | Українські
+2783 | Star Family Россия HD                   | Украина | Українські
+2784 | 8 Канал UA                              | Украина | Українські
+2785 | Бігуді UA                               | Украина | Українські
+2786 | NIKI Kids HD UA                         | Украина | Українські
+2787 | NIKI Junior HD UA                       | Украина | Українські
+2788 | М1 HD UA                                | Украина | Українські
+2789 | М2 HD UA                                | Украина | Українські
+2790 | ICTV UA                                 | Украина | Українські
+2791 | Новий Канал UA                          | Украина | Українські
+2792 | Апостроф TV HD UA                       | Украина | Українські
+2793 | Оце HD UA                               | Украина | Українські
+2794 | Перший HD UA                            | Украина | Українські
+2795 | ТЕТ HD                                  | Украина | Українські
+2796 | 2+2 HD UA                               | Украина | Українські
+2797 | ПлюсПлюс HD                             | Украина | Українські
+2798 | Оце UA                                  | Украина | Українські
+2799 | Еспресо TV HD orig UA                   | Украина | Українські
+2800 | Перший Автомобільний HD UA              | Украина | Українські
+2801 | Megogo live HD UA                       | Украина | Українські
+2802 | Терра UA                                | Украина | Українські
+2803 | XSPORT+ HD UA                           | Украина | Українські
+2804 | Star Cinema UA                          | Украина | Українські
+2805 | FilmBox ArtHouse HD UA                  | Украина | Українські
+2806 | FilmBox UA                              | Украина | Українські
+2807 | Караван TV UA                           | Украина | Українські
+2808 | ПРАВДАТУТ HD UA                         | Украина | Українські
+2809 | Enter-фільм HD UA                       | Украина | Українські
+2810 | ПЕРШИЙ ДІЛОВИЙ UA                       | Украина | Українські
+2811 | Eco TV UA                               | Украина | Українські
+2812 | EU Music HD UA                          | Украина | Українські
+2813 | EU Music UA                             | Украина | Українські
+2814 | 4ever Music UA                          | Украина | Українські
+2815 | Українське радіо 1                      | Украина | Українські
+2816 | Українське радіо 3                      | Украина | Українські
+2817 | Уніaн HD                                | Украина | Українські
+2818 | Фауна                                   | Украина | Українські
+2819 | Масон ТВ HD                             | Украина | Українські
+2820 | Ми Україна HD                           | Украина | Українські
+2821 | НТА HD                                  | Украина | Українські
+2822 | Наука                                   | Украина | Українські
+2823 | Обозреватель HD                         | Украина | Українські
+2824 | Перший Міський Кривий Ріг HD            | Украина | Українські
+2825 | Перший Міський Одеса HD                 | Украина | Українські
+2826 | Рада HD                                 | Украина | Українські
+2827 | Радіо TVA                               | Украина | Українські
+2828 | Радіо Закарпаття FM                     | Украина | Українські
+2829 | Радіо Промінь                           | Украина | Українські
+2830 | Рибалка HD                              | Украина | Українські
+2831 | Світло HD                               | Украина | Українські
+2832 | Суспільне Київ HD                       | Украина | Українські
+2833 | Суспільне Крим HD                       | Украина | Українські
+2834 | Суспільне Культура HD                   | Украина | Українські
+2835 | Суспільне Новини                        | Украина | Українські
+2836 | Суспільне Новини HD                     | Украина | Українські
+2837 | Суспільне Спорт                         | Украина | Українські
+2838 | Суспільне Спорт HD                      | Украина | Українські
+2839 | ТРК Перший Західний HD                  | Украина | Українські
+2840 | Тера                                    | Украина | Українські
+2841 | TVA Чернівці                            | Украина | Українські
+2842 | Tak TV HD UA                            | Украина | Українські
+2843 | Utravel HD                              | Украина | Українські
+2844 | Viasat Kino Action HD                   | Украина | Українські
+2845 | Viasat Kino Comedy HD                   | Украина | Українські
+2846 | Viasat Kino HD                          | Украина | Українські
+2847 | Viasat Nature CEE HD                    | Украина | Українські
+2848 | Viasat Kino World                       | Украина | Українські
+2849 | Ісландія HD                             | Украина | Українські
+2850 | Аверс                                   | Украина | Українські
+2851 | Армія ТБ HD                             | Украина | Українські
+2852 | Галичина HD                             | Украина | Українські
+2853 | Голос Америки VOA HD                    | Украина | Українські
+2854 | Готуємо разом HD                        | Украина | Українські
+2855 | Дача                                    | Украина | Українські
+2856 | Дім HD                                  | Украина | Українські
+2857 | ЕТНО Канал HD                           | Украина | Українські
+2858 | Закон ТВ HD                             | Украина | Українські
+2859 | Канал 24 HD                             | Украина | Українські
+2860 | RAZ 3 HD                                | Украина | Українські
+2861 | Київ HD                                 | Украина | Українські
+2862 | 1+1 Україна HD                          | Украина | Українські
+2863 | 11 Канал Дніпро                         | Украина | Українські
+2864 | 36.6                                    | Украина | Українські
+2865 | 4Ever Cinema HD                         | Украина | Українські
+2866 | 5 Канал HD                              | Украина | Українські
+2867 | 6 Соток                                 | Украина | Українські
+2868 | AMC                                     | Украина | Українські
+2869 | Bolt HD UA                              | Украина | Українські
+2870 | Cine+ HD                                | Украина | Українські
+2871 | Cine+ Hit HD                            | Украина | Українські
+2872 | Cine+ Kids HD                           | Украина | Українські
+2873 | Cine+ Legend HD                         | Украина | Українські
+2874 | D1                                      | Украина | Українські
+2875 | Da Vinci HD                             | Украина | Українські
+2876 | Divi Sport HD                           | Украина | Українські
+2877 | Equalympic HD                           | Украина | Українські
+2878 | Fashion TV HD                           | Украина | Українські
+2879 | Film UA Drama                           | Украина | Українські
+2880 | FILMBOX+ Festival HD                    | Украина | Українські
+2881 | FilmUA Live HD                          | Украина | Українські
+2882 | FlixSnip HD                             | Украина | Українські
+2883 | FREEДОМ UATV                            | Украина | Українські
+2884 | K1                                      | Украина | Українські
+2885 | Kino Action HD                          | Украина | Українські
+2886 | Kino Comedy HD                          | Украина | Українські
+2887 | Kino Premiere HD                        | Украина | Українські
+2888 | Kinosweet HD                            | Украина | Українські
+2889 | Kinowood HD                             | Украина | Українські
