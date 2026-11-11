@@ -1684,7 +1684,7 @@ def parse_m3u_channels(path):
 
     lines = content.splitlines()
     first_content = next((line.strip() for line in lines if line.strip()), "")
-    if first_content != "#EXTM3U":
+    if first_content != "#EXTM3U" and not first_content.startswith("#EXTM3U "):
         raise RuntimeError("playlist is not a valid M3U file (missing #EXTM3U header)")
 
     channels = []
