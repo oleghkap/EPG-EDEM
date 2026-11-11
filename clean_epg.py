@@ -2127,17 +2127,24 @@ def main():
     log(f"Передач EPG.ONE: {programmes_by_source.get('EPG.ONE', 0)}; IPTVX: {programmes_by_source.get('IPTVX', 0)}; всего исходных: {len(original_programmes)}; унаследовано: {len(inherited_programmes)}; итог: {len(global_programmes)}")
     log(f"Наследование базового расписания: {fallback['channels']} каналов, {fallback['programmes']} передач")
     log(f"Размер XML: {sizes['xml_uncompressed_bytes'] / 1024 / 1024:.2f} MiB; GZIP: {sizes['gzip_bytes'] / 1024 / 1024:.2f} MiB")
-    log("ВКЛАД ИСТОЧНИКОВ В НЕСЖАТЫЙ XML (байты; GZIP неаддитивен):")
+    mib = 1024 * 1024
+    log("ВКЛАД ИСТОЧНИКОВ В НЕСЖАТЫЙ XML (MiB; GZIP неаддитивен):")
     for source_name, parts in sizes["byte_breakdown"].items():
         total_bytes = sum(parts.values())
         if total_bytes:
             log(
-                f"  {source_name}: всего {total_bytes:,}; каналы {parts['channels']:,}; "
-                f"логотипы {parts['logos']:,}; программы {parts['programmes']:,}; "
-                f"унаследованные программы {parts['inherited_programmes']:,}"
+                f"  {source_name}: всего {total_bytes / mib:.2f} MiB; "
+                f"каналы {parts['channels'] / mib:.2f} MiB; "
+                f"логотипы {parts['logos'] / mib:.2f} MiB; "
+                f"программы {parts['programmes'] / mib:.2f} MiB; "
+                f"унаследованные программы {parts['inherited_programmes'] / mib:.2f} MiB"
             )
-    log(f"  Служебная структура XML: {sizes['xml_overhead_bytes']:,} байт")
-    log(f"  Контроль: учтено {sizes['accounted_bytes']:,} / {sizes['xml_uncompressed_bytes']:,} байт")
+    log(f"  Служебная структура XML: {sizes['xml_overhead_bytes'] / mib:.2f} MiB")
+    log(
+        f"  Контроль: учтено {sizes['accounted_bytes'] / mib:.2f} / "
+        f"{sizes['xml_uncompressed_bytes'] / mib:.2f} MiB; "
+        f"точное совпадение в байтах: {sizes['accounted_bytes'] == sizes['xml_uncompressed_bytes']}"
+    )
     log(f"Проверка пройдена: {validated_channels} каналов, {validated_programmes} передач; пересечений 0.")
     log(f"Итоговый файл: {OUTPUT_FILE}")
 
@@ -2151,20 +2158,21 @@ def main():
             f"- Каналы с программами: {len(covered)}; без программ: {total_channels - len(covered)}",
             f"- Логотипы: EPG.ONE {logos_by_source.get('EPG.ONE', 0)}; IPTVX {logos_by_source.get('IPTVX', 0)}; всего {len(channel_icons)}",
             f"- Передачи: EPG.ONE {programmes_by_source.get('EPG.ONE', 0)}; IPTVX {programmes_by_source.get('IPTVX', 0)}; унаследовано {len(inherited_programmes)}; всего {len(global_programmes)}",
-            f"- Размер XML до GZIP: {sizes['xml_uncompressed_bytes']:,} байт; GZIP: {sizes['gzip_bytes'] / 1024 / 1024:.2f} MiB",
-            "- Вклад источников в несжатый XML (байты; GZIP неаддитивен):",
+            f"- Размер XML до GZIP: {sizes['xml_uncompressed_bytes'] / 1024 / 1024:.2f} MiB; GZIP: {sizes['gzip_bytes'] / 1024 / 1024:.2f} MiB",
+            "- Вклад источников в несжатый XML (MiB; GZIP неаддитивен):",
         ]
+        mib = 1024 * 1024
         for source_name, parts in sizes["byte_breakdown"].items():
             total_bytes = sum(parts.values())
             if total_bytes:
                 summary.append(
-                    f"  - {source_name}: всего {total_bytes:,}; каналы {parts['channels']:,}; "
-                    f"логотипы {parts['logos']:,}; программы {parts['programmes']:,}; "
-                    f"унаследованные программы {parts['inherited_programmes']:,}"
+                    f"  - {source_name}: всего {total_bytes / mib:.2f} MiB; каналы {parts['channels'] / mib:.2f} MiB; "
+                    f"логотипы {parts['logos'] / mib:.2f} MiB; программы {parts['programmes'] / mib:.2f} MiB; "
+                    f"унаследованные программы {parts['inherited_programmes'] / mib:.2f} MiB"
                 )
         summary.extend([
-            f"- Служебная структура XML: {sizes['xml_overhead_bytes']:,} байт",
-            f"- Контроль размера: учтено {sizes['accounted_bytes']:,} / {sizes['xml_uncompressed_bytes']:,} байт",
+            f"- Служебная структура XML: {sizes['xml_overhead_bytes'] / mib:.2f} MiB",
+            f"- Контроль размера: учтено {sizes['accounted_bytes'] / mib:.2f} / {sizes['xml_uncompressed_bytes'] / mib:.2f} MiB; точное совпадение в байтах: {sizes['accounted_bytes'] == sizes['xml_uncompressed_bytes']}",
             f"- Проверка: {validated_channels} каналов, {validated_programmes} передач, пересечений 0",
             f"- Файл: `{OUTPUT_FILE}`",
             "",
