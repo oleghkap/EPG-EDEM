@@ -1846,9 +1846,17 @@ def write_combined_xml(
     description_limit=None,
     output_path=None,
     included_channel_indexes=None,
+    channel_sources=None,
+    channel_icon_sources=None,
 ):
     path = output_path or OUTPUT_FILE
     uncompressed_size = 0
+    byte_breakdown = defaultdict(lambda: {
+        "channels": 0,
+        "logos": 0,
+        "programmes": 0,
+        "inherited_programmes": 0,
+    })
 
     # Пишем XML потоково и параллельно считаем точный размер XML до GZIP.
     with gzip.open(path, "wb", compresslevel=6) as file:
@@ -1874,11 +1882,17 @@ def write_combined_xml(
             )
             ET.SubElement(channel_element, "display-name").text = channel["title"]
 
+            channel_source = (channel_sources or {}).get(index, "Источник не определён")
+            channel_core_bytes = len(ET.tostring(channel_element, encoding="utf-8"))
             icon_src = channel_icons.get(index, "")
             if icon_src:
                 ET.SubElement(channel_element, "icon", {"src": icon_src})
-
-            write_xml(ET.tostring(channel_element, encoding="utf-8"))
+            serialized_channel = ET.tostring(channel_element, encoding="utf-8")
+            byte_breakdown[channel_source]["channels"] += channel_core_bytes
+            if icon_src:
+                icon_source = (channel_icon_sources or {}).get(index, "Источник не определён")
+                byte_breakdown[icon_source]["logos"] += len(serialized_channel) - channel_core_bytes
+            write_xml(serialized_channel)
 
         included_for_validation = set(channel_indexes_to_write)
         orphan_programmes = [
@@ -1927,13 +1941,26 @@ def write_combined_xml(
                 if category:
                     ET.SubElement(element, "category").text = category
 
-            write_xml(ET.tostring(element, encoding="utf-8"))
+            serialized_programme = ET.tostring(element, encoding="utf-8")
+            if programme.get("inherited_from_base") is not None:
+                byte_breakdown["Унаследованные передачи"]["inherited_programmes"] += len(serialized_programme)
+            else:
+                programme_source = programme.get("source", "Источник не определён")
+                byte_breakdown[programme_source]["programmes"] += len(serialized_programme)
+            write_xml(serialized_programme)
 
         write_xml(b"</tv>")
 
+    accounted_bytes = sum(sum(parts.values()) for parts in byte_breakdown.values())
+    xml_overhead_bytes = uncompressed_size - accounted_bytes
+    if xml_overhead_bytes < 0:
+        raise RuntimeError("Byte accounting exceeds the generated XML size.")
     return {
         "xml_uncompressed_bytes": uncompressed_size,
         "gzip_bytes": path.stat().st_size,
+        "byte_breakdown": {name: dict(parts) for name, parts in byte_breakdown.items()},
+        "xml_overhead_bytes": xml_overhead_bytes,
+        "accounted_bytes": accounted_bytes + xml_overhead_bytes,
     }
 
 
@@ -2034,6 +2061,7 @@ def main():
     included_channel_indexes = set()
     previously_matched_channels = set()
     new_channels_by_source = {}
+    channel_sources_by_index = {}
 
     with tempfile.TemporaryDirectory() as temp_dir:
         for source_number, (source_name, source_url) in enumerate(SOURCES, start=1):
@@ -2054,6 +2082,8 @@ def main():
             stats.pop("_channel_indexes_with_programmes", None)
             new_indexes = matched_indexes - previously_matched_channels
             new_channels_by_source[source_name] = len(new_indexes)
+            for playlist_index in new_indexes:
+                channel_sources_by_index[playlist_index] = source_name
             previously_matched_channels.update(matched_indexes)
             included_channel_indexes.update(matched_indexes)
             log(
@@ -2071,6 +2101,8 @@ def main():
             sizes = write_combined_xml(
                 channels, global_programmes, channel_icons, output_path=pending,
                 included_channel_indexes=included_channel_indexes,
+                channel_sources=channel_sources_by_index,
+                channel_icon_sources=channel_icon_sources,
             )
             expected_programmes = len(global_programmes)
             validated_channels, validated_programmes = validate_generated_xml(
@@ -2095,6 +2127,17 @@ def main():
     log(f"Передач EPG.ONE: {programmes_by_source.get('EPG.ONE', 0)}; IPTVX: {programmes_by_source.get('IPTVX', 0)}; всего исходных: {len(original_programmes)}; унаследовано: {len(inherited_programmes)}; итог: {len(global_programmes)}")
     log(f"Наследование базового расписания: {fallback['channels']} каналов, {fallback['programmes']} передач")
     log(f"Размер XML: {sizes['xml_uncompressed_bytes'] / 1024 / 1024:.2f} MiB; GZIP: {sizes['gzip_bytes'] / 1024 / 1024:.2f} MiB")
+    log("ВКЛАД ИСТОЧНИКОВ В НЕСЖАТЫЙ XML (байты; GZIP неаддитивен):")
+    for source_name, parts in sizes["byte_breakdown"].items():
+        total_bytes = sum(parts.values())
+        if total_bytes:
+            log(
+                f"  {source_name}: всего {total_bytes:,}; каналы {parts['channels']:,}; "
+                f"логотипы {parts['logos']:,}; программы {parts['programmes']:,}; "
+                f"унаследованные программы {parts['inherited_programmes']:,}"
+            )
+    log(f"  Служебная структура XML: {sizes['xml_overhead_bytes']:,} байт")
+    log(f"  Контроль: учтено {sizes['accounted_bytes']:,} / {sizes['xml_uncompressed_bytes']:,} байт")
     log(f"Проверка пройдена: {validated_channels} каналов, {validated_programmes} передач; пересечений 0.")
     log(f"Итоговый файл: {OUTPUT_FILE}")
 
@@ -2108,11 +2151,24 @@ def main():
             f"- Каналы с программами: {len(covered)}; без программ: {total_channels - len(covered)}",
             f"- Логотипы: EPG.ONE {logos_by_source.get('EPG.ONE', 0)}; IPTVX {logos_by_source.get('IPTVX', 0)}; всего {len(channel_icons)}",
             f"- Передачи: EPG.ONE {programmes_by_source.get('EPG.ONE', 0)}; IPTVX {programmes_by_source.get('IPTVX', 0)}; унаследовано {len(inherited_programmes)}; всего {len(global_programmes)}",
-            f"- Размер GZIP: {sizes['gzip_bytes'] / 1024 / 1024:.2f} MiB",
+            f"- Размер XML до GZIP: {sizes['xml_uncompressed_bytes']:,} байт; GZIP: {sizes['gzip_bytes'] / 1024 / 1024:.2f} MiB",
+            "- Вклад источников в несжатый XML (байты; GZIP неаддитивен):",
+        ]
+        for source_name, parts in sizes["byte_breakdown"].items():
+            total_bytes = sum(parts.values())
+            if total_bytes:
+                summary.append(
+                    f"  - {source_name}: всего {total_bytes:,}; каналы {parts['channels']:,}; "
+                    f"логотипы {parts['logos']:,}; программы {parts['programmes']:,}; "
+                    f"унаследованные программы {parts['inherited_programmes']:,}"
+                )
+        summary.extend([
+            f"- Служебная структура XML: {sizes['xml_overhead_bytes']:,} байт",
+            f"- Контроль размера: учтено {sizes['accounted_bytes']:,} / {sizes['xml_uncompressed_bytes']:,} байт",
             f"- Проверка: {validated_channels} каналов, {validated_programmes} передач, пересечений 0",
             f"- Файл: `{OUTPUT_FILE}`",
             "",
-        ]
+        ])
         with open(summary_path, "a", encoding="utf-8") as summary_file:
             summary_file.write("\n".join(summary))
 
