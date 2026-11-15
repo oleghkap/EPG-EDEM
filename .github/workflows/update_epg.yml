@@ -7,6 +7,7 @@ on:
     paths:
       - 'clean_epg.py'
       - 'trim_epg.py'
+      - 'epg_lite.py'
 
   workflow_dispatch:
 
@@ -40,12 +41,17 @@ jobs:
       - name: Run Trim EPG Script
         run: python trim_epg.py
 
+      - name: Run Lite EPG Script
+        env:
+          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
+        run: python epg_lite.py
+
       - name: Commit and Push EPG files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add channels_test.txt epg_custom.xml.gz epg_trimmed.xml.gz
+          git add channels_test.txt epg_custom.xml.gz epg_trimmed.xml.gz epg_lite.xml.gz epg_lite_coverage.txt
 
           if git diff --cached --quiet; then
             echo "No changes in EPG files."
