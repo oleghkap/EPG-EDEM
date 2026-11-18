@@ -3,32 +3,40 @@
 """
 EPG-EDEM lite.
 
-Независимый скрипт (не делит код с clean_epg.py и trim_epg.py специально,
-чтобы падение одного пайплайна не ломало другой).
+Полностью независимый скрипт: ничего не читает и не пишет из/в файлы
+clean_epg.py и trim_epg.py (ни channels_test.txt, ни epg_custom.xml.gz,
+ни epg_trimmed.xml.gz), и наоборот — ни один из них не трогает файлы
+этого скрипта. Каждый скрипт может быть удалён независимо от других.
 
 Что делает:
-  1. Скачивает ТОЛЬКО epg.one (единственный источник).
-  2. Читает channels_test.txt и оставляет только те каналы источника,
-     которые реально есть в вашем плейлисте. Порядок сопоставления:
-       a) tvg-id плейлиста == id канала в epg.one (если в плейлисте
-          есть tvg-id — скачивается отдельно по PLAYLIST_URL, не
-          обязателен, без него матчинг работает как раньше);
+  1. Сам скачивает ваш M3U-плейлист (PLAYLIST_URL) и строит из него
+     СОБСТВЕННЫЙ список каналов — channels_lite.txt, формат:
+         № | CHANNEL | TVG-ID | GRP
+     При первом запуске файл создаётся. При каждом следующем запуске
+     плейлист скачивается заново и сравнивается с уже сохранённым
+     channels_lite.txt: если ничего не изменилось — файл не
+     перезаписывается; если состав/tvg-id/группы изменились —
+     перезаписывается целиком.
+  2. Скачивает ТОЛЬКО epg.one (единственный источник EPG).
+  3. Оставляет только те каналы источника, которые реально есть в
+     channels_lite.txt. Порядок сопоставления:
+       a) tvg-id из channels_lite.txt == id канала в epg.one (вы сами
+          прописываете в плейлисте tvg-id именно от epg.one — самый
+          надёжный способ, используется первым, без эвристик);
        b) точное совпадение названия;
        c) совпадение по базовому названию без HD/FHD/UHD/4K с учётом
           страны (без слияния разных регионов/версий).
      UHD и 4K считаются одним и тем же качеством (QUALITY_EQUIVALENTS) —
      иначе каналы 4K/UHD часто теряются из-за разной маркировки
      в плейлисте и в epg.one.
-  3. Для оставшихся каналов обрезает программы по датам
+  4. Для оставшихся каналов обрезает программы по датам
      (DAYS_BEFORE/DAYS_AFTER вокруг текущего дня по Москве).
-  4. Удаляет второстепенные теги передач (credits, rating, country...).
-  5. Обрезает длину <desc> до MAX_DESC_CHARS.
-  6. Проверяет покрытие: сколько каналов из channels_test.txt вообще
-     нашлись в epg.one. Список ненайденных пишется в COVERAGE_FILE —
-     это нужно, чтобы заметить, когда channels_test.txt меняется
-     (новый канал в плейлисте) и для него ещё нет сопоставления.
-
-Файл НЕ зависит от epg_custom.xml.gz/epg_trimmed.xml.gz и не трогает их.
+  5. Удаляет второстепенные теги передач (credits, rating, country...).
+  6. Обрезает длину <desc> до MAX_DESC_CHARS.
+  7. Каналы без единой передачи в итоговом окне дат ОСТАЮТСЯ в выводе
+     (как есть сейчас у вас с epg.one) — просто отдельно считаются и
+     показываются в статистике и в COVERAGE_FILE, чтобы было видно
+     масштаб проблемы, без выбрасывания таких каналов.
 """
 
 import gzip
@@ -49,16 +57,15 @@ from zoneinfo import ZoneInfo
 # ============================================================
 
 EPG_URL = "http://epg.one/epg2.xml.gz"
-REFERENCE_FILE = "channels_test.txt"
 
-# Плейлист используется ТОЛЬКО как источник tvg-id (необязательно).
-# Список каналов и группы по-прежнему берутся из channels_test.txt.
 PLAYLIST_URL_ENV = "PLAYLIST_URL"
 MAX_PLAYLIST_SIZE = 50 * 1024 * 1024
+RAW_PLAYLIST_FILE = "raw_playlist_lite.m3u"
+
+REFERENCE_FILE = "channels_lite.txt"
 
 OUTPUT_FILE = "epg_lite.xml.gz"
 RAW_FILE = "raw_epg_lite.xml.gz"
-RAW_PLAYLIST_FILE = "raw_playlist_lite.m3u"
 COVERAGE_FILE = "epg_lite_coverage.txt"
 
 DAYS_BEFORE = 2
@@ -91,7 +98,7 @@ REMOVED_PROGRAMME_TAGS = {
 # ПОДБОР ИМЁН КАНАЛОВ
 # (упрощённая версия логики clean_epg.py: без sequence-fingerprint —
 # здесь достаточно решить "наш канал или нет", это не продакшен-маппинг
-# с гарантией единственного правильного ID. tvg-id, если доступен,
+# с гарантией единственного правильного ID. tvg-id из channels_lite.txt
 # используется как приоритетный способ сопоставления — см. ниже)
 # ============================================================
 
@@ -207,25 +214,186 @@ def local_name(tag):
 
 
 # ============================================================
-# ЧТЕНИЕ channels_test.txt
+# СОБСТВЕННЫЙ СПИСОК КАНАЛОВ: channels_lite.txt
+# (№ | CHANNEL | TVG-ID | GRP) — строится и обновляется этим же
+# скриптом из вашего M3U-плейлиста, без обращения к channels_test.txt
+# или к любому другому файлу clean_epg.py/trim_epg.py.
 # ============================================================
 
+def find_m3u_title_separator(value):
+    """Первая запятая вне кавычек атрибутов EXTINF."""
+    quote = None
+    for index, char in enumerate(value):
+        if quote:
+            if char == quote:
+                quote = None
+        elif char in ('"', "'"):
+            quote = char
+        elif char == ",":
+            return index
+    return -1
+
+
+def download_playlist(url, destination, max_size):
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "Mozilla/5.0 (compatible; EPG-EDEM-lite/1.0)"},
+    )
+
+    with urllib.request.urlopen(request, timeout=DOWNLOAD_TIMEOUT) as response:
+        total = 0
+        with open(destination, "wb") as output:
+            while True:
+                chunk = response.read(BUFFER_SIZE)
+                if not chunk:
+                    break
+                total += len(chunk)
+                if total > max_size:
+                    raise RuntimeError("playlist download size limit exceeded")
+                output.write(chunk)
+
+    if total == 0:
+        raise RuntimeError("empty playlist response")
+
+
+def parse_m3u_playlist(path):
+    """
+    Разбирает #EXTINF-записи M3U: название, tvg-id, группа (group-title,
+    либо предшествующий #EXTGRP). Независимая реализация — не делит код
+    с clean_epg.py, чтобы скрипты не зависели друг от друга.
+    """
+    raw = Path(path).read_bytes()
+    try:
+        content = raw.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        content = raw.decode("cp1251")
+
+    lines = content.splitlines()
+    attribute_re = re.compile(r'([\w-]+)\s*=\s*"([^"]*)"')
+
+    channels = []
+    current_group = ""
+    pending_index = None
+
+    for line_number, raw_line in enumerate(lines, start=1):
+        line = raw_line.strip()
+        if not line:
+            continue
+
+        if line.startswith("#EXTGRP:"):
+            group = line.partition(":")[2].strip()
+            if pending_index is not None and not channels[pending_index]["group_from_attribute"]:
+                channels[pending_index]["group"] = group
+            current_group = group
+            continue
+
+        if line.startswith("#EXTINF:"):
+            separator = find_m3u_title_separator(line)
+            if separator < 0:
+                continue
+
+            metadata = line[len("#EXTINF:"):separator]
+            title = line[separator + 1:].strip()
+            if not title:
+                continue
+
+            attributes = {
+                key.casefold(): value.strip()
+                for key, value in attribute_re.findall(metadata)
+            }
+            group_title = attributes.get("group-title", "")
+            group = group_title or current_group
+            tvg_id = attributes.get("tvg-id", "").strip()
+
+            channels.append({
+                "title": title.replace("|", "｜"),
+                "tvg_id": tvg_id.replace("|", "｜"),
+                "group": group.replace("|", "｜"),
+                "group_from_attribute": bool(group_title),
+            })
+            pending_index = len(channels) - 1
+            continue
+
+        if not line.startswith("#"):
+            pending_index = None
+
+    if not channels:
+        raise RuntimeError("playlist contains no #EXTINF channel records")
+
+    return channels
+
+
+def render_reference_channels(channels):
+    """Текстовая таблица channels_lite.txt: № | CHANNEL | TVG-ID | GRP."""
+    lines = [
+        "№    | CHANNEL                                 | TVG-ID                           | GRP            ",
+        "-----+-----------------------------------------+----------------------------------+----------------",
+    ]
+    for number, channel in enumerate(channels, start=1):
+        title = channel["title"].strip()
+        tvg_id = (channel.get("tvg_id") or "").strip()
+        group = (channel.get("group") or "").strip() or "Без категории"
+        lines.append(f"{number:<5}| {title:<39} | {tvg_id:<32} | {group:<14}")
+    return "\n".join(lines) + "\n"
+
+
+def sync_reference_channels():
+    """
+    Создаёт channels_lite.txt при первом запуске. При следующих запусках
+    скачивает плейлист заново и перезаписывает файл только если состав
+    каналов/tvg-id/групп реально изменился — иначе оставляет файл как есть
+    (не плодим лишние изменения в git).
+    """
+    path = Path(REFERENCE_FILE)
+    playlist_url = os.environ.get(PLAYLIST_URL_ENV, "").strip()
+
+    if not playlist_url:
+        if path.is_file():
+            print(f"{PLAYLIST_URL_ENV} не задан — использую существующий {REFERENCE_FILE} без обновления.")
+            return
+        raise RuntimeError(
+            f"{PLAYLIST_URL_ENV} не задан, а {REFERENCE_FILE} ещё не существует — "
+            "для первого запуска нужен доступ к плейлисту."
+        )
+
+    try:
+        download_playlist(playlist_url, RAW_PLAYLIST_FILE, MAX_PLAYLIST_SIZE)
+        channels = parse_m3u_playlist(RAW_PLAYLIST_FILE)
+    except Exception as exc:
+        if path.is_file():
+            print(f"Не удалось обновить {REFERENCE_FILE} из плейлиста ({exc}); использую прежний список.")
+            return
+        raise RuntimeError(f"Не удалось получить список каналов из плейлиста: {exc}") from exc
+    finally:
+        if os.path.exists(RAW_PLAYLIST_FILE):
+            os.remove(RAW_PLAYLIST_FILE)
+
+    updated_content = render_reference_channels(channels)
+    previous_content = path.read_text(encoding="utf-8-sig") if path.exists() else None
+
+    if previous_content == updated_content:
+        print(f"Плейлист: {len(channels)} каналов; {REFERENCE_FILE} уже актуален, не перезаписан.")
+        return
+
+    temporary_path = path.with_name(path.name + ".pending")
+    try:
+        temporary_path.write_text(updated_content, encoding="utf-8")
+        os.replace(temporary_path, path)
+    finally:
+        if temporary_path.exists():
+            temporary_path.unlink()
+
+    print(f"Плейлист: {len(channels)} каналов; {REFERENCE_FILE} обновлён (были изменения).")
+
+
 def load_reference_channels(path):
-    """
-    Тот же табличный формат, что использует clean_epg.py:
-    'N | CHANNEL | GRP'. Специально не импортируем clean_epg.py —
-    скрипты должны оставаться независимыми друг от друга.
-    """
+    """Читает channels_lite.txt обратно: [{title, tvg_id, group}, ...]."""
     file_path = Path(path)
 
     if not file_path.is_file():
-        raise RuntimeError(
-            f"Не найден {path}. Этот файл обновляется в clean_epg.py "
-            "(sync_reference_channels), убедитесь что он есть в репозитории "
-            "до запуска epg_lite.py."
-        )
+        raise RuntimeError(f"Не найден {path} — sync_reference_channels должен был его создать.")
 
-    titles = []
+    channels = []
 
     with file_path.open("r", encoding="utf-8-sig") as file:
         for line_number, raw_line in enumerate(file, start=1):
@@ -245,35 +413,36 @@ def load_reference_channels(path):
             if len(columns) < 2 or not columns[1]:
                 continue
 
-            titles.append(columns[1])
+            channels.append({
+                "title": columns[1],
+                "tvg_id": columns[2] if len(columns) > 2 else "",
+                "group": columns[3] if len(columns) > 3 else "",
+            })
 
-    if not titles:
+    if not channels:
         raise RuntimeError(f"{path} не содержит ни одной строки с каналом.")
 
-    return titles
+    return channels
 
 
-def build_reference_index(titles, title_to_tvg_id=None):
+def build_reference_index(channels):
     by_name = {}
     by_base_name = {}
     by_tvg_id = {}
 
-    title_to_tvg_id = title_to_tvg_id or {}
+    for channel in channels:
+        title = channel["title"]
 
-    for title in titles:
         normalized = normalize_name(title)
-
         if normalized:
             by_name.setdefault(normalized, []).append(title)
 
         countryless = strip_country_suffix(strip_country_prefix(title))
         base = normalize_base_name(countryless)
-
         if base:
             by_base_name.setdefault(base, []).append(title)
 
-        tvg_id = title_to_tvg_id.get(title, "").strip()
-
+        tvg_id = (channel.get("tvg_id") or "").strip()
         if tvg_id:
             by_tvg_id.setdefault(tvg_id.casefold(), []).append(title)
 
@@ -282,13 +451,14 @@ def build_reference_index(titles, title_to_tvg_id=None):
 
 def match_reference_titles(channel_id, display_names, by_name, by_base_name, by_tvg_id):
     """
-    Возвращает множество названий из channels_test.txt, которым
+    Возвращает множество названий из channels_lite.txt, которым
     соответствует канал источника (может быть больше одного —
     это нормально и безопасно для простого отбора "нужен / не нужен").
 
     Порядок проверки:
-      1. tvg-id плейлиста == id канала в epg.one (точно и надёжно,
-         если провайдер плейлиста использует общепринятые XMLTV ID).
+      1. tvg-id из channels_lite.txt == id канала в epg.one (вы сами
+         прописываете в плейлисте tvg-id именно от epg.one — самый
+         надёжный способ, без эвристик).
       2. Точное совпадение нормализованного названия.
       3. Совпадение по базовому названию (без HD/FHD/UHD/4K) при
          совместимом качестве и стране (UHD и 4K считаются одним
@@ -329,117 +499,7 @@ def match_reference_titles(channel_id, display_names, by_name, by_base_name, by_
 
 
 # ============================================================
-# TVG-ID ИЗ M3U-ПЛЕЙЛИСТА (необязательно)
-# ============================================================
-
-def find_m3u_title_separator(value):
-    """Первая запятая вне кавычек атрибутов EXTINF."""
-    quote = None
-    for index, char in enumerate(value):
-        if quote:
-            if char == quote:
-                quote = None
-        elif char in ('"', "'"):
-            quote = char
-        elif char == ",":
-            return index
-    return -1
-
-
-def download_playlist(url, destination, max_size):
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "Mozilla/5.0 (compatible; EPG-EDEM-lite/1.0)"},
-    )
-
-    with urllib.request.urlopen(request, timeout=DOWNLOAD_TIMEOUT) as response:
-        total = 0
-        with open(destination, "wb") as output:
-            while True:
-                chunk = response.read(BUFFER_SIZE)
-                if not chunk:
-                    break
-                total += len(chunk)
-                if total > max_size:
-                    raise RuntimeError("playlist download size limit exceeded")
-                output.write(chunk)
-
-    if total == 0:
-        raise RuntimeError("empty playlist response")
-
-
-def parse_playlist_tvg_ids(path):
-    """
-    Извлекает только title -> tvg-id из M3U. Группы и прочие атрибуты
-    не нужны: список каналов и группы уже есть в channels_test.txt,
-    здесь нас интересует только tvg-id для более надёжного сопоставления.
-    """
-    raw = Path(path).read_bytes()
-    try:
-        content = raw.decode("utf-8-sig")
-    except UnicodeDecodeError:
-        content = raw.decode("cp1251")
-
-    attribute_re = re.compile(r'([\w-]+)\s*=\s*"([^"]*)"')
-    title_to_tvg_id = {}
-
-    for line in content.splitlines():
-        line = line.strip()
-        if not line.startswith("#EXTINF:"):
-            continue
-
-        separator = find_m3u_title_separator(line)
-        if separator < 0:
-            continue
-
-        metadata = line[len("#EXTINF:"):separator]
-        title = line[separator + 1:].strip().replace("|", "｜")
-        if not title:
-            continue
-
-        attributes = {
-            key.casefold(): value.strip()
-            for key, value in attribute_re.findall(metadata)
-        }
-        tvg_id = attributes.get("tvg-id", "").strip()
-
-        # При повторе имени оставляем первый непустой tvg-id.
-        if tvg_id and not title_to_tvg_id.get(title):
-            title_to_tvg_id[title] = tvg_id
-
-    return title_to_tvg_id
-
-
-def load_playlist_tvg_ids():
-    """
-    Возвращает {title: tvg_id} или пустой словарь, если PLAYLIST_URL
-    не задан, либо плейлист не удалось скачать/разобрать — в этом
-    случае скрипт просто продолжает работать по названиям, как раньше.
-    """
-    playlist_url = os.environ.get(PLAYLIST_URL_ENV, "").strip()
-
-    if not playlist_url:
-        print("PLAYLIST_URL не задан — tvg-id не используется, только названия.")
-        return {}
-
-    try:
-        download_playlist(playlist_url, RAW_PLAYLIST_FILE, MAX_PLAYLIST_SIZE)
-        title_to_tvg_id = parse_playlist_tvg_ids(RAW_PLAYLIST_FILE)
-        print(f"tvg-id получены для {len(title_to_tvg_id)} каналов плейлиста.")
-        return title_to_tvg_id
-
-    except Exception as exc:
-        print(f"Не удалось получить tvg-id из плейлиста ({exc}); "
-              "продолжаю только по названиям.")
-        return {}
-
-    finally:
-        if os.path.exists(RAW_PLAYLIST_FILE):
-            os.remove(RAW_PLAYLIST_FILE)
-
-
-# ============================================================
-# DOWNLOAD
+# DOWNLOAD EPG
 # ============================================================
 
 def download_file(url, destination):
@@ -624,11 +684,10 @@ def get_display_names(element):
 # ОСНОВНАЯ ОБРАБОТКА
 # ============================================================
 
-def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=None):
+def build_lite_epg(source_path, output_path, reference_channels):
 
-    by_name, by_base_name, by_tvg_id = build_reference_index(
-        reference_titles, title_to_tvg_id
-    )
+    reference_titles = [channel["title"] for channel in reference_channels]
+    by_name, by_base_name, by_tvg_id = build_reference_index(reference_channels)
 
     today = datetime.now(MOSCOW).date()
 
@@ -648,8 +707,8 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
     print("=" * 55)
     print("EPG-EDEM LITE: отбор по каналам + обрезка дат")
     print("=" * 55)
-    print(f"Эталонных каналов (channels_test.txt): {len(reference_titles)}")
-    print(f"Из них с tvg-id из плейлиста: {len(by_tvg_id)}")
+    print(f"Эталонных каналов ({REFERENCE_FILE}): {len(reference_titles)}")
+    print(f"Из них с tvg-id: {len(by_tvg_id)}")
     print(f"Сегодня по Москве: {today}")
     print(f"Начало периода:    {first_day}")
     print(f"Конец периода:     {last_day}")
@@ -672,6 +731,8 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
 
     kept_channel_ids = set()
     matched_reference_titles = set()
+    channel_id_to_titles = {}
+    channels_with_kept_programme = set()
 
     root_element = None
     closing_tag = None
@@ -743,6 +804,7 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
                         if matched_titles and channel_id:
                             keep_element = True
                             kept_channel_ids.add(channel_id)
+                            channel_id_to_titles[channel_id] = matched_titles
                             matched_reference_titles.update(matched_titles)
                             channels_kept += 1
                         else:
@@ -780,6 +842,7 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
                                     element, MAX_DESC_CHARS
                                 )
                                 kept_programmes += 1
+                                channels_with_kept_programme.add(channel_id)
 
                     if keep_element:
                         output.write(
@@ -820,8 +883,8 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
 
         if channels_kept == 0:
             raise ValueError(
-                "Ни один канал источника не сопоставлен с channels_test.txt. "
-                "Возможно, изменился формат channels_test.txt или источник недоступен."
+                f"Ни один канал источника не сопоставлен с {REFERENCE_FILE}. "
+                "Возможно, изменился формат файла или источник недоступен."
             )
 
         if kept_programmes == 0:
@@ -838,7 +901,7 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
         raise
 
     # ========================================================
-    # ПОКРЫТИЕ КАНАЛОВ (channels_test.txt может меняться)
+    # ПОКРЫТИЕ КАНАЛОВ + КАНАЛЫ БЕЗ ПЕРЕДАЧ
     # ========================================================
 
     unmatched_reference_titles = sorted(
@@ -850,6 +913,13 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
         else 0
     )
 
+    channel_ids_without_programmes = kept_channel_ids - channels_with_kept_programme
+    titles_without_programmes = sorted({
+        title
+        for channel_id in channel_ids_without_programmes
+        for title in channel_id_to_titles.get(channel_id, ())
+    })
+
     coverage_path = os.path.join(
         output_dir or ".", COVERAGE_FILE
     )
@@ -859,9 +929,17 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
             f"Найдено в epg.one: {len(matched_reference_titles)}\n"
             f"Не найдено:        {len(unmatched_reference_titles)}\n"
             f"Покрытие:          {coverage_ratio:.1%}\n\n"
-            "КАНАЛЫ ИЗ channels_test.txt БЕЗ СОВПАДЕНИЯ В epg.one:\n"
+            f"Каналов перенесено:        {channels_kept}\n"
+            f"  из них без передач:      {len(channel_ids_without_programmes)}\n\n"
+            f"КАНАЛЫ ИЗ {REFERENCE_FILE} БЕЗ СОВПАДЕНИЯ В epg.one:\n"
         )
         for title in unmatched_reference_titles:
+            coverage_file.write(f"  {title}\n")
+
+        coverage_file.write(
+            "\nПЕРЕНЕСЁННЫЕ КАНАЛЫ БЕЗ ЕДИНОЙ ПЕРЕДАЧИ В ЭТОМ ОКНЕ ДАТ:\n"
+        )
+        for title in titles_without_programmes:
             coverage_file.write(f"  {title}\n")
 
     # ========================================================
@@ -883,9 +961,10 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
 
     print(f"Каналов в источнике:            {xml_channels_seen}")
     print(f"Каналов оставлено:              {channels_kept}")
+    print(f"  из них без передач:           {len(channel_ids_without_programmes)}")
     print(f"Каналов отброшено (не наши):    {channels_dropped}")
     print()
-    print(f"Покрытие channels_test.txt:     {coverage_ratio:.1%} "
+    print(f"Покрытие {REFERENCE_FILE}:     {coverage_ratio:.1%} "
           f"({len(matched_reference_titles)}/{len(reference_titles)})")
     print(f"Отчёт по непокрытым каналам:    {coverage_path}")
     print()
@@ -919,8 +998,8 @@ def build_lite_epg(source_path, output_path, reference_titles, title_to_tvg_id=N
 # ============================================================
 
 def main():
-    reference_titles = load_reference_channels(REFERENCE_FILE)
-    title_to_tvg_id = load_playlist_tvg_ids()
+    sync_reference_channels()
+    reference_channels = load_reference_channels(REFERENCE_FILE)
 
     print(f"Скачивание EPG: {EPG_URL}")
 
@@ -931,7 +1010,7 @@ def main():
         )
 
     try:
-        build_lite_epg(RAW_FILE, OUTPUT_FILE, reference_titles, title_to_tvg_id)
+        build_lite_epg(RAW_FILE, OUTPUT_FILE, reference_channels)
     finally:
         if os.path.exists(RAW_FILE):
             os.remove(RAW_FILE)
