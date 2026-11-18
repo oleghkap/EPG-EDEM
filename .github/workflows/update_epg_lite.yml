@@ -1,0 +1,70 @@
+name: Update Lite EPG
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'epg_lite.py'
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: '7 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-epg-lite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Lite EPG Script
+        env:
+          PLAYLIST_URL: ${{ secrets.PLAYLIST_URL }}
+        run: python epg_lite.py
+
+      - name: Commit and Push Lite EPG files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add channels_lite.txt epg_lite.xml.gz epg_lite_coverage.txt
+
+          if git diff --cached --quiet; then
+            echo "No changes in Lite EPG files."
+            exit 0
+          fi
+
+          git commit -m "Auto-update Lite EPG files [skip ci]"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+
+            if git push origin HEAD:main; then
+              echo "Lite EPG files successfully pushed."
+              exit 0
+            fi
+
+            echo "Push attempt $attempt failed."
+
+            if [ "$attempt" -lt 3 ]; then
+              sleep 5
+            fi
+          done
+
+          echo "Failed to push Lite EPG files after 3 attempts."
+          exit 1
