@@ -1,4 +1,4 @@
-name: Update All EPG
+name: Update EPG Trim
 
 on:
   push:
