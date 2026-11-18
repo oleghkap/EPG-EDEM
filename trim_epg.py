@@ -16,7 +16,7 @@ from zoneinfo import ZoneInfo
 
 EPG_URL = "http://epg.one/epg2.xml.gz"
 
-OUTPUT_FILE = "epg_trimmed.xml.gz"
+OUTPUT_FILE = "epg_trim.xml.gz"
 RAW_FILE = "raw_epg.xml.gz"
 
 DAYS_BEFORE = 2
