@@ -1,4 +1,4 @@
-name: Update Lite EPG
+name: Update EPG Lite
 
 on:
   push:
