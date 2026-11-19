@@ -4,7 +4,7 @@
 Покрытие:          99.4%
 
 Каналов перенесено:        1698
-  из них без передач:      497
+  из них без передач:      501
 
 КАНАЛЫ ИЗ channels_lite.txt БЕЗ СОВПАДЕНИЯ В epg.one:
   BCU Family HDR
@@ -145,6 +145,7 @@
   ESPNU HD US
   Eco TV HD UA
   Eco TV UA
+  Enter-фільм HD UA
   Erotic Spice
   Erotica X
   Estrella TV US
@@ -237,6 +238,7 @@
   Mezzo
   Monsters of Cock
   Movieplex HD US
+  MyZen TV HD
   NBA TV HD US
   NBC New York HD US
   NBC Sports Network HD US
@@ -302,6 +304,8 @@
   Public Agent
   RK Prime
   RK TV
+  RTVi HD
+  RTVi HD orig
   Red Bull TV HD DE
   Red TV Anal
   Red TV Big Ass
@@ -375,6 +379,7 @@
   Tivibu Spor 1 HD TR
   Trans Angels
   Travel Channel HD
+  Travel Channel HD orig
   True Amateurs
   Tushy
   Tushy HD
@@ -435,14 +440,14 @@
   Z!Action HD
   Z!Adventure HD
   Z!Channel HD
-  Z!Comedy HD
   Z!Detective HD
-  Z!Fantasy HD
+  Z!Fantastic HD
   Z!Fun HD
   Z!Military HD
   Z!Music HD
   Z!Rock HD
   Z!Russian HD
+  Z!Thriller HD
   Zerouno TV HD IT
   beIN Sports 4 US
   beIN Sports 5 US
