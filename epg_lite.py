@@ -53,6 +53,7 @@ import tempfile
 import urllib.request
 import xml.etree.ElementTree as ET
 
+from collections import defaultdict
 from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -766,6 +767,11 @@ def build_lite_epg(source_path, output_path, reference_channels):
     short_channel_ids = {}
     removed_channel_logos = 0
 
+    # Диагностика: какие теги реально остаются в итоговых передачах и
+    # сколько байт они занимают — чтобы решить, что ещё можно обрезать,
+    # опираясь на реальные цифры, а не на предположения.
+    programme_tag_stats = defaultdict(lambda: {"count": 0, "bytes": 0})
+
     root_element = None
     closing_tag = None
     depth = 0
@@ -882,6 +888,14 @@ def build_lite_epg(source_path, output_path, reference_channels):
                                 channels_with_kept_programme.add(channel_id)
                                 element.set("channel", short_channel_ids[channel_id])
 
+                                for child in element:
+                                    child_tag = local_name(child.tag)
+                                    child_bytes = len(
+                                        ET.tostring(child, encoding="utf-8")
+                                    )
+                                    programme_tag_stats[child_tag]["count"] += 1
+                                    programme_tag_stats[child_tag]["bytes"] += child_bytes
+
                     if keep_element:
                         output.write(
                             ET.tostring(
@@ -979,6 +993,30 @@ def build_lite_epg(source_path, output_path, reference_channels):
         )
         for title in titles_without_programmes:
             coverage_file.write(f"  {title}\n")
+
+        total_tag_bytes = sum(
+            stats["bytes"] for stats in programme_tag_stats.values()
+        ) or 1
+
+        coverage_file.write(
+            "\nТЕГИ ВНУТРИ ИТОГОВЫХ ПЕРЕДАЧ (что ещё можно резать) — "
+            "уже ПОСЛЕ удаления credits/rating/country/date/episode-num/url/icon "
+            "и обрезки desc до {limit} символов:\n".format(
+                limit=MAX_DESC_CHARS if MAX_DESC_CHARS else "∞"
+            )
+        )
+        coverage_file.write(
+            f"{'тег':<16}{'встреч':>10}{'байт всего':>14}{'байт/шт':>12}{'% объёма':>11}\n"
+        )
+        for tag_name, stats in sorted(
+            programme_tag_stats.items(), key=lambda item: item[1]["bytes"], reverse=True
+        ):
+            average_bytes = stats["bytes"] / stats["count"] if stats["count"] else 0
+            share = stats["bytes"] / total_tag_bytes
+            coverage_file.write(
+                f"{tag_name:<16}{stats['count']:>10}{stats['bytes']:>14}"
+                f"{average_bytes:>12.1f}{share:>10.1%}\n"
+            )
 
     # ========================================================
     # СТАТИСТИКА
