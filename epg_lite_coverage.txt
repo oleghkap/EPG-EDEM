@@ -1,10 +1,10 @@
-Эталонных каналов: 2173
+Эталонных каналов: 2174
 Найдено в epg.one: 2159
 Не найдено:        14
-Покрытие:          99.4%
+Покрытие:          99.3%
 
 Каналов перенесено:        1698
-  из них без передач:      501
+  из них без передач:      495
 
 КАНАЛЫ ИЗ channels_lite.txt БЕЗ СОВПАДЕНИЯ В epg.one:
   BCU Family HDR
@@ -133,7 +133,6 @@
   Discovery Channel
   Discovery Channel HD
   Discovery Channel HD US
-  Discovery Channel HD orig
   Discovery Family HD US
   Discovery Life HD US
   Disney XD HD US
@@ -145,7 +144,6 @@
   ESPNU HD US
   Eco TV HD UA
   Eco TV UA
-  Enter-фільм HD UA
   Erotic Spice
   Erotica X
   Estrella TV US
@@ -304,8 +302,6 @@
   Public Agent
   RK Prime
   RK TV
-  RTVi HD
-  RTVi HD orig
   Red Bull TV HD DE
   Red TV Anal
   Red TV Big Ass
@@ -345,6 +341,7 @@
   Space City Home Network US
   Spectrum SportsNet HD US
   Spirit Tv HD
+  Spor Smart HD TR
   Sport 1 HD HU
   Sport 2 HD HU
   SportsNet New York HD US
@@ -379,7 +376,6 @@
   Tivibu Spor 1 HD TR
   Trans Angels
   Travel Channel HD
-  Travel Channel HD orig
   True Amateurs
   Tushy
   Tushy HD
@@ -439,6 +435,7 @@
   Xpanded TV
   Z!Action HD
   Z!Adventure HD
+  Z!Biography HD
   Z!Channel HD
   Z!Detective HD
   Z!Fantastic HD
@@ -447,6 +444,7 @@
   Z!Music HD
   Z!Rock HD
   Z!Russian HD
+  Z!Serial HD
   Z!Thriller HD
   Zerouno TV HD IT
   beIN Sports 4 US
@@ -456,8 +454,6 @@
   beIN Sports En Español HD US
   beIN Sports US
   i24 News HD US
-  Інтер HD UA
-  Інтер UA
   Ісландія HD UA
   Апостроф TV HD UA
   Дача UA
@@ -468,12 +464,9 @@
   Кинозал 4 (Триколор)
   Кинозал 5 (Триколор)
   Кинозал 6 (Триколор)
-  Ми Україна HD UA
   Мир Баскетбола
   Мир Баскетбола HD
   Московское Образование HD
-  Настоящее Время
-  Настоящее Время HD
   Неизвестная Россия HD
   Окко Event 1
   Окко Event 13
@@ -485,9 +478,6 @@
   Перший Автомобільний HD UA
   Перший Міський (Кривий Ріг) HD UA
   Перший Міський (Одеса) HD UA
-  ПлюсПлюс HD UA
-  ПлюсПлюс UA
-  Рада FHD UA
   Радио Шансон HD
   Радіо Закарпаття FM UA
   Радіо Промінь UA
