@@ -30,10 +30,16 @@ clean_epg.py и trim_epg.py (ни channels_test.txt, ни epg_custom.xml.gz,
      иначе каналы 4K/UHD часто теряются из-за разной маркировки
      в плейлисте и в epg.one.
   4. Для оставшихся каналов обрезает программы по датам
-     (DAYS_BEFORE/DAYS_AFTER вокруг текущего дня по Москве).
-  5. Удаляет второстепенные теги передач (credits, rating, country...).
-  6. Обрезает длину <desc> до MAX_DESC_CHARS.
-  7. Каналы без единой передачи в итоговом окне дат ОСТАЮТСЯ в выводе
+     (DAYS_BEFORE/DAYS_AFTER вокруг текущего дня по Москве — сейчас
+     3 дня: вчера/сегодня/завтра).
+  5. Удаляет второстепенные теги передач (credits, rating, country...)
+     и логотип канала (<icon> внутри <channel> — свои логотипы и так
+     подтягиваются из плейлиста).
+  6. Обрезает длину <desc> до MAX_DESC_CHARS (сейчас 350 символов).
+  7. Заменяет внутренний id канала epg.one (длинный, повторяется в
+     каждой передаче) на короткий синтетический ("c1", "c2"...) — это
+     не ваш tvg-id и не влияет на матчинг, чисто экономия места.
+  8. Каналы без единой передачи в итоговом окне дат ОСТАЮТСЯ в выводе
      (как есть сейчас у вас с epg.one) — просто отдельно считаются и
      показываются в статистике и в COVERAGE_FILE, чтобы было видно
      масштаб проблемы, без выбрасывания таких каналов.
@@ -68,13 +74,26 @@ OUTPUT_FILE = "epg_lite.xml.gz"
 RAW_FILE = "raw_epg_lite.xml.gz"
 COVERAGE_FILE = "epg_lite_coverage.txt"
 
-DAYS_BEFORE = 2
+DAYS_BEFORE = 1
 DAYS_AFTER = 1
 
 # Обрезка длинных описаний. None — не обрезать.
 # По диагностике clean.py: desc — обычно 70-85% объёма несжатого XML,
 # обрезка до 300-500 символов даёт заметную экономию при небольшой потере текста.
-MAX_DESC_CHARS = 400
+MAX_DESC_CHARS = 350
+
+# Теги channel-level логотипа (не путать с tvg-id!) — свои логотипы и так
+# подтягиваются из плейлиста, поэтому логотип из epg.one не нужен.
+REMOVED_CHANNEL_TAGS = {
+    "icon",
+}
+
+# Короткие синтетические channel-id вместо длинных внутренних id epg.one.
+# Экономия: оригинальный id повторяется в КАЖДОЙ передаче каждого канала
+# (десятки раз за 3 дня), короткий id "c1", "c2"... заметно меньше.
+# На матчинг по вашему tvg-id это не влияет — подмена чисто техническая,
+# происходит только при записи итогового файла.
+SHORT_CHANNEL_ID_PREFIX = "c"
 
 MOSCOW = ZoneInfo("Europe/Moscow")
 
@@ -655,6 +674,17 @@ def remove_unneeded_metadata(element):
     return removed
 
 
+def remove_unneeded_channel_metadata(element):
+    removed = 0
+
+    for child in list(element):
+        if local_name(child.tag) in REMOVED_CHANNEL_TAGS:
+            element.remove(child)
+            removed += 1
+
+    return removed
+
+
 def truncate_description(element, limit):
     if limit is None:
         return 0
@@ -733,6 +763,8 @@ def build_lite_epg(source_path, output_path, reference_channels):
     matched_reference_titles = set()
     channel_id_to_titles = {}
     channels_with_kept_programme = set()
+    short_channel_ids = {}
+    removed_channel_logos = 0
 
     root_element = None
     closing_tag = None
@@ -807,6 +839,11 @@ def build_lite_epg(source_path, output_path, reference_channels):
                             channel_id_to_titles[channel_id] = matched_titles
                             matched_reference_titles.update(matched_titles)
                             channels_kept += 1
+
+                            short_id = f"{SHORT_CHANNEL_ID_PREFIX}{len(short_channel_ids) + 1}"
+                            short_channel_ids[channel_id] = short_id
+                            element.set("id", short_id)
+                            removed_channel_logos += remove_unneeded_channel_metadata(element)
                         else:
                             keep_element = False
                             channels_dropped += 1
@@ -843,6 +880,7 @@ def build_lite_epg(source_path, output_path, reference_channels):
                                 )
                                 kept_programmes += 1
                                 channels_with_kept_programme.add(channel_id)
+                                element.set("channel", short_channel_ids[channel_id])
 
                     if keep_element:
                         output.write(
@@ -963,6 +1001,7 @@ def build_lite_epg(source_path, output_path, reference_channels):
     print(f"Каналов оставлено:              {channels_kept}")
     print(f"  из них без передач:           {len(channel_ids_without_programmes)}")
     print(f"Каналов отброшено (не наши):    {channels_dropped}")
+    print(f"Убрано логотипов каналов:       {removed_channel_logos}")
     print()
     print(f"Покрытие {REFERENCE_FILE}:     {coverage_ratio:.1%} "
           f"({len(matched_reference_titles)}/{len(reference_titles)})")
