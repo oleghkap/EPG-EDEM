@@ -32,10 +32,12 @@ clean_epg.py и trim_epg.py (ни channels_test.txt, ни epg_custom.xml.gz,
   4. Для оставшихся каналов обрезает программы по датам
      (DAYS_BEFORE/DAYS_AFTER вокруг текущего дня по Москве — сейчас
      3 дня: вчера/сегодня/завтра).
-  5. Удаляет второстепенные теги передач (credits, rating, country...)
-     и логотип канала (<icon> внутри <channel> — свои логотипы и так
-     подтягиваются из плейлиста).
-  6. Обрезает длину <desc> до MAX_DESC_CHARS (сейчас 350 символов).
+  5. Удаляет из передач только url и icon (ссылку и картинку конкретной
+     передачи), а также логотип канала (<icon> внутри <channel> — свои
+     логотипы и так подтягиваются из плейлиста). credits, rating,
+     star-rating, country, date, episode-num сохраняются как есть —
+     это общая информация о передаче, которую вы попросили не резать.
+  6. Обрезает длину <desc> до MAX_DESC_CHARS (сейчас 400 символов).
   7. Заменяет внутренний id канала epg.one (длинный, повторяется в
      каждой передаче) на короткий синтетический ("c1", "c2"...) — это
      не ваш tvg-id и не влияет на матчинг, чисто экономия места.
@@ -81,7 +83,7 @@ DAYS_AFTER = 1
 # Обрезка длинных описаний. None — не обрезать.
 # По диагностике clean.py: desc — обычно 70-85% объёма несжатого XML,
 # обрезка до 300-500 символов даёт заметную экономию при небольшой потере текста.
-MAX_DESC_CHARS = 350
+MAX_DESC_CHARS = 400
 
 # Теги channel-level логотипа (не путать с tvg-id!) — свои логотипы и так
 # подтягиваются из плейлиста, поэтому логотип из epg.one не нужен.
@@ -103,12 +105,6 @@ GZIP_LEVEL = 6
 BUFFER_SIZE = 1024 * 1024
 
 REMOVED_PROGRAMME_TAGS = {
-    "credits",
-    "rating",
-    "star-rating",
-    "country",
-    "date",
-    "episode-num",
     "url",
     "icon",
 }
@@ -767,10 +763,11 @@ def build_lite_epg(source_path, output_path, reference_channels):
     short_channel_ids = {}
     removed_channel_logos = 0
 
-    # Диагностика: какие теги реально остаются в итоговых передачах и
-    # сколько байт они занимают — чтобы решить, что ещё можно обрезать,
-    # опираясь на реальные цифры, а не на предположения.
-    programme_tag_stats = defaultdict(lambda: {"count": 0, "bytes": 0})
+    # Диагностика: сколько МБ занимал бы каждый тег в итоговом файле,
+    # если бы его не резали и не обрезали — меряем ДО удаления тегов и
+    # ДО обрезки desc, но только для передач, которые реально попали
+    # в наше окно дат и наши каналы (то есть релевантно для итогового файла).
+    raw_tag_bytes = defaultdict(lambda: {"count": 0, "bytes": 0})
 
     root_element = None
     closing_tag = None
@@ -878,6 +875,14 @@ def build_lite_epg(source_path, output_path, reference_channels):
                                     removed_by_window += 1
 
                             if keep_element:
+                                for child in element:
+                                    child_tag = local_name(child.tag)
+                                    child_bytes = len(
+                                        ET.tostring(child, encoding="utf-8")
+                                    )
+                                    raw_tag_bytes[child_tag]["count"] += 1
+                                    raw_tag_bytes[child_tag]["bytes"] += child_bytes
+
                                 removed_metadata += remove_unneeded_metadata(
                                     element
                                 )
@@ -887,14 +892,6 @@ def build_lite_epg(source_path, output_path, reference_channels):
                                 kept_programmes += 1
                                 channels_with_kept_programme.add(channel_id)
                                 element.set("channel", short_channel_ids[channel_id])
-
-                                for child in element:
-                                    child_tag = local_name(child.tag)
-                                    child_bytes = len(
-                                        ET.tostring(child, encoding="utf-8")
-                                    )
-                                    programme_tag_stats[child_tag]["count"] += 1
-                                    programme_tag_stats[child_tag]["bytes"] += child_bytes
 
                     if keep_element:
                         output.write(
@@ -972,6 +969,75 @@ def build_lite_epg(source_path, output_path, reference_channels):
         for title in channel_id_to_titles.get(channel_id, ())
     })
 
+    # ========================================================
+    # РАЗМЕРЫ ИТОГОВОГО ФАЙЛА (считаем заранее — нужны и для печати,
+    # и для записи в coverage-файл)
+    # ========================================================
+
+    output_compressed_size = os.path.getsize(output_path)
+
+    with gzip.open(output_path, "rb") as output:
+        output_uncompressed_size = sum(
+            len(chunk)
+            for chunk in iter(lambda: output.read(BUFFER_SIZE), b"")
+        )
+
+    reduction = (
+        (1 - output_compressed_size / source_compressed_size) * 100
+        if source_compressed_size
+        else None
+    )
+
+    # ========================================================
+    # ЕДИНЫЙ ТЕКСТ СТАТИСТИКИ — печатается в консоль воркфлоу И
+    # дублируется в epg_lite_coverage.txt, чтобы всё было в одном месте.
+    # ========================================================
+
+    report_lines = [
+        "=" * 55,
+        "РЕЗУЛЬТАТ",
+        "=" * 55,
+        "",
+        f"Каналов в источнике:            {xml_channels_seen}",
+        f"Каналов оставлено:              {channels_kept}",
+        f"  из них без передач:           {len(channel_ids_without_programmes)}",
+        f"Каналов отброшено (не наши):    {channels_dropped}",
+        f"Убрано логотипов каналов:       {removed_channel_logos}",
+        "",
+        f"Покрытие {REFERENCE_FILE}:     {coverage_ratio:.1%} "
+        f"({len(matched_reference_titles)}/{len(reference_titles)})",
+        "",
+        f"Всего передач в источнике:      {total_programmes}",
+        f"Передач сохранено:              {kept_programmes}",
+        f"Удалено (канал не наш):         {removed_unmatched_channel}",
+        f"Удалено (вне окна дат):         {removed_by_window}",
+        f"Передач с некорректной датой:   {invalid_dates}",
+        f"Удалено тегов url/icon:         {removed_metadata}",
+        f"Обрезано длинных desc:          {truncated_desc_count}",
+        "",
+        "РАЗМЕРЫ",
+        f"Исходный GZIP:  {source_compressed_size / 1024 / 1024:.2f} МБ",
+        f"Итоговый GZIP:  {output_compressed_size / 1024 / 1024:.2f} МБ",
+        f"Итоговый XML:   {output_uncompressed_size / 1024 / 1024:.2f} МБ",
+    ]
+    if reduction is not None:
+        report_lines.append(
+            f"Изменение размера относительно исходного GZIP: {reduction:.1f}%"
+        )
+    report_lines.append("")
+    report_lines.append(f"Готово: {output_path}")
+    report_lines.append("=" * 55)
+
+    print()
+    for line in report_lines:
+        print(line)
+
+    # ========================================================
+    # COVERAGE-ФАЙЛ: покрытие каналов, каналы без передач, диагностика
+    # по тегам (в МБ, на весь итоговый объём, чтобы сравнивать с
+    # размером файла) и полный дубль статистики выше.
+    # ========================================================
+
     coverage_path = os.path.join(
         output_dir or ".", COVERAGE_FILE
     )
@@ -994,80 +1060,35 @@ def build_lite_epg(source_path, output_path, reference_channels):
         for title in titles_without_programmes:
             coverage_file.write(f"  {title}\n")
 
+        # Размер считаем по НЕтронутому содержимому тега (до удаления
+        # url/icon и до обрезки desc) — чтобы было видно, сколько МБ
+        # добавил бы каждый тег целиком, если бы его вообще не резали.
+        # "% объёма" — доля от суммы всех тегов ниже, не от размера файла:
+        # это ориентир, что резать в первую очередь, а не точный бюджет.
         total_tag_bytes = sum(
-            stats["bytes"] for stats in programme_tag_stats.values()
+            stats["bytes"] for stats in raw_tag_bytes.values()
         ) or 1
 
         coverage_file.write(
-            "\nТЕГИ ВНУТРИ ИТОГОВЫХ ПЕРЕДАЧ (что ещё можно резать) — "
-            "уже ПОСЛЕ удаления credits/rating/country/date/episode-num/url/icon "
-            "и обрезки desc до {limit} символов:\n".format(
-                limit=MAX_DESC_CHARS if MAX_DESC_CHARS else "∞"
-            )
+            "\nТЕГИ ПЕРЕДАЧ — ПОЛНЫЙ (НЕобрезанный) РАЗМЕР В МБ, "
+            "для передач, вошедших в итоговое окно дат и каналы "
+            "(что ещё можно резать, чтобы уменьшить итоговый файл):\n"
         )
         coverage_file.write(
-            f"{'тег':<16}{'встреч':>10}{'байт всего':>14}{'байт/шт':>12}{'% объёма':>11}\n"
+            f"{'тег':<16}{'раз':>8}{'всего МБ':>14}{'% объёма':>11}\n"
         )
         for tag_name, stats in sorted(
-            programme_tag_stats.items(), key=lambda item: item[1]["bytes"], reverse=True
+            raw_tag_bytes.items(), key=lambda item: item[1]["bytes"], reverse=True
         ):
-            average_bytes = stats["bytes"] / stats["count"] if stats["count"] else 0
+            megabytes = stats["bytes"] / 1024 / 1024
             share = stats["bytes"] / total_tag_bytes
             coverage_file.write(
-                f"{tag_name:<16}{stats['count']:>10}{stats['bytes']:>14}"
-                f"{average_bytes:>12.1f}{share:>10.1%}\n"
+                f"{tag_name:<16}{stats['count']:>8}{megabytes:>12.2f} МБ{share:>10.1%}\n"
             )
 
-    # ========================================================
-    # СТАТИСТИКА
-    # ========================================================
-
-    output_compressed_size = os.path.getsize(output_path)
-
-    with gzip.open(output_path, "rb") as output:
-        output_uncompressed_size = sum(
-            len(chunk)
-            for chunk in iter(lambda: output.read(BUFFER_SIZE), b"")
-        )
-
-    print()
-    print("=" * 55)
-    print("РЕЗУЛЬТАТ")
-    print("=" * 55)
-
-    print(f"Каналов в источнике:            {xml_channels_seen}")
-    print(f"Каналов оставлено:              {channels_kept}")
-    print(f"  из них без передач:           {len(channel_ids_without_programmes)}")
-    print(f"Каналов отброшено (не наши):    {channels_dropped}")
-    print(f"Убрано логотипов каналов:       {removed_channel_logos}")
-    print()
-    print(f"Покрытие {REFERENCE_FILE}:     {coverage_ratio:.1%} "
-          f"({len(matched_reference_titles)}/{len(reference_titles)})")
-    print(f"Отчёт по непокрытым каналам:    {coverage_path}")
-    print()
-    print(f"Всего передач в источнике:      {total_programmes}")
-    print(f"Передач сохранено:              {kept_programmes}")
-    print(f"Удалено (канал не наш):         {removed_unmatched_channel}")
-    print(f"Удалено (вне окна дат):         {removed_by_window}")
-    print(f"Передач с некорректной датой:   {invalid_dates}")
-    print(f"Удалено доп. тегов:             {removed_metadata}")
-    print(f"Обрезано длинных desc:          {truncated_desc_count}")
-
-    print()
-    print("РАЗМЕРЫ")
-    print(f"Исходный GZIP:  {source_compressed_size / 1024 / 1024:.2f} МБ")
-    print(f"Итоговый GZIP:  {output_compressed_size / 1024 / 1024:.2f} МБ")
-    print(f"Итоговый XML:   {output_uncompressed_size / 1024 / 1024:.2f} МБ")
-
-    if source_compressed_size:
-        reduction = (
-            1 - output_compressed_size / source_compressed_size
-        ) * 100
-        print(f"Изменение размера относительно исходного GZIP: {reduction:.1f}%")
-
-    print()
-    print(f"Готово: {output_path}")
-    print("=" * 55)
+        coverage_file.write("\n\n")
+        coverage_file.write("\n".join(report_lines))
+        coverage_file.write("\n")
 
 
 # ============================================================
