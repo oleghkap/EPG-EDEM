@@ -14,12 +14,12 @@ from zoneinfo import ZoneInfo
 # CONFIGURATION
 # ============================================================
 
-EPG_URL = "http://epg.one/epg2.xml.gz"
+EPG_URL = "https://iptvx.one/epg/epg.xml.gz"
 
 OUTPUT_FILE = "epg_trim.xml.gz"
 RAW_FILE = "raw_epg.xml.gz"
 
-DAYS_BEFORE = 2
+DAYS_BEFORE = 1
 DAYS_AFTER = 1
 
 MOSCOW = ZoneInfo("Europe/Moscow")
@@ -57,7 +57,7 @@ def download_file(url, destination):
     request = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "Mozilla/5.0 (compatible; EPG-EDEM/1.0)"
+            "User-Agent": "Mozilla/5.0 (compatible; EPG-LITE/1.0)"
         },
     )
 
@@ -283,7 +283,7 @@ def trim_epg(source_path, output_path):
     print(f"Сегодня по Москве: {today}")
     print(f"Начало периода:    {first_day}")
     print(f"Конец периода:     {last_day}")
-    print("Продолжительность: 4 календарных дня")
+    print("Продолжительность: 3 календарных дня")
 
     source_compressed_size = os.path.getsize(source_path)
 
@@ -308,7 +308,7 @@ def trim_epg(source_path, output_path):
     )
 
     fd, temporary_output = tempfile.mkstemp(
-        prefix="epg_trimmed_",
+        prefix="epg_trim_",
         suffix=".xml.gz",
         dir=output_dir,
     )
