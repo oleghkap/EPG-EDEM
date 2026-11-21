@@ -148,6 +148,15 @@ TAG_DESCRIPTIONS = {
     "review": "рецензия/обзор",
 }
 
+# То же самое, но для тегов внутри <channel> (не <programme>!).
+KNOWN_CHANNEL_TAGS = ["display-name", "icon", "url"]
+
+CHANNEL_TAG_DESCRIPTIONS = {
+    "display-name": "название канала (как в epg.one)",
+    "icon": "логотип канала",
+    "url": "ссылка на канал/сайт",
+}
+
 
 # ============================================================
 # ПОДБОР ИМЁН КАНАЛОВ
@@ -807,6 +816,20 @@ def build_lite_epg(source_path, output_path, reference_channels):
     # ДО обрезки desc, но только для передач, которые реально попали
     # в наше окно дат и наши каналы (то есть релевантно для итогового файла).
     raw_tag_bytes = defaultdict(lambda: {"count": 0, "bytes": 0})
+    raw_channel_tag_bytes = defaultdict(lambda: {"count": 0, "bytes": 0})
+
+    # Для полного учёта состава итогового файла: сколько байт реально
+    # занимают содержимое тегов (после всех правок) и сколько — служебная
+    # структура (сами теги <channel>/<programme> и их атрибуты).
+    channel_children_bytes = 0
+    programme_children_bytes = 0
+    output_channel_bytes = 0
+    output_programme_bytes = 0
+
+    # Сколько байт экономит подмена длинного id epg.one на короткий c1,c2...
+    # Считаем и для атрибута id= у <channel>, и для атрибута channel= у
+    # каждой <programme>, которая на этот канал ссылается.
+    id_savings_bytes = 0
 
     root_element = None
     closing_tag = None
@@ -882,10 +905,28 @@ def build_lite_epg(source_path, output_path, reference_channels):
                             matched_reference_titles.update(matched_titles)
                             channels_kept += 1
 
+                            # Сырые теги канала (включая логотип) — ДО удаления,
+                            # для диагностической таблицы по тегам каналов.
+                            for child in element:
+                                child_tag = local_name(child.tag)
+                                child_bytes = len(
+                                    ET.tostring(child, encoding="utf-8")
+                                )
+                                raw_channel_tag_bytes[child_tag]["count"] += 1
+                                raw_channel_tag_bytes[child_tag]["bytes"] += child_bytes
+
                             short_id = f"{SHORT_CHANNEL_ID_PREFIX}{len(short_channel_ids) + 1}"
+                            id_savings_bytes += len(channel_id) - len(short_id)
                             short_channel_ids[channel_id] = short_id
                             element.set("id", short_id)
                             removed_channel_logos += remove_unneeded_channel_metadata(element)
+
+                            # Финальное содержимое канала (после удаления
+                            # логотипа) — для учёта состава итогового файла.
+                            channel_children_bytes += sum(
+                                len(ET.tostring(child, encoding="utf-8"))
+                                for child in element
+                            )
                         else:
                             keep_element = False
                             channels_dropped += 1
@@ -930,16 +971,30 @@ def build_lite_epg(source_path, output_path, reference_channels):
                                 )
                                 kept_programmes += 1
                                 channels_with_kept_programme.add(channel_id)
-                                element.set("channel", short_channel_ids[channel_id])
+
+                                short_channel_id = short_channel_ids[channel_id]
+                                id_savings_bytes += len(channel_id) - len(short_channel_id)
+                                element.set("channel", short_channel_id)
+
+                                # Финальное содержимое передачи (после
+                                # удаления url/icon и обрезки desc) — для
+                                # учёта состава итогового файла.
+                                programme_children_bytes += sum(
+                                    len(ET.tostring(child, encoding="utf-8"))
+                                    for child in element
+                                )
 
                     if keep_element:
-                        output.write(
-                            ET.tostring(
-                                element,
-                                encoding="utf-8",
-                                short_empty_elements=True,
-                            )
+                        serialized_element = ET.tostring(
+                            element,
+                            encoding="utf-8",
+                            short_empty_elements=True,
                         )
+                        if tag == "channel":
+                            output_channel_bytes += len(serialized_element)
+                        elif tag == "programme":
+                            output_programme_bytes += len(serialized_element)
+                        output.write(serialized_element)
 
                     if root_element is not None:
                         root_element.remove(element)
@@ -991,6 +1046,11 @@ def build_lite_epg(source_path, output_path, reference_channels):
     # ========================================================
     # ПОКРЫТИЕ КАНАЛОВ + КАНАЛЫ БЕЗ ПЕРЕДАЧ
     # ========================================================
+
+    title_to_group = {
+        channel["title"]: (channel.get("group") or "").strip() or "Без категории"
+        for channel in reference_channels
+    }
 
     unmatched_reference_titles = sorted(
         set(reference_titles) - matched_reference_titles
@@ -1098,13 +1158,13 @@ def build_lite_epg(source_path, output_path, reference_channels):
             f"КАНАЛЫ ИЗ {REFERENCE_FILE} БЕЗ СОВПАДЕНИЯ В epg.one:\n"
         )
         for title in unmatched_reference_titles:
-            coverage_file.write(f"  {title}\n")
+            coverage_file.write(f"  {title} ({title_to_group.get(title, '')})\n")
 
         coverage_file.write(
             "\nПЕРЕНЕСЁННЫЕ КАНАЛЫ БЕЗ ЕДИНОЙ ПЕРЕДАЧИ В ЭТОМ ОКНЕ ДАТ:\n"
         )
         for title in titles_without_programmes:
-            coverage_file.write(f"  {title}\n")
+            coverage_file.write(f"  {title} ({title_to_group.get(title, '')})\n")
 
         # Размер считаем по НЕтронутому содержимому тега (до удаления
         # url/icon и до обрезки desc) — чтобы было видно, сколько МБ
@@ -1158,6 +1218,103 @@ def build_lite_epg(source_path, output_path, reference_channels):
                 f"{tag_name:<16}{in_output:>11}{stats['count']:>8}"
                 f"{megabytes:>12.2f} МБ{share:>10.1%}  ({description})\n"
             )
+
+        # --------------------------------------------------
+        # То же самое для тегов <channel> (логотип, название, url)
+        # --------------------------------------------------
+
+        total_channel_tag_bytes = sum(
+            stats["bytes"] for stats in raw_channel_tag_bytes.values()
+        ) or 1
+
+        all_channel_tag_names = sorted(
+            set(KNOWN_CHANNEL_TAGS) | set(raw_channel_tag_bytes.keys())
+        )
+
+        coverage_file.write(
+            "\n\nТЕГИ КАНАЛОВ — ПОЛНЫЙ РАЗМЕР В МБ (для всех перенесённых "
+            f"{channels_kept} каналов), до удаления логотипа:\n"
+        )
+        coverage_file.write(
+            f"{'тег':<16}{'в файле':>11}{'раз':>8}{'всего МБ':>14}{'% объёма':>11}"
+            f"  описание\n"
+        )
+        for tag_name in sorted(
+            all_channel_tag_names,
+            key=lambda name: raw_channel_tag_bytes.get(name, {}).get("bytes", 0),
+            reverse=True,
+        ):
+            stats = raw_channel_tag_bytes.get(tag_name, {"count": 0, "bytes": 0})
+            megabytes = stats["bytes"] / 1024 / 1024
+            share = stats["bytes"] / total_channel_tag_bytes if stats["bytes"] else 0.0
+            description = CHANNEL_TAG_DESCRIPTIONS.get(tag_name, "нестандартный тег epg.one")
+            in_output = "нет" if tag_name in REMOVED_CHANNEL_TAGS else "да"
+
+            coverage_file.write(
+                f"{tag_name:<16}{in_output:>11}{stats['count']:>8}"
+                f"{megabytes:>12.2f} МБ{share:>10.1%}  ({description})\n"
+            )
+
+        # --------------------------------------------------
+        # ПОЛНЫЙ СОСТАВ ИТОГОВОГО ФАЙЛА — на что уходит каждый байт из
+        # output_uncompressed_size, без пропусков (сумма ниже = 100%).
+        # --------------------------------------------------
+
+        programme_structural_bytes = output_programme_bytes - programme_children_bytes
+        channel_structural_bytes = output_channel_bytes - channel_children_bytes
+        wrapper_bytes = (
+            output_uncompressed_size - output_programme_bytes - output_channel_bytes
+        )
+        total_size = output_uncompressed_size or 1
+
+        def pct(value):
+            return value / total_size
+
+        coverage_file.write(
+            "\n\nСОСТАВ ИТОГОВОГО ФАЙЛА (из чего складываются "
+            f"{output_uncompressed_size / 1024 / 1024:.2f} МБ несжатого XML):\n"
+        )
+        coverage_file.write(
+            f"{'Итоговый XML, всего':<45}"
+            f"{output_uncompressed_size / 1024 / 1024:>10.2f} МБ{pct(output_uncompressed_size):>9.1%}\n"
+        )
+        coverage_file.write(
+            f"  Передачи (<programme>), всего{'':<16}"
+            f"{output_programme_bytes / 1024 / 1024:>10.2f} МБ{pct(output_programme_bytes):>9.1%}\n"
+        )
+        coverage_file.write(
+            f"    содержимое тегов (title/desc/category/rating){'':<0}"
+        )
+        coverage_file.write(
+            f"{programme_children_bytes / 1024 / 1024:>7.2f} МБ{pct(programme_children_bytes):>9.1%}\n"
+        )
+        coverage_file.write(
+            f"    структура (<programme>, атрибуты start/stop/channel=)"
+            f"{programme_structural_bytes / 1024 / 1024:>7.2f} МБ{pct(programme_structural_bytes):>9.1%}\n"
+        )
+        coverage_file.write(
+            f"  Каналы (<channel>), всего{'':<20}"
+            f"{output_channel_bytes / 1024 / 1024:>10.2f} МБ{pct(output_channel_bytes):>9.1%}\n"
+        )
+        coverage_file.write(
+            f"    содержимое тегов (display-name){'':<17}"
+            f"{channel_children_bytes / 1024 / 1024:>10.2f} МБ{pct(channel_children_bytes):>9.1%}\n"
+        )
+        coverage_file.write(
+            f"    структура (<channel>, атрибут id=){'':<15}"
+            f"{channel_structural_bytes / 1024 / 1024:>10.2f} МБ{pct(channel_structural_bytes):>9.1%}\n"
+        )
+        coverage_file.write(
+            f"  Служебная обвязка (декларация XML, корневой <tv>...</tv>)"
+            f"{wrapper_bytes / 1024 / 1024:>7.2f} МБ{pct(wrapper_bytes):>9.1%}\n"
+        )
+        coverage_file.write(
+            "\nЭкономия от сокращения channel-id (c1, c2... вместо длинных "
+            "внутренних id epg.one): файл был бы больше на "
+            f"{id_savings_bytes / 1024 / 1024:.2f} МБ без этой подмены "
+            "(уже учтено в цифрах выше, здесь — просто сколько именно "
+            "она сэкономила).\n"
+        )
 
         coverage_file.write("\n\n")
         coverage_file.write("\n".join(report_lines))
