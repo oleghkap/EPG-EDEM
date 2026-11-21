@@ -109,6 +109,45 @@ REMOVED_PROGRAMME_TAGS = {
     "icon",
 }
 
+# Полный список тегов, которые вообще допускает формат XMLTV внутри
+# <programme> (по спецификации). Нужен только для диагностики в
+# epg_lite_coverage.txt — чтобы показать явно, каких тегов в реальном
+# фиде epg.one попросту нет (0 раз, 0.00 МБ), а не молчать о них.
+KNOWN_PROGRAMME_TAGS = [
+    "title", "sub-title", "desc", "category", "credits", "date", "country",
+    "episode-num", "rating", "star-rating", "icon", "url", "language",
+    "orig-language", "length", "video", "audio", "previously-shown",
+    "premiere", "last-chance", "new", "subtitles", "keyword", "review",
+]
+
+# Краткое описание каждого тега на русском — для коверидж-файла.
+TAG_DESCRIPTIONS = {
+    "title": "название передачи",
+    "sub-title": "название эпизода/серии",
+    "desc": "описание передачи",
+    "category": "жанр/категория",
+    "credits": "создатели (режиссёр, актёры...)",
+    "date": "год выпуска",
+    "country": "страна производства",
+    "episode-num": "номер серии/эпизода",
+    "rating": "возрастной рейтинг",
+    "star-rating": "оценка/рейтинг (звёзды)",
+    "icon": "картинка конкретно этой передачи",
+    "url": "ссылка на доп. информацию",
+    "language": "язык показа",
+    "orig-language": "язык оригинала",
+    "length": "длительность в доп. единицах",
+    "video": "технические видео-параметры",
+    "audio": "технические аудио-параметры",
+    "previously-shown": "пометка \"повтор показа\"",
+    "premiere": "пометка \"премьера\"",
+    "last-chance": "пометка \"последний показ\"",
+    "new": "пометка \"новый выпуск\"",
+    "subtitles": "наличие субтитров",
+    "keyword": "ключевые слова",
+    "review": "рецензия/обзор",
+}
+
 
 # ============================================================
 # ПОДБОР ИМЁН КАНАЛОВ
@@ -998,6 +1037,12 @@ def build_lite_epg(source_path, output_path, reference_channels):
         "РЕЗУЛЬТАТ",
         "=" * 55,
         "",
+        f"Сегодня по Москве: {today}",
+        f"Окно дат: {first_day} — {last_day} "
+        f"({total_window_days} календарных дня(дней), "
+        f"DAYS_BEFORE={DAYS_BEFORE}, DAYS_AFTER={DAYS_AFTER})",
+        f"Обрезка desc: {MAX_DESC_CHARS if MAX_DESC_CHARS else 'выключена'} символов",
+        "",
         f"Каналов в источнике:            {xml_channels_seen}",
         f"Каналов оставлено:              {channels_kept}",
         f"  из них без передач:           {len(channel_ids_without_programmes)}",
@@ -1043,6 +1088,7 @@ def build_lite_epg(source_path, output_path, reference_channels):
     )
     with open(coverage_path, "w", encoding="utf-8") as coverage_file:
         coverage_file.write(
+            f"Источник EPG: {EPG_URL}\n\n"
             f"Эталонных каналов: {len(reference_titles)}\n"
             f"Найдено в epg.one: {len(matched_reference_titles)}\n"
             f"Не найдено:        {len(unmatched_reference_titles)}\n"
@@ -1069,21 +1115,48 @@ def build_lite_epg(source_path, output_path, reference_channels):
             stats["bytes"] for stats in raw_tag_bytes.values()
         ) or 1
 
+        # Показываем ВСЕ теги, которые в принципе допускает XMLTV внутри
+        # <programme> (KNOWN_PROGRAMME_TAGS), плюс любые нестандартные
+        # теги, которые реально встретились у epg.one, но в этот список
+        # не входят. Тег с 0 раз / 0.00 МБ означает, что в вашем фиде
+        # (в пределах окна дат и ваших каналов) его попросту нет.
+        all_tag_names = sorted(
+            set(KNOWN_PROGRAMME_TAGS) | set(raw_tag_bytes.keys())
+        )
+
         coverage_file.write(
             "\nТЕГИ ПЕРЕДАЧ — ПОЛНЫЙ (НЕобрезанный) РАЗМЕР В МБ, "
             "для передач, вошедших в итоговое окно дат и каналы "
-            "(что ещё можно резать, чтобы уменьшить итоговый файл):\n"
+            "(что ещё можно резать, чтобы уменьшить итоговый файл).\n"
+            "'в файле': да — остаётся как есть; truncated — остаётся, "
+            "но обрезается до MAX_DESC_CHARS; нет — сейчас удаляется "
+            "целиком (REMOVED_PROGRAMME_TAGS); 0 раз — тега нет в "
+            "вашем фиде epg.one вообще, резать нечего.\n"
         )
         coverage_file.write(
-            f"{'тег':<16}{'раз':>8}{'всего МБ':>14}{'% объёма':>11}\n"
+            f"{'тег':<16}{'в файле':>11}{'раз':>8}{'всего МБ':>14}{'% объёма':>11}"
+            f"  описание\n"
         )
-        for tag_name, stats in sorted(
-            raw_tag_bytes.items(), key=lambda item: item[1]["bytes"], reverse=True
+        for tag_name in sorted(
+            all_tag_names,
+            key=lambda name: raw_tag_bytes.get(name, {}).get("bytes", 0),
+            reverse=True,
         ):
+            stats = raw_tag_bytes.get(tag_name, {"count": 0, "bytes": 0})
             megabytes = stats["bytes"] / 1024 / 1024
-            share = stats["bytes"] / total_tag_bytes
+            share = stats["bytes"] / total_tag_bytes if stats["bytes"] else 0.0
+            description = TAG_DESCRIPTIONS.get(tag_name, "нестандартный тег epg.one")
+
+            if tag_name == "desc" and MAX_DESC_CHARS is not None:
+                in_output = "обрезан"
+            elif tag_name in REMOVED_PROGRAMME_TAGS:
+                in_output = "нет"
+            else:
+                in_output = "да"
+
             coverage_file.write(
-                f"{tag_name:<16}{stats['count']:>8}{megabytes:>12.2f} МБ{share:>10.1%}\n"
+                f"{tag_name:<16}{in_output:>11}{stats['count']:>8}"
+                f"{megabytes:>12.2f} МБ{share:>10.1%}  ({description})\n"
             )
 
         coverage_file.write("\n\n")
